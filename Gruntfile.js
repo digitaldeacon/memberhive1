@@ -27,6 +27,23 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    nggettext_extract: {
+      pot: {
+        files: {
+          'po/template.pot': ['app/views/*.html', 'app/tpl/*.html']
+        }
+      }
+    },
+
+
+    nggettext_compile: {
+      all: {
+        files: {
+          '.tmp/scripts/translations.js': ['po/**/*.po']
+        }
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -496,4 +513,39 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('updatepot', [
+    'nggettext_extract'
+  ]);
+
+  grunt.registerTask('po2json', 'Create the JS translation file from the PO files', function (target) {
+
+    // Workaround: Add 'Language' header to po files (OnesykApp doesn't add it)
+
+    var fs = require('fs');
+    var path = require('path');
+
+    var po_dir = path.join(__dirname, '/po/');
+    var dirs = fs.readdirSync(po_dir);
+    dirs.forEach (function(country_code) {
+      var xy = path.join(po_dir, country_code);
+      if (! fs.lstatSync(xy).isDirectory())
+        return;
+      var po_files = fs.readdirSync(xy);
+      po_files.forEach( function(po_file) {
+        var po_file_path = path.join(po_dir, country_code, po_file);
+        var content = fs.readFileSync(po_file_path, 'utf8');
+        var result = content.replace('\"MIME-Version: 1.0\\n\"', '\"MIME-Version: 1.0\\n\"\n\"Language: de\\n\"');
+        fs.writeFileSync(po_file_path, result, 'utf8');
+      });
+
+    });
+
+    grunt.task.run([
+      'nggettext_compile'
+    ]);
+  });
+
+  // Angular Gettext support
+  grunt.loadNpmTasks('grunt-angular-gettext');
 };

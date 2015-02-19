@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2015-02-19 14:14+0000\n"
+"PO-Revision-Date: 2015-02-19 14:14+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Language: de\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/tpl/sidebar.html:25
+msgid "List Persons"
+msgstr "Personenliste"
+
+#: app/tpl/sidebar.html:30
+msgid "New Person"
+msgstr "Person anlegen"
+
+#: app/tpl/sidebar.html:19
+msgid "Persons"
+msgstr "Personen"
+

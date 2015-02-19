@@ -26,8 +26,6 @@ window.Layout = do ->
       return
     if el.attr('href').toLowerCase() == 'javascript:;' or el.attr('href').toLowerCase() == '#'
       return
-    slideSpeed = parseInt(menu.data('slide-speed'))
-    keepExpand = menu.data('keep-expanded')
     # disable active states
     menu.find('li.active').removeClass 'active'
     menu.find('li > a > .selected').remove()

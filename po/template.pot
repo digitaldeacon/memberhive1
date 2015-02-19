@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/tpl/sidebar.html:13
+msgid "Dashboard"
+msgstr ""
+
+#: app/tpl/sidebar.html:25
+msgid "List Persons"
+msgstr ""
+
+#: app/tpl/sidebar.html:30
+msgid "New Person"
+msgstr ""
+
+#: app/tpl/sidebar.html:19
+msgid "Persons"
+msgstr ""

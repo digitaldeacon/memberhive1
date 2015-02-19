@@ -32,6 +32,7 @@ module.exports = (config) ->
       'bower_components/slimScroll/jquery.slimscroll.min.js'
       'bower_components/angular-slimscroll/angular-slimscroll.js'
       'bower_components/jquery.uniform/jquery.uniform.js'
+      'bower_components/angular-gettext/dist/angular-gettext.js'
       'bower_components/angular-mocks/angular-mocks.js'
       # endbower
       # bower:coffee
