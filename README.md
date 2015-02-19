@@ -1,5 +1,5 @@
-# gemmy-web
-The Repo for the Angular UI side of gemmy
+# gemmii-web
+The Repo for the Angular UI side of gemmii
 
 ## Getting started
 * `npm install -g bower grunt` *Install bower and grunt*
