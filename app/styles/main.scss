@@ -2,3 +2,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+// Metronic
+@import "metronic/global/components.scss";
+@import "metronic/global/plugins.scss";
+@import "metronic/admin/layout4/layout.scss";
+@import "metronic/admin/layout4/themes/light.scss";
+
+// Custom styles
+@import "_header.scss";
