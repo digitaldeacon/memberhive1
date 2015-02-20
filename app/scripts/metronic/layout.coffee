@@ -1,10 +1,8 @@
-###*
+###
 Core script to handle the entire theme and core functions
-*
 ###
 
 window.Layout = do ->
-  resBreakpointMd = Metronic.getResponsiveBreakpoint('md')
   #* BEGIN:CORE HANDLERS *//
   # this function handles responsive layout on screen size resize or mobile device rotate.
   # Handle sidebar menu links
@@ -46,7 +44,7 @@ window.Layout = do ->
         $(this).addClass 'open'
       return
     if mode == 'click'
-      if Metronic.getViewPort().width < resBreakpointMd and $('.page-sidebar').hasClass('in')
+      if Metronic.getViewPort().width < window.Metronic.getResponsiveBreakpoint('md') and $('.page-sidebar').hasClass('in')
         # close the menu on mobile view while laoding a page
         $('.page-header .responsive-toggler').click()
     return
@@ -54,6 +52,7 @@ window.Layout = do ->
   # Handle sidebar menu
 
   handleSidebarMenu = ->
+    resBreakpointMd = Metronic.getResponsiveBreakpoint('md');
     $('.page-sidebar').on 'click', 'li > a', (e) ->
       if Metronic.getViewPort().width >= resBreakpointMd and $(this).parents('.page-sidebar-menu-hover-submenu').size() == 1
         # exit of hover sidebar menu
@@ -147,7 +146,7 @@ window.Layout = do ->
       pageContent = $('.page-content')
       pageContentBody = $('.page-content .page-content-body')
       Metronic.startPageLoading()
-      if Metronic.getViewPort().width < resBreakpointMd and $('.page-sidebar').hasClass('in')
+      if Metronic.getViewPort().width < Metronic.getResponsiveBreakpoint('md') and $('.page-sidebar').hasClass('in')
         # close the menu on mobile view while laoding a page
         $('.page-header .responsive-toggler').click()
       $.ajax
@@ -189,7 +188,7 @@ window.Layout = do ->
     Metronic.destroySlimScroll menu
     if $('.page-sidebar-fixed').size() == 0
       return
-    if Metronic.getViewPort().width >= resBreakpointMd
+    if Metronic.getViewPort().width >= Metronic.getResponsiveBreakpoint('md')
       menu.attr 'data-height', _calculateFixedSidebarViewportHeight()
       Metronic.initSlimScroll menu
     return
@@ -213,7 +212,8 @@ window.Layout = do ->
 
   handleSidebarToggler = ->
     body = $('body')
-    if $.cookie and $.cookie('sidebar_closed') == '1' and Metronic.getViewPort().width >= resBreakpointMd
+    if $.cookie and $.cookie('sidebar_closed') == '1' and
+        Metronic.getViewPort().width >= Metronic.getResponsiveBreakpoint('md')
       $('body').addClass 'page-sidebar-closed'
       $('.page-sidebar-menu').addClass 'page-sidebar-menu-closed'
     # handle sidebar show/hide

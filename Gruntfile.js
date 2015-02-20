@@ -27,7 +27,7 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
-    nggettext_extract: {
+    nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
           'po/template.pot': ['app/views/*.html', 'app/tpl/*.html']
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
     },
 
 
-    nggettext_compile: {
+    nggettext_compile: { // jshint ignore:line
       all: {
         files: {
           '.tmp/scripts/translations.js': ['po/**/*.po']
@@ -518,27 +518,27 @@ module.exports = function (grunt) {
     'nggettext_extract'
   ]);
 
-  grunt.registerTask('po2js', 'Create the JS translation file from the PO files', function (target) {
+  grunt.registerTask('po2js', 'Create the JS translation file from the PO files', function () {
     // Workaround: Add 'Language' header to po files (Onesky App doesn't add it)
 
     var fs = require('fs');
     var path = require('path');
 
-    var po_dir = path.join(__dirname, '/po/');
-    var dirs = fs.readdirSync(po_dir);
-    dirs.forEach (function(country_code) {
-      var xy = path.join(po_dir, country_code);
+    var poDir= path.join(__dirname, '/po/');
+    var dirs = fs.readdirSync(poDir);
+    dirs.forEach (function(countryCode) {
+      var xy = path.join(poDir, countryCode);
       if (! fs.lstatSync(xy).isDirectory())
         return;
-      var po_files = fs.readdirSync(xy);
-      po_files.forEach( function(po_file) {
-        var po_file_path = path.join(po_dir, country_code, po_file);
-        var content = fs.readFileSync(po_file_path, 'utf8');
-        var search_str = '\"Language: ' + po_file.replace('.po', '') + '\\n\"';
-        var mime_str = '\"MIME-Version: 1.0\\n\"';
-        if (content.indexOf(search_str) < 0) { // Language header not found, add it
-          var result = content.replace(mime_str, mime_str + '\n' + search_str);
-          fs.writeFileSync(po_file_path, result, 'utf8');
+      var poFiles = fs.readdirSync(xy);
+      poFiles.forEach( function(poFile) {
+        var poFilePath = path.join(poDir, countryCode, poFile);
+        var content = fs.readFileSync(poFilePath, 'utf8');
+        var searchStr = '\"Language: ' + poFile.replace('.po', '') + '\\n\"';
+        var mimeStr = '\"MIME-Version: 1.0\\n\"';
+        if (content.indexOf(searchStr) < 0) { // Language header not found, add it
+          var result = content.replace(mimeStr, mimeStr + '\n' + searchStr);
+          fs.writeFileSync(poFilePath, result, 'utf8');
         }
       });
 
