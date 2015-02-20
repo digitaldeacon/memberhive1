@@ -2,9 +2,9 @@
 The Repo for the Angular UI side of gemmii
 
 ## Getting started
-* `npm install -g bower grunt`
-* `npm install grunt-angular-gettext --save-dev` *# For translations*
-* `bower install`
+* `npm install -g bower`
+* `npm install` *# Install dev dependencies*
+* `bower install` *# Install app dependencies*
 * `grunt serve` *# Run local webserver (will compile SASS and coffee files when changed)*
 
 ## Style Guides
