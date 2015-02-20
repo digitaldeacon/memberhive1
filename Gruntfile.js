@@ -537,7 +537,7 @@ module.exports = function (grunt) {
         var search_str = '\"Language: ' + po_file.replace('.po', '') + '\\n\"';
         var mime_str = '\"MIME-Version: 1.0\\n\"';
         if (content.indexOf(search_str) < 0) { // Language header not found, add it
-          var result = content.replace(mime_str, mime_str '\n' + search_str);
+          var result = content.replace(mime_str, mime_str + '\n' + search_str);
           fs.writeFileSync(po_file_path, result, 'utf8');
         }
       });
