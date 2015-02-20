@@ -2,13 +2,13 @@
 
 ###*
  # @ngdoc function
- # @name gemmiiWebApp.controller:MainCtrl
+ # @name gemmiiWebApp.controller:PersonCtrl
  # @description
- # # MainCtrl
+ # # PersonCtrl
  # Controller of the gemmiiWebApp
 ###
 angular.module 'gemmiiWebApp'
-  .controller 'MainCtrl', ($scope) ->
+  .controller 'PersonCtrl', ($scope) ->
     $scope.awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'

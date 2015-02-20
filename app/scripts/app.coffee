@@ -96,14 +96,21 @@ GemmiiApp.config [
   '$urlRouterProvider'
   ($stateProvider, $urlRouterProvider) ->
     # Redirect any unmatched url
-    $urlRouterProvider.otherwise '/dashboard.html'
+    $urlRouterProvider.otherwise '/dashboard'
     $stateProvider.state('dashboard',
-      url: '/dashboard.html'
-      templateUrl: 'views/dashboard.html'
+      url: '/dashboard'
+      templateUrl: '../dashboard/views/dashboard.html'
       data:
         pageTitle: 'Dashboard'
         pageSubTitle: 'statistics & reports'
       controller: 'DashboardCtrl')
+    $stateProvider.state('person',
+      url: '/person'
+      templateUrl: '../person/views/person.html'
+      data:
+        pageTitle: 'Person'
+        pageSubTitle: 'Create and edit persons'
+      controller: 'PersonCtrl')
     return
 ]
 
