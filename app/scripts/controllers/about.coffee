@@ -2,12 +2,12 @@
 
 ###*
  # @ngdoc function
- # @name gemmyWebApp.controller:AboutCtrl
+ # @name gemmiiWebApp.controller:AboutCtrl
  # @description
  # # AboutCtrl
- # Controller of the gemmyWebApp
+ # Controller of the gemmiiWebApp
 ###
-angular.module 'gemmyWebApp'
+angular.module 'gemmiiWebApp'
   .controller 'AboutCtrl', ($scope) ->
     $scope.awesomeThings = [
       'HTML5 Boilerplate'

@@ -2,13 +2,13 @@
 
 ###*
  # @ngdoc overview
- # @name gemmyWebApp
+ # @name gemmiiWebApp
  # @description
- # # gemmyWebApp
+ # # gemmiiWebApp
  #
  # Main module of the application.
 ###
-window.GemmiiApp = angular.module('gemmyWebApp', [
+window.GemmiiApp = angular.module('gemmiiWebApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

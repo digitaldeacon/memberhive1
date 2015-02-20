@@ -1,5 +1,5 @@
 {
-  "name": "gemmy-web",
+  "name": "gemmii-web",
   "version": "0.0.0",
   "dependencies": {
     "jquery": "1.11.0",
@@ -24,7 +24,7 @@
     "angular-mocks": "^1.2.*"
   },
   "appPath": "app",
-  "moduleName": "gemmyWebApp",
+  "moduleName": "gemmiiWebApp",
   "resolutions": {
     "angular": "1.2.28"
   }
