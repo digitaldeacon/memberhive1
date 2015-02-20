@@ -44,7 +44,8 @@ window.Layout = do ->
         $(this).addClass 'open'
       return
     if mode == 'click'
-      if Metronic.getViewPort().width < window.Metronic.getResponsiveBreakpoint('md') and $('.page-sidebar').hasClass('in')
+      if Metronic.getViewPort().width < window.Metronic.getResponsiveBreakpoint('md') and \
+          $('.page-sidebar').hasClass('in')
         # close the menu on mobile view while laoding a page
         $('.page-header .responsive-toggler').click()
     return
@@ -52,9 +53,10 @@ window.Layout = do ->
   # Handle sidebar menu
 
   handleSidebarMenu = ->
-    resBreakpointMd = Metronic.getResponsiveBreakpoint('md');
+    resBreakpointMd = Metronic.getResponsiveBreakpoint('md')
     $('.page-sidebar').on 'click', 'li > a', (e) ->
-      if Metronic.getViewPort().width >= resBreakpointMd and $(this).parents('.page-sidebar-menu-hover-submenu').size() == 1
+      if Metronic.getViewPort().width >= resBreakpointMd and \
+          $(this).parents('.page-sidebar-menu-hover-submenu').size() == 1
         # exit of hover sidebar menu
         return
       if $(this).next().hasClass('sub-menu') == false

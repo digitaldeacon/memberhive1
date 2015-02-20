@@ -27,6 +27,13 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    coffeelint: {
+      app: ['app/scripts/**/*.coffee'],
+      options: {
+        configFile: 'coffeelint.json'
+      }
+    },
+
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
@@ -510,6 +517,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
+    'newer:coffeelint',
     'test',
     'build'
   ]);
@@ -551,4 +559,6 @@ module.exports = function (grunt) {
 
   // Angular Gettext support
   grunt.loadNpmTasks('grunt-angular-gettext');
+  // Coffeelint
+  grunt.loadNpmTasks('grunt-coffeelint');
 };

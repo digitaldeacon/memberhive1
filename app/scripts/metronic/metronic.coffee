@@ -94,7 +94,8 @@ window.Metronic = do ->
       portlet.find('.portlet-title > .tools > .reload').tooltip 'destroy'
       portlet.find('.portlet-title > .tools > .remove').tooltip 'destroy'
       portlet.find('.portlet-title > .tools > .config').tooltip 'destroy'
-      portlet.find('.portlet-title > .tools > .collapse, .portlet > .portlet-title > .tools > .expand').tooltip 'destroy'
+      portlet.find('.portlet-title > .tools > .collapse, .portlet > .portlet-title > .tools > .expand')
+          .tooltip 'destroy'
       portlet.remove()
       return
     # handle portlet fullscreen
@@ -107,7 +108,9 @@ window.Metronic = do ->
         $('body').removeClass 'page-portlet-fullscreen'
         portlet.children('.portlet-body').css 'height', 'auto'
       else
-        height = Metronic.getViewPort().height - portlet.children('.portlet-title').outerHeight() - parseInt(portlet.children('.portlet-body').css('padding-top')) - parseInt(portlet.children('.portlet-body').css('padding-bottom'))
+        height = Metronic.getViewPort().height - portlet.children('.portlet-title').outerHeight() -
+            parseInt(portlet.children('.portlet-body').css('padding-top')) -
+            parseInt(portlet.children('.portlet-body').css('padding-bottom'))
         $(this).addClass 'on'
         portlet.addClass 'portlet-fullscreen'
         $('body').addClass 'page-portlet-fullscreen'
@@ -158,7 +161,7 @@ window.Metronic = do ->
       return
     # load ajax data on page init
     $('.portlet .portlet-title a.reload[data-load="true"]').click()
-    $('body').on 'click', '.portlet > .portlet-title > .tools > .collapse, .portlet .portlet-title > .tools > .expand', (e) ->
+    $('body').on 'click', '.portlet-title > .tools > .collapse, .portlet-title > .tools > .expand', (e) ->
       e.preventDefault()
       el = $(this).closest('.portlet').children('.portlet-body')
       if $(this).hasClass('collapse')
@@ -175,7 +178,8 @@ window.Metronic = do ->
   handleUniform = ->
     if !$().uniform
       return
-    test = $('input[type=checkbox]:not(.toggle, .make-switch, .icheck), input[type=radio]:not(.toggle, .star, .make-switch, .icheck)')
+    test = $('input[type=checkbox]:not(.toggle, .make-switch, .icheck),' +
+        'input[type=radio]:not(.toggle, .star, .make-switch, .icheck)')
     if test.size() > 0
       test.each ->
         if $(this).parents('.checker').size() == 0
@@ -238,7 +242,6 @@ window.Metronic = do ->
     if location.hash
       tabid = location.hash.substr(1)
       $('a[href="#' + tabid + '"]').parents('.tab-pane:hidden').each ->
-        `var tabid`
         tabid = $(this).attr('id')
         $('a[href="#' + tabid + '"]').click()
         return
@@ -370,7 +373,8 @@ window.Metronic = do ->
     #fix html5 placeholder attribute for ie7 & ie8
     if isIE8 or isIE9
       # ie8 & ie9
-      # this is html5 placeholder fix for inputs, inputs with placeholder-no-fix class will be skipped(e.g: we need this for password fields)
+      # this is html5 placeholder fix for inputs, inputs with placeholder-no-fix class
+      # will be skipped(e.g: we need this for password fields)
       $('input[placeholder]:not(.placeholder-no-fix), textarea[placeholder]:not(.placeholder-no-fix)').each ->
         input = $(this)
         if input.val() == '' and input.attr('placeholder') != ''
@@ -528,7 +532,8 @@ window.Metronic = do ->
         if $(this).attr('data-rail-visible')
           attrList['data-rail-visible'] = $(this).attr('data-rail-visible')
         $(this).slimScroll
-          wrapperClass: if $(this).attr('data-wrapper-class') then $(this).attr('data-wrapper-class') else 'slimScrollDiv'
+          wrapperClass: if $(this).attr('data-wrapper-class') then $(this).attr('data-wrapper-class') \
+              else 'slimScrollDiv'
           destroy: true
         the = $(this)
         # reassign custom attributes
@@ -544,13 +549,19 @@ window.Metronic = do ->
     options = $.extend(true, {}, options)
     html = ''
     if options.animate
-      html = '<div class="loading-message ' + (if options.boxed then 'loading-message-boxed' else '') + '">' + '<div class="block-spinner-bar"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>' + '</div>'
+      html = '<div class="loading-message ' + (if options.boxed then 'loading-message-boxed' else '') + '">' +
+          '<div class="block-spinner-bar"><div class="bounce1"></div>' +
+          '<div class="bounce2"></div><div class="bounce3"></div></div>' + '</div>'
     else if options.iconOnly
-      html = '<div class="loading-message ' + (if options.boxed then 'loading-message-boxed' else '') + '"><img src="' + @getGlobalImgPath() + 'loading-spinner-grey.gif" align=""></div>'
+      html = '<div class="loading-message ' + (if options.boxed then 'loading-message-boxed' else '') +
+          '"><img src="' + @getGlobalImgPath() + 'loading-spinner-grey.gif" align=""></div>'
     else if options.textOnly
-      html = '<div class="loading-message ' + (if options.boxed then 'loading-message-boxed' else '') + '"><span>&nbsp;&nbsp;' + (if options.message then options.message else 'LOADING...') + '</span></div>'
+      html = '<div class="loading-message ' + (if options.boxed then 'loading-message-boxed' else '') +
+          '"><span>&nbsp;&nbsp;' + (if options.message then options.message else 'LOADING...') + '</span></div>'
     else
-      html = '<div class="loading-message ' + (if options.boxed then 'loading-message-boxed' else '') + '"><img src="' + @getGlobalImgPath() + 'loading-spinner-grey.gif" align=""><span>&nbsp;&nbsp;' + (if options.message then options.message else 'LOADING...') + '</span></div>'
+      html = '<div class="loading-message ' + (if options.boxed then 'loading-message-boxed' else '') +
+          '"><img src="' + @getGlobalImgPath() + 'loading-spinner-grey.gif" align=""><span>&nbsp;&nbsp;' +
+          (if options.message then options.message else 'LOADING...') + '</span></div>'
     if options.target
       # element blocking
       el = $(options.target)
@@ -595,10 +606,13 @@ window.Metronic = do ->
   startPageLoading: (options) ->
     if options and options.animate
       $('.page-spinner-bar').remove()
-      $('body').append '<div class="page-spinner-bar"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>'
+      $('body').append '<div class="page-spinner-bar"><div class="bounce1"></div>' +
+        '<div class="bounce2"></div><div class="bounce3"></div></div>'
     else
       $('.page-loading').remove()
-      $('body').append '<div class="page-loading"><img src="' + @getGlobalImgPath() + 'loading-spinner-grey.gif"/>&nbsp;&nbsp;<span>' + (if options and options.message then options.message else 'Loading...') + '</span></div>'
+      $('body').append '<div class="page-loading"><img src="' + @getGlobalImgPath() +
+          'loading-spinner-grey.gif"/>&nbsp;&nbsp;<span>' +
+          (if options and options.message then options.message else 'Loading...') + '</span></div>'
     return
   stopPageLoading: ->
     $('.page-loading, .page-spinner-bar').remove()
@@ -616,7 +630,11 @@ window.Metronic = do ->
       icon: ''
     }, options)
     id = Metronic.getUniqueID('Metronic_alert')
-    html = '<div id="' + id + '" class="Metronic-alerts alert alert-' + options.type + ' fade in">' + (if options.close then '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>' else '') + (if options.icon != '' then '<i class="fa-lg fa fa-' + options.icon + '"></i>  ' else '') + options.message + '</div>'
+    html = '<div id="' + id + '" class="Metronic-alerts alert alert-' + options.type + ' fade in">' +
+        (if options.close then \
+        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>' else '') +
+        (if options.icon != '' then '<i class="fa-lg fa fa-' + options.icon + '"></i>  ' else '') +
+        options.message + '</div>'
     if options.reset
       $('.Metronic-alerts').remove()
     if !options.container
