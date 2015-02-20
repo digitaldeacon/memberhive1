@@ -518,9 +518,8 @@ module.exports = function (grunt) {
     'nggettext_extract'
   ]);
 
-  grunt.registerTask('po2json', 'Create the JS translation file from the PO files', function (target) {
-
-    // Workaround: Add 'Language' header to po files (OnesykApp doesn't add it)
+  grunt.registerTask('po2js', 'Create the JS translation file from the PO files', function (target) {
+    // Workaround: Add 'Language' header to po files (Onesky App doesn't add it)
 
     var fs = require('fs');
     var path = require('path');
@@ -535,8 +534,12 @@ module.exports = function (grunt) {
       po_files.forEach( function(po_file) {
         var po_file_path = path.join(po_dir, country_code, po_file);
         var content = fs.readFileSync(po_file_path, 'utf8');
-        var result = content.replace('\"MIME-Version: 1.0\\n\"', '\"MIME-Version: 1.0\\n\"\n\"Language: de\\n\"');
-        fs.writeFileSync(po_file_path, result, 'utf8');
+        var search_str = '\"Language: ' + po_file.replace('.po', '') + '\\n\"';
+        var mime_str = '\"MIME-Version: 1.0\\n\"';
+        if (content.indexOf(search_str) < 0) { // Language header not found, add it
+          var result = content.replace(mime_str, mime_str '\n' + search_str);
+          fs.writeFileSync(po_file_path, result, 'utf8');
+        }
       });
 
     });
