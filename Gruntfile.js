@@ -35,7 +35,6 @@ module.exports = function (grunt) {
       }
     },
 
-
     nggettext_compile: { // jshint ignore:line
       all: {
         files: {
@@ -64,6 +63,10 @@ module.exports = function (grunt) {
       },
       gruntfile: {
         files: ['Gruntfile.js']
+      },
+      translations: {
+        files: ['po/**/*.po'],
+        tasks: ['po2js']
       },
       livereload: {
         options: {
@@ -470,16 +473,12 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'po2js',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
       'watch'
     ]);
-  });
-
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
   });
 
   grunt.registerTask('test', [
@@ -495,6 +494,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
+    'po2js', // Needs to be run before coffee (concurrent:dist)
     'concurrent:dist',
     'autoprefixer',
     'concat',
