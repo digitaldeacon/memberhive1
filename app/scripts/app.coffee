@@ -103,7 +103,7 @@ GemmiiApp.config [
       data:
         pageTitle: 'Dashboard'
         pageSubTitle: 'statistics & reports'
-      controller: 'DashboardController')
+      controller: 'DashboardCtrl')
     return
 ]
 

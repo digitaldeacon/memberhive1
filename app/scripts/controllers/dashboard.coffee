@@ -1,4 +1,4 @@
-GemmiiApp.controller 'DashboardController', ($rootScope, $scope, $http, $timeout) ->
+GemmiiApp.controller 'DashboardCtrl', ($rootScope, $scope, $http, $timeout) ->
   $scope.$on '$viewContentLoaded', ->
     # initialize core components
     #Metronic.initAjax()
