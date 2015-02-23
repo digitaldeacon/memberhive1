@@ -1,7 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
-
-import Metronic = require("Metronic");
-import Layout = require("Layout");
+/// <reference path="metronic/metronic.d.ts" />
+/// <reference path="metronic/layout.d.ts" />
 
 /**
  * The main Gemmii app module.
@@ -38,21 +37,20 @@ module App {
   }]);
 
   GemmiiApp.controller('AppController', ['$scope', '$rootScope', function($scope, $rootScope) {
-    $scope.$on('$viewContentLoaded', function() {
-      Metronic.initComponents(); // init core components
+    $scope.$on('$viewContentLoaded', function() {Metronic.initComponents(); // init core components
     });
   }]);
 
   GemmiiApp.controller('HeaderController', ['$scope', function($scope) {
     $scope.$on('$includeContentLoaded', function() {
-      Layout.initHeader(); // init header
+      //Layout.initHeader(); // init header
     });
   }]);
 
   /* Setup Layout Part - Sidebar */
   GemmiiApp.controller('SidebarController', ['$scope', function($scope) {
     $scope.$on('$includeContentLoaded', function() {
-      Layout.initSidebar(); // init sidebar
+      //Layout.initSidebar(); // init sidebar
     });
   }]);
 
@@ -66,7 +64,7 @@ module App {
   /* Setup Layout Part - Footer */
   GemmiiApp.controller('FooterController', ['$scope', function($scope) {
     $scope.$on('$includeContentLoaded', function() {
-      Layout.initFooter(); // init footer
+      //Layout.initFooter(); // init footer
     });
   }]);
 

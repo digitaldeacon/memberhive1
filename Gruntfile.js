@@ -37,7 +37,6 @@ module.exports = function (grunt) {
     typescript: {
       base: {
         src: [
-          'app/scripts/app.ts',
           'app/**/*.ts'
         ],
         options: {
