@@ -1,6 +1,5 @@
-###*
+###
 Core script to handle the entire theme and core functions
-*
 ###
 
 window.Metronic = do ->
@@ -399,7 +398,7 @@ window.Metronic = do ->
         allowClear: true
     return
 
-  #* END:CORE HANDLERS *//
+  # END:CORE HANDLERS
   {
   init: ->
     #IMPORTANT!!!: Do not modify the core handlers call order.
