@@ -1,11 +1,14 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
+import Metronic = require("Metronic");
+import Layout = require("Layout");
+
 /**
  * The main Gemmii app module.
  *
  * @type {angular.Module}
  */
-module Gemmii {
+module App {
   'use strict';
 
   export var GemmiiApp = angular.module('gemmiiWebApp', [
