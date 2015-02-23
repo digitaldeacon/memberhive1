@@ -34,6 +34,18 @@ module.exports = function (grunt) {
       }
     },
 
+    typescript: {
+      base: {
+        src: ['app/**/*.ts'],
+        options: {
+          module: 'commonjs',
+          target: 'es5',
+          comments: true,
+          sourceMap: true
+        }
+      }
+    },
+
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
@@ -449,14 +461,17 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
+        'typescript',
         'coffee:dist',
         'compass:server'
       ],
       test: [
+        'typescript',
         'coffee',
         'compass'
       ],
       dist: [
+        'typescript',
         'coffee',
         'compass:dist',
         'imagemin',
@@ -559,8 +574,6 @@ module.exports = function (grunt) {
     ]);
   });
 
-  // Angular Gettext support
   grunt.loadNpmTasks('grunt-angular-gettext');
-  // Coffeelint
-  grunt.loadNpmTasks('grunt-coffeelint');
+  grunt.loadNpmTasks('grunt-typescript');
 };

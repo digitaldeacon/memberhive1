@@ -3,7 +3,7 @@ Core script to handle the entire theme and core functions
 ###
 
 window.Layout = do ->
-  #* BEGIN:CORE HANDLERS *//
+  # BEGIN:CORE HANDLERS
   # this function handles responsive layout on screen size resize or mobile device rotate.
   # Handle sidebar menu links
 
@@ -328,7 +328,7 @@ window.Layout = do ->
       false
     return
 
-  #* END:CORE HANDLERS *//
+  # END:CORE HANDLERS
   {
   initHeader: ->
     handleHeader()
