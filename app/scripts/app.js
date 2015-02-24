@@ -27,7 +27,7 @@ GemmiiApp.factory('settings', ['$rootScope', function($rootScope) {
   return settings;
 }]);
 
-GemmiiApp.controller('AppController', ['$scope', '$rootScope', function($scope, $rootScope) {
+GemmiiApp.controller('AppController', ['$scope', '$rootScope', function($scope) {
   $scope.$on('$viewContentLoaded', function() {
     Metronic.initComponents(); // init core components
   });
@@ -88,6 +88,6 @@ GemmiiApp.config([
   }
 ]);
 
-GemmiiApp.run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {
+GemmiiApp.run(['$rootScope', 'settings', '$state', function($rootScope, settings, $state) {
   $rootScope.$state = $state; // state to be accessed from view
 }]);

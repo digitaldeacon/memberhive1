@@ -1,14 +1,12 @@
-
 /***
  Global Directives
  ***/
-
 
 // Route State Load Spinner (used on page or content load)
 angular.module('gemmiiWebApp').directive('ngSpinnerBar', ['$rootScope',
   function ($rootScope) {
     return {
-      link: function (scope, element, attrs) {
+      link: function (scope, element) {
         // by default hide the spinner bar
         element.addClass('hide'); // hide spinner bar by default
 
