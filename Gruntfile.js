@@ -188,24 +188,6 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
       },
-      test: {
-        devDependencies: true,
-        src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
-          coffee: {
-            block: /(([\s\t]*)#\s*?bower:\s*?(\S*))(\n|\r|.)*?(#\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi,
-                coffee: /'(.*\.coffee)'/gi
-              },
-            replace: {
-              js: '\'{{filePath}}\'',
-              coffee: '\'{{filePath}}\''
-            }
-          }
-          }
-      },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
@@ -439,14 +421,6 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    },
-
-    // Test settings
-    karma: {
-      unit: {
-        configFile: 'test/karma.conf.coffee',
-        singleRun: true
-      }
     }
   });
 
@@ -480,7 +454,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
-    'po2js', // Needs to be run before coffee (concurrent:dist)
+    'po2js',
     'concurrent:dist',
     'autoprefixer',
     'concat',
