@@ -6,7 +6,7 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'ngCookies',
   'ngResource',
   'ngRoute',
-  'ngSanitize'
+  'ngSanitize',
   'ngTouch',
   'picardy.fontawesome',
   'ui.router',
