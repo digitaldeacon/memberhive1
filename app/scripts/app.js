@@ -10,7 +10,8 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'ngTouch',
   'picardy.fontawesome',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'restangular'
 ]);
 
 GemmiiApp.factory('settings', ['$rootScope', function($rootScope) {
@@ -60,10 +61,15 @@ GemmiiApp.controller('FooterController', ['$scope', function($scope) {
   });
 }]);
 
+GemmiiApp.config(function (RestangularProvider) {
+  RestangularProvider.setBaseUrl('http://localhost:3000/api');
+});
+
 GemmiiApp.config([
   '$stateProvider',
   '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+  function($stateProvider, $urlRouterProvider, RestangularProvider) {
+    
     $urlRouterProvider.otherwise('/dashboard');
 
     $stateProvider.state('dashboard', {
@@ -90,4 +96,5 @@ GemmiiApp.config([
 
 GemmiiApp.run(['$rootScope', 'settings', '$state', function($rootScope, settings, $state) {
   $rootScope.$state = $state; // state to be accessed from view
+ 
 }]);

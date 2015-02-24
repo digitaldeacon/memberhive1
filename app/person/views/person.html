@@ -1,1 +1,6 @@
-<p>This is the person view.</p>
+<div ng-controller="PersonCtrl">
+    <p>This is the person view.</p>
+    <ul>
+        <li ng-repeat="person in people"> {{ person.email }} </li>
+    </ul>
+</div>
