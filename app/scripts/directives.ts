@@ -1,15 +1,17 @@
 /// <reference path="../../typings/tsd.d.ts" />
 /// <reference path="app.ts" />
+/// <reference path="metronic/metronic.d.ts" />
+/// <reference path="metronic/layout.d.ts" />
 
-import Metronic = require("Metronic");
 import Layout = require("Layout");
+import Metronic = require("Metronic");
 /***
  Global Directives
  ***/
 
-
-// Route State Load Spinner (used on page or content load)
-  App.GemmiiApp.directive('ngSpinnerBar', ['$rootScope',
+module App {
+  // Route State Load Spinner (used on page or content load)
+  angular.module('gemmiiWebApp').directive('ngSpinnerBar', ['$rootScope',
     function ($rootScope) {
       return {
         link: function (scope, element, attrs) {
@@ -46,3 +48,4 @@ import Layout = require("Layout");
       };
     }
   ]);
+}
