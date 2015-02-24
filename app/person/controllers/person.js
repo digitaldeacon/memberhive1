@@ -4,5 +4,5 @@ angular.module('gemmiiWebApp')
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
-    ]
+    ];
   });
