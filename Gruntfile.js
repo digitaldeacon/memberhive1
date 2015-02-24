@@ -27,13 +27,6 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
-    coffeelint: {
-      app: ['app/scripts/**/*.coffee'],
-      options: {
-        configFile: 'coffeelint.json'
-      }
-    },
-
     typescript: {
       base: {
         src: [
@@ -42,7 +35,7 @@ module.exports = function (grunt) {
         options: {
           module: 'commonjs',
           target: 'es5',
-          comments: true,
+          removeComments: true,
           sourceMap: true
         }
       }
@@ -536,7 +529,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'newer:coffeelint',
     'test',
     'build'
   ]);
