@@ -6,10 +6,10 @@ The Repo for the Angular UI side of gemmii
 * `nvm install iojs` *install iojs*
 * `sudo npm install -g bower`
 * `sudo npm install -g grunt-cli`
-* `npm install` * Install dev dependencies*
-* `bower install` * Install app dependencies*
+* `npm install` *Install dev dependencies*
+* `bower install` *Install app dependencies*
 * `node . &` *start nodejs server*
-* `grunt serve` * Run local webserver (will compile SASS and ES6 files when changed)*
+* `grunt serve` *Run local webserver (will compile SASS and ES6 files when changed)*
 
 ## Style Guides
 
