@@ -1,8 +1,4 @@
 angular.module('gemmiiWebApp')
-  .controller('DashboardCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('DashboardCtrl', function ($scope, Person) {
+        $scope.userCount = Person.count(function(count) {$scope.userCount = count.count;});
   });

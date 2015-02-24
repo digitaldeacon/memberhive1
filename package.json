@@ -6,7 +6,8 @@
     "errorhandler": "^1.1.1",
     "loopback": "^2.8.0",
     "loopback-boot": "^2.4.0",
-    "loopback-datasource-juggler": "^2.7.0",
+    "loopback-datasource-juggler": "latest",
+    "loopback-connector-mysql": "latest",
     "serve-favicon": "^2.0.1"
   },
   "optionalDependencies": {
@@ -34,17 +35,20 @@
     "grunt-filerev": "^2.1.2",
     "grunt-google-cdn": "^0.4.3",
     "grunt-karma": "^0.10.1",
+    "grunt-loopback-sdk-angular": "^1.1.2",
     "grunt-newer": "^1.1.0",
     "grunt-ng-annotate": "^0.9.2",
     "grunt-svgmin": "^2.0.0",
+    "grunt-traceur": "^0.5.1",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
-    "jshint-stylish": "^1.0.0",
     "jshint": "^2.5.6",
+    "jshint-stylish": "^1.0.0",
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "load-grunt-tasks": "^3.1.0",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "traceur": "0.0.85"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -53,5 +57,5 @@
     "test": "grunt test",
     "pretest": "jshint ."
   },
-  "main": "server/server.js",
+  "main": "server/server.js"
 }

@@ -42,7 +42,18 @@ module.exports = function (grunt) {
         }
       }
     },
+    
+    loopback_sdk_angular: {
+        services: {
+            options: {
+                input: 'server/server.js',
+                output: 'app/scripts/lb-services.js',
+                apiUrl: "http://localhost:3000/api"
 
+            }
+        }
+    },
+    
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -408,6 +419,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'loopback_sdk_angular',
       'wiredep',
       'po2js',
       'concurrent:server',
@@ -441,7 +453,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'loopback_sdk_angular'
   ]);
 
   grunt.registerTask('default', [
@@ -485,5 +498,7 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.loadNpmTasks('grunt-angular-gettext');
+    grunt.loadNpmTasks('grunt-angular-gettext');
+    grunt.loadNpmTasks('grunt-loopback-sdk-angular');
+    grunt.loadNpmTasks('grunt-traceur');
 };

@@ -42,7 +42,7 @@
       <div class="page-content-wrapper">
         <div class="page-content">
           <div data-ng-include="'tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head"></div>
-          <div ui-view class="fade-in-up">
+          <div ui-view>
           </div>
         </div>
       </div>
@@ -74,18 +74,19 @@
     <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
     <script src="bower_components/lodash/dist/lodash.compat.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/traceur-runtime/traceur-runtime.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/es5/traceur_runtime.js"></script>
     <script src="scripts/metronic/metronic.js"></script>
     <script src="scripts/metronic/layout.js"></script>
     <script src="scripts/scripts/app.js"></script>
     <script src="scripts/scripts/directives.js"></script>
-    <script src="scripts/scripts/translations.js"></script>
+    <!--<script src="scripts/scripts/translations.js"></script>-->
     <script src="dashboard/controllers/dashboard.js"></script>
     <script src="person/controllers/person.js"></script>
+    <script src="scripts/lb-services.js"></script>
     <!-- endbuild -->
   </body>
 </html>
