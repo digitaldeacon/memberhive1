@@ -27,20 +27,6 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
-    typescript: {
-      base: {
-        src: [
-          'app/**/*.ts'
-        ],
-        options: {
-          module: 'commonjs',
-          target: 'es5',
-          removeComments: true,
-          sourceMap: true
-        }
-      }
-    },
-
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
@@ -63,14 +49,6 @@ module.exports = function (grunt) {
         files: ['bower.json'],
         tasks: ['wiredep']
       },
-      coffee: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.{coffee,litcoffee,coffee.md}'],
-        tasks: ['newer:coffee:dist']
-      },
-      coffeeTest: {
-        files: ['test/spec/{,*/}*.{coffee,litcoffee,coffee.md}'],
-        tasks: ['newer:coffee:test', 'karma']
-      },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
@@ -81,6 +59,10 @@ module.exports = function (grunt) {
       translations: {
         files: ['po/**/*.po'],
         tasks: ['po2js']
+      },
+      babel :  {
+        files :  [ '<%= yeoman.app %>/**/*.js' ],
+        tasks :  [ 'newer:babel' ]
       },
       livereload: {
         options: {
@@ -230,28 +212,16 @@ module.exports = function (grunt) {
       }
     },
 
-    // Compiles CoffeeScript to JavaScript
-    coffee: {
+    'babel': {
       options: {
-        sourceMap: true,
-        sourceRoot: ''
+        sourceMap: true
       },
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/scripts',
-          src: '{,*/}*.coffee',
-          dest: '.tmp/scripts',
-          ext: '.js'
-        }]
-      },
-      test: {
-        files: [{
-          expand: true,
-          cwd: 'test/spec',
-          src: '{,*/}*.coffee',
-          dest: '.tmp/spec',
-          ext: '.js'
+          cwd: '<%= yeoman.app %>',
+          src: ['**/*.js'],
+          dest: '.tmp/scripts'
         }]
       }
     },
@@ -456,18 +426,15 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'typescript',
-        'coffee:dist',
+        'babel',
         'compass:server'
       ],
       test: [
-        'typescript',
-        'coffee',
+        'babel',
         'compass'
       ],
       dist: [
-        'typescript',
-        'coffee',
+        'babel:dist',
         'compass:dist',
         'imagemin',
         'svgmin'
@@ -569,5 +536,4 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-angular-gettext');
-  grunt.loadNpmTasks('grunt-typescript');
 };
