@@ -7,9 +7,9 @@ angular.module('gem.dashboard').config(
         url: '/dashboard',
         templateUrl: '../dashboard/views/dashboard.html',
         data: {
-          pageTitle: 'Dashoard',
+          pageTitle: 'Dashboard',
         },
-        controller: 'DashboardCtrl'
+        controller: 'DashboardController'
      });
     }
   ]

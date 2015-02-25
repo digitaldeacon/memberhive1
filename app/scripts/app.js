@@ -87,6 +87,15 @@ angular.module(
   ]
 );
 
+angular.module(
+  'gem.auth',
+  [
+    'ui.router',
+    'lbServices'
+  ]
+);
+
+
 GemmiiApp.run(['$rootScope', 'settings', '$state', ($rootScope, settings, $state) => {
   $rootScope.$state = $state; // state to be accessed from view
 }]);
