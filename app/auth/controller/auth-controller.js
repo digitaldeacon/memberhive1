@@ -8,7 +8,8 @@ function LoginController(User)
         }
     );
   }
-
+  this.username = "";
+  this.password = "";
   this.login = login;
 }
 
