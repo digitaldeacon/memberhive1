@@ -13,13 +13,17 @@
     "angular-route": "1.2.x",
     "angular-sanitize": "1.2.x",
     "angular-touch": "1.2.x",
-    "angular-ui-router": "0.2.x",
+    "angular-ui-router": "~0.2.13",
     "angular-bootstrap": "0.12",
     "angular-fontawesome": "*",
     "angular-slimscroll": "^1.1.*",
     "jquery.uniform": "^2.1.*",
     "angular-gettext": "~2.0.2",
-    "restangular": "~1.4.0"
+    "restangular": "~1.4.0",
+    "ocLazyLoad": "0.5.*",
+    "blockui": "*",
+    "jquery-cookie": "~1.4.1",
+    "jqueryui-touch-punch": "*"
   },
   "devDependencies": {
     "angular-mocks": "^1.2.*"

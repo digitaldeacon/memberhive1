@@ -10,30 +10,21 @@
 <!-- END PAGE BREADCRUMB -->
 <!-- BEGIN MAIN CONTENT -->
 <div ng-controller="DashboardController as dashboard" class="margin-top-10">
-<div ng-controller="DashboardCtrl" class="margin-top-10">
   <div class="portlet light">
     <div class="portlet-body">
       <div class="row" id="sortable_portlets">
 
         <div class="col-md-4 column sortable">
-
           <div ng-include="'dashboard/views/dashlet.feed.html'"></div>
           <div class="portlet portlet-sortable-empty"></div>
-
         </div>
         <div class="col-md-4 column sortable">
-
           <div ng-include="'dashboard/views/dashlet.person.count.html'"></div>
           <div class="portlet portlet-sortable-empty"></div>
-
-            </div>
-
-          </div>
         </div>
 
-        <div class="portlet portlet-sortable-empty"></div>
       </div>
-     </div>
+    </div>
   </div>
 </div>
 <!-- END MAIN CONTENT -->
