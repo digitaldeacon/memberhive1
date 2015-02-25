@@ -42,7 +42,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    
+
     loopback_sdk_angular: {
         services: {
             options: {
@@ -53,7 +53,7 @@ module.exports = function (grunt) {
             }
         }
     },
-    
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -500,5 +500,4 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-angular-gettext');
     grunt.loadNpmTasks('grunt-loopback-sdk-angular');
-    grunt.loadNpmTasks('grunt-traceur');
 };
