@@ -11,7 +11,10 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'picardy.fontawesome',
   'ui.router',
   'ui.bootstrap',
-  'lbServices'
+  'lbServices',
+
+  'gem.person',
+  'gem.dashboard'
 ]);
 
 GemmiiApp.factory('settings', ['$rootScope', $rootScope => {
@@ -50,7 +53,6 @@ GemmiiApp.controller('SidebarController', ['$scope', $scope => {
 /* Setup Layout Part - Sidebar */
 GemmiiApp.controller('PageHeadController', ['$scope', $scope => {
   $scope.$on('$includeContentLoaded', () => {
-    //Demo.init(); // init theme panel
   });
 }]);
 
@@ -65,32 +67,26 @@ GemmiiApp.config([
   '$stateProvider',
   '$urlRouterProvider',
   ($stateProvider, $urlRouterProvider) => {
-
     $urlRouterProvider.otherwise('/dashboard');
-
-    $stateProvider.state('dashboard', {
-      url: '/dashboard',
-      templateUrl: '../dashboard/views/dashboard.html',
-      data: {
-        pageTitle: 'Dashboard'
-      },
-      pageSubTitle: 'statistics & reports',
-      controller: 'DashboardCtrl'
-    });
-
-    $stateProvider.state('person', {
-      url: '/person',
-      templateUrl: '../person/views/person.html',
-      data: {
-        pageTitle: 'Person',
-        pageSubTitle: 'Create and edit persons'
-      },
-      controller: 'PersonCtrl'
-    });
   }
 ]);
 
+angular.module(
+  'gem.person',
+  [
+    'ui.router',
+    'lbServices'
+  ]
+);
+
+angular.module(
+  'gem.dashboard',
+  [
+    'ui.router',
+    'lbServices'
+  ]
+);
+
 GemmiiApp.run(['$rootScope', 'settings', '$state', ($rootScope, settings, $state) => {
   $rootScope.$state = $state; // state to be accessed from view
-
 }]);
