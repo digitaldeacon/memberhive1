@@ -18,7 +18,9 @@
     "angular-fontawesome": "*",
     "angular-slimscroll": "^1.1.*",
     "jquery.uniform": "^2.1.*",
-    "angular-gettext": "~2.0.2"
+    "angular-gettext": "~2.0.2",
+    "restangular": "~1.4.0",
+    "traceur-runtime": "~0.0.85"
   },
   "devDependencies": {
     "angular-mocks": "^1.2.*"

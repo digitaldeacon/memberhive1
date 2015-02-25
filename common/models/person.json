@@ -1,0 +1,29 @@
+{
+  "name": "Person",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "birthdate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

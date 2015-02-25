@@ -2,19 +2,20 @@
 The Repo for the Angular UI side of gemmii
 
 ## Getting started
-* `npm install -g bower`
-* `npm install` *# Install dev dependencies*
-* `bower install` *# Install app dependencies*
-* `grunt serve` *# Run local webserver (will compile SASS and coffee files when changed)*
+* `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
+* `nvm install iojs` *install iojs*
+* `sudo npm install -g bower`
+* `sudo npm install -g grunt-cli`
+* `npm install` *Install dev dependencies*
+* `bower install` *Install app dependencies*
+* `node . &` *start nodejs server*
+* `grunt serve` *Run local webserver (will compile SASS and ES6 files when changed)*
 
 ## Style Guides
 
 Please follow these style guides when writing code:
 
-* [AngularJS Style Guide](https://github.com/mgechev/angularjs-style-guide).
-* [CoffeeScript Style Guide](https://github.com/polarmobile/coffeescript-style-guide)
-  * Exception: Lines can have up to 120 characters
-  * Check your style with `grunt coffeelint`
+* [AngularJS Style Guide](https://github.com/mgechev/angularjs-style-guide)
 
 ## Publish app
 * `grunt` (Builds the app in the `dist` directory)

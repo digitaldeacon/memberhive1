@@ -27,13 +27,6 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
-    coffeelint: {
-      app: ['app/scripts/**/*.coffee'],
-      options: {
-        configFile: 'coffeelint.json'
-      }
-    },
-
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
@@ -49,20 +42,23 @@ module.exports = function (grunt) {
         }
       }
     },
+    
+    loopback_sdk_angular: {
+        services: {
+            options: {
+                input: 'server/server.js',
+                output: 'app/scripts/lb-services.js',
+                apiUrl: "http://localhost:3000/api"
 
+            }
+        }
+    },
+    
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
-      },
-      coffee: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.{coffee,litcoffee,coffee.md}'],
-        tasks: ['newer:coffee:dist']
-      },
-      coffeeTest: {
-        files: ['test/spec/{,*/}*.{coffee,litcoffee,coffee.md}'],
-        tasks: ['newer:coffee:test', 'karma']
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -74,6 +70,10 @@ module.exports = function (grunt) {
       translations: {
         files: ['po/**/*.po'],
         tasks: ['po2js']
+      },
+      babel :  {
+        files :  [ '<%= yeoman.app %>/**/*.js' ],
+        tasks :  [ 'newer:babel' ]
       },
       livereload: {
         options: {
@@ -147,7 +147,9 @@ module.exports = function (grunt) {
       },
       all: {
         src: [
-          'Gruntfile.js'
+          'Gruntfile.js',
+          'app/**/*.js',
+          '!app/scripts/metronic/*.js'
         ]
       }
     },
@@ -199,52 +201,22 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
       },
-      test: {
-        devDependencies: true,
-        src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
-          coffee: {
-            block: /(([\s\t]*)#\s*?bower:\s*?(\S*))(\n|\r|.)*?(#\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi,
-                coffee: /'(.*\.coffee)'/gi
-              },
-            replace: {
-              js: '\'{{filePath}}\'',
-              coffee: '\'{{filePath}}\''
-            }
-          }
-          }
-      },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
 
-    // Compiles CoffeeScript to JavaScript
-    coffee: {
+    'babel': {
       options: {
-        sourceMap: true,
-        sourceRoot: ''
+        sourceMap: true
       },
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/scripts',
-          src: '{,*/}*.coffee',
-          dest: '.tmp/scripts',
-          ext: '.js'
-        }]
-      },
-      test: {
-        files: [{
-          expand: true,
-          cwd: 'test/spec',
-          src: '{,*/}*.coffee',
-          dest: '.tmp/spec',
-          ext: '.js'
+          cwd: '<%= yeoman.app %>',
+          src: ['**/*.js'],
+          dest: '.tmp/scripts'
         }]
       }
     },
@@ -322,32 +294,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // The following *-min tasks will produce minified files in the dist folder
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
-
     imagemin: {
       dist: {
         files: [{
@@ -421,6 +367,8 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'views/{,*/}*.html',
+            'tpl/{,*/}*.html',
+            '**/views/*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -447,27 +395,19 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'coffee:dist',
+        'babel',
         'compass:server'
       ],
       test: [
-        'coffee',
+        'babel',
         'compass'
       ],
       dist: [
-        'coffee',
+        'babel:dist',
         'compass:dist',
         'imagemin',
         'svgmin'
       ]
-    },
-
-    // Test settings
-    karma: {
-      unit: {
-        configFile: 'test/karma.conf.coffee',
-        singleRun: true
-      }
     }
   });
 
@@ -479,6 +419,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'loopback_sdk_angular',
       'wiredep',
       'po2js',
       'concurrent:server',
@@ -501,7 +442,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
-    'po2js', // Needs to be run before coffee (concurrent:dist)
+    'po2js',
     'concurrent:dist',
     'autoprefixer',
     'concat',
@@ -512,12 +453,12 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'loopback_sdk_angular'
   ]);
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'newer:coffeelint',
     'test',
     'build'
   ]);
@@ -557,8 +498,7 @@ module.exports = function (grunt) {
     ]);
   });
 
-  // Angular Gettext support
-  grunt.loadNpmTasks('grunt-angular-gettext');
-  // Coffeelint
-  grunt.loadNpmTasks('grunt-coffeelint');
+    grunt.loadNpmTasks('grunt-angular-gettext');
+    grunt.loadNpmTasks('grunt-loopback-sdk-angular');
+    grunt.loadNpmTasks('grunt-traceur');
 };
