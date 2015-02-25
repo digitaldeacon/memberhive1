@@ -1,10 +1,8 @@
-var controllers = {};
-
-controllers.LoginController = function(User)
+function LoginController(User)
 {
-  function login(username, password) {
+  function login() {
     User.login(
-        {username: username, password: password},
+        {username: this.username, password: this.password},
         (err, accessToken) => {
           console.log(accessToken);
         }
@@ -14,4 +12,4 @@ controllers.LoginController = function(User)
   this.login = login;
 }
 
-angular.module('gem.auth').controller(controllers);
+angular.module('gem.auth').controller('LoginController', LoginController);

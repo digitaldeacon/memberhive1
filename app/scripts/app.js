@@ -14,7 +14,8 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'lbServices',
 
   'gem.person',
-  'gem.dashboard'
+  'gem.dashboard',
+  'gem.auth'
 ]);
 
 GemmiiApp.factory('settings', ['$rootScope', $rootScope => {

@@ -6,6 +6,10 @@ angular.module('gem.auth').config(
       $stateProvider.state('login', {
         url: '/login',
         templateUrl: '../auth/views/login.html',
+        data: {
+          pageTitle: 'Dashboard',
+        },
+        controller: 'LoginController'
      });
     }
   ]
