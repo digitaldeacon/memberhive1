@@ -43,15 +43,15 @@ module.exports = function (grunt) {
       }
     },
 
-    loopback_sdk_angular: {
-        services: {
-            options: {
-                input: 'server/server.js',
-                output: 'app/scripts/lb-services.js',
-                apiUrl: "http://localhost:3000/api"
+    loopback_sdk_angular: { // jshint ignore:line
+      services: {
+        options: {
+          input: 'server/server.js',
+          output: 'app/scripts/lb-services.js',
+          apiUrl: 'http://localhost:3000/api'
 
-            }
         }
+      }
     },
 
     // Watches files for changes and runs tasks based on the changed files
@@ -71,9 +71,9 @@ module.exports = function (grunt) {
         files: ['po/**/*.po'],
         tasks: ['po2js']
       },
-      babel :  {
-        files :  [ '<%= yeoman.app %>/**/*.js' ],
-        tasks :  [ 'newer:babel' ]
+      babel: {
+        files: ['<%= yeoman.app %>/**/*.js'],
+        tasks: ['newer:babel']
       },
       livereload: {
         options: {
@@ -149,7 +149,8 @@ module.exports = function (grunt) {
         src: [
           'Gruntfile.js',
           'app/**/*.js',
-          '!app/scripts/metronic/*.js'
+          '!app/scripts/metronic/*.js',
+          '!app/scripts/lb-services.js'
         ]
       }
     },
@@ -199,7 +200,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -473,14 +474,14 @@ module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
 
-    var poDir= path.join(__dirname, '/po/');
+    var poDir = path.join(__dirname, '/po/');
     var dirs = fs.readdirSync(poDir);
-    dirs.forEach (function(countryCode) {
+    dirs.forEach(function (countryCode) {
       var xy = path.join(poDir, countryCode);
-      if (! fs.lstatSync(xy).isDirectory())
+      if (!fs.lstatSync(xy).isDirectory())
         return;
       var poFiles = fs.readdirSync(xy);
-      poFiles.forEach( function(poFile) {
+      poFiles.forEach(function (poFile) {
         var poFilePath = path.join(poDir, countryCode, poFile);
         var content = fs.readFileSync(poFilePath, 'utf8');
         var searchStr = '\"Language: ' + poFile.replace('.po', '') + '\\n\"';
@@ -498,6 +499,6 @@ module.exports = function (grunt) {
     ]);
   });
 
-    grunt.loadNpmTasks('grunt-angular-gettext');
-    grunt.loadNpmTasks('grunt-loopback-sdk-angular');
+  grunt.loadNpmTasks('grunt-angular-gettext');
+  grunt.loadNpmTasks('grunt-loopback-sdk-angular');
 };

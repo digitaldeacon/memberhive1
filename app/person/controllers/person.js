@@ -1,71 +1,67 @@
 angular
-    .module('gemmiiWebApp')
-    .controller(
-        'PersonCtrl', 
-        function ($scope, Person) {
-            var main = this;
-            
-            function getPersons() {
-                Person.find(
-                    function (result) {
-                        main.persons = result;
-                    });
-            }
+  .module('gemmiiWebApp')
+  .controller(
+  'PersonCtrl',
+  function ($scope, Person) {
+    var main = this;
 
-            function createPerson(person) {
-                Person.create(person,
-                    function (result) {
-                        initCreateForm();
-                        getPersons();
-                    });
-            }
+    function getPersons() {
+      Person.find(result => {
+        main.persons = result;
+      });
+    }
 
-            function updatePerson(person) {
-                Person.upsert(person,
-                    function (result) {
-                        cancelEditing();
-                        getPersons();
-                    });
-            }
+    function createPerson(person) {
+      Person.create(person, () => {
+        initCreateForm();
+        getPersons();
+      });
+    }
 
-            function deletePerson(personId) {
-                Person.deleteById({id: personId},
-                    function (result) {
-                        cancelEditing();
-                        getPersons();
-                    });
-            }
+    function updatePerson(person) {
+      Person.upsert(person, () => {
+        cancelEditing();
+        getPersons();
+      });
+    }
 
-            function initCreateForm() {
-                main.newPerson = { firstName :'', lastName : '', email : '', gender:'male', birthday : ''};
-            }
+    function deletePerson(personId) {
+      Person.deleteById({id: personId}, () => {
+        cancelEditing();
+        getPersons();
+      });
+    }
 
-            function setEditedPerson(person) {
-                main.editedPerson = angular.copy(person);
-                main.isEditing = true;
-            }
+    function initCreateForm() {
+      main.newPerson = {firstName: '', lastName: '', email: '', gender: 'male', birthday: ''};
+    }
 
-            function isCurrentPerson(personId) {
-                return main.editedPerson !== null && main.editedPerson.id === personId;
-            }
+    function setEditedPerson(person) {
+      main.editedPerson = angular.copy(person);
+      main.isEditing = true;
+    }
 
-            function cancelEditing() {
-                main.editedPerson = null;
-                main.isEditing = false;
-            }
+    function isCurrentPerson(personId) {
+      return main.editedPerson !== null && main.editedPerson.id === personId;
+    }
 
-            main.persons = [];
-            main.editedPerson = null;
-            main.isEditing = false;
-            main.getPersons = getPersons;
-            main.createPerson = createPerson;
-            main.updatePerson = updatePerson;
-            main.deletePerson = deletePerson;
-            main.setEditedPerson = setEditedPerson;
-            main.isCurrentPerson = isCurrentPerson;
-            main.cancelEditing = cancelEditing;
+    function cancelEditing() {
+      main.editedPerson = null;
+      main.isEditing = false;
+    }
 
-            initCreateForm();
-            getPersons();
-        }
-    );
+    main.persons = [];
+    main.editedPerson = null;
+    main.isEditing = false;
+    main.getPersons = getPersons;
+    main.createPerson = createPerson;
+    main.updatePerson = updatePerson;
+    main.deletePerson = deletePerson;
+    main.setEditedPerson = setEditedPerson;
+    main.isCurrentPerson = isCurrentPerson;
+    main.cancelEditing = cancelEditing;
+
+    initCreateForm();
+    getPersons();
+  }
+);
