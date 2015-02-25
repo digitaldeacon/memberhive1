@@ -9,7 +9,7 @@
 </ul>
 <!-- END PAGE BREADCRUMB -->
 <!-- BEGIN MAIN CONTENT -->
-<div ng-controller="DashboardCtrl" class="margin-top-10">
+<div ng-controller="DashboardCtrl as dashboard" class="margin-top-10">
   <div class="portlet light">
     <div class="portlet-body">
       <div class="row" id="sortable_portlets">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="details">
                   <div class="number">
-                    {{ userCount }}
+                    {{ dashboard.userCount }}
                   </div>
                   <div class="desc">
                     Users
