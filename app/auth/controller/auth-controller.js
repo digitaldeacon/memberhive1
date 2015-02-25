@@ -1,7 +1,7 @@
 function LoginController(User) {
-  this.asd = "asd";
   function login() {
     User.login(
+        {rememberMe: this.rememberMe},
         {username: this.username, password: this.password},
         (err, accessToken) => {
           console.log(accessToken);
@@ -10,6 +10,7 @@ function LoginController(User) {
   }
   this.username = "";
   this.password = "";
+  this.rememberMe = true;
   this.login = login;
 }
 
