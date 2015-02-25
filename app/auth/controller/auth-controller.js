@@ -1,5 +1,5 @@
-function LoginController(User)
-{
+function LoginController(User) {
+  this.asd = "asd";
   function login() {
     User.login(
         {username: this.username, password: this.password},
