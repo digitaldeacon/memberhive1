@@ -1,6 +1,7 @@
 function PersonController (Person) {
+  var main = this;
   function getPersons() {
-    Person.find(result => this.persons = result);
+    Person.find(result => main.persons = result);
   }
 
   function createPerson(person) {
@@ -25,25 +26,26 @@ function PersonController (Person) {
   }
 
   function initCreateForm() {
-    this.newPerson = {firstName: '', lastName: '', email: '', gender: 'male', birthday: ''};
+    main.newPerson = {firstName: '', lastName: '', email: '', gender: 'male', birthday: ''};
   }
 
   function setEditedPerson(person) {
-    this.editedPerson = angular.copy(person);
-    this.isEditing = true;
+    main.editedPerson = angular.copy(person);
+    main.isEditing = true;
   }
 
   function isCurrentPerson(personId) {
-    return this.editedPerson !== null && this.editedPerson.id === personId;
+    return main.editedPerson !== null && main.editedPerson.id === personId;
   }
 
   function cancelEditing() {
-    this.editedPerson = null;
-    this.isEditing = false;
+    main.editedPerson = null;
+    main.isEditing = false;
   }
 
   this.persons = [];
   this.editedPerson = null;
+  this.newPerson = null;
   this.isEditing = false;
   this.getPersons = getPersons;
   this.createPerson = createPerson;
