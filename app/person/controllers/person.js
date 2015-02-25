@@ -6,34 +6,30 @@ angular
     var main = this;
 
     function getPersons() {
-      Person.find(
-        function (result) {
-          main.persons = result;
-        });
+      Person.find(result => {
+        main.persons = result;
+      });
     }
 
     function createPerson(person) {
-      Person.create(person,
-        function () {
-          initCreateForm();
-          getPersons();
-        });
+      Person.create(person, () => {
+        initCreateForm();
+        getPersons();
+      });
     }
 
     function updatePerson(person) {
-      Person.upsert(person,
-        function () {
-          cancelEditing();
-          getPersons();
-        });
+      Person.upsert(person, () => {
+        cancelEditing();
+        getPersons();
+      });
     }
 
     function deletePerson(personId) {
-      Person.deleteById({id: personId},
-        function () {
-          cancelEditing();
-          getPersons();
-        });
+      Person.deleteById({id: personId}, () => {
+        cancelEditing();
+        getPersons();
+      });
     }
 
     function initCreateForm() {
