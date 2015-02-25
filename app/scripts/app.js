@@ -14,7 +14,8 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'lbServices',
 
   'gem.person',
-  'gem.dashboard'
+  'gem.dashboard',
+  'gem.auth'
 ]);
 
 GemmiiApp.factory('settings', ['$rootScope', $rootScope => {
@@ -86,6 +87,15 @@ angular.module(
     'lbServices'
   ]
 );
+
+angular.module(
+  'gem.auth',
+  [
+    'ui.router',
+    'lbServices'
+  ]
+);
+
 
 GemmiiApp.run(['$rootScope', 'settings', '$state', ($rootScope, settings, $state) => {
   $rootScope.$state = $state; // state to be accessed from view

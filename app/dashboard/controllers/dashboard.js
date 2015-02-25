@@ -1,6 +1,6 @@
-angular.module('gemmiiWebApp')
-  .controller('DashboardCtrl', function($scope, Person) {
-     $scope.userCount = Person.count(count => {
-       $scope.userCount = count.count;
+angular.module('gem.dashboard')
+  .controller('DashboardController', function($scope, Person) {
+    Person.count(count => {
+       this.userCount = count.count;
     });
   });
