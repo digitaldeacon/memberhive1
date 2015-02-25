@@ -1,11 +1,11 @@
-<div ng-controller="PersonCtrl as main">
+<div ng-controller="PersonController as main">
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="person in main.persons"  ng-click="main.setEditedPerson(person)" ng-class="{'active':main.isCurrentPerson(person.id)}"> 
+        <li class="list-group-item" ng-repeat="person in main.persons"  ng-click="main.setEditedPerson(person)" ng-class="{'active':main.isCurrentPerson(person.id)}">
         {{ person.firstName }} {{person.lastName}}
         <span type="button" style="float:right" ng-click="main.deletePerson(person.id)">&times;</span>
-        </li> 
+        </li>
     </ul>
-    
+
     <div ng-if="!main.isEditing" class="well">
         <h4>Create a New Person</h4>
         <hr/>
@@ -54,5 +54,5 @@
             <button type="button" class="btn btn-default btn-lg pull-right" ng-click="main.cancelEditing()">Cancel</button>
         </form>
     </div>
-  
+
 </div>
