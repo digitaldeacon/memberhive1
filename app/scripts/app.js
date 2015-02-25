@@ -14,7 +14,7 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'lbServices'
 ]);
 
-GemmiiApp.factory('settings', ['$rootScope', function ($rootScope) {
+GemmiiApp.factory('settings', ['$rootScope', $rootScope => {
   // supported languages
   var settings = {
     layout: {
@@ -28,35 +28,35 @@ GemmiiApp.factory('settings', ['$rootScope', function ($rootScope) {
   return settings;
 }]);
 
-GemmiiApp.controller('AppController', ['$scope', '$rootScope', function ($scope) {
-  $scope.$on('$viewContentLoaded', function () {
+GemmiiApp.controller('AppController', ['$scope', '$rootScope', $scope => {
+  $scope.$on('$viewContentLoaded', () => {
     Metronic.initComponents(); // init core components
   });
 }]);
 
-GemmiiApp.controller('HeaderController', ['$scope', function ($scope) {
-  $scope.$on('$includeContentLoaded', function () {
+GemmiiApp.controller('HeaderController', ['$scope', $scope => {
+  $scope.$on('$includeContentLoaded', () => {
     Layout.initHeader(); // init header
   });
 }]);
 
 /* Setup Layout Part - Sidebar */
-GemmiiApp.controller('SidebarController', ['$scope', function ($scope) {
-  $scope.$on('$includeContentLoaded', function () {
+GemmiiApp.controller('SidebarController', ['$scope', $scope => {
+  $scope.$on('$includeContentLoaded', () => {
     Layout.initSidebar(); // init sidebar
   });
 }]);
 
 /* Setup Layout Part - Sidebar */
-GemmiiApp.controller('PageHeadController', ['$scope', function ($scope) {
-  $scope.$on('$includeContentLoaded', function () {
+GemmiiApp.controller('PageHeadController', ['$scope', $scope => {
+  $scope.$on('$includeContentLoaded', () => {
     //Demo.init(); // init theme panel
   });
 }]);
 
 /* Setup Layout Part - Footer */
-GemmiiApp.controller('FooterController', ['$scope', function ($scope) {
-  $scope.$on('$includeContentLoaded', function () {
+GemmiiApp.controller('FooterController', ['$scope', $scope => {
+  $scope.$on('$includeContentLoaded', () => {
     Layout.initFooter(); // init footer
   });
 }]);
@@ -64,7 +64,7 @@ GemmiiApp.controller('FooterController', ['$scope', function ($scope) {
 GemmiiApp.config([
   '$stateProvider',
   '$urlRouterProvider',
-  function ($stateProvider, $urlRouterProvider) {
+  ($stateProvider, $urlRouterProvider) => {
 
     $urlRouterProvider.otherwise('/dashboard');
 
@@ -90,7 +90,7 @@ GemmiiApp.config([
   }
 ]);
 
-GemmiiApp.run(['$rootScope', 'settings', '$state', function ($rootScope, settings, $state) {
+GemmiiApp.run(['$rootScope', 'settings', '$state', ($rootScope, settings, $state) => {
   $rootScope.$state = $state; // state to be accessed from view
 
 }]);
