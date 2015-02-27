@@ -1,5 +1,5 @@
 function LoginController(User) {
-  this.asd = "asd";
+  this.asd = 'asd';
   function login() {
     User.login(
         {username: this.username, password: this.password},
@@ -8,8 +8,8 @@ function LoginController(User) {
         }
     );
   }
-  this.username = "";
-  this.password = "";
+  this.username = '';
+  this.password = '';
   this.login = login;
 }
 

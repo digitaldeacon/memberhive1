@@ -149,7 +149,7 @@ module.exports = function (grunt) {
         src: [
           'Gruntfile.js',
           'app/**/*.js',
-          '!app/scripts/metronic/*.js',
+          '!app/scripts/metronic/**/*.js',
           '!app/scripts/lb-services.js'
         ]
       }
