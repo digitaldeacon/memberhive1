@@ -78,10 +78,7 @@ GemmiiApp.controller('FooterController', ['$scope', $scope => {
 GemmiiApp.config([
   '$stateProvider',
   '$urlRouterProvider',
-  ($stateProvider, $urlRouterProvider, User) => {
-    if(!User.isAutheticated) {
-
-    }
+  ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/dashboard');
   }
 ]);
