@@ -11,6 +11,7 @@ angular.module('gemmiiWebApp', [
   'picardy.fontawesome',
   'ui.router',
   'ui.bootstrap',
+  'ui.grid',
   'oc.lazyLoad',
   'lbServices',
   'gettext',

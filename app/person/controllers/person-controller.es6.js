@@ -1,4 +1,14 @@
-function PersonController (Person) {
+function PersonController (Person, $scope) {
+  $scope.gridOptions = {
+    enableRowSelection: true,
+    enableRowHeaderSelection: false,
+    multiSelect: false
+  };
+
+  $scope.toggleRowSelection = function() {
+    console.log('toggle');
+  };
+
   var main = this;
   this.persons = [];
   this.editedPerson = null;
@@ -63,6 +73,6 @@ function PersonController (Person) {
 angular
   .module('gem.person')
   .controller(
-  'PersonController',
-  PersonController
+    'PersonController',
+    PersonController
 );
