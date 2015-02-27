@@ -8,7 +8,7 @@ angular.module('gem.auth').config(
         url: '/login',
         templateUrl: '../auth/views/login.html',
         data: {
-          pageTitle: 'Login',
+          pageTitle: 'Login'
         },
         controller: 'LoginController'
      });
