@@ -1,4 +1,5 @@
 function LoginController(User) {
+  this.asd = 'asd';
   function login() {
     User.login(
         {rememberMe: this.rememberMe},
@@ -8,9 +9,9 @@ function LoginController(User) {
         }
     );
   }
-  this.username = "";
-  this.password = "";
   this.rememberMe = true;
+  this.username = '';
+  this.password = '';
   this.login = login;
 }
 

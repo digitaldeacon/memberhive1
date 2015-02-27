@@ -11,12 +11,20 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'picardy.fontawesome',
   'ui.router',
   'ui.bootstrap',
+  'oc.lazyLoad',
   'lbServices',
 
   'gem.person',
   'gem.dashboard',
   'gem.auth'
 ]);
+
+GemmiiApp.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
+  $ocLazyLoadProvider.config({
+    cssFilesInsertBefore: 'ng_load_plugins_before' // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+  });
+}]);
+
 
 GemmiiApp.factory('settings', ['$rootScope', $rootScope => {
   // supported languages
@@ -33,6 +41,9 @@ GemmiiApp.factory('settings', ['$rootScope', $rootScope => {
 }]);
 
 GemmiiApp.controller('AppController', ['$scope', '$rootScope', $scope => {
+  $scope.init = () => {
+    Metronic.init();
+  };
   $scope.$on('$viewContentLoaded', () => {
     Metronic.initComponents(); // init core components
   });

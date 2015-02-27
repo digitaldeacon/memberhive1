@@ -149,7 +149,7 @@ module.exports = function (grunt) {
         src: [
           'Gruntfile.js',
           'app/**/*.js',
-          '!app/scripts/metronic/*.js',
+          '!app/scripts/metronic/**/*.js',
           '!app/scripts/lb-services.js'
         ]
       }
@@ -216,8 +216,9 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
-          src: ['**/*.js'],
-          dest: '.tmp/scripts'
+          src: ['**/*.es6.js'],
+          dest: '.tmp/scripts',
+          ext: '.js'
         }]
       }
     },
@@ -409,6 +410,13 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+
+    githooks: {
+      all: {
+        // Will run the jshint task at every commit
+        'pre-commit': 'jshint'
+      }
     }
   });
 
@@ -459,6 +467,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
+    'githooks',
     'newer:jshint',
     'test',
     'build'
@@ -500,5 +509,6 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-angular-gettext');
+  grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-loopback-sdk-angular');
 };
