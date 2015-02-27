@@ -13,6 +13,7 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'ui.bootstrap',
   'oc.lazyLoad',
   'lbServices',
+  'gettext',
 
   'gem.person',
   'gem.dashboard',

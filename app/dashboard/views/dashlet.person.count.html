@@ -3,11 +3,9 @@
 
   <div class="portlet-title">
     <div class="caption">
-      <i class="fa fa-gift"></i>Users
+      <i class="fa fa-gift"></i><translate>Persons</translate>
     </div>
     <div class="actions">
-      <a href="#portlet-config" class="btn btn-default btn-sm config" data-toggle="modal">
-        <i class="fa fa-pencil"></i> Edit </a>
       <a href="#" class="btn btn-default btn-sm">
         <i class="fa fa-plus"></i> Add </a>
       <a href="#" class="remove">
@@ -23,10 +21,10 @@
         </div>
         <div class="details">
           <div class="number">
-            {{ userCount }}
+            {{ dashboard.userCount }}
           </div>
           <div class="desc">
-            Users
+            <translate translate-n="dashboard.userCount" translate-plural="Persons">Person</translate>
           </div>
         </div>
         <div class="actions">
