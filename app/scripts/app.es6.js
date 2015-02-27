@@ -41,6 +41,9 @@ GemmiiApp.factory('settings', ['$rootScope', $rootScope => {
 }]);
 
 GemmiiApp.controller('AppController', ['$scope', '$rootScope', $scope => {
+  $scope.init = () => {
+    Metronic.init();
+  };
   $scope.$on('$viewContentLoaded', () => {
     Metronic.initComponents(); // init core components
   });

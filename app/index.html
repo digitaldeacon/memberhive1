@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html ng-app="gemmiiWebApp" class="no-js">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="gemmiiWebApp" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load">
+  <body ng-controller="AppController" data-ng-init="init()"
+        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load">
 
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -86,7 +87,7 @@
     <script src="scripts/metronic/layout.js"></script>
     <script src="scripts/scripts/app.js"></script>
     <script src="scripts/scripts/directives.js"></script>
-    <script src="scripts/metronic/pages/portlet-draggable.js"></script>s
+    <script src="scripts/metronic/pages/portlet-draggable.js"></script>
     <script src="scripts/translations.js"></script>
 
   <!--  <script src="scripts/dashboard/controllers/dashboard.js"></script>-->
