@@ -1,6 +1,8 @@
 # gemmii-web
 The Repo for the Angular UI side of gemmii
 
+![My image](http://bible-survey.org/i/gemmii/angularjs.png)![My image](http://bible-survey.org/i/gemmii/strongloop.png)
+
 ## Getting started
 * `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
 * `nvm install iojs` *install iojs*
