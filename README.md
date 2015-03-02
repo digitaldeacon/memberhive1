@@ -17,7 +17,9 @@ The Repo for the Angular UI side of gemmii
 
 Please follow these style guides when writing code:
 
-* [AngularJS Style Guide](https://github.com/mgechev/angularjs-style-guide)
+* [AngularJS Style Guide by mgechev](https://github.com/mgechev/angularjs-style-guide)
+* [AngularJS Style Guide by johnpapa](https://github.com/johnpapa/angularjs-styleguide)
+* [Frontend Guidelines](https://github.com/bendc/frontend-guidelines)
 
 ## Publish app
 * `grunt` (Builds the app in the `dist` directory)
