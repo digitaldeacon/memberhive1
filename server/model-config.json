@@ -29,5 +29,9 @@
   "Person": {
     "dataSource": "db",
     "public": true
+  },
+  "Options": {
+    "dataSource": "db",
+    "public": true
   }
 }

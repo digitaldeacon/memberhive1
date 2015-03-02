@@ -1,0 +1,17 @@
+<div class="portlet light dashboard-stat blue-madison">
+  <div class="alert alert-info" ng-if="!data">
+    Please insert a location in the widget configuration
+  </div>
+  <div class="visual">
+    <i class="wi wi-cloudy"></i>
+  </div>
+  <div class="details" ng-if="data">
+    <div class="desc" style="padding-right: 20px;">
+      <h4>{{data.name}} ({{data.sys.country}})</h4>
+      <dl>
+        <dt>Temperature:</dt>
+        <dd>{{data.main.temp | number:2}}</dd>
+      </dl>
+    </div>
+  </div>
+</div>
