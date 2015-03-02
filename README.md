@@ -29,3 +29,12 @@ Please follow these style guides when writing code:
 * [ADF] (https://github.com/sdorra/angular-dashboard-framework/tree/master/src)
 * [Weather Icons] (https://github.com/erikflowers/weather-icons)
 * [Metronic] (http://www.keenthemes.com/preview/)
+
+## Dependencies
+* NPM
+* Bower
+* Grunt
+* io.js (a node.js fork)
+* strongloop
+* [babel transpiler (formely 6to5)] (https://github.com/babel/babel)
+* ECMAScript 6 (ES6)
