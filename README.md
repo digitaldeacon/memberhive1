@@ -1,6 +1,8 @@
 # gemmii-web
 The Repo for the Angular UI side of gemmii
 
+![My image](http://bible-survey.org/i/gemmii/angularjs.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/strongloop.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/es6.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/mariadb.png)
+
 ## Getting started
 * `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
 * `nvm install iojs` *install iojs*
@@ -15,7 +17,9 @@ The Repo for the Angular UI side of gemmii
 
 Please follow these style guides when writing code:
 
-* [AngularJS Style Guide](https://github.com/mgechev/angularjs-style-guide)
+* [AngularJS Style Guide by mgechev](https://github.com/mgechev/angularjs-style-guide)
+* [AngularJS Style Guide by johnpapa](https://github.com/johnpapa/angularjs-styleguide)
+* [Frontend Guidelines](https://github.com/bendc/frontend-guidelines)
 
 ## Publish app
 * `grunt` (Builds the app in the `dist` directory)

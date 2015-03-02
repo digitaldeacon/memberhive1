@@ -72,7 +72,7 @@ module.exports = function (grunt) {
         tasks: ['po2js']
       },
       babel: {
-        files: ['<%= yeoman.app %>/**/*.js'],
+        files: ['<%= yeoman.app %>/**/*.es6.js'],
         tasks: ['newer:babel']
       },
       livereload: {
