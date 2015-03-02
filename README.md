@@ -10,7 +10,7 @@ The Repo for the Angular UI side of gemmii
 * `sudo npm install -g grunt-cli`
 * `npm install` *Install dev dependencies*
 * `bower install` *Install app dependencies*
-* `node . &` *start nodejs server*
+* `node . &` *start nodejs server* (it should actually be the iojs server now)
 * `grunt serve` *Run local webserver (will compile SASS and ES6 files when changed)*
 
 ## Style Guides
@@ -24,3 +24,8 @@ Please follow these style guides when writing code:
 ## Publish app
 * `grunt` (Builds the app in the `dist` directory)
 * Copy `dist` folder to webserver
+
+## 3rd Party Drop-Ins
+* [ADF] (https://github.com/sdorra/angular-dashboard-framework/tree/master/src)
+* [Weather Icons] (https://github.com/erikflowers/weather-icons)
+* [Metronic] (http://www.keenthemes.com/preview/)
