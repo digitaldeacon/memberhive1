@@ -11,20 +11,14 @@
 <!-- BEGIN MAIN CONTENT -->
 <div ng-controller="DashboardController as dashboard" class="margin-top-10">
   <div class="portlet light">
-    <div class="portlet-body">
-      <div class="row" id="sortable_portlets">
 
-        <div class="col-md-4 column sortable">
-          <div ng-include="'dashboard/views/dashlet.feed.html'"></div>
-          <div class="portlet portlet-sortable-empty"></div>
-        </div>
-        <div class="col-md-4 column sortable">
-          <div ng-include="'dashboard/views/dashlet.person.count.html'"></div>
-          <div class="portlet portlet-sortable-empty"></div>
-        </div>
 
+      <div>
+        <adf-dashboard name="{{dashboard.name}}" structure="4-8" adf-model="dashboard.model" />
       </div>
-    </div>
+      <button class="btn btn-warning" ng-click="dashboard.delete(dashboard.name)">Delete</button>
+
+
   </div>
 </div>
 <!-- END MAIN CONTENT -->

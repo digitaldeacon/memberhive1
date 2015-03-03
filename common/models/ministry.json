@@ -1,0 +1,20 @@
+{
+  "name": "Ministry",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "mysql": {
+      "table": "per_ministry"
+    }
+  },
+  "properties": {
+    "ministry": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

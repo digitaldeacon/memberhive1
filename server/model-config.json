@@ -7,9 +7,7 @@
       "./models"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
+
   "AccessToken": {
     "dataSource": "db",
     "public": false
@@ -27,6 +25,26 @@
     "public": false
   },
   "Person": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Options": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Household": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Address": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Contact": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Ministry": {
     "dataSource": "db",
     "public": true
   }

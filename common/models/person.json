@@ -1,17 +1,37 @@
 {
   "name": "Person",
-  "base": "PersistedModel",
+  "plural": "Persons",
+  "base": "User",
   "idInjection": true,
+  "options": {
+    "mysql": {
+      "table": "per_person"
+    }
+  },
+  "scope": {
+    "where": {
+      "enabled": true
+    }
+  },
   "properties": {
     "firstName": {
       "type": "string",
       "required": true
     },
+    "middleName": {
+      "type": "string"
+    },
     "lastName": {
       "type": "string",
       "required": true
     },
-    "email": {
+    "nickName": {
+      "type": "string"
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "suffix": {
       "type": "string"
     },
     "gender": {
@@ -20,10 +40,24 @@
     },
     "birthdate": {
       "type": "date"
+    },
+    "enabled": {
+      "type": "boolean",
+      "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "contacts": {
+      "type": "hasMany",
+      "model": "Contact"
+    },
+    "ministries": {
+      "type": "hasAndBelongsToMany",
+      "model": "Ministry",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": []
 }

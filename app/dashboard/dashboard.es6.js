@@ -1,4 +1,4 @@
-angular.module('gem.dashboard').config(
+angular.module('gem.dashboard',['adf','structures','adf.widgets.weather']).config(
   [
     '$stateProvider',
     '$urlRouterProvider', $stateProvider =>

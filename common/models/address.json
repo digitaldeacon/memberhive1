@@ -1,0 +1,44 @@
+{
+  "name": "Address",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "mysql": {
+      "table": "cor_address"
+    }
+  },
+  "properties": {
+    "street1": {
+      "type": "string"
+    },
+    "street2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "zipcode": {
+      "type": "string"
+    },
+    "additional": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "description": "ENUM(home, postal, work, org)"
+    },
+    "geo": {
+      "type": "geopoint"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "households": {
+      "type": "hasMany",
+      "model": "Household",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": []
+}

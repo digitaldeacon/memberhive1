@@ -17,6 +17,7 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
 
   'gem.person',
   'gem.dashboard',
+  'gem.option',
   'gem.auth'
 ]);
 
@@ -102,6 +103,14 @@ angular.module(
 
 angular.module(
   'gem.auth',
+  [
+    'ui.router',
+    'lbServices'
+  ]
+);
+
+angular.module(
+  'gem.option',
   [
     'ui.router',
     'lbServices'
