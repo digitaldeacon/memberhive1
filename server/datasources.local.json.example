@@ -1,0 +1,10 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "mysql",
+    "host": "localhost",
+    "database": "gemmii-test",
+    "username": "",
+    "password": ""
+  }
+}

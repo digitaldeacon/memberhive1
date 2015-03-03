@@ -13,6 +13,18 @@ The Repo for the Angular UI side of gemmii
 * `node . &` *start nodejs server* (it should actually be the iojs server now)
 * `grunt serve` *Run local webserver (will compile SASS and ES6 files when changed)*
 
+## Persisting data
+
+ By default, all data is stored using the [Loopback's memory connector](http://docs.strongloop.com/display/public/LB/Memory+connector).
+ It can be used to test the application without setting up a database.
+ 
+ However, to persist your data, you should setup a MySQL/MariaDB database.
+ Copy the `server/datasources.local.json.example` file to `server/datasources.local.json` 
+ and adjust the settings. You need to manually create the database.
+ 
+ After that, run `grunt dbmigrate`, which will create the tables and update them if the model changes.
+ This task is also run each time the grunt default or `serve` task is executed.
+
 ## Style Guides
 
 Please follow these style guides when writing code:

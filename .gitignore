@@ -6,3 +6,4 @@ bower_components
 .idea
 typings
 .strong-pm
+server/datasources.local.json

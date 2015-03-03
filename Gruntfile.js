@@ -54,6 +54,17 @@ module.exports = function (grunt) {
       }
     },
 
+    'loopback_auto': {
+      'db_autoupdate': {
+        options: {
+          dataSource: 'db',
+          app: './server/server',
+          config: './server/model-config',
+          method: 'autoupdate'
+        }
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -428,6 +439,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'dbmigrate',
       'loopback_sdk_angular',
       'wiredep',
       'po2js',
@@ -468,6 +480,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'githooks',
     'newer:jshint',
+    'dbmigrate',
     'test',
     'build'
   ]);
@@ -507,7 +520,10 @@ module.exports = function (grunt) {
     ]);
   });
 
+  grunt.registerTask('dbmigrate', ['loopback_auto']);
+
   grunt.loadNpmTasks('grunt-angular-gettext');
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-loopback-sdk-angular');
+  grunt.loadNpmTasks('grunt-loopback-auto');
 };
