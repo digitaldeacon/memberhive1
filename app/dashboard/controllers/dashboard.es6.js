@@ -1,5 +1,6 @@
 angular.module('gem.dashboard')
   .controller('DashboardController', function($location, $rootScope, $scope, $routeParams, Person) {
+
     this.personId = 1;
     this.model = Person.options({id:this.personId});
 

@@ -2,13 +2,13 @@
 <html ng-app="gemmiiWebApp" class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title ng-bind-template="{{viewTitle}} - gemmii">gemmii</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="icon" href="/favicon.png">
-    
+
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -75,6 +75,7 @@
     <script src="bower_components/angular-fontawesome/dist/angular-fontawesome.js"></script>
     <script src="bower_components/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="bower_components/angular-slimscroll/angular-slimscroll.js"></script>
+    <script src="bower_components/angularjs-viewhead/angularjs-viewhead.js"></script>
     <script src="bower_components/jquery.uniform/jquery.uniform.js"></script>
     <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
     <script src="bower_components/lodash/dist/lodash.compat.js"></script>
@@ -102,6 +103,7 @@
     <script src="scripts/person/controllers/person.js"></script>
     <script src="scripts/person/person.js"></script>
     <script type="text/javascript" src="scripts/adf/structures.js"></script>
+    <script src="scripts/filters.js"></script>
     <script type="text/javascript" src="scripts/adf/widgets/weather/weather.js"></script>
 
     <script src="scripts/auth/controller/auth-controller.js"></script>

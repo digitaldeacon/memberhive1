@@ -1,4 +1,6 @@
-angular.module('gem.dashboard',['adf','structures','adf.widgets.weather']).config(
+angular.module('gem.dashboard',
+  ['adf','structures','adf.widgets.weather'])
+  .config(
   [
     '$stateProvider',
     '$urlRouterProvider', $stateProvider =>
@@ -31,5 +33,5 @@ angular.module('gem.dashboard',['adf','structures','adf.widgets.weather']).confi
      });
     }
   ]
-);
+  );
 

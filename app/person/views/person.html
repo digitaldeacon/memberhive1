@@ -1,3 +1,4 @@
+<view-title><translate>Person</translate></view-title>
 <div ng-controller="PersonController as main">
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="person in main.persons"  ng-click="main.setEditedPerson(person)" ng-class="{'active':main.isCurrentPerson(person.id)}">
