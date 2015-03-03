@@ -6,5 +6,4 @@ module.exports = function(app) {
     Role.create({name: 'member'}); 
     Role.create({name: 'guest'}); 
     Role.create({name: 'admin'}); 
-    });
 }; 

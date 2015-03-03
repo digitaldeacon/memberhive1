@@ -10,11 +10,11 @@
 
   "AccessToken": {
     "dataSource": "db",
-    "public": false,
+    "public": false
   },
   "ACL": {
     "dataSource": "db",
-    "public": true,
+    "public": true
   },
   "RoleMapping": {
     "dataSource": "db",
@@ -22,7 +22,7 @@
   },
   "Role": {
     "dataSource": "db",
-    "public": false
+    "public": true
   },
   "Person": {
     "dataSource": "db",
