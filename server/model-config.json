@@ -11,9 +11,9 @@
     "dataSource": "db",
     "public": true
   },
-  "Options": {
+  "Option": {
     "dataSource": "db",
-    "public": false
+    "public": true
   },
   "Household": {
     "dataSource": "db",

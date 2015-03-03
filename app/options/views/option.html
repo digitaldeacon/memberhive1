@@ -1,7 +1,7 @@
 <div ng-controller="OptionController as main">
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="option in main.options"  ng-click="main.setEditedPerson(option)" ng-class="{'active':main.isCurrentOption(option.id)}">
-      {{ option.option_name }} {{person.option_value}}
+    <li class="list-group-item" ng-repeat="option in main.options"  ng-click="main.setEditedOption(option)" ng-class="{'active':main.isCurrentOption(option.id)}">
+      {{ option.optionName }} {{option.optionValue}}
       <span type="button" style="float:right" ng-click="main.deleteOption(option.id)">&times;</span>
     </li>
   </ul>
@@ -12,27 +12,27 @@
     <form class="create-form" role="form" ng-submit="main.createOption(main.newOption)" novalidate>
       <div class="form-group">
         <label>Option name</label>
-        <input type="text" class="form-control" ng-model="main.newOption.option_name" placeholder="Enter name">
+        <input type="text" class="form-control" ng-model="main.newOption.optionName" placeholder="Enter name">
       </div>
       <div class="form-group">
         <label>Option Value</label>
-        <textarea class="form-control" ng-model="main.newOption.option_value" placeholder="Enter value"></textarea>
+        <textarea class="form-control" ng-model="main.newOption.optionValue" placeholder="Enter value"></textarea>
       </div>
       <button type="submit" class="btn btn-info btn-lg">Create</button>
     </form>
   </div>
   <!-- EDITING -->
   <div ng-if="main.isEditing" class="well">
-    <h4>Editing {{main.editedOption.option_name}} {{main.editedOption.option_value}}</h4>
+    <h4>Editing {{main.editedOption.optionName}} {{main.editedOption.optionValue}}</h4>
     <hr/>
     <form class="edit-form" role="form" ng-submit="main.updateOption(main.editedOption)" novalidate>
       <div class="form-group">
         <label>Option name</label>
-        <input type="text" class="form-control" ng-model="main.editedOption.option_name" placeholder="Enter name">
+        <input type="text" class="form-control" ng-model="main.editedOption.optionName" placeholder="Enter name">
       </div>
       <div class="form-group">
         <label>Option value</label>
-        <textarea class="form-control" ng-model="main.editedOption.option_value" placeholder="Enter name"></textarea>
+        <textarea class="form-control" ng-model="main.editedOption.optionValue" placeholder="Enter name"></textarea>
       </div>
       <button type="submit" class="btn btn-info btn-lg">Save</button>
       <button type="button" class="btn btn-default btn-lg pull-right" ng-click="main.cancelEditing()">Cancel</button>

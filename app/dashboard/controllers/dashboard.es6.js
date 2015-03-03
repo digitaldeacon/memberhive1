@@ -1,12 +1,10 @@
-/* global PortletDraggable */
-
 angular.module('gem.dashboard')
   .controller('DashboardController', function($location, $rootScope, $scope, $routeParams, Person) {
-    this.name = $routeParams.id;
-    //this.model = data;
+    this.personId = 1;
+    this.model = Person.options({id:this.personId});
 
-    this.delete = function(id){ //jshint ignore:line
-      //storeService.delete(id);
+    this.delete = function(id){
+      Person.options.delete(id);
       $location.path('/');
       $rootScope.$broadcast('navChanged');
     };
@@ -17,11 +15,11 @@ angular.module('gem.dashboard')
 
 
     $scope.$on('$viewContentLoaded', () => {
-      PortletDraggable.init();
+      Metronic.initAjax();
     });
 
-    $scope.$on('adfDashboardChanged', function(event, name, model) {//jshint ignore:line
-      //storeService.set(name, model);
+    $scope.$on('adfDashboardChanged', function(event, name, model) {
+      Person.options.create({id: 1}, model);
     });
 
   });

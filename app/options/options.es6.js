@@ -5,9 +5,9 @@ angular.module('gem.option').config(
   {
     $stateProvider.state('option', {
       url: '/option',
-      templateUrl: '../options/views/option.html',
+      templateUrl: '../option/views/option.html',
       data: {
-        pageTitle: 'Options',
+        pageTitle: 'Option',
         pageSubTitle: 'Create and edit Options'
       },
       controller: 'OptionController'

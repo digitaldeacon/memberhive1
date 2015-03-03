@@ -57,6 +57,11 @@
       "type": "hasAndBelongsToMany",
       "model": "Ministry",
       "foreignKey": ""
+    },
+    "options": {
+      "type": "hasMany",
+      "model": "Option",
+      "foreignKey": ""
     }
   },
   "acls": [],

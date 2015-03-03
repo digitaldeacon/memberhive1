@@ -1,13 +1,22 @@
 {
-  "name": "Options",
+  "name": "Option",
   "base": "PersistedModel",
   "idInjection": true,
+  "options": {
+    "mysql": {
+      "table": "cor_option"
+    }
+  },
   "properties": {
-    "option_name": {
+    "personId": {
       "type": "string",
       "required": true
     },
-    "option_value": {
+    "optionName": {
+      "type": "string",
+      "required": true
+    },
+    "optionValue": {
       "type": "string",
       "required": true
     }
