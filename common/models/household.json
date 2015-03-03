@@ -1,0 +1,28 @@
+{
+  "name": "Household",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "familyName": {
+      "type": "string",
+      "required": true
+    },
+    "contactTitle": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "persons": {
+      "type": "hasMany",
+      "model": "Person",
+      "foreignKey": ""
+    },
+    "address": {
+      "type": "belongsTo",
+      "model": "Address"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

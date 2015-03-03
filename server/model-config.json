@@ -14,5 +14,13 @@
   "Options": {
     "dataSource": "db",
     "public": true
+  },
+  "Household": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Address": {
+    "dataSource": "db",
+    "public": true
   }
 }

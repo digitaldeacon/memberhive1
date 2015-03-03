@@ -1,0 +1,35 @@
+{
+  "name": "Address",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "street1": {
+      "type": "string"
+    },
+    "street2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "zipcode": {
+      "type": "string"
+    },
+    "additional": {
+      "type": "string"
+    },
+    "geo": {
+      "type": "geopoint"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "households": {
+      "type": "hasMany",
+      "model": "Household",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": []
+}
