@@ -2,7 +2,6 @@ module.exports = function(app) {
     var Person = app.models.Person;
     var Role = app.models.Role;
     var RoleMapping = app.models.RoleMapping;
-    var Team = app.models.Team;
     
     Person.create(
         [{
