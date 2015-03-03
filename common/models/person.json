@@ -35,8 +35,7 @@
       "type": "string"
     },
     "gender": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "birthdate": {
       "type": "date"
