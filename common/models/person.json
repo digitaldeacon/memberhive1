@@ -3,14 +3,14 @@
   "plural": "Persons",
   "base": "User",
   "idInjection": true,
-  "scope": {
-    "where": {
-      "enabled": true
-    }
-  },
   "options": {
     "mysql": {
       "table": "per_person"
+    }
+  },
+  "scope": {
+    "where": {
+      "enabled": true
     }
   },
   "properties": {
@@ -51,6 +51,11 @@
     "contacts": {
       "type": "hasOne",
       "model": "Contact",
+      "foreignKey": ""
+    },
+    "ministries": {
+      "type": "hasAndBelongsToMany",
+      "model": "Ministry",
       "foreignKey": ""
     }
   },

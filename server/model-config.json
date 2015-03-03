@@ -13,7 +13,7 @@
   },
   "Options": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "Household": {
     "dataSource": "db",
@@ -21,9 +21,13 @@
   },
   "Address": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "Contact": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Ministry": {
     "dataSource": "db",
     "public": true
   }
