@@ -22,5 +22,9 @@
   "Address": {
     "dataSource": "db",
     "public": true
+  },
+  "Contact": {
+    "dataSource": "db",
+    "public": true
   }
 }

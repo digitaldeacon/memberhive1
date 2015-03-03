@@ -1,40 +1,40 @@
 {
-  "name": "Address",
+  "name": "Contact",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "mysql": {
-      "table": "cor_address"
+      "table": "per_person_contact"
     }
   },
   "properties": {
-    "street1": {
+    "phoneMobile": {
       "type": "string"
     },
-    "street2": {
+    "phonePrivate": {
       "type": "string"
     },
-    "city": {
+    "phoneWork": {
       "type": "string"
     },
-    "zipcode": {
+    "socialFacebook": {
       "type": "string"
     },
-    "additional": {
+    "socialGoogle": {
       "type": "string"
     },
-    "geo": {
-      "type": "geopoint"
+    "socialSkype": {
+      "type": "string"
+    },
+    "socialWebsite": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
     }
   },
   "validations": [],
-  "relations": {
-    "households": {
-      "type": "hasMany",
-      "model": "Household",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": []
 }

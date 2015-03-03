@@ -2,6 +2,11 @@
   "name": "Household",
   "base": "PersistedModel",
   "idInjection": true,
+  "options": {
+    "mysql": {
+      "table": "per_household"
+    }
+  },
   "properties": {
     "familyName": {
       "type": "string",

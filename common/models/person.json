@@ -8,6 +8,11 @@
       "enabled": true
     }
   },
+  "options": {
+    "mysql": {
+      "table": "per_person"
+    }
+  },
   "properties": {
     "firstName": {
       "type": "string",
@@ -42,7 +47,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "contacts": {
+      "type": "hasOne",
+      "model": "Contact",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": []
 }
