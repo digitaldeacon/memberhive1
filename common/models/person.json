@@ -49,9 +49,8 @@
   "validations": [],
   "relations": {
     "contacts": {
-      "type": "hasOne",
-      "model": "Contact",
-      "foreignKey": ""
+      "type": "hasMany",
+      "model": "Contact"
     },
     "ministries": {
       "type": "hasAndBelongsToMany",
