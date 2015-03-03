@@ -8,29 +8,14 @@
     }
   },
   "properties": {
-    "phoneMobile": {
-      "type": "string"
+    "type": {
+      "type": "string",
+      "required": true,
+      "description": "Can be something like mobile phone, work phone, fax, facebook etc."
     },
-    "phonePrivate": {
-      "type": "string"
-    },
-    "phoneWork": {
-      "type": "string"
-    },
-    "socialFacebook": {
-      "type": "string"
-    },
-    "socialGoogle": {
-      "type": "string"
-    },
-    "socialSkype": {
-      "type": "string"
-    },
-    "socialWebsite": {
-      "type": "string"
-    },
-    "fax": {
-      "type": "string"
+    "value": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
