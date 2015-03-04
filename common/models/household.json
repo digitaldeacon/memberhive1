@@ -4,7 +4,7 @@
   "idInjection": true,
   "options": {
     "mysql": {
-      "table": "per_household"
+      "table": "PerHousehold"
     }
   },
   "properties": {

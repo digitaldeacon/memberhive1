@@ -5,7 +5,7 @@
   "idInjection": true,
   "options": {
     "mysql": {
-      "table": "per_person"
+      "table": "PerPerson"
     }
   },
   "scope": {

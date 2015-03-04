@@ -4,7 +4,7 @@
   "idInjection": true,
   "options": {
     "mysql": {
-      "table": "per_person_contact"
+      "table": "PerPersonContact"
     }
   },
   "properties": {
