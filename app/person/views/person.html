@@ -9,7 +9,7 @@
 </ul>
 <!-- END PAGE BREADCRUMB -->
 <div ng-controller="PersonController as main">
-  <div ui-grid="gridOptions" class="myGrid"></div>
+  <div ui-grid="gridOptions" ui-grid-pagination class="myGrid"></div>
 
   <div ng-if="!main.isEditing" class="well">
       <h4>Create a New Person</h4>

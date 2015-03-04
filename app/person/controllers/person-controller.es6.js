@@ -5,21 +5,35 @@ function PersonController (Person, $scope) {
   this.isEditing = false;
 
   $scope.gridOptions = {
-    enableRowSelection: true,
-    enableRowHeaderSelection: false,
-    multiSelect: false,
+    paginationPageSizes: [25, 50, 75],
+    paginationPageSize: 25,
+    useExternalPagination: true,
+    //useExternalSorting: true,
     columnDefs: [
       { field: 'firstName' },
       { field: 'lastName' }
     ]
   };
 
-  $scope.toggleRowSelection = function() {
-    console.log('toggle');
+  $scope.gridOptions.onRegisterApi = function(gridApi) {
+    $scope.gridApi = gridApi;
+    gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+      getPersons(newPage, pageSize);
+    });
   };
 
-  function getPersons() {
-    Person.find(result => $scope.gridOptions.data = result);
+  function getPersons(pageNumber=1, pageSize=$scope.gridOptions.paginationPageSize) {
+    if (!$scope.gridOptions.totalItems)
+      Person.count().$promise.then(function(result){
+        $scope.gridOptions.totalItems = result.count;
+      });
+
+    $scope.gridOptions.data = Person.find({
+      filter: {
+        limit: pageSize,
+        offset: (pageNumber-1) * pageSize
+      }
+    });
   }
 
   function createPerson(person) {
