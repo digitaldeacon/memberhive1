@@ -4,7 +4,20 @@ module.exports = function(Account) {
   var RoleMapping = loopback.RoleMapping;
   Account.roles = function(msg, cb) {
     Role.getRoles({principalType: RoleMapping.USER, principalId: msg}, function(err, roles) {
-      cb(null, roles);
+      Role.find({},function(err,allRoles) {
+        var ret = [];
+        console.log(roles);
+        for(i = 0; i < roles.length; i++) {
+          if(typeof roles[i] === "number") {
+            for(j = 0; j < allRoles.length; j++) {
+              if(allRoles[j].id == roles[i]) ret.push(allRoles[j].name);
+            }
+          } else {
+            ret.push(roles[i]);
+          }
+        }
+        cb(null, ret);
+      });
     });
     
   }
