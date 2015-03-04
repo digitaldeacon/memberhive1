@@ -1,18 +1,20 @@
-function DashboardController ($location, $rootScope,$scope,Person) {
+function DashboardController ($location, $rootScope,$scope, Account) {
   var vm = this;
   vm.options = [];
   vm.curUser = 1;
 
   function getOptions() {
-    Person.options({id: vm.curUser},result => vm.options = result);
+    Account.options({id: vm.curUser})
+      .$promise
+      .then((result) => vm.options = result.options);
   }
 
   function createUpdateOptions(options) {
-    Person.options.upsert({id: vm.curUser},options);
+    Account.options.upsert({id: vm.curUser}, options);
   }
 
   function deleteDashboard(dashboardId) {
-    Person.options.destroyById(dashboardId);
+    Account.options.destroyById(dashboardId);
     $location.path('/');
     $rootScope.$broadcast('navChanged');
   }

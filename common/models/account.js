@@ -6,7 +6,6 @@ module.exports = function(Account) {
     Role.getRoles({principalType: RoleMapping.USER, principalId: msg}, function(err, roles) {
       Role.find({},function(err,allRoles) {
         var ret = [];
-        console.log(roles);
         for(i = 0; i < roles.length; i++) {
           if(typeof roles[i] === "number") {
             for(j = 0; j < allRoles.length; j++) {

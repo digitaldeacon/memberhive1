@@ -7,9 +7,10 @@ angular.module('gem.acl', [])
   self.rights = [];
   self.redirect = config.redirect;
 
-
-  self.isGranted = (actions) => _.every(actions, (i) => _.contains(self.rights, i));
-  self.isNotGranted = (actions) => _.every(actions, (i) => ! _.contains(self.rights, i));
+  self.contains = (list, item) => _.contains(list, item);
+  
+  self.isGranted = (actions) => _.every(actions, (i) => self.contains(self.rights, i));
+  self.isNotGranted = (actions) => _.every(actions, (i) => ! self.contains(self.rights, i));
 
   this.$get = ['$q', '$rootScope', '$state', function($q, $rootScope, $state) {
     var acl = {};
@@ -25,7 +26,6 @@ angular.module('gem.acl', [])
       if(!toState.acl || !toState.acl.needRights){
         return acl;
       }
-      console.log(self.rights);
       var isGranted = self.isGranted(toState.acl.needRights);
       if(!isGranted && self.redirect !== false){
         event.preventDefault();
@@ -38,7 +38,7 @@ angular.module('gem.acl', [])
     acl.isLoggedIn = () => self.isGranted(['$authenticated']);
     acl.can = (action) => self.isGranted([action]);
     acl.canAll = (actions) => self.isGranted(actions);
-    acl.canAny = (actions) =>  _.any(actions, (i) => _.contains(self.rights, i));
+    acl.canAny = (actions) =>  _.any(actions, (i) => self.contains(self.rights, i));
   
     return acl;
 
