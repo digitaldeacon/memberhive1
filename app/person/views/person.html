@@ -9,13 +9,7 @@
 </ul>
 <!-- END PAGE BREADCRUMB -->
 <div ng-controller="PersonController as main">
-  <div ui-grid="{ data: main.persons }" class="myGrid"></div>
-  <ul class="list-group">
-      <li class="list-group-item" ng-repeat="person in main.persons"  ng-click="main.setEditedPerson(person)" ng-class="{'active':main.isCurrentPerson(person.id)}">
-      {{ person.firstName }} {{person.lastName}}
-      <span type="button" style="float:right" ng-click="main.deletePerson(person.id)">&times;</span>
-      </li>
-  </ul>
+  <div ui-grid="gridOptions" class="myGrid"></div>
 
   <div ng-if="!main.isEditing" class="well">
       <h4>Create a New Person</h4>

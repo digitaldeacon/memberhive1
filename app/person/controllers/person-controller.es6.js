@@ -1,22 +1,25 @@
 function PersonController (Person, $scope) {
+  var main = this;
+  this.editedPerson = null;
+  this.newPerson = null;
+  this.isEditing = false;
+
   $scope.gridOptions = {
     enableRowSelection: true,
     enableRowHeaderSelection: false,
-    multiSelect: false
+    multiSelect: false,
+    columnDefs: [
+      { field: 'firstName' },
+      { field: 'lastName' }
+    ]
   };
 
   $scope.toggleRowSelection = function() {
     console.log('toggle');
   };
 
-  var main = this;
-  this.persons = [];
-  this.editedPerson = null;
-  this.newPerson = null;
-  this.isEditing = false;
-
   function getPersons() {
-    Person.find(result => main.persons = result);
+    Person.find(result => $scope.gridOptions.data = result);
   }
 
   function createPerson(person) {
