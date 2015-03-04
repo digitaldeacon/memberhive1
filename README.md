@@ -42,6 +42,7 @@ Please follow these style guides when writing code:
 * [Weather Icons] (https://github.com/erikflowers/weather-icons)
 * [ViewHead] (https://github.com/apparentlymart/angularjs-viewhead) - sets the Browser Title
 * [Metronic] (http://www.keenthemes.com/preview/)
+* [Angular-Gettext] (https://angular-gettext.rocketeer.be/dev-guide/)
 
 ## Dependencies
 * NPM

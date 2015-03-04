@@ -2,7 +2,7 @@
 <html ng-app="gemmiiWebApp" class="no-js">
   <head>
     <meta charset="utf-8">
-    <title ng-bind-template="{{viewTitle}} - gemmii">gemmii</title>
+    <title data-ng-bind="$state.current.data.pageTitle+' | gemmii'">gemmii</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -75,7 +75,6 @@
     <script src="bower_components/angular-fontawesome/dist/angular-fontawesome.js"></script>
     <script src="bower_components/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="bower_components/angular-slimscroll/angular-slimscroll.js"></script>
-    <script src="bower_components/angularjs-viewhead/angularjs-viewhead.js"></script>
     <script src="bower_components/jquery.uniform/jquery.uniform.js"></script>
     <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
     <script src="bower_components/lodash/dist/lodash.compat.js"></script>

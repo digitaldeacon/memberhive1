@@ -14,7 +14,6 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'oc.lazyLoad',
   'lbServices',
   'gettext',
-  'viewhead',
 
   'formatFilters',
 
