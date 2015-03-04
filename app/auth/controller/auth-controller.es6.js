@@ -3,14 +3,14 @@ function LoginController(User, $location) {
     User.login(
       {rememberMe: this.rememberMe},
       {username: this.username, password: this.password},
-      (val, accessToken) => {
+      () => {
         this.error = false;
-        $location.path("/dhasboard");
+        $location.path('/dashboard');
       },
       (err) => {
         this.error = true;
-        this.error_msg = err.data.error.name;
-        this.error_code = err.data.error.code;
+        this.errorMsg = err.data.error.name;
+        this.errorCode = err.data.error.code;
       }
     );
   }
@@ -20,8 +20,8 @@ function LoginController(User, $location) {
   this.login = login;
   
   this.error = false;
-  this.error_msg = "";
-  this.error_code = "";
+  this.errorMsg = '';
+  this.errorCode = '';
 }
 
 angular.module('gem.auth').controller('LoginController', LoginController);

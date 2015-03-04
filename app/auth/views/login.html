@@ -1,8 +1,8 @@
 <div ng-controller="LoginController as main">
   <!-- BEGIN LOGIN FORM -->
   <div class="note note-danger" ng-show="main.error">
-    <h4> {{ main.error_code }} </h4>
-    {{ main.error_msg }} 
+    <h4> {{ main.errorCode }} </h4>
+    {{ main.errorMsg }} 
   </div>
   <form class="login-form" ng-submit="main.login()">
     <h3 class="form-title">Sign In</h3>

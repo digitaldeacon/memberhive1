@@ -10,7 +10,10 @@ angular.module('gem.person').config(
           pageTitle: 'Person',
           pageSubTitle: 'Create and edit persons'
         },
-        controller: 'PersonController'
+        controller: 'PersonController',
+        acl: {
+          needRights: ['$authenticated']
+        }
      });
     }
   ]

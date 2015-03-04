@@ -21,7 +21,8 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'gem.person',
   'gem.dashboard',
   'gem.option',
-  'gem.auth'
+  'gem.auth',
+  'gem.acl'
 ]);
 
 GemmiiApp.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
@@ -100,7 +101,8 @@ angular.module(
   'gem.dashboard',
   [
     'ui.router',
-    'lbServices'
+    'lbServices',
+    'gem.acl'
   ]
 );
 
@@ -124,3 +126,7 @@ angular.module(
 GemmiiApp.run(['$rootScope', 'settings', '$state', ($rootScope, settings, $state) => {
   $rootScope.$state = $state; // state to be accessed from view
 }]);
+GemmiiApp.run(['GemAcl', function (GemAcl) {
+  GemAcl.setAllowedActions([]);
+}]);
+

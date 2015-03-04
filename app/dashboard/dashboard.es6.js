@@ -25,10 +25,13 @@ angular.module('gem.dashboard',
                 'scripts/metronic/plugins/morris/morris.min.js',
                 'scripts/metronic/plugins/morris/raphael-min.js',
                 'scripts/metronic/pages/tasks.js',
-                'scripts/dashboard/controllers/dashboard.js'
+                'scripts/dashboard/controllers/dashboard-controller.js'
               ]
             });
           }]
+        },
+        acl: {
+          needRights: ['$authenticated']
         }
      });
     }
