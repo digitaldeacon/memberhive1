@@ -1,18 +1,14 @@
 angular.module('gem.person').config(
-  [
-    '$stateProvider',
-    '$urlRouterProvider', $stateProvider =>
-    {
+  ($stateProvider,gettext) => {
       $stateProvider.state('person', {
         url: '/person',
         templateUrl: '../person/views/person.html',
         data: {
-          pageTitle: 'Person',
+          pageTitle: gettext('Person'),
           pageSubTitle: 'Create and edit persons'
         },
         controller: 'PersonController'
-     });
-    }
-  ]
+      });
+  }
 );
 

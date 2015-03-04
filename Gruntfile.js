@@ -30,7 +30,7 @@ module.exports = function (grunt) {
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
-          'po/template.pot': ['app/views/*.html', 'app/tpl/*.html']
+          'po/template.pot': ['app/views/*.html', 'app/tpl/*.html', 'app/**/*.js']
         }
       }
     },

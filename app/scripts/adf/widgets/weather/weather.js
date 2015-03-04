@@ -26,11 +26,10 @@
 
 angular.module('adf.widgets.weather', ['adf.provider'])
   .value('weatherServiceUrl', 'http://api.openweathermap.org/data/2.5/weather?units=metric&callback=JSON_CALLBACK&q=')
-  .config(function(dashboardProvider){
-    dashboardProvider
-      .widget('weather', {
-        title: 'Weather',
-        description: 'Display the current temperature of a city',
+  .config(function(dashboardProvider,gettext){
+    dashboardProvider.widget('weather', {
+        title: gettext('Weather'),
+        description: gettext('Display the current temperature of a city'),
         templateUrl: 'scripts/adf/widgets/weather/weather.html',
         controller: 'weatherCtrl',
         reload: true,
