@@ -1,4 +1,4 @@
-function LoginController(Account, $location, GemAcl) {
+function LoginController(Account, $state, GemAcl) {
   function login() {
     Account.login(
       {rememberMe: this.rememberMe},
@@ -12,22 +12,18 @@ function LoginController(Account, $location, GemAcl) {
         this.errorCode = err.data.error.code;
       }
     )
-    .$promise
-    .then(
-      (resp) => {
-        Account.roles(
-          {'user_id': resp.user.id}
-        ).$promise.then(
-          (roles) => {
-            console.log(roles.roles);
-            GemAcl.setRights(roles.roles);
-            $location.path('/dashboard');
-          }
-        );
+    .$promise.then((resp) => {
+        Account.roles({'user_id': resp.user.id})
+          .$promise.then((resp) => {
+            GemAcl.setRights(resp.roles);
+            $state.go('dashboard');
+          });
       }
     );
 
   }
+  
+  
   this.rememberMe = true;
   this.username = '';
   this.password = '';

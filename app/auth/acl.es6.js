@@ -4,9 +4,7 @@ angular.module('gem.acl', [])
 })
 .provider('GemAcl', ['gem-acl.config', function(config, $get){
   var self = {};
-  var data = window.localStorage.getItem('AclRights');
-  var info = {};
-  self.rights =  (data) ? JSON.parse(data) : [];
+  self.rights = [];
   self.redirect = config.redirect;
 
 
@@ -20,7 +18,6 @@ angular.module('gem.acl', [])
         self.redirect = redirectStateName;
         
     acl.setRights = (rights) => {
-      window.localStorage.setItem('AclRights',JSON.stringify(rights));
       self.rights = rights;
     };
     
@@ -40,7 +37,7 @@ angular.module('gem.acl', [])
     acl.isLoggedOut = () => self.isNotGranted(['$authenticated']);
     acl.isLoggedIn = () => self.isGranted(['$authenticated']);
     acl.can = (action) => self.isGranted([action]);
-    acl.canAll = (action) => self.isGranted(action);
+    acl.canAll = (actions) => self.isGranted(actions);
     acl.canAny = (actions) =>  _.any(actions, (i) => _.contains(self.rights, i));
   
     return acl;

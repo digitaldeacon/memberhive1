@@ -14,7 +14,6 @@ angular.module('gemmiiWebApp', [
   'oc.lazyLoad',
   'lbServices',
   'gettext',
-
   'formatFilters',
   
   'gem.person',
@@ -56,11 +55,17 @@ angular.module('gemmiiWebApp', [
       Layout.initHeader(); // init header
     });
   })
-  .controller('SidebarController', ($scope, GemAcl) => { /* Setup Layout Part - Sidebar */
+  .controller('SidebarController', ($rootScope,$scope, Account, $state, GemAcl) => { /* Setup Layout Part - Sidebar */
+    $scope.logout = () => {
+      Account.logout().$promise.then((resp) => {
+        GemAcl.setRights([]);
+        $state.go('login');
+      });
+    };
     
     $scope.$on('$includeContentLoaded', () => {
       Layout.initSidebar(); // init sidebar
-      $scope.acl = GemAcl;
+      
     });
   })
   .controller('PageHeadController', $scope => {/* Setup Layout Part - Sidebar */
@@ -73,10 +78,15 @@ angular.module('gemmiiWebApp', [
     });
   })
 
-  .run(($rootScope, settings, $state) => {
+  .run(($rootScope, settings, $state, GemAcl,LoopBackAuth, Account) => {
     $rootScope.$state = $state; // state to be accessed from view
-  }).run(['GemAcl', (GemAcl) => {
-  }]);
+    Account.roles({'user_id': LoopBackAuth.currentUserID})
+      .$promise.then((resp) => {
+        GemAcl.setRights(resp.roles);
+        $rootScope.acl = GemAcl;
+      });
+    
+  });
 
 angular.module(
   'gem.person',
