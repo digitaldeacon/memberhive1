@@ -1,26 +1,34 @@
-angular.module('gem.dashboard')
-  .controller('DashboardController', function($location, $rootScope, $scope, $routeParams, Person) {
+function DashboardController ($location, $rootScope,$scope,Person) {
+  var vm = this;
+  vm.options = [];
+  vm.curUser = 1;
 
-    this.personId = 1;
-    this.model = Person.options({id:this.personId});
+  function getOptions() {
+    Person.options({id: vm.curUser},result => vm.options = result);
+  }
 
-    this.delete = function(id){
-      Person.options.delete(id);
-      $location.path('/');
-      $rootScope.$broadcast('navChanged');
-    };
+  function createUpdateOptions(options) {
+    Person.options.upsert({id: vm.curUser},options);
+  }
 
-    Person.count(count => {
-       this.userCount = count.count;
-    });
+  function deleteDashboard(dashboardId) {
+    Person.options.destroyById(dashboardId);
+    $location.path('/');
+    $rootScope.$broadcast('navChanged');
+  }
 
+  /*$scope.$on('$viewContentLoaded', () => {
+    Metronic.initAjax(); //funktioniert im Moment nicht
+  });*/
 
-    $scope.$on('$viewContentLoaded', () => {
-      Metronic.initAjax();
-    });
-
-    $scope.$on('adfDashboardChanged', function(event, name, model) {
-      Person.options.create({id: 1}, model);
-    });
-
+  $scope.$on('adfDashboardChanged', (event, name, options) => {
+    createUpdateOptions(options);
+    //Person.options.updateById({id: vm.curUser,fk: 1},options);
   });
+
+  vm.delete = deleteDashboard;
+
+  getOptions();
+}
+
+angular.module('gem.dashboard').controller('DashboardController', DashboardController);

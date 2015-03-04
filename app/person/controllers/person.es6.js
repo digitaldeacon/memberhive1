@@ -1,5 +1,10 @@
 function PersonController (Person) {
   var main = this;
+  this.persons = [];
+  this.editedPerson = null;
+  this.newPerson = null;
+  this.isEditing = false;
+
   function getPersons() {
     Person.find(result => main.persons = result);
   }
@@ -43,10 +48,6 @@ function PersonController (Person) {
     main.isEditing = false;
   }
 
-  this.persons = [];
-  this.editedPerson = null;
-  this.newPerson = null;
-  this.isEditing = false;
   this.getPersons = getPersons;
   this.createPerson = createPerson;
   this.updatePerson = updatePerson;

@@ -13,8 +13,6 @@ angular.module('gem.dashboard',
           deps: ['$ocLazyLoad', function($ocLazyLoad) {
             return $ocLazyLoad.load({
               name: 'gem.dashboard',
-              personId: 1,
-              options: {},
               insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
               files: [
                 'scripts/metronic/plugins/morris/morris.css',
