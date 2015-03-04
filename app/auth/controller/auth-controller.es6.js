@@ -1,6 +1,6 @@
-function LoginController(Person) {
+function LoginController(User) {
   function login() {
-    Person.login(
+    User.login(
         {rememberMe: this.rememberMe},
         {username: this.username, password: this.password},
         (err, accessToken) => {

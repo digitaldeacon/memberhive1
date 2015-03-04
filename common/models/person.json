@@ -1,7 +1,7 @@
 {
   "name": "Person",
   "plural": "Persons",
-  "base": "User",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "mysql": {
@@ -62,6 +62,13 @@
       "foreignKey": ""
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": []
 }
