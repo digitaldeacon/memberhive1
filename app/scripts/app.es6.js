@@ -16,10 +16,11 @@ angular.module('gemmiiWebApp', [
   'gettext',
 
   'formatFilters',
-
+  
   'gem.person',
   'gem.dashboard',
   'gem.option',
+  'gem.acl',
   'gem.auth'
   ])
 
@@ -55,9 +56,11 @@ angular.module('gemmiiWebApp', [
       Layout.initHeader(); // init header
     });
   })
-  .controller('SidebarController', $scope => { /* Setup Layout Part - Sidebar */
+  .controller('SidebarController', ($scope, GemAcl) => { /* Setup Layout Part - Sidebar */
+    
     $scope.$on('$includeContentLoaded', () => {
       Layout.initSidebar(); // init sidebar
+      $scope.acl = GemAcl;
     });
   })
   .controller('PageHeadController', $scope => {/* Setup Layout Part - Sidebar */
@@ -72,7 +75,8 @@ angular.module('gemmiiWebApp', [
 
   .run(($rootScope, settings, $state) => {
     $rootScope.$state = $state; // state to be accessed from view
-  });
+  }).run(['GemAcl', (GemAcl) => {
+  }]);
 
 angular.module(
   'gem.person',
@@ -86,7 +90,8 @@ angular.module(
   'gem.dashboard',
   [
     'ui.router',
-    'lbServices'
+    'lbServices',
+    'gem.acl'
   ]
 );
 

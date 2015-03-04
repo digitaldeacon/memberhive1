@@ -1,5 +1,4 @@
 npm install
 bower install
-sudo killall node
-sudo node . &
+sudo slc run &
 grunt serve

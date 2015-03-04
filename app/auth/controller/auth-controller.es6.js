@@ -1,29 +1,41 @@
-function LoginController(User, $location) {
-  this.rememberMe = true;
-  this.username = '';
-  this.password = '';
-
-  this.error = false;
-  this.errorMsg = '';
-  this.errorCode = '';
-
+function LoginController(Account, $location, GemAcl) {
   function login() {
-    User.login(
+    Account.login(
       {rememberMe: this.rememberMe},
       {username: this.username, password: this.password},
-      (val, accessToken) => { //jshint ignore:line
+      (err,user) => {
         this.error = false;
-        $location.path('/dashboard');
       },
       (err) => {
         this.error = true;
         this.errorMsg = err.data.error.name;
         this.errorCode = err.data.error.code;
       }
+    )
+    .$promise
+    .then(
+      (resp) => {
+        Account.roles(
+          {'user_id': resp.user.id}
+        ).$promise.then(
+          (roles) => {
+            console.log(roles.roles);
+            GemAcl.setRights(roles.roles);
+            $location.path('/dashboard');
+          }
+        );
+      }
     );
-  }
 
+  }
+  this.rememberMe = true;
+  this.username = '';
+  this.password = '';
   this.login = login;
+  
+  this.error = false;
+  this.errorMsg = '';
+  this.errorCode = '';
 }
 
-angular.module('gem.auth').controller('LoginController', LoginController);
+angular.module('gem.auth', []).controller('LoginController', LoginController);
