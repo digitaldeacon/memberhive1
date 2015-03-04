@@ -1,16 +1,13 @@
 module.exports = function(app) {
-    var Person = app.models.Person;
+    var User = app.models.User;
     var Role = app.models.Role;
     var RoleMapping = app.models.RoleMapping;
     
-    Person.create(
+    User.create(
         [{
             username: 'root', 
             email: 'root@gemmii.io', 
             password:'bibel',
-            firstName: "Root",
-            lastName: "Root",
-            enabled: true
         }], 
         function(err, users) {
         // Create the admin role

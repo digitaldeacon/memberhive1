@@ -7,3 +7,4 @@ bower_components
 typings
 .strong-pm
 server/datasources.local.json
+app/scripts/lb-services.js

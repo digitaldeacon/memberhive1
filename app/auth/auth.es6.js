@@ -10,7 +10,6 @@ angular.module('gem.auth').config(
         data: {
           pageTitle: 'Login'
         },
-        controller: 'LoginController'
      });
     }
   ]
