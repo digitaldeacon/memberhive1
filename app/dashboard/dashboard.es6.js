@@ -1,15 +1,12 @@
 angular.module('gem.dashboard',
   ['adf','structures','adf.widgets.weather'])
   .config(
-  [
-    '$stateProvider',
-    '$urlRouterProvider', $stateProvider =>
-    {
+    ($stateProvider,gettext) => {
       $stateProvider.state('dashboard', {
         url: '/dashboard',
         templateUrl: '../dashboard/views/dashboard.html',
         data: {
-          pageTitle: 'Dashboard'
+          pageTitle: gettext('Dashboard')
         },
         controller: 'DashboardController',
         resolve: {
@@ -35,6 +32,4 @@ angular.module('gem.dashboard',
         }
      });
     }
-  ]
   );
-

@@ -1,7 +1,7 @@
 /**
  * The main Gemmii app module.
  */
-var GemmiiApp = angular.module('gemmiiWebApp', [
+angular.module('gemmiiWebApp', [
   'ngAnimate',
   'ngCookies',
   'ngResource',
@@ -14,80 +14,66 @@ var GemmiiApp = angular.module('gemmiiWebApp', [
   'oc.lazyLoad',
   'lbServices',
   'gettext',
-  'viewhead',
 
   'formatFilters',
-
+  
   'gem.person',
   'gem.dashboard',
   'gem.option',
-  'gem.auth',
-  'gem.acl'
-]);
+  'gem.acl',
+  'gem.auth'
+  ])
 
-GemmiiApp.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
-  $ocLazyLoadProvider.config({
-    cssFilesInsertBefore: 'ng_load_plugins_before' // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+  .config(
+    ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) => {
+      $urlRouterProvider.otherwise('/dashboard');
+      $ocLazyLoadProvider.config({
+        cssFilesInsertBefore: 'ng_load_plugins_before' // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+      });
+  })
+
+  .factory('settings', $rootScope => {
+    var settings = {
+      layout: {
+        pageSidebarClosed: false, // sidebar state
+        pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
+      }
+    };
+    $rootScope.settings = settings;
+    return settings;
+  })
+
+  .controller('AppController', $scope => {
+      $scope.init = () => {
+        Metronic.init();
+      };
+      $scope.$on('$viewContentLoaded', () => {
+        Metronic.initComponents(); // init core components
+      });
+    })
+  .controller('HeaderController', $scope => {
+    $scope.$on('$includeContentLoaded', () => {
+      Layout.initHeader(); // init header
+    });
+  })
+  .controller('SidebarController', $scope => { /* Setup Layout Part - Sidebar */
+    $scope.$on('$includeContentLoaded', () => {
+      Layout.initSidebar(); // init sidebar
+    });
+  })
+  .controller('PageHeadController', $scope => {/* Setup Layout Part - Sidebar */
+    $scope.$on('$includeContentLoaded', () => {
+    });
+  })
+  .controller('FooterController', $scope => {/* Setup Layout Part - Footer */
+    $scope.$on('$includeContentLoaded', () => {
+      Layout.initFooter(); // init footer
+    });
+  })
+
+  .run(($rootScope, settings, $state) => {
+    $rootScope.$state = $state; // state to be accessed from view
   });
-}]);
-
-
-GemmiiApp.factory('settings', ['$rootScope', $rootScope => {
-  // supported languages
-  var settings = {
-    layout: {
-      pageSidebarClosed: false, // sidebar state
-      pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
-    }
-  };
-
-  $rootScope.settings = settings;
-
-  return settings;
-}]);
-
-GemmiiApp.controller('AppController', ['$scope', '$rootScope', $scope => {
-  $scope.init = () => {
-    Metronic.init();
-  };
-  $scope.$on('$viewContentLoaded', () => {
-    Metronic.initComponents(); // init core components
-  });
-}]);
-
-GemmiiApp.controller('HeaderController', ['$scope', $scope => {
-  $scope.$on('$includeContentLoaded', () => {
-    Layout.initHeader(); // init header
-  });
-}]);
-
-/* Setup Layout Part - Sidebar */
-GemmiiApp.controller('SidebarController', ['$scope', $scope => {
-  $scope.$on('$includeContentLoaded', () => {
-    Layout.initSidebar(); // init sidebar
-  });
-}]);
-
-/* Setup Layout Part - Sidebar */
-GemmiiApp.controller('PageHeadController', ['$scope', $scope => {
-  $scope.$on('$includeContentLoaded', () => {
-  });
-}]);
-
-/* Setup Layout Part - Footer */
-GemmiiApp.controller('FooterController', ['$scope', $scope => {
-  $scope.$on('$includeContentLoaded', () => {
-    Layout.initFooter(); // init footer
-  });
-}]);
-
-GemmiiApp.config([
-  '$stateProvider',
-  '$urlRouterProvider',
-  ($stateProvider, $urlRouterProvider) => {
-    $urlRouterProvider.otherwise('/dashboard');
-  }
-]);
 
 angular.module(
   'gem.person',
@@ -121,12 +107,3 @@ angular.module(
     'lbServices'
   ]
 );
-
-
-GemmiiApp.run(['$rootScope', 'settings', '$state', ($rootScope, settings, $state) => {
-  $rootScope.$state = $state; // state to be accessed from view
-}]);
-GemmiiApp.run(['GemAcl', function (GemAcl) {
-  GemAcl.setAllowedActions([]);
-}]);
-

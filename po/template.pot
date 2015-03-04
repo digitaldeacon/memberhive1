@@ -8,8 +8,16 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+#: app/scripts/adf/widgets/weather/weather.js:33
+msgid "Display the current temperature of a city"
+msgstr ""
+
 #: app/tpl/sidebar.html:25
 msgid "List Persons"
+msgstr ""
+
+#: app/tpl/sidebar.html:38
+msgid "Login"
 msgstr ""
 
 #: app/tpl/sidebar.html:30
@@ -18,4 +26,8 @@ msgstr ""
 
 #: app/tpl/sidebar.html:19
 msgid "Persons"
+msgstr ""
+
+#: app/scripts/adf/widgets/weather/weather.js:32
+msgid "Weather"
 msgstr ""

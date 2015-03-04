@@ -1,17 +1,12 @@
 angular.module('gem.auth').config(
-  [
-    '$stateProvider',
-    '$urlRouterProvider',
-    $stateProvider =>
-    {
+  ($stateProvider,gettext) => {
       $stateProvider.state('login', {
         url: '/login',
         templateUrl: '../auth/views/login.html',
         data: {
-          pageTitle: 'Login'
-        },
-     });
+          pageTitle: gettext('Login')
+        }
+      });
     }
-  ]
 );
 

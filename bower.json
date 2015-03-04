@@ -17,7 +17,6 @@
     "angular-bootstrap": "",
     "angular-fontawesome": "*",
     "angular-slimscroll": "^1.1.*",
-    "angularjs-viewhead": "*",
     "jquery.uniform": "^2.1.*",
     "angular-gettext": "~2.0.2",
     "restangular": "~1.4.0",
