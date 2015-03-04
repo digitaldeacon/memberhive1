@@ -1,11 +1,15 @@
-function LoginController(User, $location) {
+function LoginController(Account, $location, GemAcl) {
   function login() {
-    User.login(
+    Account.login(
       {rememberMe: this.rememberMe},
       {username: this.username, password: this.password},
-      () => {
+      (val,key) => {
         this.error = false;
+        
+      
+        
         $location.path('/dashboard');
+        
       },
       (err) => {
         this.error = true;
@@ -24,4 +28,4 @@ function LoginController(User, $location) {
   this.errorCode = '';
 }
 
-angular.module('gem.auth').controller('LoginController', LoginController);
+angular.module('gem.auth', []).controller('LoginController', LoginController);

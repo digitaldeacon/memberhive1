@@ -1,9 +1,9 @@
 module.exports = function(app) {
-    var User = app.models.User;
+    var Account = app.models.Account;
     var Role = app.models.Role;
     var RoleMapping = app.models.RoleMapping;
     
-    User.create(
+    Account.create(
         [{
             username: 'root', 
             email: 'root@gemmii.io', 

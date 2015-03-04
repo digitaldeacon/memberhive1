@@ -23,10 +23,6 @@
     "dataSource": "db",
     "public": true
   },
-  "User": {
-    "dataSource": "db",
-    "public": true
-  },
   "Person": {
     "dataSource": "db",
     "public": true
@@ -48,6 +44,10 @@
     "public": false
   },
   "Ministry": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Account": {
     "dataSource": "db",
     "public": true
   }
