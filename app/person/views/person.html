@@ -9,7 +9,18 @@
 </ul>
 <!-- END PAGE BREADCRUMB -->
 <div ng-controller="PersonController as personCtrl">
-  <div ui-grid="gridOptions" ui-grid-pagination class="myGrid"></div>
+
+  <ul>
+    <li dir-paginate="person in personCtrl.persons | itemsPerPage: personCtrl.pageSize"
+        total-items="personCtrl.totalPersons">
+      {{ person.firstName }} {{ person.lastName }}
+    </li>
+  </ul>
+
+  <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
+    template-url="tpl/dirPagination.html">
+  </dir-pagination-controls>
+
 
   <div ng-if="!personCtrl.isEditing" class="well">
       <h4>Create a New Person</h4>

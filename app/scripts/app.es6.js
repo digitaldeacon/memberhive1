@@ -91,10 +91,8 @@ angular.module(
   [
     'ui.router',
     'lbServices',
-    'ui.grid',
-    'ui.grid.pagination',
     'schemaForm',
-    'ngAnimate' // used by ui.grid
+    'angularUtils.directives.dirPagination'
   ]
 );
 

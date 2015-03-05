@@ -7,7 +7,7 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -110,7 +110,7 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               connect.static('.tmp'),
               connect().use(
@@ -129,7 +129,7 @@ module.exports = function (grunt) {
       test: {
         options: {
           port: 9001,
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               connect.static('.tmp'),
               connect.static('test'),
@@ -504,12 +504,12 @@ module.exports = function (grunt) {
 
     var poDir = path.join(__dirname, '/po/');
     var dirs = fs.readdirSync(poDir);
-    dirs.forEach(function (countryCode) {
+    dirs.forEach(function(countryCode) {
       var xy = path.join(poDir, countryCode);
       if (!fs.lstatSync(xy).isDirectory())
         return;
       var poFiles = fs.readdirSync(xy);
-      poFiles.forEach(function (poFile) {
+      poFiles.forEach(function(poFile) {
         var poFilePath = path.join(poDir, countryCode, poFile);
         var content = fs.readFileSync(poFilePath, 'utf8');
         var searchStr = '\"Language: ' + poFile.replace('.po', '') + '\\n\"';
