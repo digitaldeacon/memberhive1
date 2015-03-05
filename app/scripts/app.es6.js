@@ -83,19 +83,8 @@ angular.module('gemmiiWebApp', [
 
   .run(($rootScope, settings, $state, GemAcl, Account, LoopBackAuth) => {
     $rootScope.$state = $state; // state to be accessed from view
-    Account.roles({'user_id': LoopBackAuth.currentUserID})
-      .$promise.then(
-        (resp) => {
-          GemAcl.setRights(resp.roles);
-          $rootScope.acl = GemAcl;
-        },
-        (err) => {
-          GemAcl.setRights([]);
-          $rootScope.acl = GemAcl;
-        }
-
-      );
-
+    var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
+    GemAcl.setRightsPromise(p);
   });
 
 angular.module(

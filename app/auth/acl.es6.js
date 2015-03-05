@@ -1,22 +1,14 @@
 angular.module('gem.acl')
-.provider('GemAcl', ['gem-acl.config', function(config, $get, LoopBackAuth, Account) {
+.provider('GemAcl', ['gem-acl.config', function(config, $get, LoopBackAuth, $q) {
   var self = {};
   self.rights = false;
+  self.rightsPromise = false;
   self.redirect = config.redirect;
 
   self.contains = (list, item) => _.contains(list, item);
 
-  self.isGrantedB = (actions) => _.every(actions, (i) => self.contains(self.rights, i));
-  self.isNotGranted = (actions) => !self.isGrantedB(actions);
-
-  self.isGranted = (actions) => {
-    if (self.rights === false) {
-      return false;
-    } else {
-      console.log(self.rights);
-      return self.isGrantedB(actions);
-    }
-  };
+  self.isGranted = (actions) => _.every(actions, (i) => self.contains(self.rights, i));
+  self.isNotGranted = (actions) => !self.isGranted(actions);
 
   this.$get = ['$q', '$rootScope', '$state', function($q, $rootScope, $state) {
     var acl = {};
@@ -24,8 +16,29 @@ angular.module('gem.acl')
     acl.setRedirect = (redirect) => self.redirect = redirect;
 
     acl.setRights = (rights) => self.rights = rights;
+    acl.setRightsPromise = (rightsPromise) => self.rightsPromise = rightsPromise;
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      if (self.rights === false) {
+        self.rightsPromise
+        .then(
+          (data) => {
+            self.rights = data.roles;
+            $rootScope.acl = acl;
+            acl.changeState(event,toState);
+          },
+          (err) => {
+            self.rights = [];
+            $rootScope.acl = acl;
+            acl.changeState(event,toState);
+          }
+        );
+      } else {
+        acl.changeState(event, toState);
+      }
+    });
+
+    acl.changeState = (event, toState) => {
       if (!toState.acl || !toState.acl.needRights) {
         return acl;
       }
@@ -36,7 +49,8 @@ angular.module('gem.acl')
           $state.go(self.redirect);
         }
       }
-    });
+    };
+
     acl.isLoggedOut = () => self.isNotGranted(['$authenticated']);
     acl.isLoggedIn = () => self.isGranted(['$authenticated']);
     acl.can = (action) => self.isGranted([action]);
