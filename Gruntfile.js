@@ -432,8 +432,7 @@ module.exports = function (grunt) {
 
     githooks: {
       all: {
-        // Will run the jshint task at every commit
-        'pre-commit': 'jshint'
+        'pre-commit': 'jshint jscs'
       }
     }
   });
@@ -445,6 +444,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'githooks',
       'clean:server',
       'dbmigrate',
       'loopback_sdk_angular',

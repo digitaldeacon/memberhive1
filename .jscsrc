@@ -45,6 +45,5 @@
     "beforeOpeningCurlyBrace": true
   },
   "disallowMultipleLineBreaks": true,
-  "validateLineBreaks": "LF",
-  "disallowSpacesInsideParentheses": true
+  "validateLineBreaks": "LF"
 }
