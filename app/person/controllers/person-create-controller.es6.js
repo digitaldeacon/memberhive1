@@ -1,6 +1,6 @@
 function PersonCreateController(Person, $scope) {
-
-  this.schema = {
+  var vm = this;
+  vm.schema = {
     type: 'object',
     properties: {
       firstName: {
@@ -37,7 +37,7 @@ function PersonCreateController(Person, $scope) {
     }
   };
 
-  this.form = [
+  vm.form = [
     '*',
     {
       type: 'submit',
@@ -45,12 +45,12 @@ function PersonCreateController(Person, $scope) {
     }
   ];
 
-  this.model = {};
+  vm.model = {};
 
-  this.onSubmit = (form) => {
+  vm.onSubmit = (form) => {
     $scope.$broadcast('schemaFormValidate');
     if (form.$valid) {
-      Person.create(this.model).$promise
+      Person.create(vm.model).$promise
       .then(
         (ok) => console.log('created'),
         (err) => console.log('error')
@@ -61,7 +61,4 @@ function PersonCreateController(Person, $scope) {
 
 angular
   .module('gem.person')
-  .controller(
-    'PersonCreateController',
-    PersonCreateController
-);
+  .controller('PersonCreateController', PersonCreateController);
