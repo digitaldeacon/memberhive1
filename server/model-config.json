@@ -50,5 +50,13 @@
   "Account": {
     "dataSource": "db",
     "public": true
+  },
+  "Report": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ReportFolder": {
+    "dataSource": "db",
+    "public": true
   }
 }

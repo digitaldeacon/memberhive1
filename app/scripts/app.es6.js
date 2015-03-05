@@ -53,7 +53,8 @@ angular.module('gemmiiWebApp', [
         Metronic.initComponents(); // init core components
       });
     })
-  .controller('HeaderController', $scope => {
+  .controller('HeaderController', ($scope,LoopBackAuth) => {
+    $scope.accessToken = LoopBackAuth.accessTokenId;
     $scope.$on('$includeContentLoaded', () => {
       Layout.initHeader(); // init header
     });
