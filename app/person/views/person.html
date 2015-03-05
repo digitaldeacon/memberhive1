@@ -8,55 +8,55 @@
   </li>
 </ul>
 <!-- END PAGE BREADCRUMB -->
-<div ng-controller="PersonController as main">
+<div ng-controller="PersonController as personCtrl">
   <div ui-grid="gridOptions" ui-grid-pagination class="myGrid"></div>
 
-  <div ng-if="!main.isEditing" class="well">
+  <div ng-if="!personCtrl.isEditing" class="well">
       <h4>Create a New Person</h4>
       <hr/>
-      <form class="create-form" role="form" ng-submit="main.createPerson(main.newPerson)" novalidate>
+      <form class="create-form" role="form" ng-submit="personCtrl.createPerson(personCtrl.newPerson)" novalidate>
           <div class="form-group">
               <label>First name</label>
-              <input type="text" class="form-control" ng-model="main.newPerson.firstName" placeholder="Enter name">
+              <input type="text" class="form-control" ng-model="personCtrl.newPerson.firstName" placeholder="Enter name">
           </div>
           <div class="form-group">
               <label>Last name</label>
-              <input type="text" class="form-control" ng-model="main.newPerson.lastName" placeholder="Enter name">
+              <input type="text" class="form-control" ng-model="personCtrl.newPerson.lastName" placeholder="Enter name">
           </div>
           <div class="form-group">
               <label>Gender</label>
-              <input type="text" class="form-control" ng-model="main.newPerson.gender" placeholder="Enter gender">
+              <input type="text" class="form-control" ng-model="personCtrl.newPerson.gender" placeholder="Enter gender">
           </div>
           <div class="form-group">
               <label>EMail</label>
-              <input type="text" class="form-control" ng-model="main.newPerson.email" placeholder="Enter email">
+              <input type="text" class="form-control" ng-model="personCtrl.newPerson.email" placeholder="Enter email">
           </div>
           <button type="submit" class="btn btn-info btn-lg">Create</button>
       </form>
   </div>
       <!-- EDITING -->
-  <div ng-if="main.isEditing" class="well">
-      <h4>Editing {{main.editedPerson.firstName}} {{main.editedPerson.lastName}}</h4>
+  <div ng-if="personCtrl.isEditing" class="well">
+      <h4>Editing {{personCtrl.editedPerson.firstName}} {{personCtrl.editedPerson.lastName}}</h4>
       <hr/>
-      <form class="edit-form" role="form" ng-submit="main.updatePerson(main.editedPerson)" novalidate>
+      <form class="edit-form" role="form" ng-submit="personCtrl.updatePerson(personCtrl.editedPerson)" novalidate>
           <div class="form-group">
               <label>First name</label>
-              <input type="text" class="form-control" ng-model="main.editedPerson.firstName" placeholder="Enter name">
+              <input type="text" class="form-control" ng-model="personCtrl.editedPerson.firstName" placeholder="Enter name">
           </div>
           <div class="form-group">
               <label>Last name</label>
-              <input type="text" class="form-control" ng-model="main.editedPerson.lastName" placeholder="Enter name">
+              <input type="text" class="form-control" ng-model="personCtrl.editedPerson.lastName" placeholder="Enter name">
           </div>
           <div class="form-group">
               <label>Gender</label>
-              <input type="text" class="form-control" ng-model="main.editedPerson.gender" placeholder="Enter gender">
+              <input type="text" class="form-control" ng-model="personCtrl.editedPerson.gender" placeholder="Enter gender">
           </div>
           <div class="form-group">
               <label>EMail</label>
-              <input type="text" class="form-control" ng-model="main.editedPerson.email" placeholder="Enter email">
+              <input type="text" class="form-control" ng-model="personCtrl.editedPerson.email" placeholder="Enter email">
           </div>
           <button type="submit" class="btn btn-info btn-lg">Save</button>
-          <button type="button" class="btn btn-default btn-lg pull-right" ng-click="main.cancelEditing()">Cancel</button>
+          <button type="button" class="btn btn-default btn-lg pull-right" ng-click="personCtrl.cancelEditing()">Cancel</button>
       </form>
   </div>
 

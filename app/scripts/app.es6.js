@@ -15,7 +15,7 @@ angular.module('gemmiiWebApp', [
   'lbServices',
   'gettext',
   'formatFilters',
-  
+
   'gem.person',
   'gem.dashboard',
   'gem.option',
@@ -65,10 +65,10 @@ angular.module('gemmiiWebApp', [
         $state.go('login');
       });
     };
-    
+
     $scope.$on('$includeContentLoaded', () => {
       Layout.initSidebar(); // init sidebar
-      
+
     });
   })
   .controller('PageHeadController', $scope => {/* Setup Layout Part - Sidebar */
@@ -83,15 +83,19 @@ angular.module('gemmiiWebApp', [
 
   .run(($rootScope, settings, $state, GemAcl, Account, LoopBackAuth) => {
     $rootScope.$state = $state; // state to be accessed from view
-    var promise = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise.then(
-      (res) => {
-        GemAcl.setRights(res.roles);
-      },
-      (err) => {
-        GemAcl.setRights([]);
-      }
-    );
-    $rootScope.acl = GemAcl;
+    Account.roles({'user_id': LoopBackAuth.currentUserID})
+      .$promise.then(
+        (resp) => {
+          GemAcl.setRights(resp.roles);
+          $rootScope.acl = GemAcl;
+        },
+        (err) => {
+          GemAcl.setRights([]);
+          $rootScope.acl = GemAcl;
+        }
+
+      );
+
   });
 
 angular.module(
@@ -101,7 +105,8 @@ angular.module(
     'lbServices',
     'ui.grid',
     'ui.grid.pagination',
-    'schemaForm'
+    'schemaForm',
+    'ngAnimate' // used by ui.grid
   ]
 );
 
