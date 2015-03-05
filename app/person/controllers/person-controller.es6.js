@@ -31,7 +31,11 @@ function PersonController(Person, $scope, uiGridConstants) {
     });
   };
 
-  this.getPersons = function(pageNumber=1, pageSize=$scope.gridOptions.paginationPageSize, sort='') {
+  this.getPersons = function(pageNumber, pageSize, sort) {
+    pageNumber = pageNumber || 1;
+    pageSize = pageSize || $scope.gridOptions.paginationPageSize;
+    sort = sort || 'lastName ASC';
+
     if (!$scope.gridOptions.totalItems)
       Person.count().$promise.then(function(result){
         $scope.gridOptions.totalItems = result.count;
