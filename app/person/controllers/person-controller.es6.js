@@ -26,7 +26,7 @@ function PersonController(Person, $scope, uiGridConstants) {
       self.getPersons(1, $scope.gridOptions.paginationPageSize,
         `${sortColumns[0].name} ${sortColumns[0].sort.direction}`);
     });
-    gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+    gridApi.pagination.on.paginationChanged($scope, function(newPage, pageSize) {
       self.getPersons(newPage, pageSize);
     });
   };
@@ -37,14 +37,14 @@ function PersonController(Person, $scope, uiGridConstants) {
     sort = sort || 'lastName ASC';
 
     if (!$scope.gridOptions.totalItems)
-      Person.count().$promise.then(function(result){
+      Person.count().$promise.then(function(result) {
         $scope.gridOptions.totalItems = result.count;
       });
 
     $scope.gridOptions.data = Person.find({
       filter: {
         limit: pageSize,
-        offset: (pageNumber-1) * pageSize,
+        offset: (pageNumber - 1) * pageSize,
         order: sort
       }
     });

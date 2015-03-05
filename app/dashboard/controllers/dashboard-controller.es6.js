@@ -1,4 +1,4 @@
-function DashboardController ($location, $rootScope,$scope, Account) {
+function DashboardController($location, $rootScope,$scope, Account) {
   var vm = this;
   vm.options = [];
   vm.curUser = 1;

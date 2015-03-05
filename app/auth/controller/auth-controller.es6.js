@@ -12,17 +12,15 @@ function LoginController(Account, $state, GemAcl) {
             GemAcl.setRights(resp.roles);
             $state.go('dashboard');
           });
-      }, 
+      },
       (err) => {
         this.error = true;
         this.errorMsg = err.data.error.name;
         this.errorCode = err.data.error.code;
       }
     );
-
   }
-  
-  
+
   this.rememberMe = true;
   this.login = login;
   this.error = false;

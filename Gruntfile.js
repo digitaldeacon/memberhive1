@@ -166,6 +166,13 @@ module.exports = function (grunt) {
       }
     },
 
+    jscs: {
+      src: 'app/**/*.js',
+      options: {
+        config: '.jscsrc'
+      }
+    },
+
     // Empties folders to start fresh
     clean: {
       dist: {
@@ -526,4 +533,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-loopback-sdk-angular');
   grunt.loadNpmTasks('grunt-loopback-auto');
+  grunt.loadNpmTasks('grunt-jscs');
 };

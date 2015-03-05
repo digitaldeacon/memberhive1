@@ -1,0 +1,5 @@
+{
+  // Can't be used because it creates false warnings on ES6 template strings, e.g. bla(`{foo}`) gives a warning,
+  // see https://github.com/jscs-dev/node-jscs/issues/748
+  "disallowSpacesInsideParentheses": true,
+}

@@ -1,8 +1,7 @@
 angular.module('gem.person').config(
   [
     '$stateProvider',
-    '$urlRouterProvider', 
-    ($stateProvider) =>
+    '$urlRouterProvider', $stateProvider =>
     {
       $stateProvider.state('person', {
         url: '/person',

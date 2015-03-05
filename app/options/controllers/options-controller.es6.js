@@ -1,4 +1,4 @@
-function OptionController (Option) {
+function OptionController(Option) {
   var main = this;
   function getOptions() {
     Option.find(result => main.options = result);
