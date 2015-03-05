@@ -135,13 +135,13 @@ angular.module(
   ]
 );
 angular.module(
-  'gem.acl', 
+  'gem.acl',
   [
     'lbServices'
   ]
 ).constant(
-  'gem-acl.config', 
+  'gem-acl.config',
   {
-    'redirect': 'login',
+    'redirect': 'login'
   }
 );

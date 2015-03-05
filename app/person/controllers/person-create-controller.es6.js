@@ -1,4 +1,4 @@
-function PersonCreateController (Person, $scope) {
+function PersonCreateController(Person, $scope) {
   this.createPerson = (person) => {
     Person.create(person, () => {
     });
@@ -29,7 +29,7 @@ function PersonCreateController (Person, $scope) {
       },
       gender: {
         type: 'string',
-        enum : ['male', 'female']
+        enum: ['male', 'female']
       },
       birthdate: {
         type: 'string'
@@ -50,7 +50,7 @@ function PersonCreateController (Person, $scope) {
   ];
 
   $scope.model = {};
-  
+
   $scope.onSubmit = (form) => {
     console.log(form);
     $scope.$broadcast('schemaFormValidate');
