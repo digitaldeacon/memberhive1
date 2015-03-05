@@ -1,26 +1,29 @@
-angular.module('gem.acl', [])
-.constant('gem-acl.config', {
-  'redirect': 'login',
-})
-.provider('GemAcl', ['gem-acl.config', function(config, $get){
+angular.module('gem.acl')
+.provider('GemAcl', ['gem-acl.config', function(config, $get, LoopBackAuth, Account){
   var self = {};
-  self.rights = [];
+  self.rights = false;
   self.redirect = config.redirect;
 
   self.contains = (list, item) => _.contains(list, item);
   
-  self.isGranted = (actions) => _.every(actions, (i) => self.contains(self.rights, i));
-  self.isNotGranted = (actions) => _.every(actions, (i) => ! self.contains(self.rights, i));
+  self.isGrantedB = (actions) => _.every(actions, (i) => self.contains(self.rights, i));
+  self.isNotGranted = (actions) => ! self.isGrantedB(actions);
 
+  self.isGranted = (actions) => {
+    if(self.rights === false) {
+      return false;
+    } else {
+      console.log(self.rights);
+      return self.isGrantedB(actions);
+    }
+  };
+  
   this.$get = ['$q', '$rootScope', '$state', function($q, $rootScope, $state) {
     var acl = {};
 
-    acl.setRedirect = (redirectStateName) =>
-        self.redirect = redirectStateName;
+    acl.setRedirect = (redirect) => self.redirect = redirect;
         
-    acl.setRights = (rights) => {
-      self.rights = rights;
-    };
+    acl.setRights = (rights) => self.rights = rights;
     
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       if(!toState.acl || !toState.acl.needRights){

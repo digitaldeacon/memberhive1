@@ -24,7 +24,10 @@ angular.module('gemmiiWebApp', [
   ])
 
   .config(
-    ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) => {
+    ($stateProvider,
+     $urlRouterProvider,
+     $ocLazyLoadProvider
+    ) => {
       $urlRouterProvider.otherwise('/dashboard');
       $ocLazyLoadProvider.config({
         cssFilesInsertBefore: 'ng_load_plugins_before' // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
@@ -78,21 +81,17 @@ angular.module('gemmiiWebApp', [
     });
   })
 
-  .run(($rootScope, settings, $state, GemAcl,LoopBackAuth, Account) => {
+  .run(($rootScope, settings, $state, GemAcl, Account, LoopBackAuth) => {
     $rootScope.$state = $state; // state to be accessed from view
-    Account.roles({'user_id': LoopBackAuth.currentUserID})
-      .$promise.then(
-        (resp) => {
-          GemAcl.setRights(resp.roles);
-          $rootScope.acl = GemAcl;
-        }, 
-        (err) => {
-          GemAcl.setRights([]);
-          $rootScope.acl = GemAcl;
-        }
-        
-      );
-    
+    var promise = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise.then(
+      (res) => {
+        GemAcl.setRights(res.roles);
+      },
+      (err) => {
+        GemAcl.setRights([]);
+      }
+    );
+    $rootScope.acl = GemAcl;
   });
 
 angular.module(
@@ -101,7 +100,8 @@ angular.module(
     'ui.router',
     'lbServices',
     'ui.grid',
-    'ui.grid.pagination'
+    'ui.grid.pagination',
+    'schemaForm'
   ]
 );
 
@@ -128,4 +128,15 @@ angular.module(
     'ui.router',
     'lbServices'
   ]
+);
+angular.module(
+  'gem.acl', 
+  [
+    'lbServices'
+  ]
+).constant(
+  'gem-acl.config', 
+  {
+    'redirect': 'login',
+  }
 );
