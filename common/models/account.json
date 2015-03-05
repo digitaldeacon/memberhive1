@@ -1,12 +1,25 @@
 {
   "name": "Account",
   "base": "User",
+  "relations": {
+    "options": {
+      "type": "hasMany",
+      "model": "Option",
+      "foreignKey": ""
+    }
+  },
   "acls" : [ 
     {
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "roles"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__options"
     }
   ]
 }

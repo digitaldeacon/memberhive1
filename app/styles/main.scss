@@ -11,3 +11,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 // Custom styles
 @import "_header.scss";
+
+.login-content {
+  background-color: #fff;
+  width: 360px;
+  padding: 30px;
+}

@@ -38,5 +38,11 @@
         <span class="title" translate>Login</span>
       </a>
     </li>
+    <li ng-show="acl.isLoggedIn()">
+      <a ng-click="logout()">
+        <fa name="lock"></fa>
+        <span class="title" translate>Logout</span>
+      </a>
+    </li>
 	</ul>
 </div>

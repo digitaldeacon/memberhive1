@@ -1,4 +1,4 @@
-<div ng-controller="LoginController as main">
+<div ng-controller="LoginController as main" class="login-content">
   <!-- BEGIN LOGIN FORM -->
   <div class="note note-danger" ng-show="main.error">
     <h4> {{ main.errorCode }} </h4>
@@ -6,18 +6,19 @@
   </div>
   <form class="login-form" ng-submit="main.login()">
     <h3 class="form-title">Sign In</h3>
-    <div class="alert alert-danger display-hide">
-      <button class="close" data-close="alert"></button>
-      <span>
-      Enter any username and password. </span>
-    </div>
     <div class="form-group">
-      <label class="control-label visible-ie8 visible-ie9">Username</label>
-      <input ng-model="main.username" class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>
+      <label class="control-label visible-ie8 visible-ie9" translate>Username</label>
+      <div class="input-icon">
+        <i class="fa fa-user"></i>
+        <input ng-model="main.username" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username"/>
+      </div>
     </div>
     <div class="form-group">
       <label class="control-label visible-ie8 visible-ie9">Password</label>
-      <input ng-model="main.password" class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+      <div class="input-icon">
+        <i class="fa fa-lock"></i>
+        <input ng-model="main.password" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+      </div>
     </div>
     <div class="form-actions">
       <button type="submit" class="btn btn-success uppercase">Login</button>

@@ -8,7 +8,6 @@ angular.module('gem.dashboard',
         data: {
           pageTitle: gettext('Dashboard')
         },
-        controller: 'DashboardController',
         resolve: {
           deps: ['$ocLazyLoad', function($ocLazyLoad) {
             return $ocLazyLoad.load({

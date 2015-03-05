@@ -7,6 +7,7 @@ angular.module('gem.auth').config(
           pageTitle: gettext('Login')
         }
       });
+     
     }
 );
 
