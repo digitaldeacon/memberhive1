@@ -432,7 +432,7 @@ module.exports = function (grunt) {
 
     githooks: {
       all: {
-        'pre-commit': 'jshint jscs'
+        'pre-commit': 'jshint'
       }
     }
   });
