@@ -24,13 +24,12 @@ angular.module('gemmiiWebApp', [
   ])
 
   .config(
-    ($stateProvider,
-     $urlRouterProvider,
-     $ocLazyLoadProvider
-    ) => {
+    ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) => {
       $urlRouterProvider.otherwise('/dashboard');
       $ocLazyLoadProvider.config({
-        cssFilesInsertBefore: 'ng_load_plugins_before' // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+        // load the above css files before a LINK element with this ID.
+        // Dynamic CSS files must be loaded between core and theme css files
+        cssFilesInsertBefore: 'ng_load_plugins_before'
       });
   })
 

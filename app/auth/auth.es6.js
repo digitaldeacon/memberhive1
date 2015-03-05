@@ -1,5 +1,5 @@
 angular.module('gem.auth').config(
-  ($stateProvider,gettext) => {
+  ($stateProvider, gettext) => {
       $stateProvider.state('login', {
         url: '/login',
         templateUrl: '../auth/views/login.html',

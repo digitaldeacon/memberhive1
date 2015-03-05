@@ -45,5 +45,6 @@
     "beforeOpeningCurlyBrace": true
   },
   "disallowMultipleLineBreaks": true,
-  "validateLineBreaks": "LF"
+  "validateLineBreaks": "LF",
+  "maximumLineLength": 120
 }

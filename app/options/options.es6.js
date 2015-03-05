@@ -1,7 +1,5 @@
 angular.module('gem.option').config(
-  [
-    '$stateProvider',
-    '$urlRouterProvider', $stateProvider => {
+  ($stateProvider) => {
     $stateProvider.state('option', {
       url: '/option',
       templateUrl: '../option/views/option.html',
@@ -12,5 +10,4 @@ angular.module('gem.option').config(
       controller: 'OptionController'
     });
   }
-  ]
 );
