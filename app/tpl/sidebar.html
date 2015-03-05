@@ -6,14 +6,14 @@
 	<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
 	<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 	<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
-      ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
-		<li class="start" ng-show="acl.isLoggedIn()">
-			<a href="#/dashboard">
+      ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}" ng-if="acl.isLoggedIn()">
+		<li class="start" >
+			<a ui-sref='dashboard'>
                 <fa name="laptop"></fa>
                 <span class="title" translate>Dashboard</span>
 			</a>
 		</li>
-		<li ng-show="acl.isLoggedIn()">
+		<li>
 			<a>
         <fa name="user"></fa>
         <span class="title" translate>Persons</span>
@@ -21,24 +21,18 @@
 			</a>
 			<ul class="sub-menu">
 				<li>
-					<a href="#/person">
+					<a ui-sref='person.list'>
 					  <fa name="users"></fa> <translate>List Persons</translate>
 					</a>
 				</li>
 				<li>
-					<a href="#/person/create">
-                        <fa name="user-plus"></fa> <translate>New Person</translate>
+					<a ui-sref='person.create'>
+            <fa name="user-plus"></fa> <translate>New Person</translate>
 					</a>
 				</li>
 			</ul>
 		</li>
-		<li ng-show="acl.isLoggedOut()">
-      <a href="#/login">
-        <fa name="lock"></fa>
-        <span class="title" translate>Login</span>
-      </a>
-    </li>
-    <li ng-show="acl.isLoggedIn()">
+    <li>
       <a ng-click="logout()">
         <fa name="lock"></fa>
         <span class="title" translate>Logout</span>

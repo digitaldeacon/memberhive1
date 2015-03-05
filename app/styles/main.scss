@@ -11,9 +11,18 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 // Custom styles
 @import "_header.scss";
-
+.login-bg {
+  background-color: #000 !important;
+}
 .login-content {
-  background-color: #fff;
   width: 360px;
   padding: 30px;
+  margin: 0 auto;
+  background: url(../img/bg-white-lock.png) repeat;
+  @include border-radius(7px);
+  
+  .rememberMe {
+    margin-top: 8px;
+    display: inline-block;
+  }
 }

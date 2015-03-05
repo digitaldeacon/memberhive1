@@ -5,6 +5,7 @@
     <title data-ng-bind="$state.current.data.pageTitle+' | gemmii'">gemmii</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <base href="/">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="icon" href="/favicon.png">
@@ -36,9 +37,10 @@
   };</script>
   </head>
   <body ng-controller="AppController" data-ng-init="init()"
-        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load">
-
-    <!--[if lt IE 9]>
+        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load"
+        >
+  
+      <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
@@ -47,26 +49,34 @@
       <div class="bounce2"></div>
       <div class="bounce3"></div>
     </div>
+    
+    <div ng-if="acl.isLoggedIn()"> 
+      <div data-ng-include="'tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top" >
+      </div>
 
-    <div data-ng-include="'tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top">
-    </div>
+      <div class="clearfix"></div>
 
-    <div class="clearfix"></div>
-
-    <div class="page-container">
-      <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController as sidebar" class="page-sidebar-wrapper"></div>
-      <div class="page-content-wrapper">
-        <div class="page-content">
-          <div data-ng-include="'tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head"></div>
-          <div ui-view>
+      <div class="page-container">
+        <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController as sidebar" class="page-sidebar-wrapper"></div>
+        
+        <div class="page-content-wrapper">
+          <div class="page-content">
+            <div data-ng-include="'tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head" ></div>
+            <ui-view />
           </div>
         </div>
       </div>
+      <div data-ng-include="'tpl/footer.html'" data-ng-controller="FooterController" class="page-footer">
+      </div>
     </div>
-
-    <div data-ng-include="'tpl/footer.html'" data-ng-controller="FooterController" class="page-footer">
+    
+    <div ng-if="acl.isLoggedOut()">
+      <div class="page-container" >
+          <ui-view />
+      </div>
     </div>
-
+      
+ 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>

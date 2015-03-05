@@ -24,13 +24,14 @@ angular.module('gemmiiWebApp', [
   ])
 
   .config(
-    ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) => {
-      $urlRouterProvider.otherwise('/dashboard');
+    ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $locationProvider) => {
+      $urlRouterProvider.otherwise('/dashboard');  
       $ocLazyLoadProvider.config({
         // load the above css files before a LINK element with this ID.
         // Dynamic CSS files must be loaded between core and theme css files
         cssFilesInsertBefore: 'ng_load_plugins_before'
       });
+      //$locationProvider.html5Mode(true);
   })
 
   .factory('settings', $rootScope => {

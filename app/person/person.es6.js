@@ -1,7 +1,13 @@
 angular.module('gem.person').config(
   ($stateProvider) => {
-    $stateProvider.state('person', {
+    $stateProvider
+    .state('person', {
       url: '/person',
+      template: '<ui-view/>',
+      abstract: true,
+    })
+    .state('person.list', {
+      url: '/list',
       templateUrl: '../person/views/person.html',
       data: {
         pageTitle: 'Person',
@@ -10,20 +16,12 @@ angular.module('gem.person').config(
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('personCreate', {
-      url: '/person/create',
+    }).state('person.create', {
+      url: '/create',
       templateUrl: '../person/views/person_create.html',
       data: {
         pageTitle: 'Person',
         pageSubTitle: 'Create a person'
-      },
-      resolve: {
-        deps: [
-          '$ocLazyLoad',
-          ($ocLazyLoad) => {
-            $ocLazyLoad.load('scripts/person/controllers/person-create-controller.js');
-          }
-        ]
       },
       acl: {
         needRights: ['$authenticated']
