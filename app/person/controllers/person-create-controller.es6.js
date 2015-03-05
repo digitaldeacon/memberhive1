@@ -1,10 +1,6 @@
 function PersonCreateController(Person, $scope) {
-  this.createPerson = (person) => {
-    Person.create(person, () => {
-    });
-  };
 
-  $scope.schema = {
+  this.schema = {
     type: 'object',
     properties: {
       firstName: {
@@ -41,7 +37,7 @@ function PersonCreateController(Person, $scope) {
     }
   };
 
-  $scope.form = [
+  this.form = [
     '*',
     {
       type: 'submit',
@@ -49,13 +45,16 @@ function PersonCreateController(Person, $scope) {
     }
   ];
 
-  $scope.model = {};
+  this.model = {};
 
-  $scope.onSubmit = (form) => {
-    console.log(form);
+  this.onSubmit = (form) => {
     $scope.$broadcast('schemaFormValidate');
     if (form.$valid) {
-      console.log(form);
+      Person.create(this.model).$promise
+      .then(
+        (ok) => console.log('created'),
+        (err) => console.log('error')
+      );
     }
   };
 }
