@@ -16,7 +16,7 @@ angular.module('gemmiiWebApp', [
   'gettext',
 
   'formatFilters',
-  
+
   'gem.person',
   'gem.dashboard',
   'gem.option',
@@ -57,7 +57,7 @@ angular.module('gemmiiWebApp', [
     });
   })
   .controller('SidebarController', ($scope, GemAcl) => { /* Setup Layout Part - Sidebar */
-    
+
     $scope.$on('$includeContentLoaded', () => {
       Layout.initSidebar(); // init sidebar
       $scope.acl = GemAcl;
@@ -84,7 +84,8 @@ angular.module(
     'ui.router',
     'lbServices',
     'ui.grid',
-    'ui.grid.pagination'
+    'ui.grid.pagination',
+    'ngAnimate' // used by ui.grid
   ]
 );
 

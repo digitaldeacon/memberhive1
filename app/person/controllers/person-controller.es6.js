@@ -1,4 +1,4 @@
-function PersonController(Person, $scope) {
+function PersonController(Person, $scope, uiGridConstants) {
   var self = this;
   this.editedPerson = null;
   this.newPerson = null;
@@ -8,21 +8,30 @@ function PersonController(Person, $scope) {
     paginationPageSizes: [25, 50, 75],
     paginationPageSize: 25,
     useExternalPagination: true,
-    //useExternalSorting: true,
+    useExternalSorting: true,
     columnDefs: [
       { field: 'firstName' },
-      { field: 'lastName' }
+      {
+        field: 'lastName',
+        sort: {
+          direction: uiGridConstants.ASC
+        }
+      }
     ]
   };
 
   $scope.gridOptions.onRegisterApi = function(gridApi) {
     $scope.gridApi = gridApi;
+    $scope.gridApi.core.on.sortChanged($scope, function(grid, sortColumns) {
+      self.getPersons(1, $scope.gridOptions.paginationPageSize,
+        `${sortColumns[0].name} ${sortColumns[0].sort.direction}`);
+    });
     gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
       self.getPersons(newPage, pageSize);
     });
   };
 
-  this.getPersons = function(pageNumber=1, pageSize=$scope.gridOptions.paginationPageSize) {
+  this.getPersons = function(pageNumber=1, pageSize=$scope.gridOptions.paginationPageSize, sort='') {
     if (!$scope.gridOptions.totalItems)
       Person.count().$promise.then(function(result){
         $scope.gridOptions.totalItems = result.count;
@@ -31,7 +40,8 @@ function PersonController(Person, $scope) {
     $scope.gridOptions.data = Person.find({
       filter: {
         limit: pageSize,
-        offset: (pageNumber-1) * pageSize
+        offset: (pageNumber-1) * pageSize,
+        order: sort
       }
     });
   };
