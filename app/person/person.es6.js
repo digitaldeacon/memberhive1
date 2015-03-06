@@ -1,10 +1,10 @@
 angular.module('gem.person').config(
-  ($stateProvider) => {
+  ($stateProvider, $compileProvider) => {
     $stateProvider
     .state('person', {
       url: '/person',
       template: '<ui-view/>',
-      abstract: true,
+      abstract: true
     })
     .state('person.list', {
       url: '/list',
@@ -27,5 +27,8 @@ angular.module('gem.person').config(
         needRights: ['$authenticated']
       }
     });
+
+    // Allow skype urls http://stackoverflow.com/a/15769779
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|skype):/);
   }
 );

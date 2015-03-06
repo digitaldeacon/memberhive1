@@ -20,11 +20,17 @@
     "zipcode": {
       "type": "string"
     },
+    "country": {
+      "type": "string",
+      "description": "ISO-3166 country code (2 letters"
+    },
     "additional": {
       "type": "string"
     },
     "type": {
       "type": "string",
+      "default": "home",
+      "enum": ["home", "postal", "work", "org"],
       "description": "ENUM(home, postal, work, org)"
     },
     "geo": {

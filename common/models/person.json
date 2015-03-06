@@ -59,6 +59,10 @@
     "account": {
       "type": "hasOne",
       "model": "Account"
+    },
+    "household": {
+      "type": "belongsTo",
+      "model": "Household"
     }
   },
   "acls": [

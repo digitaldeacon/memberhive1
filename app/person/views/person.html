@@ -25,25 +25,33 @@
         <img src="http://placehold.it/80x80" />
       </td>
       <td>
-        {{person.firstName}} {{person.lastName}}
-        <div ng-if="person.account.email">
-          <fa name="envelope"></fa> <a href="mailto:{{ person.account.email }}">{{ person.account.email }}</a>
-        </div>
-        <div ng-if="personCtrl.getContacts(person, 'home')">
-          <fa name="phone"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'home') }}">{{ personCtrl.getContacts(person, 'home') }}</a>
-        </div>
-        <div ng-if="personCtrl.getContacts(person, 'work')">
-          <fa name="phone"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'work') }}">{{ personCtrl.getContacts(person, 'work') }}</a>
-        </div>
-        <div ng-if="personCtrl.getContacts(person, 'mobile')">
-          <fa name="mobile"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'mobile') }}">{{ personCtrl.getContacts(person, 'mobile') }}</a>
-        </div>
-        <span ng-if="personCtrl.getContacts(person, 'facebook')">
-          <a href="{{ personCtrl.getContacts(person, 'facebook') | contactFacebook }}"><fa name="facebook"></fa></a>
-        </span>
-        <span ng-if="personCtrl.getContacts(person, 'skype')">
-          <a href="{{ personCtrl.getContacts(person, 'skype') | contactSkype }}"><fa name="skype"></fa></a>
-        </span>
+        <h3>{{person.firstName}} {{person.lastName}}</h3>
+        <ul class="list-inline">
+          <li ng-if="person.household" title="{{'Household' | translate}}">
+            <fa name="users"></fa> {{ person.household.familyName }}
+          </li>
+          <li ng-if="person.birthdate" title="{{'Birthdate' | translate}}">
+            <fa name="calendar"></fa> {{person.birthdate | date:medium}}
+          </li>
+          <li ng-if="person.account.email" title="{{'Email' | translate}}">
+            <fa name="envelope"></fa> <a href="mailto:{{ person.account.email }}">{{ person.account.email }}</a>
+          </li>
+          <li ng-if="personCtrl.getContacts(person, 'home')" title="{{'Home phone' | translate}}">
+            <fa name="phone"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'home') }}">{{ personCtrl.getContacts(person, 'home') }}</a>
+          </li>
+          <li ng-if="personCtrl.getContacts(person, 'work')" title="{{'Work phone' | translate}}">
+            <fa name="phone"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'work') }}">{{ personCtrl.getContacts(person, 'work') }}</a>
+          </li>
+          <li ng-if="personCtrl.getContacts(person, 'mobile')" title="{{'Mobile phone' | translate}}">
+            <fa name="mobile"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'mobile') }}">{{ personCtrl.getContacts(person, 'mobile') }}</a>
+          </li>
+          <li ng-if="personCtrl.getContacts(person, 'facebook')" title="{{'Facebook' | translate}}">
+            <a target="_blank" href="{{ personCtrl.getContacts(person, 'facebook') | contactFacebook }}"><fa name="facebook"></fa></a>
+          </li>
+          <li ng-if="personCtrl.getContacts(person, 'skype')" title="{{'Skype' | translate}}">
+            <a href="{{ personCtrl.getContacts(person, 'skype') | contactSkype }}"><fa name="skype"></fa></a>
+          </li>
+        </ul>
       </td>
       <td></td>
     </tr>
