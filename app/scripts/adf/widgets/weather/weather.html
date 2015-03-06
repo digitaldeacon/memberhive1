@@ -1,5 +1,5 @@
 <div class="portlet light dashboard-stat blue-madison">
-  <div class="alert alert-info" ng-if="!data">
+  <div class="alert alert-info" ng-if="!data" translate>
     Please insert a location in the widget configuration
   </div>
   <div class="visual">
@@ -9,7 +9,7 @@
     <div class="desc" style="padding-right: 20px;">
       <h4>{{data.name}} ({{data.sys.country}})</h4>
       <dl>
-        <dt>Temperature:</dt>
+        <dt translate>Temperature:</dt>
         <dd>{{data.main.temp | temperature}}</dd>
       </dl>
     </div>

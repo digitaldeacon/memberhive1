@@ -8,16 +8,12 @@
     }
   },
   "properties": {
-    "personId": {
-      "type": "string",
-      "required": true
-    },
     "optionName": {
       "type": "string",
       "required": true
     },
     "optionValue": {
-      "type": "string",
+      "type": "Object",
       "required": true
     }
   },

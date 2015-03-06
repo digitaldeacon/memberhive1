@@ -5,6 +5,8 @@ angular.module('gem.dashboard',
       $stateProvider.state('dashboard', {
         url: '/dashboard',
         templateUrl: '../dashboard/views/dashboard.html',
+        controller: 'DashboardController',
+        controllerAs: 'dashboard',
         data: {
           pageTitle: gettext('Dashboard')
         },

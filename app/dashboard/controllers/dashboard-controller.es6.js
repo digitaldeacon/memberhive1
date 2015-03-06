@@ -1,16 +1,37 @@
-function DashboardController($location, $rootScope,$scope, Account, $http) {
+function DashboardController($location,$rootScope,$scope,Option,Account,LoopBackAuth) {
   var vm = this;
+  vm.curUser = LoopBackAuth.currentUserId;
   vm.options = [];
-  vm.curUser = 1;
 
-  function getOptions() {
-    Account.options({id: vm.curUser})
-      .$promise
-      .then((result) => vm.options = result.options);
+  vm.o = { //default values
+    accountId: vm.curUser,
+    optionName: 'DashboardConfig',
+    optionValue: vm.model,
+    id: 0
+  };
+
+  function getOptions(name) {
+     Option.findOne({
+        filter: {
+          where: {
+            accountId: LoopBackAuth.currentUserId,
+            optionName: name
+          }
+        }
+      }
+    ).$promise.then(function(result) {
+         vm.o = result;
+         vm.model = vm.o.optionValue;
+       });
   }
 
-  function createUpdateOptions(options) {
-    Account.options.upsert({id: vm.curUser}, options);
+  function createUpdateOptions(model) {
+    vm.o.optionValue = model;
+    if (vm.o.hasOwnProperty('id')) {
+      Option.prototype$updateAttributes({id: vm.o.id},vm.o);
+    } else {
+      Account.options.create({id:vm.curUser},vm.o);
+    }
   }
 
   function deleteDashboard(dashboardId) {
@@ -23,14 +44,15 @@ function DashboardController($location, $rootScope,$scope, Account, $http) {
     Metronic.initAjax(); //funktioniert im Moment nicht
   });*/
 
-  $scope.$on('adfDashboardChanged', (event, name, options) => {
-    createUpdateOptions(options);
-    //Person.options.updateById({id: vm.curUser,fk: 1},options);
-  });
-
   vm.delete = deleteDashboard;
 
-  getOptions();
+  getOptions('DashboardConfig');
+
+  console.log(vm.model);
+
+  $scope.$on('adfDashboardChanged', (event, name, model) => {
+    createUpdateOptions(model);
+  });
 }
 
 angular.module('gem.dashboard').controller('DashboardController', DashboardController);
