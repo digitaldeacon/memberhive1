@@ -12,7 +12,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // Custom styles
 @import "_header.scss";
 .login-bg {
-  background-color: #000 !important;
+  background: url(../img/login/bg/1.jpg);
+  background-size: 100% auto;
 }
 .login-content {
   width: 360px;
@@ -20,9 +21,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   margin: 0 auto;
   background: url(../img/bg-white-lock.png) repeat;
   @include border-radius(7px);
-  
+
   .rememberMe {
     margin-top: 8px;
     display: inline-block;
   }
+}
+.logo {
+  padding: 15px;
+  text-align: center;
+  margin: 0 auto;
 }

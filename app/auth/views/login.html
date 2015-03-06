@@ -1,8 +1,15 @@
+<!-- BEGIN LOGO -->
+<div class="logo">
+  <a href="#login">
+    <img src="img/gemmii_sm.png" alt=""/>
+  </a>
+</div>
+<!-- END LOGO -->
 <div ng-controller="LoginController as main" class="login-content">
   <!-- BEGIN LOGIN FORM -->
   <div class="note note-danger" ng-show="main.error">
     <h4> {{ main.errorCode }} </h4>
-    {{ main.errorMsg }} 
+    {{ main.errorMsg }}
   </div>
   <form class="login-form" ng-submit="main.login()">
     <h3 class="form-title" translate>Sign In</h3>
@@ -22,12 +29,12 @@
     </div>
     <div class="form-actions">
       <label class="checkbox rememberMe">
-        <input type="checkbox" name="remember" value="1" translate ng-model="main.rememberMe"/> Remember me 
+        <input type="checkbox" name="remember" value="1" translate ng-model="main.rememberMe"/> Remember me
       </label>
       <button type="submit" class="btn btn-success pull-right" translate><fa name="arrow-circle-right"></fa> Login</button>
     </div>
     <div class="form-actions">
-      
+
     </div>
 </div>
 <script>
