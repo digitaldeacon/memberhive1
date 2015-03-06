@@ -55,6 +55,10 @@
       "type": "hasAndBelongsToMany",
       "model": "Ministry",
       "foreignKey": ""
+    },
+    "account": {
+      "type": "hasOne",
+      "model": "Account"
     }
   },
   "acls": [

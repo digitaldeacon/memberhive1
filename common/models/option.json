@@ -8,6 +8,10 @@
     }
   },
   "properties": {
+    "accountId": {
+      "type": "number",
+      "required": true
+    },
     "optionName": {
       "type": "string",
       "required": true
@@ -18,7 +22,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations":
+  {
+    "account" : {
+      "type" : "belongsTo",
+      "model" : "Account",
+      "foreignKey" : "accountId"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

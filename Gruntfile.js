@@ -228,7 +228,8 @@ module.exports = function(grunt) {
 
     'babel': {
       options: {
-        sourceMap: true
+        sourceMap: true,
+        experimental: true
       },
       dist: {
         files: [{
