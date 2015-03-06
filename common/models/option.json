@@ -22,12 +22,11 @@
     }
   },
   "validations": [],
-  "relations":
-  {
-    "account" : {
-      "type" : "belongsTo",
-      "model" : "Account",
-      "foreignKey" : "accountId"
+  "relations": {
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "accountId"
     }
   },
   "acls": [

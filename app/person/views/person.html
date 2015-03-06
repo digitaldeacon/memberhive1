@@ -14,8 +14,9 @@
     <thead>
     <tr>
       <th></th>
-      <th translate>Name</th>
-      <th></th>
+      <th translate>Person details</th>
+      <th translate>Ministries</th>
+      <th translate>Roles</th>
     </tr>
     </thead>
     <tbody>
@@ -26,7 +27,7 @@
       </td>
       <td>
         <h3>{{person.firstName}} {{person.lastName}}</h3>
-        <ul class="list-inline">
+        <ul class="list-inline text-muted">
           <li ng-if="person.household" title="{{'Household' | translate}}">
             <fa name="users"></fa> {{ person.household.familyName }}
           </li>
@@ -53,6 +54,7 @@
           </li>
         </ul>
       </td>
+      <td></td>
       <td></td>
     </tr>
     </tbody>
