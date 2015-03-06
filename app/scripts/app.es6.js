@@ -25,7 +25,7 @@ angular.module('gemmiiWebApp', [
 
   .config(
     ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $locationProvider) => {
-      $urlRouterProvider.otherwise('/dashboard');  
+      $urlRouterProvider.otherwise('/dashboard');
       $ocLazyLoadProvider.config({
         // load the above css files before a LINK element with this ID.
         // Dynamic CSS files must be loaded between core and theme css files
@@ -94,7 +94,9 @@ angular.module(
     'ui.router',
     'lbServices',
     'schemaForm',
-    'angularUtils.directives.dirPagination'
+    'angularUtils.directives.dirPagination',
+
+    'contactFilters'
   ]
 );
 

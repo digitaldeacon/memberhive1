@@ -19,7 +19,12 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "person": {
+      "type": "belongsTo",
+      "model": "Person"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

@@ -10,12 +10,45 @@
 <!-- END PAGE BREADCRUMB -->
 <div ng-controller="PersonController as personCtrl">
 
-  <ul>
-    <li dir-paginate="person in personCtrl.persons | itemsPerPage: personCtrl.pageSize"
+  <table class="table table-striped table-bordered table-advance table-hover">
+    <thead>
+    <tr>
+      <th></th>
+      <th translate>Name</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr dir-paginate="person in personCtrl.persons | itemsPerPage: personCtrl.pageSize"
         total-items="personCtrl.totalPersons">
-      {{ person.firstName }} {{ person.lastName }}
-    </li>
-  </ul>
+      <td>
+        <img src="http://placehold.it/80x80" />
+      </td>
+      <td>
+        {{person.firstName}} {{person.lastName}}
+        <div ng-if="person.account.email">
+          <fa name="envelope"></fa> <a href="mailto:{{ person.account.email }}">{{ person.account.email }}</a>
+        </div>
+        <div ng-if="personCtrl.getContacts(person, 'home')">
+          <fa name="phone"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'home') }}">{{ personCtrl.getContacts(person, 'home') }}</a>
+        </div>
+        <div ng-if="personCtrl.getContacts(person, 'work')">
+          <fa name="phone"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'work') }}">{{ personCtrl.getContacts(person, 'work') }}</a>
+        </div>
+        <div ng-if="personCtrl.getContacts(person, 'mobile')">
+          <fa name="mobile"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'mobile') }}">{{ personCtrl.getContacts(person, 'mobile') }}</a>
+        </div>
+        <span ng-if="personCtrl.getContacts(person, 'facebook')">
+          <a href="{{ personCtrl.getContacts(person, 'facebook') | contactFacebook }}"><fa name="facebook"></fa></a>
+        </span>
+        <span ng-if="personCtrl.getContacts(person, 'skype')">
+          <a href="{{ personCtrl.getContacts(person, 'skype') | contactSkype }}"><fa name="skype"></fa></a>
+        </span>
+      </td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
 
   <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
     template-url="tpl/dirPagination.html">

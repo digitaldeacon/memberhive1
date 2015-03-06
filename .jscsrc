@@ -44,7 +44,6 @@
   "requireSpacesInFunction": {
     "beforeOpeningCurlyBrace": true
   },
-  "disallowMultipleLineBreaks": true,
   "validateLineBreaks": "LF",
   "maximumLineLength": 120
 }

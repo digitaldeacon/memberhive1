@@ -26,9 +26,17 @@ function PersonController(Person, $scope) {
       filter: {
         limit: this.pageSize,
         offset: (pageNumber - 1) * this.pageSize,
-        order: sort
+        order: sort,
+        include: ['contacts', 'account']
       }
     });
+  };
+
+  /**
+   * Filter person.contacts by given `contactType` and return first occurence
+   */
+  this.getContacts = (person, contactType) => {
+    return [for (contact of person.contacts) if (contact.type === contactType) contact.value].shift();
   };
 
   this.createPerson = (person) => {
