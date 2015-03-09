@@ -15,6 +15,7 @@ angular.module('gemmiiWebApp', [
   'lbServices',
   'gettext',
   'formatFilters',
+  'angular-bootstrap-select',
 
   'gem.person',
   'gem.dashboard',

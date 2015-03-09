@@ -14,6 +14,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.min.css" />
     <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.css" />
@@ -25,6 +26,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" href="styles/search.css">
 
   </head>
   <body ng-controller="AppController" data-ng-init="init()" ng-class="{'login-bg': $state.includes('login')}"
@@ -76,6 +78,8 @@
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="bower_components/angular-bootstrap-select/build/angular-bootstrap-select.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -110,7 +114,7 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/metronic/metronic.js"></script>
     <script src="scripts/metronic/layout.js"></script>
-    <script src="scripts/metronic/pages/portlet-draggable.js"></script>
+    <script src="scripts/metronic/pages/components-dropdowns.js"></script>
 
     <script src="scripts/scripts/app.js"></script>
     <script src="scripts/scripts/directives.js"></script>

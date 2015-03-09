@@ -8,9 +8,30 @@
 		<div class="menu-toggler sidebar-toggler">
 		</div>
 	</div>
-	<span class="pull-right" style="color:#ccc">
+  <div class="input-group">
+    <form id="main-search" class="global-search" role="form" novalidate="novalidate">
+      <div class="input-group">
+        <div class="input-cont">
+          <select selectpicker="" ng-model="color">
+            <option data-icon="glyphicon glyphicon-globe" value="primary">Everything</option>
+            <option data-icon="glyphicon glyphicon-thumbs-up" value="info">btn-info</option>
+            <option data-icon="glyphicon glyphicon-bell" value="success">btn-success</option>
+            <option data-icon="glyphicon glyphicon-phone" value="danger">btn-danger</option>
+            <option data-icon="glyphicon glyphicon-globe" value="warning">btn-warning</option>
+            <option data-icon="glyphicon glyphicon-play" value="inverse">btn-inverse</option
+          </select>
+
+          <input name="global-search" class="search-field big" type="search" tabindex="0" placeholder="Search" id="global-search">
+        </div>
+        <span class="input-group-btn">
+          <button type="button" class="btn green-haze"><i class="fa fa-search"></i> </button>
+        </span>
+      </div>
+    </form>
+  </div>
+  <span class="pull-right" style="color:#ccc">
       {{ accessToken }}
-    </span>
+  </span>
 	<!-- END LOGO -->
 </div>
 <!-- END HEADER INNER -->
