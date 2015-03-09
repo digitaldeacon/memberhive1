@@ -96,6 +96,7 @@ angular.module(
     'lbServices',
     'schemaForm',
     'angularUtils.directives.dirPagination',
+    'nsPopover',
 
     'contactFilters'
   ]

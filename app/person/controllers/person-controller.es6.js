@@ -14,9 +14,8 @@ function PersonController(Person, $scope) {
     this.getPersons(pageNum);
   };
 
-  this.getPersons = (pageNumber, sort) => {
+  this.getPersons = (pageNumber) => {
     pageNumber = pageNumber || 1;
-    sort = sort || 'lastName ASC';
 
     Person.count().$promise.then((result) => {
       this.totalPersons = result.count;
@@ -26,8 +25,13 @@ function PersonController(Person, $scope) {
       filter: {
         limit: this.pageSize,
         offset: (pageNumber - 1) * this.pageSize,
-        order: sort,
-        include: ['contacts', 'account', 'household', 'ministries']
+        order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
+        include: [
+          'contacts',
+          'account',
+          {'household': 'persons'},
+          'ministries'
+        ]
       }
     });
   };
