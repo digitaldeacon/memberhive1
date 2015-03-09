@@ -8,7 +8,7 @@
     }
   },
   "properties": {
-    "familyName": {
+    "householdName": {
       "type": "string",
       "required": true
     },

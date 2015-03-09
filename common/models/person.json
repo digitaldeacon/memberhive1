@@ -59,6 +59,10 @@
       "type": "belongsTo",
       "model": "Household"
     },
+    "relationType": {
+      "type": "belongsTo",
+      "model": "RelationType"
+    },
     "ministries": {
       "type": "hasMany",
       "model": "Ministry",

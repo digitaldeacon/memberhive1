@@ -29,7 +29,8 @@
           <h3 translate>Household</h3>
           <ul>
             <li ng-repeat="person in person.household.persons">
-              <a>{{person.firstName}} {{person.middleName}} {{person.lastName}}</a>
+              <a>{{person.firstName}} {{person.middleName}} {{person.lastName}}
+                ({{personCtrl.translateRelationType(person.relationType.type)}})</a>
             </li>
           </ul>
         </div>
@@ -43,7 +44,7 @@
         <ul class="list-inline text-muted">
           <li ng-if="person.household" ns-popover ns-popover-template="household-popover"
               ns-popover-trigger="mouseenter" ns-popover-placement="bottom" ns-popover-timeout="0.5" ns-popover-theme="ns-popover-tooltip-theme">
-            <fa name="users"></fa> <a>{{ person.household.familyName }}</a>
+            <fa name="users"></fa> <a>{{ person.household.householdName }}</a>
           </li>
           <li ng-if="person.birthdate" title="{{'Birthdate' | translate}}">
             <fa name="calendar"></fa> {{person.birthdate | date:medium}}

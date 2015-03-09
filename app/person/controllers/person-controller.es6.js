@@ -1,4 +1,4 @@
-function PersonController(Person, $scope) {
+function PersonController(Person, gettext) {
   var self = this;
   this.editedPerson = null;
   this.newPerson = null;
@@ -29,8 +29,13 @@ function PersonController(Person, $scope) {
         include: [
           'contacts',
           'account',
-          {'household': 'persons'},
-          'ministries'
+          {
+            'household': {
+              'persons': 'relationType'
+            }
+          },
+          'ministries',
+          'relationType'
         ]
       }
     });
@@ -41,6 +46,43 @@ function PersonController(Person, $scope) {
    */
   this.getContacts = (person, contactType) => {
     return [for (contact of person.contacts) if (contact.type === contactType) contact.value].shift();
+  };
+
+  this.translateRelationType = (relationType) => {
+    return this.getRelationTypes()[relationType];
+  };
+
+  /**
+   * Returns a dictionary with translations of the relationTypes table.
+   */
+  this.getRelationTypes = () => {
+    return {
+      'husband': gettext('Husband'),
+      'wife': gettext('Wife'),
+      'son': gettext('Son'),
+      'daughter': gettext('Daughter'),
+      'cousin': gettext('Cousin'),
+      'uncle': gettext('Uncle'),
+      'aunt': gettext('Aunt'),
+      'brother': gettext('Brother'),
+      'sister': gettext('Sister'),
+      'grandfather': gettext('Grandfather'),
+      'grandmother': gettext('Grandmother'),
+      'grandson': gettext('Grandson'),
+      'granddaughter': gettext('Granddaughter'),
+      'mother': gettext('Mother'),
+      'father': gettext('Father'),
+      'nephew': gettext('Nephew'),
+      'niece': gettext('Niece'),
+      'motherInLaw': gettext('Mother in Law'),
+      'fatherInLaw': gettext('Father in Law'),
+      'brotherInLaw': gettext('Brother in Law'),
+      'sisterInLaw': gettext('Sister in Law'),
+      'sonInLaw': gettext('Son in Law'),
+      'daughterInLaw': gettext('Daughter in Law'),
+      'stepbrother': gettext('Stepbrother'),
+      'stepsister': gettext('Stepsister')
+    };
   };
 
   this.createPerson = (person) => {

@@ -62,5 +62,9 @@
   "PersonMinistry": {
     "dataSource": "db",
     "public": false
+  },
+  "RelationType": {
+    "dataSource": "db",
+    "public": true
   }
 }

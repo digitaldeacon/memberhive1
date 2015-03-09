@@ -1,0 +1,26 @@
+{
+  "name": "RelationType",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "mysql": {
+      "table": "PerRelationType"
+    }
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "strength": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+
+  },
+  "acls": [],
+  "methods": []
+}
