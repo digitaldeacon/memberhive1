@@ -51,11 +51,6 @@
       "type": "hasMany",
       "model": "Contact"
     },
-    "ministries": {
-      "type": "hasAndBelongsToMany",
-      "model": "Ministry",
-      "foreignKey": ""
-    },
     "account": {
       "type": "hasOne",
       "model": "Account"
@@ -63,6 +58,12 @@
     "household": {
       "type": "belongsTo",
       "model": "Household"
+    },
+    "ministries": {
+      "type": "hasMany",
+      "model": "Ministry",
+      "foreignKey": "personId",
+      "through": "PersonMinistry"
     }
   },
   "acls": [

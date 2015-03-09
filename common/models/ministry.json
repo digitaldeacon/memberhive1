@@ -14,7 +14,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "persons": {
+      "type": "hasMany",
+      "model": "Person",
+      "foreignKey": "ministryId",
+      "through": "PersonMinistry"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

@@ -1,16 +1,13 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-// endbower
-
 // Metronic
-@import "metronic/global/components.scss";
+@import "metronic/global/components-rounded.scss";
 @import "metronic/global/plugins.scss";
 @import "metronic/admin/layout4/layout.scss";
 @import "metronic/admin/layout4/themes/light.scss";
 
 // Custom styles
+@import "bootstrap-fixes.scss";
 @import "_header.scss";
+
 .login-bg {
   background: url(../img/login/bg/1.jpg);
   background-size: 100% auto;
