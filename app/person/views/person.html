@@ -26,7 +26,7 @@
         <img src="http://placehold.it/80x80" />
       </td>
       <td>
-        <h3>{{person.firstName}} {{person.lastName}}</h3>
+        <h3>{{person.firstName}} {{person.middleName}} {{person.lastName}}</h3>
         <ul class="list-inline text-muted">
           <li ng-if="person.household" title="{{'Household' | translate}}">
             <fa name="users"></fa> {{ person.household.familyName }}
@@ -55,7 +55,7 @@
         </ul>
       </td>
       <td>
-        <span ng-repeat="ministry in person.ministries" class="label label-info">
+        <span ng-repeat="ministry in person.ministries" class="label label-success">
           {{ ministry.ministry }}
         </span>
       </td>
