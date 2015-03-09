@@ -26,7 +26,12 @@ function PersonController(Person, $scope) {
         limit: this.pageSize,
         offset: (pageNumber - 1) * this.pageSize,
         order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
-        include: ['contacts', 'account', 'household', 'ministries']
+        include: [
+          'contacts',
+          'account',
+          {'household': 'persons'},
+          'ministries'
+        ]
       }
     });
   };

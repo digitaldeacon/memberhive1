@@ -7,8 +7,8 @@
     <translate>Person</translate>
   </li>
 </ul>
-
 <!-- END PAGE BREADCRUMB -->
+
 <div ng-controller="PersonController as personCtrl">
   <table class="table table-striped table-bordered table-advance table-hover">
     <thead>
@@ -22,14 +22,28 @@
     <tbody>
     <tr dir-paginate="person in personCtrl.persons | itemsPerPage: personCtrl.pageSize"
         total-items="personCtrl.totalPersons">
+
+      <script type="text/ng-template" id="household-popover">
+        <div class="triangle"></div>
+        <div class="ns-popover-tooltip">
+          <h3 translate>Household</h3>
+          <ul>
+            <li ng-repeat="person in person.household.persons">
+              <a>{{person.firstName}} {{person.middleName}} {{person.lastName}}</a>
+            </li>
+          </ul>
+        </div>
+      </script>
+
       <td>
         <img src="http://placehold.it/80x80" />
       </td>
       <td>
         <h3>{{person.firstName}} {{person.middleName}} {{person.lastName}}</h3>
         <ul class="list-inline text-muted">
-          <li ng-if="person.household" title="{{'Household' | translate}}">
-            <fa name="users"></fa> {{ person.household.familyName }}
+          <li ng-if="person.household" ns-popover ns-popover-template="household-popover"
+              ns-popover-trigger="mouseenter" ns-popover-placement="bottom" ns-popover-timeout="0.5" ns-popover-theme="ns-popover-tooltip-theme">
+            <fa name="users"></fa> <a>{{ person.household.familyName }}</a>
           </li>
           <li ng-if="person.birthdate" title="{{'Birthdate' | translate}}">
             <fa name="calendar"></fa> {{person.birthdate | date:medium}}
