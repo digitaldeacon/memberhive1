@@ -17,6 +17,7 @@ angular.module('gemmiiWebApp', [
   'formatFilters',
   'angular-bootstrap-select',
   'angular-bootstrap-select.extra',
+  'angularMoment',
 
   'gem.person',
   'gem.dashboard',
@@ -98,9 +99,18 @@ angular.module(
     'schemaForm',
     'angularUtils.directives.dirPagination',
     'nsPopover',
+    'iso-3166-country-codes',
 
-    'contactFilters'
+    'contactFilters',
+    'dateFilters',
+
+    'gem.address'
   ]
+);
+
+angular.module(
+  'gem.address',
+  []
 );
 
 angular.module(

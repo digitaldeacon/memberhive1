@@ -48,6 +48,12 @@
       "type": "hasMany",
       "model": "Household",
       "foreignKey": ""
+    },
+    "persons": {
+      "type": "hasMany",
+      "model": "Person",
+      "foreignKey": "personId",
+      "through": "PersonAddress"
     }
   },
   "acls": [

@@ -1,0 +1,21 @@
+{
+  "name": "PersonAddress",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "person": {
+      "type": "belongsTo",
+      "model": "Person",
+      "foreignKey": "personId"
+    },
+    "address": {
+      "type": "belongsTo",
+      "model": "Address",
+      "foreignKey": "addressId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

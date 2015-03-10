@@ -26,7 +26,6 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <link rel="stylesheet" href="styles/search.css">
 
   </head>
   <body ng-controller="AppController" data-ng-init="init()" ng-class="{'login-bg': $state.includes('login')}"
@@ -109,6 +108,8 @@
     <script src="bower_components/angular-utils-pagination/dirPagination.js"></script>
     <script src="bower_components/iso-3166-country-codes-angular/dist/iso-3166-country-codes-angular.min.js"></script>
     <script src="bower_components/nsPopover/src/nsPopover.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -126,9 +127,13 @@
     <script src="scripts/scripts/filters.js"></script>
     <script src="scripts/adf/widgets/weather/weather.js"></script>
 
+    <script src="scripts/person/services/person-service.js"></script>
     <script src="scripts/person/controllers/person-controller.js"></script>
+    <script src="scripts/person/controllers/person-view-controller.js"></script>
     <script src="scripts/person/controllers/person-create-controller.js"></script>
     <script src="scripts/person/person.js"></script>
+
+    <script src="scripts/address/services/address-service.js"></script>
 
     <script src="scripts/auth/controller/auth-controller.js"></script>
     <script src="scripts/auth/auth.js"></script>

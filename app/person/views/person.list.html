@@ -30,7 +30,7 @@
           <ul>
             <li ng-repeat="person in person.household.persons">
               <a>{{person.firstName}} {{person.middleName}} {{person.lastName}}
-                <span ng-if="person.relationType">({{personCtrl.translateRelationType(person.relationType.type)}})</span>
+                <span ng-if="person.relationType">({{personCtrl.relationTypes[person.relationType.type]}})</span>
               </a>
             </li>
           </ul>
@@ -38,13 +38,19 @@
       </script>
 
       <td>
-        <img src="http://placehold.it/80x80" />
+        <a ui-sref="person.view({ id: person.id })">
+          <img src="http://placehold.it/80x80" />
+        </a>
       </td>
       <td>
-        <h3>{{person.firstName}} {{person.middleName}} {{person.lastName}}</h3>
+        <h3>
+          <a ui-sref="person.view({ id: person.id })">
+            {{person.firstName}} {{person.middleName}} {{person.lastName}}
+          </a>
+        </h3>
         <ul class="list-inline text-muted">
           <li ng-if="person.household" ns-popover ns-popover-template="household-popover"
-              ns-popover-trigger="mouseenter" ns-popover-placement="bottom" ns-popover-timeout="0.5" ns-popover-theme="ns-popover-tooltip-theme">
+              ns-popover-trigger="mouseenter" ns-popover-placement="bottom" ns-popover-timeout="0.2" ns-popover-theme="ns-popover-tooltip-theme">
             <fa name="users"></fa> <a>{{ person.household.householdName }}</a>
           </li>
           <li ng-if="person.birthdate" title="{{'Birthdate' | translate}}">
@@ -63,10 +69,10 @@
             <fa name="mobile"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'mobile') }}">{{ personCtrl.getContacts(person, 'mobile') }}</a>
           </li>
           <li ng-if="personCtrl.getContacts(person, 'facebook')" title="{{'Facebook' | translate}}">
-            <a target="_blank" href="{{ personCtrl.getContacts(person, 'facebook') | contactFacebook }}"><fa name="facebook"></fa></a>
+            <a target="_blank" href="{{ personCtrl.getContacts(person, 'facebook') | formatFacebookUrl }}"><fa name="facebook"></fa></a>
           </li>
           <li ng-if="personCtrl.getContacts(person, 'skype')" title="{{'Skype' | translate}}">
-            <a href="{{ personCtrl.getContacts(person, 'skype') | contactSkype }}"><fa name="skype"></fa></a>
+            <a href="{{ personCtrl.getContacts(person, 'skype') | formatSkypeUrl }}"><fa name="skype"></fa></a>
           </li>
         </ul>
       </td>

@@ -1,0 +1,101 @@
+<div ng-controller="PersonViewController as personCtrl">
+  {{person=personCtrl.person;""}}
+
+  <div class="portlet-default">
+
+    <div class="row">
+      <div class="col-md-3">
+        <img src="http://placehold.it/400x400" class="img-responsive"/>
+      </div>
+
+      <div class="col-md-9">
+        <h1 class="topheading">
+          <b>{{person.firstName}}</b> {{person.middleName}} {{person.lastName}}
+        </h1>
+        <div class="row">
+          <div class="col-md-3">
+            <ul class="list-unstyled">
+              <li>
+                {{years = (person.birthdate | fromNow: true);""}}
+                <translate>{{years}} old</translate> <span class="text-muted">({{person.birthdate | amDateFormat:'ll'}})</span>
+              </li>
+              <li>
+                {{person.gender}}
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <ul class="list-unstyled">
+              <li ng-if="person.account.email" title="{{'Email' | translate}}">
+                <fa name="envelope"></fa> <a href="mailto:{{ person.account.email }}">{{ person.account.email }}</a>
+              </li>
+              {{contactHome = personCtrl.getContacts(personCtrl.person, 'home');""}}
+              <li ng-if="contactHome" title="{{'Home phone' | translate}}">
+                <fa name="phone"></fa> <a href="tel:{{ contactHome }}">{{ contactHome }}</a>
+                <small class="text-muted" translate>Home</small>
+              </li>
+              {{contactWork = personCtrl.getContacts(personCtrl.person, 'work');""}}
+              <li ng-if="contactWork" title="{{'Work phone' | translate}}">
+                <fa name="phone"></fa> <a href="tel:{{ contactWork }}">{{ contactWork }}</a>
+                <small class="text-muted" translate>Work</small>
+              </li>
+              {{contactMobile = personCtrl.getContacts(personCtrl.person, 'mobile');""}}
+              <li ng-if="contactMobile" title="{{'Mobile phone' | translate}}">
+                <fa name="mobile"></fa> <a href="tel:{{ contactMobile }}">{{ contactMobile }}</a>
+                <small class="text-muted" translate>Mobile</small>
+              </li>
+              {{contactFacebook = personCtrl.getContacts(personCtrl.person, 'facebook');""}}
+              <li ng-if="contactFacebook" title="{{'Facebook' | translate}}">
+                <fa name="facebook"></fa>
+                <a target="_blank" href="{{ contactFacebook | formatFacebookUrl }}">
+                  {{contactFacebook}}
+                </a>
+              </li>
+              {{contactSkype = personCtrl.getContacts(personCtrl.person, 'skype');""}}
+              <li ng-if="contactSkype" title="{{'Skype' | translate}}">
+                <fa name="skype"></fa>
+                <a href="{{ contactSkype | formatSkypeUrl }}">
+                  {{ contactSkype }}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <ng-include src="'person/views/person.view.addresses.html'"></ng-include>
+          </div>
+
+
+        </div>
+
+
+        <div class="householdMembers">
+          <h3>
+            {{person.household.householdName}}
+          </h3>
+          <ul class="list-inline">
+            <li ng-repeat="person in personCtrl.getHouseholdMembers()">
+              <a ui-sref="person.view({ id: person.id })">
+                <img src="http://placehold.it/60x60" class="pull-left" />
+                <div class="person-info">
+                  <h4><b>{{person.firstName}}</b></h4>
+                  <small class="text-muted" ng-if="person.relationType">
+                    {{personCtrl.relationTypes[person.relationType.type]}}
+                  </small>
+                  <br/>
+                  <small>{{person.birthdate | fromNow: true}}</small>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

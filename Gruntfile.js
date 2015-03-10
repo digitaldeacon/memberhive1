@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
-          'po/template.pot': ['app/views/*.html', 'app/tpl/*.html', 'app/**/*.js']
+          'po/template.pot': ['app/**/*.html', 'app/tpl/*.html', 'app/**/*.js']
         }
       }
     },
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
         tasks: ['wiredep']
       },
       compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= yeoman.app %>/**/*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {

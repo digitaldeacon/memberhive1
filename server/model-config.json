@@ -66,5 +66,9 @@
   "RelationType": {
     "dataSource": "db",
     "public": true
+  },
+  "PersonAddress": {
+    "dataSource": "db",
+    "public": false
   }
 }

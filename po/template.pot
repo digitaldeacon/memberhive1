@@ -4,30 +4,141 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: app/person/views/person.list.html:56
+msgid "Birthdate"
+msgstr ""
+
+#: app/dashboard/views/dashboard.html:7
 #: app/tpl/sidebar.html:13
 msgid "Dashboard"
 msgstr ""
 
-#: app/scripts/adf/widgets/weather/weather.js:33
+#: app/dashboard/views/dashboard.html:17
+msgid "Delete"
+msgstr ""
+
+#: app/scripts/adf/widgets/weather/weather.js:32
 msgid "Display the current temperature of a city"
+msgstr ""
+
+#: app/person/views/person.list.html:59
+#: app/person/views/person.view.html:30
+msgid "Email"
+msgstr ""
+
+#: app/person/views/person.list.html:71
+#: app/person/views/person.view.html:49
+msgid "Facebook"
+msgstr ""
+
+#: app/dashboard/views/dashboard.html:4
+#: app/person/views/person.create.html:4
+#: app/person/views/person.list.html:4
+#: app/person/views/person.view.html:36
+msgid "Home"
+msgstr ""
+
+#: app/address/services/address-service.es6.js:9
+msgid "Home Address"
+msgstr ""
+
+#: app/person/views/person.list.html:62
+#: app/person/views/person.view.html:34
+msgid "Home phone"
 msgstr ""
 
 #: app/tpl/sidebar.html:25
 msgid "List Persons"
 msgstr ""
 
-#: app/tpl/sidebar.html:38
+#: app/auth/views/login.html:35
 msgid "Login"
+msgstr ""
+
+#: app/tpl/sidebar.html:38
+msgid "Logout"
+msgstr ""
+
+#: app/person/views/person.list.html:18
+msgid "Ministries"
+msgstr ""
+
+#: app/person/views/person.view.html:46
+msgid "Mobile"
+msgstr ""
+
+#: app/person/views/person.list.html:68
+#: app/person/views/person.view.html:44
+msgid "Mobile phone"
 msgstr ""
 
 #: app/tpl/sidebar.html:30
 msgid "New Person"
 msgstr ""
 
+#: app/dashboard/views/dashlet.person.count.html:27
+#: app/person/views/person.create.html:7
+#: app/person/views/person.list.html:7
+msgid "Person"
+msgid_plural "Persons"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/person/views/person.list.html:17
+msgid "Person details"
+msgstr ""
+
+#: app/dashboard/views/dashlet.person.count.html:6
 #: app/tpl/sidebar.html:19
 msgid "Persons"
 msgstr ""
 
-#: app/scripts/adf/widgets/weather/weather.js:32
+#: app/scripts/adf/widgets/weather/weather.html:2
+msgid "Please insert a location in the widget configuration"
+msgstr ""
+
+#: app/address/services/address-service.es6.js:11
+msgid "Postal Address"
+msgstr ""
+
+#: app/person/views/person.list.html:19
+msgid "Roles"
+msgstr ""
+
+#: app/auth/views/login.html:15
+msgid "Sign In"
+msgstr ""
+
+#: app/person/views/person.list.html:74
+#: app/person/views/person.view.html:56
+msgid "Skype"
+msgstr ""
+
+#: app/scripts/adf/widgets/weather/weather.html:12
+msgid "Temperature:"
+msgstr ""
+
+#: app/auth/views/login.html:17
+msgid "Username"
+msgstr ""
+
+#: app/scripts/adf/widgets/weather/weather.js:31
 msgid "Weather"
+msgstr ""
+
+#: app/person/views/person.view.html:41
+msgid "Work"
+msgstr ""
+
+#: app/address/services/address-service.es6.js:10
+msgid "Work Address"
+msgstr ""
+
+#: app/person/views/person.list.html:65
+#: app/person/views/person.view.html:39
+msgid "Work phone"
+msgstr ""
+
+#: app/person/views/person.view.html:20
+msgid "{{years}} old"
 msgstr ""

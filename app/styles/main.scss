@@ -9,9 +9,14 @@
 @import "metronic/admin/layout4/themes/light.scss";
 
 // Custom styles
-@import "bootstrap-fixes.scss";
-@import "ns-popover.scss";
+@import "_bootstrap-fixes.scss";
+@import "_ns-popover.scss";
 @import "_header.scss";
+@import "_login.scss";
+@import "_search.scss";
+
+// Module styles
+@import "../person/styles/person.scss";
 
 .login-bg {
   background: url(../img/login/bg/1.jpg);
@@ -33,4 +38,14 @@
   padding: 15px;
   text-align: center;
   margin: 0 auto;
+}
+
+.portlet-default {
+  @extend .portlet;
+  @extend .light;
+  @extend .portlet-body;
+
+  .topheading {
+    margin-top: 0;
+  }
 }

@@ -6,13 +6,20 @@ angular.module('formatFilters', [])
 });
 
 
+angular.module('dateFilters', [])
+  .filter('fromNow', function() {
+    return function(date, removeSuffix) {
+      return moment(date).fromNow(removeSuffix);
+    };
+  });
+
 angular.module('contactFilters', [])
-  .filter('contactFacebook', function() {
+  .filter('formatFacebookUrl', function() {
     return function(item) {
       return `https://facebook.com/${item}`;
     };
   })
-  .filter('contactSkype', function() {
+  .filter('formatSkypeUrl', function() {
     return function(item) {
       return `skype:${item}`;
     };

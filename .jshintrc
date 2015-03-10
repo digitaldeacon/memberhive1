@@ -22,6 +22,7 @@
     "$": false,
     "Metronic": false,
     "Layout": false,
-    "_": false
+    "_": false,
+    "moment": false
   }
 }
