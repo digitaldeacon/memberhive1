@@ -10,12 +10,9 @@
 
       <div class="col-md-9">
         <h1 class="topheading">
-          <b>
-            <span ng-if="person.nickName">{{person.nickName}}</span>
-            <span ng-if="!person.nickName">{{person.firstName}} {{person.middleName}}</span>
-          </b>
+          <b>{{person.firstName}} {{person.middleName}}</b>
           {{person.lastName}}
-          <small class="text-muted" ng-if="person.nickName">{{person.firstName}}</small>
+          <small class="text-muted" ng-if="person.nickName">({{person.nickName}})</small>
         </h1>
         <div class="row">
           <div class="col-md-3">
