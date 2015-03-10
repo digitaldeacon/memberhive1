@@ -34,8 +34,6 @@ angular.module('gemmiiWebApp', [
         // Dynamic CSS files must be loaded between core and theme css files
         cssFilesInsertBefore: 'ng_load_plugins_before'
       });
-      //$locationProvider.html5Mode(true);
-      console.log($stateProvider.state);
   })
 
   .factory('settings', $rootScope => {

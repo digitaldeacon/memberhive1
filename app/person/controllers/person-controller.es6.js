@@ -11,7 +11,6 @@ function PersonController(Person, PersonService, gettext) {
   this.pageSize = 25;
 
   this.pageChanged = (pageNum) => {
-    console.log('going to page ' + pageNum);
     this.getPersons(pageNum);
   };
 
