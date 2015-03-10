@@ -1,33 +1,56 @@
-<!-- BEGIN HEADER INNER -->
-<div class="page-header-inner">
-	<!-- BEGIN LOGO -->
-	<div class="page-logo">
-		<a href="index.html">
-		<img src="../img/gemmii_sm.png" alt="logo" class="logo-default"/>
-		</a>
-		<div class="menu-toggler sidebar-toggler">
-		</div>
-	</div>
-  <div class="input-group" ng-controller="HeaderController as header">
-    <form id="main-search" class="global-search" role="form" novalidate="novalidate">
-      <div class="input-group">
-        <div class="input-cont">
-          <select selectpicker class="selectpicker" ng-model="$state.current.data.module">
-            <option data-icon="glyphicon glyphicon-globe" value="all">Everything</option>
-            <option data-icon="glyphicon glyphicon-user" value="person">Persons</option>
-          </select>
+<div class="page-header navbar navbar-fixed-top">
 
-          <input name="global-search" class="search-field big" type="search" tabindex="0" placeholder="Search" id="global-search">
+  <!-- BEGIN HEADER INNER -->
+  <div class="page-header-inner">
+    <!-- BEGIN LOGO -->
+    <div class="page-logo">
+      <a href="index.html">
+        <img src="../img/gemmii_sm.png" alt="logo" class="logo-default"/>
+      </a>
+      <div class="menu-toggler sidebar-toggler"></div>
+    </div>
+    <!-- END LOGO -->
+    <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+    </a>
+
+    <!-- BEGIN SEARCH GROUP -->
+    <div class="page-actions" ng-controller="HeaderController as header">
+      <form id="main-search" role="form" novalidate="novalidate">
+        <div class="input-group search-group">
+          <div class="input-cont">
+            <select selectpicker class="selectpicker" ng-model="$state.current.data.module">
+              <option data-icon="glyphicon glyphicon-globe" value="all"><translate>Everything</translate></option>
+              <option data-icon="glyphicon glyphicon-user" value="person"><translate>Persons</translate></option>
+            </select>
+            <input name="global-search" class="search-field big" type="search" tabindex="0" placeholder="{{'Search' | translate}}" id="global-search">
+          <span class="search-btn-group">
+            <button type="button" class="btn search-btn"><i class="fa fa-search fa-lg"></i> </button>
+          </span>
+          </div>
         </div>
-        <span class="input-group-btn">
-          <button type="button" class="btn green-haze"><i class="fa fa-search"></i> </button>
-        </span>
+      </form>
+    </div>
+    <!-- END SEARCH GROUP -->
+
+    <!-- BEGIN DROPDOWNS -->
+    <div class="page-top">
+      <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+          <!-- BEGIN PROFILE -->
+          <li class="dropdown dropdown-user dropdown-dark">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <span class="username username-hide-on-mobile">
+              Samuel </span>
+              <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+              <img alt="" class="img-circle" src="uploads/sites/1/default/avatar7.jpg">
+            </a>
+          </li>
+          <!-- END PROFILE -->
+        </ul>
       </div>
-    </form>
+      <!-- END DROPDOWNS -->
+    </div>
   </div>
-  <span class="pull-right" style="color:#ccc">
-      {{ accessToken }}
-  </span>
-	<!-- END LOGO -->
+  <!-- END HEADER INNER -->
+
 </div>
-<!-- END HEADER INNER -->
