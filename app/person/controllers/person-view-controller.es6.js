@@ -3,6 +3,7 @@ function PersonViewController(Person, PersonService, AddressService, $stateParam
   this.person = PersonService.one($stateParams.id);
   this.getContacts = PersonService.getContacts;
   this.relationTypes = PersonService.relationTypes;
+  this.genders = PersonService.genders;
   this.addressTypes = AddressService.addressTypes;
 
   /**

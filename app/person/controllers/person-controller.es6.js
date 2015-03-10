@@ -46,7 +46,7 @@ function PersonController(Person, PersonService, gettext) {
   };
 
   this.initCreateForm = () => {
-    this.newPerson = {firstName: '', lastName: '', email: '', gender: 'male', birthday: ''};
+    this.newPerson = {firstName: '', lastName: '', email: '', gender: 'm', birthday: ''};
   };
 
   this.setEditedPerson = (person) => {

@@ -55,6 +55,14 @@ angular.module('gem.person').factory('PersonService', function(Person, gettext) 
     },
 
     /**
+     * A dictionary with gender translations
+     */
+    genders: {
+      'm': gettext('Male'),
+      'f': gettext('Female')
+    },
+
+    /**
      * A dictionary with translations of the relationTypes table.
      */
     relationTypes: {

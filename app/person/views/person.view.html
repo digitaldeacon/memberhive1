@@ -10,7 +10,9 @@
 
       <div class="col-md-9">
         <h1 class="topheading">
-          <b>{{person.firstName}}</b> {{person.middleName}} {{person.lastName}}
+          <b>{{person.firstName}} {{person.middleName}}</b>
+          {{person.lastName}}
+          <small class="text-muted" ng-if="person.nickName">({{person.nickName}})</small>
         </h1>
         <div class="row">
           <div class="col-md-3">
@@ -20,7 +22,7 @@
                 <translate>{{years}} old</translate> <span class="text-muted">({{person.birthdate | amDateFormat:'ll'}})</span>
               </li>
               <li>
-                {{person.gender}}
+                {{personCtrl.genders[person.gender]}}
               </li>
             </ul>
           </div>
@@ -79,7 +81,7 @@
               <a ui-sref="person.view({ id: person.id })">
                 <img src="http://placehold.it/60x60" class="pull-left" />
                 <div class="person-info">
-                  <h4><b>{{person.firstName}}</b></h4>
+                  <h4><b>{{person | formatFirstName}}</b></h4>
                   <small class="text-muted" ng-if="person.relationType">
                     {{personCtrl.relationTypes[person.relationType.type]}}
                   </small>

@@ -12,15 +12,3 @@ angular.module('dateFilters', [])
       return moment(date).fromNow(removeSuffix);
     };
   });
-
-angular.module('contactFilters', [])
-  .filter('formatFacebookUrl', function() {
-    return function(item) {
-      return `https://facebook.com/${item}`;
-    };
-  })
-  .filter('formatSkypeUrl', function() {
-    return function(item) {
-      return `skype:${item}`;
-    };
-  });

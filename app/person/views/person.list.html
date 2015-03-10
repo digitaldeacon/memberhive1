@@ -29,7 +29,7 @@
           <h3>{{person.household.householdName}}</h3>
           <ul>
             <li ng-repeat="person in person.household.persons">
-              <a>{{person.firstName}} {{person.middleName}} {{person.lastName}}
+              <a>{{person | formatName}}
                 <span ng-if="person.relationType">({{personCtrl.relationTypes[person.relationType.type]}})</span>
               </a>
             </li>
@@ -45,7 +45,7 @@
       <td>
         <h3>
           <a ui-sref="person.view({ id: person.id })">
-            {{person.firstName}} {{person.middleName}} {{person.lastName}}
+            {{person | formatName}}
           </a>
         </h3>
         <ul class="list-inline text-muted">

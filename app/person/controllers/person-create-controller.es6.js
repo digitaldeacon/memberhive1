@@ -1,4 +1,4 @@
-function PersonCreateController(Person, $scope) {
+function PersonCreateController(Person, $scope, gettext) {
   var vm = this;
   vm.schema = {
     type: 'object',
@@ -25,7 +25,7 @@ function PersonCreateController(Person, $scope) {
       },
       gender: {
         type: 'string',
-        enum: ['male', 'female']
+        enum: ['m', 'f']
       },
       birthdate: {
         type: 'string'
@@ -41,7 +41,7 @@ function PersonCreateController(Person, $scope) {
     '*',
     {
       type: 'submit',
-      title: 'Save'
+      title: gettext('Save')
     }
   ];
 

@@ -99,7 +99,7 @@ angular.module(
     'nsPopover',
     'iso-3166-country-codes',
 
-    'contactFilters',
+    'personFilters',
     'dateFilters',
 
     'gem.address'
