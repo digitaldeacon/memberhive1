@@ -17,6 +17,7 @@ angular.module('gemmiiWebApp', [
   'formatFilters',
   'angular-bootstrap-select',
   'angular-bootstrap-select.extra',
+  'angularMoment',
 
   'gem.person',
   'gem.dashboard',
@@ -33,8 +34,6 @@ angular.module('gemmiiWebApp', [
         // Dynamic CSS files must be loaded between core and theme css files
         cssFilesInsertBefore: 'ng_load_plugins_before'
       });
-      //$locationProvider.html5Mode(true);
-      console.log($stateProvider.state);
   })
 
   .factory('settings', $rootScope => {
@@ -98,9 +97,18 @@ angular.module(
     'schemaForm',
     'angularUtils.directives.dirPagination',
     'nsPopover',
+    'iso-3166-country-codes',
 
-    'contactFilters'
+    'contactFilters',
+    'dateFilters',
+
+    'gem.address'
   ]
+);
+
+angular.module(
+  'gem.address',
+  []
 );
 
 angular.module(

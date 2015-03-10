@@ -1,8 +1,9 @@
-function PersonController(Person, gettext, $scope) {
-  var self = this;
+function PersonController(Person, PersonService, gettext) {
   this.editedPerson = null;
   this.newPerson = null;
   this.isEditing = false;
+  this.getContacts = PersonService.getContacts;
+  this.relationTypes = PersonService.relationTypes;
 
   this.persons = [];
   this.currentPage = 1;
@@ -10,7 +11,6 @@ function PersonController(Person, gettext, $scope) {
   this.pageSize = 25;
 
   this.pageChanged = (pageNum) => {
-    console.log('going to page ' + pageNum);
     this.getPersons(pageNum);
   };
 
@@ -21,68 +21,7 @@ function PersonController(Person, gettext, $scope) {
       this.totalPersons = result.count;
     });
 
-    this.persons = Person.find({
-      filter: {
-        limit: this.pageSize,
-        offset: (pageNumber - 1) * this.pageSize,
-        order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
-        include: [
-          'contacts',
-          'account',
-          {
-            'household': {
-              'persons': 'relationType'
-            }
-          },
-          'ministries',
-          'relationType'
-        ]
-      }
-    });
-  };
-
-  /**
-   * Filter person.contacts by given `contactType` and return first occurence
-   */
-  this.getContacts = (person, contactType) => {
-    return [for (contact of person.contacts) if (contact.type === contactType) contact.value].shift();
-  };
-
-  this.translateRelationType = (relationType) => {
-    return this.getRelationTypes()[relationType];
-  };
-
-  /**
-   * Returns a dictionary with translations of the relationTypes table.
-   */
-  this.getRelationTypes = () => {
-    return {
-      'husband': gettext('Husband'),
-      'wife': gettext('Wife'),
-      'son': gettext('Son'),
-      'daughter': gettext('Daughter'),
-      'cousin': gettext('Cousin'),
-      'uncle': gettext('Uncle'),
-      'aunt': gettext('Aunt'),
-      'brother': gettext('Brother'),
-      'sister': gettext('Sister'),
-      'grandfather': gettext('Grandfather'),
-      'grandmother': gettext('Grandmother'),
-      'grandson': gettext('Grandson'),
-      'granddaughter': gettext('Granddaughter'),
-      'mother': gettext('Mother'),
-      'father': gettext('Father'),
-      'nephew': gettext('Nephew'),
-      'niece': gettext('Niece'),
-      'motherInLaw': gettext('Mother in Law'),
-      'fatherInLaw': gettext('Father in Law'),
-      'brotherInLaw': gettext('Brother in Law'),
-      'sisterInLaw': gettext('Sister in Law'),
-      'sonInLaw': gettext('Son in Law'),
-      'daughterInLaw': gettext('Daughter in Law'),
-      'stepbrother': gettext('Stepbrother'),
-      'stepsister': gettext('Stepsister')
-    };
+    this.persons = PersonService.all(pageNumber);
   };
 
   this.createPerson = (person) => {
