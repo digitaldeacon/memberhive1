@@ -16,6 +16,7 @@ angular.module('gemmiiWebApp', [
   'gettext',
   'formatFilters',
   'angular-bootstrap-select',
+  'angular-bootstrap-select.extra',
 
   'gem.person',
   'gem.dashboard',
@@ -33,6 +34,7 @@ angular.module('gemmiiWebApp', [
         cssFilesInsertBefore: 'ng_load_plugins_before'
       });
       //$locationProvider.html5Mode(true);
+      console.log($stateProvider.state);
   })
 
   .factory('settings', $rootScope => {
@@ -45,7 +47,6 @@ angular.module('gemmiiWebApp', [
     $rootScope.settings = settings;
     return settings;
   })
-
   .controller('AppController', $scope => {
       $scope.init = () => {
         Metronic.init();
@@ -54,7 +55,7 @@ angular.module('gemmiiWebApp', [
         Metronic.initComponents(); // init core components
       });
     })
-  .controller('HeaderController', ($scope,LoopBackAuth) => {
+  .controller('HeaderController', ($scope,$state,LoopBackAuth) => {
     $scope.accessToken = LoopBackAuth.accessTokenId;
     $scope.$on('$includeContentLoaded', () => {
       Layout.initHeader(); // init header

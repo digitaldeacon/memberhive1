@@ -1,4 +1,4 @@
-function PersonController(Person, gettext) {
+function PersonController(Person, gettext, $scope) {
   var self = this;
   this.editedPerson = null;
   this.newPerson = null;

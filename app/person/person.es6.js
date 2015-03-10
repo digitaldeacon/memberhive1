@@ -4,7 +4,10 @@ angular.module('gem.person').config(
     .state('person', {
       url: '/person',
       template: '<ui-view/>',
-      abstract: true
+      abstract: true,
+        data: {
+          module: 'person'
+        }
     })
     .state('person.list', {
       url: '/list',
