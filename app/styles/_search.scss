@@ -1,3 +1,43 @@
+.search-group {
+  top: 5px;
+  border: 2px solid #cecece;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+
+  .bootstrap-select > button.selectpicker {
+    border:0;
+    background: rgba(146, 203, 253, 0.33);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    height: 40px
+  }
+  .search-field {
+    border: 0;
+    width: 410px;
+    padding: 5px 0 1px 140px;
+    position: relative;
+    height: 40px
+  }
+  .search-btn-group {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    height: 40px
+  }
+  .search-btn {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+    height: inherit;
+  }
+  .bootstrap-select {
+    max-width: 135px;
+    position: absolute;
+  }
+}
 .big{
   color: #484848;
   font-size: 20px;
@@ -8,40 +48,4 @@
   color: #484848;
   font-size: 16px;
   font-weight: 200;
-}
-.search-field {
-  border: 0;
-  width: 410px;
-  padding: 5px 0 1px 140px;
-  position: relative;
-}
-.search-btn-group {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.search-btn {
-  margin: 0 !important;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  background: #ffffff;
-}
-div.input-cont > .bootstrap-select {
-  max-width: 135px;
-  position: absolute;
-}
-.search-group {
-  top: 5px;
-  border: 2px solid #cecece;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-.bootstrap-select > button.selectpicker {
-  border:0;
-  background: rgba(146, 203, 253, 0.33);
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
 }
