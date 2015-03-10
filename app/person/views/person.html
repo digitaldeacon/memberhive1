@@ -26,11 +26,12 @@
       <script type="text/ng-template" id="household-popover">
         <div class="triangle"></div>
         <div class="ns-popover-tooltip">
-          <h3 translate>Household</h3>
+          <h3>{{person.household.householdName}}</h3>
           <ul>
             <li ng-repeat="person in person.household.persons">
               <a>{{person.firstName}} {{person.middleName}} {{person.lastName}}
-                ({{personCtrl.translateRelationType(person.relationType.type)}})</a>
+                <span ng-if="person.relationType">({{personCtrl.translateRelationType(person.relationType.type)}})</span>
+              </a>
             </li>
           </ul>
         </div>

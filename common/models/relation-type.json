@@ -7,6 +7,9 @@
       "table": "PerRelationType"
     }
   },
+  "scope": {
+    "order": "strength ASC"
+  },
   "properties": {
     "type": {
       "type": "string",
