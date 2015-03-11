@@ -19,14 +19,14 @@
 @import "../../person/styles/person.scss";
 
 .login-bg {
-  background: url(../images/login/bg/1.jpg);
+  background: url(../_global/images/login/bg/1.jpg);
   background-size: 100% auto;
 }
 .login-content {
   width: 360px;
   padding: 30px;
   margin: 0 auto;
-  background: url(../images/bg-white-lock.png) repeat;
+  background: url(../_global/images/bg-white-lock.png) repeat;
   @include border-radius(7px);
 
   .rememberMe {
