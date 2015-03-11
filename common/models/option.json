@@ -1,6 +1,6 @@
 {
   "name": "Option",
-  "base": "PersistedModel",
+  "base": "GemBase",
   "idInjection": true,
   "options": {
     "mysql": {

@@ -1,0 +1,21 @@
+{
+  "name": "GemBase",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "scope": {
+    "where": {
+      "deleted": false
+    }
+  },
+  "properties": {
+    "deleted": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

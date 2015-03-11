@@ -1,6 +1,6 @@
 {
   "name": "Contact",
-  "base": "PersistedModel",
+  "base": "GemBase",
   "idInjection": true,
   "options": {
     "mysql": {
