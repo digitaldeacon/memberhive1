@@ -1,14 +1,11 @@
-function PersonController(Person, PersonService, gettext) {
-  this.editedPerson = null;
-  this.newPerson = null;
-  this.isEditing = false;
+function PersonController(Person, PersonService, config) {
+  this.pageSize = config.pagination.pageSize;
   this.getContacts = PersonService.getContacts;
   this.relationTypes = PersonService.relationTypes;
 
   this.persons = [];
   this.currentPage = 1;
   this.totalPersons = 0;
-  this.pageSize = 25;
 
   this.pageChanged = (pageNum) => {
     this.getPersons(pageNum);
@@ -24,46 +21,12 @@ function PersonController(Person, PersonService, gettext) {
     this.persons = PersonService.all(pageNumber);
   };
 
-  this.createPerson = (person) => {
-    Person.create(person, () => {
-      this.initCreateForm();
-      this.getPersons();
-    });
-  };
-
-  this.updatePerson = (person) => {
-    Person.upsert(person, () => {
-      this.cancelEditing();
-      this.getPersons();
-    });
-  };
-
   this.deletePerson = (personId) => {
     Person.deleteById({id: personId}, () => {
-      this.cancelEditing();
       this.getPersons();
     });
   };
 
-  this.initCreateForm = () => {
-    this.newPerson = {firstName: '', lastName: '', email: '', gender: 'm', birthday: ''};
-  };
-
-  this.setEditedPerson = (person) => {
-    this.editedPerson = angular.copy(person);
-    this.isEditing = true;
-  };
-
-  this.isCurrentPerson = (personId) => {
-    return this.editedPerson !== null && this.editedPerson.id === personId;
-  };
-
-  this.cancelEditing = () => {
-    this.editedPerson = null;
-    this.isEditing = false;
-  };
-
-  this.initCreateForm();
   this.getPersons();
 }
 

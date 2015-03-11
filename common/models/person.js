@@ -1,3 +1,2 @@
 module.exports = function(Person) {
-
 };

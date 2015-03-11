@@ -1,6 +1,6 @@
 {
   "name": "Ministry",
-  "base": "PersistedModel",
+  "base": "GemBase",
   "idInjection": true,
   "options": {
     "mysql": {

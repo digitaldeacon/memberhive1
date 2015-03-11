@@ -87,6 +87,12 @@ angular.module('gemmiiWebApp', [
     $rootScope.$state = $state; // state to be accessed from view
     var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
     GemAcl.setRightsPromise(p);
+  })
+
+  .constant('config', {
+    pagination: {
+      pageSize: 25
+    }
   });
 
 angular.module(

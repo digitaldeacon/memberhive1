@@ -51,11 +51,11 @@
     "dataSource": "db",
     "public": true
   },
-  "Report": {
+  "Text": {
     "dataSource": "db",
     "public": true
   },
-  "ReportFolder": {
+  "TextFolder": {
     "dataSource": "db",
     "public": true
   },
@@ -68,6 +68,10 @@
     "public": true
   },
   "PersonAddress": {
+    "dataSource": "db",
+    "public": false
+  },
+  "GemBase": {
     "dataSource": "db",
     "public": false
   }

@@ -1,16 +1,11 @@
 {
   "name": "Person",
   "plural": "Persons",
-  "base": "PersistedModel",
+  "base": "GemBase",
   "idInjection": true,
   "options": {
     "mysql": {
       "table": "PerPerson"
-    }
-  },
-  "scope": {
-    "where": {
-      "enabled": true
     }
   },
   "properties": {
@@ -39,10 +34,6 @@
     },
     "birthdate": {
       "type": "date"
-    },
-    "enabled": {
-      "type": "boolean",
-      "required": true
     }
   },
   "validations": [],
