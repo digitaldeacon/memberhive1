@@ -16,11 +16,11 @@ angular.module('gem.dashboard',
               name: 'gem.dashboard',
               insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
               files: [
-                'scripts/metronic/plugins/morris/morris.css',
-                'scripts/metronic/pages/css/tasks.css',
-                'scripts/metronic/plugins/morris/morris.min.js',
-                'scripts/metronic/plugins/morris/raphael-min.js',
-                'scripts/metronic/pages/tasks.js',
+                '_global/scripts/metronic/plugins/morris/morris.css',
+                '_global/scripts/metronic/pages/css/tasks.css',
+                '_global/scripts/metronic/plugins/morris/morris.min.js',
+                '_global/scripts/metronic/plugins/morris/raphael-min.js',
+                '_global/scripts/metronic/pages/tasks.js',
                 'scripts/dashboard/controllers/dashboard-controller.js'
               ]
             });

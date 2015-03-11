@@ -11,7 +11,7 @@
 
 <div ng-controller="PersonController as personCtrl">
   <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
-    template-url="tpl/dirPagination.html">
+    template-url="_global/tpl/dirPagination.html">
   </dir-pagination-controls>
 
   <table class="table table-striped table-bordered table-advance table-hover">
@@ -91,7 +91,7 @@
   </table>
 
   <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
-    template-url="tpl/dirPagination.html">
+    template-url="_global/tpl/dirPagination.html">
   </dir-pagination-controls>
 
 </div>
