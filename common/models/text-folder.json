@@ -1,6 +1,6 @@
 {
   "name": "TextFolder",
-  "base": "PersistedModel",
+  "base": "GemBase",
   "idInjection": true,
   "properties": {
     "name": {

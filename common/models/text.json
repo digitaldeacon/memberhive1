@@ -1,6 +1,6 @@
 {
   "name": "Text",
-  "base": "PersistedModel",
+  "base": "GemBase",
   "idInjection": true,
   "properties": {
     "title": {
