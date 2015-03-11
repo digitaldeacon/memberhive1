@@ -23,7 +23,8 @@ angular.module('gemmiiWebApp', [
   'gem.dashboard',
   'gem.option',
   'gem.acl',
-  'gem.auth'
+  'gem.auth',
+  'gem.note'
   ])
 
   .config(
@@ -116,6 +117,12 @@ angular.module(
   'gem.address',
   []
 );
+
+angular.module(
+  'gem.note',
+  []
+);
+
 
 angular.module(
   'gem.dashboard',
