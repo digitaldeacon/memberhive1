@@ -55,11 +55,23 @@ angular.module('gemmiiWebApp', [
         Metronic.initComponents(); // init core components
       });
     })
-  .controller('HeaderController', ($scope,$state,LoopBackAuth) => {
+  .controller('HeaderController', ($scope,$state,$http,LoopBackAuth) => {
     $scope.accessToken = LoopBackAuth.accessTokenId;
     $scope.$on('$includeContentLoaded', () => {
       Layout.initHeader(); // init header
     });
+    $scope.getSearch = function(val) {
+      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address: val,
+          sensor: false
+        }
+      }).then(function(response) {
+        return response.data.results.map(function(item) {
+          return item.formatted_address; //jshint ignore:line
+        });
+      });
+    };
   })
   .controller('SidebarController', ($rootScope,$scope, Account, $state, GemAcl) => { /* Setup Layout Part - Sidebar */
     $scope.logout = () => {

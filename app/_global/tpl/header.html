@@ -1,5 +1,11 @@
-<div class="page-header navbar navbar-fixed-top">
+<script type="text/ng-template" id="searchResultsTpl.html">
+  <a tabindex="-1">
+    <span class="fa fa-user"></span>
+    <span ng-bind-html-unsafe="match.label | typeaheadHighlight:query">{{match.label}}</span>
+  </a>
+</script>
 
+<div class="page-header navbar navbar-fixed-top">
   <!-- BEGIN HEADER INNER -->
   <div class="page-header-inner">
     <!-- BEGIN LOGO -->
@@ -22,9 +28,18 @@
               <option data-icon="glyphicon glyphicon-globe" value="all"><translate>Everything</translate></option>
               <option data-icon="glyphicon glyphicon-user" value="person"><translate>Persons</translate></option>
             </select>
-            <input name="global-search" class="search-field big" type="search" tabindex="0" placeholder="{{'Search' | translate}}" id="global-search">
+            <input name="global-search"
+                   class="search-field middle"
+                   type="search"
+                   tabindex="0"
+                   placeholder="{{'Search' | translate}}"
+                   id="global-search"
+                   ng-model="asyncSearch"
+                   typeahead="search for search in getSearch($viewValue)" typeahead-loading="loadingSearch" typeahead-template-url="searchResultsTpl.html">
           <span class="search-btn-group">
-            <button type="button" class="btn search-btn"><i class="fa fa-search fa-lg"></i> </button>
+            <button type="button" class="btn search-btn">
+              <i class="fa fa-search fa-lg" ng-hide="loadingSearch"></i>
+              <i ng-show="loadingSearch" class="glyphicon glyphicon-refresh green-haze"></i> </button>
           </span>
           </div>
         </div>
@@ -52,5 +67,4 @@
     </div>
   </div>
   <!-- END HEADER INNER -->
-
 </div>

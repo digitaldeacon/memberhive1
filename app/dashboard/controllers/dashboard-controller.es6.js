@@ -48,8 +48,6 @@ function DashboardController($location,$rootScope,$scope,Option,Account,LoopBack
 
   getOptions('DashboardConfig');
 
-  console.log(vm.model);
-
   $scope.$on('adfDashboardChanged', (event, name, model) => {
     createUpdateOptions(model);
   });
