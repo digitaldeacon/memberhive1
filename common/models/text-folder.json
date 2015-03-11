@@ -1,5 +1,5 @@
 {
-  "name": "ReportFolder",
+  "name": "TextFolder",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
@@ -18,17 +18,17 @@
   "relations": {
     "parent": {
       "type": "belongsTo",
-      "model": "ReportFolder",
+      "model": "TextFolder",
       "foreignKey": "parentId"
     },
     "item": {
       "type": "hasMany",
-      "model": "Report",
+      "model": "Text",
       "foreignKey": "folderId"
     },
     "children": {
       "type": "hasMany",
-      "model": "ReportFolder",
+      "model": "TextFolder",
       "foreignKey": "parentId"
     },
     "owner": {

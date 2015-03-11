@@ -1,5 +1,5 @@
 {
-  "name": "Report",
+  "name": "Text",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
