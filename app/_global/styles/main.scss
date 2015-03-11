@@ -3,30 +3,30 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
 
 // Metronic
-@import "metronic/global/components-rounded.scss";
-@import "metronic/global/plugins.scss";
-@import "metronic/admin/layout4/layout.scss";
-@import "metronic/admin/layout4/themes/light.scss";
+@import "metronic/global/components-rounded";
+@import "metronic/global/plugins";
+@import "metronic/admin/layout4/layout";
+@import "metronic/admin/layout4/themes/light";
 
 // Custom styles
-@import "_bootstrap-fixes.scss";
-@import "_ns-popover.scss";
-@import "_header.scss";
-@import "_login.scss";
-@import "_search.scss";
+@import "bootstrap-fixes";
+@import "ns-popover";
+@import "header";
+@import "login";
+@import "search";
 
 // Module styles
-@import "../person/styles/person.scss";
+@import "../../person/styles/person.scss";
 
 .login-bg {
-  background: url(../img/login/bg/1.jpg);
+  background: url(../images/login/bg/1.jpg);
   background-size: 100% auto;
 }
 .login-content {
   width: 360px;
   padding: 30px;
   margin: 0 auto;
-  background: url(../img/bg-white-lock.png) repeat;
+  background: url(../images/bg-white-lock.png) repeat;
   @include border-radius(7px);
 
   .rememberMe {

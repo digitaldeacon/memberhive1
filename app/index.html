@@ -43,22 +43,22 @@
     </div>
 
     <div ng-if="acl.isLoggedIn()">
-      <div data-ng-include="'tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top" >
+      <div data-ng-include="'_global/tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top" >
       </div>
 
       <div class="clearfix"></div>
 
       <div class="page-container">
-        <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController as sidebar" class="page-sidebar-wrapper"></div>
+        <div data-ng-include="'_global/tpl/sidebar.html'" data-ng-controller="SidebarController as sidebar" class="page-sidebar-wrapper"></div>
 
         <div class="page-content-wrapper">
           <div class="page-content">
-            <div data-ng-include="'tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head" ></div>
+            <div data-ng-include="'_global/tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head" ></div>
             <ui-view />
           </div>
         </div>
       </div>
-      <div data-ng-include="'tpl/footer.html'" data-ng-controller="FooterController" class="page-footer">
+      <div data-ng-include="'_global/tpl/footer.html'" data-ng-controller="FooterController" class="page-footer">
       </div>
     </div>
 
@@ -110,36 +110,35 @@
     <script src="bower_components/nsPopover/src/nsPopover.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/metronic/metronic.js"></script>
-    <script src="scripts/metronic/layout.js"></script>
+    <script src="_global/scripts/metronic/metronic.js"></script>
+    <script src="_global/scripts/metronic/layout.js"></script>
 
-    <script src="scripts/scripts/app.js"></script>
-    <script src="scripts/scripts/directives.js"></script>
+    <script src="_global/scripts/adf/structures.js"></script>
+    <script src="_global/scripts/adf/widgets/weather/weather.js"></script>
+
+    <script src="_global/scripts/lb-services.js"></script>
+
+    <script src="scripts/_global/scripts/app.js"></script>
+    <script src="scripts/_global/scripts/directives.js"></script>
+    <script src="scripts/_global/scripts/filters.js"></script>
+
     <script src="scripts/translations.js"></script>
-
     <script src="scripts/dashboard/dashboard.js"></script>
-    <script src="scripts/adf/structures.js"></script>
-    <script src="scripts/scripts/filters.js"></script>
-    <script src="scripts/adf/widgets/weather/weather.js"></script>
-
     <script src="scripts/person/services/person-service.js"></script>
     <script src="scripts/person/filters/person-filters.js"></script>
     <script src="scripts/person/controllers/person-controller.js"></script>
     <script src="scripts/person/controllers/person-view-controller.js"></script>
     <script src="scripts/person/controllers/person-create-controller.js"></script>
     <script src="scripts/person/person.js"></script>
-
     <script src="scripts/address/services/address-service.js"></script>
-
     <script src="scripts/auth/controller/auth-controller.js"></script>
     <script src="scripts/auth/auth.js"></script>
     <script src="scripts/auth/acl.js"></script>
-
-    <script src="scripts/lb-services.js"></script>
     <!-- endbuild -->
 
   </body>

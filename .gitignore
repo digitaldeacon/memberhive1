@@ -7,6 +7,6 @@ bower_components
 typings
 .strong-pm
 server/datasources.local.json
-app/scripts/lb-services.js
+app/_global/scripts/lb-services.js
 run.sh
 run-slow.sh
