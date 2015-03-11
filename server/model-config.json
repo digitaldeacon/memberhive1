@@ -70,5 +70,9 @@
   "PersonAddress": {
     "dataSource": "db",
     "public": false
+  },
+  "GemBase": {
+    "dataSource": "db",
+    "public": false
   }
 }

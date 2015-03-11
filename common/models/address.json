@@ -1,6 +1,6 @@
 {
   "name": "Address",
-  "base": "PersistedModel",
+  "base": "GemBase",
   "idInjection": true,
   "options": {
     "mysql": {
