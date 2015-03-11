@@ -21,10 +21,8 @@ function PersonController(Person, PersonService, config) {
     this.persons = PersonService.all(pageNumber);
   };
 
-  this.deletePerson = (personId) => {
-    Person.deleteById({id: personId}, () => {
-      this.getPersons();
-    });
+  this.deletePerson = (person) => {
+    PersonService.delete(person.id, this.getPersons);
   };
 
   this.getPersons();

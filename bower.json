@@ -33,7 +33,8 @@
     "iso-3166-country-codes-angular": "~1.1.0",
     "nsPopover": "~0.6.7",
     "angular-moment": "~0.9.0",
-    "bootstrap-hover-dropdown": "~2.1.3"
+    "bootstrap-hover-dropdown": "~2.1.3",
+    "angular-confirm": "https://github.com/Schlogen/angular-confirm.git#master"
   },
   "devDependencies": {
     "angular-mocks": "^1.2.*"
@@ -42,6 +43,7 @@
   "moduleName": "gemmiiWebApp",
   "resolutions": {
     "angular": "^1.3.*",
-    "angular-bootstrap": "master"
+    "angular-bootstrap": "master",
+    "angular-confirm": "master"
   }
 }

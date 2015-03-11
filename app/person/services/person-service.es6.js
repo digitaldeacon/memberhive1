@@ -45,6 +45,10 @@ angular.module('gem.person').factory('PersonService', function(Person, gettext, 
       });
     },
 
+    delete: (personId, cb) => {
+      Person.trash({id: personId}).$promise.then(cb);
+    },
+
     /**
      * Filter person.contacts by given `contactType` and return first occurence
      */
