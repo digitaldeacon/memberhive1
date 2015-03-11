@@ -1,19 +1,19 @@
 angular.module('gem.person').config(
-  ($stateProvider, $compileProvider) => {
+  ($stateProvider, $compileProvider,gettext) => {
     $stateProvider.state('person', {
       url: '/person',
       template: '<ui-view/>',
-      abstract: true,
-        data: {
-          module: 'person'
-        }
+      data: {
+        pageTitle: gettext('Person'),
+        component: 'person'
+      },
+      abstract: true
     }).state('person.list', {
 
       url: '/list',
       templateUrl: '../person/views/person.list.html',
       data: {
-        pageTitle: 'Person',
-        pageSubTitle: 'Create and edit persons'
+        pageSubTitle: gettext('Create and edit persons')
       },
       acl: {
         needRights: ['$authenticated']
@@ -22,8 +22,7 @@ angular.module('gem.person').config(
       url: '/view/:id',
       templateUrl: '../person/views/person.view.html',
       data: {
-        pageTitle: 'Person',
-        pageSubTitle: 'View Person details'
+        pageSubTitle: gettext('View Person details')
       },
       acl: {
         needRights: ['$authenticated']
@@ -32,8 +31,7 @@ angular.module('gem.person').config(
       url: '/create',
       templateUrl: '../person/views/person.create.html',
       data: {
-        pageTitle: 'Person',
-        pageSubTitle: 'Create a person'
+        pageSubTitle: gettext('Create a person')
       },
       acl: {
         needRights: ['$authenticated']
