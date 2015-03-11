@@ -1,21 +1,2 @@
-.householdMembers {
-  ul {
-    li {
-      min-width: 160px;
-      margin: 0 15px 15px 15px;
-      a {
-        display: block;
-        text-decoration: none;
-        color: black;
-
-        h4 {
-          margin: 0;
-          font-size: 14px;
-        }
-        img {
-          margin-right: 10px;
-        }
-      }
-    }
-  }
-}
+@import "person.list.scss";
+@import "person.view.scss";

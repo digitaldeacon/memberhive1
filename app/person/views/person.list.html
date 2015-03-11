@@ -9,7 +9,7 @@
 </ul>
 <!-- END PAGE BREADCRUMB -->
 
-<div ng-controller="PersonController as personCtrl">
+<div ng-controller="PersonController as personCtrl" class="person-list">
   <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
     template-url="_global/tpl/dirPagination.html">
   </dir-pagination-controls>
@@ -21,6 +21,7 @@
       <th translate>Person details</th>
       <th translate>Ministries</th>
       <th translate>Roles</th>
+      <th translate>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -86,6 +87,13 @@
         </span>
       </td>
       <td></td>
+      <td class="actions">
+        <a class="btn btn-danger btn-sm hidden" aria-label="{{'Delete' | translate}}"
+           ng-click="personCtrl.deletePerson(person)"
+           confirm="Delete “{{person | formatName}}”?">
+          <fa name="trash"></fa>
+        </a>
+      </td>
     </tr>
     </tbody>
   </table>

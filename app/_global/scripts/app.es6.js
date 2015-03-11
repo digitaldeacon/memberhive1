@@ -17,6 +17,7 @@ angular.module('gemmiiWebApp', [
   'formatFilters',
   'angular-bootstrap-select',
   'angular-bootstrap-select.extra',
+  'angular-confirm',
   'angularMoment',
 
   'gem.person',
