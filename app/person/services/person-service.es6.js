@@ -1,4 +1,4 @@
-angular.module('gem.person').factory('PersonService', function(Person, gettext) {
+angular.module('gem.person').factory('PersonService', function(Person, gettext, config) {
 
   return {
     one: (id) => {
@@ -27,8 +27,8 @@ angular.module('gem.person').factory('PersonService', function(Person, gettext) 
     all: (pageNumber) => {
       return Person.find({
         filter: {
-          limit: this.pageSize,
-          offset: (pageNumber - 1) * this.pageSize,
+          limit: config.pagination.pageSize,
+          offset: (pageNumber - 1) * config.pagination.pageSize,
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
           include: [
             'contacts',

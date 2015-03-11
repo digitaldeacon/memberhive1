@@ -1,0 +1,18 @@
+<h3>
+  {{person.household.householdName}}
+</h3>
+<ul class="list-inline">
+  <li ng-repeat="person in personCtrl.getHouseholdMembers()">
+    <a ui-sref="person.view({ id: person.id })">
+      <img src="http://placehold.it/60x60" class="pull-left" />
+      <div class="person-info">
+        <h4><b>{{person | formatFirstName}}</b></h4>
+        <small class="text-muted" ng-if="person.relationType">
+          {{personCtrl.relationTypes[person.relationType.type]}}
+        </small>
+        <br/>
+        <small>{{person.birthdate | fromNow: true}}</small>
+      </div>
+    </a>
+  </li>
+</ul>
