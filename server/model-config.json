@@ -51,11 +51,11 @@
     "dataSource": "db",
     "public": true
   },
-  "Report": {
+  "Text": {
     "dataSource": "db",
     "public": true
   },
-  "ReportFolder": {
+  "TextFolder": {
     "dataSource": "db",
     "public": true
   },
