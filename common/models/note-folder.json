@@ -1,5 +1,5 @@
 {
-  "name": "TextFolder",
+  "name": "NoteFolder",
   "base": "GemBase",
   "idInjection": true,
   "properties": {
@@ -18,17 +18,17 @@
   "relations": {
     "parent": {
       "type": "belongsTo",
-      "model": "TextFolder",
+      "model": "NoteFolder",
       "foreignKey": "parentId"
     },
     "item": {
       "type": "hasMany",
-      "model": "Text",
+      "model": "Note",
       "foreignKey": "folderId"
     },
     "children": {
       "type": "hasMany",
-      "model": "TextFolder",
+      "model": "NoteFolder",
       "foreignKey": "parentId"
     },
     "owner": {

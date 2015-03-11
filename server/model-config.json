@@ -51,11 +51,11 @@
     "dataSource": "db",
     "public": true
   },
-  "Text": {
+  "Note": {
     "dataSource": "db",
     "public": true
   },
-  "TextFolder": {
+  "NoteFolder": {
     "dataSource": "db",
     "public": true
   },

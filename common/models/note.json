@@ -1,5 +1,5 @@
 {
-  "name": "Text",
+  "name": "Note",
   "base": "GemBase",
   "idInjection": true,
   "properties": {
