@@ -1,4 +1,4 @@
-// Import Bootstrap variables and mixins (nothing else, Bootstrap is already included in index.html)
+// Import Bootstrap variables and mixins (nothing else, Bootstrap is already included via bower)
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
 
@@ -7,6 +7,9 @@
 @import "metronic/global/plugins";
 @import "metronic/admin/layout4/layout";
 @import "metronic/admin/layout4/themes/light";
+
+// Metronic fixes/overrides
+@import "metronic-overrides/metronic-overrides.scss";
 
 // Custom styles
 @import "bootstrap-fixes";

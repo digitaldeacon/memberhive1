@@ -1,0 +1,31 @@
+<control-group label="{{'Title' | translate}}">
+  <input class="form-control" type="text" id="prefix" name="prefix" ng-model="person.prefix" />
+</control-group>
+
+<control-group label="{{'First Name' | translate}}">
+  <input class="form-control" type="text" id="firstName" name="firstName" ng-model="person.firstName" required />
+</control-group>
+
+<control-group label="{{'Nickname' | translate}}">
+  <input class="form-control" type="text" id="nickName" name="nickName" ng-model="person.nickName" />
+</control-group>
+
+<control-group label="{{'Middle Name' | translate}}">
+  <input class="form-control" type="text" id="middleName" name="middleName" ng-model="person.middleName" />
+</control-group>
+
+<control-group label="{{'Last Name' | translate}}">
+  <input class="form-control" type="text" id="lastName" name="lastName" ng-model="person.lastName" required />
+</control-group>
+
+<control-group label="{{'Suffix' | translate}}">
+  <input class="form-control" type="text" id="suffix" name="suffix" ng-model="person.suffix" />
+</control-group>
+
+<control-group label="{{'Gender' | translate}}">
+  <select class="form-control" ng-model="person.gender" ng-options="personCtrl.genders"></select>
+</control-group>
+
+<control-group label="{{'Birthdate' | translate}}">
+  <input class="form-control" type="text" id="birthdate" name="birthdate" ng-model="person.birthdate" />
+</control-group>

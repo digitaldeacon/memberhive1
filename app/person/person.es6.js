@@ -1,5 +1,5 @@
 angular.module('gem.person').config(
-  ($stateProvider, $compileProvider,gettext) => {
+  ($stateProvider, $compileProvider, gettext) => {
     $stateProvider.state('person', {
       url: '/person',
       template: '<ui-view/>',
@@ -13,7 +13,7 @@ angular.module('gem.person').config(
       url: '/list',
       templateUrl: '../person/views/person.list.html',
       data: {
-        pageSubTitle: gettext('Create and edit persons')
+        pageSubTitle: gettext('Create and edit Person')
       },
       acl: {
         needRights: ['$authenticated']
@@ -31,7 +31,16 @@ angular.module('gem.person').config(
       url: '/create',
       templateUrl: '../person/views/person.create.html',
       data: {
-        pageSubTitle: gettext('Create a person')
+        pageSubTitle: gettext('Create a Person')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
+    }).state('person.edit', {
+      url: '/edit/:id',
+      templateUrl: '../person/views/person.edit.html',
+      data: {
+        pageSubTitle: gettext('Edit a Person')
       },
       acl: {
         needRights: ['$authenticated']

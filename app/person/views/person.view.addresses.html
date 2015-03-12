@@ -1,6 +1,6 @@
 <accordion close-others="true">
   <accordion-group heading="{{personCtrl.addressTypes[address.type]}}"
                    ng-repeat="address in person.addresses">
-
+    <formataddress address="address"></formataddress>
   </accordion-group>
 </accordion>

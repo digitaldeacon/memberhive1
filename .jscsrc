@@ -4,7 +4,6 @@
   "disallowKeywords": ["with"],
   "disallowKeywordsOnNewLine": ["else"],
   "disallowMixedSpacesAndTabs": true,
-  "disallowMultipleLineStrings": true,
   "disallowNewlineBeforeBlockStatements": true,
   "disallowSpaceAfterObjectKeys": true,
   "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],

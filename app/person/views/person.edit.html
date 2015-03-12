@@ -1,0 +1,34 @@
+<div class="portlet portlet-default light" ng-controller="PersonViewController as personCtrl">
+  {{person=personCtrl.person;""}}
+  <div class="portlet-title tabbable-line">
+    <div class="caption caption-md">
+      <span class="caption-subject uppercase bold font-blue-madison" translate>
+        Edit {{person | formatName}}
+      </span>
+    </div>
+
+    <form>
+      <tabset>
+        <tab>
+          <tab-heading>
+            <fa name="user"></fa> <translate>Personal</translate>
+          </tab-heading>
+          <div class="tab-personal" ng-include="'person/views/person.edit.tab.personal.html'"></div>
+        </tab>
+        <tab>
+          <tab-heading>
+            <fa name="users"></fa> <translate>Roles</translate>
+          </tab-heading>
+          <div class="tab-personal" ng-include="'person/views/person.edit.tab.roles.html'"></div>
+        </tab>
+        <tab>
+          <tab-heading>
+            <fa name="unlock"></fa> <translate>Rights</translate>
+          </tab-heading>
+          <div class="tab-personal" ng-include="'person/views/person.edit.tab.rights.html'"></div>
+        </tab>
+      </tabset>
+    </form>
+
+  </div>
+</div>
