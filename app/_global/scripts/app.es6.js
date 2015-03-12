@@ -117,7 +117,6 @@ angular.module(
     'schemaForm',
     'angularUtils.directives.dirPagination',
     'nsPopover',
-    'iso-3166-country-codes',
 
     'personFilters',
     'dateFilters',
@@ -128,7 +127,9 @@ angular.module(
 
 angular.module(
   'gem.address',
-  []
+  [
+    'iso-3166-country-codes'
+  ]
 );
 
 angular.module(

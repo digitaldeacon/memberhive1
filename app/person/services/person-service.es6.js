@@ -12,9 +12,10 @@ angular.module('gem.person').factory('PersonService', function(Person, gettext, 
             'contacts',
             'account',
             {
-              'household': {
-                'persons': 'relationType'
-              }
+              'household': [
+                {'persons': 'relationType'},
+                'address'
+              ]
             },
             'ministries',
             'relationType',
