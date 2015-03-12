@@ -56,22 +56,25 @@ angular.module('gemmiiWebApp', [
         Metronic.initComponents(); // init core components
       });
     })
-  .controller('HeaderController', ($scope,$state,$http,LoopBackAuth) => {
+  .controller('HeaderController', ($scope,$state,$http,$filter,LoopBackAuth,Person) => {
     $scope.accessToken = LoopBackAuth.accessTokenId;
     $scope.$on('$includeContentLoaded', () => {
       Layout.initHeader(); // init header
     });
+
+    $scope.models = ['all','person'];
+    $scope.person = [];
+    $scope.all = [];
+
+    Person.find().$promise.then(function(response) {
+      $scope.person = response;
+    });
     $scope.getSearch = function(val) {
-      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
-        params: {
-          address: val,
-          sensor: false
-        }
-      }).then(function(response) {
-        return response.data.results.map(function(item) {
-          return item.formatted_address; //jshint ignore:line
-        });
-      });
+      console.log($scope.component);
+      console.log(val);
+      var arr = ($scope.component && $scope[$scope.component]) ? $scope[$scope.component] : [];
+      if (!val) return arr;
+      return $filter('filter')(arr,val);
     };
   })
   .controller('SidebarController', ($rootScope,$scope, Account, $state, GemAcl) => { /* Setup Layout Part - Sidebar */

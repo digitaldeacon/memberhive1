@@ -24,9 +24,9 @@
       <form id="main-search" role="form" novalidate="novalidate">
         <div class="input-group search-group">
           <div class="input-cont">
-            <select selectpicker class="selectpicker" ng-model="$state.current.data.component">
-              <option data-icon="glyphicon glyphicon-globe" value="all"><translate>Everything</translate></option>
-              <option data-icon="glyphicon glyphicon-user" value="person"><translate>Persons</translate></option>
+            <select selectpicker class="selectpicker" ng-model="component">
+              <option data-icon="glyphicon glyphicon-globe" value="all">Everything</option>
+              <option data-icon="glyphicon glyphicon-user" value="person">Persons</option>
             </select>
             <input name="global-search"
                    class="search-field middle"
@@ -35,7 +35,9 @@
                    placeholder="{{'Search' | translate}}"
                    id="global-search"
                    ng-model="asyncSearch"
-                   typeahead="search for search in getSearch($viewValue)" typeahead-loading="loadingSearch" typeahead-template-url="searchResultsTpl.html">
+                   typeahead="search for search in getSearch($viewValue)"
+                    typeahead-loading="loadingSearch"
+                   typeahead-template-url="searchResultsTpl.html">
           <span class="search-btn-group">
             <button type="button" class="btn search-btn">
               <i class="fa fa-search fa-lg" ng-hide="loadingSearch"></i>
