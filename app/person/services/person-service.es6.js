@@ -1,4 +1,4 @@
-angular.module('gem.person').factory('PersonService', function(Person, Household, gettext, config) {
+angular.module('gem.person').factory('PersonService', function(Person, Contact, Household, gettext, config) {
 
   return {
     one: (id) => {
@@ -35,9 +35,7 @@ angular.module('gem.person').factory('PersonService', function(Person, Household
             'contacts',
             'account',
             {
-              'household': {
-                'persons': 'relationType'
-              }
+              'household': { 'persons': 'relationType' }
             },
             'ministries',
             'relationType'
@@ -63,7 +61,14 @@ angular.module('gem.person').factory('PersonService', function(Person, Household
     getContacts: (person, contactType) => {
       if (!person.contacts)
         return '';
-      return [for (contact of person.contacts) if (contact.type === contactType) contact.value].shift();
+      var contact = [for (contact of person.contacts) if (contact.type === contactType) contact].shift();
+      if (contact === undefined) {
+        contact = new Contact();
+        contact.type = contactType;
+        contact.personId = person.id;
+        person.contacts.push(contact);
+      }
+      return contact;
     },
 
     /**

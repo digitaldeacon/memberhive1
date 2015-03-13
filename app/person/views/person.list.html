@@ -64,20 +64,25 @@
           <li ng-if="person.account.email" title="{{'Email' | translate}}">
             <fa name="envelope"></fa> <a href="mailto:{{ person.account.email }}">{{ person.account.email }}</a>
           </li>
-          <li ng-if="personCtrl.getContacts(person, 'home')" title="{{'Home phone' | translate}}">
-            <fa name="phone"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'home') }}">{{ personCtrl.getContacts(person, 'home') }}</a>
+          {{contactHome = personCtrl.getContacts(person, 'home');""}}
+          <li ng-if="contactHome.value" title="{{'Home phone' | translate}}">
+            <fa name="phone"></fa> <a href="tel:{{ contactHome.value }}">{{ contactHome.value }}</a>
           </li>
-          <li ng-if="personCtrl.getContacts(person, 'work')" title="{{'Work phone' | translate}}">
-            <fa name="phone"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'work') }}">{{ personCtrl.getContacts(person, 'work') }}</a>
+          {{contactWork = personCtrl.getContacts(person, 'work');""}}
+          <li ng-if="contactWork.value" title="{{'Work phone' | translate}}">
+            <fa name="phone"></fa> <a href="tel:{{ contactWork.value }}">{{ contactWork.value }}</a>
           </li>
-          <li ng-if="personCtrl.getContacts(person, 'mobile')" title="{{'Mobile phone' | translate}}">
-            <fa name="mobile"></fa> <a href="tel:{{ personCtrl.getContacts(person, 'mobile') }}">{{ personCtrl.getContacts(person, 'mobile') }}</a>
+          {{contactMobile = personCtrl.getContacts(person, 'mobile');""}}
+          <li ng-if="contactMobile.value" title="{{'Mobile phone' | translate}}">
+            <fa name="mobile"></fa> <a href="tel:{{ contactMobile.value }}">{{ contactMobile.value }}</a>
           </li>
-          <li ng-if="personCtrl.getContacts(person, 'facebook')" title="{{'Facebook' | translate}}">
-            <a target="_blank" href="{{ personCtrl.getContacts(person, 'facebook') | formatFacebookUrl }}"><fa name="facebook"></fa></a>
+          {{contactFacebook = personCtrl.getContacts(person, 'facebook');""}}
+          <li ng-if="contactFacebook.value" title="{{'Facebook' | translate}}">
+            <a target="_blank" href="{{ contactFacebook.value | formatFacebookUrl }}"><fa name="facebook"></fa></a>
           </li>
-          <li ng-if="personCtrl.getContacts(person, 'skype')" title="{{'Skype' | translate}}">
-            <a href="{{ personCtrl.getContacts(person, 'skype') | formatSkypeUrl }}"><fa name="skype"></fa></a>
+          {{contactSkype = personCtrl.getContacts(person, 'skype');""}}
+          <li ng-if="contactSkype.value" title="{{'Skype' | translate}}">
+            <a href="{{ contactSkype.value | formatSkypeUrl }}"><fa name="skype"></fa></a>
           </li>
         </ul>
       </td>

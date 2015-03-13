@@ -41,7 +41,7 @@
   },
   "Contact": {
     "dataSource": "db",
-    "public": false
+    "public": true
   },
   "Ministry": {
     "dataSource": "db",

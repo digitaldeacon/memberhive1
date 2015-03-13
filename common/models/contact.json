@@ -14,8 +14,7 @@
       "description": "Can be something like mobile phone, work phone, fax, facebook etc."
     },
     "value": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],
