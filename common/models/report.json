@@ -1,0 +1,46 @@
+{
+  "name": "Report",
+  "plural": "Reports",
+  "base": "GemBase",
+  "idInjection": true,
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slur": {
+      "type": "string",
+      "required": true
+    },
+    "query": {
+      "type": "object",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "required": true
+    },
+    "widgetize": {
+      "type": "boolean",
+      "required": true
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true
+    },
+    "createdBy": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "person": {
+      "type": "belongsTo",
+      "model": "Person",
+      "foreignKey": "createdBy"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

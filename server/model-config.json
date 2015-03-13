@@ -74,5 +74,17 @@
   "GemBase": {
     "dataSource": "db",
     "public": false
+  },
+  "CorSite": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Tags": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Report": {
+    "dataSource": "db",
+    "public": true
   }
 }
