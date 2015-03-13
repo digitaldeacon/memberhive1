@@ -75,11 +75,11 @@
     "dataSource": "db",
     "public": false
   },
-  "CorSite": {
+  "Site": {
     "dataSource": "db",
     "public": true
   },
-  "Tags": {
+  "Tag": {
     "dataSource": "db",
     "public": true
   },
