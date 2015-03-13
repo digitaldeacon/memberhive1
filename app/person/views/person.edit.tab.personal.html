@@ -27,15 +27,6 @@
   <input class="form-control" type="text" id="suffix" name="suffix" ng-model="person.suffix" />
 </control-group>
 
-<control-group label="{{'Email' | translate}}">
-  <div class="input-group ">
-    <span class="input-group-addon">
-      <i class="fa fa-envelope"></i>
-    </span>
-    <input class="form-control" type="text" id="email" name="email" ng-model="person.account.email"/>
-  </div>
-</control-group>
-
 <div class="control-group">
   <label for="birthdate" translate>Birthdate</label>
   <div class="input-group">
@@ -50,43 +41,68 @@
 </div>
 
 
+<h3 translate>Login</h3>
+
+<div class="control-group">
+  <label for="login" translate>
+    <input type="checkbox" id="login" name="login" ng-model="personCtrl.hasUserAccount" />
+    User can log in
+  </label>
+</div>
+
+<div ng-show="personCtrl.hasUserAccount">
+  <control-group label="{{'Email' | translate}}">
+    <div class="input-group ">
+    <span class="input-group-addon">
+      <i class="fa fa-envelope"></i>
+    </span>
+      <input class="form-control" type="text" id="email" name="email" ng-model="person.account.email"/>
+    </div>
+  </control-group>
+</div>
+
 <h3 translate>Contact Info</h3>
 
 <control-group label="{{'Home Phone' | translate}}">
   {{contactHome = personCtrl.getContacts(personCtrl.person, 'home');""}}
-  <input class="form-control" type="text" id="contact.home" name="contact.home" ng-model="contactHome" />
+  <input class="form-control" type="text" id="contact.home" name="contact.home" ng-model="contactHome.value" />
 </control-group>
 
 <control-group label="{{'Work Phone' | translate}}">
   {{contactWork = personCtrl.getContacts(personCtrl.person, 'work');""}}
-  <input class="form-control" type="text" id="contact.work" name="contact.work" ng-model="contactWork" />
+  <input class="form-control" type="text" id="contact.work" name="contact.work" ng-model="contactWork.value" />
 </control-group>
 
 <control-group label="{{'Mobile Phone' | translate}}">
   {{contactMobile = personCtrl.getContacts(personCtrl.person, 'mobile');""}}
-  <input class="form-control" type="text" id="contact.mobile" name="contact.mobile" ng-model="contactMobile" />
+  <input class="form-control" type="text" id="contact.mobile" name="contact.mobile" ng-model="contactMobile.value" />
+</control-group>
+
+<control-group label="{{'Fax' | translate}}">
+  {{contactFax = personCtrl.getContacts(personCtrl.person, 'fax');""}}
+  <input class="form-control" type="text" id="contact.fax" name="contact.fax" ng-model="contactFax.value" />
 </control-group>
 
 <control-group label="{{'Facebook Username' | translate}}">
   {{contactFacebook = personCtrl.getContacts(personCtrl.person, 'facebook');""}}
-  <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="contactFacebook" />
+  <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="contactFacebook.value" />
 </control-group>
 
 <control-group label="{{'Skype Name' | translate}}">
   {{contactSkype = personCtrl.getContacts(personCtrl.person, 'skype');""}}
-  <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="contactSkype" />
+  <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="contactSkype.value" />
 </control-group>
 
 
 <h3 translate>Household</h3>
 
 <div class="control-group">
-  <ui-select ng-model="person.householdId"
+  <ui-select ng-model="person.household"
              theme="bootstrap">
     <ui-select-match placeholder="{{'Select household...' | translate}}">
       {{$select.selected.householdName}}
     </ui-select-match>
-    <ui-select-choices repeat="household.id as household in personCtrl.households | filter:$select.search">
+    <ui-select-choices repeat="household in personCtrl.households | filter:$select.search">
       <div ng-bind-html="household.householdName | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>

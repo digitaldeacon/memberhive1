@@ -7,7 +7,7 @@
       </span>
     </div>
 
-    <form>
+    <form ng-submit="personCtrl.save()">
       <tabset>
         <tab>
           <tab-heading>
@@ -28,6 +28,10 @@
           <div class="tab-personal" ng-include="'person/views/person.edit.tab.rights.html'"></div>
         </tab>
       </tabset>
+
+
+      <button type="submit" class="btn btn-primary" translate>Save</button>
+
     </form>
 
   </div>
