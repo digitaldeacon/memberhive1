@@ -1,0 +1,34 @@
+{
+  "name": "EntityTag",
+  "plural": "EntityTags",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "tagId": {
+      "type": "number",
+      "required": true
+    },
+    "entityId": {
+      "type": "number",
+      "required": true
+    },
+    "tableId": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tag": {
+      "type": "belongsTo",
+      "model": "Tag",
+      "foreignKey": "tagId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}
