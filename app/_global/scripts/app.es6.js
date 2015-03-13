@@ -19,6 +19,7 @@ angular.module('gemmiiWebApp', [
   'angular-bootstrap-select.extra',
   'angular-confirm',
   'angularMoment',
+  'ui.select',
 
   'gem.person',
   'gem.dashboard',

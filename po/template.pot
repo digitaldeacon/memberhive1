@@ -14,8 +14,17 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
+#: app/person/views/person.edit.tab.personal.html:40
 #: app/person/views/person.list.html:61
 msgid "Birthdate"
+msgstr ""
+
+#: app/person/views/person.edit.tab.personal.html:43
+msgid "Close"
+msgstr ""
+
+#: app/person/views/person.edit.tab.personal.html:53
+msgid "Contact Info"
 msgstr ""
 
 #: app/_global/tpl/sidebar.html:13
@@ -36,13 +45,10 @@ msgstr ""
 msgid "Edit {{person | formatName}}"
 msgstr ""
 
+#: app/person/views/person.edit.tab.personal.html:30
 #: app/person/views/person.list.html:64
 #: app/person/views/person.view.contacts.html:2
 msgid "Email"
-msgstr ""
-
-#: app/_global/tpl/header.html:28
-msgid "Everything"
 msgstr ""
 
 #: app/person/views/person.list.html:76
@@ -50,7 +56,11 @@ msgstr ""
 msgid "Facebook"
 msgstr ""
 
-#: app/person/views/person.edit.tab.personal.html:1
+#: app/person/views/person.edit.tab.personal.html:70
+msgid "Facebook Username"
+msgstr ""
+
+#: app/person/views/person.edit.tab.personal.html:10
 msgid "First Name"
 msgstr ""
 
@@ -65,16 +75,24 @@ msgstr ""
 msgid "Home Address"
 msgstr ""
 
+#: app/person/views/person.edit.tab.personal.html:55
+msgid "Home Phone"
+msgstr ""
+
 #: app/person/views/person.list.html:67
 #: app/person/views/person.view.contacts.html:6
 msgid "Home phone"
+msgstr ""
+
+#: app/person/views/person.edit.tab.personal.html:81
+msgid "Household"
 msgstr ""
 
 #: app/person/views/person.view.household.html:25
 msgid "Household Address"
 msgstr ""
 
-#: app/person/views/person.edit.tab.personal.html:13
+#: app/person/views/person.edit.tab.personal.html:22
 msgid "Last Name"
 msgstr ""
 
@@ -90,7 +108,7 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: app/person/views/person.edit.tab.personal.html:9
+#: app/person/views/person.edit.tab.personal.html:18
 msgid "Middle Name"
 msgstr ""
 
@@ -102,6 +120,10 @@ msgstr ""
 msgid "Mobile"
 msgstr ""
 
+#: app/person/views/person.edit.tab.personal.html:65
+msgid "Mobile Phone"
+msgstr ""
+
 #: app/person/views/person.list.html:73
 #: app/person/views/person.view.contacts.html:16
 msgid "Mobile phone"
@@ -111,7 +133,7 @@ msgstr ""
 msgid "New Person"
 msgstr ""
 
-#: app/person/views/person.edit.tab.personal.html:5
+#: app/person/views/person.edit.tab.personal.html:14
 msgid "Nickname"
 msgstr ""
 
@@ -131,7 +153,6 @@ msgstr ""
 msgid "Personal"
 msgstr ""
 
-#: app/_global/tpl/header.html:29
 #: app/_global/tpl/sidebar.html:19
 #: app/dashboard/views/dashlet.person.count.html:6
 msgid "Persons"
@@ -158,6 +179,10 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: app/person/views/person.edit.tab.personal.html:86
+msgid "Select household..."
+msgstr ""
+
 #: app/auth/views/login.html:15
 msgid "Sign In"
 msgstr ""
@@ -167,8 +192,20 @@ msgstr ""
 msgid "Skype"
 msgstr ""
 
+#: app/person/views/person.edit.tab.personal.html:75
+msgid "Skype Name"
+msgstr ""
+
+#: app/person/views/person.edit.tab.personal.html:26
+msgid "Suffix"
+msgstr ""
+
 #: app/_global/scripts/adf/widgets/weather/weather.html:12
 msgid "Temperature:"
+msgstr ""
+
+#: app/person/views/person.edit.tab.personal.html:6
+msgid "Title"
 msgstr ""
 
 #: app/auth/views/login.html:17
@@ -185,6 +222,10 @@ msgstr ""
 
 #: app/address/services/address-service.es6.js:10
 msgid "Work Address"
+msgstr ""
+
+#: app/person/views/person.edit.tab.personal.html:60
+msgid "Work Phone"
 msgstr ""
 
 #: app/person/views/person.list.html:70

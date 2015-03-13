@@ -1,5 +1,4 @@
 function PersonViewController(Person, PersonService, AddressService, $stateParams) {
-  this.person = null;
   this.person = PersonService.one($stateParams.id);
   this.getContacts = PersonService.getContacts;
   this.relationTypes = PersonService.relationTypes;

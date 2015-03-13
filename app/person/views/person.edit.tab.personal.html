@@ -1,3 +1,8 @@
+<div class="btn-group" role="group">
+  <label class="btn btn-primary" ng-model="person.gender" btn-radio="'m'" uncheckable>Male</label>
+  <label class="btn btn-primary" ng-model="person.gender" btn-radio="'f'" uncheckable>Female</label>
+</div>
+
 <control-group label="{{'Title' | translate}}">
   <input class="form-control" type="text" id="prefix" name="prefix" ng-model="person.prefix" />
 </control-group>
@@ -22,10 +27,67 @@
   <input class="form-control" type="text" id="suffix" name="suffix" ng-model="person.suffix" />
 </control-group>
 
-<control-group label="{{'Gender' | translate}}">
-  <select class="form-control" ng-model="person.gender" ng-options="personCtrl.genders"></select>
+<control-group label="{{'Email' | translate}}">
+  <div class="input-group ">
+    <span class="input-group-addon">
+      <i class="fa fa-envelope"></i>
+    </span>
+    <input class="form-control" type="text" id="email" name="email" ng-model="person.account.email"/>
+  </div>
 </control-group>
 
-<control-group label="{{'Birthdate' | translate}}">
-  <input class="form-control" type="text" id="birthdate" name="birthdate" ng-model="person.birthdate" />
+<div class="control-group">
+  <label for="birthdate" translate>Birthdate</label>
+  <div class="input-group">
+    <input type="text" id="birthdate" class="form-control" datepicker-popup="{{format}}" ng-model="person.birthdate"
+           is-open="datepickerOpened" close-text="{{'Close' | translate}}" ng-click="personCtrl.openDatepicker()" />
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default" ng-click="personCtrl.openDatepicker()">
+        <i class="glyphicon glyphicon-calendar"></i>
+      </button>
+    </span>
+  </div>
+</div>
+
+
+<h3 translate>Contact Info</h3>
+
+<control-group label="{{'Home Phone' | translate}}">
+  {{contactHome = personCtrl.getContacts(personCtrl.person, 'home');""}}
+  <input class="form-control" type="text" id="contact.home" name="contact.home" ng-model="contactHome" />
 </control-group>
+
+<control-group label="{{'Work Phone' | translate}}">
+  {{contactWork = personCtrl.getContacts(personCtrl.person, 'work');""}}
+  <input class="form-control" type="text" id="contact.work" name="contact.work" ng-model="contactWork" />
+</control-group>
+
+<control-group label="{{'Mobile Phone' | translate}}">
+  {{contactMobile = personCtrl.getContacts(personCtrl.person, 'mobile');""}}
+  <input class="form-control" type="text" id="contact.mobile" name="contact.mobile" ng-model="contactMobile" />
+</control-group>
+
+<control-group label="{{'Facebook Username' | translate}}">
+  {{contactFacebook = personCtrl.getContacts(personCtrl.person, 'facebook');""}}
+  <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="contactFacebook" />
+</control-group>
+
+<control-group label="{{'Skype Name' | translate}}">
+  {{contactSkype = personCtrl.getContacts(personCtrl.person, 'skype');""}}
+  <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="contactSkype" />
+</control-group>
+
+
+<h3 translate>Household</h3>
+
+<div class="control-group">
+  <ui-select ng-model="person.householdId"
+             theme="bootstrap">
+    <ui-select-match placeholder="{{'Select household...' | translate}}">
+      {{$select.selected.householdName}}
+    </ui-select-match>
+    <ui-select-choices repeat="household.id as household in personCtrl.households | filter:$select.search">
+      <div ng-bind-html="household.householdName | highlight: $select.search"></div>
+    </ui-select-choices>
+  </ui-select>
+</div>

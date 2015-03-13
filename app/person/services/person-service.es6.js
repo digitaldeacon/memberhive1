@@ -1,4 +1,4 @@
-angular.module('gem.person').factory('PersonService', function(Person, gettext, config) {
+angular.module('gem.person').factory('PersonService', function(Person, Household, gettext, config) {
 
   return {
     one: (id) => {
@@ -48,6 +48,13 @@ angular.module('gem.person').factory('PersonService', function(Person, gettext, 
 
     delete: (personId, cb) => {
       Person.trash({id: personId}).$promise.then(cb);
+    },
+
+    /**
+     * Return a list of available Households
+     */
+    getHouseholds: () => {
+      return Household.find();
     },
 
     /**
