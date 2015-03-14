@@ -1,7 +1,8 @@
 <script type="text/ng-template" id="searchResultsTpl.html">
   <a tabindex="-1">
     <span class="fa fa-user"></span>
-    <span ng-bind-html-unsafe="match.label | typeaheadHighlight:query">{{match.label}}</span>
+    <span ng-bind-html-unsafe="match.label.firstName | typeaheadHighlight:query">{{match.label.firstName}}</span>
+    <span ng-bind-html-unsafe="match.label.lastName | typeaheadHighlight:query">{{match.label.lastName}}</span>
   </a>
 </script>
 
@@ -36,7 +37,7 @@
                    id="global-search"
                    ng-model="asyncSearch"
                    typeahead="search for search in getSearch($viewValue)"
-                    typeahead-loading="loadingSearch"
+                   typeahead-loading="loadingSearch"
                    typeahead-template-url="searchResultsTpl.html">
           <span class="search-btn-group">
             <button type="button" class="btn search-btn">

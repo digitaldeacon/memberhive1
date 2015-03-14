@@ -71,8 +71,6 @@ angular.module('gemmiiWebApp', [
       $scope.person = response;
     });
     $scope.getSearch = function(val) {
-      console.log($scope.component);
-      console.log(val);
       var arr = ($scope.component && $scope[$scope.component]) ? $scope[$scope.component] : [];
       if (!val) return arr;
       return $filter('filter')(arr,val);
