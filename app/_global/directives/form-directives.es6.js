@@ -14,7 +14,7 @@ angular.module('gemmiiWebApp').directive('controlGroup', function() {
   return {
     template:
       /*jshint multistr: true */
-      '<div class="control-group" ng-class="{ error: isError }">\
+      '<div class="form-group" ng-class="{ error: isError }">\
           <label class="control-label" for="{{for}}">{{label}}</label>\
           <div class="controls" ng-transclude></div>\
       </div>',

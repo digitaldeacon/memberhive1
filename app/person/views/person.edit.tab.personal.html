@@ -1,9 +1,13 @@
 <div class="col-md-6">
   <h3 translate>Person Info</h3>
 
-  <div class="btn-group" role="group">
-    <label class="btn btn-primary" ng-model="person.gender" btn-radio="'m'" uncheckable>Male</label>
-    <label class="btn btn-primary" ng-model="person.gender" btn-radio="'f'" uncheckable>Female</label>
+  <div class="btn-group form-group" role="group">
+    <label class="btn btn-primary" ng-model="person.gender" btn-radio="'m'" uncheckable>
+      <i class="fa fa-male"></i> Male
+    </label>
+    <label class="btn red-pink" ng-model="person.gender" btn-radio="'f'" uncheckable>
+      <i class="fa fa-female"></i> Female
+    </label>
   </div>
 
   <control-group label="{{'Title' | translate}}">
@@ -45,7 +49,7 @@
 
   <h3 translate>Login</h3>
 
-  <div class="control-group">
+  <div class="form-group">
     <label for="login" translate>
       <input type="checkbox" id="login" name="login" ng-model="personCtrl.hasUserAccount" />
       User can log in
@@ -67,34 +71,75 @@
 <div class="col-md-6">
   <h3 translate>Contact Info</h3>
 
+  <div class="form-group" label="{{'Primary contact' | translate}}">
+    <ui-select ng-model="person.primaryContact" theme="bootstrap">
+      <ui-select-match placeholder="{{'Select primary contact type...' | translate}}">
+        {{$select.selected.contactType}}
+      </ui-select-match>
+      <ui-select-choices repeat="contactType in personCtrl.primaryContactTypes | filter:$select.search">
+        <div ng-bind-html="contactType | highlight: $select.search"></div>
+      </ui-select-choices>
+    </ui-select>
+  </div>
+
   <control-group label="{{'Home Phone' | translate}}">
-    {{contactHome = personCtrl.getContacts(personCtrl.person, 'home');""}}
-    <input class="form-control" type="text" id="contact.home" name="contact.home" ng-model="contactHome.value" />
+    <div class="input-group ">
+      <span class="input-group-addon">
+        <i class="glyphicon glyphicon-earphone"></i>
+      </span>
+      {{contactHome = personCtrl.getContacts(personCtrl.person, 'home');""}}
+      <input class="form-control" type="text" id="contact.home" name="contact.home" ng-model="contactHome.value" />
+    </div>
   </control-group>
 
   <control-group label="{{'Work Phone' | translate}}">
-    {{contactWork = personCtrl.getContacts(personCtrl.person, 'work');""}}
-    <input class="form-control" type="text" id="contact.work" name="contact.work" ng-model="contactWork.value" />
+    <div class="input-group ">
+      <span class="input-group-addon">
+        <i class="glyphicon glyphicon-phone-alt"></i>
+      </span>
+      {{contactWork = personCtrl.getContacts(personCtrl.person, 'work');""}}
+      <input class="form-control" type="text" id="contact.work" name="contact.work" ng-model="contactWork.value" />
+    </div>
   </control-group>
 
   <control-group label="{{'Mobile Phone' | translate}}">
-    {{contactMobile = personCtrl.getContacts(personCtrl.person, 'mobile');""}}
-    <input class="form-control" type="text" id="contact.mobile" name="contact.mobile" ng-model="contactMobile.value" />
+    <div class="input-group ">
+      <span class="input-group-addon">
+        <i class="glyphicon glyphicon-phone"></i>
+      </span>
+      {{contactMobile = personCtrl.getContacts(personCtrl.person, 'mobile');""}}
+      <input class="form-control" type="text" id="contact.mobile" name="contact.mobile" ng-model="contactMobile.value" />
+    </div>
   </control-group>
 
   <control-group label="{{'Fax' | translate}}">
-    {{contactFax = personCtrl.getContacts(personCtrl.person, 'fax');""}}
-    <input class="form-control" type="text" id="contact.fax" name="contact.fax" ng-model="contactFax.value" />
+    <div class="input-group ">
+      <span class="input-group-addon">
+        <i class="fa fa-fax"></i>
+      </span>
+      {{contactFax = personCtrl.getContacts(personCtrl.person, 'fax');""}}
+      <input class="form-control" type="text" id="contact.fax" name="contact.fax" ng-model="contactFax.value" />
+    </div>
   </control-group>
 
   <control-group label="{{'Facebook Username' | translate}}">
-    {{contactFacebook = personCtrl.getContacts(personCtrl.person, 'facebook');""}}
-    <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="contactFacebook.value" />
+    <div class="input-group ">
+      <span class="input-group-addon">
+        <i class="fa fa-facebook-official fa-lg" style="color:#43609C"></i>
+      </span>
+      {{contactFacebook = personCtrl.getContacts(personCtrl.person, 'facebook');""}}
+      <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="contactFacebook.value" />
+    </div>
   </control-group>
 
   <control-group label="{{'Skype Name' | translate}}">
-    {{contactSkype = personCtrl.getContacts(personCtrl.person, 'skype');""}}
-    <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="contactSkype.value" />
+    <div class="input-group ">
+      <span class="input-group-addon">
+        <i class="fa fa-skype fa-lg" style="color: #00AFF0"></i>
+      </span>
+      {{contactSkype = personCtrl.getContacts(personCtrl.person, 'skype');""}}
+      <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="contactSkype.value" />
+    </div>
   </control-group>
 
 

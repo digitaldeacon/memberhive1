@@ -5,6 +5,7 @@ function PersonEditController(PersonService, Person, Contact, AddressService, $s
   this.genders = PersonService.genders;
   this.households = PersonService.getHouseholds();
   this.addressTypes = AddressService.addressTypes;
+  this.primaryContactTypes = ['Email','Mobile','Postal'];
   //this.hasUserAccount = (person.account !== undefined);
   $scope.datepickerOpened = true;
 
