@@ -90,5 +90,9 @@
   "EntityTag": {
     "dataSource": "db",
     "public": true
+  },
+  "ReportType": {
+    "dataSource": "db",
+    "public": true
   }
 }

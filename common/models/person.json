@@ -37,8 +37,12 @@
     },
     "primaryContact": {
       "type": "string",
-      "enum": ["email", "mobile", "postal"],
-      "required": true
+      "required": true,
+      "enum": [
+        "email",
+        "mobile",
+        "postal"
+      ]
     }
   },
   "validations": [],

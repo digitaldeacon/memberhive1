@@ -8,10 +8,7 @@
 	<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
       ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}" ng-if="acl.isLoggedIn()">
 		<li class="start" >
-			<a ui-sref='dashboard'>
-                <fa name="laptop"></fa>
-                <span class="title" translate>Dashboard</span>
-			</a>
+			<a ui-sref='dashboard'><fa name="laptop"></fa><span class="title" translate>Dashboard</span></a>
 		</li>
 		<li>
 			<a>
@@ -32,6 +29,25 @@
 				</li>
 			</ul>
 		</li>
+    <li>
+      <a>
+        <fa name="bar-chart"></fa>
+        <span class="title" translate>Reports</span>
+        <span class="arrow "></span>
+      </a>
+      <ul class="sub-menu">
+        <li>
+          <a ui-sref='report.list'>
+            <fa name="eye"></fa> <translate>List Reports</translate>
+          </a>
+        </li>
+        <li>
+          <a ui-sref='report.create'>
+            <fa name="plus"></fa> <translate>New Report</translate>
+          </a>
+        </li>
+      </ul>
+    </li>
     <li>
       <a ng-click="logout()">
         <fa name="lock"></fa>

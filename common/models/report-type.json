@@ -1,0 +1,43 @@
+{
+  "name": "ReportType",
+  "plural": "ReportTypes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "mysql": {
+      "table": "CorReportType"
+    }
+  },
+  "properties": {
+    "ReportId": {
+      "type": "number",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "layout": {
+      "type": "object",
+      "required": true
+    },
+    "widgetize": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true
+    },
+    "createdBy": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

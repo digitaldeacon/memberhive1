@@ -6,6 +6,7 @@
   border-radius: 4px;
 
   .bootstrap-select > button.selectpicker {
+    @extend .grey-cascade;
     border:0;
     background: rgba(146, 203, 253, 0.33);
     -webkit-border-radius: 0;

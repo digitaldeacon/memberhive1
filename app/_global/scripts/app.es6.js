@@ -26,7 +26,8 @@ angular.module('gemmiiWebApp', [
   'gem.option',
   'gem.acl',
   'gem.auth',
-  'gem.note'
+  'gem.note',
+  'gem.report'
   ])
 
   .config(
@@ -174,4 +175,12 @@ angular.module(
   {
     'redirect': 'login'
   }
+);
+
+angular.module(
+  'gem.report',
+  [
+    'ui.router',
+    'lbServices'
+  ]
 );
