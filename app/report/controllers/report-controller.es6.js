@@ -30,7 +30,8 @@ function ReportController($scope,Report, config, Person,gettext) {
   };
 
   this.saveQuery = function(json) {
-    console.log(json);
+    $scope.data = JSON.stringify(json, null, 2);
+    $scope.filter = JSON.parse(data);
   };
 
   $scope.filter = JSON.parse(data);
