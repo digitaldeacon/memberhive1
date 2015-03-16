@@ -27,6 +27,16 @@ module.exports = function(grunt) {
     // Project settings
     yeoman: appConfig,
 
+    loopback_angular_addModelData: { // jshint ignore:line
+      services: {
+        options: {
+          modelConfig: 'server/model-config.json',
+          serviceFile: 'app/_global/scripts/lb-services.js',
+          modelDir: 'common/models/'
+        }
+      }
+    },
+
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
@@ -481,7 +491,8 @@ module.exports = function(grunt) {
     'filerev',
     'usemin',
     'htmlmin',
-    'loopback_sdk_angular'
+    'loopback_sdk_angular',
+    'loopback_angular_addModelData'
   ]);
 
   grunt.registerTask('default', [
@@ -534,4 +545,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-loopback-sdk-angular');
   grunt.loadNpmTasks('grunt-loopback-auto');
   grunt.loadNpmTasks('grunt-jscs');
+  grunt.loadNpmTasks('grunt-loopback-angular-addmodeldata');
 };

@@ -1,3 +1,21 @@
 <h2>Build a new report</h2>
-<gem-querybuilder ng-model="query"></gem-querybuilder>
-{{query}}
+<div ng-controller="ReportController as report">
+  <gem-querybuilder ng-model="json" id="builder"></gem-querybuilder>
+  <p id="result" class="hide"><pre ng-bind="json">{{json}}</pre></p>
+  <div class="btn-group">
+    <button class="btn btn-warning reset">Reset</button>
+    <button class="btn green-haze parse-json" ng-click="report.saveQuery(json)">Save</button>
+  </div>
+</div>
+<script>
+  $('.reset').on('click', function() {
+    $('#builder').queryBuilder('reset');
+    $('#result').addClass('hide').find('pre').empty();
+  });
+  $('.parse-json').on('click', function() {
+    var res = $('#builder').queryBuilder('getRules');
+    $('#result').find('pre').html(
+      JSON.stringify(res, null, 2)
+    );
+  });
+</script>

@@ -17,7 +17,7 @@ function PersonController(Person, PersonService, config) {
     Person.count().$promise.then((result) => {
       this.totalPersons = result.count;
     });
-
+    console.log(Person);
     this.persons = PersonService.all(pageNumber);
   };
 
