@@ -3,10 +3,10 @@
 
   <div class="btn-group form-group" role="group">
     <label class="btn btn-primary" ng-model="person.gender" btn-radio="'m'" uncheckable>
-      <i class="fa fa-male"></i> Male
+      <fa name="male"></fa> Male
     </label>
     <label class="btn red-pink" ng-model="person.gender" btn-radio="'f'" uncheckable>
-      <i class="fa fa-female"></i> Female
+      <fa name="female"></fa> Female
     </label>
   </div>
 
@@ -60,7 +60,7 @@
     <control-group label="{{'Email' | translate}}">
       <div class="input-group ">
       <span class="input-group-addon">
-        <i class="fa fa-envelope"></i>
+        <fa name="envelope"></fa>
       </span>
         <input class="form-control" type="text" id="email" name="email" ng-model="person.account.email"/>
       </div>
@@ -115,7 +115,7 @@
   <control-group label="{{'Fax' | translate}}">
     <div class="input-group ">
       <span class="input-group-addon">
-        <i class="fa fa-fax"></i>
+        <fa name="fax"></fa>
       </span>
       {{contactFax = personCtrl.getContacts(personCtrl.person, 'fax');""}}
       <input class="form-control" type="text" id="contact.fax" name="contact.fax" ng-model="contactFax.value" />
@@ -125,7 +125,7 @@
   <control-group label="{{'Facebook Username' | translate}}">
     <div class="input-group ">
       <span class="input-group-addon">
-        <i class="fa fa-facebook-official fa-lg" style="color:#43609C"></i>
+        <fa name="facebook-official" size="large" style="color:#43609C"></fa>
       </span>
       {{contactFacebook = personCtrl.getContacts(personCtrl.person, 'facebook');""}}
       <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="contactFacebook.value" />
@@ -135,7 +135,7 @@
   <control-group label="{{'Skype Name' | translate}}">
     <div class="input-group ">
       <span class="input-group-addon">
-        <i class="fa fa-skype fa-lg" style="color: #00AFF0"></i>
+        <fa name="skype" size="large" style="color:#00AFF0"></fa>
       </span>
       {{contactSkype = personCtrl.getContacts(personCtrl.person, 'skype');""}}
       <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="contactSkype.value" />
