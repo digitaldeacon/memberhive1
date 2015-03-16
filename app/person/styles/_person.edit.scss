@@ -1,0 +1,24 @@
+.gender-buttons {
+  $gender-male: #578ebe;
+  $gender-female: #e08283;
+  .btn-male {
+    color: $gender-male;
+    border: 1px solid $gender-male;
+
+    &:hover,
+    &.active {
+      background-color: $gender-male;
+      color: white;
+    }
+  }
+  .btn-female {
+    color: $gender-female;
+    border: 1px solid $gender-female;
+
+    &:hover,
+    &.active {
+      background-color: $gender-female;
+      color: white;
+    }
+  }
+}
