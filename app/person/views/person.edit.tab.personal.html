@@ -74,7 +74,7 @@
   <div class="form-group" label="{{'Primary contact' | translate}}">
     <ui-select ng-model="person.primaryContact" theme="bootstrap">
       <ui-select-match placeholder="{{'Select primary contact type...' | translate}}">
-        {{$select.selected.contactType}}
+        {{$select.selected}}
       </ui-select-match>
       <ui-select-choices repeat="contactType in personCtrl.primaryContactTypes | filter:$select.search">
         <div ng-bind-html="contactType | highlight: $select.search"></div>
