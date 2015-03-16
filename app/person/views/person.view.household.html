@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <h3>
-    {{person.household.householdName}}
+    {{::person.household.householdName}}
   </h3>
 </div>
 
@@ -10,12 +10,12 @@
       <a ui-sref="person.view({ id: person.id })">
         <img src="http://placehold.it/60x60" class="pull-left" />
         <div class="person-info">
-          <h4><b>{{person | formatFirstName}}</b></h4>
+          <h4><b>{{::person | formatFirstName}}</b></h4>
           <small class="text-muted" ng-if="person.relationType">
-            {{personCtrl.relationTypes[person.relationType.type]}}
+            {{::personCtrl.relationTypes[person.relationType.type]}}
           </small>
           <br/>
-          <small>{{person.birthdate | fromNow: true}}</small>
+          <small>{{::person.birthdate | fromNow: true}}</small>
         </div>
       </a>
     </li>
@@ -23,5 +23,5 @@
 </div>
 <div class="col-md-3">
   <b translate>Household Address</b>
-  <formataddress address="person.household.address"></formataddress>
+  <formataddress address="::person.household.address"></formataddress>
 </div>
