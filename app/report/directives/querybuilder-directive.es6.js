@@ -4,13 +4,7 @@ angular.module('gem.report').directive('gemQuerybuilder', function($parse,Report
     el.queryBuilder({
       allow_empty: true,//jshint ignore:line
       plugins: ['sortable', 'bt-tooltip-errors'],
-      filters: Report.setQBFilters(),
-      getRules: function(value) {
-        scope.$apply(function() {
-          console.log(value);
-        });
-        console.log(value);
-      }
+      filters: Report.setQBFilters()
     });
   };
 

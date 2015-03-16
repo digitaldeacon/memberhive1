@@ -20,6 +20,7 @@ angular.module('gemmiiWebApp', [
   'angular-confirm',
   'angularMoment',
   'ui.select',
+  'textAngular',
 
   'gem.person',
   'gem.dashboard',

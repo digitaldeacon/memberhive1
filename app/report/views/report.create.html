@@ -1,12 +1,36 @@
-<h2>Build a new report</h2>
-<div ng-controller="ReportController as report">
-  <gem-querybuilder ng-model="json" id="builder"></gem-querybuilder>
-  <p id="result" class="hide"><pre ng-bind="json">{{json}}</pre></p>
-  <div class="btn-group">
-    <button class="btn btn-warning reset">Reset</button>
-    <button class="btn green-haze parse-json" ng-click="report.saveQuery(json)">Save</button>
-  </div>
+<div class="portlet-default" ng-controller="ReportController as report">
+  <tabset>
+
+    <tab>
+      <tab-heading>
+        <fa name="database"></fa> <translate>Report source</translate>
+      </tab-heading>
+      <div class="tab-personal row">
+        <div class="portlet-default">
+          <gem-querybuilder id="builder"></gem-querybuilder>
+          <p id="result" class="hide"><pre ng-bind="json"></pre></p>
+          <div class="btn-group">
+            <button class="btn btn-warning reset">Reset</button>
+            <button class="btn green-haze parse-json" ng-click="report.saveQuery(json)">Save</button>
+          </div>
+        </div>
+      </div>
+    </tab>
+
+    <tab>
+      <tab-heading>
+        <fa name="pencil"></fa> <translate>Report layout</translate>
+      </tab-heading>
+      <div class="tab-personal row">
+        <div class="portlet-default">
+          <text-angular ng-model="htmlVariable"></text-angular>
+        </div>
+      </div>
+    </tab>
+
+  </tabset>
 </div>
+
 <script>
   $('.reset').on('click', function() {
     $('#builder').queryBuilder('reset');

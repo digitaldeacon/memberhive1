@@ -228,7 +228,8 @@ module.exports = function(grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath: /\.\.\//
+        ignorePath: /\.\.\//,
+        exclude: ['bower_components/jQuery-QueryBuilder/dist/query-builder.css']
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],

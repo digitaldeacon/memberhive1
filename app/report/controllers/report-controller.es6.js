@@ -1,7 +1,7 @@
 function ReportController($scope,Report, config, Person,gettext) {
   var report = this;
-  report.personService = Person;
-  $scope.json = 'Test';
+  var data = '{"group": {"operator": "AND","rules": []}}';
+  $scope.json = null;
 
   report.personModel = [
     {id: 'firstName',label: 'Firstname',type: 'string',optgroup: 'Person'},
@@ -21,21 +21,24 @@ function ReportController($scope,Report, config, Person,gettext) {
         todayBtn: 'linked',
         todayHighlight: true,
         autoclose: true
-      }}
+      }
+    }
   ];
 
   this.setQBFilters = function() {
     return report.personModel;
   };
 
-  this.saveQuery = function(val) {
-    //console.log(val);
+  this.saveQuery = function(json) {
+    console.log(json);
   };
 
-  $scope.$watch('filter', function (newValue) {
+  $scope.filter = JSON.parse(data);
+
+  $scope.$watch('filter', function(newValue) {
     $scope.json = JSON.stringify(newValue, null, 2);
-    //$scope.output = computed(newValue.group);
   }, true);
+
 }
 
 angular
