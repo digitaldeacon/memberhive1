@@ -1,9 +1,9 @@
 <ul class="list-unstyled">
   <li>
     {{years = (person.birthdate | fromNow: true);""}}
-    <translate>{{years}} old</translate> <span class="text-muted">({{person.birthdate | amDateFormat:'ll'}})</span>
+    <translate>{{::years}} old</translate> <span class="text-muted">({{::person.birthdate | amDateFormat:'ll'}})</span>
   </li>
   <li>
-    {{personCtrl.genders[person.gender]}}
+    {{::personCtrl.genders[person.gender]}}
   </li>
 </ul>
