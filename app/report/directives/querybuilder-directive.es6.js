@@ -14,15 +14,22 @@ angular.module('gem.report')
               plugins: ['sortable', 'bt-tooltip-errors'],
               filters: controller.setQBFilters()
             });
-            var saveBtn = document.querySelector('.parse-json');
-            // Wrap it as a jqLite element
-            var button = angular.element(saveBtn);
-            var onButtonClick = function() {
-              controller.saveQuery(iElement.queryBuilder('getRules'));
+            var saveBtn = angular.element(document.querySelector('.parse-json'));
+            var resetBtn = angular.element(document.querySelector('.reset'));
+
+            var onSaveButtonClick = function() {
+              controller.saveQuery(iElement.queryBuilder('getLoopback'));
             };
-            button.on('click', onButtonClick);
+            var onResetButtonClick = function() {
+              controller.saveQuery(iElement.queryBuilder('reset'));
+            };
+
+            saveBtn.on('click', onSaveButtonClick);
+            resetBtn.on('click', onResetButtonClick);
+
             scope.$on('$destroy', function() {
-              button.off('click', onButtonClick);
+              saveBtn.off('click', onSaveButtonClick);
+              resetBtn.off('click', onResetButtonClick);
             });
           }
         };

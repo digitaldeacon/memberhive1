@@ -1,9 +1,25 @@
-function ReportController($scope,Report, config, Person,gettext) {
-  var report = this;
-  var data = '{"group": {"operator": "AND","rules": []}}';
-  $scope.json = null;
+function ReportController($scope,Report,config,Person,gettext,LoopBackAuth) {
+  var _self = this;
+  _self.curUser = LoopBackAuth.currentUserId;
+  _self.data = '{"group": {"operator": "AND","rules": []}}';
+  _self.name = '';
 
-  report.personModel = [
+  _self.report = {
+    name: 'test',
+    slur: 'person/simple',
+    query: {},
+    active: true,
+    widgetize: false,
+    createdAt: new Date(),
+    createdBy: _self.curUser
+  };
+
+  $scope.json = null;
+  $scope.name = _self.name;
+
+  // this we should get via Person.model.properties (according to loopback_angular_addModelData)
+  // TODO: this is not working yet
+  _self.personModel = [
     {id: 'firstName',label: 'Firstname',type: 'string',optgroup: 'Person'},
     {id: 'lastName',label: 'Lastname',type: 'string',optgroup: 'Person'},
     {id: 'gender',label: 'Gender',type: 'string',optgroup: 'Person'},
@@ -25,17 +41,20 @@ function ReportController($scope,Report, config, Person,gettext) {
     }
   ];
 
-  this.setQBFilters = function() {
-    return report.personModel;
+  _self.setQBFilters = function() {
+    return _self.personModel;
   };
 
-  this.saveQuery = function(json) {
-    $scope.data = JSON.stringify(json, null, 2);
-    $scope.filter = JSON.parse(data);
+  _self.saveQuery = function(json) {
+    _self.data = JSON.stringify(json, null, 2);
+    $scope.filter = JSON.parse(_self.data);
+    $scope.$apply();
+    _self.report.query = $scope.filter;
+    _self.report.name = $scope.name;
+    Report.upsert({},_self.report,(data) => {});
   };
 
-  $scope.filter = JSON.parse(data);
-
+  $scope.filter = JSON.parse(_self.data);
   $scope.$watch('filter', function(newValue) {
     $scope.json = JSON.stringify(newValue, null, 2);
   }, true);
