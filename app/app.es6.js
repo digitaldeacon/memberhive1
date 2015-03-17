@@ -1,3 +1,35 @@
+// Modules installed via Bower (defined in app/system.config.js)
+import 'jquery';
+import 'angular';
+import 'angular-route';
+import 'angular-animate';
+import 'angular-cookies';
+import 'angular-resource';
+import 'angular-sanitize';
+import 'angular-touch';
+import 'angular-fontawesome';
+import 'angular-ui-router';
+import 'angular-ui-bootstrap';
+import 'angular-ui-select';
+import 'angular-ui-sortable';
+import 'angular-gettext';
+import 'angular-bootstrap-select';
+import 'angular-confirm';
+import 'angular-moment';
+import 'textAngular';
+import 'bootstrap';
+import 'blockUI';
+
+// Own modules
+import '_global/scripts/lb-services';
+import '_global/scripts/metronic/metronic';
+import '_global/scripts/metronic/layout';
+
+import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
+import {gemDashboardModule} from 'dashboard/dashboard';
+import {gemPersonModule} from 'person/person';
+import {gemAuthModule, gemAclModule} from 'auth/acl';
+
 /**
  * The main Gemmii app module.
  */
@@ -11,7 +43,6 @@ angular.module('gemmiiWebApp', [
   'picardy.fontawesome',
   'ui.router',
   'ui.bootstrap',
-  'oc.lazyLoad',
   'lbServices',
   'gettext',
   'formatFilters',
@@ -32,13 +63,8 @@ angular.module('gemmiiWebApp', [
   ])
 
   .config(
-    ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $locationProvider) => {
+    ($stateProvider, $urlRouterProvider) => {
       $urlRouterProvider.otherwise('/dashboard');
-      $ocLazyLoadProvider.config({
-        // load the above css files before a LINK element with this ID.
-        // Dynamic CSS files must be loaded between core and theme css files
-        cssFilesInsertBefore: 'ng_load_plugins_before'
-      });
   })
 
   .factory('settings', $rootScope => {
@@ -113,28 +139,6 @@ angular.module('gemmiiWebApp', [
     }
   });
 
-angular.module(
-  'gem.person',
-  [
-    'ui.router',
-    'lbServices',
-    'schemaForm',
-    'angularUtils.directives.dirPagination',
-    'nsPopover',
-
-    'personFilters',
-    'dateFilters',
-
-    'gem.address'
-  ]
-);
-
-angular.module(
-  'gem.address',
-  [
-    'iso-3166-country-codes'
-  ]
-);
 
 angular.module(
   'gem.note',
@@ -143,45 +147,11 @@ angular.module(
 
 
 angular.module(
-  'gem.dashboard',
-  [
-    'ui.router',
-    'lbServices',
-    'gem.acl'
-  ]
-);
-
-angular.module(
-  'gem.auth',
-  [
-    'ui.router',
-    'lbServices'
-  ]
-);
-
-angular.module(
   'gem.option',
-  [
-    'ui.router',
-    'lbServices'
-  ]
-);
-angular.module(
-  'gem.acl',
-  [
-    'lbServices'
-  ]
-).constant(
-  'gem-acl.config',
-  {
-    'redirect': 'login'
-  }
+  []
 );
 
 angular.module(
   'gem.report',
-  [
-    'ui.router',
-    'lbServices'
-  ]
+  []
 );

@@ -1,4 +1,12 @@
-angular.module('gem.acl')
+import 'lodash';
+
+export var GemAclModule = angular.module('gem.acl', [])
+.constant(
+  'gem-acl.config',
+  {
+    'redirect': 'login'
+  }
+)
 .provider('GemAcl', ['gem-acl.config', function(config, $get, LoopBackAuth, $q) {
   var self = {};
   self.rights = false;

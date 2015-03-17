@@ -1,4 +1,4 @@
-angular.module('gem.auth').config(
+export var GemAuthModule = angular.module('gem.auth', []).config(
   ($stateProvider, gettext) => {
       $stateProvider.state('login', {
         url: '/login',

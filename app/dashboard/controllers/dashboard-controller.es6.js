@@ -1,4 +1,6 @@
-function DashboardController($location,$rootScope,$scope,Option,Account,LoopBackAuth) {
+import 'dashboard/dashboard';
+
+export function DashboardController($location,$rootScope,$scope,Option,Account,LoopBackAuth) {
   var vm = this;
   vm.curUser = LoopBackAuth.currentUserId;
   vm.options = [];
@@ -52,5 +54,3 @@ function DashboardController($location,$rootScope,$scope,Option,Account,LoopBack
     createUpdateOptions(model);
   });
 }
-
-angular.module('gem.dashboard').controller('DashboardController', DashboardController);

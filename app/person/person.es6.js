@@ -1,4 +1,21 @@
-angular.module('gem.person').config(
+import 'angular-utils-pagination';
+import 'nsPopover';
+
+import 'person/filters/person-filters';
+
+export var GemPersonModule = angular.module('gem.person',
+  [
+    'ui.router',
+    'lbServices',
+    'angularUtils.directives.dirPagination',
+    'nsPopover',
+
+    'personFilters',
+    'dateFilters',
+
+    'gem.address'
+  ]
+).config(
   ($stateProvider, $compileProvider, gettext) => {
     $stateProvider.state('person', {
       url: '/person',
