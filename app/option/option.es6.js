@@ -1,4 +1,6 @@
-export var gemOptionsModule = angular.module('gem.option', []).config(
+import {OptionController} from 'options/controllers/option-controller';
+
+export var gemOptionModule = angular.module('gem.option', []).config(
   ($stateProvider) => {
     $stateProvider.state('option', {
       url: '/option',
@@ -11,3 +13,5 @@ export var gemOptionsModule = angular.module('gem.option', []).config(
     });
   }
 );
+
+gemOptionModule.controller('OptionController', OptionController);

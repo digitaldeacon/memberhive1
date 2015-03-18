@@ -19,7 +19,6 @@ import 'angular-moment';
 import 'textAngular';
 import 'bootstrap';
 import 'bootstrap-hover-dropdown';
-//import 'blockUI';
 
 // Own modules
 import '_global/scripts/lb-services';
@@ -36,7 +35,7 @@ import {gemPersonModule} from 'person/person';
 import {gemAuthModule} from 'auth/auth';
 import {gemAclModule} from 'auth/acl';
 import {gemNoteModule} from 'note/note';
-import {gemOptionsModule} from 'options/options';
+import {gemOptionModule} from 'option/option';
 import {gemReportModule} from 'report/report';
 
 /**
