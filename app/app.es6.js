@@ -18,22 +18,29 @@ import 'angular-confirm';
 import 'angular-moment';
 import 'textAngular';
 import 'bootstrap';
-import 'blockUI';
+//import 'blockUI';
 
 // Own modules
 import '_global/scripts/lb-services';
 import '_global/scripts/metronic/metronic';
 import '_global/scripts/metronic/layout';
+import '_global/services/search';
 
+import {spinnerBarDirective} from '_global/scripts/directives';
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
 import {gemDashboardModule} from 'dashboard/dashboard';
+import {gemAddressModule} from 'address/address';
 import {gemPersonModule} from 'person/person';
-import {gemAuthModule, gemAclModule} from 'auth/acl';
+import {gemAuthModule} from 'auth/auth';
+import {gemAclModule} from 'auth/acl';
+import {gemNoteModule} from 'note/note';
+import {gemOptionsModule} from 'options/options';
+import {gemReportModule} from 'report/report';
 
 /**
  * The main Gemmii app module.
  */
-angular.module('gemmiiWebApp', [
+export var gemMainModule = angular.module('gemmiiWebApp', [
   'ngAnimate',
   'ngCookies',
   'ngResource',
@@ -139,19 +146,4 @@ angular.module('gemmiiWebApp', [
     }
   });
 
-
-angular.module(
-  'gem.note',
-  []
-);
-
-
-angular.module(
-  'gem.option',
-  []
-);
-
-angular.module(
-  'gem.report',
-  []
-);
+gemMainModule.directive('ngSpinnerBar', spinnerBarDirective);

@@ -3,7 +3,7 @@ import 'nsPopover';
 
 import 'person/filters/person-filters';
 
-export var GemPersonModule = angular.module('gem.person',
+export var gemPersonModule = angular.module('gem.person',
   [
     'ui.router',
     'lbServices',

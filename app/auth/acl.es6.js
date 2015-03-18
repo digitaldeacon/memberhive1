@@ -1,6 +1,6 @@
 import 'lodash';
 
-export var GemAclModule = angular.module('gem.acl', [])
+export var gemAclModule = angular.module('gem.acl', [])
 .constant(
   'gem-acl.config',
   {

@@ -1,4 +1,4 @@
-function LoginController(Account, $state, GemAcl) {
+export function LoginController(Account, $state, GemAcl) {
   function login() {
     Account.login(
       {rememberMe: this.rememberMe},
@@ -25,5 +25,3 @@ function LoginController(Account, $state, GemAcl) {
   this.login = login;
   this.error = false;
 }
-
-angular.module('gem.auth', []).controller('LoginController', LoginController);

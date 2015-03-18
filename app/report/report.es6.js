@@ -1,4 +1,4 @@
-angular.module('gem.report').config(
+export var gemReportModule = angular.module('gem.report', []).config(
   ($stateProvider, $compileProvider) => {
     $stateProvider.state('report', {
       url: '/report',

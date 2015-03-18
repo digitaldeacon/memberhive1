@@ -1,4 +1,4 @@
-angular.module('gem.option').config(
+export var gemOptionsModule = angular.module('gem.option', []).config(
   ($stateProvider) => {
     $stateProvider.state('option', {
       url: '/option',

@@ -1,5 +1,3 @@
-import 'dashboard/dashboard';
-
 export function DashboardController($location,$rootScope,$scope,Option,Account,LoopBackAuth) {
   var vm = this;
   vm.curUser = LoopBackAuth.currentUserId;
