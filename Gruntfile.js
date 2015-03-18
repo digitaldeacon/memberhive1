@@ -420,6 +420,16 @@ module.exports = function(grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      'live': {
+        expand: true,
+        cwd: 'app/',
+        dest: '.tmp/scripts',
+        src: [
+          '_global/scripts/lb-services.js',
+          '_global/scripts/metronic/**',
+          'adf/**'
+        ]
       }
     },
 
@@ -461,6 +471,7 @@ module.exports = function(grunt) {
       'loopback_sdk_angular',
       'wiredep',
       'po2js',
+      'copy:live',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',

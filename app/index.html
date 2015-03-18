@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="gemmiiWebApp" class="no-js">
+<html class="no-js">
   <head>
     <meta charset="utf-8">
     <title data-ng-bind="$state.current.data.pageTitle+' | gemmii'">gemmii</title>
@@ -23,12 +23,13 @@
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/textAngular/src/textAngular.css" />
-    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="_global/scripts/metronic/plugins/morris/morris.css">
+    <link rel="stylesheet" href="_global/scripts/metronic/pages/css/tasks.css">
     <!-- endbuild -->
 
   </head>
@@ -72,99 +73,16 @@
       </div>
     </div>
 
+    <script src="bower_components/es6-module-loader/dist/es6-module-loader.js"></script>
+    <script src="bower_components/system.js/dist/system.js"></script>
+    <script src="system.config.js"></script>
+    <script>
+      System.transpiler = 'babel';
+      System.import('app').then(function() {
+        angular.bootstrap(document, ['gemmiiWebApp']);
+      });
+    </script>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
-    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
-    <script src="bower_components/angular-bootstrap-select/build/angular-bootstrap-select.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/angular-fontawesome/dist/angular-fontawesome.js"></script>
-    <script src="bower_components/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="bower_components/angular-slimscroll/angular-slimscroll.js"></script>
-    <script src="bower_components/jquery.uniform/jquery.uniform.js"></script>
-    <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
-    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-    <script src="bower_components/restangular/dist/restangular.js"></script>
-    <script src="bower_components/ocLazyLoad/dist/ocLazyLoad.min.js"></script>
-    <script src="bower_components/blockui/jquery.blockUI.js"></script>
-    <script src="bower_components/jquery-cookie/jquery.cookie.js"></script>
-    <script src="bower_components/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
-    <script src="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.min.js"></script>
-    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
-    <script src="bower_components/tv4/tv4.js"></script>
-    <script src="bower_components/objectpath/lib/ObjectPath.js"></script>
-    <script src="bower_components/angular-schema-form/dist/schema-form.js"></script>
-    <script src="bower_components/angular-schema-form/dist/bootstrap-decorator.js"></script>
-    <script src="bower_components/angular-utils-pagination/dirPagination.js"></script>
-    <script src="bower_components/iso-3166-country-codes-angular/dist/iso-3166-country-codes-angular.min.js"></script>
-    <script src="bower_components/nsPopover/src/nsPopover.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
-    <script src="bower_components/angular-confirm/angular-confirm.js"></script>
-    <script src="bower_components/angular-ui-select/dist/select.js"></script>
-    <script src="bower_components/momentjs/moment.js"></script>
-    <script src="bower_components/microevent-mistic100/microevent.js"></script>
-    <script src="bower_components/jquery-extendext/jQuery.extendext.js"></script>
-    <script src="bower_components/jQuery-QueryBuilder/dist/query-builder.js"></script>
-    <script src="bower_components/rangy/rangy-core.min.js"></script>
-    <script src="bower_components/rangy/rangy-cssclassapplier.min.js"></script>
-    <script src="bower_components/rangy/rangy-selectionsaverestore.min.js"></script>
-    <script src="bower_components/rangy/rangy-serializer.min.js"></script>
-    <script src="bower_components/textAngular/src/textAngular.js"></script>
-    <script src="bower_components/textAngular/src/textAngular-sanitize.js"></script>
-    <script src="bower_components/textAngular/src/textAngularSetup.js"></script>
-    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="_global/scripts/metronic/metronic.js"></script>
-    <script src="_global/scripts/metronic/layout.js"></script>
-
-    <script src="_global/scripts/adf/structures.js"></script>
-    <script src="_global/scripts/adf/widgets/weather/weather.js"></script>
-
-    <script src="_global/scripts/lb-services.js"></script>
-
-    <script src="scripts/_global/scripts/app.js"></script>
-    <script src="scripts/_global/directives/form-directives.js"></script>
-    <script src="scripts/_global/scripts/directives.js"></script>
-    <script src="scripts/_global/scripts/filters.js"></script>
-
-    <script src="scripts/translations.js"></script>
-    <script src="scripts/dashboard/dashboard.js"></script>
-    <script src="scripts/person/directives/person-directives.js"></script>
-    <script src="scripts/person/services/person-service.js"></script>
-    <script src="scripts/person/filters/person-filters.js"></script>
-    <script src="scripts/person/controllers/person-controller.js"></script>
-    <script src="scripts/person/controllers/person-view-controller.js"></script>
-    <script src="scripts/person/controllers/person-edit-controller.js"></script>
-    <script src="scripts/person/controllers/person-create-controller.js"></script>
-    <script src="scripts/person/person.js"></script>
-    <script src="scripts/report/directives/querybuilder-directive.js"></script>
-    <script src="scripts/report/controllers/report-controller.js"></script>
-    <script src="scripts/report/report.js"></script>
-    <script src="scripts/address/services/address-service.js"></script>
-    <script src="scripts/address/directives/address-directive.js"></script>
-    <script src="scripts/auth/controller/auth-controller.js"></script>
-    <script src="scripts/auth/auth.js"></script>
-    <script src="scripts/auth/acl.js"></script>
-    <!-- endbuild -->
 
   </body>
 </html>

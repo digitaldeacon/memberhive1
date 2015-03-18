@@ -1,4 +1,4 @@
-function ReportController($scope,Report,config,Person,gettext,LoopBackAuth) {
+export function ReportController($scope, Report, Person, LoopBackAuth) {
   var _self = this;
   _self.curUser = LoopBackAuth.currentUserId;
   _self.data = '{"group": {"operator": "AND","rules": []}}';
@@ -68,10 +68,3 @@ function ReportController($scope,Report,config,Person,gettext,LoopBackAuth) {
   }, true);
 
 }
-
-angular
-  .module('gem.report')
-  .controller(
-  'ReportController',
-  ReportController
-);

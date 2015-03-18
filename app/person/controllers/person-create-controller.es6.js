@@ -1,4 +1,4 @@
-function PersonCreateController(Person, $scope, gettext) {
+export function PersonCreateController(Person, $scope, gettext) {
   var vm = this;
   vm.schema = {
     type: 'object',
@@ -58,7 +58,3 @@ function PersonCreateController(Person, $scope, gettext) {
     }
   };
 }
-
-angular
-  .module('gem.person')
-  .controller('PersonCreateController', PersonCreateController);

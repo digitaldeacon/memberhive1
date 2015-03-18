@@ -1,5 +1,4 @@
-angular.module('gem.person').factory('PersonService', function(Person, Contact, Household, gettext, config) {
-
+export function PersonService(Person, Contact, Household, gettext, config) {
   return {
     one: (id) => {
       // Need to use findOne() instead of findById() since you can't use the include filter with findById()
@@ -35,7 +34,7 @@ angular.module('gem.person').factory('PersonService', function(Person, Contact, 
             'contacts',
             'account',
             {
-              'household': { 'persons': 'relationType' }
+              'household': {'persons': 'relationType'}
             },
             'ministries',
             'relationType'
@@ -110,6 +109,5 @@ angular.module('gem.person').factory('PersonService', function(Person, Contact, 
       'stepsister': gettext('Stepsister')
     }
 
-};
-
-});
+  };
+}

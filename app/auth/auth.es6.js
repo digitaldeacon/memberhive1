@@ -1,4 +1,6 @@
-angular.module('gem.auth').config(
+import {LoginController} from 'auth/controller/auth-controller';
+
+export var gemAuthModule = angular.module('gem.auth', []).config(
   ($stateProvider, gettext) => {
       $stateProvider.state('login', {
         url: '/login',
@@ -9,3 +11,5 @@ angular.module('gem.auth').config(
       });
     }
 );
+
+gemAuthModule.controller('LoginController', LoginController);

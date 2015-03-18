@@ -1,4 +1,4 @@
-function PersonViewController(Person, PersonService, AddressService, $stateParams) {
+export function PersonViewController(Person, PersonService, AddressService, $stateParams) {
   this.person = PersonService.one($stateParams.id);
   this.getContacts = PersonService.getContacts;
   this.relationTypes = PersonService.relationTypes;
@@ -18,7 +18,3 @@ function PersonViewController(Person, PersonService, AddressService, $stateParam
     return address.type === 'home';
   };
 }
-
-angular
-  .module('gem.person')
-  .controller('PersonViewController', PersonViewController);
