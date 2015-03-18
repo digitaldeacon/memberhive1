@@ -1,4 +1,4 @@
-function PersonEditController(PersonService, Person, Contact, AddressService, $stateParams, $scope) {
+export function PersonEditController(PersonService, Person, Contact, AddressService, $stateParams, $scope) {
   this.person = PersonService.one($stateParams.id);
   this.getContacts = PersonService.getContacts;
   this.relationTypes = PersonService.relationTypes;
@@ -24,7 +24,3 @@ function PersonEditController(PersonService, Person, Contact, AddressService, $s
       });
   };
 }
-
-angular
-  .module('gem.person')
-  .controller('PersonEditController', PersonEditController);

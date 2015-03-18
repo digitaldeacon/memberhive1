@@ -1,6 +1,8 @@
 import 'country-codes';
 
-angular.module('gem.address',
+import {AddressService} from 'address/services/address-service';
+
+export var gemAddressModule = angular.module('gem.address',
   [
     'iso-3166-country-codes'
   ]
@@ -17,3 +19,5 @@ angular.module('gem.address',
     });
   }
 );
+
+gemAddressModule.factory('AddressService', AddressService);
