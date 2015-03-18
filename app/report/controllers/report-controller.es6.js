@@ -7,7 +7,8 @@ function ReportController($scope,Report,config,Person,gettext,LoopBackAuth) {
   _self.report = {
     name: 'test',
     slur: 'person/simple',
-    query: {},
+    query: {}, // the "where" part, specific to underlying DAL (like loopback)
+    rule: {}, // jQuery Plugin specific (so we can reload a created query)
     active: true,
     widgetize: false,
     createdAt: new Date(),
@@ -41,17 +42,24 @@ function ReportController($scope,Report,config,Person,gettext,LoopBackAuth) {
     }
   ];
 
-  _self.setQBFilters = function() {
+  _self.setQBFilters = () => {
     return _self.personModel;
   };
 
-  _self.saveQuery = function(json) {
-    _self.data = JSON.stringify(json, null, 2);
-    $scope.filter = JSON.parse(_self.data);
-    $scope.$apply();
-    _self.report.query = $scope.filter;
+  _self.saveQuery = queryObj => {
+    //_self.data = JSON.stringify(queryObj.query, null, 2);
+    /*var q = JSON.stringify(queryObj.query, null, 2);
+    var r = JSON.stringify(queryObj.rule, null, 2);
+    console.log(q);
+    console.log(r);
+    console.log(queryObj.query);
+    console.log(queryObj.rule);*/
+    //$scope.filter = JSON.parse(_self.data);
+    //$scope.$apply();
+    _self.report.query = queryObj.query;
+    _self.report.rule = queryObj.rule;
     _self.report.name = $scope.name;
-    Report.upsert({},_self.report,(data) => {});
+    Report.upsert({},_self.report).$promise.catch(e => console.log(e));
   };
 
   $scope.filter = JSON.parse(_self.data);

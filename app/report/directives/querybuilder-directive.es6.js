@@ -18,7 +18,11 @@ angular.module('gem.report')
             var resetBtn = angular.element(document.querySelector('.reset'));
 
             var onSaveButtonClick = function() {
-              controller.saveQuery(iElement.queryBuilder('getLoopback'));
+              var qObj = {
+                query: iElement.queryBuilder('getLoopback'),
+                rule: iElement.queryBuilder('getRules')
+              };
+              controller.saveQuery(qObj);
             };
             var onResetButtonClick = function() {
               controller.saveQuery(iElement.queryBuilder('reset'));
