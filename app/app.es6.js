@@ -18,6 +18,7 @@ import 'angular-confirm';
 import 'angular-moment';
 import 'textAngular';
 import 'bootstrap';
+import 'bootstrap-hover-dropdown';
 //import 'blockUI';
 
 // Own modules
@@ -26,6 +27,7 @@ import '_global/scripts/metronic/metronic';
 import '_global/scripts/metronic/layout';
 import '_global/services/search';
 
+import {controlGroupDirective} from '_global/directives/form-directives';
 import {spinnerBarDirective} from '_global/scripts/directives';
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
 import {gemDashboardModule} from 'dashboard/dashboard';
@@ -147,3 +149,4 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
   });
 
 gemMainModule.directive('ngSpinnerBar', spinnerBarDirective);
+gemMainModule.directive('controlGroup', controlGroupDirective);

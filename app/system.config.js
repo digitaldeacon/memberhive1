@@ -19,6 +19,7 @@ System.config({
     'angular-gettext': '../bower_components/angular-gettext/dist/angular-gettext',
     'angular-bootstrap-select': '../bower_components/angular-bootstrap-select/build/angular-bootstrap-select',
     'bootstrap-select': '../bower_components/bootstrap-select/js/bootstrap-select',
+    'bootstrap-hover-dropdown': '../bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown',
     'angular-confirm': '../bower_components/angular-confirm/angular-confirm',
     'angular-moment': '../bower_components/angular-moment/angular-moment',
     'angular-schema-form': '../bower_components/angular-schema-form/dist/schema-form.min',

@@ -9,8 +9,7 @@
  * From http://aboutcode.net/2013/07/13/twitter-bootstrap-control-group-directive-for-angularjs.html
  */
 
-
-angular.module('gemmiiWebApp').directive('controlGroup', function() {
+export function controlGroupDirective() {
   return {
     template:
       /*jshint multistr: true */
@@ -47,4 +46,4 @@ angular.module('gemmiiWebApp').directive('controlGroup', function() {
     }
 
   };
-});
+}
