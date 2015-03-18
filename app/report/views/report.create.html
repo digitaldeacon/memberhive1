@@ -20,7 +20,7 @@
           <div class="form-group">
             <label class="control-label ng-binding" for="report.name" translate>Build Query</label>
             <gem-querybuilder></gem-querybuilder>
-            <p id="result" class="hide"><h3>Loopback JSON</h3><pre ng-bind="json"></pre></p>
+            <p id="result" class="hide" ng-show="json"><h3>Loopback JSON</h3><pre ng-bind="json"></pre></p>
             <div class="btn-group">
               <button class="btn btn-warning reset">Reset</button>
               <button class="btn green-haze parse-json">Save</button>
