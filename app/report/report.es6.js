@@ -1,4 +1,7 @@
-angular.module('gem.report').config(
+import {ReportController} from 'report/controllers/report-controller';
+import {QueryBuilderDirective} from 'report/directives/querybuilder-directive';
+
+export var gemReportModule = angular.module('gem.report', []).config(
   ($stateProvider, $compileProvider) => {
     $stateProvider.state('report', {
       url: '/report',
@@ -29,3 +32,6 @@ angular.module('gem.report').config(
     });
   }
 );
+
+gemReportModule.controller('ReportController', ReportController);
+gemReportModule.directive('gemQuerybuilder', QueryBuilderDirective);

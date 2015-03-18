@@ -1,4 +1,4 @@
-angular.module('gem.address').factory('AddressService', function(gettext) {
+export function AddressService(gettext) {
 
   return {
 
@@ -12,5 +12,4 @@ angular.module('gem.address').factory('AddressService', function(gettext) {
     }
 
   };
-
-});
+}

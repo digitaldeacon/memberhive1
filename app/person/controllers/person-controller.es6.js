@@ -1,4 +1,4 @@
-function PersonController(Person, PersonService, config) {
+export function PersonController(Person, PersonService, config) {
   this.pageSize = config.pagination.pageSize;
   this.getContacts = PersonService.getContacts;
   this.relationTypes = PersonService.relationTypes;
@@ -27,10 +27,3 @@ function PersonController(Person, PersonService, config) {
 
   this.getPersons();
 }
-
-angular
-  .module('gem.person')
-  .controller(
-    'PersonController',
-    PersonController
-);

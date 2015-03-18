@@ -1,4 +1,26 @@
-angular.module('gem.person').config(
+import 'angular-utils-pagination';
+import 'nsPopover';
+
+import 'person/filters/person-filters';
+import {PersonController} from 'person/controllers/person-controller';
+import {PersonCreateController} from 'person/controllers/person-create-controller';
+import {PersonEditController} from 'person/controllers/person-edit-controller';
+import {PersonViewController} from 'person/controllers/person-view-controller';
+import {PersonService} from 'person/services/person-service';
+
+export var gemPersonModule = angular.module('gem.person',
+  [
+    'ui.router',
+    'lbServices',
+    'angularUtils.directives.dirPagination',
+    'nsPopover',
+
+    'personFilters',
+    'dateFilters',
+
+    'gem.address'
+  ]
+).config(
   ($stateProvider, $compileProvider, gettext) => {
     $stateProvider.state('person', {
       url: '/person',
@@ -51,3 +73,10 @@ angular.module('gem.person').config(
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|skype):/);
   }
 );
+
+gemPersonModule.controller('PersonController', PersonController);
+gemPersonModule.controller('PersonCreateController', PersonCreateController);
+gemPersonModule.controller('PersonViewController', PersonViewController);
+gemPersonModule.controller('PersonEditController', PersonEditController);
+
+gemPersonModule.factory('PersonService', PersonService);

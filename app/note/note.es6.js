@@ -1,5 +1,5 @@
-angular.module('gem.note').config(
-  ($stateProvider, $compileProvider) => {
+export var gemNoteModule = angular.module('gem.note', []).config(
+  ($stateProvider) => {
     $stateProvider.state('note', {
       url: '/note',
       template: '<ui-view/>',

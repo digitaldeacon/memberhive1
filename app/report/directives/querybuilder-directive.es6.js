@@ -1,5 +1,4 @@
-angular.module('gem.report')
-  .directive('gemQuerybuilder', function factory($parse) {
+export function QueryBuilderDirective($parse) {
     //directive defintion object
     var ddo = {
       templateUrl: '/queryBuilderDirective.html',
@@ -50,4 +49,4 @@ angular.module('gem.report')
     controller: 'ReportController as report',
     link: link
   };*/
-});
+}

@@ -1,7 +1,47 @@
+// Modules installed via Bower (defined in app/system.config.js)
+import 'jquery';
+import 'angular';
+import 'angular-route';
+import 'angular-animate';
+import 'angular-cookies';
+import 'angular-resource';
+import 'angular-sanitize';
+import 'angular-touch';
+import 'angular-fontawesome';
+import 'angular-ui-router';
+import 'angular-ui-bootstrap';
+import 'angular-ui-select';
+import 'angular-ui-sortable';
+import 'angular-gettext';
+import 'angular-bootstrap-select';
+import 'angular-confirm';
+import 'angular-moment';
+import 'textAngular';
+import 'bootstrap';
+import 'bootstrap-hover-dropdown';
+
+// Own modules
+import '_global/scripts/lb-services';
+import '_global/scripts/metronic/metronic';
+import '_global/scripts/metronic/layout';
+import '_global/services/search';
+
+import {controlGroupDirective} from '_global/directives/form-directives';
+import {spinnerBarDirective} from '_global/scripts/directives';
+import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
+import {gemDashboardModule} from 'dashboard/dashboard';
+import {gemAddressModule} from 'address/address';
+import {gemPersonModule} from 'person/person';
+import {gemAuthModule} from 'auth/auth';
+import {gemAclModule} from 'auth/acl';
+import {gemNoteModule} from 'note/note';
+import {gemOptionModule} from 'option/option';
+import {gemReportModule} from 'report/report';
+
 /**
  * The main Gemmii app module.
  */
-angular.module('gemmiiWebApp', [
+export var gemMainModule = angular.module('gemmiiWebApp', [
   'ngAnimate',
   'ngCookies',
   'ngResource',
@@ -11,7 +51,6 @@ angular.module('gemmiiWebApp', [
   'picardy.fontawesome',
   'ui.router',
   'ui.bootstrap',
-  'oc.lazyLoad',
   'lbServices',
   'gettext',
   'formatFilters',
@@ -32,13 +71,8 @@ angular.module('gemmiiWebApp', [
   ])
 
   .config(
-    ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $locationProvider) => {
+    ($stateProvider, $urlRouterProvider) => {
       $urlRouterProvider.otherwise('/dashboard');
-      $ocLazyLoadProvider.config({
-        // load the above css files before a LINK element with this ID.
-        // Dynamic CSS files must be loaded between core and theme css files
-        cssFilesInsertBefore: 'ng_load_plugins_before'
-      });
   })
 
   .factory('settings', $rootScope => {
@@ -113,75 +147,5 @@ angular.module('gemmiiWebApp', [
     }
   });
 
-angular.module(
-  'gem.person',
-  [
-    'ui.router',
-    'lbServices',
-    'schemaForm',
-    'angularUtils.directives.dirPagination',
-    'nsPopover',
-
-    'personFilters',
-    'dateFilters',
-
-    'gem.address'
-  ]
-);
-
-angular.module(
-  'gem.address',
-  [
-    'iso-3166-country-codes'
-  ]
-);
-
-angular.module(
-  'gem.note',
-  []
-);
-
-
-angular.module(
-  'gem.dashboard',
-  [
-    'ui.router',
-    'lbServices',
-    'gem.acl'
-  ]
-);
-
-angular.module(
-  'gem.auth',
-  [
-    'ui.router',
-    'lbServices'
-  ]
-);
-
-angular.module(
-  'gem.option',
-  [
-    'ui.router',
-    'lbServices'
-  ]
-);
-angular.module(
-  'gem.acl',
-  [
-    'lbServices'
-  ]
-).constant(
-  'gem-acl.config',
-  {
-    'redirect': 'login'
-  }
-);
-
-angular.module(
-  'gem.report',
-  [
-    'ui.router',
-    'lbServices'
-  ]
-);
+gemMainModule.directive('ngSpinnerBar', spinnerBarDirective);
+gemMainModule.directive('controlGroup', controlGroupDirective);

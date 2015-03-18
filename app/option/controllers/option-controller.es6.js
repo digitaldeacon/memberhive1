@@ -1,4 +1,4 @@
-function OptionController(Option) {
+export function OptionController(Option) {
   var main = this;
   function getOptions() {
     Option.find(result => main.options = result);
@@ -58,10 +58,3 @@ function OptionController(Option) {
   initCreateForm();
   getOptions();
 }
-
-angular
-  .module('gem.option')
-  .controller(
-  'OptionController',
-  OptionController
-);
