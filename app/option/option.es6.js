@@ -1,4 +1,4 @@
-import {OptionController} from 'options/controllers/option-controller';
+import {OptionController} from 'option/controllers/option-controller';
 
 export var gemOptionModule = angular.module('gem.option', []).config(
   ($stateProvider) => {
