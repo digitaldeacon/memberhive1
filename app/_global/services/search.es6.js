@@ -5,21 +5,20 @@
 
 'use strict';
 
-var SearchService = ($q, $rootScope, $filter, Person) => {
-
+export function SearchService($q, $rootScope, $filter, Person) {
   return {
     models: ['all','person'],
     all: [],
     person: [],
-    findPerson() {
+    findPerson: () => {
       Person.find().$promise.then(function(response) {
         return response;
       });
     },
-    findByComponent(component,val) {
+    findByComponent: (component,val) => {
       var arr = [];
       if (component && this.models[component]) {
-        if (component==='person') {
+        if (component === 'person') {
           arr = this.findPerson();
         }
       }
@@ -30,7 +29,7 @@ var SearchService = ($q, $rootScope, $filter, Person) => {
       return $filter('filter')(arr,val);
     }
   };
-};
+}
 
 SearchService.$inject = ['$q', '$rootScope', '$filter', 'Person'];
 

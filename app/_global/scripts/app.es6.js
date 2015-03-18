@@ -21,6 +21,7 @@ angular.module('gemmiiWebApp', [
   'angularMoment',
   'ui.select',
   'textAngular',
+  'toastr',
 
   'gem.person',
   'gem.dashboard',
