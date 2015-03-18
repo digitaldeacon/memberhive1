@@ -21,7 +21,6 @@
     "jquery.uniform": "^2.1.*",
     "angular-gettext": "~2.0.2",
     "restangular": "~1.4.0",
-    "blockui": "*",
     "jquery-cookie": "~1.4.1",
     "jqueryui-touch-punch": "*",
     "angular-dashboard-framework": ">=0.7.0",

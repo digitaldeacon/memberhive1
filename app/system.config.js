@@ -38,8 +38,7 @@ System.config({
     'jquery': '../bower_components/jquery/dist/jquery',
     'jquery-ui': '../bower_components/jquery-ui/jquery-ui',
     'lodash': '../bower_components/lodash/dist/lodash.compat',
-    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap',
-    'blockUI': '../bower_components/blockui/jquery.blockUI'
+    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap'
   },
 
   // Declare module dependencies
@@ -66,11 +65,6 @@ System.config({
     '../bower_components/angular-bootstrap-select/build/angular-bootstrap-select': {
       deps: [
         'bootstrap-select'
-      ]
-    },
-    '../bower_components/blockui/jquery.blockUI': {
-      deps: [
-        'jquery'
       ]
     }
   }
