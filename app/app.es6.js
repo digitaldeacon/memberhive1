@@ -1,7 +1,6 @@
 // Modules installed via Bower (defined in app/system.config.js)
 import 'jquery';
 import 'angular';
-import 'angular-route';
 import 'angular-animate';
 import 'angular-cookies';
 import 'angular-resource';
@@ -9,16 +8,15 @@ import 'angular-sanitize';
 import 'angular-touch';
 import 'angular-fontawesome';
 import 'angular-ui-router';
-import 'angular-ui-bootstrap';
+//import 'angular-ui/bootstrap';
 import 'angular-ui-select';
-import 'angular-ui-sortable';
-import 'angular-gettext';
-import 'angular-bootstrap-select';
-import 'angular-confirm';
+import 'angular-ui/ui-sortable';
+import 'rubenv/angular-gettext';
+import 'joaoneto/angular-bootstrap-select';
+import 'Schlogen/angular-confirm';
 import 'angular-moment';
-import 'textAngular';
-import 'bootstrap';
-import 'bootstrap-hover-dropdown';
+import 'textangular';
+import 'CWSpear/bootstrap-hover-dropdown';
 
 // Own modules
 import '_global/scripts/lb-services';
@@ -46,7 +44,6 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
   'ngAnimate',
   'ngCookies',
   'ngResource',
-  'ngRoute',
   'ngSanitize',
   'ngTouch',
   'picardy.fontawesome',

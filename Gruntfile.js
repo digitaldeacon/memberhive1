@@ -128,6 +128,10 @@ module.exports = function(grunt) {
                 connect.static('./bower_components')
               ),
               connect().use(
+                '/jspm_packages',
+                connect.static('./jspm_packages')
+              ),
+              connect().use(
                 '/app/_global/styles',
                 connect.static('./app/_global/styles')
               ),
@@ -171,7 +175,8 @@ module.exports = function(grunt) {
           'Gruntfile.js',
           'app/**/*.js',
           '!app/_global/scripts/metronic/**/*.js',
-          '!app/_global/scripts/lb-services.js'
+          '!app/_global/scripts/lb-services.js',
+          '!app/config.js'
         ]
       }
     },
