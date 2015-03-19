@@ -1,3 +1,5 @@
+import 'moment';
+
 export var formatFiltersModule = angular.module('formatFilters', [])
   .filter('temperature', function() {
   return function(item) {

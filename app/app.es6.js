@@ -8,14 +8,14 @@ import 'angular-sanitize';
 import 'angular-touch';
 import 'angular-fontawesome';
 import 'angular-ui-router';
-//import 'angular-ui/bootstrap';
-import 'angular-ui-select';
+import 'bootstrap';
+import 'angular-bootstrap';
 import 'angular-ui/ui-sortable';
 import 'rubenv/angular-gettext';
+import 'angular-ui-select';
 import 'joaoneto/angular-bootstrap-select';
 import 'Schlogen/angular-confirm';
 import 'angular-moment';
-import 'textangular';
 import 'CWSpear/bootstrap-hover-dropdown';
 
 // Own modules

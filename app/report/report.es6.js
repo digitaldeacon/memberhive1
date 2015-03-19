@@ -1,8 +1,12 @@
+import 'rangy';
+import 'rangy/rangy-selectionsaverestore';
+import 'textangular';
+
 import {ReportController} from 'report/controllers/report-controller';
 import {QueryBuilderDirective} from 'report/directives/querybuilder-directive';
 
 export var gemReportModule = angular.module('gem.report', []).config(
-  ($stateProvider, $compileProvider) => {
+  ($stateProvider) => {
     $stateProvider.state('report', {
       url: '/report',
       template: '<ui-view/>',
