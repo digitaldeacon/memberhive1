@@ -1,4 +1,4 @@
-import 'country-codes';
+import 'rsertelon/iso-3166-country-codes-angular';
 
 import {AddressService} from 'address/services/address-service';
 

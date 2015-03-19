@@ -1,4 +1,4 @@
-import 'lodash';
+import _ from 'lodash';
 
 export var gemAclModule = angular.module('gem.acl', [])
 .constant(

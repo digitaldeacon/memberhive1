@@ -6,7 +6,7 @@
  'scripts/dashboard/controllers/dashboard-controller.js'
  */
 
-import 'angular-dashboard-framework';
+import 'sdorra/angular-dashboard-framework';
 
 import 'adf/structures';
 import 'adf/widgets/weather/weather';

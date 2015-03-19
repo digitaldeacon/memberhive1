@@ -1,5 +1,5 @@
-import 'angular-utils-pagination';
-import 'nsPopover';
+import 'michaelbromley/angularUtils-pagination';
+import 'nohros/nsPopover';
 
 import 'person/filters/person-filters';
 import {PersonController} from 'person/controllers/person-controller';

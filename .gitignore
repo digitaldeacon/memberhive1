@@ -3,6 +3,7 @@ dist
 .tmp
 .sass-cache
 bower_components
+jspm_packages
 .idea
 typings
 .strong-pm
