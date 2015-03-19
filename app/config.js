@@ -17,6 +17,7 @@ System.config({
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@master",
     "angular-cookies": "github:angular/bower-angular-cookies@1.3.15",
+    "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.7.0",
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-moment": "npm:angular-moment@0.9.2",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
@@ -28,13 +29,14 @@ System.config({
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.3",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "css": "github:systemjs/plugin-css@0.1.6",
+    "ebtc/angular-dashboard-framework": "github:ebtc/angular-dashboard-framework@master",
+    "ebtc/jQuery-QueryBuilder": "github:ebtc/jQuery-QueryBuilder@master",
+    "eternicode/bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "joaoneto/angular-bootstrap-select": "github:joaoneto/angular-bootstrap-select@0.0.5",
     "jquery": "github:components/jquery@2.1.3",
+    "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.5.0",
-    "lodash-es": "npm:lodash-es@3.4.0",
     "michaelbromley/angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
-    "mistic100/jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@1.4.2",
-    "mistic100/microevent.js": "github:mistic100/microevent.js@2.1.0",
     "moment": "github:moment/moment@2.9.0",
     "nohros/nsPopover": "github:nohros/nsPopover@0.6.7",
     "rangy": "github:timdown/rangy-release@1.2.3",
@@ -57,6 +59,15 @@ System.config({
     },
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
+    },
+    "github:components/jqueryui@1.11.4": {
+      "jquery": "github:components/jquery@2.1.3"
+    },
+    "github:ebtc/jQuery-QueryBuilder@master": {
+      "bootstrap": "github:twbs/bootstrap@3.3.4",
+      "jquery": "github:components/jquery@1.11.2",
+      "microevent": "npm:microevent-mistic100@2.1.0",
+      "moment": "github:moment/moment@2.9.0"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"

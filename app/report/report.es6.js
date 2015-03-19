@@ -1,6 +1,8 @@
 import 'rangy';
 import 'rangy/rangy-selectionsaverestore';
 import 'textangular';
+import 'ebtc/jQuery-QueryBuilder';
+import 'eternicode/bootstrap-datepicker/js/bootstrap-datepicker';
 
 import {ReportController} from 'report/controllers/report-controller';
 import {QueryBuilderDirective} from 'report/directives/querybuilder-directive';

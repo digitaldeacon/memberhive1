@@ -1,4 +1,3 @@
-// Modules installed via Bower (defined in app/system.config.js)
 import 'jquery';
 import 'angular';
 import 'angular-animate';
@@ -23,11 +22,10 @@ import 'Foxandxss/angular-toastr';
 import '_global/scripts/lb-services';
 import '_global/scripts/metronic/metronic';
 import '_global/scripts/metronic/layout';
-import '_global/services/search';
+
 
 import {controlGroupDirective} from '_global/directives/form-directives';
 import {spinnerBarDirective} from '_global/scripts/directives';
-import {Shout} from '_global/services/shout';
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
 import {gemDashboardModule} from 'dashboard/dashboard';
 import {gemAddressModule} from 'address/address';

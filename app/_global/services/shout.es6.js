@@ -1,6 +1,6 @@
 'use strict';
 
-export function Shout(gettext,toastr) {
+var Shout = (gettext,toastr) => {
   return {
     error: msg => {
       toastr.error(gettext(msg),gettext('Error'));
@@ -12,4 +12,6 @@ export function Shout(gettext,toastr) {
       toastr.info(gettext(msg),gettext('Info'));
     }
   };
-}
+};
+Shout.$inject = ['gettext','toastr'];
+export default Shout;
