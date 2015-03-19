@@ -109,8 +109,9 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
       $scope.person = response;
     });
     $scope.getSearch = function(val) {
-      var arr = ($scope.component && $scope[$scope.component]) ? $scope[$scope.component] : [];
-      if (!val) return arr;
+      var arr = [];
+      if (!val || (val.length > 2)) return arr;
+      arr = ($scope.component && $scope[$scope.component]) ? $scope[$scope.component] : [];
       return $filter('filter')(arr,val);
     };
   })
