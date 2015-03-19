@@ -66,6 +66,7 @@
     },
     "dependencies": {
       "CWSpear/bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@^2.1.3",
+      "Foxandxss/angular-toastr": "github:Foxandxss/angular-toastr@master",
       "Schlogen/angular-confirm": "github:Schlogen/angular-confirm@master",
       "angular": "github:angular/bower-angular@^1.3.15",
       "angular-animate": "github:angular/bower-angular-animate@^1.3.15",
@@ -78,7 +79,7 @@
       "angular-touch": "github:angular/bower-angular-touch@^1.3.15",
       "angular-ui-router": "github:angular-ui/ui-router@^0.2.13",
       "angular-ui-select": "github:angular-ui/ui-select@^0.11.2",
-      "angular-ui/bootstrap": "github:angular-ui/bootstrap@master",
+      "angular-ui/bootstrap": "github:angular-ui/bootstrap@^0.12.1",
       "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@^0.13.3",
       "bootstrap": "github:twbs/bootstrap@^3.3.4",
       "joaoneto/angular-bootstrap-select": "github:joaoneto/angular-bootstrap-select@^0.0.5",

@@ -17,6 +17,7 @@ import 'joaoneto/angular-bootstrap-select';
 import 'Schlogen/angular-confirm';
 import 'angular-moment';
 import 'CWSpear/bootstrap-hover-dropdown';
+import 'Foxandxss/angular-toastr';
 
 // Own modules
 import '_global/scripts/lb-services';
