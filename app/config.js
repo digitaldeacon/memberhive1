@@ -17,7 +17,6 @@ System.config({
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@master",
     "angular-cookies": "github:angular/bower-angular-cookies@1.3.15",
-    "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.7.0",
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-moment": "npm:angular-moment@0.9.2",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
@@ -43,8 +42,10 @@ System.config({
     "restangular": "github:mgonto/restangular@1.4.0",
     "rsertelon/iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
     "rubenv/angular-gettext": "github:rubenv/angular-gettext@2.0.3",
-    "sdorra/angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.7.0",
     "textangular": "npm:textangular@1.3.11",
+    "github:angular-ui/bootstrap-bower@0.12.0": {
+      "angular": "github:angular/bower-angular@1.2.28"
+    },
     "github:angular-ui/ui-router@0.2.13": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
@@ -60,8 +61,19 @@ System.config({
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
+    "github:components/jqueryui@1.11.3": {
+      "jquery": "github:components/jquery@2.1.3"
+    },
     "github:components/jqueryui@1.11.4": {
       "jquery": "github:components/jquery@2.1.3"
+    },
+    "github:ebtc/angular-dashboard-framework@master": {
+      "angular": "github:angular/bower-angular@1.2.28",
+      "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
+      "bootstrap": "github:twbs/bootstrap@3.3.4",
+      "ui-sortable": "github:angular-ui/ui-sortable@0.13.3",
+      "jquery": "github:components/jquery@1.11.2",
+      "jquery-ui": "github:components/jqueryui@1.11.3"
     },
     "github:ebtc/jQuery-QueryBuilder@master": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
