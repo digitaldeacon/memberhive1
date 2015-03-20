@@ -9,16 +9,16 @@ export function Shout(gettext,toastr,toastrConfig) {
     tapToDismiss: true,
     timeOut: 5000
   });
+  // h= heading, txt= message, response= data object (optional) for saving to log
   return {
-    error: msg => {
-      console.log(msg);
-      toastr.error(gettext(msg.data.error.message), gettext(msg.data.error.name));
+    error: (h,txt,response) => {
+      toastr.error(gettext(h), gettext(txt));
     },
-    success: msg => {
-      toastr.success(gettext(msg.data.success.message), gettext(msg.data.success.name));
+    success: (h,txt,response) => {
+      toastr.success(gettext(h), gettext(txt));
     },
-    info: msg => {
-      toastr.info(gettext(msg.data.info.message), gettext(msg.data.info.name));
+    info: (h,txt,response) => {
+      toastr.info(gettext(h), gettext(txt));
     }
   };
 }

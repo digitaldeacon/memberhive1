@@ -17,6 +17,7 @@ export function QueryBuilderDirective($parse) {
             var resetBtn = angular.element(document.querySelector('.reset'));
 
             var onSaveButtonClick = function() {
+              if (scope.reportBuilderForm.$invalid) return;
               var qObj = {
                 query: iElement.queryBuilder('getLoopback'),
                 rule: iElement.queryBuilder('getRules')

@@ -3,43 +3,46 @@
 </script>
 
 <div class="portlet-default" ng-controller="ReportController as report">
-  <tabset>
 
-    <tab>
-      <tab-heading>
-        <fa name="database"></fa> <translate>Report source</translate>
-      </tab-heading>
-      <div class="tab-personal row">
-        <div class="portlet-default">
+  <form name="reportBuilderForm">
+    <tabset>
+
+      <tab>
+        <tab-heading>
+          <fa name="database"></fa> <translate>Report source</translate>
+        </tab-heading>
+        <div class="tab-personal row">
+          <div class="portlet-default">
 
 
-          <div class="form-group">
-            <label class="control-label ng-binding" for="report.name" translate>Report Name</label>
-            <input class="form-control input-lg" type="text" id="report.name" name="report.name" ng-model="name" />
-          </div>
-          <div class="form-group">
-            <label class="control-label ng-binding" for="report.name" translate>Build Query</label>
-            <gem-querybuilder></gem-querybuilder>
-            <p id="result" class="hide" ng-show="json"><h3>Loopback JSON</h3><pre ng-bind="json"></pre></p>
-            <div class="btn-group">
-              <button class="btn btn-warning reset">Reset</button>
-              <button class="btn green-haze parse-json">Save</button>
+            <div class="form-group">
+              <label class="control-label ng-binding" for="report.name"  translate>Report Name</label>
+              <input class="form-control input-lg" type="text" id="report.name" name="report.name" ng-model="name" required />
+            </div>
+            <div class="form-group">
+              <label class="control-label ng-binding" for="report.name" translate>Build Query</label>
+              <gem-querybuilder></gem-querybuilder>
+              <p id="result" class="hide" ng-show="json"><h3>Loopback JSON</h3><pre ng-bind="json"></pre></p>
+              <div class="btn-group">
+                <button class="btn btn-warning reset">Reset</button>
+                <button class="btn green-haze parse-json">Save</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </tab>
+      </tab>
 
-    <tab>
-      <tab-heading>
-        <fa name="pencil"></fa> <translate>Report layout</translate>
-      </tab-heading>
-      <div class="tab-personal row">
-        <div class="portlet-default">
-          <text-angular ng-model="htmlVariable"></text-angular>
+      <tab>
+        <tab-heading>
+          <fa name="pencil"></fa> <translate>Report layout</translate>
+        </tab-heading>
+        <div class="tab-personal row">
+          <div class="portlet-default">
+            <text-angular ng-model="htmlVariable"></text-angular>
+          </div>
         </div>
-      </div>
-    </tab>
+      </tab>
 
-  </tabset>
+    </tabset>
+  </form>
 </div>

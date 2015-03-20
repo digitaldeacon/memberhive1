@@ -76,15 +76,15 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
       "jquery": "github:components/jquery@1.11.2",
-      "jquery-ui": "github:components/jqueryui@1.11.3"
+      "jquery-ui": "github:components/jqueryui@1.11.3",
+      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0"
     },
     "github:ebtc/jQuery-QueryBuilder@master": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
       "jquery": "github:components/jquery@1.11.2",
-      "moment": "github:moment/moment@2.9.0",
-      "microevent": "npm:microevent-mistic100@2.1.0"
+      "microevent": "npm:microevent-mistic100@2.1.0",
+      "moment": "github:moment/moment@2.9.0"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"

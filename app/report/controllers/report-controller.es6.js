@@ -35,10 +35,14 @@ export function ReportController($scope,Report,Person,LoopBackAuth,gettext,Shout
     //_self.data = JSON.stringify(queryObj.query, null, 2);
     //$scope.filter = JSON.parse(_self.data);
     //$scope.$apply();
+
     _self.report.query = queryObj.query;
     _self.report.rule = queryObj.rule;
     _self.report.name = $scope.name;
-    Report.upsert({},_self.report).$promise.catch(e => Shout.error(e));
+    Report.upsert({},_self.report).$promise.then(
+      (data) => {Shout.success(gettext('Successfully created query for report ' + data.name));},
+      (error) => {Shout.error(gettext(error.data.error.message),error.data.error.name);}
+    );
   };
 
   /** Watchers **/
