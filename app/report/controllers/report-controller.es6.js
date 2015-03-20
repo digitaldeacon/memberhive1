@@ -1,6 +1,6 @@
 'use strict';
 
-export function ReportController($scope,Report,Person,LoopBackAuth,gettext) {
+export function ReportController($scope,Report,Person,LoopBackAuth,gettext,Shout) {
   var _self = this;
   _self.curUser = LoopBackAuth.currentUserId;
   _self.data = '{"group": {"operator": "AND","rules": []}}';
@@ -22,7 +22,7 @@ export function ReportController($scope,Report,Person,LoopBackAuth,gettext) {
 
   /** Functions **/
   _self.getReport = () => {
-    Report.find().$promise.then(data => console.log(data));
+    Report.find().$promise.then(data => Shout.error(data));
   };
   _self.setBuilderRules = () => {
     return _self.report.rule;
@@ -38,7 +38,7 @@ export function ReportController($scope,Report,Person,LoopBackAuth,gettext) {
     _self.report.query = queryObj.query;
     _self.report.rule = queryObj.rule;
     _self.report.name = $scope.name;
-    Report.upsert({},_self.report).$promise.catch(e => console.log(e));
+    Report.upsert({},_self.report).$promise.catch(e => Shout.error(e));
   };
 
   /** Watchers **/
