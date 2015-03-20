@@ -11,6 +11,7 @@ import 'ebtc/angular-dashboard-framework';
 import 'adf/structures';
 import 'adf/widgets/weather/weather';
 
+
 import {DashboardController} from 'dashboard/controllers/dashboard-controller';
 
 export var gemDashboardModule = angular.module('gem.dashboard',

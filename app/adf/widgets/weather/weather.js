@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 'use strict';
 
 angular.module('adf.widgets.weather', ['adf.provider'])
@@ -30,7 +29,7 @@ angular.module('adf.widgets.weather', ['adf.provider'])
     dashboardProvider.widget('weather', {
         title: gettext('Weather'),
         description: gettext('Display the current temperature of a city'),
-        templateUrl: '../..//widgets/weather/weather.html',
+        templateUrl: 'adf/widgets/weather/weather.html',
         controller: 'weatherCtrl',
         reload: true,
         resolve: {
