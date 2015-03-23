@@ -1,6 +1,7 @@
 import 'rsertelon/iso-3166-country-codes-angular';
 
 import {AddressService} from 'address/services/address-service';
+import {AddressDirective} from 'address/directives/address-directive';
 
 export var gemAddressModule = angular.module('gem.address',
   [
@@ -21,3 +22,4 @@ export var gemAddressModule = angular.module('gem.address',
 );
 
 gemAddressModule.factory('AddressService', AddressService);
+gemAddressModule.directive('formataddress', AddressDirective);
