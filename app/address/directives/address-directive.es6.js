@@ -1,4 +1,4 @@
-angular.module('gem.address').directive('formataddress', function() {
+export function AddressDirective() {
   return {
     restrict: 'E',
     scope: {
@@ -7,4 +7,4 @@ angular.module('gem.address').directive('formataddress', function() {
     templateUrl: '/address/directives/address.html',
     replace: true
   };
-});
+}
