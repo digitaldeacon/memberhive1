@@ -30,7 +30,6 @@ System.config({
     "bootstrap-select": "github:silviomoreto/bootstrap-select@master",
     "css": "github:systemjs/plugin-css@0.1.6",
     "ebtc/angular-bootstrap-select": "github:ebtc/angular-bootstrap-select@master",
-    "ebtc/angular-dashboard-framework": "github:ebtc/angular-dashboard-framework@master",
     "ebtc/jQuery-QueryBuilder": "github:ebtc/jQuery-QueryBuilder@master",
     "eternicode/bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "font-awesome": "npm:font-awesome@4.3.0",
@@ -44,6 +43,7 @@ System.config({
     "restangular": "github:mgonto/restangular@1.4.0",
     "rsertelon/iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
     "rubenv/angular-gettext": "github:rubenv/angular-gettext@2.0.3",
+    "sdorra/angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.7.0",
     "textangular": "npm:textangular@1.3.11",
     "github:angular-ui/bootstrap-bower@0.12.0": {
       "angular": "github:angular/bower-angular@1.2.28"
@@ -64,22 +64,14 @@ System.config({
       "angular": "github:angular/bower-angular@1.3.15"
     },
     "github:components/jqueryui@1.11.3": {
-      "jquery": "github:components/jquery@2.1.3"
+      "jquery": "github:components/jquery@1.11.2"
     },
     "github:components/jqueryui@1.11.4": {
       "jquery": "github:components/jquery@2.1.3"
     },
     "github:ebtc/angular-bootstrap-select@master": {
       "angular": "github:angular/bower-angular@1.3.15",
-      "github:silviomoreto/bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4"
-    },
-    "github:ebtc/angular-dashboard-framework@master": {
-      "angular": "github:angular/bower-angular@1.2.28",
-      "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
-      "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "jquery": "github:components/jquery@1.11.2",
-      "jquery-ui": "github:components/jqueryui@1.11.3",
-      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0"
+      "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4"
     },
     "github:ebtc/jQuery-QueryBuilder@master": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
@@ -125,6 +117,14 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
+    "github:sdorra/angular-dashboard-framework@0.7.0": {
+      "angular": "github:angular/bower-angular@1.2.28",
+      "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
+      "bootstrap": "github:twbs/bootstrap@3.3.4",
+      "github:angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
+      "jquery": "github:components/jquery@1.11.2",
+      "jquery-ui": "github:components/jqueryui@1.11.3"
+    },
     "github:systemjs/plugin-css@0.1.6": {
       "clean-css": "npm:clean-css@3.0.10",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -142,11 +142,6 @@ System.config({
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
-    },
-    "npm:buffer@3.1.1": {
-      "base64-js": "npm:base64-js@0.0.8",
-      "ieee754": "npm:ieee754@1.1.4",
-      "is-array": "npm:is-array@1.0.1"
     },
     "npm:buffer@3.1.2": {
       "base64-js": "npm:base64-js@0.0.8",

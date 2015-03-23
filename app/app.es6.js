@@ -12,7 +12,7 @@ import 'bootstrap';
 import 'bootstrap-select';
 import 'angular-ui-select';
 import 'ebtc/angular-bootstrap-select';
-import 'angular-ui/ui-sortable';
+
 import 'rubenv/angular-gettext';
 import 'Schlogen/angular-confirm';
 import 'angular-moment';

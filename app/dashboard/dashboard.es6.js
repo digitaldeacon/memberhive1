@@ -5,12 +5,12 @@
  '_global/scripts/metronic/pages/tasks.js',
  'scripts/dashboard/controllers/dashboard-controller.js'
  */
-
-import 'ebtc/angular-dashboard-framework';
+import 'jquery-ui'; //why do i need to do this?
+import 'angular-ui/ui-sortable';//why do i need to do this?
+import 'sdorra/angular-dashboard-framework';
 
 import 'adf/structures';
 import 'adf/widgets/weather/weather';
-
 
 import {DashboardController} from 'dashboard/controllers/dashboard-controller';
 
