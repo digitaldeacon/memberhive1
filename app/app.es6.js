@@ -19,6 +19,13 @@ import 'angular-moment';
 import 'CWSpear/bootstrap-hover-dropdown';
 import 'Foxandxss/angular-toastr';
 
+// CSS
+import 'bootstrap/css/bootstrap.css!';
+import 'bootstrap/css/bootstrap-theme.css!';
+import 'font-awesome/css/font-awesome.css!';
+import 'styles/main.css!';
+import 'github:silviomoreto/bootstrap-select/dist/css/bootstrap-select.css!';
+
 // Own modules
 import '_global/scripts/lb-services';
 import '_global/scripts/metronic/metronic';

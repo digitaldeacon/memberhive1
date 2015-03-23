@@ -210,7 +210,7 @@ module.exports = function(grunt) {
       },
       server: {
         options: {
-          map: true,
+          map: true
         },
         files: [{
           expand: true,
@@ -262,7 +262,7 @@ module.exports = function(grunt) {
     compass: {
       options: {
         sassDir: '<%= yeoman.app %>/_global/styles',
-        cssDir: '.tmp/styles',
+        cssDir: '.tmp/scripts/styles',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/_global/images',
         javascriptsDir: '<%= yeoman.app %>/_global/scripts',

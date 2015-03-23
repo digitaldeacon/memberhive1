@@ -35,8 +35,11 @@
     height: inherit;
   }
   .bootstrap-select {
-    max-width: 135px;
+    width: 135px;
     position: absolute;
+    .btn.dropdown-toggle {
+      z-index: 1;
+    }
   }
 }
 .big{

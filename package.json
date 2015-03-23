@@ -88,6 +88,7 @@
       "ebtc/angular-dashboard-framework": "github:ebtc/angular-dashboard-framework@master",
       "ebtc/jQuery-QueryBuilder": "github:ebtc/jQuery-QueryBuilder@master",
       "eternicode/bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@^1.4.0",
+      "font-awesome": "npm:font-awesome@^4.3.0",
       "jquery": "github:components/jquery@^2.1.3",
       "jquery-ui": "github:components/jqueryui@^1.11.4",
       "lodash": "npm:lodash@^3.5.0",

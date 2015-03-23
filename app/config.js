@@ -33,6 +33,7 @@ System.config({
     "ebtc/angular-dashboard-framework": "github:ebtc/angular-dashboard-framework@master",
     "ebtc/jQuery-QueryBuilder": "github:ebtc/jQuery-QueryBuilder@master",
     "eternicode/bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
+    "font-awesome": "npm:font-awesome@4.3.0",
     "jquery": "github:components/jquery@2.1.3",
     "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.5.0",
@@ -90,7 +91,7 @@ System.config({
       "assert": "npm:assert@1.3.0"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
-      "buffer": "npm:buffer@3.1.1"
+      "buffer": "npm:buffer@3.1.2"
     },
     "github:jspm/nodelibs-events@0.1.0": {
       "events-browserify": "npm:events-browserify@0.0.1"
@@ -143,6 +144,11 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "npm:buffer@3.1.1": {
+      "base64-js": "npm:base64-js@0.0.8",
+      "ieee754": "npm:ieee754@1.1.4",
+      "is-array": "npm:is-array@1.0.1"
+    },
+    "npm:buffer@3.1.2": {
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.4",
       "is-array": "npm:is-array@1.0.1"
