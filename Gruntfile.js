@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 
   // Configurable paths for the application
   var appConfig = {
-    app: require('./bower.json').appPath || 'app',
+    app: 'app',
     dist: 'dist'
   };
 
@@ -77,10 +77,6 @@ module.exports = function(grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      bower: {
-        files: ['bower.json'],
-        tasks: ['wiredep']
-      },
       compass: {
         files: ['<%= yeoman.app %>/**/*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
@@ -124,32 +120,12 @@ module.exports = function(grunt) {
             return [
               connect.static('.tmp'),
               connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect().use(
                 '/jspm_packages',
                 connect.static('./jspm_packages')
               ),
               connect().use(
                 '/app/_global/styles',
                 connect.static('./app/_global/styles')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
-        }
-      },
-      test: {
-        options: {
-          port: 9001,
-          middleware: function(connect) {
-            return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
               ),
               connect.static(appConfig.app)
             ];
@@ -229,19 +205,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // Automatically inject Bower components into the app
-    wiredep: {
-      app: {
-        src: ['<%= yeoman.app %>/index.html'],
-        ignorePath: /\.\.\//,
-        exclude: ['bower_components/jQuery-QueryBuilder/dist/query-builder.css']
-      },
-      sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: /(\.\.\/){1,2}bower_components\//
-      }
-    },
-
     'babel': {
       options: {
         sourceMap: true,
@@ -267,7 +230,7 @@ module.exports = function(grunt) {
         imagesDir: '<%= yeoman.app %>/_global/images',
         javascriptsDir: '<%= yeoman.app %>/_global/scripts',
         fontsDir: '<%= yeoman.app %>/_global/styles/fonts',
-        importPath: './bower_components',
+        importPath: './jspm_packages',
         httpImagesPath: '/_global/images',
         httpGeneratedImagesPath: '/_global/images/generated',
         httpFontsPath: '/_global/styles/fonts',
@@ -444,10 +407,6 @@ module.exports = function(grunt) {
         'babel',
         'compass:server'
       ],
-      test: [
-        'babel',
-        'compass'
-      ],
       dist: [
         'babel:dist',
         'compass:dist',
@@ -474,7 +433,6 @@ module.exports = function(grunt) {
       'clean:server',
       'dbmigrate',
       'loopback_sdk_angular',
-      'wiredep',
       'po2js',
       'copy:live',
       'concurrent:server',
@@ -484,17 +442,8 @@ module.exports = function(grunt) {
     ]);
   });
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'wiredep',
-    'concurrent:test',
-    'autoprefixer',
-    'connect:test'
-  ]);
-
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
     'useminPrepare',
     'po2js',
     'concurrent:dist',
@@ -516,7 +465,6 @@ module.exports = function(grunt) {
     'githooks',
     'newer:jshint',
     'dbmigrate',
-    'test',
     'build'
   ]);
 
