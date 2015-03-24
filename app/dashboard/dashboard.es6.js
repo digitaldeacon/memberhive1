@@ -7,7 +7,7 @@
  */
 import 'jquery-ui'; //why do i need to do this?
 import 'angular-ui/ui-sortable';//why do i need to do this?
-import 'sdorra/angular-dashboard-framework';
+import 'angular-dashboard-framework';
 
 import 'adf/structures';
 import 'adf/widgets/weather/weather';
