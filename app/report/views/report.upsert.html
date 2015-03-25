@@ -16,18 +16,16 @@
   <div id="builder"></div>
 </script>
 
-<div class="portlet-default" ng-controller="ReportUpsertController as reportCtrl">
-  {{report=reportCtrl.report;""}}
-  <form name="reportBuilderForm">
+<div class="portlet-default" ng-controller="ReportUpsertController as reportUpCtrl">
+  {{report=reportUpCtrl.report;""}}
+  <form name="reportBuilderForm" ng-submit="reportUpCtrl.save()">
     <tabset>
-
       <tab>
         <tab-heading>
           <fa name="database"></fa> <translate>Report source</translate>
         </tab-heading>
         <div class="tab-personal row">
           <div class="portlet-default">
-
             <div class="form-group">
               <label class="control-label ng-binding" for="reportName"  translate>Report Name</label>
               <input class="form-control input-lg" type="text" id="reportName" name="name" ng-model="report.name" required />

@@ -2,13 +2,7 @@ export function ReportService(Report, gettext, config) {
   return {
     one: (id) => {
       // Need to use findOne() instead of findById() since you can't use the include filter with findById()
-      return Report.findOne({
-        filter: {
-          where: {
-            id: id
-          }
-        }
-      });
+      return Report.findById({id: id});
     },
     all: (pageNumber) => {
       return Report.find({
