@@ -37,6 +37,7 @@ import {Shout} from '_global/services/shout';
 import {controlGroupDirective} from '_global/directives/form-directives';
 import {spinnerBarDirective} from '_global/scripts/directives';
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
+import {gemConfigModule} from '_global/scripts/config';
 import {gemDashboardModule} from 'dashboard/dashboard';
 import {gemAddressModule} from 'address/address';
 import {gemPersonModule} from 'person/person';
@@ -58,7 +59,7 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
   'gettext', 'textAngular', 'toastr',
   // GEM Module
   'gem.person', 'gem.dashboard', 'gem.option', 'gem.acl',
-  'gem.auth', 'gem.note', 'gem.report'
+  'gem.auth', 'gem.note', 'gem.report', 'gem.config'
   ])
 /**
  * Config

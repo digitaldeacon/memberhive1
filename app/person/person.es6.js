@@ -1,5 +1,6 @@
 import 'michaelbromley/angularUtils-pagination';
 import 'nohros/nsPopover';
+import 'danialfarid/ng-file-upload/dist/angular-file-upload-all';
 
 import 'person/filters/person-filters';
 import {PersonController} from 'person/controllers/person-controller';
@@ -14,6 +15,7 @@ export var gemPersonModule = angular.module('gem.person',
     'lbServices',
     'angularUtils.directives.dirPagination',
     'nsPopover',
+    'angularFileUpload',
 
     'personFilters',
     'dateFilters',

@@ -45,6 +45,7 @@ System.config({
     "rubenv/angular-gettext": "github:rubenv/angular-gettext@2.0.3",
     "sdorra/angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.7.0",
     "textangular": "npm:textangular@1.3.11",
+    "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@3.2.4",
     "github:angular-ui/bootstrap-bower@0.12.0": {
       "angular": "github:angular/bower-angular@1.2.28"
     },

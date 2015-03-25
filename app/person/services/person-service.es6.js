@@ -1,4 +1,4 @@
-export function PersonService(Person, Contact, Household, gettext, config) {
+export function PersonService(Person, Contact, Household, Avatar, gettext, config) {
   return {
     one: (id) => {
       // Need to use findOne() instead of findById() since you can't use the include filter with findById()
@@ -41,6 +41,20 @@ export function PersonService(Person, Contact, Household, gettext, config) {
           ]
         }
       });
+    },
+
+    hasAvatar: (person) => {
+      Avatar.getFiles({
+        container: person.id
+      });
+      return true;
+    },
+
+    saveAvatar: (person, file) => {
+      Avatar.upload({
+          container: person.id
+        }
+      );
     },
 
     delete: (personId, cb) => {
