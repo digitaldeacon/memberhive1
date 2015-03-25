@@ -10,8 +10,8 @@ export function QueryBuilderDirective($parse) {
           post: function postLink(scope,iElement,iAttrs,controller) {
             iElement.queryBuilder({
               allow_empty: true,//jshint ignore:line
-              plugins: ['sortable','bt-tooltip-errors'],
-              filters: controller.setBuilderFilters(),
+              plugins: ['sortable'], //bt-tooltip-errors
+              filters: controller.setBuilderFilters()
             });
             var saveBtn = angular.element(document.querySelector('.parse-json'));
             var resetBtn = angular.element(document.querySelector('.reset'));

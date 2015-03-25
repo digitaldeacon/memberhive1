@@ -1,6 +1,6 @@
 'use strict';
 
-export function ReportController($scope,ReportService,Report,Person,LoopBackAuth,gettext,Shout,config) {
+export function ReportUpsertController($scope,Report,ReportService,Person,LoopBackAuth,gettext,Shout,config,$stateParams) {
   var _self = this;
   this.curUser = LoopBackAuth.currentUserId;
   this.data = '{"group": {"operator": "AND","rules": []}}';
@@ -15,7 +15,7 @@ export function ReportController($scope,ReportService,Report,Person,LoopBackAuth
     $element.attr('ui-codemirror', '');
   };
 
-  this.report = {
+  /*this.report = {
     name: 'My report',
     slur: 'person/simple',
     query: {}, // the "where" part, specific to underlying DAL (like loopback)
@@ -24,7 +24,10 @@ export function ReportController($scope,ReportService,Report,Person,LoopBackAuth
     widgetize: false,
     createdAt: new Date(),
     createdBy: _self.curUser
-  };
+  };*/
+
+  _self.report = ReportService.one($stateParams.id);
+  console.log(_self.report);
 
   $scope.name = _self.name;
 
@@ -41,8 +44,11 @@ export function ReportController($scope,ReportService,Report,Person,LoopBackAuth
     console.log(Report);
     _self.reports = ReportService.all(pageNumber);
   };
-  this.deletePerson = (report) => {
+  this.deleteReport = (report) => {
     ReportService.delete(report.id, _self.getReports);
+  };
+  this.trashReport = (report) => {
+    ReportService.trash(report.id, _self.getReports);
   };
   this.getReport = () => {
     Report.find().$promise.then(data => Shout.error(data));
@@ -50,10 +56,6 @@ export function ReportController($scope,ReportService,Report,Person,LoopBackAuth
   this.setBuilderRules = () => {
     return _self.report.rule;
   };
-  this.setBuilderFilters = () => {
-    return _self.personModel;
-  };
-
   this.saveQuery = queryObj => {
     if (queryObj) {
       _self.report.query = queryObj.query;
@@ -64,6 +66,9 @@ export function ReportController($scope,ReportService,Report,Person,LoopBackAuth
         (error) => {Shout.error(gettext(error.data.error.message),error.data.error.name);}
       );
     }
+  };
+  this.setBuilderFilters = () => {
+    return _self.personModel;
   };
 
   this.getReports();
