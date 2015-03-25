@@ -29,6 +29,7 @@ export function PersonEditController(PersonService, Person, Contact, AddressServ
       });
     }*/
     console.log(this.avatar);
+    PersonService.saveAvatar(this.person, this.avatar);
 
 
   };

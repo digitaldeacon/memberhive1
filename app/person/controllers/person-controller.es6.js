@@ -21,7 +21,6 @@ export function PersonController(Person, PersonService, config, apiUrl) {
     Person.count().$promise.then((result) => {
       this.totalPersons = result.count;
     });
-    console.log(Person);
     this.persons = PersonService.all(pageNumber);
   };
 
