@@ -28,8 +28,8 @@ export function PersonEditController(PersonService, Person, Contact, AddressServ
       Contact.upsert({}, contact, (data) => {
       });
     }*/
-    console.log(this.avatar);
-    PersonService.saveAvatar(this.person, this.avatar);
+    if (this.avatar)
+      PersonService.saveAvatar(this.person, this.avatar);
 
 
   };

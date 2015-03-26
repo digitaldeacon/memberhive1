@@ -1,4 +1,6 @@
-var quickthumb = require('quickthumb');
+var path = require('path');
+var fs = require('fs');
+var lwip = require('lwip');
 var async = require('async');
 var bunyan = require('bunyan');
 var log = bunyan.createLogger({name: 'gem.avatar'});
@@ -6,6 +8,7 @@ var log = bunyan.createLogger({name: 'gem.avatar'});
 module.exports = function(Avatar) {
   var self = this;
 
+  this.uploadPath = './uploads/avatar/';
   this.thumbSizes = {
     'xs': 50,
     's':  150,
@@ -14,34 +17,35 @@ module.exports = function(Avatar) {
   };
 
   Avatar.afterRemote('upload', function(ctx, res, next) {
-    var file = res.result.files.file[0];
+    var inputfile = res.result.files.file[0];
 
-    // convert to jpg if neccessary
-    /*quickthumb.convert({
-      src: `./uploads/avatar/${file.container}/${file.name}`,
-      dst: `./uploads/avatar/${file.container}/original.jpg`
-    }, function(err, path) {
-      log.error(err);
-    });*/
+    var folder = path.join(self.uploadPath, inputfile.container);
+    var src = path.join(folder, inputfile.name);
 
-    var tasks = [];
-
-    for (var size in self.thumbSizes) {
-      tasks.push(function(cb) {
-        quickthumb.convert({
-          src: `./uploads/avatar/${file.container}/${file.name}`,
-          dst: `./uploads/avatar/${file.container}/${size}.jpg`,
-          width: self.thumbSizes[size]
-        }, function(err, path) {
-          log.error(err);
-        });
-      });
+    console.log(inputfile);
+    if (inputfile.type !== 'image/png' && inputfile.type !== 'image/jpg') {
+      fs.unlinkSync(src);
+      next(new Error('Wrong file type. Only jpg and png are supported.'));
+      return;
     }
-    console.log(tasks);
 
-    async.parallel(tasks, function(err, results) {
-      // All thumbnails created, delete the original image
-      console.log("ready");
+
+    Object.keys(self.thumbSizes).forEach(function(size) {
+      lwip.open(src, function(err, image) {
+        if (err) {
+          log.error(err);
+          next(new Error('Could not read image file.'));
+          return;
+        }
+        image.batch()
+          .resize(self.thumbSizes[size])
+          .writeFile(path.join(folder, `${size}.jpg`), function(err){
+            if (err) {
+              log.error(err);
+              next(new Error('Could not create image thumbnails.'));
+            }
+          });
+      });
     });
 
     next();
