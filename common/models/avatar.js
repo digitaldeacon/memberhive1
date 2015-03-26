@@ -22,7 +22,6 @@ module.exports = function(Avatar) {
     var folder = path.join(self.uploadPath, inputfile.container);
     var src = path.join(folder, inputfile.name);
 
-    console.log(inputfile);
     if (inputfile.type !== 'image/png' && inputfile.type !== 'image/jpg') {
       fs.unlinkSync(src);
       next(new Error('Wrong file type. Only jpg and png are supported.'));
