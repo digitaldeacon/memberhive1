@@ -1,5 +1,6 @@
 import 'jquery';
 import 'angular';
+import 'bootstrap';
 import 'angular-animate';
 import 'angular-cookies';
 import 'angular-resource';
@@ -8,16 +9,15 @@ import 'angular-touch';
 import 'angular-fontawesome';
 import 'angular-ui-router';
 import 'angular-bootstrap';
-import 'bootstrap';
 import 'bootstrap-select';
 import 'angular-ui-select';
-import 'ebtc/angular-bootstrap-select';
+import 'angular-bootstrap-select';
 
-import 'rubenv/angular-gettext';
-import 'Schlogen/angular-confirm';
+import 'angular-gettext';
+import 'angular-confirm';
 import 'angular-moment';
-import 'CWSpear/bootstrap-hover-dropdown';
-import 'Foxandxss/angular-toastr';
+import 'bootstrap-hover-dropdown';
+import 'angular-toastr';
 
 // CSS
 import 'bootstrap/css/bootstrap.css!';

@@ -1,12 +1,21 @@
 'use strict';
 
-export function ReportController($scope,Report,Person,LoopBackAuth,gettext,Shout) {
+export function ReportController($scope,ReportService,Report,Person,LoopBackAuth,gettext,Shout,config) {
   var _self = this;
-  _self.curUser = LoopBackAuth.currentUserId;
-  _self.data = '{"group": {"operator": "AND","rules": []}}';
-  _self.name = '';
+  this.curUser = LoopBackAuth.currentUserId;
+  this.data = '{"group": {"operator": "AND","rules": []}}';
+  this.name = '';
+  this.pageSize = config.pagination.pageSize;
+  this.reports = [];
+  this.currentPage = 1;
+  this.totalReports = 0;
 
-  _self.report = {
+  $scope.reportHtml = '<table><tr><td>%col1%</td><td>%col2%</td></tr></table>';
+  $scope.textAreaSetup = function($element){
+    $element.attr('ui-codemirror', '');
+  };
+
+  this.report = {
     name: 'My report',
     slur: 'person/simple',
     query: {}, // the "where" part, specific to underlying DAL (like loopback)
@@ -17,33 +26,47 @@ export function ReportController($scope,Report,Person,LoopBackAuth,gettext,Shout
     createdBy: _self.curUser
   };
 
-  //$scope.json = null;
   $scope.name = _self.name;
 
   /** Functions **/
-  _self.getReport = () => {
+  this.pageChanged = (pageNum) => {
+    this.getReports(pageNum);
+  };
+  this.getReports = (pageNumber) => {
+    pageNumber = pageNumber || 1;
+
+    Report.count().$promise.then((result) => {
+      _self.totalReports = result.count;
+    });
+    console.log(Report);
+    _self.reports = ReportService.all(pageNumber);
+  };
+  this.deletePerson = (report) => {
+    ReportService.delete(report.id, _self.getReports);
+  };
+  this.getReport = () => {
     Report.find().$promise.then(data => Shout.error(data));
   };
-  _self.setBuilderRules = () => {
+  this.setBuilderRules = () => {
     return _self.report.rule;
   };
-  _self.setBuilderFilters = () => {
+  this.setBuilderFilters = () => {
     return _self.personModel;
   };
 
-  _self.saveQuery = queryObj => {
-    //_self.data = JSON.stringify(queryObj.query, null, 2);
-    //$scope.filter = JSON.parse(_self.data);
-    //$scope.$apply();
-
-    _self.report.query = queryObj.query;
-    _self.report.rule = queryObj.rule;
-    _self.report.name = $scope.name;
-    Report.upsert({},_self.report).$promise.then(
-      (data) => {Shout.success(gettext('Successfully created query for report ' + data.name));},
-      (error) => {Shout.error(gettext(error.data.error.message),error.data.error.name);}
-    );
+  this.saveQuery = queryObj => {
+    if (queryObj) {
+      _self.report.query = queryObj.query;
+      _self.report.rule = queryObj.rule;
+      _self.report.name = $scope.name;
+      Report.upsert({},_self.report).$promise.then(
+        (data) => {Shout.success(gettext('Successfully created query for report ' + data.name));},
+        (error) => {Shout.error(gettext(error.data.error.message),error.data.error.name);}
+      );
+    }
   };
+
+  this.getReports();
 
   /** Watchers **/
   /*$scope.filter = JSON.parse(_self.data);
@@ -52,7 +75,7 @@ export function ReportController($scope,Report,Person,LoopBackAuth,gettext,Shout
    }, true);*/
 
   /** Dictionaries **/
-  _self.personModel = [
+  this.personModel = [
     {id: 'firstName',label: gettext('Firstname'),type: 'string',optgroup: gettext('Person')},
     {id: 'lastName',label: gettext('Lastname'),type: 'string',optgroup: gettext('Person')},
     {

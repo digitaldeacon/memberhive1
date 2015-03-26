@@ -1,6 +1,6 @@
-import 'michaelbromley/angularUtils-pagination';
-import 'nohros/nsPopover';
 import 'danialfarid/ng-file-upload/dist/angular-file-upload-all';
+import 'angularUtils-pagination';
+import 'nsPopover';
 
 import 'person/filters/person-filters';
 import {PersonController} from 'person/controllers/person-controller';
