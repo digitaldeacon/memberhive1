@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
               <label class="control-label ng-binding" for="reportQuery" translate>Build Query</label>
-              <gem-querybuilder id="reportQuery"></gem-querybuilder>
+              <gem-querybuilder rule="reportUpCtrl.report.rule"></gem-querybuilder>
               <p id="result" class="hide" ng-show="json"><h3>Loopback JSON</h3><pre ng-bind="json"></pre></p>
               <div class="btn-group">
                 <button class="btn btn-warning reset">Reset</button>

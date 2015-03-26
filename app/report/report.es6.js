@@ -1,3 +1,5 @@
+import 'codemirror';
+
 import 'textAngular';
 import 'textAngular/dist/textAngular-rangy.min';
 import 'textAngular/dist/textAngular-sanitize.min';

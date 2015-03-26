@@ -4,14 +4,19 @@ export function QueryBuilderDirective($parse) {
       templateUrl: '/queryBuilderDirective.html',
       controller: 'ReportController as report',
       restrict: 'E',
+      scope: {
+        rule: '='
+      },
       compile: function compile(tElement,tAttr,transclude) {
         return {
           pre: function preLink(scope,iElement,iAttrs,controller) {},
           post: function postLink(scope,iElement,iAttrs,controller) {
+            console.log(controller.setBuilderRules());
             iElement.queryBuilder({
               allow_empty: true,//jshint ignore:line
               plugins: ['sortable'], //bt-tooltip-errors
               filters: controller.setBuilderFilters()
+              //rules: controller.setBuilderRules()
             });
             var saveBtn = angular.element(document.querySelector('.parse-json'));
             var resetBtn = angular.element(document.querySelector('.reset'));
