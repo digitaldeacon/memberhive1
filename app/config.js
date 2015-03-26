@@ -34,6 +34,7 @@ System.config({
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
     "bootstrap-select": "github:silviomoreto/bootstrap-select@master",
     "css": "github:systemjs/plugin-css@0.1.6",
+    "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@3.2.4",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
     "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@1.4.2",
@@ -42,14 +43,14 @@ System.config({
     "lodash": "npm:lodash@3.5.0",
     "mistic100/jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@1.4.2",
     "moment": "github:moment/moment@2.9.0",
+    "ngImgCrop": "github:alexk111/ngImgCrop@0.3.2",
     "nsPopover": "github:nohros/nsPopover@0.6.7",
     "rangy": "github:timdown/rangy-release@1.2.3",
     "restangular": "github:mgonto/restangular@1.4.0",
-    "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@3.2.4",
+    "textAngular": "npm:textangular@1.3.11",
     "github:angular-ui/bootstrap-bower@0.12.0": {
       "angular": "github:angular/bower-angular@1.2.28"
     },
-    "textAngular": "npm:textangular@1.3.11",
     "github:angular-ui/ui-router@0.2.13": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
@@ -112,6 +113,10 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
+    },
+    "github:mgonto/restangular@1.4.0": {
+      "angular": "github:angular/bower-angular@1.3.15",
+      "lodash": "npm:lodash@3.5.0"
     },
     "github:mistic100/jQuery-QueryBuilder@1.4.2": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
