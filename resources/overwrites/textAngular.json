@@ -1,0 +1,9 @@
+{
+  "registry": "jspm",
+  "dependencies": {
+    "angular": "*",
+    "rangy": "*",
+    "bootstrap": "*",
+    "font-awesome": "*"
+  }
+}
