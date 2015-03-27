@@ -1,2 +1,13 @@
 <label for="avatar" translate>Select Avatar</label>
 <input id="avatar" type="file" ng-file-select="personCtrl.onAvatarSelected($files)">
+
+<div class="cropArea">
+  <img-crop image="personCtrl.uploadedAvatar"
+            result-image="personCtrl.croppedAvatar"
+            area-type="square"
+            result-image-size="800"
+            result-image-format="image/jpeg">
+  </img-crop>
+</div>
+<div>Cropped Image:</div>
+<div><img ng-src="{{personCtrl.croppedAvatar}}" /></div>

@@ -22,12 +22,11 @@ module.exports = function(Avatar) {
     var folder = path.join(self.uploadPath, inputfile.container);
     var src = path.join(folder, inputfile.name);
 
-    if (inputfile.type !== 'image/png' && inputfile.type !== 'image/jpg') {
+    if (inputfile.type != 'image/png' && inputfile.type != 'image/jpg' && inputfile.type != 'image/jpeg') {
       fs.unlinkSync(src);
       next(new Error('Wrong file type. Only jpg and png are supported.'));
       return;
     }
-
 
     Object.keys(self.thumbSizes).forEach(function(size) {
       lwip.open(src, function(err, image) {
