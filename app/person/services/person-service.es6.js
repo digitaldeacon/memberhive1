@@ -1,4 +1,4 @@
-export function PersonService(Person, Contact, Household, gettext, config) {
+export function PersonService(Person, Contact, Household, Avatar, gettext, config, $upload, apiUrl) {
   return {
     one: (id) => {
       // Need to use findOne() instead of findById() since you can't use the include filter with findById()
@@ -40,6 +40,20 @@ export function PersonService(Person, Contact, Household, gettext, config) {
             'relationType'
           ]
         }
+      });
+    },
+
+    hasAvatar: (person) => {
+      Avatar.getFiles({
+        container: person.id
+      });
+      return true;
+    },
+
+    saveAvatar: (person, file) => {
+      $upload.upload({
+        url: `${apiUrl}Avatars/${person.id}/upload`,
+        file: file
       });
     },
 

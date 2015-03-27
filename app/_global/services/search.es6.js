@@ -3,8 +3,6 @@
  * http://cameronjroe.com/code/angular-movie-search/
  */
 
-'use strict';
-
 export function SearchService($q, $rootScope, $filter, Person) {
   return {
     models: ['all','person'],
