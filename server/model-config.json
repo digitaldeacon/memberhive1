@@ -94,5 +94,9 @@
   "ReportType": {
     "dataSource": "db",
     "public": true
+  },
+  "Avatar": {
+    "dataSource": "uploads.avatar",
+    "public": true
   }
 }

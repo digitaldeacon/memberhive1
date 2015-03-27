@@ -6,11 +6,10 @@ The Repo for the Angular UI side of gemmii
 ## Getting started
 * `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
 * `nvm install iojs` *install iojs*
-* `sudo npm install -g jspm`
-* `sudo npm install -g grunt-cli`
+* `sudo npm install -g jspm grunt-cli`
 * `npm install` *Install dev dependencies*
 * `jspm install` *Install app dependencies*
-* `node . &` *start nodejs server* (it should actually be the iojs server now)
+* `npm start` *start io.js server*
 * `grunt serve` *Run local webserver (will compile SASS and ES6 files when changed)*
 
 ## Persisting data

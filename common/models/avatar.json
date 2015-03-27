@@ -1,0 +1,14 @@
+{
+  "name": "Avatar",
+  "base": "Model",
+  "description": [
+    "container=personId. Available files: ",
+    "xs.jpg, s.jpg, m.jpg, l.jpg"
+  ],
+  "idInjection": true,
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

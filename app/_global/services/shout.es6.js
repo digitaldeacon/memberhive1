@@ -1,5 +1,3 @@
-'use strict';
-
 export function Shout(gettext,toastr,toastrConfig) {
   angular.extend(toastrConfig, {
     allowHtml: false,

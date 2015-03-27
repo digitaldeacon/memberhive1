@@ -1,3 +1,6 @@
+import 'danialfarid/ng-file-upload/dist/angular-file-upload-all';
+import 'ngImgCrop/compile/unminified/ng-img-crop';
+import 'ngImgCrop/compile/unminified/ng-img-crop.css!';
 import 'angularUtils-pagination';
 import 'nsPopover';
 
@@ -14,6 +17,8 @@ export var gemPersonModule = angular.module('gem.person',
     'lbServices',
     'angularUtils.directives.dirPagination',
     'nsPopover',
+    'angularFileUpload',
+    'ngImgCrop',
 
     'personFilters',
     'dateFilters',

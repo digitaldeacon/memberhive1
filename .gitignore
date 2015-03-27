@@ -9,5 +9,6 @@ typings
 .strong-pm
 server/datasources.local.json
 app/_global/scripts/lb-services.js
+app/_global/scripts/config.es6.js
 run.sh
 run-slow.sh

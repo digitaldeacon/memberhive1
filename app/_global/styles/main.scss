@@ -11,29 +11,15 @@
 @import "bootstrap-fixes";
 @import "ns-popover";
 @import "header";
-@import "login";
 @import "search";
+@import "dropzone";
 
 // Module styles
+@import "../../auth/styles/auth.scss";
 @import "../../person/styles/person.scss";
 @import "../../report/styles/report.scss";
 
-.login-bg {
-  background: url(../_global/images/login/bg/1.jpg);
-  background-size: 100% auto;
-}
-.login-content {
-  width: 360px;
-  padding: 30px;
-  margin: 0 auto;
-  background: url(../_global/images/bg-white-lock.png) repeat;
-  @include border-radius(7px);
 
-  .rememberMe {
-    margin-top: 8px;
-    display: inline-block;
-  }
-}
 .logo {
   padding: 15px;
   text-align: center;

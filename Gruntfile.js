@@ -18,7 +18,11 @@ module.exports = function(grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: 'dist',
+    api: {
+      development: 'http://0.0.0.0:3000/api/',
+      production: '/api/'
+    }
   };
 
   // Define the configuration for all the tasks
@@ -92,13 +96,17 @@ module.exports = function(grunt) {
         files: ['<%= yeoman.app %>/**/*.es6.js'],
         tasks: ['newer:babel']
       },
+      lbservices: {
+        files: ['common/models/*'],
+        tasks: ['lbservices']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
           '<%= yeoman.app %>/**/*.html',
-          '.tmp/styles/{,*/}*.css',
+          '.tmp/scripts/styles/**/*.css',
           '.tmp/scripts/**/*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -161,6 +169,25 @@ module.exports = function(grunt) {
       src: 'app/**/*.js',
       options: {
         config: '.jscsrc'
+      }
+    },
+
+    ngconstant: {
+      // Options for all targets
+      options: {
+        name: 'gem.config',
+        dest: '<%= yeoman.app %>/_global/scripts/config.es6.js',
+        wrap: 'export var gemConfigModule = {%= __ngModule %}'
+      },
+      server: {
+        constants: {
+          apiUrl: '<%= yeoman.api.development %>'
+        }
+      },
+      dist: {
+        constants: {
+          apiUrl: '<%= yeoman.api.production %>'
+        }
       }
     },
 
@@ -423,7 +450,7 @@ module.exports = function(grunt) {
   });
 
 
-  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+  grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
@@ -432,7 +459,8 @@ module.exports = function(grunt) {
       'githooks',
       'clean:server',
       'dbmigrate',
-      'loopback_sdk_angular',
+      'lbservices',
+      'ngconstant:server',
       'po2js',
       'copy:live',
       'concurrent:server',
@@ -445,6 +473,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
+    'lbservices',
+    'ngconstant:server',
     'po2js',
     'concurrent:dist',
     'autoprefixer',
@@ -456,9 +486,7 @@ module.exports = function(grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin',
-    'loopback_sdk_angular',
-    'loopback_angular_addModelData'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
@@ -504,6 +532,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('dbmigrate', ['loopback_auto']);
+  grunt.registerTask('lbservices', ['loopback_sdk_angular', 'loopback_angular_addModelData']);
 
   grunt.loadNpmTasks('grunt-angular-gettext');
   grunt.loadNpmTasks('grunt-githooks');
