@@ -1,5 +1,5 @@
 export function LoginController(Account, $state, GemAcl) {
-  function login() {
+  this.login = () => {
     Account.login(
       {rememberMe: this.rememberMe},
       {username: this.username, password: this.password}
@@ -19,9 +19,8 @@ export function LoginController(Account, $state, GemAcl) {
         this.errorCode = err.data.error.code;
       }
     );
-  }
+  };
 
   this.rememberMe = true;
-  this.login = login;
   this.error = false;
 }
