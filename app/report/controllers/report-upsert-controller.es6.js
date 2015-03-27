@@ -9,12 +9,12 @@ export function ReportUpsertController($scope,Report,ReportService,Person,LoopBa
    name: 'My default report',
    slur: 'person/simple',
    query: {}, // the "where" part, specific to underlying DAL (like loopback)
-   rule: _self.data, // jQuery Plugin specific (so we can reload a created query)
+   rule: this.data, // jQuery Plugin specific (so we can reload a created query)
    active: true,
    widgetize: false,
    reportHtml: '',
    createdAt: new Date(),
-   createdBy: _self.curUser
+   createdBy: this.curUser
    };
 
   $scope.reportHtml = '<table class="table table-striped table-hover"><thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th></tr> </thead> <tbody> <tr><td>1</td><td>Mark</td><td>Otto</td><td>makr124@gmx.net</td></tr> </tbody> </table>';
@@ -28,23 +28,20 @@ export function ReportUpsertController($scope,Report,ReportService,Person,LoopBa
     _self.report = ReportService.one($stateParams.id);
   };
   this.setBuilderRules = () => {
-    //console.log( _self.report.rule);
-    return _self.report.rule;
+    return this.report.rule;
   };
+
   this.saveQuery = queryObj => {
     if (queryObj) {
-      _self.report.query = queryObj.query;
-      _self.report.rule = queryObj.rule;
-      _self.report.name = $scope.name;
-      ReportService.save(_self.report);
-      _self.setBuilderRules();
+      this.report.query = queryObj.query;
+      this.report.rule = queryObj.rule;
+      this.report.name = $scope.name;
+      ReportService.save(this.report);
     }
   };
-  this.setBuilderFilters = () => {
-    return _self.personModel;
-  };
-  this.setBuilder = () => {
 
+  this.setBuilderFilters = () => {
+    return this.personModel;
   };
 
   /** Dictionaries **/

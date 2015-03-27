@@ -1,7 +1,6 @@
 'use strict';
 
 export function ReportController($scope,ReportService,Report,Person,LoopBackAuth,gettext,Shout,config) {
-  var _self = this;
   this.curUser = LoopBackAuth.currentUserId;
   this.data = '{"group": {"operator": "AND","rules": []}}';
   this.name = '';
@@ -19,14 +18,14 @@ export function ReportController($scope,ReportService,Report,Person,LoopBackAuth
     name: 'My report',
     slur: 'person/simple',
     query: {}, // the "where" part, specific to underlying DAL (like loopback)
-    rule: _self.data, // jQuery Plugin specific (so we can reload a created query)
+    rule: this.data, // jQuery Plugin specific (so we can reload a created query)
     active: true,
     widgetize: false,
     createdAt: new Date(),
-    createdBy: _self.curUser
+    createdBy: this.curUser
   };
 
-  $scope.name = _self.name;
+  $scope.name = this.name;
 
   /** Functions **/
   this.pageChanged = (pageNum) => {
@@ -36,30 +35,30 @@ export function ReportController($scope,ReportService,Report,Person,LoopBackAuth
     pageNumber = pageNumber || 1;
 
     Report.count().$promise.then((result) => {
-      _self.totalReports = result.count;
+      this.totalReports = result.count;
     });
     console.log(Report);
-    _self.reports = ReportService.all(pageNumber);
+    this.reports = ReportService.all(pageNumber);
   };
   this.deletePerson = (report) => {
-    ReportService.delete(report.id, _self.getReports);
+    ReportService.delete(report.id, this.getReports);
   };
   this.getReport = () => {
     Report.find().$promise.then(data => Shout.error(data));
   };
   this.setBuilderRules = () => {
-    return _self.report.rule;
+    return this.report.rule;
   };
   this.setBuilderFilters = () => {
-    return _self.personModel;
+    return this.personModel;
   };
 
   this.saveQuery = queryObj => {
     if (queryObj) {
-      _self.report.query = queryObj.query;
-      _self.report.rule = queryObj.rule;
-      _self.report.name = $scope.name;
-      Report.upsert({},_self.report).$promise.then(
+      this.report.query = queryObj.query;
+      this.report.rule = queryObj.rule;
+      this.report.name = $scope.name;
+      Report.upsert({},this.report).$promise.then(
         (data) => {Shout.success(gettext('Successfully created query for report ' + data.name));},
         (error) => {Shout.error(gettext(error.data.error.message),error.data.error.name);}
       );
@@ -69,7 +68,7 @@ export function ReportController($scope,ReportService,Report,Person,LoopBackAuth
   this.getReports();
 
   /** Watchers **/
-  /*$scope.filter = JSON.parse(_self.data);
+  /*$scope.filter = JSON.parse(this.data);
    $scope.$watch('filter', function(newValue) {
    $scope.json = JSON.stringify(newValue, null, 2);
    }, true);*/
