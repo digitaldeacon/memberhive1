@@ -1,7 +1,6 @@
 'use strict';
 
 export function ReportUpsertController($scope,Report,ReportService,Person,LoopBackAuth,gettext,Shout,$stateParams) {
-  var _self = this;
   this.curUser = LoopBackAuth.currentUserId;
   this.data = '';
 
@@ -17,7 +16,7 @@ export function ReportUpsertController($scope,Report,ReportService,Person,LoopBa
    createdBy: this.curUser
    };
 
-  $scope.reportHtml = '<table class="table table-striped table-hover"><thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th></tr> </thead> <tbody> <tr><td>1</td><td>Mark</td><td>Otto</td><td>makr124@gmx.net</td></tr> </tbody> </table>';
+  $scope.reportHtml = '';
 
   $scope.textAreaSetup = function($element) {
     $element.attr('ui-codemirror', '');
@@ -25,12 +24,11 @@ export function ReportUpsertController($scope,Report,ReportService,Person,LoopBa
 
   /** Functions **/
   this.getReport = () => {
-    _self.report = ReportService.one($stateParams.id);
+    this.report = ReportService.one($stateParams.id);
   };
   this.setBuilderRules = () => {
     return this.report.rule;
   };
-
   this.saveQuery = queryObj => {
     if (queryObj) {
       this.report.query = queryObj.query;
