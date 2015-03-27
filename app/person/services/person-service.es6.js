@@ -51,7 +51,6 @@ export function PersonService(Person, Contact, Household, Avatar, gettext, confi
     },
 
     saveAvatar: (person, file) => {
-      console.log(file);
       $upload.upload({
         url: `${apiUrl}Avatars/${person.id}/upload`,
         file: file,
