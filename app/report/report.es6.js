@@ -1,4 +1,4 @@
-import 'codemirror';
+import 'codemirror/codemirror';
 
 import 'textAngular';
 import 'textAngular/dist/textAngular-rangy.min';
