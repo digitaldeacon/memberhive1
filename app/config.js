@@ -1,6 +1,11 @@
 System.config({
   "baseURL": "scripts/",
   "transpiler": "babel",
+  "babelOptions": {
+    "optional": [
+      "runtime"
+    ]
+  },
   "paths": {
     "*": "*.js",
     "github:*": "../jspm_packages/github/*.js",
@@ -29,6 +34,8 @@ System.config({
     "angular-ui/bootstrap": "github:angular-ui/bootstrap-bower@master",
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
     "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
+    "babel": "npm:babel@4.7.16",
+    "babel-runtime": "npm:babel-runtime@4.7.16",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
@@ -47,6 +54,10 @@ System.config({
     "rangy": "github:timdown/rangy-release@1.2.3",
     "restangular": "github:mgonto/restangular@1.4.0",
     "textAngular": "npm:textangular@1.3.11",
+    "textangular": "npm:textangular@1.3.11",
+    "github:angular-ui/bootstrap-bower@0.12.0": {
+      "angular": "github:angular/bower-angular@1.2.28"
+    },
     "github:angular-ui/ui-router@0.2.13": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
@@ -71,6 +82,10 @@ System.config({
     "github:ebtc/angular-bootstrap-select@master": {
       "angular": "github:angular/bower-angular@1.3.15",
       "github:silviomoreto/bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4"
+    },
+    "github:eternicode/bootstrap-datepicker@1.4.0": {
+      "bootstrap": "github:twbs/bootstrap@3.3.4",
+      "jquery": "github:components/jquery@1.11.2"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -110,17 +125,21 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
+    "github:mgonto/restangular@1.4.0": {
+      "angular": "github:angular/bower-angular@1.3.15",
+      "lodash": "npm:lodash@3.5.0"
+    },
     "github:mistic100/jQuery-QueryBuilder@1.4.2": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
+      "github:mistic100/jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
       "jquery": "github:components/jquery@1.11.2",
-      "microevent": "npm:microevent-mistic100@2.1.1",
-      "moment": "npm:moment@2.9.0"
+      "npm:microevent-mistic100": "npm:microevent-mistic100@2.1.1",
+      "npm:moment": "npm:moment@2.9.0"
     },
     "github:sdorra/angular-dashboard-framework@0.7.0": {
       "angular": "github:angular/bower-angular@1.2.28",
-      "angular-bootstrap": "github:angular-ui/bootstrap-bower@master",
-      "bootstrap": "github:twbs/bootstrap@^3.3.4",
+      "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
+      "bootstrap": "github:twbs/bootstrap@3.3.4",
       "github:angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
       "jquery": "github:components/jquery@1.11.2",
       "jquery-ui": "github:components/jqueryui@1.11.3"
@@ -221,7 +240,10 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
     "npm:textangular@1.3.11": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
+      "angular": "github:angular/bower-angular@1.3.15",
+      "bootstrap": "github:twbs/bootstrap@3.3.4",
+      "font-awesome": "npm:font-awesome@4.3.0",
+      "rangy": "github:timdown/rangy-release@1.2.3"
     },
     "npm:url@0.10.3": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
