@@ -56,6 +56,7 @@ System.config({
     "rangy": "github:timdown/rangy-release@1.2.3",
     "restangular": "github:mgonto/restangular@1.4.0",
     "textAngular": "npm:textangular@1.3.11",
+    "textangular": "npm:textangular@1.3.11",
     "github:angular-ui/bootstrap-bower@0.12.0": {
       "angular": "github:angular/bower-angular@1.2.28"
     },
