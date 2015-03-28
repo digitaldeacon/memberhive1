@@ -131,10 +131,10 @@ System.config({
     },
     "github:mistic100/jQuery-QueryBuilder@1.4.2": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "github:mistic100/jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
+      "jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
       "jquery": "github:components/jquery@1.11.2",
-      "npm:microevent-mistic100": "npm:microevent-mistic100@2.1.1",
-      "npm:moment": "npm:moment@2.9.0"
+      "microevent": "npm:microevent-mistic100@2.1.1",
+      "moment": "npm:moment@2.9.0"
     },
     "github:sdorra/angular-dashboard-framework@0.7.0": {
       "angular": "github:angular/bower-angular@1.2.28",
