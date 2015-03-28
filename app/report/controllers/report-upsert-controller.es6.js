@@ -3,18 +3,6 @@
 export function ReportUpsertController($scope,Report,ReportService,Person,LoopBackAuth,gettext,Shout,$stateParams) {
   this.curUser = LoopBackAuth.currentUserId;
 
-  this.report = {
-   name: 'My default report',
-   slur: 'person/simple',
-   query: {}, // the "where" part, specific to underlying DAL (like loopback)
-   rule: {}, // jQuery Plugin specific (so we can reload a created query)
-   active: true,
-   widgetize: false,
-   reportHtml: '',
-   createdAt: new Date(),
-   createdBy: this.curUser
-   };
-
   $scope.reportHtml = '';
 
   $scope.textAreaSetup = function($element) {
@@ -23,12 +11,9 @@ export function ReportUpsertController($scope,Report,ReportService,Person,LoopBa
 
   /** Functions **/
   this.getReport = () => {
-    if ($stateParams.id)
-      this.report = ReportService.one($stateParams.id);
+      return $stateParams.id ? ReportService.one($stateParams.id) : null;
   };
-  this.setBuilderRules = () => {
-    return this.report.rule;
-  };
+
   this.saveQuery = queryObj => {
     if (queryObj) {
       this.report.query = queryObj.query;
@@ -41,6 +26,8 @@ export function ReportUpsertController($scope,Report,ReportService,Person,LoopBa
   this.setBuilderFilters = () => {
     return this.personModel;
   };
+
+  this.report = this.getReport();
 
   /** Dictionaries **/
   this.personModel = [
@@ -64,6 +51,4 @@ export function ReportUpsertController($scope,Report,ReportService,Person,LoopBa
       }
     }
   ];
-
-  this.getReport();
 }

@@ -1,29 +1,27 @@
-export function QueryBuilderDirective($parse) {
+export function QueryBuilderDirective($q) {
     //directive defintion object
     var ddo = {
       templateUrl: '/queryBuilderDirective.html',
       controller: 'ReportUpsertController',
-      scope: {
+      bindToController: true,
+      /*scope: {
         rule: '=rule'
-      },
+      },*/
       restrict: 'E',
       compile: function compile(tElement,tAttr,transclude) {
         return {
           pre: function preLink(scope,iElement,iAttrs,controller) {},
           post: function postLink(scope,iElement,iAttrs,controller) {
-
-            scope.$watch('rule', function(rule) {
-              if (rule) {
-                console.log('from watch');
-                console.log(rule);
-                iElement.queryBuilder({
-                  allow_empty: true,//jshint ignore:line
-                  plugins: ['sortable'], //bt-tooltip-errors
-                  filters: controller.setBuilderFilters(),
-                  rules: rule
-                });
-              }
+            iElement.queryBuilder({
+              allow_empty: true,//jshint ignore:line
+              plugins: ['sortable'], //bt-tooltip-errors
+              filters: controller.setBuilderFilters()
             });
+            if (controller.report) {
+              controller.report.$promise.then(data => {
+                iElement.queryBuilder('setRules',data.rule);
+              });
+            }
 
             var saveBtn = angular.element(document.querySelector('.parse-json'));
             var resetBtn = angular.element(document.querySelector('.reset'));
