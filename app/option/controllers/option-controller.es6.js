@@ -1,52 +1,57 @@
-export function OptionController(Option) {
-  this.options = [];
-  this.editedOption = null;
-  this.newOption = null;
-  this.isEditing = false;
+export class OptionController {
 
-  this.getOptions = () => {
-    Option.find(result => this.options = result);
-  };
+  constructor(Option) {
+    this.Option = Option;
 
-  this.createOption = (option) => {
-    Option.create(option, () => {
+    this.options = [];
+    this.editedOption = null;
+    this.newOption = null;
+    this.isEditing = false;
+
+    this.initCreateForm();
+    this.getOptions();
+  }
+
+  getOptions() {
+    this.Option.find(result => this.options = result);
+  }
+
+  createOption(option) {
+    this.Option.create(option, () => {
       this.initCreateForm();
       this.getOptions();
     });
-  };
+  }
 
-  this.updateOption = (optionObj) => {
-    Option.upsert(optionObj, () => {
+  updateOption(optionObj) {
+    this.Option.upsert(optionObj, () => {
       this.cancelEditing();
       this.getOptions();
     });
-  };
+  }
 
-  this.deleteOption = (optionId) => {
-    Option.deleteById({id: optionId}, () => {
+  deleteOption(optionId) {
+    this.Option.deleteById({id: optionId}, () => {
       this.cancelEditing();
       this.getOptions();
     });
-  };
+  }
 
-  this.initCreateForm = () => {
+  initCreateForm() {
     this.newOption = {optionName: '', optionValue: ''};
-  };
+  }
 
-  this.setEditedOption = (option) => {
+  setEditedOption(option) {
     this.editedOption = angular.copy(option);
     this.isEditing = true;
-  };
+  }
 
-  this.isCurrentOption = (optionId) => {
+  isCurrentOption(optionId) {
     return this.editedOption !== null && this.editedOption.id === optionId;
-  };
+  }
 
-  this.cancelEditing = () => {
+  cancelEditing() {
     this.editedOption = null;
     this.isEditing = false;
-  };
-
-  this.initCreateForm();
-  this.getOptions();
+  }
 }

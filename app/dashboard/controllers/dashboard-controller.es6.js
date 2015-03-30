@@ -1,54 +1,55 @@
-export function DashboardController($location,$rootScope,$scope,Option,Account,LoopBackAuth) {
-  var vm = this;
-  vm.curUser = LoopBackAuth.currentUserId;
-  vm.options = [];
+export class DashboardController {
 
-  vm.o = { //default values
-    accountId: vm.curUser,
-    optionName: 'DashboardConfig',
-    optionValue: vm.model,
-    id: 0
-  };
+  constructor($location,$rootScope,$scope,Option,Account,LoopBackAuth) {
+    this.$location = $location;
+    this.$rootScope = $rootScope;
+    this.$scope = $scope;
+    this.Option = Option;
+    this.Account = Account;
+    this.LoopBackAuth = LoopBackAuth;
 
-  function getOptions(name) {
-     Option.findOne({
+    this.curUser = LoopBackAuth.currentUserId;
+    this.options = [];
+    this.o = { //default values
+      accountId: this.curUser,
+      optionName: 'DashboardConfig',
+      optionValue: this.model,
+      id: 0
+    };
+
+    this.getOptions('DashboardConfig');
+    this.$scope.$on('adfDashboardChanged', (event, name, model) => {
+      this.createUpdateOptions(model);
+    });
+  }
+
+  getOptions(name) {
+     this.Option.findOne({
         filter: {
           where: {
-            accountId: LoopBackAuth.currentUserId,
+            accountId: this.LoopBackAuth.currentUserId,
             optionName: name
           }
         }
       }
-    ).$promise.then(function(result) {
-         vm.o = result;
-         vm.model = vm.o.optionValue;
+    ).$promise.then((result) => {
+         this.o = result;
+         this.model = this.o.optionValue;
        });
   }
 
-  function createUpdateOptions(model) {
-    vm.o.optionValue = model;
-    if (vm.o.hasOwnProperty('id')) {
-      Option.prototype$updateAttributes({id: vm.o.id},vm.o);
+  createUpdateOptions(model) {
+    this.o.optionValue = model;
+    if (this.o.hasOwnProperty('id')) {
+      this.Option.prototype$updateAttributes({id: this.o.id}, this.o);
     } else {
-      Account.options.create({id:vm.curUser},vm.o);
+      this.Account.options.create({id:this.curUser}, this.o);
     }
   }
 
-  function deleteDashboard(dashboardId) {
-    Account.options.destroyById(dashboardId);
-    $location.path('/');
-    $rootScope.$broadcast('navChanged');
+  delete(dashboardId) {
+    this.Account.options.destroyById(dashboardId);
+    this.$location.path('/');
+    this.$rootScope.$broadcast('navChanged');
   }
-
-  /*$scope.$on('$viewContentLoaded', () => {
-    Metronic.initAjax(); //funktioniert im Moment nicht
-  });*/
-
-  vm.delete = deleteDashboard;
-
-  getOptions('DashboardConfig');
-
-  $scope.$on('adfDashboardChanged', (event, name, model) => {
-    createUpdateOptions(model);
-  });
 }

@@ -8,6 +8,6 @@
   </li>
 </ul>
 <!-- END PAGE BREADCRUMB -->
-<div ng-controller="PersonCreateController as person">
-    <form name="personForm" sf-schema="person.schema" sf-form="person.form" sf-model="person.model" ng-submit="person.onSubmit(personForm)"></form>
+<div ng-controller="PersonCreateController as personCtrl">
+    <form name="personForm" sf-schema="person.schema" sf-form="person.form" sf-model="person.model" ng-submit="personCtrl.onSubmit(personForm)"></form>
 </div>
