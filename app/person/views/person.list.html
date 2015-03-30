@@ -44,7 +44,7 @@
 
       <td>
         <a ui-sref="person.view({ id: person.id })">
-          <img ng-src="{{personCtrl.apiUrl}}Avatars/{{person.id}}/download/s.jpg" />
+          <img ng-if="person.hasAvatar" ng-src="{{personCtrl.apiUrl}}Avatars/{{person.id}}/download/s.jpg" />
         </a>
       </td>
       <td>

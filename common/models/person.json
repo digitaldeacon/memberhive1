@@ -43,6 +43,9 @@
         "mobile",
         "postal"
       ]
+    },
+    "hasAvatar": {
+      "type": "boolean"
     }
   },
   "validations": [],

@@ -1,5 +1,5 @@
 export class PersonEditController{
-  constructor(PersonService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettext) {
+  constructor(PersonService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettext, apiUrl) {
     this.PersonService = PersonService;
     this.Person = Person;
     this.Contact = Contact;
@@ -19,11 +19,28 @@ export class PersonEditController{
     this.uploadedAvatar = null;
     this.croppedAvatar = null;
     this.avatarChanged = false;
+    this.avatarDeleted = false;
+    this.isEditingAvatar = false;
+
     $scope.datepickerOpened = true;
+    this.apiUrl = apiUrl;
   }
 
   openDatepicker() {
     this.$scope.datepickerOpened = true;
+  }
+
+  editAvatar() {
+    this.isEditingAvatar = true;
+  }
+
+  removeAvatar() {
+    this.person.hasAvatar = false;
+    this.avatarDeleted = true;
+  }
+
+  cancelEditingAvatar() {
+    this.isEditingAvatar = false;
   }
 
   /**
@@ -66,16 +83,20 @@ export class PersonEditController{
    * Save all person data
    */
   save() {
+    this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
+
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
-
-    /*this.Person.upsert({}, this.person, function(data) {});
+    this.Person.upsert({}, this.person, function(data) {});
     for (var contact of this.person.contacts) {
       this.Contact.upsert({}, contact, (data) => {
       });
-    }*/
-    if (this.avatarChanged)
+    }
+    if (this.avatarDeleted && !this.avatarChanged) {
+      this.PersonService.deleteAvatar(this.person);
+    } else if (this.avatarChanged) {
       this.PersonService.saveAvatar(this.person, this.dataURItoBlob(this.croppedAvatar));
+    }
   }
 
   /**

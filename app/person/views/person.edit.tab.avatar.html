@@ -1,13 +1,22 @@
-<label for="avatar" translate>Select Avatar</label>
-<input id="avatar" type="file" ng-file-select="personCtrl.onAvatarSelected($files)">
-
-<div class="cropArea">
-  <img-crop image="personCtrl.uploadedAvatar"
-            result-image="personCtrl.croppedAvatar"
-            area-type="square"
-            result-image-size="800"
-            result-image-format="image/jpeg">
-  </img-crop>
+<div ng-if="person.hasAvatar && !personCtrl.isEditingAvatar">
+  <img ng-src="{{personCtrl.apiUrl}}Avatars/{{person.id}}/download/s.jpg" />
+  <a ng-click="personCtrl.editAvatar()">Edit Avatar</a>
+  <a ng-click="personCtrl.removeAvatar()">Remove Avatar</a>
 </div>
-<div>Cropped Image:</div>
-<div><img ng-src="{{personCtrl.croppedAvatar}}" /></div>
+
+<div ng-if="!person.hasAvatar || personCtrl.isEditingAvatar">
+  <label for="avatar" translate>Select Avatar</label>
+  <input id="avatar" type="file" ng-file-select="personCtrl.onAvatarSelected($files)">
+
+  <div class="cropArea">
+    <img-crop image="personCtrl.uploadedAvatar"
+              result-image="personCtrl.croppedAvatar"
+              area-type="square"
+              result-image-size="800"
+              result-image-format="image/jpeg">
+    </img-crop>
+  </div>
+  <a class="btn btn-default" ng-if="personCtrl.isEditingAvatar" ng-click="personCtrl.cancelEditingAvatar()">Cancel Editing</a>
+
+</div>
+

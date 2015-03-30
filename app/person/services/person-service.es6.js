@@ -43,19 +43,16 @@ export function PersonService(Person, Contact, Household, Avatar, gettext, confi
       });
     },
 
-    hasAvatar: (person) => {
-      Avatar.getFiles({
-        container: person.id
-      });
-      return true;
-    },
-
     saveAvatar: (person, file) => {
       $upload.upload({
         url: `${apiUrl}Avatars/${person.id}/upload`,
         file: file,
         fileName: 'avatar.jpg'
       });
+    },
+
+    deleteAvatar: (person) => {
+      Avatar.destroyContainer({container: person.id});
     },
 
     delete: (personId, cb) => {
