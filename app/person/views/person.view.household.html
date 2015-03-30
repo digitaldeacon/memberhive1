@@ -8,7 +8,7 @@
   <ul class="list-inline">
     <li ng-repeat="person in personCtrl.getHouseholdMembers()">
       <a ui-sref="person.view({ id: person.id })">
-        <img src="http://placehold.it/60x60" class="pull-left" />
+        <img ng-src="{{ personCtrl.avatarImage(person, 'xs') }}" class="pull-left" />
         <div class="person-info">
           <h4><b>{{::person | formatFirstName}}</b></h4>
           <small class="text-muted" ng-if="person.relationType">

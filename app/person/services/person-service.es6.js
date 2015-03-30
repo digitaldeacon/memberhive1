@@ -43,6 +43,14 @@ export function PersonService(Person, Contact, Household, Avatar, gettext, confi
       });
     },
 
+    avatarImage: (person, size) => {
+      console.log(person);
+      if (person.hasAvatar)
+        return `${apiUrl}Avatars/${person.id}/download/${size}.jpg`;
+      else
+        return 'http://placehold.it/80x80';
+    },
+
     saveAvatar: (person, file) => {
       $upload.upload({
         url: `${apiUrl}Avatars/${person.id}/upload`,

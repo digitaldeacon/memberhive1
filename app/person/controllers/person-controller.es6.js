@@ -13,6 +13,7 @@ export class PersonController {
     this.currentPage = 1;
     this.totalPersons = 0;
 
+    this.avatarImage = PersonService.avatarImage;
     this.apiUrl = apiUrl;
 
     this.getPersons();

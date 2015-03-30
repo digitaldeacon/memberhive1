@@ -1,5 +1,5 @@
 <div ng-if="person.hasAvatar && !personCtrl.isEditingAvatar">
-  <img ng-src="{{personCtrl.apiUrl}}Avatars/{{person.id}}/download/s.jpg" />
+  <img ng-src="{{ personCtrl.avatarImage(person, 's') }}" />
   <a ng-click="personCtrl.editAvatar()">Edit Avatar</a>
   <a ng-click="personCtrl.removeAvatar()">Remove Avatar</a>
 </div>
@@ -17,6 +17,4 @@
     </img-crop>
   </div>
   <a class="btn btn-default" ng-if="personCtrl.isEditingAvatar" ng-click="personCtrl.cancelEditingAvatar()">Cancel Editing</a>
-
 </div>
-

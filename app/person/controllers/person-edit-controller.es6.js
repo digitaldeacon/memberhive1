@@ -12,6 +12,7 @@ export class PersonEditController{
     this.relationTypes = PersonService.relationTypes;
     this.genders = PersonService.genders;
     this.households = PersonService.getHouseholds();
+    this.avatarImage = PersonService.avatarImage;
     this.addressTypes = AddressService.addressTypes;
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
     //this.hasUserAccount = (person.account !== undefined);
