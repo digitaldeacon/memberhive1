@@ -16,6 +16,22 @@ module.exports = function(Avatar) {
     'l': 800
   };
 
+  /**
+   * Create the container if it doesn't exist
+   */
+  Avatar.beforeRemote('upload', function(ctx, res, next) {
+    var personId = ctx.req.params.container;
+    Avatar.getContainer(personId, function(err, container){
+      if (err && err.code == 'ENOENT') { // Container doesn't exist
+        Avatar.createContainer({name: personId}, function(err, container) {});
+      }
+    });
+    next();
+  });
+
+  /**
+   * Check input file and create thumbnails
+   */
   Avatar.afterRemote('upload', function(ctx, res, next) {
     var inputfile = res.result.files.file[0];
 
