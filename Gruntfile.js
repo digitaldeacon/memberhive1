@@ -68,6 +68,12 @@ module.exports = function(grunt) {
       }
     },
 
+    poAddLanguageHeaders: {
+      options: {
+        poDir: 'po/'
+      }
+    },
+
     'loopback_auto': {
       'db_autoupdate': {
         options: {
@@ -501,36 +507,10 @@ module.exports = function(grunt) {
     'nggettext_extract'
   ]);
 
-  grunt.registerTask('po2js', 'Create the JS translation file from the PO files', function () {
-    // Workaround: Add 'Language' header to po files (Onesky App doesn't add it)
-
-    var fs = require('fs');
-    var path = require('path');
-
-    var poDir = path.join(__dirname, '/po/');
-    var dirs = fs.readdirSync(poDir);
-    dirs.forEach(function(countryCode) {
-      var xy = path.join(poDir, countryCode);
-      if (!fs.lstatSync(xy).isDirectory())
-        return;
-      var poFiles = fs.readdirSync(xy);
-      poFiles.forEach(function(poFile) {
-        var poFilePath = path.join(poDir, countryCode, poFile);
-        var content = fs.readFileSync(poFilePath, 'utf8');
-        var searchStr = '\"Language: ' + poFile.replace('.po', '') + '\\n\"';
-        var mimeStr = '\"MIME-Version: 1.0\\n\"';
-        if (content.indexOf(searchStr) < 0) { // Language header not found, add it
-          var result = content.replace(mimeStr, mimeStr + '\n' + searchStr);
-          fs.writeFileSync(poFilePath, result, 'utf8');
-        }
-      });
-
-    });
-
-    grunt.task.run([
+  grunt.registerTask('po2js', [
+      'poAddLanguageHeaders', // Add missing language headers
       'nggettext_compile'
     ]);
-  });
 
   grunt.registerTask('dbmigrate', ['loopback_auto']);
   grunt.registerTask('lbservices', ['loopback_sdk_angular', 'loopback_angular_addModelData']);
