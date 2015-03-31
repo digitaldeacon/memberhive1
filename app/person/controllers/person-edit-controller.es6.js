@@ -57,14 +57,17 @@ export class PersonEditController{
       reader.readAsDataURL(files[0]);
       reader.onload = (event) => {
         this.$scope.$apply(() => {
+          image.addEventListener('load', () => {
+            if (this.checkImage(image)) {
+              this.avatarChanged = true;
+              this.uploadedAvatar = event.target.result;
+            } else {
+              this.Shout.error(this.gettext('Please select an image that is at least 800x800 pixels.'));
+              this.uploadedAvatar = null;
+            }
+          });
           image.src = event.target.result;
-          if (this.checkImage(image)) {
-            this.avatarChanged = true;
-            this.uploadedAvatar = event.target.result;
-          } else {
-            this.Shout.error(this.gettext('Please select an image that is at least 800x800 pixels.'));
-            this.uploadedAvatar = null;
-          }
+
         });
       };
       reader.onerror = (err) => {
