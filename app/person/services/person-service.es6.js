@@ -44,7 +44,6 @@ export function PersonService(Person, Contact, Household, Avatar, gettext, confi
     },
 
     avatarImage: (person, size) => {
-      console.log(person);
       if (person.hasAvatar)
         return `${apiUrl}Avatars/${person.id}/download/${size}.jpg`;
       else

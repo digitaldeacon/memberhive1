@@ -31,16 +31,6 @@ module.exports = function(grunt) {
     // Project settings
     yeoman: appConfig,
 
-    loopback_angular_addModelData: { // jshint ignore:line
-      services: {
-        options: {
-          modelConfig: 'server/model-config.json',
-          serviceFile: 'app/_global/scripts/lb-services.js',
-          modelDir: 'common/models/'
-        }
-      }
-    },
-
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
@@ -64,6 +54,16 @@ module.exports = function(grunt) {
           output: 'app/_global/scripts/lb-services.js',
           apiUrl: 'http://localhost:3000/api'
 
+        }
+      }
+    },
+
+    loopback_angular_addModelData: { // jshint ignore:line
+      services: {
+        options: {
+          modelConfig: 'server/model-config.json',
+          serviceFile: 'app/_global/scripts/lb-services.js',
+          modelDir: 'common/models/'
         }
       }
     },
@@ -158,6 +158,7 @@ module.exports = function(grunt) {
         src: [
           'Gruntfile.js',
           'app/**/*.js',
+          'tasks/*.js',
           '!app/_global/scripts/metronic/**/*.js',
           '!app/_global/scripts/lb-services.js',
           '!app/config.js'
@@ -539,5 +540,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-loopback-sdk-angular');
   grunt.loadNpmTasks('grunt-loopback-auto');
   grunt.loadNpmTasks('grunt-jscs');
-  grunt.loadNpmTasks('grunt-loopback-angular-addmodeldata');
+
+  // Load custom tasks from tasks/ directory
+  grunt.loadTasks('tasks');
 };
