@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     nggettext_compile: { // jshint ignore:line
       all: {
         files: {
-          '.tmp/scripts/translations.js': ['po/**/*.po']
+          'app/_global/scripts/translations.js': ['po/**/*.po']
         }
       }
     },
@@ -167,6 +167,7 @@ module.exports = function(grunt) {
           'tasks/*.js',
           '!app/_global/scripts/metronic/**/*.js',
           '!app/_global/scripts/lb-services.js',
+          '!app/_global/scripts/translations.js',
           '!app/config.js'
         ]
       }
@@ -429,6 +430,7 @@ module.exports = function(grunt) {
         dest: '.tmp/scripts',
         src: [
           '_global/scripts/lb-services.js',
+          '_global/scripts/translations.js',
           '_global/scripts/metronic/**',
           'adf/**'
         ]

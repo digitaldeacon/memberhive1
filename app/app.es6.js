@@ -26,6 +26,9 @@ import 'font-awesome/css/font-awesome.css!';
 import 'styles/main.css!';
 import 'github:silviomoreto/bootstrap-select/dist/css/bootstrap-select.css!';
 
+// Translations
+import '_global/scripts/translations';
+
 // Own modules
 import '_global/scripts/lb-services';
 import '_global/scripts/metronic/metronic';
@@ -79,14 +82,34 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
 /**
  * Controllers
  */
-  .controller('AppController', $scope => {
-      $scope.init = () => {
-        Metronic.init();
-      };
-      $scope.$on('$viewContentLoaded', () => {
-        Metronic.initComponents(); // init core components
-      });
-    })
+  .controller('AppController', ($scope, $rootScope, $cookies, gettextCatalog) => {
+    $scope.init = () => {
+      Metronic.init();
+    };
+    $scope.$on('$viewContentLoaded', () => {
+      Metronic.initComponents(); // init core components
+    });
+
+    $rootScope.locales = {
+      'en': {
+        lang: 'en',
+        country: 'US',
+        name: gettextCatalog.getString('English')
+      },
+      'de': {
+        lang: 'de',
+        country: 'DE',
+        name: gettextCatalog.getString('German')
+      }
+    };
+    var lang = $cookies.lang || navigator.language || navigator.userLanguage;
+    $rootScope.locale = $rootScope.locales[lang];
+    if ($rootScope.locale === undefined) {
+      $rootScope.locale = $rootScope.locales.de;
+    }
+    gettextCatalog.setCurrentLanguage($rootScope.locale.lang);
+
+  })
   .controller('HeaderController', ($scope,$state,$http,$filter,LoopBackAuth,Person) => {
     $scope.accessToken = LoopBackAuth.accessTokenId;
     $scope.$on('$includeContentLoaded', () => {

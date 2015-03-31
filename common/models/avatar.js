@@ -17,7 +17,7 @@ module.exports = function(Avatar) {
   };
 
   /**
-   * Create the container if it doesn't exist
+   * Create the container (=folder named by userId) if it doesn't exist
    */
   Avatar.beforeRemote('upload', function(ctx, res, next) {
     var personId = ctx.req.params.container;
@@ -53,7 +53,7 @@ module.exports = function(Avatar) {
         }
         image.batch()
           .resize(self.thumbSizes[size])
-          .writeFile(path.join(folder, `${size}.jpg`), function(err){
+          .writeFile(path.join(folder, `${size}.jpg`), function(err) {
             if (err) {
               log.error(err);
               next(new Error('Could not create image thumbnails.'));
