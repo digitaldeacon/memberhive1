@@ -1,9 +1,9 @@
 export class LoginController {
 
-  constructor(Account, $state, GemACL) {
+  constructor(Account, $state, GemAcl) {
     this.Account = Account;
     this.$state = $state;
-    this.GemACL = GemACL;
+    this.GemAcl = GemAcl;
 
     this.rememberMe = true;
     this.error = false;
