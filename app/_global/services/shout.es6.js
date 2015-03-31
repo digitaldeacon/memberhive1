@@ -1,4 +1,4 @@
-export function Shout(gettext,toastr,toastrConfig) {
+export function Shout(toastr,toastrConfig) {
   angular.extend(toastrConfig, {
     allowHtml: false,
     closeButton: true,
@@ -10,13 +10,13 @@ export function Shout(gettext,toastr,toastrConfig) {
   // h= heading, txt= message, response= data object (optional) for saving to log
   return {
     error: (h,txt,response) => {
-      toastr.error(gettext(h), gettext(txt));
+      toastr.error(h, txt);
     },
     success: (h,txt,response) => {
-      toastr.success(gettext(h), gettext(txt));
+      toastr.success(h, txt);
     },
     info: (h,txt,response) => {
-      toastr.info(gettext(h), gettext(txt));
+      toastr.info(h, txt);
     }
   };
 }
