@@ -506,7 +506,7 @@ module.exports = function(grunt) {
     ]);
 
   grunt.registerTask('dbmigrate', ['loopback_auto']);
-  grunt.registerTask('lbservices', ['loopback_sdk_angular']);
+  grunt.registerTask('lbservices', ['loopback_sdk_angular','loopback_angular_addModelData']);
 
   grunt.loadNpmTasks('grunt-angular-gettext');
   grunt.loadNpmTasks('grunt-githooks');
