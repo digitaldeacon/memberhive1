@@ -382,13 +382,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // Replace Google CDN references
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
-      }
-    },
-
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
@@ -453,7 +446,7 @@ module.exports = function(grunt) {
 
     githooks: {
       all: {
-        'pre-commit': 'jshint'
+        'pre-commit': 'newer:jshint:all'
       }
     }
   });
@@ -490,7 +483,6 @@ module.exports = function(grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
     'cssmin',
     'uglify',
     'filerev',
@@ -500,7 +492,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'githooks',
-    'newer:jshint',
     'dbmigrate',
     'build'
   ]);

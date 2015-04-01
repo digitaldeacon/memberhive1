@@ -92,3 +92,6 @@ Please follow these style guides when writing code:
 * strongloop
 * [babel transpiler (formely 6to5)] (https://github.com/babel/babel)
 * ECMAScript 6 (ES6)
+
+## Debug
+* `DEBUG=loopback:datasource npm start` to show debug ouput of the loopback database
