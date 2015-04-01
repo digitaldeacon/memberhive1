@@ -504,7 +504,7 @@ module.exports = function(grunt) {
     'build'
   ]);
 
-  grunt.registerTask('translationUpdate', [
+  grunt.registerTask('updateWords', [
     'nggettext_extract',
     'uploadTranslations'
   ]);
