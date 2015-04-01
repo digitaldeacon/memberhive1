@@ -9,6 +9,7 @@ Make sure you have the following requirements installed:
 * g++ compiler
 * ruby-dev (e.g. ruby1.9.1-dev), compass
 * MySQL or MariaDB
+* libpng-dev
 
 Install process
 * `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
