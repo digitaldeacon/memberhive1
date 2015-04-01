@@ -1,7 +1,6 @@
 var path = require('path');
 var fs = require('fs');
 var lwip = require('lwip');
-var async = require('async');
 var bunyan = require('bunyan');
 var log = bunyan.createLogger({name: 'gem.avatar'});
 
@@ -36,16 +35,22 @@ module.exports = function(Avatar) {
     var inputfile = res.result.files.file[0];
 
     var folder = path.join(self.uploadPath, inputfile.container);
-    var src = path.join(folder, inputfile.name);
+    var originalfile = path.join(folder, inputfile.name);
+    var copyfile = path.join(folder, 'copy.jpg');
+
+    // Weird bug: When trying to create thumbnails from `originalfile`, thumbnails will be kaputt.
+    // When operating on `copyfile`, it works, whyever.
+    fs.createReadStream(originalfile).pipe(fs.createWriteStream(copyfile));
 
     if (inputfile.type != 'image/png' && inputfile.type != 'image/jpg' && inputfile.type != 'image/jpeg') {
-      fs.unlinkSync(src);
+      fs.unlinkSync(originalfile);
+      fs.unlinkSync(copyfile);
       next(new Error('Wrong file type. Only jpg and png are supported.'));
       return;
     }
 
     Object.keys(self.thumbSizes).forEach(function(size) {
-      lwip.open(src, function(err, image) {
+      lwip.open(copyfile, function(err, image) {
         if (err) {
           log.error(err);
           next(new Error('Could not read image file.'));
@@ -64,5 +69,6 @@ module.exports = function(Avatar) {
 
     next();
   });
+
 
 };
