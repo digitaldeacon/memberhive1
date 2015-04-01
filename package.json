@@ -58,7 +58,7 @@
   "scripts": {
     "test": "grunt test",
     "pretest": "jshint .",
-    "start": "nodemon --harmony_arrow_functions --watch server/ --watch common/models . | bunyan"
+    "start": "nodemon --watch server/ --watch common/models . | bunyan"
   },
   "main": "server/server.js",
   "jspm": {
