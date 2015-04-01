@@ -19,7 +19,7 @@ export function ReportService(Report, gettext, config, Shout) {
     trash: (reportId, cb) => {
       Report.trash({id: reportId}).$promise.then(cb);
     },
-    save: (reportObj) => {
+    upsert: (reportObj) => {
       Report.upsert({},reportObj).$promise.then(
         (data) => {Shout.success(gettext('Successfully created query for report ' + data.name));},
         (error) => {Shout.error(gettext(error.data.error.message),error.data.error.name);}

@@ -17,6 +17,7 @@ export function QueryBuilderDirective($q) {
               plugins: ['sortable'], //bt-tooltip-errors
               filters: controller.setBuilderFilters()
             });
+
             if (controller.report) {
               controller.report.$promise.then(data => {
                 iElement.queryBuilder('setRules',data.rule);
@@ -28,9 +29,10 @@ export function QueryBuilderDirective($q) {
 
             var onSaveButtonClick = function() {
               if (scope.reportBuilderForm.$invalid) return;
+              var rules = iElement.queryBuilder('getRules');
               var qObj = {
-                query: iElement.queryBuilder('getLoopback'),
-                rule: iElement.queryBuilder('getRules')
+                query: iElement.queryBuilder('getLoopback',rules),
+                rule: rules
               };
               controller.saveQuery(qObj);
             };

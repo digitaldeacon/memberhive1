@@ -47,11 +47,12 @@ export class ReportUpsertController {
   }
 
   saveQuery(queryObj) {
+    //console.log(JSON.stringify(queryObj.query));
     if (queryObj) {
       this.report.query = queryObj.query;
       this.report.rule = queryObj.rule;
       this.report.name = this.$scope.name;
-      this.ReportService.save(this.report);
+      this.ReportService.upsert(this.report);
     }
   }
 

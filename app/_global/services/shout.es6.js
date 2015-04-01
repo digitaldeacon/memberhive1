@@ -1,3 +1,5 @@
+import 'angular-toastr/dist/angular-toastr.min.css!';
+
 export function Shout(toastr,toastrConfig) {
   angular.extend(toastrConfig, {
     allowHtml: false,
