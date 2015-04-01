@@ -65,6 +65,10 @@ The two plugins that cause errors are the Advanced-Dashboard-Framework and the j
 
 In a future relase of this software we will have this issue solved. One way of doing this is to build packages and lock all dependencies (see jspm documentation for this).
 
+## Translations
+
+Check the [Translations Wiki Page](https://github.com/ebtc/gemmii-web/wiki/Translations)
+
 ## Style Guides
 
 Please follow these style guides when writing code:
