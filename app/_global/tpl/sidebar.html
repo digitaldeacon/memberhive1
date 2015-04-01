@@ -7,12 +7,15 @@
 	<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 	<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
       ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}" ng-if="acl.isLoggedIn()">
-		<li class="start" >
-			<a ui-sref='dashboard'><fa name="laptop"></fa><span class="title" translate>Dashboard</span></a>
+		<li>
+			<a ui-sref='dashboard'>
+        <fa name="laptop" fw></fa>
+        <span class="title" translate>Dashboard</span>
+      </a>
 		</li>
 		<li>
 			<a>
-        <fa name="user"></fa>
+        <fa name="user" fw></fa>
         <span class="title" translate>Persons</span>
         <span class="arrow "></span>
 			</a>
@@ -31,7 +34,7 @@
 		</li>
     <li>
       <a>
-        <fa name="bar-chart"></fa>
+        <fa name="bar-chart" fw></fa>
         <span class="title" translate>Reports</span>
         <span class="arrow "></span>
       </a>
@@ -49,10 +52,30 @@
       </ul>
     </li>
     <li>
+			<a ui-sref="note.list">
+        <fa name="file-text" fw></fa>
+        <span class="title" translate>Notes</span>
+        <span class="arrow "></span>
+			</a>
+			<ul class="sub-menu">
+				<li>
+					<a ui-sref='note.list'>
+					  <fa name="file-text"></fa> <translate>My Notes</translate>
+					</a>
+				</li>
+				<li>
+					<a ui-sref='note.create'>
+            <fa name="plus-circle"></fa> <translate>Create Note</translate>
+					</a>
+				</li>
+			</ul>
+		</li>
+    <li>
       <a ng-click="logout()">
-        <fa name="lock"></fa>
+        <fa name="sign-out" fw></fa>
         <span class="title" translate>Logout</span>
       </a>
     </li>
+
 	</ul>
 </div>

@@ -5,14 +5,14 @@ export var gemNoteModule = angular.module('gem.note', []).config(
       template: '<ui-view/>',
       abstract: true,
       data: {
-        module: 'person',
-        pageTitle: 'Person',
+        module: 'note',
+        pageTitle: 'Note',
       }
     }).state('note.list', {
       url: '/list',
       templateUrl: '../note/views/note.list.html',
       data: {
-        pageSubTitle: 'Create and edit persons'
+        pageSubTitle: 'Create and edit notes'
       },
       acl: {
         needRights: ['$authenticated']
@@ -21,7 +21,7 @@ export var gemNoteModule = angular.module('gem.note', []).config(
       url: '/create',
       templateUrl: '../note/views/note.create.html',
       data: {
-        pageSubTitle: 'Create a person'
+        pageSubTitle: 'Create a note'
       },
       acl: {
         needRights: ['$authenticated']
