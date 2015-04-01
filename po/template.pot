@@ -38,7 +38,11 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-#: app/_global/tpl/sidebar.html:11
+#: app/_global/tpl/sidebar.html:68
+msgid "Create Note"
+msgstr ""
+
+#: app/_global/tpl/sidebar.html:13
 #: app/dashboard/views/dashboard.html:7
 msgid "Dashboard"
 msgstr ""
@@ -128,11 +132,11 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: app/_global/tpl/sidebar.html:22
+#: app/_global/tpl/sidebar.html:25
 msgid "List Persons"
 msgstr ""
 
-#: app/_global/tpl/sidebar.html:41
+#: app/_global/tpl/sidebar.html:44
 msgid "List Reports"
 msgstr ""
 
@@ -141,7 +145,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: app/_global/tpl/sidebar.html:54
+#: app/_global/tpl/sidebar.html:76
 msgid "Logout"
 msgstr ""
 
@@ -166,16 +170,24 @@ msgstr ""
 msgid "Mobile phone"
 msgstr ""
 
-#: app/_global/tpl/sidebar.html:27
+#: app/_global/tpl/sidebar.html:63
+msgid "My Notes"
+msgstr ""
+
+#: app/_global/tpl/sidebar.html:30
 msgid "New Person"
 msgstr ""
 
-#: app/_global/tpl/sidebar.html:46
+#: app/_global/tpl/sidebar.html:49
 msgid "New Report"
 msgstr ""
 
 #: app/person/views/person.edit.tab.personal.html:21
 msgid "Nickname"
+msgstr ""
+
+#: app/_global/tpl/sidebar.html:57
+msgid "Notes"
 msgstr ""
 
 #: app/dashboard/views/dashlet.person.count.html:27
@@ -198,7 +210,7 @@ msgstr ""
 msgid "Personal"
 msgstr ""
 
-#: app/_global/tpl/sidebar.html:16
+#: app/_global/tpl/sidebar.html:19
 #: app/dashboard/views/dashlet.person.count.html:6
 msgid "Persons"
 msgstr ""
@@ -235,7 +247,7 @@ msgstr ""
 msgid "Report source"
 msgstr ""
 
-#: app/_global/tpl/sidebar.html:35
+#: app/_global/tpl/sidebar.html:38
 #: app/report/views/report.list.html:7
 #: app/report/views/report.upsert.html:7
 msgid "Reports"

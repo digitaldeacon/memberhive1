@@ -5,7 +5,7 @@ var path = require('path');
 
 module.exports = function(grunt) {
 
-  grunt.registerMultiTask(
+  grunt.registerTask(
     'poAddLanguageHeaders',
     'Workaround: Add Language header to po files (Onesky App doesn’t add it)',
     function() {

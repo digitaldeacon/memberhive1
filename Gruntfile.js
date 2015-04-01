@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
-          'po/template.pot': ['app/**/*.html', 'app/_global/tpl/*.html', 'app/**/*.js']
+          'po/template.pot': ['app/**/*.html', 'app/**/*.js']
         }
       }
     },
@@ -71,6 +71,14 @@ module.exports = function(grunt) {
     poAddLanguageHeaders: {
       options: {
         poDir: 'po/'
+      }
+    },
+
+    uploadTranslations: {
+      options: {
+        templateFile: 'po/template.pot',
+        platformId: '22316',
+        format: 'GNU_POT'
       }
     },
 
@@ -496,8 +504,9 @@ module.exports = function(grunt) {
     'build'
   ]);
 
-  grunt.registerTask('updatepot', [
-    'nggettext_extract'
+  grunt.registerTask('translationUpdate', [
+    'nggettext_extract',
+    'uploadTranslations'
   ]);
 
   grunt.registerTask('po2js', [
