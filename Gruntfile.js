@@ -446,7 +446,7 @@ module.exports = function(grunt) {
 
     githooks: {
       all: {
-        'pre-commit': 'jshint'
+        'pre-commit': 'newer:jshint:all'
       }
     }
   });
@@ -492,7 +492,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'githooks',
-    'newer:jshint',
     'dbmigrate',
     'build'
   ]);
