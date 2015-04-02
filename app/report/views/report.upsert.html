@@ -17,42 +17,50 @@
 </script>
 
 <div class="portlet-default" ng-controller="ReportUpsertController as reportUpCtrl">
-  <form name="reportBuilderForm" ng-submit="reportUpCtrl.save()">
-    <tabset>
-      <tab>
-        <tab-heading>
-          <fa name="database"></fa> <translate>Report source</translate>
-        </tab-heading>
-        <div class="tab-personal row">
-          <div class="portlet-default">
-            <div class="form-group">
-              <label class="control-label ng-binding" for="reportName"  translate>Report Name</label>
-              <input class="form-control input-lg" type="text" id="reportName" name="name" ng-model="reportUpCtrl.report.name" required />
-            </div>
-            <div class="form-group">
-              <label class="control-label ng-binding" for="reportQuery" translate>Build Query</label>
-              <gem-querybuilder rule="reportUpCtrl.report.rule"></gem-querybuilder>
-              <p id="result" class="hide" ng-show="json"><h3>Loopback JSON</h3><pre ng-bind="json"></pre></p>
-              <div class="btn-group">
-                <button class="btn btn-warning reset">Reset</button>
-                <button class="btn green-haze parse-json">Save</button>
+
+  <div class="portlet-title tabbable-line">
+    <div class="caption caption-md">
+      <span class="caption-subject uppercase bold font-blue-madison" translate>
+        Edit {{reportUpCtrl.report.name}}
+      </span>
+    </div>
+
+    <form name="reportBuilderForm" ng-submit="reportUpCtrl.save()">
+      <tabset>
+        <tab>
+          <tab-heading>
+            <fa name="database"></fa> <translate>Report source</translate>
+          </tab-heading>
+          <div class="tab-personal row">
+            <div class="portlet-default">
+              <div class="form-group">
+                <label class="control-label ng-binding" for="reportName"  translate>Report Name</label>
+                <input class="form-control input-lg" type="text" id="reportName" name="name" ng-model="reportUpCtrl.report.name" required />
+              </div>
+              <div class="form-group">
+                <label class="control-label ng-binding" translate>Build Query</label>
+                <gem-querybuilder></gem-querybuilder>
+                <div class="btn-group">
+                  <button class="btn btn-warning reset">Reset</button>
+                  <button class="btn green-haze parse-json">Save</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </tab>
+        </tab>
 
-      <tab>
-        <tab-heading>
-          <fa name="pencil"></fa> <translate>Report layout</translate>
-        </tab-heading>
-        <div class="tab-personal row">
-          <div class="portlet-default">
-            <text-angular ng-model="reportHtml" name="reportHtml" ta-text-editor-setup='textAreaSetup'></text-angular>
+        <tab>
+          <tab-heading>
+            <fa name="pencil"></fa> <translate>Report layout</translate>
+          </tab-heading>
+          <div class="tab-personal row">
+            <div class="portlet-default">
+              <text-angular ng-model="reportHtml" name="reportHtml" ta-text-editor-setup='textAreaSetup'></text-angular>
+            </div>
           </div>
-        </div>
-      </tab>
+        </tab>
 
-    </tabset>
-  </form>
+      </tabset>
+    </form>
+  </div>
 </div>
