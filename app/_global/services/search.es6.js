@@ -1,34 +1,37 @@
-/**
- * Service ES6 Style
- * http://cameronjroe.com/code/angular-movie-search/
- */
+'use strict';
 
-export function SearchService($q, $rootScope, $filter, Person) {
-  return {
-    models: ['all','person'],
-    all: [],
-    person: [],
-    findPerson: () => {
-      Person.find().$promise.then(function(response) {
-        return response;
+class Search {
+
+  constructor($q, $filter, Person) {
+    this.$q = $q;
+    this.$filter = $filter;
+    this.person = Person;
+
+    this.models = ['all','person'];
+  }
+
+  findPerson(val) {
+    console.log('searvhing: ' + val);
+      this.person.find({
+        where: { or:
+          [{firstname: {like: '%'+val+'%'}},{lastname: {like: '%'+val+'%'}}]
+        }
+      }).$promise.then( (response) => {
+        console.log(response);
       });
-    },
-    findByComponent: (component,val) => {
+    return [];
+  }
+  byComponent(component,val) {
       var arr = [];
-      if (component && this.models[component]) {
+      if (component && this.models.indexOf(component)) {
         if (component === 'person') {
-          arr = this.findPerson();
+          arr = this.findPerson(val);
         }
       }
       console.log(val);
       console.log(component);
       console.log(arr);
-      if (!val) return arr;
-      return $filter('filter')(arr,val);
-    }
-  };
+
+      return arr;
+  }
 }
-
-SearchService.$inject = ['$q', '$rootScope', '$filter', 'Person'];
-
-export default SearchService;

@@ -127,7 +127,7 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "github:mgonto/restangular@1.4.0": {
-      "angular": "github:angular/bower-angular@1.2.28",
+      "angular": "github:angular/bower-angular@1.3.15",
       "lodash": "npm:lodash@3.6.0"
     },
     "github:mistic100/jQuery-QueryBuilder@1.4.2": {
@@ -141,9 +141,9 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
+      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
       "jquery": "github:components/jquery@1.11.2",
-      "jquery-ui": "github:components/jqueryui@1.11.3",
-      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0"
+      "jquery-ui": "github:components/jqueryui@1.11.3"
     },
     "github:systemjs/plugin-css@0.1.9": {
       "clean-css": "npm:clean-css@3.1.8",
@@ -244,7 +244,7 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
     "npm:textangular@1.3.11": {
-      "angular": "github:angular/bower-angular@1.2.28",
+      "angular": "github:angular/bower-angular@1.3.15",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
       "font-awesome": "npm:font-awesome@4.3.0",
       "rangy": "github:timdown/rangy-release@1.2.3"

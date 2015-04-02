@@ -5,6 +5,13 @@
   -moz-border-radius: 4px;
   border-radius: 4px;
 
+  .btn-group button {
+    height: 40px;
+    border-radius: 0;
+    background-color: #EEEEEE;
+    border-right: 2px solid #CCCCCC;
+  }
+
   .bootstrap-select > button.selectpicker {
     @extend .grey-cascade;
     border:0;
@@ -16,6 +23,8 @@
   }
   .search-field {
     border: 0;
+    max-width: 680px;
+    min-width: 150px;
     width: 480px;
     padding: 5px 0 1px 140px;
     position: relative;

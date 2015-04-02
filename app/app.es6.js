@@ -38,6 +38,7 @@ import '_global/scripts/metronic/layout';
 
 // Import services
 import {Shout} from '_global/services/shout';
+import {Search} from '_global/services/search';
 
 import {controlGroupDirective} from '_global/directives/form-directives';
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
@@ -111,23 +112,10 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
     gettextCatalog.setCurrentLanguage($rootScope.locale.lang);
 
   })
-  .controller('HeaderController', ($scope,$state,$http,$filter,LoopBackAuth,Person) => {
+  .controller('HeaderController', ($scope,$state,$filter,Search,LoopBackAuth) => {
     $scope.accessToken = LoopBackAuth.accessTokenId;
-    $scope.$on('$includeContentLoaded', () => {
-      Layout.initHeader(); // init header
-    });
-
-    $scope.models = ['all','person'];
-    $scope.person = [];
-    $scope.all = [];
-
-    Person.find().$promise.then(function(response) {
-      $scope.person = response;
-    });
     $scope.getSearch = function(val) {
-      var arr = [];
-      if (!val || (val.length > 2)) return arr;
-      arr = ($scope.component && $scope[$scope.component]) ? $scope[$scope.component] : [];
+      var arr = Search.byComponent($scope.component,val);
       return $filter('filter')(arr,val);
     };
   })
@@ -169,6 +157,8 @@ gemMainModule.directive('controlGroup', controlGroupDirective);
  * Services
  */
 gemMainModule.factory('Shout', Shout);
+gemMainModule.service('Search', Search);
+
 gemMainModule.factory('settings', $rootScope => {
   var settings = {
     layout: {
