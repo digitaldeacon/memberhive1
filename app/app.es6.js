@@ -18,6 +18,7 @@ import 'angular-confirm';
 import 'angular-moment';
 import 'bootstrap-hover-dropdown';
 import 'angular-toastr';
+import 'angular-loading-bar';
 
 // CSS
 import 'bootstrap/css/bootstrap.css!';
@@ -25,6 +26,7 @@ import 'bootstrap/css/bootstrap-theme.css!';
 import 'font-awesome/css/font-awesome.css!';
 import 'styles/main.css!';
 import 'github:silviomoreto/bootstrap-select/dist/css/bootstrap-select.css!';
+import 'angular-loading-bar/build/loading-bar.css!';
 
 // Translations
 import '_global/scripts/translations';
@@ -38,7 +40,6 @@ import '_global/scripts/metronic/layout';
 import {Shout} from '_global/services/shout';
 
 import {controlGroupDirective} from '_global/directives/form-directives';
-import {spinnerBarDirective} from '_global/scripts/directives';
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
 import {gemConfigModule} from '_global/scripts/config';
 import {gemDashboardModule} from 'dashboard/dashboard';
@@ -58,7 +59,7 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
   'ui.router', 'ui.bootstrap',  'ui.select',
   'lbServices', 'formatFilters', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
-  'angular-confirm', 'angularMoment',
+  'angular-confirm', 'angularMoment', 'angular-loading-bar',
   'gettext', 'textAngular', 'toastr',
   // GEM Module
   'gem.person', 'gem.dashboard', 'gem.option', 'gem.acl',
@@ -163,7 +164,6 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
 /**
  * Directives
  */
-gemMainModule.directive('ngSpinnerBar', spinnerBarDirective);
 gemMainModule.directive('controlGroup', controlGroupDirective);
 /**
  * Services

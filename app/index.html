@@ -12,17 +12,11 @@
 
   </head>
   <body ng-controller="AppController" data-ng-init="init()" ng-class="{'login-bg': $state.includes('login')}"
-        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load">
+        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo">
 
     <!--[if lt IE 10]>
       <p class="browsehappy" translate>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <div ng-spinner-bar class="page-spinner-bar">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
 
     <div ng-if="acl.isLoggedIn()">
       <div data-ng-include="'_global/tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top" >
