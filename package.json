@@ -59,7 +59,8 @@
   "scripts": {
     "test": "grunt test",
     "pretest": "jshint .",
-    "start": "nodemon --watch server/ --watch common/models . | bunyan"
+    "start": "nodemon --watch server/ --watch common/models . | bunyan",
+    "debug": "DEBUG=loopback npm start"
   },
   "main": "server/server.js",
   "jspm": {

@@ -68,17 +68,26 @@ module.exports = function(grunt) {
       }
     },
 
-    poAddLanguageHeaders: {
-      options: {
-        poDir: 'po/'
-      }
-    },
-
     uploadTranslations: {
       options: {
         templateFile: 'po/template.pot',
         platformId: '22316',
         format: 'GNU_POT'
+      }
+    },
+
+    downloadTranslations: {
+      options: {
+        locales: ['de', 'en']
+      }
+    },
+
+    downloadSingleTranslation: {
+      options: {
+        poDir: 'po/',
+        platformId: '22316',
+        format: 'GNU_POT',
+        tag: 'template.pot'
       }
     },
 
@@ -101,10 +110,6 @@ module.exports = function(grunt) {
       },
       gruntfile: {
         files: ['Gruntfile.js']
-      },
-      translations: {
-        files: ['po/**/*.po'],
-        tasks: ['po2js']
       },
       babel: {
         files: ['<%= yeoman.app %>/**/*.es6.js'],
@@ -471,7 +476,7 @@ module.exports = function(grunt) {
       'dbmigrate',
       'lbservices',
       'ngconstant:server',
-      'po2js',
+      'nggettext_compile',
       'copy:live',
       'concurrent:server',
       'autoprefixer:server',
@@ -485,7 +490,7 @@ module.exports = function(grunt) {
     'useminPrepare',
     'lbservices',
     'ngconstant:server',
-    'po2js',
+    'nggettext_compile',
     'concurrent:dist',
     'autoprefixer',
     'concat',
@@ -509,8 +514,8 @@ module.exports = function(grunt) {
     'uploadTranslations'
   ]);
 
-  grunt.registerTask('po2js', [
-      'poAddLanguageHeaders', // Add missing language headers
+  grunt.registerTask('updateTranslations', [
+      'downloadTranslations',
       'nggettext_compile'
     ]);
 
