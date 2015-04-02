@@ -8,7 +8,7 @@
     "loopback": "^2.8.0",
     "loopback-boot": "^2.4.0",
     "loopback-component-storage": "^1.3.1",
-    "loopback-connector-mysql": "latest",
+    "loopback-connector-mysql": "git://github.com/strongloop/loopback-connector-mysql.git",
     "loopback-datasource-juggler": "latest",
     "lwip": "0.0.6",
     "serve-favicon": "^2.0.1"
