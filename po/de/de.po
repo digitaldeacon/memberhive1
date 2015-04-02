@@ -1,74 +1,176 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2015-03-11 13:35+0000\n"
-"PO-Revision-Date: 2015-03-11 13:35+0000\n"
+"POT-Creation-Date: 2015-04-02 09:16+0000\n"
+"PO-Revision-Date: 2015-04-02 09:16+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
-"MIME-Version: 1.0\n"
 "Language: de\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: app/person/views/person.list.html:60
-msgid "Birthdate"
-msgstr "Geburtstag"
-
-#: app/dashboard/views/dashboard.html:7
-#: app/tpl/sidebar.html:13
-msgid "Dashboard"
-msgstr "Dashboard"
-
-#: app/dashboard/views/dashboard.html:17
-msgid "Delete"
-msgstr "Löschen"
-
-#: app/scripts/adf/widgets/weather/weather.js:32
-msgid "Display the current temperature of a city"
-msgstr "Zeige die aktuelle Temperatur einer Stadt an"
-
-#: app/person/views/person.list.html:63
-#: app/person/views/person.view.contacts.html:2
-msgid "Email"
-msgstr "Email"
 
 #: app/tpl/header.html:22
 msgid "Everything"
 msgstr "Alles"
 
-#: app/person/views/person.list.html:75
-#: app/person/views/person.view.contacts.html:21
+#: app/address/services/address-service.es6.js:9
+msgid "Home Address"
+msgstr "Anschrift (Privat)"
+
+#: app/address/services/address-service.es6.js:11
+msgid "Postal Address"
+msgstr "Anschrift (Post)"
+
+#: app/address/services/address-service.es6.js:10
+msgid "Work Address"
+msgstr "Anschrift (Arbeit)"
+
+#: app/person/views/person.list.html:24
+#: app/report/views/report.list.html:22
+msgid "Actions"
+msgstr "Aktionen"
+
+#: app/person/views/person.edit.html:20
+msgid "Addresses"
+msgstr "Adressen"
+
+#: app/person/views/person.edit.html:26
+msgid "Avatar"
+msgstr "Profilbild"
+
+#: app/person/views/person.edit.tab.personal.html:38
+#: app/person/views/person.list.html:61
+msgid "Birthdate"
+msgstr "Geburtstag"
+
+#: app/report/views/report.upsert.html:33
+msgid "Build Query"
+msgstr "Abfrage erstellen"
+
+#: app/person/views/person.edit.tab.personal.html:41
+msgid "Close"
+msgstr "Schließen"
+
+#: app/person/views/person.edit.tab.personal.html:72
+msgid "Contact Info"
+msgstr "Kontaktinfos"
+
+#: app/report/views/report.upsert.html:10
+msgid "Create"
+msgstr "Neu"
+
+#: app/_global/tpl/sidebar.html:68
+msgid "Create Note"
+msgstr "Neue Notiz"
+
+#: app/_global/tpl/sidebar.html:13
+#: app/dashboard/views/dashboard.html:7
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: app/dashboard/views/dashboard.html:17
+#: app/person/views/person.list.html:96
+#: app/report/views/report.list.html:40
+msgid "Delete"
+msgstr "Löschen"
+
+#: app/adf/widgets/weather/weather.js:31
+msgid "Display the current temperature of a city"
+msgstr "Zeige die aktuelle Temperatur einer Stadt an"
+
+#: app/report/views/report.list.html:35
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: app/report/views/report.list.html:32
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: app/person/views/person.view.html:14
+msgid "Edit Person"
+msgstr "Person bearbeiten"
+
+#: app/person/views/person.edit.html:5
+msgid "Edit {{person | formatName}}"
+msgstr "{{person | formatName}} bearbeiten"
+
+#: app/person/views/person.edit.tab.personal.html:60
+#: app/person/views/person.list.html:64
+#: app/person/views/person.view.contacts.html:2
+msgid "Email"
+msgstr "E-Mail"
+
+#: app/person/views/person.list.html:80
+#: app/person/views/person.view.contacts.html:26
 msgid "Facebook"
 msgstr "Facebook"
+
+#: app/person/views/person.edit.tab.personal.html:125
+msgid "Facebook Username"
+msgstr "Facebook-Benutzername"
+
+#: app/person/views/person.edit.tab.personal.html:115
+#: app/person/views/person.view.contacts.html:21
+#: app/person/views/person.view.contacts.html:23
+msgid "Fax"
+msgstr "Fax"
+
+#: app/person/views/person.edit.tab.personal.html:17
+msgid "First Name"
+msgstr "Vorname"
 
 #: app/dashboard/views/dashboard.html:4
 #: app/person/views/person.create.html:4
 #: app/person/views/person.list.html:4
 #: app/person/views/person.view.contacts.html:8
+#: app/report/views/report.list.html:4
+#: app/report/views/report.upsert.html:4
 msgid "Home"
 msgstr "Privat"
 
-#: app/address/services/address-service.es6.js:9
-msgid "Home Address"
-msgstr "Anschrift (Privat)"
+#: app/person/views/person.edit.tab.personal.html:85
+msgid "Home Phone"
+msgstr "Telefon (Privat)"
 
-#: app/person/views/person.list.html:66
+#: app/person/views/person.list.html:68
 #: app/person/views/person.view.contacts.html:6
 msgid "Home phone"
 msgstr "Telefon (Privat)"
 
-#: app/tpl/sidebar.html:25
+#: app/person/views/person.edit.tab.personal.html:146
+msgid "Household"
+msgstr "Haushalt"
+
+#: app/person/views/person.view.household.html:25
+msgid "Household Address"
+msgstr "Haushaltadresse"
+
+#: app/person/views/person.edit.tab.personal.html:29
+msgid "Last Name"
+msgstr "Nachname"
+
+#: app/_global/tpl/sidebar.html:25
 msgid "List Persons"
 msgstr "Personenliste"
 
+#: app/_global/tpl/sidebar.html:44
+msgid "List Reports"
+msgstr "Berichte anzeigen"
+
 #: app/auth/views/login.html:35
+#: app/person/views/person.edit.tab.personal.html:50
 msgid "Login"
 msgstr "Anmelden"
 
-#: app/tpl/sidebar.html:38
+#: app/_global/tpl/sidebar.html:76
 msgid "Logout"
 msgstr "Abmelden"
+
+#: app/person/views/person.edit.tab.personal.html:25
+msgid "Middle Name"
+msgstr "Zweitname"
 
 #: app/person/views/person.list.html:22
 msgid "Ministries"
@@ -78,67 +180,157 @@ msgstr "Dienste"
 msgid "Mobile"
 msgstr "Handy"
 
-#: app/person/views/person.list.html:72
+#: app/person/views/person.edit.tab.personal.html:105
+msgid "Mobile Phone"
+msgstr "Handy"
+
+#: app/person/views/person.list.html:76
 #: app/person/views/person.view.contacts.html:16
 msgid "Mobile phone"
 msgstr "Handynummer"
 
-#: app/tpl/sidebar.html:30
+#: app/_global/tpl/sidebar.html:63
+msgid "My Notes"
+msgstr "Meine Notizen"
+
+#: app/_global/tpl/sidebar.html:30
 msgid "New Person"
-msgstr "Person anlegen"
+msgstr "Neue Person"
+
+#: app/_global/tpl/sidebar.html:49
+msgid "New Report"
+msgstr "Neuer Bericht"
+
+#: app/person/views/person.edit.tab.personal.html:21
+msgid "Nickname"
+msgstr "Nickname"
+
+#: app/_global/tpl/sidebar.html:57
+msgid "Notes"
+msgstr "Notizen"
 
 #: app/dashboard/views/dashlet.person.count.html:27
 #: app/person/views/person.create.html:7
 #: app/person/views/person.list.html:7
 msgid "Person"
 msgid_plural "Persons"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Person"
+msgstr[1] "Personen"
+
+#: app/person/views/person.edit.tab.personal.html:2
+msgid "Person Info"
+msgstr "Person-Info"
 
 #: app/person/views/person.list.html:21
 msgid "Person details"
 msgstr "Angabe zur Person"
 
+#: app/person/views/person.edit.html:14
+msgid "Personal"
+msgstr "Persönlich"
+
+#: app/_global/tpl/sidebar.html:19
 #: app/dashboard/views/dashlet.person.count.html:6
-#: app/tpl/header.html:23
-#: app/tpl/sidebar.html:19
 msgid "Persons"
 msgstr "Personen"
 
-#: app/scripts/adf/widgets/weather/weather.html:2
+#: app/adf/widgets/weather/weather.html:2
 msgid "Please insert a location in the widget configuration"
 msgstr "Geben sie in der Widget Einstellung einen Ort an"
 
-#: app/address/services/address-service.es6.js:11
-msgid "Postal Address"
-msgstr "Anschrift (Post)"
+#: app/person/views/person.edit.tab.personal.html:74
+msgid "Primary contact"
+msgstr "Bevorzugte Kontaktart"
 
+#: app/report/views/report.list.html:20
+msgid "Query"
+msgstr "Abfrage"
+
+#: app/report/views/report.upsert.html:29
+msgid "Report Name"
+msgstr "Berichtname"
+
+#: app/report/views/report.list.html:21
+msgid "Report Types"
+msgstr "Berichttypen"
+
+#: app/report/views/report.upsert.html:47
+msgid "Report layout"
+msgstr "Berichtlayout"
+
+#: app/report/views/report.upsert.html:24
+msgid "Report source"
+msgstr "Berichtquelle"
+
+#: app/_global/tpl/sidebar.html:38
+#: app/report/views/report.list.html:7
+#: app/report/views/report.upsert.html:7
+msgid "Reports"
+msgstr "Berichte"
+
+#: app/person/views/person.edit.html:38
+msgid "Rights"
+msgstr "Rechte"
+
+#: app/person/views/person.edit.html:32
 #: app/person/views/person.list.html:23
 msgid "Roles"
 msgstr "Rollen"
 
-#: app/tpl/header.html:25
+#: app/person/views/person.edit.html:45
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: app/_global/tpl/header.html:36
 msgid "Search"
 msgstr "Suche"
+
+#: app/person/views/person.edit.tab.avatar.html:8
+msgid "Select Avatar"
+msgstr "Profilbild auswählen"
+
+#: app/person/views/person.edit.tab.personal.html:151
+msgid "Select household..."
+msgstr "Haushalt auswählen..."
+
+#: app/person/views/person.edit.tab.personal.html:76
+msgid "Select primary contact type..."
+msgstr "Bevorzugte Kontaktart auswählen..."
 
 #: app/auth/views/login.html:15
 msgid "Sign In"
 msgstr "Anmelden"
 
-#: app/person/views/person.list.html:78
-#: app/person/views/person.view.contacts.html:28
+#: app/person/views/person.list.html:84
+#: app/person/views/person.view.contacts.html:33
 msgid "Skype"
 msgstr "Skype"
 
-#: app/scripts/adf/widgets/weather/weather.html:12
+#: app/person/views/person.edit.tab.personal.html:135
+msgid "Skype Name"
+msgstr "Skype-Name"
+
+#: app/person/views/person.edit.tab.personal.html:33
+msgid "Suffix"
+msgstr "Suffix"
+
+#: app/adf/widgets/weather/weather.html:12
 msgid "Temperature:"
 msgstr "Temperatur"
+
+#: app/person/views/person.edit.tab.personal.html:13
+msgid "Title"
+msgstr "Titel"
+
+#: app/person/views/person.edit.tab.personal.html:55
+msgid "User can log in"
+msgstr "Benutzer kann sich einloggen"
 
 #: app/auth/views/login.html:17
 msgid "Username"
 msgstr "Benutzername"
 
-#: app/scripts/adf/widgets/weather/weather.js:31
+#: app/adf/widgets/weather/weather.js:30
 msgid "Weather"
 msgstr "Wetter"
 
@@ -146,11 +338,11 @@ msgstr "Wetter"
 msgid "Work"
 msgstr "Arbeit"
 
-#: app/address/services/address-service.es6.js:10
-msgid "Work Address"
-msgstr "Adresse (Arbeit)"
+#: app/person/views/person.edit.tab.personal.html:95
+msgid "Work Phone"
+msgstr "Telefon (Arbeit)"
 
-#: app/person/views/person.list.html:69
+#: app/person/views/person.list.html:72
 #: app/person/views/person.view.contacts.html:11
 msgid "Work phone"
 msgstr "Telefon (Arbeit)"

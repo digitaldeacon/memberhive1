@@ -171,8 +171,6 @@ var Layout = function() {
         $('.page-header .responsive-toggler').click();
       }
 
-      Metronic.startPageLoading();
-
       var the = $(this);
 
       $.ajax({
@@ -186,13 +184,11 @@ var Layout = function() {
             $('.page-sidebar-menu > li.open > a').click();
           }
 
-          Metronic.stopPageLoading();
           pageContentBody.html(res);
           Layout.fixContentHeight(); // fix content height
           Metronic.initAjax(); // initialize core stuff
         },
         error: function(xhr, ajaxOptions, thrownError) {
-          Metronic.stopPageLoading();
           pageContentBody.html('<h4>Could not load the requested content.</h4>');
         }
       });
@@ -207,8 +203,6 @@ var Layout = function() {
       var pageContent = $('.page-content');
       var pageContentBody = $('.page-content .page-content-body');
 
-      Metronic.startPageLoading();
-
       if (Metronic.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page
         $('.page-header .responsive-toggler').click();
       }
@@ -219,14 +213,12 @@ var Layout = function() {
         url: url,
         dataType: "html",
         success: function(res) {
-          Metronic.stopPageLoading();
           pageContentBody.html(res);
           Layout.fixContentHeight(); // fix content height
           Metronic.initAjax(); // initialize core stuff
         },
         error: function(xhr, ajaxOptions, thrownError) {
           pageContentBody.html('<h4>Could not load the requested content.</h4>');
-          Metronic.stopPageLoading();
         }
       });
     });
