@@ -68,6 +68,30 @@ module.exports = function(grunt) {
       }
     },
 
+    docularserver: {
+      targetDir: 'docs',
+      livereload: true,
+      port: 8000
+    },
+
+    docular: {
+      docular_webapp_target: 'docs', // jshint ignore:line
+      groups: [
+        {
+          groupTitle: 'LoopBack',
+          groupId: 'loopback',
+          sections: [
+            {
+              id: 'lbServices',
+              title: 'LoopBack Services',
+              scripts: ['<%= yeoman.app %>/_global/scripts/lb-services.js']
+            }
+          ]
+        }
+      ]
+    },
+
+
     uploadTranslations: {
       options: {
         templateFile: 'po/template.pot',
@@ -521,10 +545,12 @@ module.exports = function(grunt) {
 
   grunt.registerTask('dbmigrate', ['loopback_auto']);
   grunt.registerTask('lbservices', ['loopback_sdk_angular','loopback_angular_addModelData']);
+  grunt.registerTask('restApiDocs', ['lbservices', 'docular', 'docularserver']);
 
   grunt.loadNpmTasks('grunt-angular-gettext');
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-loopback-sdk-angular');
+  grunt.loadNpmTasks('grunt-docular');
   grunt.loadNpmTasks('grunt-loopback-auto');
   grunt.loadNpmTasks('grunt-jscs');
 
