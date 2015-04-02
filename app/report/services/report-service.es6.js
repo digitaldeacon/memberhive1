@@ -21,7 +21,7 @@ export function ReportService(Report, gettext, config, Shout) {
     },
     save: (reportObj) => {
       Report.upsert({},reportObj).$promise.then(
-        (data) => {Shout.success(gettext('Successfully created query for report ' + data.name));},
+        (data) => {Shout.success(gettext('Successfully saved report: ') + '"' + data.name + '"');},
         (error) => {Shout.error(gettext(error.data.error.message),error.data.error.name);}
       );
     }

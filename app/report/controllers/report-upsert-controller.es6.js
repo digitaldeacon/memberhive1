@@ -46,14 +46,10 @@ export class ReportUpsertController {
       return this.$stateParams.id ? this.ReportService.one(this.$stateParams.id) : null;
   }
 
-  saveQuery(queryObj) {
-    //console.log(this.$scope.reportUpCtrl);
-    if (queryObj) {
-      this.report.query = queryObj.query;
-      this.report.rule = queryObj.rule;
-      this.report.name = this.$scope.reportUpCtrl.report.name;
-      this.ReportService.save(this.report);
-    }
+  saveReport() {
+    this.report.name = this.$scope.reportUpCtrl.report.name;
+    this.report.html = this.$scope.reportUpCtrl.report.html;
+    this.ReportService.save(this.report);
   }
 
   setBuilderFilters() {

@@ -12,6 +12,8 @@ import {ReportController} from 'report/controllers/report-controller';
 import {ReportUpsertController} from 'report/controllers/report-upsert-controller';
 
 import {QueryBuilderDirective} from 'report/directives/querybuilder-directive';
+import {PreviewHTMLDirective} from 'report/directives/previewhtml-directive';
+
 import {ReportService} from 'report/services/report-service';
 
 export var gemReportModule = angular.module('gem.report', []).config(
@@ -68,4 +70,6 @@ gemReportModule.controller('ReportController', ReportController);
 gemReportModule.controller('ReportUpsertController', ReportUpsertController);
 
 gemReportModule.directive('gemQuerybuilder', QueryBuilderDirective);
+gemReportModule.directive('gemPreview', PreviewHTMLDirective);
+
 gemReportModule.factory('ReportService', ReportService);

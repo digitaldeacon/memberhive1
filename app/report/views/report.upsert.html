@@ -21,11 +21,11 @@
   <div class="portlet-title tabbable-line">
     <div class="caption caption-md">
       <span class="caption-subject uppercase bold font-blue-madison" translate>
-        Edit {{reportUpCtrl.report.name}}
+        Edit: {{reportUpCtrl.report.name}}
       </span>
     </div>
 
-    <form name="reportBuilderForm" ng-submit="reportUpCtrl.save()">
+    <form name="reportBuilderForm" class="form" ng-submit="reportUpCtrl.saveReport()">
       <tabset>
         <tab>
           <tab-heading>
@@ -40,9 +40,11 @@
               <div class="form-group">
                 <label class="control-label ng-binding" translate>Build Query</label>
                 <gem-querybuilder></gem-querybuilder>
-                <div class="btn-group">
-                  <button class="btn btn-warning reset">Reset</button>
-                  <button class="btn green-haze parse-json">Save</button>
+                <div class="form-actions fluid">
+                  <div class="btn-group">
+                    <button class="btn btn-warning reset">Reset</button>
+                    <button class="btn green-haze parse-json">Save</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -55,7 +57,13 @@
           </tab-heading>
           <div class="tab-personal row">
             <div class="portlet-default">
-              <text-angular ng-model="reportHtml" name="reportHtml" ta-text-editor-setup='textAreaSetup'></text-angular>
+              <text-angular ng-model="reportUpCtrl.report.html" name="reportHtml" ta-text-editor-setup='textAreaSetup'></text-angular>
+              <div class="form-actions fluid">
+                <button class="btn green-haze" type="submit">Save</button>
+              </div>
+              <div class="row">
+                <gem-preview html="{{reportUpCtrl.report.html}}"></gem-preview>
+              </div>
             </div>
           </div>
         </tab>

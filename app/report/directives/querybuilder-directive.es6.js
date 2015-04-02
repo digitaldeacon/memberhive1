@@ -4,13 +4,9 @@ export function QueryBuilderDirective($q) {
       templateUrl: '/queryBuilderDirective.html',
       controller: 'ReportUpsertController',
       bindToController: true,
-      /*scope: {
-        rule: '=rule'
-      },*/
       restrict: 'E',
       compile: function compile(tElement,tAttr,transclude) {
         return {
-          pre: function preLink(scope,iElement,iAttrs,controller) {},
           post: function postLink(scope,iElement,iAttrs,controller) {
             iElement.queryBuilder({
               allow_empty: true,//jshint ignore:line
@@ -29,15 +25,11 @@ export function QueryBuilderDirective($q) {
 
             var onSaveButtonClick = function() {
               if (scope.reportBuilderForm.$invalid) return;
-              var rules = iElement.queryBuilder('getRules');
-              var qObj = {
-                query: iElement.queryBuilder('getLoopback',rules),
-                rule: rules
-              };
-              controller.saveQuery(qObj);
+              scope.reportUpCtrl.report.rule = iElement.queryBuilder('getRules');
+              scope.reportUpCtrl.report.query = iElement.queryBuilder('getLoopback');
             };
             var onResetButtonClick = function() {
-              controller.saveQuery(iElement.queryBuilder('reset'));
+              iElement.queryBuilder('reset');
             };
 
             saveBtn.on('click', onSaveButtonClick);
@@ -52,20 +44,4 @@ export function QueryBuilderDirective($q) {
       }
     };
   return ddo;
-  /*var link = function(scope, el, atts, Report) {
-    console.log(scope.$apply(atts.rule));
-    el.queryBuilder({
-      allow_empty: true,//jshint ignore:line
-      plugins: ['sortable'],
-      filters: Report.setBuilderFilters()
-    });
-  };
-
-  return {
-    restrict: 'E',
-
-    //bindToController: true,
-    controller: 'ReportController',
-    link: link
-  };*/
 }

@@ -35,12 +35,12 @@
 
         <div class="page-content-wrapper">
           <div class="page-content">
-            <div data-ng-include="'_global/tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head" ></div>
+            <div data-ng-include="'_global/tpl/page-head.html'" data-ng-controller="PageHeadController as header" class="page-head" ></div>
             <ui-view />
           </div>
         </div>
       </div>
-      <div data-ng-include="'_global/tpl/footer.html'" data-ng-controller="FooterController" class="page-footer">
+      <div data-ng-include="'_global/tpl/footer.html'" data-ng-controller="FooterController as footer" class="page-footer">
       </div>
     </div>
 
