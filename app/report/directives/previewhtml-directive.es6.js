@@ -1,6 +1,6 @@
 'use strict';
 
-export function PreviewHTMLDirective($compile) {
+export function PreviewHTMLDirective($compile,$sce) {
 
   return {
     restrict: 'E',
@@ -9,11 +9,6 @@ export function PreviewHTMLDirective($compile) {
      },
     transclude: true,
     replace: true,
-    template: '<div>{{html}}</div>',
-    link: function(scope,element,attrs) {
-      console.log(scope.html);
-      //element.html(scope.html).show();
-      //$compile(element.contents())(scope);
-    }
+    template: '<div ng-bind-html="html"></div>'
   };
 }
