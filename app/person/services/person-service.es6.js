@@ -47,7 +47,7 @@ export function PersonService(Person, Contact, Household, Avatar, gettext, confi
       if (person.hasAvatar)
         return `${apiUrl}Avatars/${person.id}/download/${size}.jpg`;
       else
-        return '_global/images/person-placeholder-80x80.jpg';
+        return `_global/images/avatar/${size}.jpg`;
     },
 
     saveAvatar: (person, file) => {
