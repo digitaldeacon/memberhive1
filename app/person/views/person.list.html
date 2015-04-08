@@ -93,7 +93,11 @@
       </td>
       <td></td>
       <td class="actions">
-        <a class="btn btn-danger btn-sm hidden" aria-label="{{'Delete' | translate}}"
+        <a class="btn btn-default btn-sm" aria-label="{{'Edit' | translate}}"
+           ui-sref="person.edit({ id: person.id })">
+          <fa name="edit"></fa>
+        </a>
+        <a class="btn btn-default btn-sm" aria-label="{{'Delete' | translate}}"
            ng-click="personCtrl.deletePerson(person)"
            confirm="Delete “{{::person | formatName}}”?">
           <fa name="trash"></fa>
