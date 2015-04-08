@@ -4,6 +4,7 @@ dist
 .sass-cache
 bower_components
 jspm_packages
+docs
 .idea
 typings
 .strong-pm
