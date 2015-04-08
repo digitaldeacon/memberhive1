@@ -24,9 +24,12 @@ import 'angular-loading-bar';
 import 'bootstrap/css/bootstrap.css!';
 import 'bootstrap/css/bootstrap-theme.css!';
 import 'font-awesome/css/font-awesome.css!';
-import 'styles/main.css!';
 import 'github:silviomoreto/bootstrap-select/dist/css/bootstrap-select.css!';
 import 'angular-loading-bar/build/loading-bar.css!';
+import 'angular-ui-select/dist/select.min.css!';
+
+// Own CSS
+import 'styles/main.css!';
 
 // Translations
 import '_global/scripts/translations';
