@@ -4,8 +4,7 @@
   "idInjection": true,
   "options": {
     "mysql": {
-      "__table": "PerPersonMinistry",
-      "bug": "Custom table name doesn't work here; see https://github.com/strongloop/loopback-connector-mysql/issues/83"
+      "table": "PerPersonMinistry"
     }
   },
   "properties": {},

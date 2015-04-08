@@ -4,6 +4,11 @@
   "idInjection": true,
   "properties": {},
   "validations": [],
+  "options": {
+    "mysql": {
+      "table": "PerPersonAddress"
+    }
+  },
   "relations": {
     "person": {
       "type": "belongsTo",
