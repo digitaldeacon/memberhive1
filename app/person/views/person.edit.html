@@ -2,8 +2,8 @@
   {{person=personCtrl.person;""}}
   <div class="portlet-title tabbable-line">
     <div class="caption caption-md">
-      <span class="caption-subject uppercase bold font-blue-madison" translate>
-        Edit {{person | formatName}}
+      <span class="caption-subject uppercase bold font-blue-madison">
+        {{personCtrl.getTitle()}}
       </span>
     </div>
 
@@ -19,9 +19,9 @@
           <tab-heading>
             <fa name="home"></fa> <translate>Addresses</translate>
           </tab-heading>
-          <div class="tab-addresses" ng-include="'person/views/person.edit.tab.addresses.html'"></div>
+          <div class="tab-addresses row" ng-include="'person/views/person.edit.tab.addresses.html'"></div>
         </tab>
-        <tab active="true">
+        <tab>
           <tab-heading>
             <fa name="photo"></fa> <translate>Avatar</translate>
           </tab-heading>

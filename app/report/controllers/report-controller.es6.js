@@ -62,7 +62,6 @@ export class ReportController {
     this.getReports();
   }
 
-
   pageChanged(pageNum) {
     this.getReports(pageNum);
   }

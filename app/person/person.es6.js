@@ -56,7 +56,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.create', {
       url: '/create',
-      templateUrl: '../person/views/person.create.html',
+      templateUrl: '../person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Create a Person')
       },

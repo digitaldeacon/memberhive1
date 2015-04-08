@@ -1,13 +1,16 @@
 export class PersonEditController{
-  constructor(PersonService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettext, apiUrl) {
+  constructor(PersonService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettext, apiUrl, $filter) {
     this.PersonService = PersonService;
     this.Person = Person;
     this.Contact = Contact;
     this.Shout = Shout;
     this.$scope = $scope;
     this.gettext = gettext;
+    this.$stateParams = $stateParams;
+    this.$filter = $filter;
+    this.apiUrl = apiUrl;
 
-    this.person = PersonService.one($stateParams.id);
+    this.person = this.getPerson();
     this.getContacts = PersonService.getContacts;
     this.relationTypes = PersonService.relationTypes;
     this.genders = PersonService.genders;
@@ -24,7 +27,22 @@ export class PersonEditController{
     this.isEditingAvatar = false;
 
     $scope.datepickerOpened = true;
-    this.apiUrl = apiUrl;
+  }
+
+  isEditing() {
+    return this.$stateParams.id !== undefined;
+  }
+
+  getPerson() {
+    return this.isEditing() ? this.PersonService.one(this.$stateParams.id) : new this.Person();
+  }
+
+  getTitle() {
+    if (this.isEditing()) {
+      return this.$filter('formatName')(this.person);
+    } else {
+      return this.gettext('Create new Person');
+    }
   }
 
   openDatepicker() {
@@ -88,6 +106,8 @@ export class PersonEditController{
 
   /**
    * Save all person data
+   *
+   * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
