@@ -6,7 +6,6 @@ export class PersonViewController {
     this.relationTypes = PersonService.relationTypes;
     this.genders = PersonService.genders;
     this.addressTypes = AddressService.addressTypes;
-    this.avatarImage = PersonService.avatarImage;
   }
 
   /**

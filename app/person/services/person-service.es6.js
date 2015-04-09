@@ -1,5 +1,9 @@
-export function PersonService(Person, Contact, Household, Avatar, gettext, config, $upload, apiUrl) {
+export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, gettext, config, $upload, apiUrl) {
   return {
+    currentUser: () => {
+      return Person.findById({id: LoopBackAuth.currentUserId});
+    },
+
     one: (id) => {
       // Need to use findOne() instead of findById() since you can't use the include filter with findById()
       return Person.findOne({
@@ -41,13 +45,6 @@ export function PersonService(Person, Contact, Household, Avatar, gettext, confi
           ]
         }
       });
-    },
-
-    avatarImage: (person, size) => {
-      if (person.hasAvatar)
-        return `${apiUrl}Avatars/${person.id}/download/${size}.jpg`;
-      else
-        return `_global/images/avatar/${size}.jpg`;
     },
 
     saveAvatar: (person, file) => {

@@ -56,10 +56,9 @@
           <!-- BEGIN PROFILE -->
           <li class="dropdown dropdown-user dropdown-dark">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-              <span class="username username-hide-on-mobile">
-              Samuel </span>
-              <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-              <img alt="" class="img-circle" src="/_global/images/person-placeholder-80x80.jpg">
+              <span class="username username-hide-on-mobile"> {{ currentUser | formatName }} </span>
+              <gem-avatar person="currentUser" size="xs" circle></gem-avatar>
+
             </a>
           </li>
           <!-- END PROFILE -->

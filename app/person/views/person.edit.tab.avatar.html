@@ -1,5 +1,5 @@
 <div ng-if="person.hasAvatar && !personCtrl.isEditingAvatar">
-  <img ng-src="{{ personCtrl.avatarImage(person, 's') }}" />
+  <gem-avatar person="person" size="s"></gem-avatar>
   <a ng-click="personCtrl.editAvatar()">Edit Avatar</a>
   <a ng-click="personCtrl.removeAvatar()">Remove Avatar</a>
 </div>

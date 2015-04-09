@@ -9,6 +9,7 @@ import {PersonController} from 'person/controllers/person-controller';
 import {PersonEditController} from 'person/controllers/person-edit-controller';
 import {PersonViewController} from 'person/controllers/person-view-controller';
 import {PersonService} from 'person/services/person-service';
+import {AvatarDirective} from 'person/directives/person-directives';
 
 export var gemPersonModule = angular.module('gem.person',
   [
@@ -83,3 +84,5 @@ gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);
 
 gemPersonModule.factory('PersonService', PersonService);
+
+gemPersonModule.directive('gemAvatar', AvatarDirective);

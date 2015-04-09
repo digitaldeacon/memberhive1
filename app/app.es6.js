@@ -94,13 +94,15 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
 /**
  * Controllers
  */
-  .controller('AppController', ($scope, $rootScope, $cookies, gettextCatalog) => {
+  .controller('AppController', ($scope, $rootScope, $cookies, gettextCatalog, PersonService) => {
     $scope.init = () => {
       Metronic.init();
     };
     $scope.$on('$viewContentLoaded', () => {
       Metronic.initComponents(); // init core components
     });
+
+    $rootScope.currentUser = PersonService.currentUser();
 
     $rootScope.locales = {
       'en': {
