@@ -36,7 +36,7 @@ Tiles(new in v1.1.1)
         &:after,
         &:before {
             content: "";
-            float: left; 
+            float: left;
         }
 
         &.double {
@@ -55,12 +55,12 @@ Tiles(new in v1.1.1)
             border-color: #aaa !important;
         }
 
-        &:active, 
+        &:active,
         &.selected {
             border-color: #ccc !important;
         }
 
-        &.selected .corner:after {  
+        &.selected .corner:after {
             content: "";
             display: inline-block;
             border-left: 40px solid transparent;
@@ -71,7 +71,7 @@ Tiles(new in v1.1.1)
             right: -3px;
         }
 
-        &.selected .check:after {  
+        &.selected .check:after {
             content: "";
             font-family: FontAwesome;
             font-size: 13px;
@@ -141,7 +141,7 @@ Tiles(new in v1.1.1)
             img {
                 float: left;
                 margin-right: 10px;
-            
+
                 &.pull-right {
                     float: right !important;
                     margin-left: 10px;
@@ -191,7 +191,7 @@ Tiles(new in v1.1.1)
             min-height: 30px;
             background-color: transparent;
             *zoom: 1;
-        
+
             &:before,
             &:after {
                 display: table;
@@ -236,7 +236,7 @@ Tiles(new in v1.1.1)
                 margin-bottom: 8px;
                 margin-right: 10px;
             }
-        }        
+        }
     }
 }
 

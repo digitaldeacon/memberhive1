@@ -9,15 +9,15 @@ Bootstrap Markdown
   @include border-radius(0 0 $general-border-radius $general-border-radius);
 }
 
-.md-editor {    
-  
-  @include border-radius($general-border-radius);   
+.md-editor {
+
+  @include border-radius($general-border-radius);
 
     .btn-toolbar {
       margin-left: 0px;
 
-      @include border-radius($general-border-radius $general-border-radius 0 0); 
-      
+      @include border-radius($general-border-radius $general-border-radius 0 0);
+
       .btn-group {
         .btn-sm.btn {
            padding-bottom: 3px;
@@ -25,7 +25,7 @@ Bootstrap Markdown
 
         .btn-primary {
           padding-top: 5px;
-          padding-bottom: 7px; 
+          padding-bottom: 7px;
         }
       }
     }

@@ -7,7 +7,7 @@ Fullcalendar
 .external-event {
   display: inline-block ;
   cursor:move;
-  margin-bottom: 5px ;  
+  margin-bottom: 5px ;
   margin-left: 5px ;
 }
 
@@ -33,12 +33,12 @@ Fullcalendar
         .fc-button {
             -webkit-box-shadow: none ;
             -moz-box-shadow: none ;
-            box-shadow: none ;    
+            box-shadow: none ;
             text-shadow: none;
             border: 0 ;
             height: 35px;
-            padding: 6px 8px 7px 8px ; 
-            margin-left:2px;   
+            padding: 6px 8px 7px 8px ;
+            margin-left:2px;
             border-top-style: none;
             border-bottom-style: none;
             border-right-style: solid;
@@ -46,10 +46,10 @@ Fullcalendar
             border-color: #ddd;
             background: transparent;
             color: #fff;
-            top: -45px; 
-            outline: none !important;    
-          
-            @include border-radius($general-border-radius $general-border-radius 0 0);    
+            top: -45px;
+            outline: none !important;
+
+            @include border-radius($general-border-radius $general-border-radius 0 0);
         }
 
         .fc-toolbar {
@@ -58,8 +58,8 @@ Fullcalendar
             font-size: 17px;
           }
 
-           margin-bottom: 0px; 
-        }   
+           margin-bottom: 0px;
+        }
 
         .fc-header {
             margin-bottom:-21px;
@@ -87,7 +87,7 @@ Fullcalendar
             }
 
             .fc-icon-left-single-arrow {
-              font-family: FontAwesome; 
+              font-family: FontAwesome;
               font-size: 16px;
 
               &:after {
@@ -99,7 +99,7 @@ Fullcalendar
             }
 
             .fc-icon-right-single-arrow {
-              font-family: FontAwesome; 
+              font-family: FontAwesome;
               font-size: 16px;
 
               &:after {
@@ -114,7 +114,7 @@ Fullcalendar
         .fc-text-arrow {
           font-size: 22px;
           font-family: "Courier New", Courier, monospace;
-          vertical-align: baseline; 
+          vertical-align: baseline;
         }
 
         .fc-event {
@@ -174,21 +174,21 @@ Fullcalendar
             &.fc-state-active,
             &.fc-state-hover {
                 color: #333;
-                border-bottom: 2px solid $brand-success; 
+                border-bottom: 2px solid $brand-success;
             }
 
             &.fc-state-disabled {
                 color: #aaa;
             }
           }
-        } 
+        }
 
         .mobile {
 
-            .fc-button { 
+            .fc-button {
                 padding: 0px 6px 20px 6px ;
                 margin-left:2px ;
-                border: 0;    
+                border: 0;
                 background-color: #ddd ;
                   background-image: none;
                   -webkit-box-shadow: none ;
@@ -201,7 +201,7 @@ Fullcalendar
                   text-shadow: none ;
                   text-align: center;
 
-                &.fc-state-hover, 
+                &.fc-state-hover,
                 &.fc-state-active {
                     background-color: #eee ;
                 }
@@ -215,7 +215,7 @@ Fullcalendar
               margin-top: -2px;
             }
 
-            .fc-button-next {   
+            .fc-button-next {
               margin-right: -0px;
               margin-top: -2px;
             }
@@ -230,16 +230,16 @@ Fullcalendar
                 position: absolute;
                 z-index: 10;
 
-                .fc-button { 
+                .fc-button {
                     top: -2px ;
                 }
             }
-            
+
             .fc-header-right {
                 position: relative;
                 right:0;
 
-                .fc-button { 
+                .fc-button {
                     top: 35px ;
                 }
             }

@@ -32,18 +32,18 @@ Page sidebar
 		> li {
 			display: block;
 			margin: 0;
-			padding: 0; 
+			padding: 0;
 			border: 0px;
 
 			&.heading {
 				height: 50px;
-				padding: 25px 15px 10px 15px;   
+				padding: 25px 15px 10px 15px;
 				
-				> h3 {  
-					font-size: 13px;    
+				> h3 {
+					font-size: 13px;
 					font-weight: 400;
 					padding: 0;
-					margin: 0;   
+					margin: 0;
 					font-weight: 600;
 				}
 			}
@@ -53,7 +53,7 @@ Page sidebar
 				position: relative;
 				margin: 1px 0 0 0;
 				border: 0px;
-				padding: 12px 15px; 
+				padding: 12px 15px;
 				text-decoration: none;
 
 				> .title {
@@ -63,10 +63,10 @@ Page sidebar
 
 				> i {
 					font-size: $sidebar-menu-link-icon-font-size;
-					text-shadow:none;   
+					text-shadow:none;
 					font-weight: 300;
 				}
-  
+
 				> i.glyphicon {					
 					top: 3px;
 					margin-left: 1px;
@@ -96,7 +96,7 @@ Page sidebar
 
 			&.active {
 				> a {
-					border: none; 
+					border: none;
 					text-shadow:none;
 					font-size: $sidebar-menu-link-font-size;
 				}
@@ -107,11 +107,11 @@ Page sidebar
 		li {
 			> a {
 				> .arrow {
-					&:before {  
+					&:before {
 						width: 10px;
 						float: right;
 						margin-right: 5px;
-						margin-left: 5px; 
+						margin-left: 5px;
 						display: inline;
 						font-size: $sidebar-menu-sub-menu-link-icon-font-size;
 						font-family: FontAwesome;
@@ -121,7 +121,7 @@ Page sidebar
 						text-shadow:none;
 					}
 
-					&.open:before {   
+					&.open:before {
 						content: "\f107";
 						margin-right: 6px;
 					}
@@ -162,7 +162,7 @@ Page sidebar
 					}
 
 					.arrow {
-						&:before {  
+						&:before {
 							margin-top: -4px;
 						}
 
@@ -183,14 +183,14 @@ Page sidebar
 						> .sub-menu {
 							margin: 0;
 							> li {
-								> a {  
+								> a {
 									padding-left: 50px;
 								}
 							}
 						}
 					}
 				}
-			} 
+			}
 		}
 
 		li.active {
@@ -236,7 +236,7 @@ Page sidebar
 
 		&.page-sidebar-fixed .page-sidebar-wrapper {
 			position: relative;
-			float: right;    
+			float: right;
 		}
 	}
 
@@ -251,7 +251,7 @@ Page sidebar
 		.page-sidebar-menu {
 			> li {
 				&.last {
-					margin-bottom: 15px !important;  
+					margin-bottom: 15px !important;
 				}
 			}
 
@@ -265,11 +265,11 @@ Page sidebar
 
 	.page-sidebar-closed {
 		.page-sidebar {
-			width: $sidebar-collapsed-width !important; 
+			width: $sidebar-collapsed-width !important;
 
 			.page-sidebar-menu.page-sidebar-menu-closed {
 				/* sidebar */
-				width: $sidebar-collapsed-width !important; 
+				width: $sidebar-collapsed-width !important;
 
 				> li {	
 					&.heading {
@@ -279,7 +279,7 @@ Page sidebar
 					}
 
 					/* hide opened sub menu */
-					&.open > .sub-menu,  
+					&.open > .sub-menu,
 					> .sub-menu {
 						display: none !important;
 					}
@@ -296,11 +296,11 @@ Page sidebar
 
 							> i {
 								display: inline-block;
-								margin-right: 5px;      
+								margin-right: 5px;
 							}
 
 							> .title {
-								display: inline !important; 
+								display: inline !important;
 								padding-left: 20px;
 							}
 
@@ -313,14 +313,14 @@ Page sidebar
 							}
 						}						
 
-						> .sub-menu {  
+						> .sub-menu {
 							width: $sidebar-collapsed-submenu-width-on-hover;
 							position: absolute;
 							z-index: $zindex-sidebar-submenu;
 							left: ($sidebar-collapsed-width + 1px);
 							margin-top: 0;
 							top: 100%;
-							display: block !important; 
+							display: block !important;
 
 							@include border-radius(0 0 $general-border-radius $general-border-radius);
 
@@ -348,7 +348,7 @@ Page sidebar
 						}
 					}
 
-					> a { 
+					> a {
 						min-height: 46px;
 						> .badge,
 						> .title,
@@ -358,7 +358,7 @@ Page sidebar
 					}			
 				}
 			}
-		} 
+		}
 
 		&.page-sidebar-reversed {
 
@@ -370,9 +370,9 @@ Page sidebar
 
 					/* sidebar */
 					> li {
-						> .sub-menu {  
+						> .sub-menu {
 							left:auto;
-							margin-left: -($sidebar-collapsed-width + 1px);          
+							margin-left: -($sidebar-collapsed-width + 1px);
 						}
 
 						&:hover {
@@ -388,7 +388,7 @@ Page sidebar
 
 								> i {
 									margin-right: 0;
-									margin-left: 2px;   
+									margin-left: 2px;
 								}
 							}	
 						}
@@ -398,7 +398,7 @@ Page sidebar
 				.page-sidebar-menu.page-sidebar-menu-light.page-sidebar-menu-closed {
 					> li {
 						> a {
-							padding-right: 7px;      
+							padding-right: 7px;
 							padding-left: 11px;
 						}
 					}
@@ -426,7 +426,7 @@ Page sidebar
 
 		&.page-sidebar-fixed.page-sidebar-reversed {
 			.page-sidebar {
-				&:hover {  
+				&:hover {
 					width: $sidebar-width !important;
 					display: block;
 					z-index: $zindex-sidebar-fixed;
@@ -447,7 +447,7 @@ Page sidebar
 	}
 
 	/* Default Sidebar Menu With Hoverable Submenu */
-	.page-sidebar-menu.page-sidebar-menu-hover-submenu {  
+	.page-sidebar-menu.page-sidebar-menu-hover-submenu {
 		li {
 			.sub-menu {
 				display: none; 	
@@ -477,11 +477,11 @@ Page sidebar
 
 			&:hover {
 				> a {
-					> .arrow {  
+					> .arrow {
 						display: block;
 						float: right;
 						position: absolute;
-						right: 0; 
+						right: 0;
 						margin-top: -20px;
 						background: none;
 						width: 0;
@@ -515,7 +515,7 @@ Page sidebar
 				> .arrow {
 					z-index: 1;
 					right: -1px;
-					margin-top: -20px; 
+					margin-top: -20px;
 
 					.page-fontawesome & {
 						margin-top: -34px;
@@ -528,8 +528,8 @@ Page sidebar
 			}			
 
 			> .sub-menu {
-				margin-left: $sidebar-width + 1;   
-				margin-top: -50px; 
+				margin-left: $sidebar-width + 1;
+				margin-top: -50px;
 				
 				.page-sidebar-reversed & {
 					margin-left: -($sidebar-collapsed-submenu-width-on-hover) !important;
@@ -542,7 +542,7 @@ Page sidebar
 				> li {
 					.sub-menu {
 						margin-left: $sidebar-collapsed-submenu-width-on-hover;
-						margin-top: -44px !important; 
+						margin-top: -44px !important;
 
 						.page-sidebar-reversed & {
 							margin-left: -$sidebar-collapsed-submenu-width-on-hover !important;
@@ -553,7 +553,7 @@ Page sidebar
 							padding-right: 10px;
 						}
 					}
-				}  
+				}
 			}
 		}
 	}
@@ -606,19 +606,19 @@ Page sidebar
 	.page-sidebar {
 		.btn-navbar {
 
-			&.collapsed .arrow { 
+			&.collapsed .arrow {
 				display: none;
 			}
 
 			.arrow {
 				position: absolute;
 				right: 25px;
-				width: 0; 
+				width: 0;
 				height: 0;
 				top:50px;
 				border-bottom: 15px solid #5f646b;
-				border-left: 15px solid transparent; 
-				border-right: 15px solid transparent; 
+				border-left: 15px solid transparent;
+				border-right: 15px solid transparent;
 			}
 		}	
 	}

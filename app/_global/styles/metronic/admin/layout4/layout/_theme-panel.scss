@@ -3,7 +3,7 @@ Theme Panel
 ***/
 
 .btn-theme-panel {
-    margin-top: 10px; 
+    margin-top: 10px;
 
     .btn {
         @include opacity(0.6);
@@ -11,22 +11,22 @@ Theme Panel
 
         > i {
             font-size: 24px;
-            color: darken(#697882, 3%); 
+            color: darken(#697882, 3%);
         }
 
         &:hover {
             @include opacity(1);
         }
-    }    
+    }
 
     &.open .btn {
-         @include opacity(1);   
+         @include opacity(1);
     }
 }
 
 .theme-panel {
-    z-index: $zindex-dropdown - 1;  
-    min-width: 575px;  
+    z-index: $zindex-dropdown - 1;
+    min-width: 575px;
     padding: 20px 10px;
     font-family: $font-family-primary;
 
@@ -50,7 +50,7 @@ Theme Panel
 
             &:hover,
             &.active {
-                background: lighten(#EFF2F4, 2%); 
+                background: lighten(#EFF2F4, 2%);
             }
 
             &:hover {
@@ -60,7 +60,7 @@ Theme Panel
             > .theme-color-view {
                 float: left;
                 margin-top: 0px;
-                margin-right: 8px; 
+                margin-right: 8px;
                 display: inline-block;
                 border-radius: 10px !important;
                 height: 20px;
@@ -69,10 +69,10 @@ Theme Panel
 
             > .theme-color-name {
                 display: inline-block;
-                color: #777;  
+                color: #777;
                 font-size: 14px;
                 font-weight: 300;
-                padding-top: -4px; 
+                padding-top: -4px;
             }
 
             &.theme-color-default .theme-color-view {
@@ -83,7 +83,7 @@ Theme Panel
                 background: lighten(#3B3F51, 55%);
             }
         }
-    } 
+    }
 
     .theme-settings {
         list-style: none;
@@ -94,10 +94,10 @@ Theme Panel
             padding: 8px 12px;
             font-size: 14px;
             font-weight: 300;
-            color: #777;  
+            color: #777;
 
-            .form-control {  
-                color: #777;  
+            .form-control {
+                color: #777;
                 margin-top: -3px;
                 float: right;
             }
@@ -110,14 +110,14 @@ Theme Panel
     .theme-panel {
         left: 20px;
         right: 20px;
-        min-width: 285px; 
+        min-width: 285px;
 
         .seperator {
             border: 0;
         }
 
         .theme-settings {
-            .form-control {  
+            .form-control {
                 width: 105px !important;
             }
         }

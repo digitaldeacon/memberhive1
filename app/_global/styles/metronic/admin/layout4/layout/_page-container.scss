@@ -11,8 +11,8 @@ Page container
 
   	/* Fixed header */
 	.page-header-fixed & {
-		margin-top: $header-height; 
-	}	  
+		margin-top: $header-height;
+	}
 
 	/* Fixed footer for mobile */
 	.page-footer-fixed.page-footer-fixed-mobile & {
@@ -35,7 +35,7 @@ Page container
 }
 
 @media (max-width: $screen-sm-max) { /* 991px */
-	
+
 	/* Page container */
 	.page-container {
 		margin: 0 !important;
@@ -48,7 +48,7 @@ Page container
 }
 
 @media (max-width: $screen-xs-max) { /* 767px */
-	
+
 	/* Page container */
 	.page-container {
 		margin: 0 !important;
@@ -58,9 +58,9 @@ Page container
 }
 
 @media (max-width: $screen-xs-min) { /* 480px */
-	
+
 	/* Page container */
-	.page-container {  		
+	.page-container {
 		.page-header-fixed.page-header-fixed-mobile & {
   			margin-top: $header-height-xs !important;
   		}

@@ -2,7 +2,7 @@
 Image Carousel
 ***/
 
-.carousel.image-carousel { 
+.carousel.image-carousel {
 
     .carousel-inner {
         padding-top: 0;
@@ -14,7 +14,7 @@ Image Carousel
         top:40%;
     }
 
-    &.image-carousel-hoverable .carousel-control i { 
+    &.image-carousel-hoverable .carousel-control i {
         display: none;
     }
 
@@ -28,7 +28,7 @@ Image Carousel
         }
 
         &.right i {
-            right:10px;    
+            right:10px;
         }
     }
 
@@ -40,7 +40,7 @@ Image Carousel
             background-color: #666;
 
             &.active {
-                background-color: #666;    
+                background-color: #666;
             }
         }
     }
@@ -53,7 +53,7 @@ Image Carousel
         padding: 15px 15px 25px 15px;
         background: #333333;
         background: rgba(0, 0, 0, 0.75);
-    
+
         h4,
         h3,
         h2,
@@ -81,4 +81,4 @@ Image Carousel
             margin: 0;
         }
     }
-} 
+}

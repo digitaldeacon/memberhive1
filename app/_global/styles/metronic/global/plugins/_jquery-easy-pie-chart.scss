@@ -13,22 +13,22 @@ Dashboard Charts(new in v1.2.1)
 
 .easy-pie-chart .number {
     font-size: 14px !important;
-    font-weight: 300;  
+    font-weight: 300;
     margin: 0 auto;
-    position: relative;   
+    position: relative;
     text-align: center;
-    width: 75px; 
-    height: 75px; 
+    width: 75px;
+    height: 75px;
     line-height: 75px;
 
     canvas {
-      position: absolute;  
+      position: absolute;
       top: 0;
       left: 0;
-    } 
+    }
 }
 
-.sparkline-chart .number {  
+.sparkline-chart .number {
     width: 100px;
     margin: 0 auto;
     margin-bottom: 10px;

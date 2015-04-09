@@ -10,7 +10,7 @@ Forms
 
 /* Form inputs */
 
-.form-control {  
+.form-control {
     font-size: 14px;
     font-weight: normal;
     color: $input-color;
@@ -48,7 +48,7 @@ Forms
             border-color: darken(#F1F3F8, 4%);
         }
 
-        @include placeholder(lighten(#A6B2BA, 2%));  
+        @include placeholder(lighten(#A6B2BA, 2%));
     }
 }
 
@@ -97,7 +97,7 @@ Forms
 
 .input-inline {
     display: inline-block;
-    width: auto;  
+    width: auto;
     vertical-align: middle;
 }
 
@@ -119,14 +119,14 @@ select.input-sm {
     padding: 2px 10px;
 }
 
-@media (max-width: $screen-sm-min) { /* 768px */  
+@media (max-width: $screen-sm-min) { /* 768px */
 
     .input-large {
         width: 250px !important;
     }
 
     .input-xlarge {
-        width: 300px !important;   
+        width: 300px !important;
     }
 
 }
@@ -169,7 +169,7 @@ input[type="color"].spinner {
   background-repeat: no-repeat;
   background-position: right 8px;
 }
- 
+
 /* Form labels */
 
 label {
@@ -179,8 +179,8 @@ label {
 
 /* Static form control */
 
-.form-control-static { 
-    margin: 2px 0;     
+.form-control-static {
+    margin: 2px 0;
     display: inline-block;
 }
 
@@ -191,7 +191,7 @@ label {
 }
 
 .has-warning {
-  @include form-control-validation($state-warning-text, $state-warning-border, $state-warning-bg); 
+  @include form-control-validation($state-warning-text, $state-warning-border, $state-warning-bg);
 }
 
 .has-error {
@@ -201,14 +201,14 @@ label {
 /* Circle Inputs */
 
 .input-circle {
-  border-radius: 25px !important;  
+  border-radius: 25px !important;
 }
 
 .input-circle-right {
   border-radius:  0 25px 25px 0 !important;
 }
 
-.input-circle-left { 
+.input-circle-left {
   border-radius: 25px 0 0 25px !important;
 }
 

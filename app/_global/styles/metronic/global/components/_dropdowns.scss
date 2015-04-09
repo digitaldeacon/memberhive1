@@ -10,7 +10,7 @@ Dropdowns
 .dropdown.open {
     > .dropdown-toggle {
         border-color: #ddd;
-    } 
+    }
 }
 
 /***
@@ -28,22 +28,22 @@ Dropdown Menu
     list-style: none;
     text-shadow: none;
     padding: 0px;
-    margin: 10px  0px 0px 0px;   
-    background-color: #ffffff; 
+    margin: 10px  0px 0px 0px;
+    background-color: #ffffff;
     box-shadow: 5px 5px rgba(#666, 0.1);
     border: 1px solid #eee;
-    font-family: $font-family-default;  
+    font-family: $font-family-default;
 
-    @include border-radius($general-border-radius);          
+    @include border-radius($general-border-radius);
 
     li.divider {
         background: #f1f3f6;
     }
 
     li.dropdown-header {
-        padding: 8px 14px 2px 14px;  
+        padding: 8px 14px 2px 14px;
     }
-    
+
     li > a {
         padding: 8px 14px;
         color: #555;
@@ -56,7 +56,7 @@ Dropdown Menu
 
         > [class^="fa-"],
         > [class*=" fa-"] {
-            color: #888; 
+            color: #888;
         }
 
         > [class^="icon-"],
@@ -70,8 +70,8 @@ Dropdown Menu
         }
     }
 
-    li > a:hover, 
-    .active > a, 
+    li > a:hover,
+    .active > a,
     .active > a:hover {
       text-decoration: none;
       background-image: none;
@@ -90,8 +90,8 @@ Dropdown Menu
 .dropdown,
 .dropdown-toggle,
 .btn-group {
-    > .dropdown-menu {        
-        margin-top: 10px; 
+    > .dropdown-menu {
+        margin-top: 10px;
 
         &:before {
             position: absolute;
@@ -125,7 +125,7 @@ Dropdown Menu
 
             &:after {
                 left: auto;
-                right: 10px; 
+                right: 10px;
             }
         }
 
@@ -143,7 +143,7 @@ Dropdown Menu
     }
 
     &.dropup {
-        > .dropdown-menu {     
+        > .dropdown-menu {
             margin-top: 0px;
             margin-bottom: 10px;
 
@@ -166,7 +166,7 @@ Dropdown Menu
         margin-top: -6px;
         margin-left: -1px;
     }
-    
+
     > a:after {
       position: absolute;
       display: inline-block;
@@ -189,7 +189,7 @@ Dropdown Menu
 
     &.pull-left {
         float: none;
-        
+
         > .dropdown-menu{
             left: -100%;
             margin-left: 10px;
@@ -213,12 +213,12 @@ Dropdown Menu
 
     &:before {
         right: 12px;
-        left: auto;   
+        left: auto;
     }
 
     &:after {
         right: 13px;
-        left: auto;   
+        left: auto;
     }
 
     .dropdown-menu {
@@ -241,7 +241,7 @@ Dropdown Menu
                 margin-top: 0;
                 background-color: #ffffff;
                 border: 1px solid #efefef;
-                box-shadow: 5px 5px rgba(#666, 0.1); 
+                box-shadow: 5px 5px rgba(#666, 0.1);
 
                 > li {
                     > a {
@@ -272,7 +272,7 @@ Dropdown Checkboxes
 }
 
 .dropdown.inline .dropdown-menu {
-    display: inline-block;  
+    display: inline-block;
     position: relative;
 }
 
@@ -285,7 +285,7 @@ Dropdown Checkboxes
         font-weight: 300;
         color: #333;
         margin-bottom: 4px;
-        margin-top: 4px; 
+        margin-top: 4px;
 
         .radio {
             margin-right: 3px;

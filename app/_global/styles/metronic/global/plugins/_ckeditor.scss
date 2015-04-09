@@ -10,19 +10,19 @@ CKEditor css changes
   }
 
   .cke-bottom {
-    @include border-radius(0 0 $general-border-radius $general-border-radius);     
+    @include border-radius(0 0 $general-border-radius $general-border-radius);
   }
 }
 
-.cke_bottom, 
-.cke_inner, 
-.cke_top, 
-.cke_reset, 
+.cke_bottom,
+.cke_inner,
+.cke_top,
+.cke_reset,
 .cke_dialog_title,
 .cke_dialog_footer,
 .cke_dialog {
   background-image: none !important;
-  filter:none ; 
+  filter:none ;
   border-top: 0 ;
   border-bottom: 0 ;
    -webkit-box-shadow: none !important;
@@ -55,9 +55,9 @@ CKEditor css changes
   box-shadow: none !important;
 }
 
-.cke_combo_button, 
-.cke_button, 
-.cke_toolbar, 
+.cke_combo_button,
+.cke_button,
+.cke_toolbar,
 .cke_toolgroup {
   background-image: none !important;
   filter:none !important;
@@ -65,20 +65,20 @@ CKEditor css changes
    -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
-  
+
 }
 
-.cke_button, 
+.cke_button,
 .cke_combo_button,
 .cke_panel_grouptitle,
-.cke_hc.cke_panel_listItem a {  
+.cke_hc.cke_panel_listItem a {
   background-image: none !important;
   filter:none ;
   text-shadow:none ;
 }
 
-.cke_button:hover, 
-.cke_combo_button:hover {  
+.cke_button:hover,
+.cke_combo_button:hover {
   background-color: #ddd;
 }
 

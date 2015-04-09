@@ -19,7 +19,7 @@ Custom icon buttons
     text-shadow: none;
     text-align: center;
     cursor: pointer;
-    position: relative;  
+    position: relative;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
@@ -54,7 +54,7 @@ Custom icon buttons
 
     > div {
         margin-top: 5px;
-        margin-bottom: 20px;  
+        margin-bottom: 20px;
         color: #000;
         font-size: 12px;
         font-weight: 300;
@@ -84,6 +84,6 @@ Custom icon buttons
     }
 
     .ie8 &:hover {
-        filter: none;    
+        filter: none;
     }
 }

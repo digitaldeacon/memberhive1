@@ -23,7 +23,7 @@ Page content
 			> small {
 				color: #9eacb4;
 				font-size: 13px;
-				font-weight: 400; 
+				font-weight: 400;
 			}
 		}
 	}
@@ -58,8 +58,8 @@ Page content
 
 /* Page content */
 
-.page-content {  
-	margin-top: 0px;   
+.page-content {
+	margin-top: 0px;
 	padding: 0px;
 	
 	.page-full-width & {
@@ -74,10 +74,10 @@ Page content
 		float: left;
 		width: 100%;
 
-		.page-content { 
-			margin-left: $sidebar-width; 
+		.page-content {
+			margin-left: $sidebar-width;
 			margin-top: 0px;
-			min-height: $page-content-min-height; 
+			min-height: $page-content-min-height;
 			padding: 10px 0 0 20px;
 
 			&.no-min-height {
@@ -85,7 +85,7 @@ Page content
 			}			
 
 			.page-sidebar-fixed.page-sidebar-hover-on & {
-				margin-left: $sidebar-collapsed-width; 
+				margin-left: $sidebar-collapsed-width;
 			}
 
 			.page-sidebar-reversed & {
@@ -127,11 +127,11 @@ Page content
 @media (max-width: $screen-sm-max) { /* 991px */
 
 	/* Boxed page container  */
-	.page-boxed > .container { 
+	.page-boxed > .container {
 		width: 100%;
  		max-width: none !important;
  		margin: 0 !important;
- 		padding: 0 !important; 
+ 		padding: 0 !important;
  	}
 
  	/* Page content */
@@ -139,7 +139,7 @@ Page content
 		.page-content {
 			margin: 0px !important;
 			padding: 20px !important;  		
-			min-height: 280px; 
+			min-height: 280px;
 		}
 	}
 }

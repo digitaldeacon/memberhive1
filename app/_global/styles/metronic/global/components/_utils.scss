@@ -22,20 +22,20 @@ a:hover {
 
 /* Rounded Element */
 .rounded-2 {
-  border-radius: 2px !important;  
+  border-radius: 2px !important;
 }
 
 .rounded-3 {
-  border-radius: 3px !important;  
+  border-radius: 3px !important;
 }
 
 .rounded-4 {
-  border-radius: 4px !important;    
+  border-radius: 4px !important;
 }
 
 /* Circle Element */
 .circle {
-  border-radius: 25px !important;  
+  border-radius: 25px !important;
 }
 
 .circle-right {
@@ -113,7 +113,7 @@ a:hover {
     display: inline;
 }
 
-.inline-block { 
+.inline-block {
     display: inline-block;
 }
 
@@ -215,19 +215,19 @@ Responsive Utils
     .hidden-1024 {
         display: none;
     }
-} 
+}
 
 @media (max-width: 480px) {
     .hidden-480 {
         display: none;
     }
-} 
+}
 
 @media (max-width: 320px) {
     .hidden-320 {
         display: none;
     }
-} 
+}
 
 /***
 Demo Utils
@@ -271,7 +271,7 @@ Users
 }
 
 /***
-Top News Blocks(new in v1.2.2) 
+Top News Blocks(new in v1.2.2)
 ***/
 .top-news {
     color: #fff;
@@ -284,7 +284,7 @@ Top News Blocks(new in v1.2.2)
         font-style: normal;
         display: block;
 
-        i {            
+        i {
             font-size: 14px;
         }
     }
@@ -302,14 +302,14 @@ Top News Blocks(new in v1.2.2)
         padding: 10px;
         position: relative;
         margin-bottom: 10px;
-    
+
         .top-news-icon {
             right: 8px;
-            bottom: 15px; 
-            opacity:0.3; 
+            bottom: 15px;
+            opacity:0.3;
             font-size: 35px;
             position: absolute;
-            filter: alpha(opacity=30); /*For IE8*/  
+            filter: alpha(opacity=30); /*For IE8*/
         }
     }
 }
@@ -325,7 +325,7 @@ Block Images(new in v1.2.2)
         padding: 0;
         margin: 0;
         display: inline;
-        
+
         a {
             &:hover {
                 text-decoration: none;
@@ -336,7 +336,7 @@ Block Images(new in v1.2.2)
             width: 50px;
             height: 50px;
             opacity: 0.6;
-            margin: 0 2px 8px; 
+            margin: 0 2px 8px;
 
             &:hover {
                 opacity: 1;
@@ -416,7 +416,7 @@ Custom vertical inline menu
           border-left:solid 2px #c4d5df;
         }
 
-        &:hover a { 
+        &:hover a {
             background:#e0eaf0;
             text-decoration:none;
         }
@@ -431,7 +431,7 @@ Custom vertical inline menu
         }
 
         &.active i {
-            background:#0c91e5 !important;  
+            background:#0c91e5 !important;
         }
 
         &.active a,
@@ -454,12 +454,12 @@ Custom vertical inline menu
             border-left: 6px solid #169ef4;
             position: absolute;
             top: 12px;
-            right: -5px;    
+            right: -5px;
         }
     }
 }
 
-@media (max-width: $screen-xs-max) { 
+@media (max-width: $screen-xs-max) {
     .ver-inline-menu {
         > li {
             &.active {
@@ -480,9 +480,9 @@ Separated List
     margin-bottom: 15px;
 
     > div {
-            
-        &:last-child {  
-            border-right: 0; 
+
+        &:last-child {
+            border-right: 0;
         }
     }
 
@@ -513,7 +513,7 @@ Number & Chart Stats
         .number {
             font-size: 27px;
             line-height: 27px;
-            color: #7D8C9D;            
+            color: #7D8C9D;
         }
     }
 
@@ -524,9 +524,9 @@ Number & Chart Stats
 
     > div {
         border-right: 1px solid #f5f5f5;
-            
+
         &:last-child {
-            border-right: 0; 
+            border-right: 0;
         }
     }
 
@@ -563,7 +563,7 @@ Number & Chart Stats
 
     .stat-chart {
         float: left;
-    }   
+    }
 }
 
 /***
@@ -584,7 +584,7 @@ General User Record Listing
             margin-bottom: 5px;
             @include clearfix();
 
-            > .item-details {      
+            > .item-details {
                 display: inline-block;
                 float: left;
 
@@ -595,7 +595,7 @@ General User Record Listing
                     @include border-radius(100%);
                 }
 
-                > .item-name {  
+                > .item-name {
                     display: inline-block;
                     margin-right: 10px;
                 }
@@ -630,9 +630,9 @@ File dropzone
 
 .file-drop-zone {
     border: 2px dashed #ddd;
-    padding: 30px; 
+    padding: 30px;
     text-align: center;
-    
+
     &.file-drop-zone-over {
         border-color: #aaa;
     }

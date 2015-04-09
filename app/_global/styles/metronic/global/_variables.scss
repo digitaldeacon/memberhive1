@@ -6,20 +6,20 @@ $direction:  						ltr !default;
 
 //##  Colors
 //
- 
+
 // Bootstrap brand colors
 
-$brand-default:         			#c6c6c6 !default;  
-$brand-primary:         		 	#428bca !default;  
-$brand-success:         		 	#45B6AF !default;   
-$brand-info:            		 	#89C4F4 !default;  
-$brand-warning:         		 	#dfba49 !default;         
-$brand-danger:          		 	#F3565D !default;       
- 
+$brand-default:         			#c6c6c6 !default;
+$brand-primary:         		 	#428bca !default;
+$brand-success:         		 	#45B6AF !default;
+$brand-info:            		 	#89C4F4 !default;
+$brand-warning:         		 	#dfba49 !default;
+$brand-danger:          		 	#F3565D !default;
+
 // Bootstrap Components states
 
-$state-default-text:             	#333333 !default;  
-$state-default-bg:           	 	$brand-default !default; 
+$state-default-text:             	#333333 !default;
+$state-default-bg:           	 	$brand-default !default;
 $state-default-border:       	 	darken(adjust-hue($state-default-bg, -10), 5%) !default;
 
 $state-primary-text:          	 	#D8E3F2 !default;
@@ -97,7 +97,7 @@ $font-size-h5:            			$font-size-base !default;
 $font-size-h6:            			ceil(($font-size-base * 0.85)) !default; // ~12px
 
 // Global text color on <body>
-$text-color:            			#333333 !default;      
+$text-color:            			#333333 !default;
 
 // Global light text color on <body>
 $text-light-color:     	 			#ffffff !default;
@@ -122,7 +122,7 @@ $input-color:                    	#333 !default;
 $input-border:                   	#e5e5e5 !default;
 $input-border-focus:             	#999 !default;
 
-$input-color-placeholder:        	lighten($input-color, 50%) !default;  
+$input-color-placeholder:        	lighten($input-color, 50%) !default;
 $input-icon-color:               	#999 !default;
 
 // Webkit browser custom scrollbar
@@ -134,7 +134,7 @@ $webkit-scrollbar-thumb-hover: 		#aaaaaa;
 //## Border radius
 $general-border-radius:             4px;
 $form-control-border-radius:        4px;
-$portlet-border-radius:             4px;    
+$portlet-border-radius:             4px;
 
 
 //## Z-index master list
@@ -170,7 +170,7 @@ $screen-md-min:              		992px !default;
 // Large screen / wide desktop
 $screen-lg-min:             	 	1200px !default;
 
-// Large scree / wider desktop      
+// Large scree / wider desktop
 $screen-lg-med:                     1260px !default;
 
 // So media queries don't overlap when required, provide a maximum

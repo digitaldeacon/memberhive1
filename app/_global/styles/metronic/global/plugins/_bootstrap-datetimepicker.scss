@@ -17,7 +17,7 @@ Bootstrap  Datetimepicker
   padding: 5px;
 }
 
-.datetimepicker .active {  
+.datetimepicker .active {
   background-color:#4b8df8 !important;
   background-image: none !important;
   filter: none !important;
@@ -35,8 +35,8 @@ Bootstrap  Datetimepicker
 }
 
 .datetimepicker .fa-angle-right:before {
-  content: "\f105"; 
-} 
+  content: "\f105";
+}
 
 /* change z-index when opened in modal */
 .modal-open .datetimepicker {

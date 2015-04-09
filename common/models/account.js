@@ -18,11 +18,11 @@ module.exports = function(Account) {
         cb(null, ret);
       });
     });
-    
+
   }
-     
+
   Account.remoteMethod(
-    'roles', 
+    'roles',
     {
       accepts: {arg: 'user_id', type: 'int'},
       returns: {arg: 'roles', type: 'array'}

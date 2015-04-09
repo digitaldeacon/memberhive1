@@ -2,7 +2,7 @@
 Customized Bootstrap Panels
 ***/
 
-.panel {  
+.panel {
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     box-shadow: none !important;
@@ -12,7 +12,7 @@ Customized Bootstrap Panels
     }
 
     .panel-body {
-        font-size: 13px; 
+        font-size: 13px;
     }
 
     .panel-title > a:hover {
@@ -48,12 +48,12 @@ Customized Bootstrap Panels
 // Contextual variations
 
 .panel-default {
-  @include panel-variant(lighten($state-default-border, 15%), $state-default-text, lighten($state-default-bg, 20%), lighten($state-default-border, 15%));   
+  @include panel-variant(lighten($state-default-border, 15%), $state-default-text, lighten($state-default-bg, 20%), lighten($state-default-border, 15%));
 }
 
 .panel-primary {
   @include panel-variant($state-primary-border, $state-primary-text, $state-primary-bg, $state-primary-border);
-} 
+}
 
 .panel-success {
   @include panel-variant($state-success-border, $state-success-text, $state-success-bg, $state-success-border);
@@ -77,7 +77,7 @@ Accordions
 
 .accordion-heading {
     background:#eee;
-    
+
     a {
         text-decoration:none;
     }

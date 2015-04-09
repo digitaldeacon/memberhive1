@@ -14,12 +14,12 @@
 	/* Button Strip */
 	.btn.#{$name}-stripe {
 		border-left: 3px solid $color;
-	}  
+	}
 
 	/* Portlet */
 	@include porlet-background($name, $color);
 	@include porlet-solid($name, $text-color);
-	@include porlet-box($name, $color, $text-color); 
+	@include porlet-box($name, $color, $text-color);
 
 	/* Statistic Block */
 	.dashboard-stat {
@@ -47,7 +47,7 @@
 
 /* Button */
 .btn.default {
-	@include button-variant(#333333, #E5E5E5, ""); 
+	@include button-variant(#333333, #E5E5E5, "");
 }
 
 /**********
@@ -176,7 +176,7 @@ Grey Default
 Grey Steel
 ***/
 
-@include flatui-color-variant("grey-steel", #e9edef, #80898e);      
+@include flatui-color-variant("grey-steel", #e9edef, #80898e);
 
 /***
 Grey Cararra
@@ -188,7 +188,7 @@ Grey Cararra
 Grey Gallery
 ***/
 
-@include flatui-color-variant("grey-gallery", #555555, #ffffff); 
+@include flatui-color-variant("grey-gallery", #555555, #ffffff);
 
 /***
 Grey Cascade
@@ -201,7 +201,7 @@ Grey Silver
 ***/
 
 @include flatui-color-variant("grey-silver", #BFBFBF, #FAFCFB);
- 
+
 /***
 Grey Salsa
 ***/
@@ -229,7 +229,7 @@ Red Colors
 Red Default
 ***/
 
-@include flatui-color-variant("red", #d84a38, #FFFFFF); 
+@include flatui-color-variant("red", #d84a38, #FFFFFF);
 
 /***
 Red Pink
@@ -252,7 +252,7 @@ Red Intense
 /***
 Red Thunderbird
 ***/
-  
+
 @include flatui-color-variant("red-thunderbird", #D91E18, #FFFFFF);
 
 /***
@@ -294,7 +294,7 @@ Yellow Gold
 Yellow Casablanca
 ***/
 
-@include flatui-color-variant("yellow-casablanca", #f2784b, #FFFFFF);    
+@include flatui-color-variant("yellow-casablanca", #f2784b, #FFFFFF);
 
 /***
 Yellow Crusta
@@ -327,7 +327,7 @@ Purple Default
 
 /***
 Purple Plum
-***/ 
+***/
 
 @include flatui-color-variant("purple-plum", #8775a7, #FFFFFF);
 
@@ -378,6 +378,6 @@ Transparent Button
 ***/
 
 .btn-transparent.btn {
-  background: transparent;   
+  background: transparent;
   color: #888;
 }

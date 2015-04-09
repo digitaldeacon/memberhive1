@@ -184,7 +184,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-                    	<p>There are two directives that can make a group of buttons behave like a set of checkboxes, 
+                    	<p>There are two directives that can make a group of buttons behave like a set of checkboxes,
                     	radio buttons, or a hybrid where radio buttons can be unchecked.</p>
                     </div>
 				</div>	
@@ -383,7 +383,7 @@
 							<button class="btn btn-danger" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
 							<hr>
 							<div collapse="isCollapsed">
-								<div class="well well-lg">Some content</div> 
+								<div class="well well-lg">Some content</div>
 							</div>
 						</div>
 					</div>
@@ -601,7 +601,7 @@
 
 						  	<pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
 
-						  	<div class="row"> 
+						  	<div class="row">
 						    	<div class="col-xs-6">
 						        	Hours step is:
 						      		<select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
@@ -685,7 +685,7 @@
 						      <a href class="dropdown-toggle">
 						        Click me for a dropdown, yo!
 						      </a>
-						      <ul class="dropdown-menu">  
+						      <ul class="dropdown-menu">
 						        <li ng-repeat="choice in items">
 						          <a href>{{choice}}</a>
 						        </li>
@@ -981,14 +981,14 @@
 						      <input type="text" ng-model="dynamicPopoverTitle" class="form-control">
 						    </div>
 						    <button popover="{{dynamicPopover}}" popover-title="{{dynamicPopoverTitle}}" class="btn btn-default">Dynamic Popover</button>
-						    
+						
 						    <hr />
 						    <h4>Positional</h4>
 						    <button popover-placement="top" popover="On the Top!" class="btn btn-success">Top</button>
 						    <button popover-placement="left" popover="On the Left!" class="btn btn-info">Left</button>
 						    <button popover-placement="right" popover="On the Right!" class="btn btn-warning">Right</button>
 						    <button popover-placement="bottom" popover="On the Bottom!" class="btn btn-danger">Bottom</button>
-						    
+						
 						    <hr />
 						    <h4>Triggers</h4>
 						    <p>
@@ -1071,13 +1071,13 @@
 						    <p>
 						      Pellentesque <a href="#" tooltip="{{dynamicTooltip}}">{{dynamicTooltipText}}</a>,
 						      sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in
-						      aliquam. Tincidunt lobortis feugiat vivamus at 
+						      aliquam. Tincidunt lobortis feugiat vivamus at
 						      <a href="#" tooltip-placement="left" tooltip="On the Left!">left</a> eget
 						      arcu dictum varius duis at consectetur lorem. Vitae elementum curabitur
-						      <a href="#" tooltip-placement="right" tooltip="On the Right!">right</a> 
-						      nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas 
-						      <a href="#" tooltip-placement="bottom" tooltip="On the Bottom!">bottom</a> 
-						      pharetra convallis posuere morbi leo urna, 
+						      <a href="#" tooltip-placement="right" tooltip="On the Right!">right</a>
+						      nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas
+						      <a href="#" tooltip-placement="bottom" tooltip="On the Bottom!">bottom</a>
+						      pharetra convallis posuere morbi leo urna,
 						      <a href="#" tooltip-animation="false" tooltip="I don't fade. :-(">fading</a>
 						      at elementum eu, facilisis sed odio morbi quis commodo odio. In cursus
 						      <a href="#" tooltip-popup-delay='1000' tooltip='appears with delay'>delayed</a> turpis massa tincidunt dui ut.
@@ -1192,13 +1192,13 @@
 						    <hr />
 						    <h3>Dynamic <button class="btn btn-sm btn-primary" type="button" ng-click="random()">Randomize</button></h3>
 						    <progressbar max="max" value="dynamic"><span style="white-space:nowrap;">{{dynamic}} / {{max}}</span></progressbar>
-						    
+						
 						    <small><em>No animation</em></small>
 						    <progressbar animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b></progressbar>
 
 						    <small><em>Object (changes type based on value)</em></small>
 						    <progressbar class="progress-striped active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></progressbar>
-						    
+						
 						    <hr />
 						    <h3>Stacked <button class="btn btn-sm btn-primary" type="button" ng-click="randomStacked()">Randomize</button></h3>
 						    <progress><bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></bar></progress>
@@ -1716,7 +1716,7 @@
 		    }
 		  };
 		  $scope.randomStacked();
-	} 
+	}
 
 	// Typeahead demo controller
 	function TypeaheadCtrl($scope) {

@@ -8,7 +8,7 @@ Morris Charts
     margin-bottom: -15px;
 
     > svg {
-		@include border-radius(0 0 $portlet-border-radius $portlet-border-radius); 
+		@include border-radius(0 0 $portlet-border-radius $portlet-border-radius);
 	}
 }
 
@@ -20,13 +20,13 @@ Morris Charts
 		font-weight: 400;
 		font-size: 15px;
 		color: #7D8C9D;
-		font-family: $font-family-primary;     
+		font-family: $font-family-primary;
 	}
 
 	.morris-hover-point {
 		text-align: left;
 		font-size: 14px;
 		font-weight: 400;		
-		font-family: $font-family-primary;  
+		font-family: $font-family-primary;
 	}
 }

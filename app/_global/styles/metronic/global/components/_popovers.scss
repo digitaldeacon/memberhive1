@@ -6,7 +6,7 @@ Customized Bootstrap Popover
     box-shadow: 5px 5px rgba(#666, 0.1);
     padding: 0;
 
-    .popover-title {  
+    .popover-title {
         margin: 0 !important;
     }
 }
@@ -17,7 +17,7 @@ Customized Bootstrap Popover
     .popover.#{name} .popover-content {
         color: $color;
     }
-} 
+}
 
 @include popover-variant("info", $brand-info);
 @include popover-variant("primary", $brand-primary);

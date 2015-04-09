@@ -1,18 +1,18 @@
 /***
-Customized Bootstrap Modal 
+Customized Bootstrap Modal
 ***/
 
 .modal {
     z-index: $zindex-modal;
     outline: none;
-    overflow-y: auto !important; /* Fix content shifting to the right on modal open due to scrollbar closed */ 
-    
+    overflow-y: auto !important; /* Fix content shifting to the right on modal open due to scrollbar closed */
+
     .modal-header {
         border-bottom: 1px solid #EFEFEF;
 
         h3 {
             font-weight: 300;
-        }    
+        }
 
         .close {
             margin-top: 0px !important;
@@ -40,10 +40,10 @@ Customized Bootstrap Modal
 
 .modal-open {
     overflow-y: auto !important;
-}  
-    
+}
+
 .modal-open-noscroll {
-    overflow-y: hidden !important;  
+    overflow-y: hidden !important;
 }
 
 .modal-backdrop {
@@ -59,7 +59,7 @@ Customized Bootstrap Modal
 
 /* Full width modal */
 
-.modal-full.modal-dialog {  
+.modal-full.modal-dialog {
   width: 99%;
 }
 

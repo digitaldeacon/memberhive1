@@ -29,9 +29,9 @@
 @mixin border-radius($radius, $important: '') {
   -webkit-border-radius: $radius#{$important};
   -moz-border-radius: $radius#{$important};
-  -ms-border-radius: $radius#{$important};  
-  -o-border-radius: $radius#{$important};  
-  border-radius: $radius#{$important}; 
+  -ms-border-radius: $radius#{$important};
+  -o-border-radius: $radius#{$important};
+  border-radius: $radius#{$important};
 }
 
 // Placeholder text
@@ -87,7 +87,7 @@
   hr {
     border-top-color: darken($border, 5%);
   }
-  .alert-link { 
+  .alert-link {
     color: darken($text-color, 10%);
   }
 }
@@ -97,13 +97,13 @@
 @mixin table-row-variant($state, $background, $text) {
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
-  
+
   .table > thead > tr,
   .table > tbody > tr,
   .table > tfoot > tr {
     > td.#{$state},
     > th.#{$state},
-    &.#{$state} > td,  
+    &.#{$state} > td,
     &.#{$state} > th {
       background: $background;
       color: $text;
@@ -172,7 +172,7 @@
   .open & { &.dropdown-toggle {
     color: $color;
     background-color: darken($background, 7%);
-    @if $border != "" { border-color: darken($border, 10%); } 
+    @if $border != "" { border-color: darken($border, 10%); }
   } }
   &:active,
   &.active {
@@ -180,13 +180,13 @@
     background-color: darken($background, 12%);
 
     &:hover {
-      background-color: darken($background, 10%);  
+      background-color: darken($background, 10%);
     }
   }
   .open & { &.dropdown-toggle {
     background-image: none;
   } }
-  &.disabled, 
+  &.disabled,
   &[disabled],
   fieldset[disabled] & {
     &,
@@ -234,7 +234,7 @@
 @mixin form-control-validation($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
   // Color the label and help text
   .help-block,
-  .help-inline, 
+  .help-inline,
   .control-label,
   .radio,
   .checkbox,

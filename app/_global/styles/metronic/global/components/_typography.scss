@@ -5,10 +5,10 @@ General typography
 /* Headings */
 
 h1,
-h2, 
-h3, 
-h4, 
-h5, 
+h2,
+h3,
+h4,
+h5,
 h6 {
     font-family: $font-family-primary;
     font-weight: 300;
@@ -33,12 +33,12 @@ h6 {
     font-size: $font-size-h6;
 }
 
-/* Headings helper text */ 
+/* Headings helper text */
 
 h1 small,
 h2 small,
-h3 small, 
-h4 small, 
+h3 small,
+h4 small,
 h5 small,
 h6 small {
     color: $text-muted-color;
@@ -46,11 +46,11 @@ h6 small {
 
 /* Block headings */
 
-h1.block, 
-h2.block, 
-h3.block, 
-h4.block, 
-h5.block, 
+h1.block,
+h2.block,
+h3.block,
+h4.block,
+h5.block,
 h6.block {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -66,8 +66,8 @@ a {
         color: $link-hover-color;
     }
 
-    &:focus, 
-    &:hover, 
+    &:focus,
+    &:hover,
     &:active {
         outline: 0;
     }
@@ -90,28 +90,28 @@ hr {
 
 /* Code */
 
-code { 
+code {
   border: 1px solid #e1e1e1;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);  
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 
 /* Disabled Navigation Link */
 
-.disabled-link { 
+.disabled-link {
 
-    .disable-target {  
+    .disable-target {
         opacity: 0.5 !important;
-        filter: alpha(opacity=50) !important; 
+        filter: alpha(opacity=50) !important;
 
         &:hover {
-            cursor: not-allowed !important;    
+            cursor: not-allowed !important;
         }
     }
 
     &:hover {
-        cursor: not-allowed !important;    
+        cursor: not-allowed !important;
     }
 }

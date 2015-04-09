@@ -27,7 +27,7 @@ Jstree
   border: 0;
   background-color: #eee;
   box-shadow:none;
-} 
+}
 
 .jstree-icon.icon-lg {
   margin-top: 1px;
@@ -35,7 +35,7 @@ Jstree
 
 .jstree-open > .jstree-anchor > .fa-folder:before {
   margin-left: 2px;
-  content: "\f07c"; 
+  content: "\f07c";
 }
 
 .jstree-default.jstree-rtl .jstree-last {
@@ -47,7 +47,7 @@ Jstree
 .vakata-context ul {
   padding: 0;
   min-width: 125px;
-  background-color: #ffffff; 
+  background-color: #ffffff;
   font-size: 14px;
   font-family: "Segoe UI",Helvetica, Arial, sans-serif;
   box-shadow: 5px 5px rgba(#666, 0.1);
@@ -56,16 +56,16 @@ Jstree
 
 .vakata-context li {
     border: 0;
-    a { 
-      padding: 0 10px;       
+    a {
+      padding: 0 10px;
       border: 0;
 
       i {
-        display: none;   
+        display: none;
       }
 
-      .vakata-contextmenu-sep {  
-        display: none;  
+      .vakata-contextmenu-sep {
+        display: none;
       }
 
     }
@@ -73,10 +73,10 @@ Jstree
 
 .vakata-context .vakata-context-hover > a,
 .vakata-context li a:hover {
-  background-color: #eee;   
-  color: #333;  
-  box-shadow: none;      
-  margin: 0;   
+  background-color: #eee;
+  color: #333;
+  box-shadow: none;
+  margin: 0;
 
   .span,
   .ins {
@@ -90,7 +90,7 @@ Jstree
   border: 0 !important;
 }
 
-.vakata-context .vakata-context-separator a,   
+.vakata-context .vakata-context-separator a,
 .vakata-context-rtl .vakata-context-separator a {
   margin: 0;
   border: 0;

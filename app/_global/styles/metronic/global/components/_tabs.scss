@@ -1,5 +1,5 @@
 /***
-Customized Bootstrap Tabs 
+Customized Bootstrap Tabs
 ***/
 
 /* Tabs and pills */
@@ -12,7 +12,7 @@ Customized Bootstrap Tabs
         > a {
             font-size: 14px;
 
-            > .badge { 
+            > .badge {
                 margin-top: -3px;
             }
         }
@@ -20,16 +20,16 @@ Customized Bootstrap Tabs
         .dropdown-menu {
             &:before,
             &:after {
-                display: none; 
+                display: none;
             }
         }
-    }   
+    }
 
     &.nav-tabs-sm,
     &.nav-pills-sm {
         > li > a {
             font-size: 13px;
-        }  
+        }
     }
 
     .dropdown.open {
@@ -38,14 +38,14 @@ Customized Bootstrap Tabs
             color: #0d638f;
             border-color: transparent;
         }
-    } 
+    }
 }
 
 /* Left and right tabs */
 
-.tabs-right.nav-tabs, 
+.tabs-right.nav-tabs,
 .tabs-left.nav-tabs {
-    border-bottom: 0;  
+    border-bottom: 0;
 
     > li {
         float: none;
@@ -54,7 +54,7 @@ Customized Bootstrap Tabs
             margin-right: 0;
             margin-bottom: 3px;
         }
-    }  
+    }
 }
 
 /* Left tabs */
@@ -65,20 +65,20 @@ Customized Bootstrap Tabs
     > li > a {
         display: block;
         margin-right: -1px;
-    
+
         &:hover,
         &:focus {
             @include border-radius($general-border-radius 0 0 $general-border-radius);
-            border-color: #eeeeee #dddddd #eeeeee #eeeeee; 
+            border-color: #eeeeee #dddddd #eeeeee #eeeeee;
         }
     }
 
     > li.active > a,
     > li.active > a:hover
     > li.active > a:focus {
-        @include border-radius($general-border-radius 0 0 $general-border-radius);          
-        border-color: #ddd transparent #ddd #ddd;      
-        *border-right-color: #ffffff;   
+        @include border-radius($general-border-radius 0 0 $general-border-radius);
+        border-color: #ddd transparent #ddd #ddd;
+        *border-right-color: #ffffff;
     }
 }
 
@@ -90,7 +90,7 @@ Customized Bootstrap Tabs
     > li > a {
         display: block;
         margin-left: -1px;
-    
+
         &:hover,
         &:focus {
             @include border-radius(0 $general-border-radius $general-border-radius 0);
@@ -132,15 +132,15 @@ Customized Bootstrap Tabs
         }
 
         .dropdown-menu {
-            @include border-radius($general-border-radius); 
+            @include border-radius($general-border-radius);
         }
     }
 
     .active a,
     .active a:hover
     .active a:focus {
-        @include border-radius(0 0 $general-border-radius $general-border-radius);              
-        
+        @include border-radius(0 0 $general-border-radius $general-border-radius);
+
         border-color: transparent #ddd #ddd #ddd;
     }
 }
@@ -153,24 +153,24 @@ Custom tabs
 
 .tabbable {
     @include clearfix();
-}   
+}
 
-.tabbable-custom { 
-    margin-bottom: 15px; 
-    padding: 0px;  
+.tabbable-custom {
+    margin-bottom: 15px;
+    padding: 0px;
     overflow: hidden;
 
-    > .nav-tabs { 
-        border: none; 
+    > .nav-tabs {
+        border: none;
         margin: 0px;
 
-        > li { 
-            margin-right: 2px; 
-            border-top: 2px solid transparent; 
+        > li {
+            margin-right: 2px;
+            border-top: 2px solid transparent;
 
 
             > a {
-                margin-right: 0;      
+                margin-right: 0;
                 @include border-radius(0);
 
                 &:hover {
@@ -180,35 +180,35 @@ Custom tabs
             }
 
             &.active {
-                border-top: 3px solid $brand-danger; 
-                margin-top: 0; 
+                border-top: 3px solid $brand-danger;
+                margin-top: 0;
                 position: relative;
 
                 > a {
                     border-top: none !important;
-                    font-weight: 400; 
+                    font-weight: 400;
 
                     @include border-radius(0);
 
 
                     &:hover {
-                        @include border-radius(0);  
+                        @include border-radius(0);
 
-                        border-top: none; 
-                        background: #fff; 
-                        border-color: #d4d4d4 #d4d4d4 transparent; 
+                        border-top: none;
+                        background: #fff;
+                        border-color: #d4d4d4 #d4d4d4 transparent;
                     }
-                }  
-            } 
+                }
+            }
         }
     }
 
-    > .tab-content { 
+    > .tab-content {
         background-color: #fff;
-        border: 1px solid #ddd;  
-        padding: 10px; 
+        border: 1px solid #ddd;
+        padding: 10px;
 
-        @include border-radius(0 0 $general-border-radius $general-border-radius);                  
+        @include border-radius(0 0 $general-border-radius $general-border-radius);
     }
 
     /* justified tabs */
@@ -231,7 +231,7 @@ Custom tabs
     &.tabs-below.nav-justified .tab-content {
         margin-top: 0px;
         margin-bottom: -2px;
-  
+
         @include border-radius($general-border-radius $general-border-radius 0 0);
     }
 
@@ -250,35 +250,35 @@ Custom tabs
             border-right:none;
             border-bottom:none;
         }
-    }    
+    }
 
     /* below tabs */
 
     &.tabs-below .nav-tabs {
 
-        > li > a { 
-            border-top: none; 
-            border-bottom: 2px solid transparent; 
-            margin-top: -1px;         
+        > li > a {
+            border-top: none;
+            border-bottom: 2px solid transparent;
+            margin-top: -1px;
         }
 
         > li.active {
-            border-top: none; 
-            border-bottom: 3px solid #d12610; 
-            margin-bottom: 0; 
-            position: relative; 
+            border-top: none;
+            border-bottom: 3px solid #d12610;
+            margin-bottom: 0;
+            position: relative;
 
             > a {
-                border-bottom: none;  
+                border-bottom: none;
 
                 &:hover {
-                    background: #fff; 
-                    border-color: #d4d4d4 #d4d4d4 transparent; 
+                    background: #fff;
+                    border-color: #d4d4d4 #d4d4d4 transparent;
                 }
             }
         }
     }
-}   
+}
 
 
 .tabbable-custom.tabbable-noborder {
@@ -295,12 +295,12 @@ Custom tabs
 $tabbable-line-font-color: #333 !default;
 
 .tabbable-line {
-    > .nav-tabs { 
-        border: none; 
+    > .nav-tabs {
+        border: none;
         margin: 0px;
 
-        > li { 
-            margin-right: 2px; 
+        > li {
+            margin-right: 2px;
 
 
             > a {
@@ -309,7 +309,7 @@ $tabbable-line-font-color: #333 !default;
                 color: lighten($tabbable-line-font-color, 25%);
 
                 > i {
-                    color: lighten($tabbable-line-font-color, 45%); 
+                    color: lighten($tabbable-line-font-color, 45%);
                 }
             }
 
@@ -318,7 +318,7 @@ $tabbable-line-font-color: #333 !default;
                 border-bottom: 4px solid lighten($brand-danger, 25%);
 
                 > a {
-                    border: 0; 
+                    border: 0;
                     background: none !important;
                     color: $tabbable-line-font-color;
 
@@ -337,35 +337,35 @@ $tabbable-line-font-color: #333 !default;
                 position: relative;
 
                 > a {
-                    border: 0; 
+                    border: 0;
                     color: $tabbable-line-font-color;
 
                     > i {
                         color: lighten($tabbable-line-font-color, 5%);
                     }
-                }  
-            }   
+                }
+            }
         }
-    }  
+    }
 
-    > .tab-content { 
+    > .tab-content {
         margin-top: -3px;
         background-color: #fff;
         border: 0;
-        border-top: 1px solid #eee;  
+        border-top: 1px solid #eee;
         padding: 15px 0;
 
         .portlet & {
-            padding-bottom: 0; 
+            padding-bottom: 0;
         }
     }
 }
 
 .tabbable-line.tabs-below {
-     > .nav-tabs { 
-        > li { 
+     > .nav-tabs {
+        > li {
             border-top: 4px solid transparent;
-            
+
             > a {
                 margin-top: 0;
             }
@@ -376,17 +376,17 @@ $tabbable-line-font-color: #333 !default;
             }
 
             &.active {
-                margin-bottom: -2px;   
+                margin-bottom: -2px;
                 border-bottom: 0;
                 border-top: 4px solid $brand-danger;
-            } 
+            }
         }
-    }  
+    }
 
-    > .tab-content { 
-        margin-top: -10px;  
+    > .tab-content {
+        margin-top: -10px;
         border-top: 0;
-        border-bottom: 1px solid #eee;  
-        padding-bottom: 15px; 
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
     }
 }

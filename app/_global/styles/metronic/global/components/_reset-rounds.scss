@@ -4,24 +4,24 @@ Rounded corners reset
 
 /* Reset rounded corners for all elements */
 
-div,           
-input,      
-select,                    
-textarea,             
-span,                          
-img,               
-table,                       
-label,  
-td,                  
-th,    
-p,          
-a, 
-button, 
-ul,    
+div,
+input,
+select,
+textarea,
+span,
+img,
+table,
+label,
+td,
+th,
+p,
+a,
+button,
+ul,
 code,
-pre,    
+pre,
 li {
-    -webkit-border-radius: 0 !important;                   
+    -webkit-border-radius: 0 !important;
        -moz-border-radius: 0 !important;
             border-radius: 0 !important;
 }

@@ -6,9 +6,9 @@ Fontawesome Icons
 [class^="glyphicon-"],
 [class^="icon-"],
 [class*=" fa-"],
-[class*=" glyphicon-"],  
+[class*=" glyphicon-"],
 [class*=" icon-"] {
-  display: inline-block; 
+  display: inline-block;
   margin-top: 1px;
   font-size: $icon-size-normal;
   *margin-right: .3em;
@@ -25,17 +25,17 @@ li [class*=" fa-"],
 li [class*=" glyphicon-"],
 li [class*=" icon-"] {
   display: inline-block;
-  width: 1.25em; 
+  width: 1.25em;
   text-align: center;
 }
 
 li [class^="glyphicon-"],
-li [class*=" glyphicon-"] {  
+li [class*=" glyphicon-"] {
   top: 2px;
 }
 
 li [class^="icon-"],
-li [class*=" icon-"] {   
+li [class*=" icon-"] {
   top: 1px;
   position: relative;
 }
@@ -60,7 +60,7 @@ li [class*=" icon-"].icon-large {
 .fa-lg,
 .icon-lg {
   font-size: 16px !important;
-} 
+}
 
 .fa-2x {
   font-size: 2em;
@@ -89,7 +89,7 @@ li [class*=" icon-"].icon-large {
 }
 
 .icon-state-info {
-  color: $brand-info; 
+  color: $brand-info;
 }
 
 .icon-state-warning {
@@ -157,7 +157,7 @@ Simple Line Icons Demo
     }
 }
 
-/*** 
+/***
 Glyphicons Demo
 ***/
 

@@ -46,7 +46,7 @@ Bootstrap Wizard
 
 				> .desc {
 				  	display: inline-block;
-				  	font-size: 16px; 
+				  	font-size: 16px;
 				  	font-weight: 300;
 
 				  	> i {
@@ -83,7 +83,7 @@ Bootstrap Wizard
 	  						font-size: 12px;
 							font-weight: normal;
 							color: #999;
-							display: inline-block;  
+							display: inline-block;
 	  					}
 	  				}
 				}
@@ -97,7 +97,7 @@ Bootstrap Wizard
     margin-top: 10px;
     display: block;
   }
-} 
+}
 
 @media (max-width: $screen-sm-min) { /* 768px */
   .form-wizard .steps > li > a {
