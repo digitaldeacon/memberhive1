@@ -87,17 +87,17 @@ Page Header
 
 				.btn.submit {
 					margin: 3px 7px 0 0;
-					padding:0;			
+					padding:0;
 					background: none;
 					display: block;
 
 					> i {
 						font-size: 13px;
 					}
-				}	
-			}	
+				}
+			}
 		}
-			
+
 		&.open {
 			width: 300px !important;
 
@@ -458,10 +458,10 @@ Page Header
 						> .username {
 							display: inline-block;
 							font-size: $header-top-menu-user-font-size;
-	                        font-weight: $header-top-menu-user-font-weight;
+              font-weight: $header-top-menu-user-font-weight;
 						}
 
-						> img {
+						img {
 							margin-top: 4px;
 							margin-left: 5px;
 							margin-top: -8px;
@@ -583,7 +583,7 @@ Page Header
 				}
 			}
 		}
-	}	
+	}
 }
 
 @media (min-width: $screen-md-min) { /* 992px */
@@ -741,7 +741,7 @@ Page Header
 					position: absolute;
 				}
 			}
-		}	
+		}
 	}
 
 	/* Fixed header for mobile */
@@ -749,7 +749,7 @@ Page Header
 		.navbar-fixed-top {
 			position: fixed;
 		}
-	}	
+	}
 
 	/* Boxed Layout */
 	.page-boxed .page-header.navbar {
@@ -778,7 +778,7 @@ Page Header
 
 @media (max-width: $screen-xs-max) { /* 767px */
 
-	/* Page header */	
+	/* Page header */
 	.page-header.navbar {
 		padding: 0;
 
@@ -800,10 +800,10 @@ Page Header
 
 		.page-top {
 			padding: 0;
-			display: block;		
+			display: block;
 			clear: both;
 			width: 100%;
-		}	
+		}
 
 		/* Top navigation menu*/
 		.top-menu {
@@ -811,7 +811,7 @@ Page Header
 			padding: 0;
 			float: right;
 
-			.navbar-nav {			
+			.navbar-nav {
 
 				> li.dropdown {
 
