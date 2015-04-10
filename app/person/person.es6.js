@@ -15,8 +15,6 @@ import {MenuSection, MenuLink} from 'core/providers/menu-provider';
 
 export var gemPersonModule = angular.module('gem.person',
   [
-    'ui.router',
-    'lbServices',
     'angularUtils.directives.dirPagination',
     'nsPopover',
     'angularFileUpload',
