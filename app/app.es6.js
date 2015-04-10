@@ -39,7 +39,6 @@ import '_global/scripts/lb-services';
 import '_global/scripts/metronic/metronic';
 import '_global/scripts/metronic/layout';
 
-import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
 import {gemCoreModule} from 'core/core';
 import {gemConfigModule} from '_global/scripts/config';
 import {gemDashboardModule} from 'dashboard/dashboard';
@@ -61,7 +60,7 @@ import {SidebarController} from '_global/controllers/sidebar-controller';
 export var gemMainModule = angular.module('gemmiiWebApp', [
   'ngAnimate', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch',
   'ui.router', 'ui.bootstrap',  'ui.select',
-  'lbServices', 'formatFilters', 'picardy.fontawesome',
+  'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
   'angular-confirm', 'angularMoment', 'angular-loading-bar',
   'gettext', 'textAngular', 'toastr',

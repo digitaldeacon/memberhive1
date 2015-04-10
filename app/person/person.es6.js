@@ -23,7 +23,6 @@ export var gemPersonModule = angular.module('gem.person',
     'ngImgCrop',
 
     'personFilters',
-    'dateFilters',
 
     'gem.core',
     'gem.address'
