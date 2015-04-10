@@ -16,8 +16,7 @@ export var gemCoreModule = angular.module('gem.core', []);
 gemCoreModule.run(function($rootScope) {
   $rootScope.gemConfig = {
     layout: {
-      pageSidebarClosed: false, // sidebar state
-      pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
+      pageSidebarClosed: false // sidebar state
     },
     pagination: {
       pageSize: 25
