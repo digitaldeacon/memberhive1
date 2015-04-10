@@ -144,12 +144,9 @@ msgid "Female"
 msgstr ""
 
 #: app/person/views/person.edit.tab.personal.html:17
-msgid "First Name"
-msgstr ""
-
 #: app/report/controllers/report-controller.es6.js:39
 #: app/report/controllers/report-upsert-controller.es6.js:23
-msgid "Firstname"
+msgid "First Name"
 msgstr ""
 
 #: app/report/controllers/report-controller.es6.js:42
@@ -192,12 +189,9 @@ msgid "Household Address"
 msgstr ""
 
 #: app/person/views/person.edit.tab.personal.html:29
-msgid "Last Name"
-msgstr ""
-
 #: app/report/controllers/report-controller.es6.js:40
 #: app/report/controllers/report-upsert-controller.es6.js:24
-msgid "Lastname"
+msgid "Last Name"
 msgstr ""
 
 #: app/person/person.es6.js:82

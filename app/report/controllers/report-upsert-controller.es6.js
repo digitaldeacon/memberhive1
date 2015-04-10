@@ -20,8 +20,8 @@ export class ReportUpsertController {
 
     /** Dictionaries **/
     this.personModel = [
-      {id: 'firstName',label: gettext('Firstname'),type: 'string',optgroup: gettext('Person')},
-      {id: 'lastName',label: gettext('Lastname'),type: 'string',optgroup: gettext('Person')},
+      {id: 'firstName',label: gettext('First Name'),type: 'string',optgroup: gettext('Person')},
+      {id: 'lastName',label: gettext('Last Name'),type: 'string',optgroup: gettext('Person')},
       {
         id: 'gender',label: gettext('Gender'),type: 'string',optgroup: gettext('Person'),
         input:'radio',values:{'m':gettext('Male'),'f':gettext('Female')}
