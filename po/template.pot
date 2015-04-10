@@ -17,6 +17,10 @@ msgstr ""
 msgid "Addresses"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:111
+msgid "Aunt"
+msgstr ""
+
 #: app/person/views/person.edit.html:26
 msgid "Avatar"
 msgstr ""
@@ -26,6 +30,14 @@ msgstr ""
 #: app/report/controllers/report-controller.es6.js:46
 #: app/report/controllers/report-upsert-controller.es6.js:30
 msgid "Birthdate"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:112
+msgid "Brother"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:124
+msgid "Brother in Law"
 msgstr ""
 
 #: app/report/views/report.upsert.html:41
@@ -42,6 +54,10 @@ msgstr ""
 
 #: app/person/views/person.edit.tab.personal.html:72
 msgid "Contact Info"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:109
+msgid "Cousin"
 msgstr ""
 
 #: app/report/views/report.upsert.html:10
@@ -76,6 +92,14 @@ msgstr ""
 #: app/dashboard/dashboard.es6.js:37
 #: app/dashboard/views/dashboard.html:7
 msgid "Dashboard"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:108
+msgid "Daughter"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:127
+msgid "Daughter in Law"
 msgstr ""
 
 #: app/dashboard/views/dashboard.html:17
@@ -132,12 +156,21 @@ msgstr ""
 msgid "Facebook Username"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:119
+msgid "Father"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:123
+msgid "Father in Law"
+msgstr ""
+
 #: app/person/views/person.edit.tab.personal.html:115
 #: app/person/views/person.view.contacts.html:21
 #: app/person/views/person.view.contacts.html:23
 msgid "Fax"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:98
 #: app/report/controllers/report-controller.es6.js:43
 #: app/report/controllers/report-upsert-controller.es6.js:27
 msgid "Female"
@@ -156,6 +189,22 @@ msgstr ""
 
 #: app/_global/controllers/app-controller.es6.js:29
 msgid "German"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:117
+msgid "Granddaughter"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:114
+msgid "Grandfather"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:115
+msgid "Grandmother"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:116
+msgid "Grandson"
 msgstr ""
 
 #: app/dashboard/views/dashboard.html:4
@@ -188,6 +237,10 @@ msgstr ""
 msgid "Household Address"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:105
+msgid "Husband"
+msgstr ""
+
 #: app/person/views/person.edit.tab.personal.html:29
 #: app/report/controllers/report-controller.es6.js:40
 #: app/report/controllers/report-upsert-controller.es6.js:24
@@ -212,6 +265,7 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:97
 #: app/report/controllers/report-controller.es6.js:43
 #: app/report/controllers/report-upsert-controller.es6.js:27
 msgid "Male"
@@ -238,12 +292,28 @@ msgstr ""
 msgid "Mobile phone"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:118
+msgid "Mother"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:122
+msgid "Mother in Law"
+msgstr ""
+
 #: app/note/note.es6.js:35
 msgid "My Notes"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:120
+msgid "Nephew"
+msgstr ""
+
 #: app/person/views/person.edit.tab.personal.html:21
 msgid "Nickname"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:121
+msgid "Niece"
 msgstr ""
 
 #: app/note/note.es6.js:33
@@ -363,6 +433,14 @@ msgstr ""
 msgid "Sign In"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:113
+msgid "Sister"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:125
+msgid "Sister in Law"
+msgstr ""
+
 #: app/person/views/person.list.html:84
 #: app/person/views/person.view.contacts.html:33
 msgid "Skype"
@@ -370,6 +448,22 @@ msgstr ""
 
 #: app/person/views/person.edit.tab.personal.html:135
 msgid "Skype Name"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:107
+msgid "Son"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:126
+msgid "Son in Law"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:128
+msgid "Stepbrother"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:129
+msgid "Stepsister"
 msgstr ""
 
 #: app/report/controllers/report-controller.es6.js:98
@@ -392,6 +486,10 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
+#: app/person/services/person-service.es6.js:110
+msgid "Uncle"
+msgstr ""
+
 #: app/person/views/person.edit.tab.personal.html:55
 msgid "User can log in"
 msgstr ""
@@ -406,6 +504,10 @@ msgstr ""
 
 #: app/adf/widgets/weather/weather.js:30
 msgid "Weather"
+msgstr ""
+
+#: app/person/services/person-service.es6.js:106
+msgid "Wife"
 msgstr ""
 
 #: app/person/views/person.view.contacts.html:13
