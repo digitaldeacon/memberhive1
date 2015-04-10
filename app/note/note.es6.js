@@ -1,5 +1,7 @@
+import {MenuSection, MenuLink} from 'core/providers/menu-provider';
+
 export var gemNoteModule = angular.module('gem.note', []).config(
-  ($stateProvider) => {
+  ($stateProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('note', {
       url: '/note',
       template: '<ui-view/>',
@@ -27,5 +29,12 @@ export var gemNoteModule = angular.module('gem.note', []).config(
         needRights: ['$authenticated']
       }
     });
+
+    MainMenuProvider.add(new MenuSection(gettext('Notes'), 'file-text',
+      [
+        new MenuLink(gettext('My Notes'), 'file-text', 'note.list'),
+        new MenuLink(gettext('Create Note'), 'plus-circle', 'note.create')
+      ]
+    ));
   }
 );

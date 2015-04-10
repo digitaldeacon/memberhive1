@@ -16,8 +16,10 @@ import {PreviewHTMLDirective} from 'report/directives/previewhtml-directive';
 
 import {ReportService} from 'report/services/report-service';
 
+import {MenuSection, MenuLink} from 'core/providers/menu-provider';
+
 export var gemReportModule = angular.module('gem.report', []).config(
-  ($stateProvider,$provide) => {
+  ($stateProvider, $provide, MainMenuProvider, gettext) => {
     $stateProvider.state('report', {
       url: '/report',
       template: '<ui-view/>',
@@ -63,6 +65,13 @@ export var gemReportModule = angular.module('gem.report', []).config(
       ];
       return taOptions;
     }]);
+
+    MainMenuProvider.add(new MenuSection(gettext('Reports'), 'bar-chart',
+      [
+        new MenuLink(gettext('List Reports'), 'eye', 'report.list'),
+        new MenuLink(gettext('Create Report'), 'plus-circle', 'report.create')
+      ]
+    ));
   }
 );
 

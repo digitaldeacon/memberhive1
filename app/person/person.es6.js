@@ -11,6 +11,8 @@ import {PersonViewController} from 'person/controllers/person-view-controller';
 import {PersonService} from 'person/services/person-service';
 import {AvatarDirective} from 'person/directives/person-directives';
 
+import {MenuSection, MenuLink} from 'core/providers/menu-provider';
+
 export var gemPersonModule = angular.module('gem.person',
   [
     'ui.router',
@@ -23,10 +25,11 @@ export var gemPersonModule = angular.module('gem.person',
     'personFilters',
     'dateFilters',
 
+    'gem.core',
     'gem.address'
   ]
 ).config(
-  ($stateProvider, $compileProvider, gettext) => {
+  ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('person', {
       url: '/person',
       template: '<ui-view/>',
@@ -76,9 +79,15 @@ export var gemPersonModule = angular.module('gem.person',
 
     // Allow skype urls http://stackoverflow.com/a/15769779
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|skype):/);
+
+    MainMenuProvider.add(new MenuSection(gettext('Persons'), 'user',
+      [
+        new MenuLink(gettext('List Persons'), 'users', 'person.list'),
+        new MenuLink(gettext('Create Person'), 'user-plus', 'person.create')
+      ]
+    ));
   }
 );
-
 gemPersonModule.controller('PersonController', PersonController);
 gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);

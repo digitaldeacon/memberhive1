@@ -42,9 +42,11 @@ import '_global/scripts/metronic/layout';
 // Import services
 import {Shout} from '_global/services/shout';
 import {Search} from '_global/services/search';
+import {MainMenu} from 'core/providers/menu-provider';
 
 import {controlGroupDirective} from '_global/directives/form-directives';
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
+import {gemCoreModule} from 'core/core';
 import {gemConfigModule} from '_global/scripts/config';
 import {gemDashboardModule} from 'dashboard/dashboard';
 import {gemAddressModule} from 'address/address';
@@ -65,19 +67,19 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
   'angular-confirm', 'angularMoment', 'angular-loading-bar',
   'gettext', 'textAngular', 'toastr',
-  // GEM Module
-  'gem.person', 'gem.dashboard', 'gem.option', 'gem.acl',
-  'gem.auth', 'gem.note', 'gem.report', 'gem.config'
+  // GEM Modules
+  'gem.core', // This needs to be first
+  // The order of the following modules will be reflected in the main menu.
+  'gem.dashboard', 'gem.person', 'gem.option', 'gem.acl',
+  'gem.auth', 'gem.report', 'gem.note', 'gem.config'
   ])
 /**
  * Config
  */
   .config(
-    ($stateProvider, $urlRouterProvider) => {
+    ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) => {
       $urlRouterProvider.otherwise('/dashboard');
-  })
-  .config(
-    (cfpLoadingBarProvider) => {
+
       cfpLoadingBarProvider.includeBar = false;
       cfpLoadingBarProvider.spinnerTemplate = '<div class="blockui"><div class="page-spinner-bar"><div class="bounce1">' +
         '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
@@ -122,16 +124,19 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
       $rootScope.locale = $rootScope.locales.de;
     }
     gettextCatalog.setCurrentLanguage($rootScope.locale.lang);
-
   })
-  .controller('HeaderController', ($scope,$state,$filter,Search,LoopBackAuth) => {
+  .controller('HeaderController', ($scope, $state, $filter, Search, LoopBackAuth) => {
     $scope.accessToken = LoopBackAuth.accessTokenId;
     $scope.getSearch = function(val) {
       var arr = Search.byComponent($scope.component,val);
       return $filter('filter')(arr,val);
     };
   })
-  .controller('SidebarController', ($rootScope,$scope, Account, $state, GemAcl) => { /* Setup Layout Part - Sidebar */
+  .controller('SidebarController', ($scope, Account, $state, GemAcl, MainMenu) => { /* Setup Layout Part - Sidebar */
+    $scope.$on('$includeContentLoaded', () => {
+      Layout.initSidebar(); // init sidebar
+    });
+
     $scope.logout = () => {
       Account.logout().$promise.then((resp) => {
         GemAcl.setRights([]);
@@ -139,10 +144,7 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
       });
     };
 
-    $scope.$on('$includeContentLoaded', () => {
-      Layout.initSidebar(); // init sidebar
-
-    });
+    $scope.mainMenu = MainMenu.getItems();
   })
   .controller('PageHeadController', $scope => {/* Setup Layout Part - Sidebar */
     $scope.$on('$includeContentLoaded', () => {

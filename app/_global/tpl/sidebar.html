@@ -7,69 +7,29 @@
 	<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 	<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
       ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}" ng-if="acl.isLoggedIn()">
-		<li>
-			<a ui-sref='dashboard'>
-        <fa name="laptop" fw></fa>
-        <span class="title" translate>Dashboard</span>
+
+
+    <li ng-repeat="entry in mainMenu">
+      <a ng-if="!entry.children" ui-sref="{{entry.route}}">
+        <fa name="{{entry.icon}}"></fa>
+        <span class="title">{{entry.label}}</span>
       </a>
-		</li>
-		<li>
-			<a>
-        <fa name="user" fw></fa>
-        <span class="title" translate>Persons</span>
-        <span class="arrow "></span>
-			</a>
-			<ul class="sub-menu">
-				<li>
-					<a ui-sref='person.list'>
-					  <fa name="users"></fa> <translate>List Persons</translate>
-					</a>
-				</li>
-				<li>
-					<a ui-sref='person.create'>
-            <fa name="user-plus"></fa> <translate>New Person</translate>
-					</a>
-				</li>
-			</ul>
-		</li>
-    <li>
-      <a>
-        <fa name="bar-chart" fw></fa>
-        <span class="title" translate>Reports</span>
+
+
+      <a ng-if="entry.children">
+        <fa name="{{entry.icon}}"></fa>
+        <span class="title">{{entry.label}}</span>
         <span class="arrow "></span>
       </a>
-      <ul class="sub-menu">
-        <li>
-          <a ui-sref='report.list'>
-            <fa name="eye"></fa> <translate>List Reports</translate>
-          </a>
-        </li>
-        <li>
-          <a ui-sref='report.create'>
-            <fa name="plus"></fa> <translate>New Report</translate>
+      <ul ng-if="entry.children" class="sub-menu">
+        <li ng-repeat="entry in entry.children">
+          <a ui-sref="{{entry.route}}">
+            <fa name="{{entry.icon}}"></fa> {{entry.label}}
           </a>
         </li>
       </ul>
     </li>
-    <li>
-			<a ui-sref="note.list">
-        <fa name="file-text" fw></fa>
-        <span class="title" translate>Notes</span>
-        <span class="arrow "></span>
-			</a>
-			<ul class="sub-menu">
-				<li>
-					<a ui-sref='note.list'>
-					  <fa name="file-text"></fa> <translate>My Notes</translate>
-					</a>
-				</li>
-				<li>
-					<a ui-sref='note.create'>
-            <fa name="plus-circle"></fa> <translate>Create Note</translate>
-					</a>
-				</li>
-			</ul>
-		</li>
+
     <li>
       <a ng-click="logout()">
         <fa name="sign-out" fw></fa>

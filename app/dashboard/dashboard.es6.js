@@ -13,6 +13,7 @@ import 'adf/structures';
 import 'adf/widgets/weather/weather';
 
 import {DashboardController} from 'dashboard/controllers/dashboard-controller';
+import {MenuSection, MenuLink} from 'core/providers/menu-provider';
 
 export var gemDashboardModule = angular.module('gem.dashboard',
   [
@@ -21,7 +22,7 @@ export var gemDashboardModule = angular.module('gem.dashboard',
     'adf.widgets.weather'
   ])
   .config(
-    ($stateProvider, gettext) => {
+    ($stateProvider, MainMenuProvider, gettext) => {
       $stateProvider.state('dashboard', {
         url: '/dashboard',
         templateUrl: '../dashboard/views/dashboard.html',
@@ -31,7 +32,9 @@ export var gemDashboardModule = angular.module('gem.dashboard',
         acl: {
           needRights: ['$authenticated']
         }
-     });
+      });
+
+      MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'laptop', 'dashboard'));
     }
   );
 
