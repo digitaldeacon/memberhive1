@@ -39,9 +39,6 @@ import '_global/scripts/lb-services';
 import '_global/scripts/metronic/metronic';
 import '_global/scripts/metronic/layout';
 
-// Import services
-import {MainMenu} from 'core/providers/menu-provider';
-
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
 import {gemCoreModule} from 'core/core';
 import {gemConfigModule} from '_global/scripts/config';
@@ -53,6 +50,10 @@ import {gemAclModule} from 'auth/acl';
 import {gemNoteModule} from 'note/note';
 import {gemOptionModule} from 'option/option';
 import {gemReportModule} from 'report/report';
+
+import {AppController} from '_global/controllers/app-controller';
+import {HeaderController} from '_global/controllers/header-controller';
+import {SidebarController} from '_global/controllers/sidebar-controller';
 
 /**
  * The main Gemmii app module.
@@ -70,86 +71,25 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
   // The order of the following modules will be reflected in the main menu.
   'gem.dashboard', 'gem.person', 'gem.option', 'gem.acl',
   'gem.auth', 'gem.report', 'gem.note', 'gem.config'
-  ])
-/**
- * Config
- */
-  .config(
-    ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) => {
-      $urlRouterProvider.otherwise('/dashboard');
+  ]
+);
 
-      cfpLoadingBarProvider.includeBar = false;
-      cfpLoadingBarProvider.spinnerTemplate = '<div class="blockui"><div class="page-spinner-bar"><div class="bounce1">' +
-        '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
+gemMainModule.config(
+  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) => {
+    $urlRouterProvider.otherwise('/dashboard');
 
-    })
-/**
- * Controllers
- */
-  .controller('AppController', ($scope, $rootScope, $cookies, gettextCatalog, PersonService) => {
-    $scope.init = () => {
-      Metronic.init();
-    };
-    $scope.$on('$viewContentLoaded', () => {
-      Metronic.initComponents(); // init core components
-    });
+    cfpLoadingBarProvider.includeBar = false;
+    cfpLoadingBarProvider.spinnerTemplate = '<div class="blockui"><div class="page-spinner-bar"><div class="bounce1">' +
+      '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
 
-    $rootScope.currentUser = PersonService.currentUser();
-
-    $rootScope.locales = {
-      'en': {
-        lang: 'en',
-        country: 'US',
-        name: gettextCatalog.getString('English')
-      },
-      'de': {
-        lang: 'de',
-        country: 'DE',
-        name: gettextCatalog.getString('German')
-      }
-    };
-    var lang = $cookies.lang || navigator.language || navigator.userLanguage;
-    $rootScope.locale = $rootScope.locales[lang];
-    if ($rootScope.locale === undefined) {
-      $rootScope.locale = $rootScope.locales.de;
-    }
-    gettextCatalog.setCurrentLanguage($rootScope.locale.lang);
-  })
-  .controller('HeaderController', ($scope, $state, $filter, Search, LoopBackAuth) => {
-    $scope.accessToken = LoopBackAuth.accessTokenId;
-    $scope.getSearch = function(val) {
-      var arr = Search.byComponent($scope.component,val);
-      return $filter('filter')(arr,val);
-    };
-  })
-  .controller('SidebarController', ($scope, Account, $state, GemAcl, MainMenu) => { /* Setup Layout Part - Sidebar */
-    $scope.$on('$includeContentLoaded', () => {
-      Layout.initSidebar(); // init sidebar
-    });
-
-    $scope.logout = () => {
-      Account.logout().$promise.then((resp) => {
-        GemAcl.setRights([]);
-        $state.go('login');
-      });
-    };
-
-    $scope.mainMenu = MainMenu.getItems();
-  })
-  .controller('PageHeadController', $scope => {/* Setup Layout Part - Sidebar */
-    $scope.$on('$includeContentLoaded', () => {
-    });
-  })
-  .controller('FooterController', $scope => {/* Setup Layout Part - Footer */
-    $scope.$on('$includeContentLoaded', () => {
-      Layout.initFooter(); // init footer
-    });
-  })
-/**
- * Run
- */
-  .run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
-    $rootScope.$state = $state; // state to be accessed from view
-    var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
-    GemAcl.setRightsPromise(p);
   });
+
+gemMainModule.controller('AppController', AppController);
+gemMainModule.controller('HeaderController', HeaderController);
+gemMainModule.controller('SidebarController', SidebarController);
+
+gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
+  $rootScope.$state = $state; // state to be accessed from view
+  var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
+  GemAcl.setRightsPromise(p);
+});

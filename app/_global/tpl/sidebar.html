@@ -8,13 +8,11 @@
 	<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
       ng-class="{'page-sidebar-menu-closed': gemConfig.layout.pageSidebarClosed}" ng-if="acl.isLoggedIn()">
 
-
     <li ng-repeat="entry in mainMenu">
       <a ng-if="!entry.children" ui-sref="{{entry.route}}">
         <fa name="{{entry.icon}}"></fa>
         <span class="title">{{entry.label}}</span>
       </a>
-
 
       <a ng-if="entry.children">
         <fa name="{{entry.icon}}"></fa>

@@ -2,8 +2,6 @@ import {MainMenu} from 'core/providers/menu-provider';
 import {controlGroupDirective} from 'core/directives/form-directives';
 import {Shout} from 'core/services/shout';
 import {Search} from 'core/services/search';
-import {CoreConfig} from 'core/config/config';
-
 
 /**
  * This module holds dependencies needed by other modules including the `gemmiiWebApp` module.
@@ -32,7 +30,6 @@ gemCoreModule.service('Search', Search);
 
 // Factories
 gemCoreModule.factory('Shout', Shout);
-gemCoreModule.factory('config', CoreConfig);
 
 // Directives
 gemCoreModule.directive('controlGroup', controlGroupDirective);
