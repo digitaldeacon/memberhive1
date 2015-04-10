@@ -1,6 +1,6 @@
 export class ReportController {
 
-  constructor($scope, ReportService, Report, Person, LoopBackAuth, gettext, Shout, config) {
+  constructor($scope, ReportService, Report, Person, LoopBackAuth, gettext, Shout) {
     this.$scope = $scope;
     this.ReportService = ReportService;
     this.Report = Report;
@@ -8,12 +8,10 @@ export class ReportController {
     this.LoopBackAuth = LoopBackAuth;
     this.gettext = gettext;
     this.Shout = Shout;
-    this.config = config;
 
     this.curUser = LoopBackAuth.currentUserId;
     this.data = '{"group": {"operator": "AND","rules": []}}';
     this.name = '';
-    this.pageSize = config.pagination.pageSize;
     this.reports = [];
     this.currentPage = 1;
     this.totalReports = 0;

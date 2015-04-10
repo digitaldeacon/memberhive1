@@ -40,11 +40,8 @@ import '_global/scripts/metronic/metronic';
 import '_global/scripts/metronic/layout';
 
 // Import services
-import {Shout} from '_global/services/shout';
-import {Search} from '_global/services/search';
 import {MainMenu} from 'core/providers/menu-provider';
 
-import {controlGroupDirective} from '_global/directives/form-directives';
 import {formatFiltersModule, dateFiltersModule} from '_global/scripts/filters';
 import {gemCoreModule} from 'core/core';
 import {gemConfigModule} from '_global/scripts/config';
@@ -67,8 +64,9 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
   'angular-confirm', 'angularMoment', 'angular-loading-bar',
   'gettext', 'textAngular', 'toastr',
+
   // GEM Modules
-  'gem.core', // This needs to be first
+  'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
   'gem.dashboard', 'gem.person', 'gem.option', 'gem.acl',
   'gem.auth', 'gem.report', 'gem.note', 'gem.config'
@@ -85,14 +83,6 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
         '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
 
     })
-/**
- * Constants
- */
-  .constant('config', {
-    pagination: {
-      pageSize: 25
-    }
-  })
 /**
  * Controllers
  */
@@ -158,28 +148,8 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
 /**
  * Run
  */
-  .run(($rootScope, settings, $state, GemAcl, Account, LoopBackAuth) => {
+  .run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
     $rootScope.$state = $state; // state to be accessed from view
     var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
     GemAcl.setRightsPromise(p);
   });
-/**
- * Directives
- */
-gemMainModule.directive('controlGroup', controlGroupDirective);
-/**
- * Services
- */
-gemMainModule.factory('Shout', Shout);
-gemMainModule.service('Search', Search);
-
-gemMainModule.factory('settings', $rootScope => {
-  var settings = {
-    layout: {
-      pageSidebarClosed: false, // sidebar state
-      pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
-    }
-  };
-  $rootScope.settings = settings;
-  return settings;
-});

@@ -1,4 +1,4 @@
-export function ReportService(Report, gettext, config, Shout) {
+export function ReportService(Report, gettext, $rootScope, Shout) {
   return {
     one: (id) => {
       // Need to use findOne() instead of findById() since you can't use the include filter with findById()
@@ -7,8 +7,8 @@ export function ReportService(Report, gettext, config, Shout) {
     all: (pageNumber) => {
       return Report.find({
         filter: {
-          limit: config.pagination.pageSize,
-          offset: (pageNumber - 1) * config.pagination.pageSize,
+          limit: $rootScope.gemConfig.pagination.pageSize,
+          offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
           //order: ['lastName ASC', 'firstName ASC', 'middleName ASC']
         }
       });

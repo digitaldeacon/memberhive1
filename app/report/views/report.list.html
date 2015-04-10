@@ -23,7 +23,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr dir-paginate="report in reportCtrl.reports | itemsPerPage: reportCtrl.pageSize"
+    <tr dir-paginate="report in reportCtrl.reports | itemsPerPage: gemConfig.pagination.pageSize"
         total-items="reportCtrl.totalReports">
       <td>{{::report.name}}</td>
       <td>{{::report.query}}</td>

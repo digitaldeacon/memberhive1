@@ -1,10 +1,9 @@
 export class PersonController {
 
-  constructor(PersonService, Person, config, apiUrl) {
+  constructor(PersonService, Person, apiUrl) {
     this.PersonService = PersonService;
     this.Person = Person;
 
-    this.pageSize = config.pagination.pageSize;
     this.getContacts = PersonService.getContacts;
     this.hasAvatar = PersonService.hasAvatar;
     this.relationTypes = PersonService.relationTypes;

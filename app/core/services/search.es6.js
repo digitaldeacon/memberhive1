@@ -1,5 +1,3 @@
-'use strict';
-
 class Search {
 
   constructor($q, $filter, Person) {

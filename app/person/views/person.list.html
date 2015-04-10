@@ -25,7 +25,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr dir-paginate="person in personCtrl.persons | itemsPerPage: personCtrl.pageSize"
+    <tr dir-paginate="person in personCtrl.persons | itemsPerPage: gemConfig.pagination.pageSize"
         total-items="personCtrl.totalPersons">
 
       <script type="text/ng-template" id="household-popover">

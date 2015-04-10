@@ -1,4 +1,4 @@
-export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, gettext, config, $upload, apiUrl) {
+export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, gettext, $upload, apiUrl, $rootScope) {
   return {
     currentUser: () => {
       return Person.findById({id: LoopBackAuth.currentUserId});
@@ -31,8 +31,8 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
     all: (pageNumber) => {
       return Person.find({
         filter: {
-          limit: config.pagination.pageSize,
-          offset: (pageNumber - 1) * config.pagination.pageSize,
+          limit: $rootScope.gemConfig.pagination.pageSize,
+          offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
           include: [
             'contacts',
