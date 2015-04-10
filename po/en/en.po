@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2015-04-02 08:04+0000\n"
-"PO-Revision-Date: 2015-04-02 08:04+0000\n"
+"POT-Creation-Date: 2015-04-10 12:12+0000\n"
+"PO-Revision-Date: 2015-04-10 12:12+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -15,22 +15,26 @@ msgstr ""
 msgid "Everything"
 msgstr "Everything"
 
-#: app/address/services/address-service.es6.js:9
-msgid "Home Address"
-msgstr "Home Address"
+#: app/person/views/person.edit.html:5
+msgid "Edit {{person | formatName}}"
+msgstr "Edit {{person | formatName}}"
 
-#: app/address/services/address-service.es6.js:11
-msgid "Postal Address"
-msgstr "Postal Address"
+#: app/_global/tpl/sidebar.html:30
+msgid "New Person"
+msgstr "New Person"
 
-#: app/address/services/address-service.es6.js:10
-msgid "Work Address"
-msgstr "Work Address"
+#: app/_global/tpl/sidebar.html:49
+msgid "New Report"
+msgstr "New Report"
 
 #: app/person/views/person.list.html:24
 #: app/report/views/report.list.html:22
 msgid "Actions"
 msgstr "Actions"
+
+#: app/address/address.es6.js:16
+msgid "Address"
+msgstr "Address"
 
 #: app/person/views/person.edit.html:20
 msgid "Addresses"
@@ -42,12 +46,18 @@ msgstr "Avatar"
 
 #: app/person/views/person.edit.tab.personal.html:38
 #: app/person/views/person.list.html:61
+#: app/report/controllers/report-controller.es6.js:46
+#: app/report/controllers/report-upsert-controller.es6.js:30
 msgid "Birthdate"
 msgstr "Birthdate"
 
-#: app/report/views/report.upsert.html:33
+#: app/report/views/report.upsert.html:41
 msgid "Build Query"
 msgstr "Build Query"
+
+#: app/person/controllers/person-edit-controller.es6.js:91
+msgid "Can’t read image. Please try again."
+msgstr "Can’t read image. Please try again."
 
 #: app/person/views/person.edit.tab.personal.html:41
 msgid "Close"
@@ -61,17 +71,38 @@ msgstr "Contact Info"
 msgid "Create"
 msgstr "Create"
 
-#: app/_global/tpl/sidebar.html:68
+#: app/note/note.es6.js:36
 msgid "Create Note"
 msgstr "Create Note"
 
-#: app/_global/tpl/sidebar.html:13
+#: app/person/person.es6.js:83
+msgid "Create Person"
+msgstr "Create Person"
+
+#: app/report/report.es6.js:72
+msgid "Create Report"
+msgstr "Create Report"
+
+#: app/person/person.es6.js:61
+msgid "Create a Person"
+msgstr "Create a Person"
+
+#: app/person/person.es6.js:43
+msgid "Create and edit Person"
+msgstr "Create and edit Person"
+
+#: app/person/controllers/person-edit-controller.es6.js:43
+msgid "Create new Person"
+msgstr "Create new Person"
+
+#: app/dashboard/dashboard.es6.js:30
+#: app/dashboard/dashboard.es6.js:37
 #: app/dashboard/views/dashboard.html:7
 msgid "Dashboard"
 msgstr "Dashboard"
 
 #: app/dashboard/views/dashboard.html:17
-#: app/person/views/person.list.html:96
+#: app/person/views/person.list.html:100
 #: app/report/views/report.list.html:40
 msgid "Delete"
 msgstr "Delete"
@@ -88,6 +119,7 @@ msgstr "Display the current temperature of a city"
 msgid "Duplicate"
 msgstr "Duplicate"
 
+#: app/person/views/person.list.html:96
 #: app/report/views/report.list.html:32
 msgid "Edit"
 msgstr "Edit"
@@ -96,15 +128,23 @@ msgstr "Edit"
 msgid "Edit Person"
 msgstr "Edit Person"
 
-#: app/person/views/person.edit.html:5
-msgid "Edit {{person | formatName}}"
-msgstr "Edit {{person | formatName}}"
+#: app/person/person.es6.js:70
+msgid "Edit a Person"
+msgstr "Edit a Person"
+
+#: app/report/views/report.upsert.html:23
+msgid "Edit: {{reportUpCtrl.report.name}}"
+msgstr "Edit: {{reportUpCtrl.report.name}}"
 
 #: app/person/views/person.edit.tab.personal.html:60
 #: app/person/views/person.list.html:64
 #: app/person/views/person.view.contacts.html:2
 msgid "Email"
 msgstr "Email"
+
+#: app/_global/controllers/app-controller.es6.js:24
+msgid "English"
+msgstr "English"
 
 #: app/person/views/person.list.html:80
 #: app/person/views/person.view.contacts.html:26
@@ -121,18 +161,38 @@ msgstr "Facebook Username"
 msgid "Fax"
 msgstr "Fax"
 
+#: app/report/controllers/report-controller.es6.js:43
+#: app/report/controllers/report-upsert-controller.es6.js:27
+msgid "Female"
+msgstr "Female"
+
 #: app/person/views/person.edit.tab.personal.html:17
+#: app/report/controllers/report-controller.es6.js:39
+#: app/report/controllers/report-upsert-controller.es6.js:23
 msgid "First Name"
 msgstr "First Name"
 
+#: app/report/controllers/report-controller.es6.js:42
+#: app/report/controllers/report-upsert-controller.es6.js:26
+msgid "Gender"
+msgstr "Gender"
+
+#: app/_global/controllers/app-controller.es6.js:29
+msgid "German"
+msgstr "German"
+
 #: app/dashboard/views/dashboard.html:4
-#: app/person/views/person.create.html:4
 #: app/person/views/person.list.html:4
 #: app/person/views/person.view.contacts.html:8
 #: app/report/views/report.list.html:4
 #: app/report/views/report.upsert.html:4
 msgid "Home"
 msgstr "Home"
+
+#: app/address/services/address-service.es6.js:9
+#: app/person/views/person.edit.tab.addresses.html:2
+msgid "Home Address"
+msgstr "Home Address"
 
 #: app/person/views/person.edit.tab.personal.html:85
 msgid "Home Phone"
@@ -152,25 +212,33 @@ msgid "Household Address"
 msgstr "Household Address"
 
 #: app/person/views/person.edit.tab.personal.html:29
+#: app/report/controllers/report-controller.es6.js:40
+#: app/report/controllers/report-upsert-controller.es6.js:24
 msgid "Last Name"
 msgstr "Last Name"
 
-#: app/_global/tpl/sidebar.html:25
+#: app/person/person.es6.js:82
 msgid "List Persons"
 msgstr "List Persons"
 
-#: app/_global/tpl/sidebar.html:44
+#: app/report/report.es6.js:71
 msgid "List Reports"
 msgstr "List Reports"
 
+#: app/auth/auth.es6.js:9
 #: app/auth/views/login.html:35
 #: app/person/views/person.edit.tab.personal.html:50
 msgid "Login"
 msgstr "Login"
 
-#: app/_global/tpl/sidebar.html:76
+#: app/_global/tpl/sidebar.html:34
 msgid "Logout"
 msgstr "Logout"
+
+#: app/report/controllers/report-controller.es6.js:43
+#: app/report/controllers/report-upsert-controller.es6.js:27
+msgid "Male"
+msgstr "Male"
 
 #: app/person/views/person.edit.tab.personal.html:25
 msgid "Middle Name"
@@ -193,29 +261,29 @@ msgstr "Mobile Phone"
 msgid "Mobile phone"
 msgstr "Mobile phone"
 
-#: app/_global/tpl/sidebar.html:63
+#: app/note/note.es6.js:35
 msgid "My Notes"
 msgstr "My Notes"
-
-#: app/_global/tpl/sidebar.html:30
-msgid "New Person"
-msgstr "New Person"
-
-#: app/_global/tpl/sidebar.html:49
-msgid "New Report"
-msgstr "New Report"
 
 #: app/person/views/person.edit.tab.personal.html:21
 msgid "Nickname"
 msgstr "Nickname"
 
-#: app/_global/tpl/sidebar.html:57
+#: app/note/note.es6.js:33
 msgid "Notes"
 msgstr "Notes"
 
 #: app/dashboard/views/dashlet.person.count.html:27
-#: app/person/views/person.create.html:7
+#: app/person/person.es6.js:34
 #: app/person/views/person.list.html:7
+#: app/report/controllers/report-controller.es6.js:39
+#: app/report/controllers/report-controller.es6.js:40
+#: app/report/controllers/report-controller.es6.js:42
+#: app/report/controllers/report-controller.es6.js:46
+#: app/report/controllers/report-upsert-controller.es6.js:23
+#: app/report/controllers/report-upsert-controller.es6.js:24
+#: app/report/controllers/report-upsert-controller.es6.js:26
+#: app/report/controllers/report-upsert-controller.es6.js:30
 msgid "Person"
 msgid_plural "Persons"
 msgstr[0] "Person"
@@ -233,14 +301,23 @@ msgstr "Person details"
 msgid "Personal"
 msgstr "Personal"
 
-#: app/_global/tpl/sidebar.html:19
 #: app/dashboard/views/dashlet.person.count.html:6
+#: app/person/person.es6.js:80
 msgid "Persons"
 msgstr "Persons"
 
 #: app/adf/widgets/weather/weather.html:2
 msgid "Please insert a location in the widget configuration"
 msgstr "Please insert a location in the widget configuration"
+
+#: app/person/controllers/person-edit-controller.es6.js:82
+msgid "Please select an image that is at least 800x800 pixels."
+msgstr "Please select an image that is at least 800x800 pixels."
+
+#: app/address/services/address-service.es6.js:11
+#: app/person/views/person.edit.tab.addresses.html:8
+msgid "Postal Address"
+msgstr "Postal Address"
 
 #: app/person/views/person.edit.tab.personal.html:74
 msgid "Primary contact"
@@ -250,7 +327,7 @@ msgstr "Primary contact"
 msgid "Query"
 msgstr "Query"
 
-#: app/report/views/report.upsert.html:29
+#: app/report/views/report.upsert.html:37
 msgid "Report Name"
 msgstr "Report Name"
 
@@ -258,7 +335,7 @@ msgstr "Report Name"
 msgid "Report Types"
 msgstr "Report Types"
 
-#: app/report/views/report.upsert.html:47
+#: app/report/views/report.upsert.html:56
 msgid "Report layout"
 msgstr "Report layout"
 
@@ -266,11 +343,11 @@ msgstr "Report layout"
 msgid "Report name"
 msgstr "Report name"
 
-#: app/report/views/report.upsert.html:24
+#: app/report/views/report.upsert.html:32
 msgid "Report source"
 msgstr "Report source"
 
-#: app/_global/tpl/sidebar.html:38
+#: app/report/report.es6.js:69
 #: app/report/views/report.list.html:7
 #: app/report/views/report.upsert.html:7
 msgid "Reports"
@@ -289,7 +366,7 @@ msgstr "Roles"
 msgid "Save Changes"
 msgstr "Save Changes"
 
-#: app/_global/tpl/header.html:36
+#: app/_global/tpl/header.html:35
 msgid "Search"
 msgstr "Search"
 
@@ -318,6 +395,14 @@ msgstr "Skype"
 msgid "Skype Name"
 msgstr "Skype Name"
 
+#: app/report/controllers/report-controller.es6.js:98
+msgid "Successfully created query for report"
+msgstr "Successfully created query for report"
+
+#: app/report/services/report-service.es6.js:24
+msgid "Successfully saved report:"
+msgstr "Successfully saved report:"
+
 #: app/person/views/person.edit.tab.personal.html:33
 msgid "Suffix"
 msgstr "Suffix"
@@ -338,6 +423,10 @@ msgstr "User can log in"
 msgid "Username"
 msgstr "Username"
 
+#: app/person/person.es6.js:52
+msgid "View Person details"
+msgstr "View Person details"
+
 #: app/adf/widgets/weather/weather.js:30
 msgid "Weather"
 msgstr "Weather"
@@ -345,6 +434,11 @@ msgstr "Weather"
 #: app/person/views/person.view.contacts.html:13
 msgid "Work"
 msgstr "Work"
+
+#: app/address/services/address-service.es6.js:10
+#: app/person/views/person.edit.tab.addresses.html:4
+msgid "Work Address"
+msgstr "Work Address"
 
 #: app/person/views/person.edit.tab.personal.html:95
 msgid "Work Phone"
