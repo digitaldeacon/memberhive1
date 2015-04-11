@@ -1,5 +1,5 @@
 export class HeaderController {
-  constructor($scope, $q, Search) {
+  constructor($scope, $state, $q, Search) {
     $scope.getSearch = function(val) {
       var promises = Search.byComponent($scope.component,val);
       var results = [];
@@ -10,5 +10,10 @@ export class HeaderController {
         return results;
       });
     };
+
+    $scope.$on('$stateChangeSuccess', function updatePage() {
+      $scope.component = $state.current.data.component;
+    });
+
   }
 }

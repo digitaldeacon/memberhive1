@@ -36,7 +36,6 @@ export var gemPersonModule = angular.module('gem.person',
       },
       abstract: true
     }).state('person.list', {
-
       url: '/list',
       templateUrl: '../person/views/person.list.html',
       data: {
