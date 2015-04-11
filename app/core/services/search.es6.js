@@ -9,27 +9,19 @@ class Search {
   }
 
   findPerson(val) {
-    console.log('searvhing: ' + val);
-      this.person.find({
-        where: { or:
+    return this.person.find({filter:
+        {where: { or:
           [{firstname: {like: '%'+val+'%'}},{lastname: {like: '%'+val+'%'}}]
-        }
-      }).$promise.then( (response) => {
-        console.log(response);
+        }}
       });
-    return [];
   }
   byComponent(component,val) {
-      var arr = [];
+      var r = null;
       if (component && this.models.indexOf(component)) {
         if (component === 'person') {
-          arr = this.findPerson(val);
+          return this.findPerson(val);
         }
       }
-      console.log(val);
-      console.log(component);
-      console.log(arr);
-
-      return arr;
+      return r;
   }
 }

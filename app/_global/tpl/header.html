@@ -1,5 +1,5 @@
 <script type="text/ng-template" id="searchResultsTpl.html">
-  <a tabindex="-1">
+  <a tabindex="-1" ui-sref="person.view({ id: match.label.id })">
     <span class="fa fa-user"></span>
     <span ng-bind-html-unsafe="match.label.firstName | typeaheadHighlight:query">{{match.label.firstName}}</span>
     <span ng-bind-html-unsafe="match.label.lastName | typeaheadHighlight:query">{{match.label.lastName}}</span>

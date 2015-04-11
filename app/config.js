@@ -141,14 +141,17 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
       "jquery": "github:components/jquery@1.11.2",
-      "jquery-ui": "github:components/jqueryui@1.11.3"
+      "jquery-ui": "github:components/jqueryui@1.11.3",
+      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0"
     },
     "github:systemjs/plugin-css@0.1.9": {
       "clean-css": "npm:clean-css@3.1.8",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
+    },
+    "github:twbs/bootstrap@3.3.4": {
+      "jquery": "github:components/jquery@2.1.3"
     },
     "npm:amdefine@0.1.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -195,6 +198,9 @@ System.config({
     },
     "npm:events-browserify@0.0.1": {
       "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:font-awesome@4.3.0": {
+      "css": "github:systemjs/plugin-css@0.1.9"
     },
     "npm:https-browserify@0.0.0": {
       "http": "github:jspm/nodelibs-http@1.7.1"

@@ -3,6 +3,11 @@
   "plural": "EntityTags",
   "base": "PersistedModel",
   "idInjection": true,
+  "options": {
+    "mysql": {
+      "table": "CorEntityTag"
+    }
+  },
   "properties": {
     "tagId": {
       "type": "number",
