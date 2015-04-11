@@ -11,7 +11,8 @@ export class HeaderController {
       });
     };
 
-    $scope.$on('$stateChangeSuccess', function updatePage() {
+    $scope.component = $state.current.data.component;
+    $scope.$on('$stateChangeSuccess', () => {
       $scope.component = $state.current.data.component;
     });
 

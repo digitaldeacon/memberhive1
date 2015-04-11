@@ -17,10 +17,12 @@ class Search {
       });
   }
   byComponent(component,val) {
-    if (component && this.models.indexOf(component)) {
-      if (component === 'person') {
-         this.promises.push(this.findPerson(val).$promise);
-      }
+    switch (component) {
+      case 'person':
+        this.promises.push(this.findPerson(val).$promise);
+        break;
+      default:
+        this.promises.push(this.findPerson(val).$promise);
     }
     return this.promises;
   }
