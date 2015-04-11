@@ -1,9 +1,13 @@
 export class HeaderController {
-  constructor($scope, $filter, Search) {
+  constructor($scope, $q, Search) {
     $scope.getSearch = function(val) {
-      var r = Search.byComponent($scope.component,val);
-      return r.$promise.then(data => {
-        return data;
+      var promises = Search.byComponent($scope.component,val);
+      var results = [];
+      return $q.all(promises).then(data => {
+        data.map(item => {
+          results = item;
+        });
+        return results;
       });
     };
   }

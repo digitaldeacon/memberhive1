@@ -6,6 +6,7 @@ class Search {
     this.person = Person;
 
     this.models = ['all','person'];
+    this.promises = [];
   }
 
   findPerson(val) {
@@ -16,12 +17,11 @@ class Search {
       });
   }
   byComponent(component,val) {
-      var r = null;
-      if (component && this.models.indexOf(component)) {
-        if (component === 'person') {
-          return this.findPerson(val);
-        }
+    if (component && this.models.indexOf(component)) {
+      if (component === 'person') {
+         this.promises.push(this.findPerson(val).$promise);
       }
-      return r;
+    }
+    return this.promises;
   }
 }
