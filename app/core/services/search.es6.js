@@ -10,11 +10,20 @@ class Search {
   }
 
   findPerson(val) {
-    return this.person.find({filter:
-        {where: { or:
-          [{firstname: {like: '%'+val+'%'}},{lastname: {like: '%'+val+'%'}}]
-        }}
-      });
+    return this.person.find({
+      filter: {
+        limit: 20,
+        where: {
+            or: [
+              {firstName: {like: '%'+val+'%'}},{lastName: {like: '%'+val+'%'}},
+              {nickName: {like: '%'+val+'%'}},{middleName: {like: '%'+val+'%'}},
+              {prefix: {like: '%'+val+'%'}},{suffix: {like: '%'+val+'%'}}
+              //{'contacts.value': {like: '%'+val+'%'}}
+            ]
+        },
+        //include: ['contacts']
+      }
+    });
   }
   byComponent(component,val) {
     switch (component) {

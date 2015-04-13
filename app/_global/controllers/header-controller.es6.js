@@ -7,6 +7,7 @@ export class HeaderController {
         data.map(item => {
           results = item;
         });
+        console.log(results);
         return results;
       });
     };
