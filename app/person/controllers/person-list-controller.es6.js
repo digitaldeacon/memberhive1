@@ -1,4 +1,4 @@
-export class PersonController {
+export class PersonListController {
 
   constructor(PersonService, Person, apiUrl) {
     this.PersonService = PersonService;

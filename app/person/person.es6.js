@@ -5,7 +5,7 @@ import 'angularUtils-pagination';
 import 'nsPopover';
 
 import 'person/filters/person-filters';
-import {PersonController} from 'person/controllers/person-controller';
+import {PersonListController} from 'person/controllers/person-list-controller';
 import {PersonEditController} from 'person/controllers/person-edit-controller';
 import {PersonViewController} from 'person/controllers/person-view-controller';
 import {PersonService} from 'person/services/person-service';
@@ -84,7 +84,7 @@ export var gemPersonModule = angular.module('gem.person',
     ));
   }
 );
-gemPersonModule.controller('PersonController', PersonController);
+gemPersonModule.controller('PersonListController', PersonListController);
 gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);
 
