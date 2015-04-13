@@ -1,17 +1,14 @@
 <script type="text/ng-template" id="searchResultsTpl.html">
   <a tabindex="-1" ui-sref="person.view({ id: match.label.id })" ng-show="match.label.firstName">
     <gem-avatar person="match.label" size="xs" circle></gem-avatar>
-    <span ng-bind-html-unsafe="match.label.firstName | typeaheadHighlight:query">{{match.label.firstName}}</span>
-    <span ng-bind-html-unsafe="match.label.lastName | typeaheadHighlight:query">{{match.label.lastName}}</span>
-    <span ng-bind-html-unsafe="match.label.nickName | typeaheadHighlight:query"><i>({{match.label.nickName}})</i></span>
+    <span ng-bind-html="match.label | formatName | typeaheadHighlight:query"></span>
   </a>
   <a tabindex="-1" ui-sref="person.view({ id: match.label.id })" ng-show="match.label.tag">
     <span class="fa fa-tag"></span>
-    <span ng-bind-html-unsafe="match.label.firstName | typeaheadHighlight:query">{{match.label.firstName}}</span>
-    <span ng-bind-html-unsafe="match.label.lastName | typeaheadHighlight:query">{{match.label.lastName}}</span>
+    <span ng-bind-html="match.label | formatName | typeaheadHighlight:query"></span>
   </a>
 </script>
-<p>asfd</p>
+
 <div class="page-header navbar navbar-fixed-top">
   <!-- BEGIN HEADER INNER -->
   <div class="page-header-inner">
