@@ -36,8 +36,8 @@ System.config({
     "angular-ui/bootstrap": "github:angular-ui/bootstrap-bower@master",
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
     "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
-    "babel": "npm:babel@4.7.16",
-    "babel-runtime": "npm:babel-runtime@4.7.16",
+    "babel": "npm:babel-core@5.1.1",
+    "babel-runtime": "npm:babel-runtime@5.1.1",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
@@ -52,11 +52,11 @@ System.config({
     "jquery": "github:components/jquery@2.1.3",
     "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.6.0",
-    "moment": "github:moment/moment@2.9.0",
+    "moment": "github:moment/moment@2.10.2",
     "ngImgCrop": "github:alexk111/ngImgCrop@0.3.2",
     "nsPopover": "github:nohros/nsPopover@0.6.7",
     "rangy": "github:timdown/rangy-release@1.2.3",
-    "restangular": "github:mgonto/restangular@1.4.0",
+    "restangular": "github:mgonto/restangular@1.5.1",
     "textAngular": "npm:textangular@1.3.11",
     "github:angular-ui/bootstrap-bower@0.12.0": {
       "angular": "github:angular/bower-angular@1.2.28"
@@ -128,7 +128,7 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
-    "github:mgonto/restangular@1.4.0": {
+    "github:mgonto/restangular@1.5.1": {
       "angular": "github:angular/bower-angular@1.3.15",
       "lodash": "npm:lodash@3.6.0"
     },
@@ -146,12 +146,12 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
+      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
       "jquery": "github:components/jquery@1.11.2",
-      "jquery-ui": "github:components/jqueryui@1.11.3",
-      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0"
+      "jquery-ui": "github:components/jqueryui@1.11.3"
     },
     "github:systemjs/plugin-css@0.1.9": {
-      "clean-css": "npm:clean-css@3.1.8",
+      "clean-css": "npm:clean-css@3.1.9",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
@@ -180,6 +180,19 @@ System.config({
       "is-array": "npm:is-array@1.0.1"
     },
     "npm:clean-css@3.1.8": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "commander": "npm:commander@2.6.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "http": "github:jspm/nodelibs-http@1.7.1",
+      "https": "github:jspm/nodelibs-https@0.1.0",
+      "os": "github:jspm/nodelibs-os@0.1.0",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "source-map": "npm:source-map@0.1.43",
+      "url": "github:jspm/nodelibs-url@0.1.0",
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:clean-css@3.1.9": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commander": "npm:commander@2.6.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
