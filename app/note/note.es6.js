@@ -1,9 +1,12 @@
+import 'angular-ui-tree';
+
 import {MenuSection, MenuLink} from 'core/providers/menu-provider';
 import {NoteEditFormDirective, NoteTreeDirective} from 'note/directives/note-directives';
 import {NoteService} from 'note/services/note-service';
 import {NoteListController} from 'note/controllers/note-list-controller';
 
-export var gemNoteModule = angular.module('gem.note', []).config(
+
+export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
   ($stateProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('note', {
       url: '/note',

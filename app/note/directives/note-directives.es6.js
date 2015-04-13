@@ -10,7 +10,7 @@ export function NoteEditFormDirective() {
         note : '='
     },
     restrict: 'E',
-    template: '<input ng-model="{{note.title}}" type="text"/> <br /> <textarea ng-model="{{note.content}}" />'
+    templateUrl: 'note/templates/note-edit-form-directive.html'
   };
 }
 
@@ -18,9 +18,9 @@ export function NoteEditFormDirective() {
 export function NoteTreeDirective() {
   return {
     scope : {
-        note : '='
+        tree : '='
     },
     restrict: 'E',
-    template: '<input ng-model="{{note.title}}" type="text"/> <br /> <textarea ng-model="{{note.content}}" /'
+    templateUrl: 'note/templates/note-tree-directive.html'
   };
 }
