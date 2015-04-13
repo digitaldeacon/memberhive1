@@ -1,5 +1,7 @@
 export class HeaderController {
   constructor($scope, $state, $q, Search) {
+    this.term = '';
+
     $scope.getSearch = function(val) {
       var promises = Search.byComponent($scope.component,val);
       var results = [];
@@ -7,7 +9,7 @@ export class HeaderController {
         data.map(item => {
           results = item;
         });
-        return results;
+        return results.results;
       });
     };
 

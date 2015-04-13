@@ -1,18 +1,14 @@
 <script type="text/ng-template" id="searchResultsTpl.html">
   <a tabindex="-1" ui-sref="person.view({ id: match.label.id })" ng-show="match.label.firstName">
-    <span class="fa fa-user"></span>
     <gem-avatar person="match.label" size="xs" circle></gem-avatar>
-    <span ng-bind-html-unsafe="match.label.firstName | typeaheadHighlight:query">{{match.label.firstName}}</span>
-    <span ng-bind-html-unsafe="match.label.lastName | typeaheadHighlight:query">{{match.label.lastName}}</span>
-    <span ng-bind-html-unsafe="match.label.nickName | typeaheadHighlight:query"><i>({{match.label.nickName}})</i></span>
+    <span ng-bind-html="match.label | formatName | typeaheadHighlight:query"></span>
   </a>
   <a tabindex="-1" ui-sref="person.view({ id: match.label.id })" ng-show="match.label.tag">
     <span class="fa fa-tag"></span>
-    <span ng-bind-html-unsafe="match.label.firstName | typeaheadHighlight:query">{{match.label.firstName}}</span>
-    <span ng-bind-html-unsafe="match.label.lastName | typeaheadHighlight:query">{{match.label.lastName}}</span>
+    <span ng-bind-html="match.label | formatName | typeaheadHighlight:query"></span>
   </a>
 </script>
-<p>asfd</p>
+
 <div class="page-header navbar navbar-fixed-top">
   <!-- BEGIN HEADER INNER -->
   <div class="page-header-inner">
@@ -32,8 +28,12 @@
       <form id="main-search search-form" role="form" novalidate="novalidate">
         <div class="input-group search-group">
           <select selectpicker class="selectpicker" ng-model="component">
-            <option data-icon="glyphicon glyphicon-globe" value="all">Everything</option>
-            <option data-icon="glyphicon glyphicon-user" value="person">Persons</option>
+            <option data-icon="glyphicon glyphicon-globe" value="all">
+              {{'Everything' | translate}} <!-- <translate> directive doesn't work here -->
+            </option>
+            <option data-icon="glyphicon glyphicon-user" value="person">
+              {{'Persons' | translate}}
+            </option>
           </select>
           <input name="global-search"
                  class="search-field middle"
@@ -41,11 +41,12 @@
                  tabindex="0"
                  placeholder="{{'Search' | translate}}"
                  id="global-search"
-                 ng-model="asyncSearch"
+                 ng-model="header.term"
                  typeahead="search for search in getSearch($viewValue)"
                  typeahead-loading="loadingSearch"
                  typeahead-template-url="searchResultsTpl.html"
-                 typeahead-wait-ms="200">
+                 typeahead-wait-ms="150"
+                 typeahead-min-length="2">
           <span class="search-btn-group">
             <button type="button" class="btn search-btn">
               <i class="fa fa-search fa-lg" ng-hide="loadingSearch"></i>

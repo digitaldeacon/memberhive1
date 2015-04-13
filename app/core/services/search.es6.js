@@ -1,28 +1,20 @@
 class Search {
 
-  constructor($q, $filter, Person) {
-    this.$q = $q;
-    this.$filter = $filter;
+  constructor(Person) {
     this.Person = Person;
 
-    this.models = ['all','person'];
+    this.models = ['all', 'person'];
     this.promises = [];
   }
 
   findPerson(val) {
-    return this.Person.find({
+    return this.Person.search({
       ignoreLoadingBar: true, // Don't block the UI
-      filter: {
-        where: {
-          or: [
-            {firstName: {like: `%${val}%`}},
-            {middleName: {like: `%${val}%`}},
-            {lastName: {like: `%${val}%`}}
-          ]
-        }}
-      });
+      value: val
+    });
   }
-  byComponent(component,val) {
+
+  byComponent(component, val) {
     switch (component) {
       case 'person':
         this.promises.push(this.findPerson(val).$promise);

@@ -51,27 +51,16 @@
 
   <div class="form-group">
     <label for="login">
-      <input type="checkbox" id="login" name="login" ng-model="personCtrl.hasUserAccount" />
+      <input type="checkbox" id="login" name="login" />
       <translate>User can log in</translate>
     </label>
-  </div>
-
-  <div ng-show="personCtrl.hasUserAccount">
-    <control-group label="{{'Email' | translate}}">
-      <div class="input-group ">
-      <span class="input-group-addon">
-        <fa name="envelope"></fa>
-      </span>
-        <input class="form-control" type="text" id="email" name="email" ng-model="person.account.email"/>
-      </div>
-    </control-group>
   </div>
 </div>
 
 <div class="col-md-6">
   <h3 translate>Contact Info</h3>
 
-  <div class="form-group" label="{{'Primary contact' | translate}}">
+  <control-group label="{{'Primary contact' | translate}}">
     <ui-select ng-model="person.primaryContact" theme="bootstrap">
       <ui-select-match placeholder="{{'Select primary contact type...' | translate}}">
         {{$select.selected}}
@@ -80,7 +69,16 @@
         <div ng-bind-html="contactType | highlight: $select.search"></div>
       </ui-select-choices>
     </ui-select>
-  </div>
+  </control-group>
+
+  <control-group label="{{'Email' | translate}}">
+    <div class="input-group ">
+      <span class="input-group-addon">
+        <fa name="envelope"></fa>
+      </span>
+      <input class="form-control" type="text" id="contact.email" name="contact.email" ng-model="person.email"/>
+    </div>
+  </control-group>
 
   <control-group label="{{'Home Phone' | translate}}">
     <div class="input-group ">

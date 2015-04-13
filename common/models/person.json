@@ -35,6 +35,9 @@
     "birthdate": {
       "type": "date"
     },
+    "email": {
+      "type": "string"
+    },
     "primaryContact": {
       "type": "string",
       "required": true,

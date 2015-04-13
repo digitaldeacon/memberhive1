@@ -20,7 +20,7 @@
   "devDependencies": {
     "babel": "^5.1.1",
     "grunt": "^0.4.5",
-    "grunt-angular-gettext": "https://github.com/smehrbrodt/grunt-angular-gettext.git",
+    "grunt-angular-gettext": "smehrbrodt/grunt-angular-gettext",
     "grunt-autoprefixer": "^2.0.0",
     "grunt-babel": "^4.0.0",
     "grunt-concurrent": "^1.0.0",
