@@ -7,7 +7,6 @@
 export function NoteEditFormDirective() {
   return {
     restrict: 'E',
-    replace: 'true',
-    template: 'Hello <input type="text name="title" /> <br /> <textarea ng-model="" />'
+    template: '<input type="text name="title" /> <br /> <textarea />'
   };
 }

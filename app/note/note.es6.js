@@ -47,3 +47,6 @@ export var gemNoteModule = angular.module('gem.note', []).config(
   }
 );
 gemNoteModule.directive('gemNoteEditForm', NoteEditFormDirective);
+gemNoteModule.config(function($logProvider){
+    $logProvider.debugEnabled(true);
+});

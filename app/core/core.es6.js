@@ -39,3 +39,6 @@ gemCoreModule.directive('controlGroup', controlGroupDirective);
 // Filters
 gemCoreModule.filter('fromNow', fromNowFilter);
 gemCoreModule.filter('temperature', temperatureFilter);
+gemCoreModule.config(function($logProvider){
+    $logProvider.debugEnabled(true);
+});
