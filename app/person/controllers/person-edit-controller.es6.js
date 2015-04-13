@@ -17,7 +17,6 @@ export class PersonEditController{
     this.households = PersonService.getHouseholds();
     this.addressTypes = AddressService.addressTypes;
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
-    //this.hasUserAccount = (person.account !== undefined);
     this.avatar = null;
     this.uploadedAvatar = null;
     this.croppedAvatar = null;
