@@ -9,7 +9,7 @@ export class HeaderController {
         data.map(item => {
           results = item;
         });
-        return results;
+        return results.results;
       });
     };
 
