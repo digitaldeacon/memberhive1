@@ -15,7 +15,7 @@ Install process
 * `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
 * `nvm install iojs` *install iojs*
 * make sure you have iojs added to your PATH variable (e.g. `export PATH="$PATH:$HOME/.nvm/versions/io.js/v1.6.3/bin"`)
-* `npm install -g jspm grunt-cli nodemon`
+* `npm install -g jspm grunt-cli`
 * clone gemmii-web from git: `git https://github.com/ebtc/gemmii-web.git`
 * cd to gemmi-web/
 * `npm install` *Install dev dependencies*

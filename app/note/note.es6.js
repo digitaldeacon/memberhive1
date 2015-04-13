@@ -1,4 +1,5 @@
 import {MenuSection, MenuLink} from 'core/providers/menu-provider';
+import {NoteEditFormDirective} from 'note/directives/note-editform';
 
 export var gemNoteModule = angular.module('gem.note', []).config(
   ($stateProvider, MainMenuProvider, gettext) => {
@@ -45,3 +46,4 @@ export var gemNoteModule = angular.module('gem.note', []).config(
     ));
   }
 );
+gemNoteModule.directive('gemNoteEditForm', NoteEditFormDirective);
