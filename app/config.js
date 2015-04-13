@@ -77,10 +77,10 @@ System.config({
       "angular": "github:angular/bower-angular@1.3.15"
     },
     "github:components/jqueryui@1.11.3": {
-      "jquery": "github:components/jquery@2.1.3"
+      "jquery": "github:components/jquery@1.11.2"
     },
     "github:components/jqueryui@1.11.4": {
-      "jquery": "github:components/jquery@2.1.3"
+      "jquery": "github:components/jquery@1.11.2"
     },
     "github:eternicode/bootstrap-datepicker@1.4.0": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
