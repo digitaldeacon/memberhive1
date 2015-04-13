@@ -32,10 +32,10 @@
         <div class="input-group search-group">
           <select selectpicker class="selectpicker" ng-model="component">
             <option data-icon="glyphicon glyphicon-globe" value="all">
-              <translate>Everything</translate>
+              {{'Everything' | translate}} <!-- <translate> directive doesn't work here -->
             </option>
             <option data-icon="glyphicon glyphicon-user" value="person">
-              <translate>Persons</translate>
+              {{'Persons' | translate}}
             </option>
           </select>
           <input name="global-search"
