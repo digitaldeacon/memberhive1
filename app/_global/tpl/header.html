@@ -31,8 +31,12 @@
       <form id="main-search search-form" role="form" novalidate="novalidate">
         <div class="input-group search-group">
           <select selectpicker class="selectpicker" ng-model="component">
-            <option data-icon="glyphicon glyphicon-globe" value="all" translate>Everything</option>
-            <option data-icon="glyphicon glyphicon-user" value="person" translate>Persons</option>
+            <option data-icon="glyphicon glyphicon-globe" value="all">
+              <translate>Everything</translate>
+            </option>
+            <option data-icon="glyphicon glyphicon-user" value="person">
+              <translate>Persons</translate>
+            </option>
           </select>
           <input name="global-search"
                  class="search-field middle"
