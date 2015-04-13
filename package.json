@@ -91,6 +91,7 @@
       "angular-ui-select": "github:angular-ui/ui-select@^0.11.2",
       "angular-ui/bootstrap": "github:angular-ui/bootstrap-bower@master",
       "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
+      "angular-ui-tree" : "angular-ui-tree@^2.1.5",
       "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@^0.5.1",
       "bootstrap": "github:twbs/bootstrap@^3.3.4",
       "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@^1.4.0",

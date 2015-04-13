@@ -1,5 +1,7 @@
 import {MenuSection, MenuLink} from 'core/providers/menu-provider';
-import {NoteEditFormDirective} from 'note/directives/note-editform';
+import {NoteEditFormDirective, NoteTreeDirective} from 'note/directives/note-directives';
+import {NoteService} from 'note/services/note-service';
+import {NoteListController} from 'note/controllers/note-list-controller';
 
 export var gemNoteModule = angular.module('gem.note', []).config(
   ($stateProvider, MainMenuProvider, gettext) => {
@@ -47,6 +49,10 @@ export var gemNoteModule = angular.module('gem.note', []).config(
   }
 );
 gemNoteModule.directive('gemNoteEditForm', NoteEditFormDirective);
+gemNoteModule.directive('gemNoteTree', NoteTreeDirective);
+gemNoteModule.service('NoteService', NoteService);
+gemNoteModule.controller('NoteListController', NoteListController);
+
 gemNoteModule.config(function($logProvider){
     $logProvider.debugEnabled(true);
 });
