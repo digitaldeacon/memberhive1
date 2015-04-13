@@ -52,7 +52,7 @@ System.config({
     "jquery": "github:components/jquery@2.1.3",
     "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.6.0",
-    "moment": "github:moment/moment@2.10.2",
+    "moment": "github:moment/moment@2.9.0",
     "ngImgCrop": "github:alexk111/ngImgCrop@0.3.2",
     "nsPopover": "github:nohros/nsPopover@0.6.7",
     "rangy": "github:timdown/rangy-release@1.2.3",
