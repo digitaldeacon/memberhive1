@@ -19,6 +19,7 @@ import 'angular-moment';
 import 'bootstrap-hover-dropdown';
 import 'angular-toastr';
 import 'angular-loading-bar';
+import 'angular-breadcrumb';
 
 // CSS
 import 'bootstrap/css/bootstrap.css!';
@@ -63,7 +64,7 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
   'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
   'angular-confirm', 'angularMoment', 'angular-loading-bar',
-  'gettext', 'textAngular', 'toastr',
+  'gettext', 'textAngular', 'toastr', 'ncy-angular-breadcrumb',
 
   // GEM Modules
   'gem.core', // This needs to be loaded first
@@ -74,12 +75,17 @@ export var gemMainModule = angular.module('gemmiiWebApp', [
 );
 
 gemMainModule.config(
-  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) => {
+  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider) => {
     $urlRouterProvider.otherwise('/dashboard');
 
     cfpLoadingBarProvider.includeBar = false;
     cfpLoadingBarProvider.spinnerTemplate = '<div class="blockui"><div class="page-spinner-bar"><div class="bounce1">' +
       '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
+
+    $breadcrumbProvider.setOptions({
+      prefixStateName: 'dashboard',
+      templateUrl: '_global/tpl/breadcrumb.html'
+    });
 
   });
 

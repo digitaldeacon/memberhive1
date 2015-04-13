@@ -19,6 +19,7 @@ System.config({
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@master",
     "angular-bootstrap-select": "github:joaoneto/angular-bootstrap-select@master",
+    "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@0.3.3",
     "angular-confirm": "github:Schlogen/angular-confirm@master",
     "angular-cookies": "github:angular/bower-angular-cookies@1.3.15",
     "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.7.0",
@@ -42,6 +43,7 @@ System.config({
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
     "bootstrap-select": "github:silviomoreto/bootstrap-select@master",
     "codemirror": "github:codemirror/CodeMirror@5.1.0",
+    "core-js": "npm:core-js@0.8.2",
     "css": "github:systemjs/plugin-css@0.1.9",
     "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@3.2.4",
     "font-awesome": "npm:font-awesome@4.3.0",
@@ -137,6 +139,9 @@ System.config({
       "microevent": "npm:microevent-mistic100@2.1.1",
       "moment": "npm:moment@2.9.0"
     },
+    "github:ncuillery/angular-breadcrumb@0.3.3": {
+      "angular-ui-router": "github:angular-ui/ui-router@0.2.13"
+    },
     "github:sdorra/angular-dashboard-framework@0.7.0": {
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
@@ -191,6 +196,9 @@ System.config({
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
       "events": "github:jspm/nodelibs-events@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:core-js@0.8.2": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:core-util-is@1.0.1": {

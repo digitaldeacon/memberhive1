@@ -41,6 +41,9 @@ export var gemPersonModule = angular.module('gem.person',
       data: {
         pageSubTitle: gettext('Create and edit Person')
       },
+      ncyBreadcrumb: {
+        label: gettext('Persons')
+      },
       acl: {
         needRights: ['$authenticated']
       }
@@ -49,6 +52,10 @@ export var gemPersonModule = angular.module('gem.person',
       templateUrl: '../person/views/person.view.html',
       data: {
         pageSubTitle: gettext('View Person details')
+      },
+      ncyBreadcrumb: {
+        label: gettext('View Person'),
+        parent: 'person.list'
       },
       acl: {
         needRights: ['$authenticated']
@@ -59,6 +66,10 @@ export var gemPersonModule = angular.module('gem.person',
       data: {
         pageSubTitle: gettext('Create a Person')
       },
+      ncyBreadcrumb: {
+        label: gettext('New Person'),
+        parent: 'person.list'
+      },
       acl: {
         needRights: ['$authenticated']
       }
@@ -67,6 +78,10 @@ export var gemPersonModule = angular.module('gem.person',
       templateUrl: '../person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Edit a Person')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Edit Person'),
+        parent: 'person.list'
       },
       acl: {
         needRights: ['$authenticated']

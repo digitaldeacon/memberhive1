@@ -29,6 +29,9 @@ export var gemDashboardModule = angular.module('gem.dashboard',
         data: {
           pageTitle: gettext('Dashboard')
         },
+        ncyBreadcrumb: {
+          label: gettext('Home')
+        },
         acl: {
           needRights: ['$authenticated']
         }
