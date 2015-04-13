@@ -3,16 +3,22 @@ class Search {
   constructor($q, $filter, Person) {
     this.$q = $q;
     this.$filter = $filter;
-    this.person = Person;
+    this.Person = Person;
 
     this.models = ['all','person'];
     this.promises = [];
   }
 
   findPerson(val) {
-    return this.person.find({filter:
-        {where: { or:
-          [{firstname: {like: '%'+val+'%'}},{lastname: {like: '%'+val+'%'}}]
+    return this.Person.find({
+      ignoreLoadingBar: true, // Don't block the UI
+      filter: {
+        where: {
+          or: [
+            {firstName: {like: `%${val}%`}},
+            {middleName: {like: `%${val}%`}},
+            {lastName: {like: `%${val}%`}}
+          ]
         }}
       });
   }
