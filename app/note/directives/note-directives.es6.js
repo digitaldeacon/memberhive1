@@ -1,8 +1,8 @@
 /**
- * Directive to show edit a note
+ * Directive to show and edit a note
  *
  * Minimal Usage:
- *   <gem-note-editform />
+ *   <gem:note-editform />
  */
 export function NoteEditFormDirective() {
   return {
@@ -14,7 +14,7 @@ export function NoteEditFormDirective() {
   };
 }
 
-
+import 'angular-ui-tree/angular-ui-tree.min.css!';
 export function NoteTreeDirective() {
   return {
     scope : {

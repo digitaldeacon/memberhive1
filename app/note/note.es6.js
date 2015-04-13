@@ -51,10 +51,11 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
     ));
   }
 );
+gemNoteModule.controller('NoteListController', NoteListController);
+gemNoteModule.service('NoteService', NoteService);
 gemNoteModule.directive('gemNoteEditForm', NoteEditFormDirective);
 gemNoteModule.directive('gemNoteTree', NoteTreeDirective);
-gemNoteModule.service('NoteService', NoteService);
-gemNoteModule.controller('NoteListController', NoteListController);
+
 
 gemNoteModule.config(function($logProvider){
     $logProvider.debugEnabled(true);
