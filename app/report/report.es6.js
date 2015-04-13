@@ -34,23 +34,34 @@ export var gemReportModule = angular.module('gem.report', []).config(
       data: {
         pageSubTitle: 'Create a new report'
       },
+      ncyBreadcrumb: {
+        label: gettext('New Report'),
+        parent: 'report.list'
+      },
       acl: {
         needRights: ['$authenticated']
       }
     }).state('report.edit', {
-        url: '/edit/:id',
-        templateUrl: '../report/views/report.upsert.html',
-        data: {
-          pageSubTitle: 'Edit a report'
-        },
-        acl: {
-          needRights: ['$authenticated']
-        }
+      url: '/edit/:id',
+      templateUrl: '../report/views/report.upsert.html',
+      data: {
+        pageSubTitle: 'Edit a report'
+      },
+      ncyBreadcrumb: {
+        label: gettext('Edit Report'),
+        parent: 'report.list'
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
       }).state('report.list', {
       url: '/list',
       templateUrl: '../report/views/report.list.html',
       data: {
         pageSubTitle: 'List available reports'
+      },
+      ncyBreadcrumb: {
+        label: gettext('Reports')
       },
       acl: {
         needRights: ['$authenticated']

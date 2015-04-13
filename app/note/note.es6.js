@@ -8,13 +8,16 @@ export var gemNoteModule = angular.module('gem.note', []).config(
       abstract: true,
       data: {
         module: 'note',
-        pageTitle: 'Note',
+        pageTitle: 'Note'
       }
     }).state('note.list', {
       url: '/list',
       templateUrl: '../note/views/note.list.html',
       data: {
         pageSubTitle: 'Create and edit notes'
+      },
+      ncyBreadcrumb: {
+        label: gettext('Notes')
       },
       acl: {
         needRights: ['$authenticated']
@@ -24,6 +27,10 @@ export var gemNoteModule = angular.module('gem.note', []).config(
       templateUrl: '../note/views/note.create.html',
       data: {
         pageSubTitle: 'Create a note'
+      },
+      ncyBreadcrumb: {
+        label: gettext('New Note'),
+        parent: 'note.list'
       },
       acl: {
         needRights: ['$authenticated']

@@ -1,15 +1,4 @@
-<!-- BEGIN PAGE BREADCRUMB -->
-<ul class="page-breadcrumb breadcrumb">
-  <li>
-    <a href="#" translate>Home</a><fa name="circle"></fa>
-  </li>
-  <li class="active">
-    <translate>Person</translate>
-  </li>
-</ul>
-<!-- END PAGE BREADCRUMB -->
-
-<div ng-controller="PersonController as personCtrl" class="person-list">
+<div ng-controller="PersonListController as personCtrl" class="person-list">
   <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
     template-url="_global/tpl/dirPagination.html">
   </dir-pagination-controls>
