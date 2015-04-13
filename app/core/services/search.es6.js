@@ -3,27 +3,24 @@ class Search {
   constructor($q, $filter, Person) {
     this.$q = $q;
     this.$filter = $filter;
-    this.person = Person;
+    this.Person = Person;
 
     this.models = ['all','person'];
     this.promises = [];
   }
 
   findPerson(val) {
-    return this.person.find({
+    return this.Person.find({
+      ignoreLoadingBar: true, // Don't block the UI
       filter: {
-        limit: 20,
         where: {
-            or: [
-              {firstName: {like: '%'+val+'%'}},{lastName: {like: '%'+val+'%'}},
-              {nickName: {like: '%'+val+'%'}},{middleName: {like: '%'+val+'%'}},
-              {prefix: {like: '%'+val+'%'}},{suffix: {like: '%'+val+'%'}}
-              //{'contacts.value': {like: '%'+val+'%'}}
-            ]
-        },
-        //include: ['contacts']
-      }
-    });
+          or: [
+            {firstName: {like: `%${val}%`}},
+            {middleName: {like: `%${val}%`}},
+            {lastName: {like: `%${val}%`}}
+          ]
+        }}
+      });
   }
   byComponent(component,val) {
     switch (component) {
