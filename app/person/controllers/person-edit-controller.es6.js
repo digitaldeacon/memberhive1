@@ -1,11 +1,11 @@
 export class PersonEditController{
-  constructor(PersonService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettext, apiUrl, $filter) {
+  constructor(PersonService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettextCatalog, apiUrl, $filter) {
     this.PersonService = PersonService;
     this.Person = Person;
     this.Contact = Contact;
     this.Shout = Shout;
     this.$scope = $scope;
-    this.gettext = gettext;
+    this.gettextCatalog = gettextCatalog;
     this.$stateParams = $stateParams;
     this.$filter = $filter;
     this.apiUrl = apiUrl;
@@ -39,7 +39,7 @@ export class PersonEditController{
     if (this.isEditing()) {
       return this.$filter('formatName')(this.person);
     } else {
-      return this.gettext('Create new Person');
+      return this.gettextCatalog.getString('Create new Person');
     }
   }
 
@@ -78,7 +78,7 @@ export class PersonEditController{
               this.avatarChanged = true;
               this.uploadedAvatar = event.target.result;
             } else {
-              this.Shout.error(this.gettext('Please select an image that is at least 800x800 pixels.'));
+              this.Shout.error(this.gettextCatalog.getString('Please select an image that is at least 800x800 pixels.'));
               this.uploadedAvatar = null;
             }
           });
@@ -87,7 +87,7 @@ export class PersonEditController{
         });
       };
       reader.onerror = (err) => {
-        this.Shout.error(this.gettext('Can’t read image. Please try again.'));
+        this.Shout.error(this.gettextCatalog.getString('Can’t read image. Please try again.'));
       };
     }
   }

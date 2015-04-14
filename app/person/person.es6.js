@@ -39,7 +39,7 @@ export var gemPersonModule = angular.module('gem.person',
       url: '/list',
       templateUrl: '../person/views/person.list.html',
       data: {
-        pageSubTitle: gettext('Create and edit Person')
+        pageSubTitle: gettext('Create and edit Persons')
       },
       ncyBreadcrumb: {
         label: gettext('Persons')
