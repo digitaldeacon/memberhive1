@@ -22,7 +22,7 @@ System.config({
     "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@0.3.3",
     "angular-confirm": "github:Schlogen/angular-confirm@master",
     "angular-cookies": "github:angular/bower-angular-cookies@1.3.15",
-    "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.8.0",
+    "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.7.0",
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-gettext": "github:rubenv/angular-gettext@2.0.5",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
@@ -76,6 +76,9 @@ System.config({
     },
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
+    },
+    "github:components/jqueryui@1.11.3": {
+      "jquery": "github:components/jquery@2.1.3"
     },
     "github:components/jqueryui@1.11.4": {
       "jquery": "github:components/jquery@1.11.2"
@@ -138,11 +141,13 @@ System.config({
     "github:ncuillery/angular-breadcrumb@0.3.3": {
       "angular-ui-router": "github:angular-ui/ui-router@0.2.13"
     },
-    "github:sdorra/angular-dashboard-framework@0.8.0": {
+    "github:sdorra/angular-dashboard-framework@0.7.0": {
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "sortable": "github:RubaXa/Sortable@1.1.1"
+      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
+      "jquery": "github:components/jquery@1.11.2",
+      "jquery-ui": "github:components/jqueryui@1.11.3"
     },
     "github:systemjs/plugin-css@0.1.9": {
       "clean-css": "npm:clean-css@3.1.9",

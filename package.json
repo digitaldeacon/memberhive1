@@ -78,7 +78,7 @@
       "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@^0.3.3",
       "angular-confirm": "github:Schlogen/angular-confirm@master",
       "angular-cookies": "github:angular/bower-angular-cookies@^1.3.15",
-      "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@^0.8.0",
+      "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@^0.7.0",
       "angular-fontawesome": "npm:angular-fontawesome@^0.3.1",
       "angular-gettext": "github:rubenv/angular-gettext@^2.0.3",
       "angular-loading-bar": "github:chieffancypants/angular-loading-bar@^0.7.1",
@@ -121,14 +121,14 @@
       "github:mistic100/jQuery-QueryBuilder@2.0.1": {
         "registry": "jspm",
         "format": "global",
-        "main": "dist/query-builder.standalone.js",
+        "main": "dist/js/query-builder.standalone.js",
         "dependencies": {
           "jquery": "^1.11.0",
           "bootstrap": "^3.1.0",
           "npm:moment": "^2.6.0"
         },
         "shim": {
-          "dist/query-builder.standalone.js": {
+          "dist/js/query-builder.standalone.js": {
             "deps": [
               "jquery",
               "bootstrap",
@@ -139,19 +139,23 @@
           }
         }
       },
-      "github:sdorra/angular-dashboard-framework@0.8.0": {
+      "github:sdorra/angular-dashboard-framework@0.7.0": {
         "registry": "jspm",
         "main": "dist/angular-dashboard-framework.min",
         "dependencies": {
-          "angular": "~1.2.28",
+          "angular": "~1.2.27",
           "angular-bootstrap": "0.12.0",
-          "github:RubaXa/Sortable": "^1.1.1",
-          "bootstrap": "^3.3.4"
+          "jquery": "1.11.2",
+          "jquery-ui": "1.11.3",
+          "github:angular-ui/ui-sortable": "0.13.0",
+          "bootstrap": "~3.3.1"
         },
         "shim": {
           "dist/angular-dashboard-framework.min": {
             "deps": [
-              "sortable",
+              "jquery",
+              "ui-sortable",
+              "jquery-ui",
               "bootstrap",
               "angular-bootstrap"
             ]
