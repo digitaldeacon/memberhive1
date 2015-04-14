@@ -22,7 +22,7 @@ System.config({
     "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@0.3.3",
     "angular-confirm": "github:Schlogen/angular-confirm@master",
     "angular-cookies": "github:angular/bower-angular-cookies@1.3.15",
-    "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.7.0",
+    "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@0.8.0",
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-gettext": "github:rubenv/angular-gettext@2.0.5",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
@@ -48,12 +48,13 @@ System.config({
     "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@3.2.4",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
-    "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@1.4.2",
+    "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@2.0.1",
     "jquery": "github:components/jquery@2.1.3",
     "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.6.0",
     "moment": "github:moment/moment@2.9.0",
     "ngImgCrop": "github:alexk111/ngImgCrop@0.3.2",
+    "ngTagsInput": "github:lunks/ngTagsInput@master",
     "nsPopover": "github:nohros/nsPopover@0.6.7",
     "rangy": "github:timdown/rangy-release@1.2.3",
     "restangular": "github:mgonto/restangular@1.5.1",
@@ -75,9 +76,6 @@ System.config({
     },
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
-    },
-    "github:components/jqueryui@1.11.3": {
-      "jquery": "github:components/jquery@1.11.2"
     },
     "github:components/jqueryui@1.11.4": {
       "jquery": "github:components/jquery@1.11.2"
@@ -132,23 +130,19 @@ System.config({
       "angular": "github:angular/bower-angular@1.3.15",
       "lodash": "npm:lodash@3.6.0"
     },
-    "github:mistic100/jQuery-QueryBuilder@1.4.2": {
+    "github:mistic100/jQuery-QueryBuilder@2.0.1": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
       "jquery": "github:components/jquery@1.11.2",
-      "microevent": "npm:microevent-mistic100@2.1.1",
       "moment": "npm:moment@2.9.0"
     },
     "github:ncuillery/angular-breadcrumb@0.3.3": {
       "angular-ui-router": "github:angular-ui/ui-router@0.2.13"
     },
-    "github:sdorra/angular-dashboard-framework@0.7.0": {
+    "github:sdorra/angular-dashboard-framework@0.8.0": {
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
-      "jquery": "github:components/jquery@1.11.2",
-      "jquery-ui": "github:components/jqueryui@1.11.3"
+      "sortable": "github:RubaXa/Sortable@1.1.1"
     },
     "github:systemjs/plugin-css@0.1.9": {
       "clean-css": "npm:clean-css@3.1.9",
@@ -171,26 +165,10 @@ System.config({
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
     },
-    "npm:babel-runtime@4.7.16": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
     "npm:buffer@3.1.2": {
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.4",
       "is-array": "npm:is-array@1.0.1"
-    },
-    "npm:clean-css@3.1.8": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "commander": "npm:commander@2.6.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "http": "github:jspm/nodelibs-http@1.7.1",
-      "https": "github:jspm/nodelibs-https@0.1.0",
-      "os": "github:jspm/nodelibs-os@0.1.0",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "source-map": "npm:source-map@0.1.43",
-      "url": "github:jspm/nodelibs-url@0.1.0",
-      "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:clean-css@3.1.9": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
