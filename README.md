@@ -21,7 +21,7 @@ Install process
 * `npm install` *Install dev dependencies*
 * `jspm install` *Install app dependencies*
 * Follow the persisting data instructions below
-* `npm start` *start io.js server*
+* `npm start` *start io.js server* or `DEBUG=loopback:datasource npm start` *to see debug output*
 * NOTE: there is a minor issue with the way jspm adds the dependencies for two jQuery plugins. Please refer to the section jspm Dependencies below to compare your config.js with the code below
 * `grunt serve` *Run local webserver (will compile SASS and ES6 files when changed)*
 
