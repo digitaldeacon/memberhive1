@@ -1,4 +1,5 @@
-export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, gettext, $upload, apiUrl, $rootScope) {
+export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, gettextCatalog,
+                              $upload, apiUrl, $rootScope) {
   return {
     currentUser: () => {
       return Person.findById({id: LoopBackAuth.currentUserId});
@@ -77,7 +78,7 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
       if (!person.contacts)
         return '';
       // ES7 Array comprehensions are supported by Babel transpiler, but not by espree, which is used for
-      // gettext extraction. Thus, no strings are extracted from this file.
+      // gettextCatalog.getString extraction. Thus, no strings are extracted from this file.
       // We can switch back to ES7 array comprehensions once this is fixed: https://github.com/eslint/espree/issues/125
       //var contact = [for (contact of person.contacts) if (contact.type === contactType) contact].shift();
       var contact = person.contacts.filter((contact) => {return contact.type === contactType;}).shift();
@@ -94,39 +95,39 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
      * A dictionary with gender translations
      */
     genders: {
-      'm': gettext('Male'),
-      'f': gettext('Female')
+      'm': gettextCatalog.getString('Male'),
+      'f': gettextCatalog.getString('Female')
     },
 
     /**
      * A dictionary with translations of the relationTypes table.
      */
     relationTypes: {
-      'husband': gettext('Husband'),
-      'wife': gettext('Wife'),
-      'son': gettext('Son'),
-      'daughter': gettext('Daughter'),
-      'cousin': gettext('Cousin'),
-      'uncle': gettext('Uncle'),
-      'aunt': gettext('Aunt'),
-      'brother': gettext('Brother'),
-      'sister': gettext('Sister'),
-      'grandfather': gettext('Grandfather'),
-      'grandmother': gettext('Grandmother'),
-      'grandson': gettext('Grandson'),
-      'granddaughter': gettext('Granddaughter'),
-      'mother': gettext('Mother'),
-      'father': gettext('Father'),
-      'nephew': gettext('Nephew'),
-      'niece': gettext('Niece'),
-      'motherInLaw': gettext('Mother in Law'),
-      'fatherInLaw': gettext('Father in Law'),
-      'brotherInLaw': gettext('Brother in Law'),
-      'sisterInLaw': gettext('Sister in Law'),
-      'sonInLaw': gettext('Son in Law'),
-      'daughterInLaw': gettext('Daughter in Law'),
-      'stepbrother': gettext('Stepbrother'),
-      'stepsister': gettext('Stepsister')
+      'husband': gettextCatalog.getString('Husband'),
+      'wife': gettextCatalog.getString('Wife'),
+      'son': gettextCatalog.getString('Son'),
+      'daughter': gettextCatalog.getString('Daughter'),
+      'cousin': gettextCatalog.getString('Cousin'),
+      'uncle': gettextCatalog.getString('Uncle'),
+      'aunt': gettextCatalog.getString('Aunt'),
+      'brother': gettextCatalog.getString('Brother'),
+      'sister': gettextCatalog.getString('Sister'),
+      'grandfather': gettextCatalog.getString('Grandfather'),
+      'grandmother': gettextCatalog.getString('Grandmother'),
+      'grandson': gettextCatalog.getString('Grandson'),
+      'granddaughter': gettextCatalog.getString('Granddaughter'),
+      'mother': gettextCatalog.getString('Mother'),
+      'father': gettextCatalog.getString('Father'),
+      'nephew': gettextCatalog.getString('Nephew'),
+      'niece': gettextCatalog.getString('Niece'),
+      'motherInLaw': gettextCatalog.getString('Mother in Law'),
+      'fatherInLaw': gettextCatalog.getString('Father in Law'),
+      'brotherInLaw': gettextCatalog.getString('Brother in Law'),
+      'sisterInLaw': gettextCatalog.getString('Sister in Law'),
+      'sonInLaw': gettextCatalog.getString('Son in Law'),
+      'daughterInLaw': gettextCatalog.getString('Daughter in Law'),
+      'stepbrother': gettextCatalog.getString('Stepbrother'),
+      'stepsister': gettextCatalog.getString('Stepsister')
     }
 
   };

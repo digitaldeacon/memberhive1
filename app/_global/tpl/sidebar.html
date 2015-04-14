@@ -11,18 +11,18 @@
     <li ng-repeat="entry in mainMenu">
       <a ng-if="!entry.children" ui-sref="{{entry.route}}">
         <fa name="{{entry.icon}}"></fa>
-        <span class="title">{{entry.label}}</span>
+        <span class="title">{{entry.label | translate}}</span>
       </a>
 
       <a ng-if="entry.children">
         <fa name="{{entry.icon}}"></fa>
-        <span class="title">{{entry.label}}</span>
+        <span class="title">{{entry.label | translate}}</span>
         <span class="arrow "></span>
       </a>
       <ul ng-if="entry.children" class="sub-menu">
         <li ng-repeat="entry in entry.children">
           <a ui-sref="{{entry.route}}">
-            <fa name="{{entry.icon}}"></fa> {{entry.label}}
+            <fa name="{{entry.icon}}"></fa> {{entry.label | translate}}
           </a>
         </li>
       </ul>

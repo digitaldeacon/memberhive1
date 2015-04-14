@@ -1,8 +1,8 @@
 <!doctype html>
-<html class="no-js">
+<html ng-controller="AppController as appCtrl" data-ng-init="init()">
   <head>
     <meta charset="utf-8">
-    <title data-ng-bind="$state.current.data.pageTitle+' | gemmii'">gemmii</title>
+    <title data-ng-bind="appCtrl.getTitle()">Gemmii</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <base href="/">
@@ -11,8 +11,8 @@
     <link rel="icon" href="/favicon.png">
 
   </head>
-  <body ng-controller="AppController" data-ng-init="init()" ng-class="{'login-bg': $state.includes('login')}"
-        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo">
+  <body ng-class="{'login-bg': $state.includes('login')}"
+        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
 
     <!--[if lt IE 10]>
       <p class="browsehappy" translate>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
