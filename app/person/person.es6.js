@@ -3,12 +3,17 @@ import 'ngImgCrop/compile/unminified/ng-img-crop';
 import 'ngImgCrop/compile/unminified/ng-img-crop.css!';
 import 'angularUtils-pagination';
 import 'nsPopover';
+import 'ngTagsInput';
+import 'ngTagsInput/build/ng-tags-input.css!';
+import 'ngTagsInput/build/ng-tags-input.bootstrap.css!';
 
 import 'person/filters/person-filters';
+
 import {PersonListController} from 'person/controllers/person-list-controller';
 import {PersonEditController} from 'person/controllers/person-edit-controller';
 import {PersonViewController} from 'person/controllers/person-view-controller';
 import {PersonService} from 'person/services/person-service';
+import {TagService} from 'tag/services/tag-service';
 import {AvatarDirective} from 'person/directives/person-directives';
 
 import {MenuSection, MenuLink} from 'core/providers/menu-provider';
@@ -19,6 +24,7 @@ export var gemPersonModule = angular.module('gem.person',
     'nsPopover',
     'angularFileUpload',
     'ngImgCrop',
+    'ngTagsInput',
 
     'personFilters',
 
@@ -104,5 +110,6 @@ gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);
 
 gemPersonModule.factory('PersonService', PersonService);
+gemPersonModule.factory('TagService', TagService);
 
 gemPersonModule.directive('gemAvatar', AvatarDirective);

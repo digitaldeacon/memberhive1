@@ -1,6 +1,7 @@
 export class PersonEditController{
-  constructor(PersonService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettextCatalog, apiUrl, $filter) {
+  constructor(PersonService, TagService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettextCatalog, apiUrl, $filter) {
     this.PersonService = PersonService;
+    this.TagService = TagService;
     this.Person = Person;
     this.Contact = Contact;
     this.Shout = Shout;
@@ -11,6 +12,11 @@ export class PersonEditController{
     this.apiUrl = apiUrl;
 
     this.person = this.getPerson();
+    this.tags = [
+      { 'text': 'Tag1' },
+      { 'text': 'Tag2' }
+    ];
+
     this.getContacts = PersonService.getContacts;
     this.relationTypes = PersonService.relationTypes;
     this.genders = PersonService.genders;
@@ -25,6 +31,10 @@ export class PersonEditController{
     this.isEditingAvatar = false;
 
     $scope.datepickerOpened = true;
+  }
+
+  loadTags(query) {
+    return this.TagService.load('person',this.person.id);
   }
 
   isEditing() {
