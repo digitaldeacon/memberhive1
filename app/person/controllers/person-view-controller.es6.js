@@ -17,7 +17,7 @@ export class PersonViewController {
     return [for (person of this.person.household.persons) if (person.id !== this.person.id) person];
   }
 
-  isDefaultAddress(address) {
+  static isDefaultAddress(address) {
     return address.type === 'home';
   }
 }

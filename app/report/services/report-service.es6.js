@@ -1,4 +1,4 @@
-export function ReportService(Report, gettext, $rootScope, Shout) {
+export function ReportService(Report, gettextCatalog, $rootScope, Shout) {
   return {
     one: (id) => {
       // Need to use findOne() instead of findById() since you can't use the include filter with findById()
@@ -21,8 +21,8 @@ export function ReportService(Report, gettext, $rootScope, Shout) {
     },
     save: (reportObj) => {
       Report.upsert({},reportObj).$promise.then(
-        (data) => {Shout.success(gettext('Successfully saved report: ') + '"' + data.name + '"');},
-        (error) => {Shout.error(gettext(error.data.error.message),error.data.error.name);}
+        (data) => {Shout.success(gettextCatalog.getString('Successfully saved report “{{name}}”', {name: data.name}));},
+        (error) => {Shout.error(error.data.error.message, error.data.error.name);}
       );
     }
   };

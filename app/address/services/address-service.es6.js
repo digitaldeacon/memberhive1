@@ -1,4 +1,4 @@
-export function AddressService(gettext) {
+export function AddressService(gettextCatalog) {
 
   return {
 
@@ -6,9 +6,9 @@ export function AddressService(gettext) {
      * A dictionary with translations of the address types.
      */
     addressTypes: {
-      'home': gettext('Home Address'),
-      'work': gettext('Work Address'),
-      'postal': gettext('Postal Address')
+      'home': gettextCatalog.getString('Home Address'),
+      'work': gettextCatalog.getString('Work Address'),
+      'postal': gettextCatalog.getString('Postal Address')
     }
 
   };

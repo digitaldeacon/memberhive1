@@ -1,12 +1,12 @@
 export class ReportController {
 
-  constructor($scope, ReportService, Report, Person, LoopBackAuth, gettext, Shout) {
+  constructor($scope, ReportService, Report, Person, LoopBackAuth, gettextCatalog, Shout) {
     this.$scope = $scope;
     this.ReportService = ReportService;
     this.Report = Report;
     this.Person = Person;
     this.LoopBackAuth = LoopBackAuth;
-    this.gettext = gettext;
+    this.gettextCatalog.getString = gettextCatalog.getString;
     this.Shout = Shout;
 
     this.curUser = LoopBackAuth.currentUserId;
@@ -17,7 +17,7 @@ export class ReportController {
     this.totalReports = 0;
 
     $scope.reportHtml = '<table><tr><td>%col1%</td><td>%col2%</td></tr></table>';
-    $scope.textAreaSetup = function ($element) {
+    $scope.textAreaSetup = function($element) {
       $element.attr('ui-codemirror', '');
     };
 
@@ -36,14 +36,14 @@ export class ReportController {
 
     /** Dictionaries **/
     this.personModel = [
-      {id: 'firstName',label: gettext('First Name'),type: 'string',optgroup: gettext('Person')},
-      {id: 'lastName',label: gettext('Last Name'),type: 'string',optgroup: gettext('Person')},
+      {id: 'firstName',label: gettextCatalog.getString('First Name'),type: 'string',optgroup: gettextCatalog.getString('Person')},
+      {id: 'lastName',label: gettextCatalog.getString('Last Name'),type: 'string',optgroup: gettextCatalog.getString('Person')},
       {
-        id: 'gender',label: gettext('Gender'),type: 'string',optgroup: gettext('Person'),
-        input:'radio',values:{'m':gettext('Male'),'f':gettext('Female')}
+        id: 'gender',label: gettextCatalog.getString('Gender'),type: 'string',optgroup: gettextCatalog.getString('Person'),
+        input:'radio',values:{'m':gettextCatalog.getString('Male'),'f':gettextCatalog.getString('Female')}
       },
       {
-        id: 'birthdate',label: gettext('Birthdate'),type: 'date',optgroup: gettext('Person'),
+        id: 'birthdate',label: gettextCatalog.getString('Birthdate'),type: 'date',optgroup: gettextCatalog.getString('Person'),
         validation: {
           format: 'YYYY/MM/DD'
         },
@@ -95,8 +95,8 @@ export class ReportController {
       this.report.rule = queryObj.rule;
       this.report.name = this.$scope.name;
       this.Report.upsert({}, this.report).$promise.then(
-        (data) => {this.Shout.success(this.gettext('Successfully created query for report ' + data.name));},
-        (error) => {this.Shout.error(this.gettext(error.data.error.message), error.data.error.name);}
+        (data) => {this.Shout.success(this.gettextCatalog.getString('Successfully created query for report ' + data.name));},
+        (error) => {this.Shout.error(this.gettextCatalog.getString(error.data.error.message), error.data.error.name);}
       );
     }
   }

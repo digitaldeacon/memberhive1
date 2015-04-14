@@ -1,12 +1,12 @@
 export class ReportUpsertController {
 
-  constructor($scope,Report,ReportService,Person,LoopBackAuth,gettext,Shout,$stateParams) {
+  constructor($scope,Report,ReportService,Person,LoopBackAuth,gettextCatalog,Shout,$stateParams) {
     this.$scope = $scope;
     this.Report = Report;
     this.ReportService = ReportService;
     this.Person = Person;
     this.LoopBackAuth = LoopBackAuth;
-    this.gettext = gettext;
+    this.gettextCatalog.getString = gettextCatalog.getString;
     this.Shout = Shout;
     this.$stateParams = $stateParams;
 
@@ -20,14 +20,14 @@ export class ReportUpsertController {
 
     /** Dictionaries **/
     this.personModel = [
-      {id: 'firstName',label: gettext('First Name'),type: 'string',optgroup: gettext('Person')},
-      {id: 'lastName',label: gettext('Last Name'),type: 'string',optgroup: gettext('Person')},
+      {id: 'firstName',label: gettextCatalog.getString('First Name'),type: 'string',optgroup: gettextCatalog.getString('Person')},
+      {id: 'lastName',label: gettextCatalog.getString('Last Name'),type: 'string',optgroup: gettextCatalog.getString('Person')},
       {
-        id: 'gender',label: gettext('Gender'),type: 'string',optgroup: gettext('Person'),
-        input:'radio',values:{'m':gettext('Male'),'f':gettext('Female')}
+        id: 'gender',label: gettextCatalog.getString('Gender'),type: 'string',optgroup: gettextCatalog.getString('Person'),
+        input:'radio',values:{'m':gettextCatalog.getString('Male'),'f':gettextCatalog.getString('Female')}
       },
       {
-        id: 'birthdate',label: gettext('Birthdate'),type: 'date',optgroup: gettext('Person'),
+        id: 'birthdate',label: gettextCatalog.getString('Birthdate'),type: 'date',optgroup: gettextCatalog.getString('Person'),
         validation: {
           format: 'YYYY/MM/DD'
         },
