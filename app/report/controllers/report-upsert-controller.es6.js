@@ -6,7 +6,7 @@ export class ReportUpsertController {
     this.ReportService = ReportService;
     this.Person = Person;
     this.LoopBackAuth = LoopBackAuth;
-    this.gettextCatalog.getString = gettextCatalog.getString;
+    this.gettextCatalog = gettextCatalog;
     this.Shout = Shout;
     this.$stateParams = $stateParams;
 

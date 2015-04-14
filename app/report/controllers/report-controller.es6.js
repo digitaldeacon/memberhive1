@@ -6,7 +6,7 @@ export class ReportController {
     this.Report = Report;
     this.Person = Person;
     this.LoopBackAuth = LoopBackAuth;
-    this.gettextCatalog.getString = gettextCatalog.getString;
+    this.gettextCatalog = gettextCatalog;
     this.Shout = Shout;
 
     this.curUser = LoopBackAuth.currentUserId;
