@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 
   // Configurable paths for the application
   var appConfig = {
-    app: 'app',
+    app: 'client/app',
     dist: 'dist',
     api: {
       development: 'http://0.0.0.0:3000/api/',
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     nggettext_extract: { // jshint ignore:line
       pot: {
         files: {
-          'po/template.pot': ['app/**/*.html', 'app/**/*.js']
+          'po/template.pot': ['<%= yeoman.app %>/**/*.html', '<%= yeoman.app %>/**/*.js']
         }
       }
     },
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     nggettext_compile: { // jshint ignore:line
       all: {
         files: {
-          'app/_global/scripts/translations.js': ['po/**/*.po']
+          '<%= yeoman.app %>/_global/scripts/translations.js': ['po/**/*.po']
         }
       }
     },
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
       services: {
         options: {
           input: 'server/server.js',
-          output: 'app/_global/scripts/lb-services.js',
+          output: '<%= yeoman.app %>/_global/scripts/lb-services.js',
           apiUrl: 'http://localhost:3000/api'
 
         }
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
       services: {
         options: {
           modelConfig: 'server/model-config.json',
-          serviceFile: 'app/_global/scripts/lb-services.js',
+          serviceFile: '<%= yeoman.app %>/_global/scripts/lb-services.js',
           modelDir: 'common/models/'
         }
       }
@@ -175,8 +175,8 @@ module.exports = function(grunt) {
                 connect.static('./jspm_packages')
               ),
               connect().use(
-                '/app/_global/styles',
-                connect.static('./app/_global/styles')
+                '/<%= yeoman.app %>/_global/styles',
+                connect.static('./<%= yeoman.app %>/_global/styles')
               ),
               connect.static(appConfig.app)
             ];
@@ -200,18 +200,18 @@ module.exports = function(grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          'app/**/*.js',
+          '<%= yeoman.app %>/**/*.js',
           'tasks/*.js',
-          '!app/_global/scripts/metronic/**/*.js',
-          '!app/_global/scripts/lb-services.js',
-          '!app/_global/scripts/translations.js',
-          '!app/config.js'
+          '!<%= yeoman.app %>/_global/scripts/metronic/**/*.js',
+          '!<%= yeoman.app %>/_global/scripts/lb-services.js',
+          '!<%= yeoman.app %>/_global/scripts/translations.js',
+          '!<%= yeoman.app %>/config.js'
         ]
       }
     },
 
     jscs: {
-      src: 'app/**/*.js',
+      src: '<%= yeoman.app %>/**/*.js',
       options: {
         config: '.jscsrc'
       }
@@ -456,7 +456,7 @@ module.exports = function(grunt) {
       },
       'live': {
         expand: true,
-        cwd: 'app/',
+        cwd: '<%= yeoman.app %>/',
         dest: '.tmp/scripts',
         src: [
           '_global/scripts/lb-services.js',
