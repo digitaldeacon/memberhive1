@@ -1,0 +1,48 @@
+<div ng-controller="ReportController as reportCtrl" class="report-list">
+  <dir-pagination-controls boundary-links="true" on-page-change="reportCtrl.pageChanged(newPageNumber)"
+                           template-url="templates/dirPagination.html">
+  </dir-pagination-controls>
+
+  <table class="table table-striped table-bordered table-advance table-hover">
+    <thead>
+    <tr>
+      <th translate>Report name</th>
+      <th translate>Query</th>
+      <th translate>Report Types</th>
+      <th translate>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr dir-paginate="report in reportCtrl.reports | itemsPerPage: gemConfig.pagination.pageSize"
+        total-items="reportCtrl.totalReports">
+      <td>{{::report.name}}</td>
+      <td>{{::report.query}}</td>
+      <td>PDf, HTML, MyType</td>
+      <td class="actions">
+        <a class="btn btn-sm default" aria-label="{{'Edit' | translate}}" ui-sref='report.edit({id:report.id})'>
+          <fa name="edit"></fa>
+        </a>
+        <a class="btn btn-sm default" aria-label="{{'Duplicate' | translate}}"
+           ng-click="reportCtrl.duplicateReport(report)"
+           confirm="Duplicate “{{report.name}}”?">
+          <fa name="paste"></fa>
+        </a>
+        <a class="btn btn-warning btn-sm" aria-label="{{'Delete' | translate}}"
+           ng-click="reportCtrl.trashReport(report)"
+           confirm="Delete “{{report.name}}”?">
+          <fa name="trash"></fa>
+        </a>
+        <a class="btn btn-danger btn-sm" aria-label="{{'Delete permanently' | translate}}"
+           ng-click="reportCtrl.deleteReport(report)"
+           confirm="Delete report “{{report.name}}” permanently?">
+          <fa name="legal"></fa>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <dir-pagination-controls boundary-links="true" on-page-change="reportCtrl.pageChanged(newPageNumber)"
+                           template-url="templates/dirPagination.html">
+  </dir-pagination-controls>
+</div>

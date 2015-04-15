@@ -1,16 +1,25 @@
+# Package management
+bower_components
+jspm_packages
 node_modules
+
+# Config files
+server/datasources.local.json
+
+# Scripts
+run.sh
+run-slow.sh
+
+# Generated files
+client/app/modules/core/services/lb-services.js
+client/app/scripts/translations.js
+client/app/scripts/config.es6.js
+
+# Misc
 dist
 .tmp
 .sass-cache
-bower_components
-jspm_packages
 docs
 .idea
 typings
 .strong-pm
-server/datasources.local.json
-app/_global/scripts/lb-services.js
-app/_global/scripts/translations.js
-app/_global/scripts/config.es6.js
-run.sh
-run-slow.sh
