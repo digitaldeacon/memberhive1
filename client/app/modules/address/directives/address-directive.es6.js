@@ -4,7 +4,7 @@ export function AddressDirective() {
     scope: {
       address: '='
     },
-    templateUrl: '/address/directives/address.html',
+    templateUrl: '/modules/address/directives/address.html',
     replace: true
   };
 }

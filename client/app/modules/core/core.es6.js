@@ -1,9 +1,9 @@
-import {MainMenu} from 'core/providers/menu-provider';
-import {controlGroupDirective} from 'core/directives/form-directives';
-import {Shout} from 'core/services/shout';
-import {Search} from 'core/services/search';
-import {fromNowFilter} from 'core/filters/date-filters';
-import {temperatureFilter} from 'core/filters/format-filters';
+import {MainMenu} from './providers/menu-provider';
+import {controlGroupDirective} from './directives/form-directives';
+import {Shout} from './services/shout';
+import {Search} from './services/search';
+import {fromNowFilter} from './filters/date-filters';
+import {temperatureFilter} from './filters/format-filters';
 
 /**
  * This module holds dependencies needed by other modules including the `gemmiiWebApp` module.

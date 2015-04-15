@@ -8,15 +8,15 @@ import 'textAngular/src/textAngular.css!';
 import 'jQuery-QueryBuilder';
 import 'bootstrap-datepicker/js/bootstrap-datepicker';
 
-import {ReportController} from 'report/controllers/report-controller';
-import {ReportUpsertController} from 'report/controllers/report-upsert-controller';
+import {ReportController} from './controllers/report-controller';
+import {ReportUpsertController} from './controllers/report-upsert-controller';
 
-import {QueryBuilderDirective} from 'report/directives/querybuilder-directive';
-import {PreviewHTMLDirective} from 'report/directives/previewhtml-directive';
+import {QueryBuilderDirective} from './directives/querybuilder-directive';
+import {PreviewHTMLDirective} from './directives/previewhtml-directive';
 
-import {ReportService} from 'report/services/report-service';
+import {ReportService} from './services/report-service';
 
-import {MenuSection, MenuLink} from 'core/providers/menu-provider';
+import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
 export var gemReportModule = angular.module('gem.report', []).config(
   ($stateProvider, $provide, MainMenuProvider, gettext) => {
@@ -30,7 +30,7 @@ export var gemReportModule = angular.module('gem.report', []).config(
       }
     }).state('report.create', {
       url: '/create',
-      templateUrl: '../report/views/report.upsert.html',
+      templateUrl: 'modules/report/views/report.upsert.html',
       data: {
         pageSubTitle: 'Create a new report'
       },
@@ -43,7 +43,7 @@ export var gemReportModule = angular.module('gem.report', []).config(
       }
     }).state('report.edit', {
       url: '/edit/:id',
-      templateUrl: '../report/views/report.upsert.html',
+      templateUrl: 'modules/report/views/report.upsert.html',
       data: {
         pageSubTitle: 'Edit a report'
       },
@@ -56,7 +56,7 @@ export var gemReportModule = angular.module('gem.report', []).config(
       }
       }).state('report.list', {
       url: '/list',
-      templateUrl: '../report/views/report.list.html',
+      templateUrl: 'modules/report/views/report.list.html',
       data: {
         pageSubTitle: 'List available reports'
       },
@@ -69,7 +69,7 @@ export var gemReportModule = angular.module('gem.report', []).config(
     });
 
     //textAngular setup
-    $provide.decorator('taOptions',['$delegate', function(taOptions) {
+    $provide.decorator('taOptions', ['$delegate', function(taOptions) {
       taOptions.toolbar = [
         ['html','h1','h2','h3'],
         ['bold','italics']

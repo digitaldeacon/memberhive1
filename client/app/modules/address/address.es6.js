@@ -1,7 +1,7 @@
 import 'iso-3166-country-codes-angular';
 
-import {AddressService} from 'address/services/address-service';
-import {AddressDirective} from 'address/directives/address-directive';
+import {AddressService} from './services/address-service';
+import {AddressDirective} from './directives/address-directive';
 
 export var gemAddressModule = angular.module('gem.address',
   [

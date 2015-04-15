@@ -29,7 +29,7 @@ angular.module('adf.widgets.weather', ['adf.provider'])
     dashboardProvider.widget('weather', {
         title: gettext('Weather'),
         description: gettext('Display the current temperature of a city'),
-        templateUrl: 'adf/widgets/weather/weather.html',
+        templateUrl: 'modules/adf/widgets/weather/weather.html',
         controller: 'weatherCtrl',
         reload: true,
         resolve: {
@@ -40,7 +40,7 @@ angular.module('adf.widgets.weather', ['adf.provider'])
           }
         },
         edit: {
-          templateUrl: '../..//widgets/weather/edit.html'
+          templateUrl: 'modules/adf/widgets/weather/edit.html'
         }
       });
   })

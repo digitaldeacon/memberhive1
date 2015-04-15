@@ -287,7 +287,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '<%= yeoman.app %>',
           src: ['**/*.es6.js'],
-          dest: '.tmp/scripts',
+          dest: '.tmp/',
           ext: '.js'
         }]
       }
@@ -296,8 +296,8 @@ module.exports = function(grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
-        sassDir: '<%= yeoman.app %>/_global/styles',
-        cssDir: '.tmp/scripts/styles',
+        sassDir: '<%= yeoman.app %>/styles',
+        cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/_global/images',
         javascriptsDir: '<%= yeoman.app %>/_global/scripts',
@@ -330,38 +330,6 @@ module.exports = function(grunt) {
           '<%= yeoman.dist %>/_global/styles/{,*/}*.css',
           '<%= yeoman.dist %>/_global/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.dist %>/_global/styles/fonts/*'
-        ]
-      }
-    },
-
-    // Reads HTML for usemin blocks to enable smart builds that automatically
-    // concat, minify and revision files. Creates configurations in memory so
-    // additional tasks can operate on them
-    useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
-      options: {
-        dest: '<%= yeoman.dist %>',
-        flow: {
-          html: {
-            steps: {
-              js: ['concat', 'uglifyjs'],
-              css: ['cssmin']
-            },
-            post: {}
-          }
-        }
-      }
-    },
-
-    // Performs rewrites based on filerev and the useminPrepare configuration
-    usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/_global/styles/{,*/}*.css'],
-      options: {
-        assetsDirs: [
-          '<%= yeoman.dist %>',
-          '<%= yeoman.dist %>/_global/images',
-          '<%= yeoman.dist %>/_global/styles'
         ]
       }
     },
@@ -457,7 +425,7 @@ module.exports = function(grunt) {
       'live': {
         expand: true,
         cwd: '<%= yeoman.app %>/',
-        dest: '.tmp/scripts',
+        dest: '.tmp/',
         src: [
           '_global/scripts/lb-services.js',
           '_global/scripts/translations.js',
@@ -511,19 +479,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'useminPrepare',
     'lbservices',
     'ngconstant:server',
     'nggettext_compile',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
     'ngAnnotate',
     'copy:dist',
-    'cssmin',
-    'uglify',
     'filerev',
-    'usemin',
     'htmlmin'
   ]);
 

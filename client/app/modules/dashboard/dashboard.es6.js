@@ -9,11 +9,11 @@ import 'jquery-ui'; //why do i need to do this?
 import 'angular-ui/ui-sortable';//why do i need to do this?
 import 'angular-dashboard-framework';
 
-import 'adf/structures';
-import 'adf/widgets/weather/weather';
+import 'modules/adf/structures';
+import 'modules/adf/widgets/weather/weather';
 
-import {DashboardController} from 'dashboard/controllers/dashboard-controller';
-import {MenuSection, MenuLink} from 'core/providers/menu-provider';
+import {DashboardController} from './controllers/dashboard-controller';
+import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
 export var gemDashboardModule = angular.module('gem.dashboard',
   [
@@ -25,7 +25,7 @@ export var gemDashboardModule = angular.module('gem.dashboard',
     ($stateProvider, MainMenuProvider, gettext) => {
       $stateProvider.state('dashboard', {
         url: '/dashboard',
-        templateUrl: '../dashboard/views/dashboard.html',
+        templateUrl: 'modules/dashboard/views/dashboard.html',
         data: {
           pageTitle: gettext('Dashboard')
         },

@@ -16,9 +16,9 @@
 @import "dropzone";
 
 // Module styles
-@import "../../auth/styles/auth.scss";
-@import "../../person/styles/person.scss";
-@import "../../report/styles/report.scss";
+@import "../modules/auth/styles/auth.scss";
+@import "../modules/person/styles/person.scss";
+@import "../modules/report/styles/report.scss";
 
 
 .logo {

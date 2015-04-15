@@ -7,16 +7,16 @@ import 'ngTagsInput';
 import 'ngTagsInput/build/ng-tags-input.css!';
 import 'ngTagsInput/build/ng-tags-input.bootstrap.css!';
 
-import 'person/filters/person-filters';
+import './filters/person-filters';
 
-import {PersonListController} from 'person/controllers/person-list-controller';
-import {PersonEditController} from 'person/controllers/person-edit-controller';
-import {PersonViewController} from 'person/controllers/person-view-controller';
-import {PersonService} from 'person/services/person-service';
-import {TagService} from 'tag/services/tag-service';
-import {AvatarDirective} from 'person/directives/person-directives';
+import {PersonListController} from './controllers/person-list-controller';
+import {PersonEditController} from './controllers/person-edit-controller';
+import {PersonViewController} from './controllers/person-view-controller';
+import {PersonService} from './services/person-service';
+import {AvatarDirective} from './directives/person-directives';
 
-import {MenuSection, MenuLink} from 'core/providers/menu-provider';
+import {TagService} from 'modules/tag/services/tag-service';
+import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
 export var gemPersonModule = angular.module('gem.person',
   [
@@ -43,7 +43,7 @@ export var gemPersonModule = angular.module('gem.person',
       abstract: true
     }).state('person.list', {
       url: '/list',
-      templateUrl: '../person/views/person.list.html',
+      templateUrl: 'modules/person/views/person.list.html',
       data: {
         pageSubTitle: gettext('Create and edit Persons')
       },
@@ -55,7 +55,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.view', {
       url: '/view/:id',
-      templateUrl: '../person/views/person.view.html',
+      templateUrl: 'modules/person/views/person.view.html',
       data: {
         pageSubTitle: gettext('View Person details')
       },
@@ -68,7 +68,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.create', {
       url: '/create',
-      templateUrl: '../person/views/person.edit.html',
+      templateUrl: 'modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Create a Person')
       },
@@ -81,7 +81,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.edit', {
       url: '/edit/:id',
-      templateUrl: '../person/views/person.edit.html',
+      templateUrl: 'modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Edit a Person')
       },

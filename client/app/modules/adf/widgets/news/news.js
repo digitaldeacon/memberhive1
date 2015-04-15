@@ -31,7 +31,7 @@ angular.module('sample.widgets.news', ['adf.provider'])
       .widget('news', {
         title: 'News',
         description: 'Displays a RSS/Atom feed',
-        templateUrl: 'scripts/widgets/news/news.html',
+        templateUrl: 'modules/adf/widgets/news/news.html',
         controller: 'newsCtrl',
         resolve: {
           feed: function(newsService, config){
@@ -41,7 +41,7 @@ angular.module('sample.widgets.news', ['adf.provider'])
           }
         },
         edit: {
-          templateUrl: 'scripts/widgets/news/edit.html'
+          templateUrl: 'modules/adf/widgets/news/edit.html'
         }
       });
   })

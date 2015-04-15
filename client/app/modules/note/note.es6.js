@@ -1,4 +1,4 @@
-import {MenuSection, MenuLink} from 'core/providers/menu-provider';
+import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
 export var gemNoteModule = angular.module('gem.note', []).config(
   ($stateProvider, MainMenuProvider, gettext) => {
@@ -12,7 +12,7 @@ export var gemNoteModule = angular.module('gem.note', []).config(
       }
     }).state('note.list', {
       url: '/list',
-      templateUrl: '../note/views/note.list.html',
+      templateUrl: 'modules/note/views/note.list.html',
       data: {
         pageSubTitle: 'Create and edit notes'
       },
@@ -24,7 +24,7 @@ export var gemNoteModule = angular.module('gem.note', []).config(
       }
     }).state('note.create', {
       url: '/create',
-      templateUrl: '../note/views/note.create.html',
+      templateUrl: 'modules/note/views/note.create.html',
       data: {
         pageSubTitle: 'Create a note'
       },

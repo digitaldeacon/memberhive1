@@ -1,10 +1,10 @@
-import {LoginController} from 'auth/controller/auth-controller';
+import {LoginController} from 'modules/auth/controller/auth-controller';
 
 export var gemAuthModule = angular.module('gem.auth', []).config(
   ($stateProvider, gettext) => {
       $stateProvider.state('login', {
         url: '/login',
-        templateUrl: '../auth/views/login.html',
+        templateUrl: 'modules/auth/views/login.html',
         data: {
           pageTitle: gettext('Login')
         }

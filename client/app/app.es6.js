@@ -40,16 +40,16 @@ import '_global/scripts/lb-services';
 import '_global/scripts/metronic/metronic';
 import '_global/scripts/metronic/layout';
 
-import {gemCoreModule} from 'core/core';
+import {gemCoreModule} from 'modules/core/core';
 import {gemConfigModule} from '_global/scripts/config';
-import {gemDashboardModule} from 'dashboard/dashboard';
-import {gemAddressModule} from 'address/address';
-import {gemPersonModule} from 'person/person';
-import {gemAuthModule} from 'auth/auth';
-import {gemAclModule} from 'auth/acl';
-import {gemNoteModule} from 'note/note';
-import {gemOptionModule} from 'option/option';
-import {gemReportModule} from 'report/report';
+import {gemDashboardModule} from 'modules/dashboard/dashboard';
+import {gemAddressModule} from 'modules/address/address';
+import {gemPersonModule} from 'modules/person/person';
+import {gemAuthModule} from 'modules/auth/auth';
+import {gemAclModule} from 'modules/auth/acl';
+import {gemNoteModule} from 'modules/note/note';
+import {gemOptionModule} from 'modules/option/option';
+import {gemReportModule} from 'modules/report/report';
 
 import {AppController} from '_global/controllers/app-controller';
 import {HeaderController} from '_global/controllers/header-controller';
