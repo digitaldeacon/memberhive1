@@ -1,10 +1,3 @@
-<script type="text/ng-template" id="tag-template">
-  <div class="tag-template">
-      <span>{{data.name}}</span>
-      <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
-  </div>
-</script>
-
 <div class="col-md-6">
 
   <h3 translate>Tags</h3>
@@ -12,13 +5,15 @@
     <span class="input-group-addon"><fa name="tags"></fa></span>
       <tags-input
         ng-model="personCtrl.tags"
-        template="tag-template"
         replace-spaces-with-dashes="false"
+        addFromAutocompleteOnly="false"
         placeholder="{{'Add a tag' | translate}}">
-        <auto-complete source="personCtrl.loadTags($query)"></auto-complete>
+        <auto-complete
+          source="personCtrl.loadTags($query)"
+          selectFirstMatch="false"
+          highlightMatchedText="false"></auto-complete>
       </tags-input>
   </div>
-  <p>Model: {{personCtrl.tags}}</p>
 
   <h3 translate>Person Info</h3>
 

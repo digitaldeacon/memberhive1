@@ -117,13 +117,7 @@ export class PersonEditController{
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
-    for (var tag of this.tags) {
-      console.log('Saving tag: '+tag.text);
-      this.TagService.save({
-        'name':tag.text,
-        'siteId':1
-      });
-    }
+    this.TagService.save(this.tags,this.Person.model.options.entityId,this.person.id);
 
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
