@@ -33,15 +33,14 @@ import 'angular-ui-select/dist/select.min.css!';
 import 'styles/main.css!';
 
 // Translations
-import '_global/scripts/translations';
+import 'scripts/translations';
 
 // Own modules
-import '_global/scripts/lb-services';
-import '_global/scripts/metronic/metronic';
-import '_global/scripts/metronic/layout';
+import 'scripts/metronic/metronic';
+import 'scripts/metronic/layout';
 
 import {gemCoreModule} from 'modules/core/core';
-import {gemConfigModule} from '_global/scripts/config';
+import {gemConfigModule} from 'scripts/config';
 import {gemDashboardModule} from 'modules/dashboard/dashboard';
 import {gemAddressModule} from 'modules/address/address';
 import {gemPersonModule} from 'modules/person/person';
@@ -50,10 +49,6 @@ import {gemAclModule} from 'modules/auth/acl';
 import {gemNoteModule} from 'modules/note/note';
 import {gemOptionModule} from 'modules/option/option';
 import {gemReportModule} from 'modules/report/report';
-
-import {AppController} from '_global/controllers/app-controller';
-import {HeaderController} from '_global/controllers/header-controller';
-import {SidebarController} from '_global/controllers/sidebar-controller';
 
 /**
  * The main Gemmii app module.
@@ -84,14 +79,10 @@ gemMainModule.config(
 
     $breadcrumbProvider.setOptions({
       prefixStateName: 'dashboard',
-      templateUrl: '_global/tpl/breadcrumb.html'
+      templateUrl: 'templates/breadcrumb.html'
     });
 
   });
-
-gemMainModule.controller('AppController', AppController);
-gemMainModule.controller('HeaderController', HeaderController);
-gemMainModule.controller('SidebarController', SidebarController);
 
 gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
   $rootScope.$state = $state; // state to be accessed from view

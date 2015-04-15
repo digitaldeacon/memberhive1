@@ -1,14 +1,14 @@
 <!-- BEGIN LOGO -->
 <div class="logo">
   <a href="#login">
-    <img src="../../_global/images/gemmii_sm.png" alt=""/>
+    <img src="/images/gemmii_sm.png" alt=""/>
   </a>
 </div>
 <!-- END LOGO -->
 <div ng-controller="LoginController as loginCtrl" class="login-content">
   <!-- BEGIN LOGIN FORM -->
   <div class="note note-danger" ng-show="loginCtrl.error">
-    <h4> {{ loginCtrl.errorCode }} </h4>
+    <h4>  {{ loginCtrl.errorCode }}</h4>
     {{ loginCtrl.errorMsg }}
   </div>
   <form class="login-form" ng-submit="loginCtrl.login()">

@@ -1,6 +1,6 @@
 <div ng-controller="ReportController as reportCtrl" class="report-list">
   <dir-pagination-controls boundary-links="true" on-page-change="reportCtrl.pageChanged(newPageNumber)"
-                           template-url="_global/tpl/dirPagination.html">
+                           template-url="templates/dirPagination.html">
   </dir-pagination-controls>
 
   <table class="table table-striped table-bordered table-advance table-hover">
@@ -43,6 +43,6 @@
   </table>
 
   <dir-pagination-controls boundary-links="true" on-page-change="reportCtrl.pageChanged(newPageNumber)"
-                           template-url="_global/tpl/dirPagination.html">
+                           template-url="templates/dirPagination.html">
   </dir-pagination-controls>
 </div>

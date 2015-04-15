@@ -19,17 +19,17 @@
     <![endif]-->
 
     <div ng-if="acl.isLoggedIn()">
-      <div data-ng-include="'_global/tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top" >
+      <div data-ng-include="'templates/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top" >
       </div>
 
       <div class="clearfix"></div>
 
       <div class="page-container">
-        <div data-ng-include="'_global/tpl/sidebar.html'" data-ng-controller="SidebarController as sidebar" class="page-sidebar-wrapper"></div>
+        <div data-ng-include="'templates/sidebar.html'" data-ng-controller="SidebarController as sidebar" class="page-sidebar-wrapper"></div>
 
         <div class="page-content-wrapper">
           <div class="page-content">
-            <div data-ng-include="'_global/tpl/page-head.html'" class="page-head" ></div>
+            <div data-ng-include="'templates/page-head.html'" class="page-head" ></div>
 
             <div ncy-breadcrumb></div>
 
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div data-ng-include="'_global/tpl/footer.html'" class="page-footer">
+      <div data-ng-include="'templates/footer.html'" class="page-footer">
       </div>
     </div>
 

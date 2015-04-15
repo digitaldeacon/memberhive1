@@ -1,9 +1,8 @@
 /*
  Import
- '_global/scripts/metronic/plugins/morris/morris.min.js',
- '_global/scripts/metronic/plugins/morris/raphael-min.js',
- '_global/scripts/metronic/pages/tasks.js',
- 'scripts/dashboard/controllers/dashboard-controller.js'
+ 'scripts/metronic/plugins/morris/morris.min.js',
+ 'scripts/metronic/plugins/morris/raphael-min.js',
+ 'scripts/metronic/pages/tasks.js',
  */
 import 'jquery-ui'; //why do i need to do this?
 import 'angular-ui/ui-sortable';//why do i need to do this?

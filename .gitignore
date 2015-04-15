@@ -11,9 +11,9 @@ run.sh
 run-slow.sh
 
 # Generated files
-client/app/_global/scripts/lb-services.js
-client/app/_global/scripts/translations.js
-client/app/_global/scripts/config.es6.js
+client/app/modules/core/services/lb-services.js
+client/app/scripts/translations.js
+client/app/scripts/config.es6.js
 
 # Misc
 dist
