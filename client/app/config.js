@@ -8,8 +8,8 @@ System.config({
   },
   "paths": {
     "*": "*.js",
-    "github:*": "../jspm_packages/github/*.js",
-    "npm:*": "../jspm_packages/npm/*.js"
+    "github:*": "../../jspm_packages/github/*.js",
+    "npm:*": "../../jspm_packages/npm/*.js"
   }
 });
 
@@ -89,7 +89,7 @@ System.config({
     },
     "github:joaoneto/angular-bootstrap-select@master": {
       "angular": "github:angular/bower-angular@1.3.15",
-      "github:silviomoreto/bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4"
+      "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
