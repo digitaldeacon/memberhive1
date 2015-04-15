@@ -1,0 +1,44 @@
+<div ng-controller="PersonViewController as personCtrl" class="person-view">
+  {{person=personCtrl.person;""}}
+
+  <div class="portlet-default">
+
+    <div class="row">
+      <div class="col-md-3">
+        <gem-avatar person="personCtrl.person" size="m" class="img-responsive"></gem-avatar>
+      </div>
+
+      <div class="col-md-9">
+        <a class="btn btn-default btn-sm pull-right" ui-sref="person.edit({ id: person.id })">
+          <fa name="edit"></fa>
+          <translate>Edit Person</translate>
+        </a>
+        <h1 class="topheading">
+          <b>{{person.firstName}} {{person.middleName}}</b>
+          {{person.lastName}}
+          <small class="text-muted" ng-if="person.nickName">({{person.nickName}})</small>
+        </h1>
+
+        <div class="row">
+          <div class="col-md-3">
+            <ng-include src="'modules/person/views/person.view.details.html'"></ng-include>
+          </div>
+          <div class="col-md-3">
+            <ng-include src="'modules/person/views/person.view.contacts.html'"></ng-include>
+          </div>
+          <div class="col-md-3">
+            <ng-include src="'modules/person/views/person.view.addresses.html'"></ng-include>
+          </div>
+        </div>
+
+        <div class="row" ng-if="person.household">
+          <ng-include src="'modules/person/views/person.view.household.html'"></ng-include>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
