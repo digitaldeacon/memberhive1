@@ -18,6 +18,8 @@ import {ReportService} from './services/report-service';
 
 import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
+import './styles/report.css!';
+
 export var gemReportModule = angular.module('gem.report', []).config(
   ($stateProvider, $provide, MainMenuProvider, gettext) => {
     $stateProvider.state('report', {

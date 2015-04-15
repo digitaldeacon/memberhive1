@@ -18,7 +18,6 @@
   },
   "repository": {},
   "devDependencies": {
-    "babel": "^5.1.1",
     "grunt": "^0.4.5",
     "grunt-angular-gettext": "smehrbrodt/grunt-angular-gettext",
     "grunt-autoprefixer": "^2.0.0",

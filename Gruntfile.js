@@ -91,7 +91,6 @@ module.exports = function(grunt) {
       ]
     },
 
-
     uploadTranslations: {
       options: {
         templateFile: 'po/template.pot',
@@ -135,10 +134,6 @@ module.exports = function(grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
-      babel: {
-        files: ['<%= yeoman.app %>/**/*.es6.js'],
-        tasks: ['newer:babel']
-      },
       lbservices: {
         files: ['common/models/*'],
         tasks: ['lbservices']
@@ -149,8 +144,8 @@ module.exports = function(grunt) {
         },
         files: [
           '<%= yeoman.app %>/**/*.html',
-          '.tmp/styles/**/*.css',
-          '.tmp/**/*.js',
+          '<%= yeoman.app %>/**/*.js',
+          '.tmp/**/*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -169,16 +164,12 @@ module.exports = function(grunt) {
           open: true,
           middleware: function(connect) {
             return [
+              connect.static(appConfig.app),
               connect.static('.tmp'),
               connect().use(
                 '/jspm_packages',
                 connect.static('./jspm_packages')
-              ),
-              connect().use(
-                '/<%= yeoman.app %>/styles',
-                connect.static('./<%= yeoman.app %>/styles')
-              ),
-              connect.static(appConfig.app)
+              )
             ];
           }
         }
@@ -277,27 +268,11 @@ module.exports = function(grunt) {
       }
     },
 
-    'babel': {
-      options: {
-        sourceMap: true,
-        experimental: true
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>',
-          src: ['**/*.es6.js'],
-          dest: '.tmp/',
-          ext: '.js'
-        }]
-      }
-    },
-
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
+        sassDir: '<%= yeoman.app %>/',
+        cssDir: '.tmp/',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/',
@@ -421,28 +396,15 @@ module.exports = function(grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
-      },
-      'live': {
-        expand: true,
-        cwd: '<%= yeoman.app %>/',
-        dest: '.tmp/',
-        src: [
-          'modules/core/scripts/lb-services.js',
-          'scripts/translations.js',
-          'scripts/metronic/**',
-          'adf/**'
-        ]
       }
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'babel',
         'compass:server'
       ],
       dist: [
-        'babel:dist',
         'compass:dist',
         'imagemin',
         'svgmin'
@@ -469,7 +431,6 @@ module.exports = function(grunt) {
       'lbservices',
       'ngconstant:server',
       'nggettext_compile',
-      'copy:live',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',

@@ -7,7 +7,7 @@
   padding: 30px;
   margin: 0 auto;
   background: image-url("login/bg-white-lock.png") repeat;
-  @include border-radius(7px  );
+  border-radius: 7px;
 
   .rememberMe {
     margin-top: 8px;

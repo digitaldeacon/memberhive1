@@ -18,6 +18,8 @@ import {AvatarDirective} from './directives/person-directives';
 import {TagService} from 'modules/tag/services/tag-service';
 import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
+import './styles/person.css!';
+
 export var gemPersonModule = angular.module('gem.person',
   [
     'angularUtils.directives.dirPagination',

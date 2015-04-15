@@ -1,4 +1,4 @@
-class Search {
+export class Search {
 
   constructor(Person) {
     this.Person = Person;

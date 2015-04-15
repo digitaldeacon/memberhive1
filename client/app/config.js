@@ -2,6 +2,7 @@ System.config({
   "baseURL": "./",
   "transpiler": "babel",
   "babelOptions": {
+    "stage": 0,
     "optional": [
       "runtime"
     ]
@@ -37,14 +38,14 @@ System.config({
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
     "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@2.2.0",
     "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
-    "babel": "npm:babel-core@5.1.1",
-    "babel-runtime": "npm:babel-runtime@5.1.1",
+    "babel": "npm:babel-core@5.1.9",
+    "babel-runtime": "npm:babel-runtime@5.1.9",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
     "bootstrap-select": "github:silviomoreto/bootstrap-select@master",
     "codemirror": "github:codemirror/CodeMirror@5.1.0",
-    "core-js": "npm:core-js@0.8.2",
+    "core-js": "npm:core-js@0.8.3",
     "css": "github:systemjs/plugin-css@0.1.9",
     "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@3.2.4",
     "font-awesome": "npm:font-awesome@4.3.0",
@@ -146,9 +147,9 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
       "jquery": "github:components/jquery@1.11.2",
-      "jquery-ui": "github:components/jqueryui@1.11.3"
+      "jquery-ui": "github:components/jqueryui@1.11.3",
+      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0"
     },
     "github:systemjs/plugin-css@0.1.9": {
       "clean-css": "npm:clean-css@3.1.9",
@@ -196,6 +197,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:core-js@0.8.2": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:core-js@0.8.3": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:core-util-is@1.0.1": {
