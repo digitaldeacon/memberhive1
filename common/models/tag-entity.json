@@ -2,7 +2,7 @@
   "name": "TagEntity",
   "plural": "TagEntities",
   "base": "PersistedModel",
-  "idInjection": false,
+  "idInjection": true,
   "options": {
     "mysql": {
       "table": "CorTagEntity"
@@ -18,14 +18,6 @@
       "required": true
     },
     "entityId": {
-      "type": "number",
-      "required": true
-    },
-    "createdAt": {
-      "type": "date",
-      "required": true
-    },
-    "createdBy": {
       "type": "number",
       "required": true
     }
