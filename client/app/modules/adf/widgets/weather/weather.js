@@ -33,9 +33,9 @@ angular.module('adf.widgets.weather', ['adf.provider'])
         controller: 'weatherCtrl',
         reload: true,
         resolve: {
-          data: function(weatcherService, config){
+          data: function(weatherService, config){
             if (config.location){
-              return weatcherService.get(config.location);
+              return weatherService.get(config.location);
             }
           }
         },
@@ -44,7 +44,7 @@ angular.module('adf.widgets.weather', ['adf.provider'])
         }
       });
   })
-  .service('weatcherService', function($q, $http, weatherServiceUrl){
+  .service('weatherService', function($q, $http, weatherServiceUrl){
     return {
       get: function(location){
         var deferred = $q.defer();

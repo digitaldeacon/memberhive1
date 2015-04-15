@@ -62,8 +62,8 @@
   "main": "server/server.js",
   "jspm": {
     "directories": {
-      "baseURL": "app",
-      "lib": "app",
+      "baseURL": "client/app",
+      "lib": "client/app",
       "packages": "jspm_packages"
     },
     "dependencies": {
