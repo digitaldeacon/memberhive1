@@ -83,11 +83,11 @@
     "dataSource": "db",
     "public": true
   },
-  "Report": {
+  "TagEntity": {
     "dataSource": "db",
     "public": true
   },
-  "EntityTag": {
+  "Report": {
     "dataSource": "db",
     "public": true
   },
