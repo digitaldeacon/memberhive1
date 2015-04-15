@@ -1,6 +1,11 @@
-import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
+import 'angular-ui-tree';
 
-export var gemNoteModule = angular.module('gem.note', []).config(
+import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
+import {NoteEditFormDirective, NoteTreeDirective} from 'modules/note/directives/note-directives';
+import {NoteService} from 'modules/note/services/note-service';
+import {NoteListController} from 'modules/note/controllers/note-list-controller';
+
+export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
   ($stateProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('note', {
       url: '/note',
@@ -45,3 +50,12 @@ export var gemNoteModule = angular.module('gem.note', []).config(
     ));
   }
 );
+gemNoteModule.controller('NoteListController', NoteListController);
+gemNoteModule.service('NoteService', NoteService);
+gemNoteModule.directive('gemNoteEditForm', NoteEditFormDirective);
+gemNoteModule.directive('gemNoteTree', NoteTreeDirective);
+
+
+gemNoteModule.config(function($logProvider){
+    $logProvider.debugEnabled(true);
+});

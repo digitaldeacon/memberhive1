@@ -25,13 +25,6 @@
     }
   },
   "validations": [],
-  "relations": {
-    "owner": {
-      "type": "belongsTo",
-      "model": "Account",
-      "foreignKey": "ownerId"
-    }
-  },
   "acls": [
     {
       "accessType": "READ",

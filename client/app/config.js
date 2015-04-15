@@ -35,6 +35,7 @@ System.config({
     "angular-ui-select": "github:angular-ui/ui-select@0.11.2",
     "angular-ui/bootstrap": "github:angular-ui/bootstrap-bower@master",
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
+    "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@2.2.0",
     "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
     "babel": "npm:babel-core@5.1.1",
     "babel-runtime": "npm:babel-runtime@5.1.1",
