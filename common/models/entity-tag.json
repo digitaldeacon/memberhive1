@@ -2,7 +2,7 @@
   "name": "EntityTag",
   "plural": "EntityTags",
   "base": "PersistedModel",
-  "idInjection": true,
+  "idInjection": false,
   "options": {
     "mysql": {
       "table": "CorEntityTag"
@@ -13,16 +13,20 @@
       "type": "number",
       "required": true
     },
+    "rowId": {
+      "type": "number",
+      "required": true
+    },
     "entityId": {
       "type": "number",
       "required": true
     },
-    "tableId": {
-      "type": "string",
+    "createdAt": {
+      "type": "date",
       "required": true
     },
-    "created": {
-      "type": "date",
+    "createdBy": {
+      "type": "number",
       "required": true
     }
   },

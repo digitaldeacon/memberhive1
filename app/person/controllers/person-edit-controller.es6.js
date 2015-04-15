@@ -12,10 +12,7 @@ export class PersonEditController{
     this.apiUrl = apiUrl;
 
     this.person = this.getPerson();
-    this.tags = [
-      { 'text': 'Tag1' },
-      { 'text': 'Tag2' }
-    ];
+    this.tags = TagService.getTags(this.Person.model.options.entityId,this.person.id);
 
     this.getContacts = PersonService.getContacts;
     this.relationTypes = PersonService.relationTypes;
@@ -30,11 +27,11 @@ export class PersonEditController{
     this.avatarDeleted = false;
     this.isEditingAvatar = false;
 
-    $scope.datepickerOpened = true;
+    $scope.datepickerOpened = false;
   }
 
   loadTags(query) {
-    return this.TagService.load('person',this.person.id);
+    return this.TagService.load();
   }
 
   isEditing() {
@@ -119,6 +116,14 @@ export class PersonEditController{
    */
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
+
+    for (var tag of this.tags) {
+      console.log('Saving tag: '+tag.text);
+      this.TagService.save({
+        'name':tag.text,
+        'siteId':1
+      });
+    }
 
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
