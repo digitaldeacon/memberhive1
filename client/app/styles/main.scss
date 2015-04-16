@@ -4,9 +4,6 @@
 @import "metronic/admin/layout4/layout";
 @import "metronic/admin/layout4/themes/light";
 
-// Metronic fixes/overrides
-@import "metronic-overrides/metronic-overrides.scss";
-
 // Custom styles
 @import "bootstrap-fixes";
 @import "ns-popover";
@@ -14,6 +11,7 @@
 @import "header";
 @import "search";
 @import "dropzone";
+@import "input-tags";
 
 .logo {
   padding: 15px;

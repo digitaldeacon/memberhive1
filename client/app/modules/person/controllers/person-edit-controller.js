@@ -12,7 +12,7 @@ export class PersonEditController{
     this.apiUrl = apiUrl;
 
     this.person = this.getPerson();
-    this.tags = TagService.getTags(this.Person.model.options.entityId,this.person.id);
+    this.tags = TagService.getTags(this.Person.model.name,this.person.id);
 
     this.getContacts = PersonService.getContacts;
     this.relationTypes = PersonService.relationTypes;
@@ -117,7 +117,7 @@ export class PersonEditController{
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
-    this.TagService.save(this.tags,this.Person.model.options.entityId,this.person.id);
+    this.TagService.save(this.tags,this.Person.model.name,this.person.id);
 
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120

@@ -3,51 +3,51 @@
 // Color variations can be used for Metronic components, such as portlets, buttons, dashboard stats.
 
 @mixin flatui-color-variant($name, $color, $text-color) {
-	
-	/* Button */
-	.#{$name} {
-		&.btn {
-			@include button-variant($text-color, $color, "");
-		}
-	}
 
-	/* Button Strip */
-	.btn.#{$name}-stripe {
-		border-left: 3px solid $color;
-	}
+  /* Button */
+  .#{$name} {
+    &.btn {
+      @include button-variant($text-color, $color, "");
+    }
+  }
 
-	/* Portlet */
-	@include porlet-background($name, $color);
-	@include porlet-solid($name, $text-color);
-	@include porlet-box($name, $color, $text-color);
+  /* Button Strip */
+  .btn.#{$name}-stripe {
+    border-left: 3px solid $color;
+  }
 
-	/* Statistic Block */
-	.dashboard-stat {
-		@include dashboard-stat-variant($name, $color, $text-color);
-	}
+  /* Portlet */
+  @include porlet-background($name, $color);
+  @include porlet-solid($name, $text-color);
+  @include porlet-box($name, $color, $text-color);
 
-	/* General Element */
-	.bg-#{$name} {
-		border-color: $color !important;
-		background-image: none !important;
-	    background-color: $color !important;
-	    color: $text-color !important;
-	}
+  /* Statistic Block */
+  .dashboard-stat {
+    @include dashboard-stat-variant($name, $color, $text-color);
+  }
 
-	/* General Text & Icon Font Colors */
-	.font-#{$name} {
-		color: $color !important;
-	}
+  /* General Element */
+  .bg-#{$name} {
+    border-color: $color !important;
+    background-image: none !important;
+    background-color: $color !important;
+    color: $text-color !important;
+  }
 
-	.progress-bar.#{$name} {
-		background: $color !important;
-		color: $text-color !important;
-	}
+  /* General Text & Icon Font Colors */
+  .font-#{$name} {
+    color: $color !important;
+  }
+
+  .progress-bar.#{$name} {
+    background: $color !important;
+    color: $text-color !important;
+  }
 }
 
 /* Button */
 .btn.default {
-	@include button-variant(#333333, #E5E5E5, "");
+  @include button-variant(#333333, #E5E5E5, "");
 }
 
 /**********
@@ -108,7 +108,6 @@ Blue Sharp
 
 @include flatui-color-variant("blue-sharp", #5C9BD1, #FFFFFF);
 
-
 /***********
 Green Colors
 ************/
@@ -160,7 +159,6 @@ Green Sharp
 ***/
 
 @include flatui-color-variant("green-soft", #3faba4, #FFFFFF);
-
 
 /***********
 Grey Colors
@@ -220,7 +218,6 @@ Grey Mint
 
 @include flatui-color-variant("grey-mint", #9eacb4, #FAFCFB);
 
-
 /***********
 Red Colors
 ************/
@@ -273,7 +270,6 @@ Red Haze
 
 @include flatui-color-variant("red-haze", #f36a5a, #FFFFFF);
 
-
 /***********
 Yellow Colors
 ************/
@@ -313,7 +309,6 @@ Yellow Saffron
 ***/
 
 @include flatui-color-variant("yellow-saffron", #F4D03F, #FFFFFF);
-
 
 /***********
 Purple Colors

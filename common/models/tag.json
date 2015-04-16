@@ -12,20 +12,10 @@
     "text": {
       "type": "string",
       "required": true
-    },
-    "siteId": {
-      "type": "number",
-      "required": true
     }
   },
   "validations": [],
-  "relations": {
-    "address": {
-      "type": "belongsTo",
-      "model": "Site",
-      "foreignKey": "siteId"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": []
 }

@@ -1,3 +1,3 @@
-module.exports = function(EntityTag) {
+module.exports = function(TagEntity) {
 
 };

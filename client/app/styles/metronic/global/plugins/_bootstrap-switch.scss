@@ -6,8 +6,8 @@ Bootstrap Switch
   border-color: $input-border;
 
   &.bootstrap-switch-focused {
-     box-shadow: none;
-     border-color: $input-border;
+    box-shadow: none;
+    border-color: $input-border;
   }
 }
 
@@ -33,12 +33,12 @@ Color variants
 
 /* Bootstrap switch on portlet headers */
 .portlet > {
-    .portlet-title {
-    	> .actions {
-            > .bootstrap-switch {
-                border-color: transparent;
-                margin-top: 0px;
-            }
-        }
+  .portlet-title {
+    > .actions {
+      > .bootstrap-switch {
+        border-color: transparent;
+        margin-top: 0px;
+      }
     }
+  }
 }

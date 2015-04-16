@@ -87,7 +87,7 @@ Page Header
 
         .btn.submit {
           margin: 3px 7px 0 0;
-          padding:0;
+          padding: 0;
           background: none;
           display: block;
 
@@ -108,7 +108,7 @@ Page Header
           padding: 6px 12px;
 
           &:hover {
-            cursor:text;
+            cursor: text;
           }
         }
       }
@@ -136,7 +136,7 @@ Page Header
       margin: $header-sidebar-toggler-margin;
 
       .page-sidebar-closed.page-sidebar-closed-hide-logo & {
-        margin-right: ($sidebar-collapsed-width - $header-menu-toggler-width ) / 2 ;
+        margin-right: ($sidebar-collapsed-width - $header-menu-toggler-width ) / 2;
       }
     }
 
@@ -335,7 +335,7 @@ Page Header
             > li {
               a {
                 .details {
-                  overflow:hidden;
+                  overflow: hidden;
 
                   .label-icon {
                     margin-right: 10px;
@@ -353,8 +353,8 @@ Page Header
                 }
 
                 .time {
-                  float:right;
-                  max-width:75px;
+                  float: right;
+                  max-width: 75px;
 
                   font-size: 11px;
                   font-weight: 400;
@@ -558,7 +558,8 @@ Page Header
 
 /* Form medium devices upto large devices */
 
-@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {  /* 992px 1200px */
+@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+  /* 992px 1200px */
   /* Boxed layout */
   .page-boxed {
     .page-header.navbar {
@@ -586,7 +587,8 @@ Page Header
   }
 }
 
-@media (min-width: $screen-md-min) { /* 992px */
+@media (min-width: $screen-md-min) {
+  /* 992px */
 
   /* Page header */
   .page-header.navbar {
@@ -620,7 +622,7 @@ Page Header
             padding: 6px 12px;
 
             &:hover {
-              cursor:text;
+              cursor: text;
             }
           }
         }
@@ -629,7 +631,7 @@ Page Header
   }
 
   /* Boxed Layout */
-  .page-boxed	{
+  .page-boxed {
     .page-header.navbar {
       /* Page logo */
       .page-logo {
@@ -669,7 +671,8 @@ Page Header
   }
 }
 
-@media (max-width: $screen-sm-max) { /* 991px */
+@media (max-width: $screen-sm-max) {
+  /* 991px */
 
   /* Page header */
   .page-header.navbar {
@@ -691,7 +694,7 @@ Page Header
     /* Menu Toggler */
     .menu-toggler {
       &.sidebar-toggler {
-        display:none !important;
+        display: none !important;
       }
 
       &.responsive-toggler {
@@ -733,11 +736,11 @@ Page Header
         .nav li.dropdown i {
           display: inline-block;
           position: relative;
-          top:1px;
-          right:0px;
+          top: 1px;
+          right: 0px;
         }
 
-        .open .dropdown-menu  {
+        .open .dropdown-menu {
           position: absolute;
         }
       }
@@ -761,11 +764,12 @@ Page Header
   }
 }
 
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { /* 768px & 991px */
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  /* 768px & 991px */
 
   /* Boxed Layout */
   .page-boxed {
-    .page-header.navbar  {
+    .page-header.navbar {
       margin: auto !important;
       padding: 0;
 
@@ -776,7 +780,8 @@ Page Header
   }
 }
 
-@media (max-width: $screen-xs-max) { /* 767px */
+@media (max-width: $screen-xs-max) {
+  /* 767px */
 
   /* Page header */
   .page-header.navbar {
@@ -938,7 +943,8 @@ Pace - Page Progress
   border-radius: 10px !important;
 }
 
-@media (max-width: $screen-xs-min) { /* 480px */
+@media (max-width: $screen-xs-min) {
+  /* 480px */
 
   .page-header-fixed .pace .pace-progress {
     top: ($header-height * 2);

@@ -3,7 +3,7 @@ NoUIRangeSlider
 ***/
 
 .noUi-control {
-	margin: 9px 0;
+  margin: 9px 0;
 }
 
 /***
@@ -11,10 +11,10 @@ Color variants
 ***/
 
 @mixin noui-rangeslider-variant($state, $background) {
-	.noUi-#{$state}.noUi-connect,
-	.noUi-#{$state} .noUi-connect {
-		background: $background;
-	}
+  .noUi-#{$state}.noUi-connect,
+  .noUi-#{$state} .noUi-connect {
+    background: $background;
+  }
 }
 
 @include noui-rangeslider-variant("primary", $btn-primary-bg);
