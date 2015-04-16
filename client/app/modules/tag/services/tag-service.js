@@ -15,7 +15,6 @@ export function TagService(Tag, TagEntity, Shout, gettextCatalog) {
       }
       }).$promise.then(data => {
           data.forEach(item => {
-            item.tag.entityTagId = item.id; //TODO: this must disappear when findOrCreate works for tagService:save
             tags.push(item.tag);
           });
         });
