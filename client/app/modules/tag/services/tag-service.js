@@ -22,7 +22,7 @@ export function TagService(Tag, TagEntity, Shout, gettextCatalog) {
     },
     save: (tagsObj, entityId, rowId) => {
       console.log(tagsObj);
-      Tag.saveTagsEntity(tagsObj, entityId, rowId); //TODO: use findOrCreate at backend
+      Tag.saveTagsEntity({"tags": tagsObj, "entityId": entityId, "rowId": rowId}); //TODO: use findOrCreate at backend
       /*tagsObj.forEach( tag => {
         tag.siteId = 1;
         console.log(tag);
