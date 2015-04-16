@@ -30,6 +30,12 @@ module.exports = function(grunt) {
 
     // Project settings
     yeoman: appConfig,
+    concat: {
+        notes: {
+          src: ['client/app/modules/note/**.js'],
+          dest: 'client/app/modules/note.js'
+        }
+    },
 
     nggettext_extract: { // jshint ignore:line
       pot: {
@@ -412,6 +418,7 @@ module.exports = function(grunt) {
       'lbservices',
       'ngconstant:server',
       'nggettext_compile',
+      'concat',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
@@ -428,7 +435,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'ngAnnotate',
     'copy:dist',
-    'htmlmin'
+    'htmlmin',
     // TODO: `jspm bundle app dist/app.js`
   ]);
 
@@ -458,7 +465,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docular');
   grunt.loadNpmTasks('grunt-loopback-auto');
   grunt.loadNpmTasks('grunt-jscs');
-
+  grunt.loadNpmTasks('grunt-contrib-concat');
   // Load custom tasks from tasks/ directory
   grunt.loadTasks('tasks');
 };

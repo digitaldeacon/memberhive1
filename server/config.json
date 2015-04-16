@@ -3,6 +3,7 @@
   "host": "localhost",
   "port": 3000,
   "legacyExplorer": false,
+  "url": "https://localhost:3000/",
   "remoting": {
     "context": {
       "enableHttpContext": true
