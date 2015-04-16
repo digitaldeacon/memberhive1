@@ -6,8 +6,8 @@
  */
 export function NoteEditFormDirective() {
   return {
-    scope : {
-        note : '='
+    scope: {
+        note: '='
     },
     restrict: 'E',
     templateUrl: 'modules/note/templates/note-edit-form-directive.html'
@@ -17,8 +17,8 @@ export function NoteEditFormDirective() {
 import 'angular-ui-tree/angular-ui-tree.min.css!';
 export function NoteTreeDirective() {
   return {
-    scope : {
-        tree : '='
+    scope: {
+        tree: '='
     },
     restrict: 'E',
     templateUrl: 'modules/note/templates/note-tree-directive.html'
