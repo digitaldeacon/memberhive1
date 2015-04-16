@@ -21,8 +21,9 @@ export function TagService(Tag, TagEntity, Shout, gettextCatalog) {
       return tags;
     },
     save: (tagsObj, entityId, rowId) => {
-      //Tag.saveTagsEntity(tagsObj, entityId, rowId); //TODO: use findOrCreate at backend
-      tagsObj.forEach( tag => {
+      console.log(tagsObj);
+      Tag.saveTagsEntity(tagsObj, entityId, rowId); //TODO: use findOrCreate at backend
+      /*tagsObj.forEach( tag => {
         tag.siteId = 1;
         console.log(tag);
         Tag.upsert({}, tag).$promise.then(
@@ -41,7 +42,7 @@ export function TagService(Tag, TagEntity, Shout, gettextCatalog) {
             Shout.error(error.data.error.message, error.data.error.name);
           }
         );
-      });
+      });*/
     }
   };
 }

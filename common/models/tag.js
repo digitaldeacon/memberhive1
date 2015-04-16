@@ -14,7 +14,7 @@ module.exports = function(Tag) {
     {
       http: {path: '/saveTagsEntity', verb: 'put'},
       accepts: [
-        {arg: 'tags', type: 'array',required: true, http: { source: 'body' }},
+        {arg: 'tags', type: 'array',required: true},
         {arg: 'entityId', type: 'number',required: true},
         {arg: 'rowId', type: 'number',required: true}
       ],
