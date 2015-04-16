@@ -51,7 +51,7 @@ import {gemOptionModule} from 'modules/option/option';
 import {gemReportModule} from 'modules/report/report';
 
 /**
- * The main Gemmii app module.
+ * The main app module.
  */
 export var gemMainModule = angular.module('gemmiiWebApp', [
   'ngAnimate', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch',

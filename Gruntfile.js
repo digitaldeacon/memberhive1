@@ -213,7 +213,10 @@ module.exports = function(grunt) {
       options: {
         name: 'gem.config',
         dest: '<%= yeoman.app %>/scripts/config.js',
-        wrap: 'export var gemConfigModule = {%= __ngModule %}'
+        wrap: 'export var gemConfigModule = {%= __ngModule %}',
+        constants: {
+          productName: 'MemberHive'
+        }
       },
       server: {
         constants: {
