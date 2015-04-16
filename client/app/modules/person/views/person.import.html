@@ -1,0 +1,15 @@
+<div ng-controller="PersonImportController as personCtrl">
+
+<input type="file" ng-file-select="personCtrl.uploadImportFile($files)">
+
+<div ng-if="personCtrl.showTable">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="(key,value) in personCtrl.tableData[0]">
+            {{value}} -> <select ng-model="personCtrl.assign[$index]" ng-options="item for item in personCtrl.options"></select>   
+        </th>
+    </ul>
+    <button ng-click="personCtrl.import()">
+        Import
+    </button>
+</div>
+</div>
