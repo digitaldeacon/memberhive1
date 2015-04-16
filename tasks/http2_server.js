@@ -9,10 +9,12 @@ var root = argv.root || path.normalize(__dirname + "/../");
 var jspmRoot = path.normalize(root + "/jspm_packages/");
 var filesRoot = path.normalize(root + "/client/app/");
 var tmpRoot = path.normalize(root + "/.tmp/");
+var mime = require('mime');
 
 function serve(response, filename, root)
 {
     if ((filename.indexOf(root) === 0) && fs.existsSync(filename) && fs.statSync(filename).isFile()) {
+        response.setHeader("Content-Type", mime.lookup(filename));
         response.writeHead('200');
         fs.createReadStream(filename).pipe(response);
     }
@@ -34,9 +36,11 @@ function onRequest(request, response) {
         filename = path.join(filesRoot, url);
         var filenameTmp = path.join(tmpRoot, url);
         if ((filename.indexOf(filesRoot) === 0) && fs.existsSync(filename) && fs.statSync(filename).isFile()) {
+            response.setHeader("Content-Type", mime.lookup(filename));
             response.writeHead('200');
             fs.createReadStream(filename).pipe(response);
         } else if ((filenameTmp.indexOf(tmpRoot) === 0) && fs.existsSync(filenameTmp) && fs.statSync(filenameTmp).isFile()) {
+            response.setHeader("Content-Type", mime.lookup(filenameTmp));
             response.writeHead('200');
             fs.createReadStream(filenameTmp).pipe(response);
         } else {
