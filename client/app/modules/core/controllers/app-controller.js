@@ -1,9 +1,10 @@
 export class AppController {
-  constructor($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state) {
+  constructor($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state, productName) {
     this.$rootScope = $rootScope;
     this.$cookies = $cookies;
     this.gettextCatalog = gettextCatalog;
     this.$state = $state;
+    this.productName = productName;
 
     $scope.init = () => {
       Metronic.init();
@@ -26,8 +27,8 @@ export class AppController {
    */
   getTitle() {
     if (this.$state.current.hasOwnProperty('data'))
-      return `${this.$state.current.data.pageTitle} | Gemmii`;
-    return 'Gemmii';
+      return `${this.$state.current.data.pageTitle} | ${this.productName}`;
+    return this.productName;
   }
 
   setupLanguages() {

@@ -11,7 +11,7 @@ import {fromNowFilter} from './filters/date-filters';
 import {temperatureFilter} from './filters/format-filters';
 
 /**
- * This module holds dependencies needed by other modules including the `gemmiiWebApp` module.
+ * This module holds dependencies needed by other modules including the `gem.main` module.
  * Thus, it will be loaded before all other modules.
  *
  * @type {module}

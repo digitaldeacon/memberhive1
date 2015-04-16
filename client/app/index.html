@@ -2,7 +2,7 @@
 <html ng-controller="AppController as appCtrl" data-ng-init="init()">
   <head>
     <meta charset="utf-8">
-    <title data-ng-bind="appCtrl.getTitle()">Gemmii</title>
+    <title data-ng-bind="appCtrl.getTitle()"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <base href="/">
@@ -52,7 +52,7 @@
     <script src="config.js"></script>
     <script>
       System.import('app').then(function() {
-        angular.bootstrap(document, ['gemmiiWebApp']);
+        angular.bootstrap(document, ['gem.main']);
       });
     </script>
   </body>

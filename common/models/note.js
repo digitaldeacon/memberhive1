@@ -1,5 +1,9 @@
 var loopback = require('loopback');
 module.exports = function(Note) {
+  Note.definition.rawProperties.created.default =
+  Note.definition.properties.created.default = function() {
+        return new Date();
+  };
 
   Note.beforeCreate = function(next, modelInstance) {
     var userId = loopback.getCurrentContext().get('accessToken').userId;
