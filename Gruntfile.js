@@ -346,6 +346,7 @@ module.exports = function(grunt) {
       'nggettext_compile',
       'concat',
       'concurrent:server',
+      'http2_server',
       'watch'
     ]);
   });
