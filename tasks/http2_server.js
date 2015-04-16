@@ -29,6 +29,10 @@ function serve(response, filename, root)
 function onRequest(request, response) {
     var url = request.url.split('?')[0];
     var filename = "";
+    console.log(url);
+    if(url === "/" || url === "") {
+        url = "/index.html";
+    }
     if(url.indexOf("/jspm_packages/") === 0) {
         filename = path.join(root, url);
         serve(response, filename, jspmRoot);
