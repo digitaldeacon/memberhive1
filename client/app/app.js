@@ -53,7 +53,7 @@ import {gemReportModule} from 'modules/report/report';
 /**
  * The main app module.
  */
-export var gemMainModule = angular.module('gemmiiWebApp', [
+export var gemMainModule = angular.module('gem.main', [
   'ngAnimate', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch',
   'ui.router', 'ui.bootstrap',  'ui.select',
   'lbServices', 'picardy.fontawesome',
