@@ -13,7 +13,7 @@
  */
 export function AvatarDirective(apiUrl) {
   return {
-    template: '<img src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}" />',
+    template: '<img ng-src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}" />',
 
     restrict: 'E',
     scope: {

@@ -27,7 +27,7 @@ export class AppController {
    */
   getTitle() {
     if (this.$state.current.hasOwnProperty('data'))
-      return `${this.$state.current.data.pageTitle} | ${this.productName}}`;
+      return `${this.$state.current.data.pageTitle} | ${this.productName}`;
     return this.productName;
   }
 
