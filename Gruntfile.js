@@ -14,14 +14,17 @@ module.exports = function(grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+  
+  var devServer = "https://localhost:3000/api";
+  var prodServer = "https://localhost:3000/api";
+  
   // Configurable paths for the application
   var appConfig = {
     app: 'client/app',
     dist: 'dist',
     api: {
-      development: 'http://0.0.0.0:3000/api/',
-      production: '/api/'
+      development: devServer,
+      production: prodServer
     }
   };
 
@@ -58,7 +61,7 @@ module.exports = function(grunt) {
         options: {
           input: 'server/server.js',
           output: '<%= yeoman.app %>/modules/core/services/lb-services.js',
-          apiUrl: 'http://localhost:3000/api'
+          apiUrl: devServer
 
         }
       }
@@ -251,31 +254,6 @@ module.exports = function(grunt) {
       server: '.tmp'
     },
 
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      server: {
-        options: {
-          map: true
-        },
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -307,59 +285,6 @@ module.exports = function(grunt) {
       }
     },
 
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*/**.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
-
-    // ng-annotate tries to make the code safe for minification automatically
-    // by using the Angular long form for dependency injection.
-    ngAnnotate: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: '*.js',
-          dest: '.tmp/concat/scripts'
-        }]
-      }
-    },
-
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
@@ -375,7 +300,13 @@ module.exports = function(grunt) {
             'templates/{,*/}*.html',
             '**/views/*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            '*.js',
+            '**/*.js',
+            '*.html',
+            '**/*.html',
+            '*.crt',
+            '*.key'
           ]
         }, {
           expand: true,
@@ -393,8 +324,6 @@ module.exports = function(grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
-        'svgmin'
       ]
     },
 
@@ -407,9 +336,6 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
-    }
 
     grunt.task.run([
       'githooks',
@@ -420,8 +346,6 @@ module.exports = function(grunt) {
       'nggettext_compile',
       'concat',
       'concurrent:server',
-      'autoprefixer:server',
-      'connect:livereload',
       'watch'
     ]);
   });
@@ -432,10 +356,7 @@ module.exports = function(grunt) {
     'ngconstant:server',
     'nggettext_compile',
     'concurrent:dist',
-    'autoprefixer',
-    'ngAnnotate',
     'copy:dist',
-    'htmlmin',
     // TODO: `jspm bundle app dist/app.js`
   ]);
 
