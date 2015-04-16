@@ -227,7 +227,7 @@ Portlets
       padding: 4px 0;
     }
 
-    > .nav-tabs {
+    .nav-tabs {
       background: none;
       margin: 0;
       float: right;
@@ -575,7 +575,7 @@ Portlets
       margin-top: 2px;
     }
 
-    > .nav-tabs {
+    .nav-tabs {
       > li {
         margin: 0;
         padding: 0;
@@ -595,6 +595,39 @@ Portlets
         }
       }
     }
+  }
+
+  .nav-tabs {
+    background: none;
+    margin: 0;
+    float: right;
+    display: inline-block;
+    border: 0;
+
+    > li {
+      background: none;
+      margin: 0;
+      border: 0;
+
+      > a {
+        background: none;
+        margin: 5px 0 0 1px;
+        border: 0;
+        padding: 8px 10px;
+        color: #666;
+      }
+
+      &.active > a,
+      &:hover > a {
+        color: #333;
+        background: #fff;
+        border: 0;
+      }
+    }
+  }
+
+  .tab-content {
+    clear: both;
   }
 
   &.form-fit {

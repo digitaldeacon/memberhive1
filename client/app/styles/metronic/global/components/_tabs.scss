@@ -291,7 +291,7 @@ Custom tabs
 $tabbable-line-font-color: #333 !default;
 
 .tabbable-line {
-  > .nav-tabs {
+  .nav-tabs {
     border: none;
     margin: 0px;
 
@@ -343,7 +343,7 @@ $tabbable-line-font-color: #333 !default;
     }
   }
 
-  > .tab-content {
+  .tab-content {
     margin-top: -3px;
     background-color: #fff;
     border: 0;
