@@ -4,7 +4,6 @@
   "base": "GemBase",
   "idInjection": true,
   "options": {
-    "entityId": 1,
     "mysql": {
       "table": "PerPerson"
     }

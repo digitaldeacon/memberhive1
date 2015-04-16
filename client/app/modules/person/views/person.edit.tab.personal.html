@@ -3,18 +3,17 @@
   <h3 translate>Tags</h3>
   <div class="input-group">
     <span class="input-group-addon"><fa name="tags"></fa></span>
-      <tags-input
+      <tags-input class="bootstrap"
         ng-model="personCtrl.tags"
         replace-spaces-with-dashes="false"
-        addFromAutocompleteOnly="false"
+        add-from-autocomplete-only="false"
         placeholder="{{'Add a tag' | translate}}">
         <auto-complete
           source="personCtrl.loadTags($query)"
-          selectFirstMatch="false"
-          highlightMatchedText="false"></auto-complete>
+          select-first-match="false"></auto-complete>
       </tags-input>
   </div>
-<p>{{personCtrl.tags}}</p>
+
   <h3 translate>Person Info</h3>
 
   <div class="btn-group form-group gender-buttons" role="group">

@@ -21,8 +21,7 @@ export function TagService(Tag, TagEntity, Shout, gettextCatalog) {
       return tags;
     },
     save: (tagsObj, entityId, rowId) => {
-      console.log(tagsObj);
-      Tag.saveTagsEntity({"tags": tagsObj, "entityId": entityId, "rowId": rowId}); //TODO: use findOrCreate at backend
+      Tag.saveTagsEntity({"tags": tagsObj, "entityId": entityId, "rowId": rowId});
       /*tagsObj.forEach( tag => {
         tag.siteId = 1;
         console.log(tag);
