@@ -1,11 +1,13 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var https = require('https');
-var sslConfig = require('./ssl-config');
+var path = require('path');
+var fs = require("fs");
+
 var app = module.exports = loopback();
 var options = {
-  key: sslConfig.privateKey,
-  cert: sslConfig.certificate
+  key: fs.readFileSync(path.join(__dirname, '../private/privatekey.pem')).toString(),
+  cert: fs.readFileSync(path.join(__dirname, '../private/certificate.pem')).toString()
 };
 
 // Bootstrap the application, configure models, datasources and middleware.
