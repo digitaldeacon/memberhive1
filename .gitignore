@@ -13,7 +13,7 @@ run-slow.sh
 # Generated files
 client/app/modules/core/services/lb-services.js
 client/app/scripts/translations.js
-client/app/scripts/config.es6.js
+client/app/scripts/config.js
 
 # Misc
 dist

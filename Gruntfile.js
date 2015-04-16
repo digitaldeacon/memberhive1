@@ -212,7 +212,7 @@ module.exports = function(grunt) {
       // Options for all targets
       options: {
         name: 'gem.config',
-        dest: '<%= yeoman.app %>/scripts/config.es6.js',
+        dest: '<%= yeoman.app %>/scripts/config.js',
         wrap: 'export var gemConfigModule = {%= __ngModule %}'
       },
       server: {
@@ -287,7 +287,8 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+          generatedImagesDir: '<%= yeoman.dist %>/images/generated',
+          cssDir: appConfig.dist
         }
       },
       server: {
@@ -376,6 +377,7 @@ module.exports = function(grunt) {
             '*.html',
             'templates/{,*/}*.html',
             '**/views/*.html',
+            '**/*.js',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -384,18 +386,7 @@ module.exports = function(grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }, {
-          expand: true,
-          cwd: '.',
-          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-          dest: '<%= yeoman.dist %>'
         }]
-      },
-      styles: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '{,*/}*.css'
       }
     },
 
