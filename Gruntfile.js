@@ -298,18 +298,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // Renames files for browser caching purposes
-    filerev: {
-      dist: {
-        src: [
-          '<%= yeoman.dist %>/scripts/{,*/}*.js',
-          '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
-        ]
-      }
-    },
-
     imagemin: {
       dist: {
         files: [{
@@ -344,7 +332,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', '/views/{,*/}*.html'],
+          src: ['*/**.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -377,7 +365,6 @@ module.exports = function(grunt) {
             '*.html',
             'templates/{,*/}*.html',
             '**/views/*.html',
-            '**/*.js',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -438,8 +425,8 @@ module.exports = function(grunt) {
     'autoprefixer',
     'ngAnnotate',
     'copy:dist',
-    'filerev',
     'htmlmin'
+    // TODO: `jspm bundle app dist/app.js`
   ]);
 
   grunt.registerTask('default', [

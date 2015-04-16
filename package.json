@@ -32,7 +32,6 @@
     "grunt-contrib-jshint": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-docular": "^0.2.4",
-    "grunt-filerev": "^2.1.2",
     "grunt-githooks": "^0.3.1",
     "grunt-jscs": "^1.5.0",
     "grunt-loopback-auto": "0.0.5",
