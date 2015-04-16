@@ -1,10 +1,11 @@
 export function TagService(Tag, TagEntity, Shout, gettextCatalog) {
-  var tags = [];
+
   return {
     load: () => {
       return Tag.find().$promise;
     },
     getTags: (entity,id) => {
+      var tags = [];
       TagEntity.find({filter: {
         where: {
           entityId: entity,
