@@ -22,34 +22,34 @@ CKEditor css changes
 .cke_dialog_footer,
 .cke_dialog {
   background-image: none !important;
-  filter:none ;
-  border-top: 0 ;
-  border-bottom: 0 ;
-   -webkit-box-shadow: none !important;
-      -moz-box-shadow: none !important;
-           box-shadow: none !important;
-  text-shadow:none ;
+  filter: none;
+  border-top: 0;
+  border-bottom: 0;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  text-shadow: none;
 }
 
 .cke_dialog_ui_button,
 .cke_dialog_tab {
   background-image: none !important;
-  filter:none ;
+  filter: none;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
-  text-shadow:none !important;
+  text-shadow: none !important;
 }
 
 .cke_dialog_ui_button:hover,
 .cke_dialog_tab:hover {
   text-decoration: none;
-  text-shadow:none ;
+  text-shadow: none;
 }
 
 .cke_dialog_ui_input_text {
   background-image: none !important;
-  filter:none ;
+  filter: none;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
@@ -60,9 +60,9 @@ CKEditor css changes
 .cke_toolbar,
 .cke_toolgroup {
   background-image: none !important;
-  filter:none !important;
-  border: 0 ;
-   -webkit-box-shadow: none !important;
+  filter: none !important;
+  border: 0;
+  -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 
@@ -73,8 +73,8 @@ CKEditor css changes
 .cke_panel_grouptitle,
 .cke_hc.cke_panel_listItem a {
   background-image: none !important;
-  filter:none ;
-  text-shadow:none ;
+  filter: none;
+  text-shadow: none;
 }
 
 .cke_button:hover,
@@ -84,10 +84,10 @@ CKEditor css changes
 
 .cke_toolbar_break {
   background-image: none !important;
-  filter:none !important;
-  border: 0 ;
+  filter: none !important;
+  border: 0;
   box-shadow: none !important;
-  -webkit-box-shadow : none !important;
+  -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   -ms-box-shadow: none !important;
   -o-box-shadow: none !important;

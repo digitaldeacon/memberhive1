@@ -9,11 +9,11 @@ Datatables Plugin(in v1.3)
 
 .dataTables_filter {
   .form-control {
-     margin-left: 4px;
+    margin-left: 4px;
   }
 
   label {
-    line-height: 32px ;
+    line-height: 32px;
   }
 }
 
@@ -30,39 +30,39 @@ Datatables Plugin(in v1.3)
 }
 
 .dataTable .row-details.row-details-open {
-  background: url("../img/datatable-row-openclose.png") no-repeat 0 -23px ;
+  background: url("../img/datatable-row-openclose.png") no-repeat 0 -23px;
 }
 
 .dataTable .details {
-  background-color: #eee ;
+  background-color: #eee;
 }
 
 .dataTable .details td,
 .dataTable .details th {
   padding: 4px;
-  background: none ;
+  background: none;
   border: 0;
 }
 
 .dataTable .details tr:hover td,
 .dataTable .details tr:hover th {
-  background: none ;
+  background: none;
 }
 
 .dataTable .details tr:nth-child(odd) td,
 .dataTable .details tr:nth-child(odd) th {
-  background-color: #eee ;
+  background-color: #eee;
 }
 
 .dataTable .details tr:nth-child(even) td,
 .dataTable .details tr:nth-child(even) th {
-  background-color: #eee ;
+  background-color: #eee;
 }
 
 .dataTable > thead > tr > th.sorting,
 .dataTable > thead > tr > th.sorting_asc,
 .dataTable > thead > tr > th.sorting_desc {
- padding-right: 18px;
+  padding-right: 18px;
 }
 
 .dataTable .table-checkbox {
@@ -73,26 +73,26 @@ Datatables Plugin(in v1.3)
   .dataTables_wrapper .dataTables_length .form-control,
   .dataTables_wrapper .dataTables_filter .form-control {
     display: inline-block;
-}
+  }
 
-.dataTables_wrapper .dataTables_info {
+  .dataTables_wrapper .dataTables_info {
     top: 17px;
-}
+  }
 
-.dataTables_wrapper .dataTables_paginate {
+  .dataTables_wrapper .dataTables_paginate {
     margin-top: -15px;
-}
+  }
 }
 
 @media (max-width: 480px) {
   .dataTables_wrapper .dataTables_filter .form-control {
     width: 175px !important;
-}
+  }
 
-.dataTables_wrapper .dataTables_paginate {
+  .dataTables_wrapper .dataTables_paginate {
     float: left;
     margin-top: 20px;
-}
+  }
 }
 
 .dataTables_processing {
@@ -114,7 +114,7 @@ Datatables Plugin(in v1.3)
 }
 
 .dataTables_processing span {
-  line-height:15px;
+  line-height: 15px;
   vertical-align: middle;
 }
 
@@ -132,91 +132,91 @@ TableTools
     margin-right: 5px;
 
     &:last-child {
-        margin-right: 0;
+      margin-right: 0;
     }
   }
 }
 
 .tabletools-dropdown-on-portlet {
-    margin-top: -45px;
-    float: right;
+  margin-top: -45px;
+  float: right;
 
-    > .btn {
+  > .btn {
     margin-right: 5px;
 
     &:last-child {
-        margin-right: 0;
+      margin-right: 0;
     }
   }
 }
 
 .DTTT_Print {
-    background-color: #fff;
+  background-color: #fff;
+
+  .DTTT_PrintMessage {
+    display: none;
+  }
+
+  @media print {
 
     .DTTT_PrintMessage {
-       display: none;
+      display: inline-block;
     }
 
-    @media print {
+  }
 
-      .DTTT_PrintMessage {
-        display: inline-block;
+  .DTTT_Print_Info {
+    display: block;
+    position: fixed;
+    top: 35px;
+    font-size: 18px;
+    width: 700px;
+    left: 50%;
+    margin-left: -350px;
+    text-align: center;
+  }
+
+  .page-sidebar,
+  .page-header,
+  .page-footer {
+    display: none;
+  }
+
+  .page-content-wrapper {
+    float: none;
+  }
+
+  .row,
+  [class*="col-"] {
+    padding: 0;
+    margin: 0;
+  }
+
+  .page-content {
+    margin: 50px auto !important;
+    border: 0 !important;
+    width: 800px !important;
+    padding: 0 !important;
+
+    .portlet {
+      border: 0;
+      padding: 0;
+
+      .portlet-body {
+        padding: 0;
       }
-
     }
 
-    .DTTT_Print_Info {
-        display: block;
-        position: fixed;
-        top: 35px;
-        font-size: 18px;
-        width: 700px;
-        left: 50%;
-        margin-left: -350px;
-        text-align: center;
+    .dataTables_wrapper {
+      padding: 0;
+      margin: 0;
+      box-shadow: 5px 5px rgba(#666, 0.1);
+
+      @media print {
+        box-shadow: none;
+      }
     }
-
-    .page-sidebar,
-    .page-header,
-    .page-footer {
-        display: none;
-    }
-
-    .page-content-wrapper {
-        float: none;
-    }
-
-    .row,
-        [class*="col-"] {
-           padding: 0;
-           margin: 0;
-    }
-
-    .page-content {
-        margin: 50px auto !important;
-        border: 0 !important;
-        width: 800px !important;
-        padding: 0 !important;
-
-        .portlet {
-            border: 0;
-            padding:0;
-
-            .portlet-body {
-                padding: 0;
-            }
-        }
-
-        .dataTables_wrapper {
-            padding: 0;
-            margin: 0;
-            box-shadow: 5px 5px rgba(#666, 0.1);
-
-            @media print {
-              box-shadow: none;
-            }
-        }
-    }
+  }
 }
 
 /***
@@ -254,7 +254,7 @@ Extended pagination
   }
 
   .dataTables_extended_wrapper .seperator {
-      display: none !important;
+    display: none !important;
   }
 }
 

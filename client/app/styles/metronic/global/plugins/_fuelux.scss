@@ -12,15 +12,15 @@ FuelUX Spinners
   padding-top: 0px;
 
   .page-style-rounded & {
-  	 &.spinner-up {
-		border-radius: 0;
-	  	border-top-right-radius: $form-control-border-radius !important;
-	  }
+    &.spinner-up {
+      border-radius: 0;
+      border-top-right-radius: $form-control-border-radius !important;
+    }
 
-	  &.spinner-down {
-	  	border-radius: 0;
-	  	border-bottom-right-radius: $form-control-border-radius;
-	  }
-	}
+    &.spinner-down {
+      border-radius: 0;
+      border-bottom-right-radius: $form-control-border-radius;
+    }
+  }
 }
 
