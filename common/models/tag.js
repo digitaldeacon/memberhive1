@@ -6,6 +6,7 @@ module.exports = function(Tag) {
         {where: {text: tag.text}}
       );*/
       console.log(tag);
+      cb(null);
     });
   };
 
