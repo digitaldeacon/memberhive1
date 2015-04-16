@@ -41,7 +41,14 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
       acl: {
         needRights: ['$authenticated']
       }
+    }).state('note.edit', {
+      url: '/edit/:id',
+      templateUrl: 'modules/note/views/note.edit.html',
+      acl: {
+        needRights: ['$authenticated']
+      }
     });
+
 
     MainMenuProvider.add(new MenuSection(gettext('Notes'), 'file-text',
       [

@@ -8,7 +8,7 @@
       "required": true
     },
     "content": {
-      "type": "string"
+      "type": "TEXT"
     },
     "created": {
       "type": "date",
