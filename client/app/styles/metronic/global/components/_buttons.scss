@@ -5,9 +5,25 @@ Customized Bootstrap Buttons
 /* Default buttons */
 
 .btn {
-	border-width: 0;
-	padding: 7px 14px; 	
-    font-size: 14px;
+  border-width: 0;
+  padding: 7px 14px;
+  font-size: 14px;
+  outline: none !important;
+  background-image: none !important;
+  filter: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+
+  &.dropdown-toggle,
+  .btn-group &.dropdown-toggle,
+  &:hover,
+  &:disabled,
+  &[disabled],
+  &:focus,
+  &:active,
+  &.active {
     outline: none !important;
     background-image: none !important;
     filter: none;
@@ -15,23 +31,7 @@ Customized Bootstrap Buttons
     -moz-box-shadow: none;
     box-shadow: none;
     text-shadow: none;
-
-    &.dropdown-toggle,
-    .btn-group &.dropdown-toggle,
-    &:hover,
-    &:disabled,
-    &[disabled],
-    &:focus,
-    &:active,
-    &.active {
-     outline: none !important;
-     background-image: none !important;
-     filter: none;
-     -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-     box-shadow: none;
-     text-shadow: none;
- }
+  }
 }
 
 .btn-default {
@@ -83,78 +83,76 @@ Customized Bootstrap Buttons
 
 /* Button sizes */
 .btn {
-	> i {
-		font-size: 14px;		
-	}
+  > i {
+    font-size: 14px;
+  }
 }
 
 .btn-lg {
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.33;
-    vertical-align: middle;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  vertical-align: middle;
 
-    > i {
-        font-size: 18px;
-    }
+  > i {
+    font-size: 18px;
+  }
 }
 
 .btn-sm,
 .btn-xs {
-    padding: 4px 10px 5px 10px;
-    font-size: 13px;
-    line-height: 1.5;
+  padding: 4px 10px 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
 
-    > i {
-        font-size: 13px;
-    }
+  > i {
+    font-size: 13px;
+  }
 }
 
 .btn-xs {
-    padding: 1px 5px;
+  padding: 1px 5px;
 
-
-    > i {
-        font-size: 12px;
-    }
+  > i {
+    font-size: 12px;
+  }
 }
 
 /* Small button in button group */
 
 .btn-group {
-    .input-sm {
-        .btn-default {
-            padding-top: 3px;
-            padding-bottom: 3px;
-        }
+  .input-sm {
+    .btn-default {
+      padding-top: 3px;
+      padding-bottom: 3px;
     }
+  }
 }
-
 
 /* Arrow link */
 
 .btn-arrow-link {
-    vertical-align: middle;
-    display: inline-block;
-    font-size: 13px;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 13px;
+
+  > i {
+    font-size: 14px;
+    line-height: 14px;
+    vertical-align: top;
+    margin: 2px 3px 2px 3px;
+    color: #999;
+  }
+
+  &.btn-arrow-link-lg {
+    font-size: 14px;
 
     > i {
-       font-size: 14px;
-       line-height: 14px;
-       vertical-align: top;
-       margin: 2px 3px 2px 3px;
-       color: #999;
+      font-size: 16px;
+      line-height: 16px;
+      margin: 2px 3px 1px 3px;
     }
-
-    &.btn-arrow-link-lg {
-      font-size: 14px;
-
-      > i {
-         font-size: 16px;
-         line-height: 16px;
-         margin: 2px 3px 1px 3px;
-      }
-    }
+  }
 }
 
 /* Circle Buttons */
@@ -164,7 +162,7 @@ Customized Bootstrap Buttons
 }
 
 .btn-circle-right {
-  border-radius:  0 25px 25px 0 !important;
+  border-radius: 0 25px 25px 0 !important;
 }
 
 .btn-circle-left {
@@ -172,7 +170,7 @@ Customized Bootstrap Buttons
 }
 
 .btn-circle-bottom {
-  border-radius:  0 0 25px 25px !important;
+  border-radius: 0 0 25px 25px !important;
 }
 
 .btn-circle-top {
@@ -210,35 +208,35 @@ Customized Bootstrap Buttons
 }
 
 .btn-group.btn-group-circle {
-    > .btn {
-        &:first-child {
-            border-radius: 25px 0 0 25px !important;
-        }
-
-        &:last-child {
-            border-radius: 0 25px 25px 0 !important;
-        }
+  > .btn {
+    &:first-child {
+      border-radius: 25px 0 0 25px !important;
     }
+
+    &:last-child {
+      border-radius: 0 25px 25px 0 !important;
+    }
+  }
 }
 
 .btn-group.btn-group-devided {
-    > .btn {
-        margin-right: 5px;
+  > .btn {
+    margin-right: 5px;
 
-        &:last-child {
-            margin-right: 0;
-        }
+    &:last-child {
+      margin-right: 0;
     }
+  }
 }
 
 .btn-group-vertical.btn-group-vertical-circle {
-     > .btn {
-        &:first-child {
-            border-radius: 25px 25px 0 0 !important;
-        }
-
-        &:last-child {
-            border-radius: 0 0 25px 25px !important;
-        }
+  > .btn {
+    &:first-child {
+      border-radius: 25px 25px 0 0 !important;
     }
+
+    &:last-child {
+      border-radius: 0 0 25px 25px !important;
+    }
+  }
 }

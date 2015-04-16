@@ -3,20 +3,20 @@ Customized Bootstrap Popover
 ***/
 
 .popover {
-    box-shadow: 5px 5px rgba(#666, 0.1);
-    padding: 0;
+  box-shadow: 5px 5px rgba(#666, 0.1);
+  padding: 0;
 
-    .popover-title {
-        margin: 0 !important;
-    }
+  .popover-title {
+    margin: 0 !important;
+  }
 }
 
 @mixin popover-variant($name, $color) {
-    .popover.#{name} .popover-title,
-    #{name} .popover .popover-content,
-    .popover.#{name} .popover-content {
-        color: $color;
-    }
+  .popover.#{name} .popover-title,
+  #{name} .popover .popover-content,
+  .popover.#{name} .popover-content {
+    color: $color;
+  }
 }
 
 @include popover-variant("info", $brand-info);
@@ -27,13 +27,13 @@ Customized Bootstrap Popover
 
 /* popover colors*/
 .popovers.yellow + .popover {
-    background: yellow;
+  background: yellow;
 }
 
 .popovers.yellow + .popover .popover-title {
-    background: yellow;
+  background: yellow;
 }
 
 .popovers.yellow + .popover .popover-content {
-    background: yellow;
+  background: yellow;
 }

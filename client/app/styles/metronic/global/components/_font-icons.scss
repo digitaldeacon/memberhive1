@@ -105,20 +105,20 @@ Font Awesome 4.x Demo
 ***/
 
 .fa-item {
-    font-size: 14px;
-    padding: 10px 10px 10px 20px;
+  font-size: 14px;
+  padding: 10px 10px 10px 20px;
 
-    i {
-        font-size: 16px;
-        display: inline-block;
-        width: 20px;
-        color: #333;
-    }
+  i {
+    font-size: 16px;
+    display: inline-block;
+    width: 20px;
+    color: #333;
+  }
 
-    &:hover {
-        cursor: pointer;
-        background: #eee;
-    }
+  &:hover {
+    cursor: pointer;
+    background: #eee;
+  }
 }
 
 /***
@@ -150,11 +150,11 @@ Simple Line Icons Demo
 
 @media only screen and (min-width: 768px) {
 
-    .simplelineicons-demo  {
-      .item-box {
-        width: 33.333%;
-      }
+  .simplelineicons-demo {
+    .item-box {
+      width: 33.333%;
     }
+  }
 }
 
 /***
@@ -162,11 +162,11 @@ Glyphicons Demo
 ***/
 
 .glyphicons-demo ul {
-    padding-left: 0;
-    padding-bottom: 1px;
-    margin-bottom: 20px;
-    list-style: none;
-    overflow: hidden;
+  padding-left: 0;
+  padding-bottom: 1px;
+  margin-bottom: 20px;
+  list-style: none;
+  overflow: hidden;
 }
 
 .bs-glyphicon-class {
@@ -174,38 +174,38 @@ Glyphicons Demo
 }
 
 .bs-glyphicons {
-    padding-left: 0;
-    padding-bottom: 1px;
-    margin-bottom: 20px;
-    list-style: none;
-    overflow: hidden;
+  padding-left: 0;
+  padding-bottom: 1px;
+  margin-bottom: 20px;
+  list-style: none;
+  overflow: hidden;
 }
 
 .glyphicons-demo ul li {
-    float: left;
-    width: 25%;
-    height: 115px;
-    padding: 10px;
-    margin: 0 -1px -1px 0;
-    font-size: 14px;
-    line-height: 1.4;
-    text-align: center;
-    border: 1px solid #ddd;
+  float: left;
+  width: 25%;
+  height: 115px;
+  padding: 10px;
+  margin: 0 -1px -1px 0;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  border: 1px solid #ddd;
 }
 
 .glyphicons-demo .glyphicon {
-    display: block;
-    margin: 5px auto 10px;
-    font-size: 24px;
-    color: #444;
+  display: block;
+  margin: 5px auto 10px;
+  font-size: 24px;
+  color: #444;
 }
 
 .glyphicons-demo ul li:hover {
-    background-color: rgba(86,61,124,.1);
+  background-color: rgba(86, 61, 124, .1);
 }
 
 @media (min-width: 768px) {
-    .glyphicons-demo ul li {
-        width: 12.5%;
-    }
+  .glyphicons-demo ul li {
+    width: 12.5%;
+  }
 }

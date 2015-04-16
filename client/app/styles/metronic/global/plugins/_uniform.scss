@@ -13,17 +13,17 @@ jQuery Uniform
 }
 
 div.checker.disabled span,
-div.checker.disabled.active span{
-    background-position: -152px -260px;
+div.checker.disabled.active span {
+  background-position: -152px -260px;
 }
 
 div.checker.disabled:hover,
 div.radio.disabled:hover {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 div.radio,
 div.checker {
- margin-right: 0;
- margin-left: 3px;
+  margin-right: 0;
+  margin-left: 3px;
 }

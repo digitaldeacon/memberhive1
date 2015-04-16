@@ -3,58 +3,58 @@ Customized Bootstrap Modal
 ***/
 
 .modal {
-    z-index: $zindex-modal;
-    outline: none;
-    overflow-y: auto !important; /* Fix content shifting to the right on modal open due to scrollbar closed */
+  z-index: $zindex-modal;
+  outline: none;
+  overflow-y: auto !important; /* Fix content shifting to the right on modal open due to scrollbar closed */
 
-    .modal-header {
-        border-bottom: 1px solid #EFEFEF;
+  .modal-header {
+    border-bottom: 1px solid #EFEFEF;
 
-        h3 {
-            font-weight: 300;
-        }
-
-        .close {
-            margin-top: 0px !important;
-        }
+    h3 {
+      font-weight: 300;
     }
 
-    .modal-dialog {
-        z-index: $zindex-modal + 1;
+    .close {
+      margin-top: 0px !important;
     }
+  }
 
-    > .loading {
-        position: absolute;
-        top: 50%;
-        left:50%;
-        margin-top: -22px;
-        margin-left: -22px;
-    }
+  .modal-dialog {
+    z-index: $zindex-modal + 1;
+  }
 
-    &.in {
-        .page-loading {
-            display: none;
-        }
+  > .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -22px;
+    margin-left: -22px;
+  }
+
+  &.in {
+    .page-loading {
+      display: none;
     }
+  }
 }
 
 .modal-open {
-    overflow-y: auto !important;
+  overflow-y: auto !important;
 }
 
 .modal-open-noscroll {
-    overflow-y: hidden !important;
+  overflow-y: hidden !important;
 }
 
 .modal-backdrop {
-    border: 0;
-    outline: none;
-    z-index: $zindex-modal-background;
+  border: 0;
+  outline: none;
+  z-index: $zindex-modal-background;
 
-    &,
-    &.fade.in {
-        background-color: #333 !important;
-    }
+  &,
+  &.fade.in {
+    background-color: #333 !important;
+  }
 }
 
 /* Full width modal */

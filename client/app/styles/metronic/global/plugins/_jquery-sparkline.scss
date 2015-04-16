@@ -7,39 +7,38 @@ jQuery Sparkline
   height: auto !important;
 }
 
-
 .easy-pie-chart,
 .sparkline-chart {
-   text-align: center;
+  text-align: center;
 }
 
 .sparkline-chart {
   margin-top: 15px;
-  position:relative ;
+  position: relative;
 }
 
 .easy-pie-chart .number {
-    font-size: 16px;
-    font-weight: 300;
-    width: 85px;
-    margin: 0 auto;
+  font-size: 16px;
+  font-weight: 300;
+  width: 85px;
+  margin: 0 auto;
 }
 
 .sparkline-chart .number {
-    width: 100px;
-    margin: 0 auto;
-    margin-bottom: 10px;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .sparkline-chart .title,
 .easy-pie-chart .title {
-    display: block;
-    text-align: center;
-    color: #333;
-    font-weight: 300;
-    font-size: 16px;
-    margin-top: 5px;
-    margin-bottom: 10px;
+  display: block;
+  text-align: center;
+  color: #333;
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .sparkline-chart .title:hover,
