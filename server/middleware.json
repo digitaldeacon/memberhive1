@@ -10,8 +10,8 @@
   "auth": {
   },
   "parse": {
-    "body-parser#json": {"params": { "limit":"20000kb" }},
-    "body-parser#urlencoded": {"params": { "extended": true, "limit":"20000kb" }}
+    "body-parser#json": {"params": { "limit":"5mb" }},
+    "body-parser#urlencoded": {"params": { "extended": true, "limit":"5mb" }}
   },
   "routes": {
     "loopback#status": {
