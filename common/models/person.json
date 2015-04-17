@@ -40,7 +40,6 @@
     },
     "primaryContact": {
       "type": "string",
-      "required": true,
       "enum": [
         "email",
         "mobile",

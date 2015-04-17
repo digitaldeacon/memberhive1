@@ -1,6 +1,6 @@
 import 'angular-toastr/dist/angular-toastr.min.css!';
 
-export function Shout(toastr,toastrConfig) {
+export function Shout(toastr,toastrConfig, gettext) {
   angular.extend(toastrConfig, {
     allowHtml: false,
     closeButton: true,
@@ -19,6 +19,15 @@ export function Shout(toastr,toastrConfig) {
     },
     info: (h,txt,response) => {
       toastr.info(h, txt);
+    },
+    sError: (message) => {
+        toastr.error(gettext("Error"), message);
+    },
+    sSuccess: (message) => {
+      toastr.success(gettext("Success"), message);
+    },
+    sInfo: (message) => {
+      toastr.info(gettext("Info"), message);
     }
   };
 }
