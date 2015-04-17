@@ -12,13 +12,17 @@ export class PersonEditController{
     this.apiUrl = apiUrl;
 
     this.person = this.getPerson();
-    this.tags = TagService.getTags(this.Person.model.name,this.person.id);
 
     this.getContacts = PersonService.getContacts;
     this.relationTypes = PersonService.relationTypes;
     this.genders = PersonService.genders;
     this.households = PersonService.getHouseholds();
     this.addressTypes = AddressService.addressTypes;
+
+    this.person.$promise.then(data=>{
+      this.tags = TagService.getTags(this.Person.model.name,data.id);
+    });
+
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
     this.avatar = null;
     this.uploadedAvatar = null;

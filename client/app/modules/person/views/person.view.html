@@ -9,7 +9,7 @@
       </div>
 
       <div class="col-md-9">
-        <a class="btn btn-default btn-sm pull-right" ui-sref="person.edit({ id: person.id })">
+        <a class="btn btn-default btn-sm pull-right green-haze" ui-sref="person.edit({ id: person.id })">
           <fa name="edit"></fa>
           <translate>Edit Person</translate>
         </a>
@@ -18,6 +18,12 @@
           {{person.lastName}}
           <small class="text-muted" ng-if="person.nickName">({{person.nickName}})</small>
         </h1>
+
+        <div class="row bootstrap">
+          <div class="viewport">
+            <span ng-repeat="tag in personCtrl.tags" class="tag-item">{{tag.text}}</span>
+          </div>
+        </div>
 
         <div class="row">
           <div class="col-md-3">

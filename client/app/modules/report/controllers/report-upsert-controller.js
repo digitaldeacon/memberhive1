@@ -1,6 +1,6 @@
 export class ReportUpsertController {
 
-  constructor($scope,Report,ReportService,Person,LoopBackAuth,gettextCatalog,Shout,$stateParams) {
+  constructor($scope,Report,ReportService,Person,LoopBackAuth,gettextCatalog,Shout,$stateParams,TagService) {
     this.$scope = $scope;
     this.Report = Report;
     this.ReportService = ReportService;
@@ -11,6 +11,8 @@ export class ReportUpsertController {
     this.$stateParams = $stateParams;
 
     this.report = this.getReport();
+    this.tags = TagService.getTags(this.Report.model.name,this.report.id);
+
     this.curUser = LoopBackAuth.currentUserId;
     $scope.reportHtml = '';
 

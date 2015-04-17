@@ -17,6 +17,7 @@ export function TagService(Tag, TagEntity, Shout, gettextCatalog) {
           data.forEach(item => {
             tags.push(item.tag);
           });
+          return tags;
         });
       return tags;
     },

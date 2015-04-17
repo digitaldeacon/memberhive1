@@ -1,6 +1,9 @@
 export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, gettextCatalog,
                               $upload, apiUrl, $rootScope) {
   return {
+    modelName: () => {
+      return Person.model.name;
+    },
     currentUser: () => {
       return Person.findById({id: LoopBackAuth.currentUserId});
     },

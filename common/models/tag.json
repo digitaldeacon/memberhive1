@@ -12,6 +12,15 @@
     "text": {
       "type": "string",
       "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "personal",
+        "organisational",
+        "status"
+      ]
     }
   },
   "validations": [],
