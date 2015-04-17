@@ -3,4 +3,10 @@
     <button ng-click="personCtrl.export()">
         Export
     </button>
+    
+    <div id="export-html">
+      <div ng-repeat="person in personCtrl.persons">
+        {{person.firstName}} {{person.lastName}}
+      </div>
+    </div>
 </div>
