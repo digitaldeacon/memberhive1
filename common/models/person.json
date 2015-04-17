@@ -35,6 +35,12 @@
     "birthdate": {
       "type": "date"
     },
+    "baptismDate": {
+      "type": "date"
+    },
+    "duties" : {
+      "type": "string"
+    },
     "email": {
       "type": "string"
     },

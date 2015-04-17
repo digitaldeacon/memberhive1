@@ -99,6 +99,7 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
     }
   };
   this.options = Object.keys(Person.model.properties);
+  this.options.push('mobileNumber', 'homeNumber');
   this.assign = [];
   this.showTable = false;
   this.tableData = {};
@@ -114,7 +115,7 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
     var persons = _.map(_.drop(this.tableData), this.convert);
     _.forEach(persons, (person, pos) => {
       if(person.lastName !== undefined) {
-        Person.upsert(person).$promise.then(
+        Person.simpleUpsert({"person": person}).$promise.then(
           (data) => Shout.sSuccess(gettext("Person imported ") + data.firstName + " " + data.lastName),
           (err) => Shout.sError(err)
         );

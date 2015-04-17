@@ -47,6 +47,22 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
         }
       });
     },
+    reallyAll: () => {
+      return Person.find({
+        filter: {
+          order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
+          include: [
+            'contacts',
+            'account',
+            {
+              'household': {'persons': 'relationType'}
+            },
+            'ministries',
+            'relationType'
+          ]
+        }
+      });
+    },
 
     saveAvatar: (person, file) => {
       $upload.upload({
