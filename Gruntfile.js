@@ -204,7 +204,7 @@ module.exports = function(grunt) {
           'tasks/*.js',
           '!<%= yeoman.app %>/scripts/metronic/**/*.js',
           '!<%= yeoman.app %>/modules/core/services/lb-services.js',
-          '!<%= yeoman.app %>/scripts/translations.js',
+          '!<%= yeoman.app %>/scripts/*.js',
           '!<%= yeoman.app %>/config.js'
         ]
       }
