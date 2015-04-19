@@ -4,8 +4,10 @@
 
 <div ng-if="personCtrl.showTable">
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="(key,value) in personCtrl.tableData[0]">
-            {{value}} -> <select ng-model="personCtrl.assign[$index]" ng-options="item for item in personCtrl.options"></select>   
+        <li class="list-group-item" ng-repeat="(key,value) in personCtrl.tableData[0] track by $index">
+            {{value}} -> 
+            <select ng-model="personCtrl.assign[$index]" ng-options="item for item in personCtrl.options"></select> 
+            Example: <span>{{personCtrl.tableData[1][$index]}}</span>
         </th>
     </ul>
     <button ng-click="personCtrl.import()">

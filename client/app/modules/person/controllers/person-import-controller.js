@@ -99,7 +99,7 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
     }
   };
   this.options = Object.keys(Person.model.properties);
-  this.options.push('mobileNumber', 'homeNumber');
+  this.options.push('contact.home', 'contact.mobile', 'address.street1', 'address.street2', 'address.city', 'address.zip', 'address.country');
   this.assign = [];
   this.showTable = false;
   this.tableData = {};
@@ -115,22 +115,38 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
     var persons = _.map(_.drop(this.tableData), this.convert);
     _.forEach(persons, (person, pos) => {
       if(person.lastName !== undefined) {
-        Person.simpleUpsert({"person": person}).$promise.then(
+        Person.upsert(person).$promise.then(
           (data) => Shout.sSuccess(gettext("Person imported ") + data.firstName + " " + data.lastName),
           (err) => Shout.sError(err)
         );
       }
     });
-    console.log(persons);
   };
   
   // converts a csv row to a person, using the user defined bijection from csv to person attributes
   this.convert = (row) => {
     var person = {};
     _.forEach(row, (value, pos) => {
-      if(this.assign[pos])
-        person[this.assign[pos]] = value;
+      if(this.assign[pos]) {
+        person = this.dotToObject(person, value, this.assign[pos]);
+      }
     }); 
     return person;
+  };
+  
+  //Example: this.dotToObject({}, "foo", "a.b.c") -> {a: {b: {c:""foo"} } }
+  this.dotToObject = (obj, value, path) => {
+    if(_.contains(path, '.')) {
+      var paths = path.split('.');
+      var objectName = paths[0];
+      var newpath = paths[1];
+      if(! _.has(obj, objectName)) {
+        obj[objectName] = {};
+      }
+      obj[objectName] = this.dotToObject(obj[objectName], value, newpath); 
+    } else {
+      obj[path] = value;
+    }
+    return obj;
   };
 }

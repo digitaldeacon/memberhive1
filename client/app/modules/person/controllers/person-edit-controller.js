@@ -1,9 +1,8 @@
 export class PersonEditController{
-  constructor(PersonService, TagService, Person, Contact, AddressService, $stateParams, $scope, Shout, gettextCatalog, apiUrl, $filter) {
+  constructor(PersonService, TagService, Person, AddressService, $stateParams, $scope, Shout, gettextCatalog, apiUrl, $filter) {
     this.PersonService = PersonService;
     this.TagService = TagService;
     this.Person = Person;
-    this.Contact = Contact;
     this.Shout = Shout;
     this.$scope = $scope;
     this.gettextCatalog = gettextCatalog;
@@ -14,7 +13,6 @@ export class PersonEditController{
     this.person = this.getPerson();
     this.tags = TagService.getTags(this.Person.model.name,this.person.id);
 
-    this.getContacts = PersonService.getContacts;
     this.relationTypes = PersonService.relationTypes;
     this.genders = PersonService.genders;
     this.households = PersonService.getHouseholds();

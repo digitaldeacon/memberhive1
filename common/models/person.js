@@ -81,7 +81,7 @@ module.exports = function(Person) {
       }
     }
   );
-  
+  /*
   Person.simpleUpsert = function(person, cb) {
     var copy = person;
    
@@ -94,6 +94,12 @@ module.exports = function(Person) {
       }
       if(person.mobileNumber !== undefined) {
         Person.app.models.Contact.findOrCreate(
+           {where: {and: [{personId: obj.id}, {type: "mobile"}]} }, //find
+           {type: "mobile", personId: obj.id, value: person.mobileNumber} //create
+        );
+      }
+      if(person.street1 !== undefined) {
+        Person.app.models.Adress.findOrCreate(
            {where: {and: [{personId: obj.id}, {type: "mobile"}]} }, //find
            {type: "mobile", personId: obj.id, value: person.mobileNumber} //create
         );
@@ -112,5 +118,5 @@ module.exports = function(Person) {
         required: true
       }
     }
-  );
+  );*/
 };

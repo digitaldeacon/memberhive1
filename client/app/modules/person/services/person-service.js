@@ -1,4 +1,4 @@
-export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, gettextCatalog,
+export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCatalog,
                               $upload, apiUrl, $rootScope) {
   return {
     currentUser: () => {
@@ -13,7 +13,6 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
             id: id
           },
           include: [
-            'contacts',
             'account',
             {
               'household': [
@@ -23,7 +22,6 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
             },
             'ministries',
             'relationType',
-            'addresses'
           ]
         }
       });
@@ -36,7 +34,6 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
           offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
           include: [
-            'contacts',
             'account',
             {
               'household': {'persons': 'relationType'}
@@ -52,7 +49,6 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
         filter: {
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
           include: [
-            'contacts',
             'account',
             {
               'household': {'persons': 'relationType'}
@@ -87,25 +83,6 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
       return Household.find();
     },
 
-    /**
-     * Filter person.contacts by given `contactType` and return first occurence
-     */
-    getContacts: (person, contactType) => {
-      if (!person.contacts)
-        return '';
-      // ES7 Array comprehensions are supported by Babel transpiler, but not by espree, which is used for
-      // gettextCatalog.getString extraction. Thus, no strings are extracted from this file.
-      // We can switch back to ES7 array comprehensions once this is fixed: https://github.com/eslint/espree/issues/125
-      //var contact = [for (contact of person.contacts) if (contact.type === contactType) contact].shift();
-      var contact = person.contacts.filter((contact) => {return contact.type === contactType;}).shift();
-      if (contact === undefined) {
-        contact = new Contact();
-        contact.type = contactType;
-        contact.personId = person.id;
-        person.contacts.push(contact);
-      }
-      return contact;
-    },
 
     /**
      * A dictionary with gender translations

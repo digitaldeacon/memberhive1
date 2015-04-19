@@ -38,11 +38,17 @@
     "baptismDate": {
       "type": "date"
     },
-    "duties" : {
+    "duties": {
       "type": "string"
     },
     "email": {
       "type": "string"
+    },
+    "contact": {
+      "type": "object"
+    },
+    "address": {
+      "type": "object"
     },
     "primaryContact": {
       "type": "string",
@@ -58,10 +64,6 @@
   },
   "validations": [],
   "relations": {
-    "contacts": {
-      "type": "hasMany",
-      "model": "Contact"
-    },
     "account": {
       "type": "hasOne",
       "model": "Account"
@@ -79,12 +81,6 @@
       "model": "Ministry",
       "foreignKey": "personId",
       "through": "PersonMinistry"
-    },
-    "addresses": {
-      "type": "hasMany",
-      "model": "Address",
-      "foreignKey": "personId",
-      "through": "PersonAddress"
     }
   },
   "acls": [

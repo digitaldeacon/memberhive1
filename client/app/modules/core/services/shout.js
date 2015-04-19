@@ -1,4 +1,5 @@
 import 'angular-toastr/dist/angular-toastr.min.css!';
+import {objectPath} from 'objectPath';
 
 export function Shout(toastr,toastrConfig, gettext) {
   angular.extend(toastrConfig, {
@@ -21,7 +22,8 @@ export function Shout(toastr,toastrConfig, gettext) {
       toastr.info(h, txt);
     },
     sError: (message) => {
-        toastr.error(gettext("Error"), message);
+      console.log(message);
+      toastr.error(gettext("Error"), message);
     },
     sSuccess: (message) => {
       toastr.success(gettext("Success"), message);

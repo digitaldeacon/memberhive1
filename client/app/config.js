@@ -59,6 +59,7 @@ System.config({
     "ngImgCrop": "github:alexk111/ngImgCrop@0.3.2",
     "ngTagsInput": "github:lunks/ngTagsInput@master",
     "nsPopover": "github:nohros/nsPopover@0.6.7",
+    "object-path": "npm:object-path@0.9.2",
     "rangy": "github:timdown/rangy-release@1.2.3",
     "restangular": "github:mgonto/restangular@1.5.1",
     "textAngular": "npm:textangular@1.3.11",
@@ -139,7 +140,7 @@ System.config({
     "github:mistic100/jQuery-QueryBuilder@2.0.1": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
       "jquery": "github:components/jquery@1.11.2",
-      "moment": "npm:moment@2.9.0"
+      "moment": "github:moment/moment@2.9.0"
     },
     "github:ncuillery/angular-breadcrumb@0.3.3": {
       "angular-ui-router": "github:angular-ui/ui-router@0.2.13"
@@ -148,7 +149,7 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
+      "github:angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.0",
       "jquery": "github:components/jquery@1.11.2",
       "jquery-ui": "github:components/jqueryui@1.11.3"
     },
