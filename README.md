@@ -1,6 +1,4 @@
-# gemmii-web
-The Repo for the Angular UI side of gemmii
-
+# MemberHive
 ![My image](http://bible-survey.org/i/gemmii/angularjs.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/strongloop.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/es6.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/mariadb.png)
 
 ## Getting started

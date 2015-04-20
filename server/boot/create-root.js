@@ -7,8 +7,8 @@ module.exports = function(app) {
         Account.create(
             [{
                 username: 'root',
-                email: 'root@gemmii.io',
-                password:'bibel',
+                email: 'root@memberhive.io',
+                password: 'bibel'
             }],
             function(err, users) {
             // Create the admin role

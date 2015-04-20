@@ -3,7 +3,7 @@
     "name": "db",
     "connector": "mysql",
     "host": "localhost",
-    "database": "gemmii-test",
+    "database": "memberhive-dev",
     "username": "",
     "password": ""
   }
