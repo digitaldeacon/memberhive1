@@ -3,8 +3,16 @@ var log = bunyan.createLogger({name: 'gem.tag'});
 
 module.exports = function(Tag) {
 
-  Tag.saveTagsEntity = function(tags, entityId, rowId, cb) {
+  Tag.search = function(value, cb) {
+    Tag.app.models.TagEntity.find({
+      where: {text: {like: `%${value}%`}},
+      limit: 10
+    }, function(err, tags) {
+      cb(null, tags);
+    });
+  };
 
+  Tag.saveTagsEntity = function(tags, entityId, rowId, cb) {
     Tag.app.models.TagEntity.destroyAll({
           and: [
             {rowId: rowId},
@@ -60,6 +68,21 @@ module.exports = function(Tag) {
         {arg: 'rowId', type: 'number',required: true}
       ],
       returns: {arg: 'status', type: 'string'}
+    }
+  );
+
+  Tag.remoteMethod(
+    'search',
+    {
+      accepts: {
+        arg: 'value',
+        type: 'string',
+        required: true
+      },
+      returns: {
+        arg: 'results',
+        type: 'array'
+      }
     }
   );
 
