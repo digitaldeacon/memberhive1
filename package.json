@@ -120,6 +120,16 @@
           "github:codemirror/CodeMirror": "~4.8.0"
         }
       },
+      "github:codemirror/CodeMirror@4.8.0": {
+        "registry": "jspm",
+        "format": "global",
+        "main": "codemirror.js",
+        "shim": {
+          "codemirror.js": {
+            "exports": "CodeMirror"
+          }
+        }
+      },
       "github:mistic100/jQuery-QueryBuilder@2.0.1": {
         "registry": "jspm",
         "format": "global",

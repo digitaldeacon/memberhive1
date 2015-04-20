@@ -43,8 +43,7 @@
           </tab-heading>
           <div class="tab-personal row">
             <div class="portlet-default">
-              {{reportUpCtrl.report.html}}
-              <ui-codemirror ng-model="reportUpCtrl.report.html"></ui-codemirror>
+              <ui-codemirror ng-model="reportUpCtrl.report.html" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
               <div class="form-actions fluid">
                 <button class="btn green-haze" type="submit">Save</button>
               </div>

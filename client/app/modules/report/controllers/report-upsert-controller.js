@@ -16,6 +16,12 @@ export class ReportUpsertController {
     this.curUser = LoopBackAuth.currentUserId;
     $scope.reportHtml = '';
 
+    this.editorOptions = {
+      lineWrapping: true,
+      lineNumbers: true,
+      mode: 'html'
+    };
+
     /** Dictionaries **/
     this.personModel = [
       {id: 'firstName',label: gettextCatalog.getString('First Name'),type: 'string',optgroup: gettextCatalog.getString('Person')},
