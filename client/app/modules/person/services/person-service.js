@@ -4,17 +4,15 @@ export function PersonService(Person, Contact, Household, Avatar, LoopBackAuth, 
     modelName: () => {
       return Person.model.name;
     },
+
     currentUser: () => {
       return Person.findById({id: LoopBackAuth.currentUserId});
     },
 
     one: (id) => {
-      // Need to use findOne() instead of findById() since you can't use the include filter with findById()
-      return Person.findOne({
+      return Person.findById({
+        id: id,
         filter: {
-          where: {
-            id: id
-          },
           include: [
             'contacts',
             'account',
