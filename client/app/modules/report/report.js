@@ -1,9 +1,6 @@
 import 'codemirror/codemirror';
-
-import 'textAngular';
-import 'textAngular/dist/textAngular-rangy.min';
-import 'textAngular/dist/textAngular-sanitize.min';
-import 'textAngular/src/textAngular.css!';
+import 'codemirror/codemirror.css!';
+import 'ui-codemirror';
 
 import 'jQuery-QueryBuilder';
 import 'bootstrap-datepicker/js/bootstrap-datepicker';
@@ -20,7 +17,11 @@ import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
 import './styles/report.css!';
 
-export var gemReportModule = angular.module('gem.report', []).config(
+export var gemReportModule = angular.module('gem.report', [
+    'ui.codemirror'
+  ]);
+
+gemReportModule.config(
   ($stateProvider, $provide, MainMenuProvider, gettext) => {
     $stateProvider.state('report', {
       url: '/report',
@@ -69,15 +70,6 @@ export var gemReportModule = angular.module('gem.report', []).config(
         needRights: ['$authenticated']
       }
     });
-
-    //textAngular setup
-    $provide.decorator('taOptions', ['$delegate', function(taOptions) {
-      taOptions.toolbar = [
-        ['html','h1','h2','h3'],
-        ['bold','italics']
-      ];
-      return taOptions;
-    }]);
 
     MainMenuProvider.add(new MenuSection(gettext('Reports'), 'bar-chart',
       [

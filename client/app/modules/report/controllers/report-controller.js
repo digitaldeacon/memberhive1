@@ -17,9 +17,6 @@ export class ReportController {
     this.totalReports = 0;
 
     $scope.reportHtml = '<table><tr><td>%col1%</td><td>%col2%</td></tr></table>';
-    $scope.textAreaSetup = function($element) {
-      $element.attr('ui-codemirror', '');
-    };
 
     this.report = {
       name: 'My report',

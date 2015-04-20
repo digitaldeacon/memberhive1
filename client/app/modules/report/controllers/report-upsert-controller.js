@@ -16,10 +16,6 @@ export class ReportUpsertController {
     this.curUser = LoopBackAuth.currentUserId;
     $scope.reportHtml = '';
 
-    $scope.textAreaSetup = function($element) {
-      $element.attr('ui-codemirror', '');
-    };
-
     /** Dictionaries **/
     this.personModel = [
       {id: 'firstName',label: gettextCatalog.getString('First Name'),type: 'string',optgroup: gettextCatalog.getString('Person')},

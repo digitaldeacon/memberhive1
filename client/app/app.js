@@ -59,7 +59,7 @@ export var gemMainModule = angular.module('gem.main', [
   'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
   'angular-confirm', 'angularMoment', 'angular-loading-bar',
-  'gettext', 'textAngular', 'toastr', 'ncy-angular-breadcrumb',
+  'gettext', 'toastr', 'ncy-angular-breadcrumb',
 
   // GEM Modules
   'gem.core', // This needs to be loaded first
