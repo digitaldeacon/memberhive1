@@ -22,6 +22,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             },
             'ministries',
             'relationType',
+            'addresses'
           ]
         }
       });

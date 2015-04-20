@@ -35,6 +35,10 @@
     "dataSource": "db",
     "public": true
   },
+  "Address": {
+    "dataSource": "db",
+    "public": false
+  },
   "Ministry": {
     "dataSource": "db",
     "public": true
@@ -58,6 +62,10 @@
   "RelationType": {
     "dataSource": "db",
     "public": true
+  },
+  "PersonAddress": {
+    "dataSource": "db",
+    "public": false
   },
   "GemBase": {
     "dataSource": "db",
