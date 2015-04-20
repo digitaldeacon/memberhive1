@@ -17,9 +17,6 @@
       "type": "string",
       "required": true
     },
-    "addressId": {
-      "type": "number"
-    },
     "created": {
       "type": "date",
       "required": true
@@ -27,11 +24,6 @@
   },
   "validations": [],
   "relations": {
-    "address": {
-      "type": "belongsTo",
-      "model": "Address",
-      "foreignKey": "addressId"
-    }
   },
   "acls": [],
   "methods": []

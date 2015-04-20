@@ -14,14 +14,17 @@ module.exports = function(grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+  
+  var devServer = "https://localhost:3000/api";
+  var prodServer = "https://localhost:3000/api";
+  
   // Configurable paths for the application
   var appConfig = {
     app: 'client/app',
     dist: 'dist',
     api: {
-      development: 'http://0.0.0.0:3000/api/',
-      production: '/api/'
+      development: devServer,
+      production: prodServer
     }
   };
 
@@ -30,6 +33,12 @@ module.exports = function(grunt) {
 
     // Project settings
     yeoman: appConfig,
+    concat: {
+        notes: {
+          src: ['client/app/modules/note/**.js'],
+          dest: 'client/app/modules/note.js'
+        }
+    },
 
     nggettext_extract: { // jshint ignore:line
       pot: {
@@ -52,7 +61,7 @@ module.exports = function(grunt) {
         options: {
           input: 'server/server.js',
           output: '<%= yeoman.app %>/modules/core/services/lb-services.js',
-          apiUrl: 'http://localhost:3000/api'
+          apiUrl: devServer
 
         }
       }
@@ -195,7 +204,7 @@ module.exports = function(grunt) {
           'tasks/*.js',
           '!<%= yeoman.app %>/scripts/metronic/**/*.js',
           '!<%= yeoman.app %>/modules/core/services/lb-services.js',
-          '!<%= yeoman.app %>/scripts/translations.js',
+          '!<%= yeoman.app %>/scripts/*.js',
           '!<%= yeoman.app %>/config.js'
         ]
       }
@@ -245,31 +254,6 @@ module.exports = function(grunt) {
       server: '.tmp'
     },
 
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      server: {
-        options: {
-          map: true
-        },
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -301,59 +285,6 @@ module.exports = function(grunt) {
       }
     },
 
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*/**.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
-
-    // ng-annotate tries to make the code safe for minification automatically
-    // by using the Angular long form for dependency injection.
-    ngAnnotate: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: '*.js',
-          dest: '.tmp/concat/scripts'
-        }]
-      }
-    },
-
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
@@ -369,7 +300,13 @@ module.exports = function(grunt) {
             'templates/{,*/}*.html',
             '**/views/*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            '*.js',
+            '**/*.js',
+            '*.html',
+            '**/*.html',
+            '*.crt',
+            '*.key'
           ]
         }, {
           expand: true,
@@ -387,8 +324,6 @@ module.exports = function(grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
-        'svgmin'
       ]
     },
 
@@ -401,9 +336,6 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
-    }
 
     grunt.task.run([
       'githooks',
@@ -412,9 +344,9 @@ module.exports = function(grunt) {
       'lbservices',
       'ngconstant:server',
       'nggettext_compile',
+      'concat',
       'concurrent:server',
-      'autoprefixer:server',
-      'connect:livereload',
+      'http2_server',
       'watch'
     ]);
   });
@@ -425,10 +357,7 @@ module.exports = function(grunt) {
     'ngconstant:server',
     'nggettext_compile',
     'concurrent:dist',
-    'autoprefixer',
-    'ngAnnotate',
     'copy:dist',
-    'htmlmin'
     // TODO: `jspm bundle app dist/app.js`
   ]);
 
@@ -458,7 +387,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docular');
   grunt.loadNpmTasks('grunt-loopback-auto');
   grunt.loadNpmTasks('grunt-jscs');
-
+  grunt.loadNpmTasks('grunt-contrib-concat');
   // Load custom tasks from tasks/ directory
   grunt.loadTasks('tasks');
 };

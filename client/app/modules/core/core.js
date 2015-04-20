@@ -5,6 +5,8 @@ import {SidebarController} from './controllers/sidebar-controller';
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective} from './directives/form-directives';
 import {Shout} from './services/shout';
+import {GemFileReader} from './services/filereader';
+import {GemPdf} from './services/pdf';
 import {Search} from './services/search';
 import './services/lb-services';
 import {fromNowFilter} from './filters/date-filters';
@@ -42,6 +44,8 @@ gemCoreModule.service('Search', Search);
 
 // Factories
 gemCoreModule.factory('Shout', Shout);
+gemCoreModule.factory('GemFileReader', GemFileReader);
+gemCoreModule.factory('GemPdf', GemPdf);
 
 // Directives
 gemCoreModule.directive('controlGroup', controlGroupDirective);

@@ -22,10 +22,6 @@
       "type": "hasMany",
       "model": "Person",
       "foreignKey": ""
-    },
-    "address": {
-      "type": "belongsTo",
-      "model": "Address"
     }
   },
   "acls": [

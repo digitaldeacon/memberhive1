@@ -101,8 +101,7 @@
       <span class="input-group-addon">
         <i class="glyphicon glyphicon-earphone"></i>
       </span>
-      {{contactHome = personCtrl.getContacts(personCtrl.person, 'home');""}}
-      <input class="form-control" type="text" id="contact.home" name="contact.home" ng-model="contactHome.value" />
+      <input class="form-control" type="text" id="contact.home" name="contact.home" ng-model="personCtrl.person.contact.home" />
     </div>
   </control-group>
 
@@ -111,8 +110,7 @@
       <span class="input-group-addon">
         <i class="glyphicon glyphicon-phone-alt"></i>
       </span>
-      {{contactWork = personCtrl.getContacts(personCtrl.person, 'work');""}}
-      <input class="form-control" type="text" id="contact.work" name="contact.work" ng-model="contactWork.value" />
+      <input class="form-control" type="text" id="personCtrl.person.contact.work" name="contact.work" ng-model="personCtrl.person.contact.work" />
     </div>
   </control-group>
 
@@ -121,8 +119,7 @@
       <span class="input-group-addon">
         <i class="glyphicon glyphicon-phone"></i>
       </span>
-      {{contactMobile = personCtrl.getContacts(personCtrl.person, 'mobile');""}}
-      <input class="form-control" type="text" id="contact.mobile" name="contact.mobile" ng-model="contactMobile.value" />
+      <input class="form-control" type="text" id="contact.mobile" name="contact.mobile" ng-model="personCtrl.person.contact.mobile" />
     </div>
   </control-group>
 
@@ -131,8 +128,7 @@
       <span class="input-group-addon">
         <fa name="fax"></fa>
       </span>
-      {{contactFax = personCtrl.getContacts(personCtrl.person, 'fax');""}}
-      <input class="form-control" type="text" id="contact.fax" name="contact.fax" ng-model="contactFax.value" />
+      <input class="form-control" type="text" id="contact.fax" name="contact.fax" ng-model="personCtrl.person.contact.fax" />
     </div>
   </control-group>
 
@@ -141,8 +137,7 @@
       <span class="input-group-addon">
         <fa name="facebook-official" size="large" style="color:#43609C"></fa>
       </span>
-      {{contactFacebook = personCtrl.getContacts(personCtrl.person, 'facebook');""}}
-      <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="contactFacebook.value" />
+      <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="personCtrl.person.contact.facebook" />
     </div>
   </control-group>
 
@@ -151,8 +146,7 @@
       <span class="input-group-addon">
         <fa name="skype" size="large" style="color:#00AFF0"></fa>
       </span>
-      {{contactSkype = personCtrl.getContacts(personCtrl.person, 'skype');""}}
-      <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="contactSkype.value" />
+      <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="personCtrl.person.contact.skype" />
     </div>
   </control-group>
 

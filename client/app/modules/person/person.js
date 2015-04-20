@@ -12,6 +12,8 @@ import './filters/person-filters';
 import {PersonListController} from './controllers/person-list-controller';
 import {PersonEditController} from './controllers/person-edit-controller';
 import {PersonViewController} from './controllers/person-view-controller';
+import {PersonImportController} from './controllers/person-import-controller';
+import {PersonExportController} from './controllers/person-export-controller';
 import {PersonService} from './services/person-service';
 import {AvatarDirective} from './directives/person-directives';
 
@@ -94,6 +96,32 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
+    }).state('person.import', {
+      url: '/import',
+      templateUrl: 'modules/person/views/person.import.html',
+      data: {
+        pageSubTitle: gettext('Import Persons')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Import'),
+        parent: 'person.list'
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
+    }).state('person.export', {
+      url: '/export',
+      templateUrl: 'modules/person/views/person.export.html',
+      data: {
+        pageSubTitle: gettext('Export Persons')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Export'),
+        parent: 'person.list'
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
     });
 
     // Allow skype urls http://stackoverflow.com/a/15769779
@@ -102,7 +130,9 @@ export var gemPersonModule = angular.module('gem.person',
     MainMenuProvider.add(new MenuSection(gettext('Persons'), 'user',
       [
         new MenuLink(gettext('List Persons'), 'users', 'person.list'),
-        new MenuLink(gettext('Create Person'), 'user-plus', 'person.create')
+        new MenuLink(gettext('Create Person'), 'user-plus', 'person.create'),
+        new MenuLink(gettext('Import'), 'upload', 'person.import'),
+        new MenuLink(gettext('Export'), 'share', 'person.export')
       ]
     ));
   }
@@ -110,6 +140,8 @@ export var gemPersonModule = angular.module('gem.person',
 gemPersonModule.controller('PersonListController', PersonListController);
 gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);
+gemPersonModule.controller('PersonImportController', PersonImportController);
+gemPersonModule.controller('PersonExportController', PersonExportController);
 
 gemPersonModule.factory('PersonService', PersonService);
 gemPersonModule.factory('TagService', TagService);

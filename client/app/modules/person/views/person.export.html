@@ -1,0 +1,112 @@
+<div ng-controller="PersonExportController as personCtrl">
+
+    <button ng-click="personCtrl.export()">
+        Export
+    </button>
+    
+    <div id="export-html">
+      <style>
+@page {
+    size: A5;
+    font-size: 12px;
+    margin: 1.0cm 1.3cm 1.0cm 1.3cm;
+    line-height: 120%;
+    font-family: 'Tinos', serif;
+}
+
+body { 
+    margin: 0;
+    font-size: 12px;
+    line-height: 120%;
+    font-family: 'Tinos', serif;
+}
+table
+{
+    border-collapse: collapse;
+}
+tr
+{
+    border-top: 1px solid black;
+}
+.top {
+    border-bottom: none;
+    padding-top: 3px;
+}
+.bottom {
+    border-top: none;
+}
+
+td {
+}
+.image {
+    width: 93px;
+    height: 93px;
+}
+.td-image {
+    width: 97px;
+    padding: 2px;
+}
+.t-img {
+    height: 93px;
+    width: $image-width;
+    background-repeat:no-repeat;
+    background-size:contain;
+}
+.td-name {
+    padding-left: 3px;
+    width: 180px;
+    padding-top: 3px;
+    vertical-align:text-top;
+}
+.td-date {
+    width: 90px;
+    padding-top: 3px;
+    vertical-align:text-top;
+    
+}
+.td-contact {
+    padding-top: 3px;
+    vertical-align:text-top;
+}
+.more {
+    padding-left: 3px;
+    color: #181818;
+    vertical-align:bottom;
+    padding-bottom: 3px;
+}
+.name {
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+</style>
+      <table border="0" width="100%" ng-repeat="person in personCtrl.persons">
+        <tr class="top">
+            <td rowspan="2" class="td-image">
+                <div class="image"><div class="t-img"></div>
+            </td>
+            <td class="td-name">
+                <div class="name">{{person.firstName}}, {{person.lastName}}</div>
+                    <div class="str">{{person.address.street1}} {{person.address.street2}}</div>
+                    <div class="str">{{person.address.zip}} {{person.address.city}}</div>
+            </td>
+            <td  class="td-date">
+                <div class="tel">{{person.birthday}}</div>
+                <div class="tel">{{person.baptismDate}}</div>
+            </td>  
+            <td  class="td-contact">
+              Telefon:<br/>
+                <div class="tel">{{person.contact.home}}</div>
+                <div class="tel">{{person.contact.mobile}}</div>
+            </td>  
+
+        </tr>
+        <tr class="bottom">
+            <td colspan="3" class="more">
+                <div class="tel">{{person.email}}</div>
+                <div class="dienst">{{person.duties}}</div>      
+            </td>  
+        </tr>
+         
+      </table>
+    </div>
+</div>
