@@ -94,17 +94,7 @@ module.exports = function(Person) {
           country: person.home_country,
           additional: person.home_additional
         };
-        Person.app.models.Address.findOrCreate(
-         {where: addr},//find
-          addr,//insert
-          {}, //options
-          function(err, address, created) {
-            var a = address.persons.build({type:'home'});
-            address.persons.create(a, function(err, personAddress) {
-              console.log(err, personAddress);
-            });
-          }
-        );
+        obj.homeAddress.create(addr);
       } 
       if(person.work_street1 !== undefined) {
         var addr = {
@@ -115,17 +105,7 @@ module.exports = function(Person) {
           country: person.work_country,
           additional: person.work_additional
         };
-        Person.app.models.Address.findOrCreate(
-         {where: addr},//find
-          addr,//insert
-          {}, //options
-          function(err, address, created) {
-            var a = address.persons.build({type:'work'});
-            address.persons.create(a, function(err, personAddress) {
-              console.log(err, personAddress);
-            });
-          }
-        );
+        obj.workAddress.create(addr);
       } 
       
       cb(null, obj);

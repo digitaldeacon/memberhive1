@@ -86,20 +86,14 @@
       "through": "PersonAddress"
     },
     "homeAddress": {
-      "type": "embedsOne",
+      "type": "hasOne",
       "model": "Address",
-      "property": "homeAddressId",
-      "options": {
-        "validate": true,
-        "forceId": false
+      "property": "homeAddressId"
     },
     "workAddress": {
-      "type": "embedsOne",
+      "type": "hasOne",
       "model": "Address",
-      "property": "workAddressId",
-      "options": {
-        "validate": true,
-        "forceId": false
+      "property": "workAddressId"
     }
   },
   "acls": [
