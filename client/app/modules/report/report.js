@@ -1,5 +1,6 @@
 import 'codemirror';
-import 'codemirror/codemirror.css!';
+import 'codemirror/lib/codemirror.css!';
+import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'ui-codemirror';
 
 import 'jQuery-QueryBuilder';

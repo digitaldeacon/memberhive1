@@ -44,7 +44,7 @@ System.config({
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
     "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4",
-    "codemirror": "github:codemirror/CodeMirror@5.2.0",
+    "codemirror": "npm:codemirror@5.2.0",
     "core-js": "npm:core-js@0.8.4",
     "css": "github:systemjs/plugin-css@0.1.9",
     "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@3.3.3",
@@ -66,7 +66,7 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28"
     },
     "github:angular-ui/ui-codemirror@0.2.3": {
-      "github:codemirror/CodeMirror": "github:codemirror/CodeMirror@5.2.0"
+      "npm:codemirror": "npm:codemirror@5.2.0"
     },
     "github:angular-ui/ui-router@0.2.13": {
       "angular": "github:angular/bower-angular@1.3.15"
@@ -191,6 +191,10 @@ System.config({
       "source-map": "npm:source-map@0.4.2",
       "url": "github:jspm/nodelibs-url@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:codemirror@5.2.0": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:commander@2.8.0": {
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",

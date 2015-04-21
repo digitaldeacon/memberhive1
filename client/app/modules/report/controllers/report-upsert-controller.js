@@ -11,14 +11,14 @@ export class ReportUpsertController {
     this.$stateParams = $stateParams;
 
     this.report = this.getReport();
-    this.tags = TagService.getTags(this.Report.model.name,this.report.id);
+    this.tags = TagService.getTags(this.Report.model.name, this.report.id);
 
     this.curUser = LoopBackAuth.currentUserId;
     $scope.reportHtml = '';
 
     this.editorOptions = {
       lineWrapping: true,
-      mode: 'html'
+      mode: 'htmlmixed'
     };
 
     /** Dictionaries **/
