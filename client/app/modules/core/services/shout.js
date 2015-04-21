@@ -1,4 +1,4 @@
-import 'angular-toastr/dist/angular-toastr.min.css!';
+import 'angular-toastr/angular-toastr.min.css!';
 
 export function Shout(toastr,toastrConfig, gettext) {
   angular.extend(toastrConfig, {
