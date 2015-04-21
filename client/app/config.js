@@ -92,7 +92,7 @@ System.config({
     },
     "github:joaoneto/angular-bootstrap-select@0.1.0-rc2": {
       "angular": "github:angular/bower-angular@1.3.15",
-      "select": "github:silviomoreto/bootstrap-select@1.6.4"
+      "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"

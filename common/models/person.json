@@ -81,6 +81,12 @@
       "model": "Ministry",
       "foreignKey": "personId",
       "through": "PersonMinistry"
+    },
+    "addresses": {
+      "type": "hasMany",
+      "model": "Address",
+      "foreignKey": "personId",
+      "through": "PersonAddress"
     }
   },
   "acls": [
