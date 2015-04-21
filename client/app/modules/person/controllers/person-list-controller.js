@@ -1,6 +1,6 @@
 export class PersonListController {
 
-  constructor(PersonService, Person, apiUrl) {
+  constructor(PersonService, Person) {
     this.PersonService = PersonService;
     this.Person = Person;
 
@@ -11,8 +11,6 @@ export class PersonListController {
     this.persons = [];
     this.currentPage = 1;
     this.totalPersons = 0;
-
-    this.apiUrl = apiUrl;
 
     this.getPersons();
   }

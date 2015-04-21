@@ -24,7 +24,7 @@ export function AvatarDirective(apiUrl) {
 
     link: function(scope, element, attrs) {
       if (scope.person.hasAvatar) {
-        scope.imgSrc = `${apiUrl}Avatars/${scope.person.id}/download/${scope.size}.jpg`;
+        scope.imgSrc = `${apiUrl}/Avatars/${scope.person.id}/download/${scope.size}.jpg`;
       } else {
         scope.imgSrc = `/images/avatar/${scope.size}.jpg`;
       }

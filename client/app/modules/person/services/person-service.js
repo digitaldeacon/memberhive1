@@ -64,7 +64,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
 
     saveAvatar: (person, file) => {
       $upload.upload({
-        url: `${apiUrl}Avatars/${person.id}/upload`,
+        url: `${apiUrl}/Avatars/${person.id}/upload`,
         file: file,
         fileName: 'avatar.jpg'
       });

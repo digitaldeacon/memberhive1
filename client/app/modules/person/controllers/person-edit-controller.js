@@ -1,5 +1,5 @@
-export class PersonEditController{
-  constructor(PersonService, TagService, Person, AddressService, $stateParams, $scope, Shout, gettextCatalog, apiUrl, $filter) {
+export class PersonEditController {
+  constructor(PersonService, TagService, Person, AddressService, $stateParams, $scope, Shout, gettextCatalog, $filter) {
     this.PersonService = PersonService;
     this.TagService = TagService;
     this.Person = Person;
@@ -8,7 +8,6 @@ export class PersonEditController{
     this.gettextCatalog = gettextCatalog;
     this.$stateParams = $stateParams;
     this.$filter = $filter;
-    this.apiUrl = apiUrl;
 
     this.person = this.getPerson();
 
