@@ -18,7 +18,6 @@ export class ReportUpsertController {
 
     this.editorOptions = {
       lineWrapping: true,
-      lineNumbers: true,
       mode: 'html'
     };
 

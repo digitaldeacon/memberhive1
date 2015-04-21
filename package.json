@@ -98,6 +98,7 @@
       "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@^1.4.0",
       "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@^2.1.3",
       "bootstrap-select": "github:silviomoreto/bootstrap-select@master",
+      "codemirror": "github:codemirror/CodeMirror@^5.2.0",
       "css": "github:systemjs/plugin-css@^0.1.6",
       "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@^3.2.4",
       "font-awesome": "npm:font-awesome@^4.3.0",
@@ -124,10 +125,10 @@
         "format": "global",
         "main": "ui-codemirror.js",
         "dependencies": {
-          "github:codemirror/CodeMirror": "~4.8.0"
+          "github:codemirror/CodeMirror": "^5.2.0"
         }
       },
-      "github:codemirror/CodeMirror@4.8.0": {
+      "github:codemirror/CodeMirror@5.2.0": {
         "registry": "jspm",
         "format": "global",
         "main": "codemirror.js",

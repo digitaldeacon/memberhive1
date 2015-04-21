@@ -45,7 +45,7 @@ System.config({
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
     "bootstrap-select": "github:silviomoreto/bootstrap-select@master",
-    "codemirror": "github:codemirror/CodeMirror@4.8.0",
+    "codemirror": "github:codemirror/CodeMirror@5.2.0",
     "core-js": "npm:core-js@0.8.3",
     "css": "github:systemjs/plugin-css@0.1.9",
     "danialfarid/ng-file-upload": "github:danialfarid/ng-file-upload@3.2.4",
@@ -66,7 +66,7 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28"
     },
     "github:angular-ui/ui-codemirror@0.2.3": {
-      "github:codemirror/CodeMirror": "github:codemirror/CodeMirror@4.8.0"
+      "github:codemirror/CodeMirror": "github:codemirror/CodeMirror@5.2.0"
     },
     "github:angular-ui/ui-router@0.2.13": {
       "angular": "github:angular/bower-angular@1.3.15"

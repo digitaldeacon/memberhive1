@@ -1,4 +1,4 @@
-import 'codemirror/codemirror';
+import 'codemirror';
 import 'codemirror/codemirror.css!';
 import 'ui-codemirror';
 
