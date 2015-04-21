@@ -88,12 +88,12 @@
     "homeAddress": {
       "type": "hasOne",
       "model": "Address",
-      "property": "homeAddressId"
+      "foreignKey": "homeAddressId"
     },
     "workAddress": {
       "type": "hasOne",
       "model": "Address",
-      "property": "workAddressId"
+      "foreignKey": "workAddressId"
     }
   },
   "acls": [
