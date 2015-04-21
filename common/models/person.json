@@ -84,6 +84,22 @@
       "model": "Address",
       "foreignKey": "personId",
       "through": "PersonAddress"
+    },
+    "homeAddress": {
+      "type": "embedsOne",
+      "model": "Address",
+      "property": "homeAddressId",
+      "options": {
+        "validate": true,
+        "forceId": false
+    },
+    "workAddress": {
+      "type": "embedsOne",
+      "model": "Address",
+      "property": "workAddressId",
+      "options": {
+        "validate": true,
+        "forceId": false
     }
   },
   "acls": [

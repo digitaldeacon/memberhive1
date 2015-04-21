@@ -99,7 +99,9 @@ module.exports = function(Person) {
           addr,//insert
           {}, //options
           function(err, address, created) {
-            address.persons.create({type:'home'}, function(err, personAddress) {
+            var a = address.persons.build({type:'home'});
+            address.persons.create(a, function(err, personAddress) {
+              console.log(err, personAddress);
             });
           }
         );
@@ -118,7 +120,9 @@ module.exports = function(Person) {
           addr,//insert
           {}, //options
           function(err, address, created) {
-            address.persons.create({type:'work'}, function(err, personAddress) {
+            var a = address.persons.build({type:'work'});
+            address.persons.create(a, function(err, personAddress) {
+              console.log(err, personAddress);
             });
           }
         );

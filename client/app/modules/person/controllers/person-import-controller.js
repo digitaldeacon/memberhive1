@@ -133,8 +133,8 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
   this.convert = (row) => {
     var person = {};
     _.forEach(row, (value, pos) => {
-      if(this.assign[pos]) {
-        person = this.dotToObject(person, value, this.assign[pos]);
+      if(this.assign[pos] && value.trim() !== "") {
+        person = this.dotToObject(person, value.trim(), this.assign[pos]);
       }
     });
     return person;
@@ -151,10 +151,7 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
       }
       obj[objectName] = this.dotToObject(obj[objectName], value, newpath);
     } else {
-      var v = value.trim();
-      if(v !== "") {
-        obj[path] = v;
-      }
+        obj[path] = value;
     }
     return obj;
   };
