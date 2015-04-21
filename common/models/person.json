@@ -47,9 +47,6 @@
     "contact": {
       "type": "object"
     },
-    "address": {
-      "type": "object"
-    },
     "primaryContact": {
       "type": "string",
       "enum": [
