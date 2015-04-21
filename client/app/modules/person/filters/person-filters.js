@@ -11,15 +11,22 @@ angular.module('personFilters', [])
   })
   .filter('formatName', function() {
     return function(person) {
+      var ret = person.firstName;
+      if(person.middleName)
+        ret += ' ' + person.middleName;
+      ret += ' ' + person.lastName;
       if (person.nickName)
-        return person.firstName + ' '+person.middleName  +' ' + person.lastName + ' (' + person.nickName + ')';
-      return person.firstName + ' ' +person.middleName + ' ' + person.lastName;
+        ret += ' (' + person.nickName + ')';
+      return ret;
     };
   })
   .filter('formatFirstName', function() {
     return function(person) {
+      var ret = person.firstName;
+      if(person.middleName)
+        ret += ' ' + person.middleName;
       if (person.nickName)
-        return person.firstName + ' ' + person.middleName + ' (' + person.nickName+')';
-      return person.firstName + ' ' + person.middleName;
+        ret += + ' (' + person.nickName+')';
+      return ret;
     };
   });
