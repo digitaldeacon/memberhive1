@@ -1,12 +1,12 @@
 <div ng-controller="PersonImportController as personCtrl">
 
-<input type="file" ng-file-select="personCtrl.uploadImportFile($files)">
+<input type="file" ng-file-select ng-file-change="personCtrl.uploadImportFile($files)">
 
 <div ng-if="personCtrl.showTable">
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="(key,value) in personCtrl.tableData[0] track by $index">
-            {{value}} -> 
-            <select ng-model="personCtrl.assign[$index]" ng-options="item for item in personCtrl.options"></select> 
+            {{value}} ->
+            <select ng-model="personCtrl.assign[$index]" ng-options="item for item in personCtrl.options"></select>
             Example: <span>{{personCtrl.tableData[1][$index]}}</span>
         </th>
     </ul>

@@ -27,17 +27,6 @@
     "additional": {
       "type": "string"
     },
-    "type": {
-      "type": "string",
-      "description": "ENUM(home, postal, work, org)",
-      "default": "home",
-      "enum": [
-        "home",
-        "postal",
-        "work",
-        "org"
-      ]
-    },
     "geo": {
       "type": "geopoint"
     }

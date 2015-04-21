@@ -70,7 +70,7 @@ module.exports = function(Person) {
       }
     }
   );
-  
+
   Person.remoteMethod(
     'trash',
     {
@@ -81,34 +81,47 @@ module.exports = function(Person) {
       }
     }
   );
-  /*
+
   Person.simpleUpsert = function(person, cb) {
     var copy = person;
-   
+
     Person.upsert(_.pick(person, _.keys(Person.definition.properties)), function(err, obj) {
-      if(person.homeNumber !== undefined) {
-        Person.app.models.Contact.findOrCreate(
-           {where: {and: [{personId: obj.id}, {type: "home"}]} }, //find
-           {type: "home", personId: obj.id, value: person.homeNumber} //create
+      if(person.home_street1 !== undefined) {
+        Person.app.models.Address.findOrCreate(
+         {where:
+           {and:
+              [
+                {street1: person.home_street1},
+                {street2: person.home_street2},
+                {city: person.home_city},
+                {zipcode: person.home_zipcode},
+                {country: person.home_country},
+                {additional: person.home_additional}
+              ]
+            }
+          },
+          {
+            street1: person.home_street1,
+            street2: person.home_street2,
+            city: person.home_city,
+            zipcode: person.home_zipcode,
+            country: person.home_country,
+            additional: person.home_additional
+          },
+          {}, //options
+          function(err,address,created) {
+            address.person.create({type:'home'}, function(err, personAddress) {
+              console.log('PersonAdress created');
+              console.log(personAdress);
+              cb(null, '');
+            });
+          }
         );
       }
-      if(person.mobileNumber !== undefined) {
-        Person.app.models.Contact.findOrCreate(
-           {where: {and: [{personId: obj.id}, {type: "mobile"}]} }, //find
-           {type: "mobile", personId: obj.id, value: person.mobileNumber} //create
-        );
-      }
-      if(person.street1 !== undefined) {
-        Person.app.models.Adress.findOrCreate(
-           {where: {and: [{personId: obj.id}, {type: "mobile"}]} }, //find
-           {type: "mobile", personId: obj.id, value: person.mobileNumber} //create
-        );
-      }
-      cb(null, '');
     });
-    
+
   };
-  
+
   Person.remoteMethod(
     'simpleUpsert',
     {
@@ -118,5 +131,5 @@ module.exports = function(Person) {
         required: true
       }
     }
-  );*/
+  );
 };
