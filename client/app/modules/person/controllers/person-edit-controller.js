@@ -117,16 +117,13 @@ export class PersonEditController {
    */
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
-
-    this.TagService.save(this.tags,this.Person.model.name,this.person.id);
+    //FIXME: when creating user this wont work
+    this.TagService.save(this.tags, this.Person.model.name, this.person.id);
 
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
     this.Person.upsert({}, this.person, function(data) {});
-    for (var contact of this.person.contacts) {
-      this.Contact.upsert({}, contact, (data) => {
-      });
-    }
+    //FIXME: should be in the person upsert callback
     if (this.avatarDeleted && !this.avatarChanged) {
       this.PersonService.deleteAvatar(this.person);
     } else if (this.avatarChanged) {

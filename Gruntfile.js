@@ -138,7 +138,7 @@ module.exports = function(grunt) {
     watch: {
       compass: {
         files: ['<%= yeoman.app %>/**/*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+        tasks: ['compass:server']
       },
       gruntfile: {
         files: ['Gruntfile.js']

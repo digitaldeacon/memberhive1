@@ -41,7 +41,8 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
               'household': {'persons': 'relationType'}
             },
             'ministries',
-            'relationType'
+            'relationType',
+            'addresses'
           ]
         }
       });

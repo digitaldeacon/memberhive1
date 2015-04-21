@@ -7,7 +7,11 @@ export function Shout(toastr,toastrConfig, gettext) {
     extendedTimeOut: 1000,
     newestOnTop: true,
     tapToDismiss: true,
-    timeOut: 5000
+    timeOut: 5000,
+    templates: {
+      toast: '/templates/toast/toast.html',
+      progressbar: '/templates/toast/progressbar.html'
+    },
   });
   // h= heading, txt= message, response= data object (optional) for saving to log
   return {

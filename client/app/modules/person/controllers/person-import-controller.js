@@ -102,7 +102,10 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
     }
   };
   this.options = Object.keys(Person.model.properties);
-  this.options.push('contact.home', 'contact.mobile', 'contact.skype', 'contact.facebook', 'home_street1', 'home_street2', 'home_city', 'home_zipcode', 'home_country', 'home_additional');
+  this.options.push('contact.home', 'contact.mobile', 'contact.skype', 'contact.facebook', 
+                    'home_street1', 'home_street2', 'home_city', 'home_zipcode', 'home_country', 'home_additional',
+                    'work_street1', 'work_street2', 'work_city', 'work_zipcode', 'work_country', 'work_additional'
+                   );
   this.assign = [];
   this.showTable = false;
   this.tableData = {};
@@ -148,7 +151,10 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
       }
       obj[objectName] = this.dotToObject(obj[objectName], value, newpath);
     } else {
-      obj[path] = value;
+      var v = value.trim();
+      if(v !== "") {
+        obj[path] = v;
+      }
     }
     return obj;
   };

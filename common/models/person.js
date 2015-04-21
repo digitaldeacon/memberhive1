@@ -81,43 +81,50 @@ module.exports = function(Person) {
       }
     }
   );
-
   Person.simpleUpsert = function(person, cb) {
     var copy = person;
 
     Person.upsert(_.pick(person, _.keys(Person.definition.properties)), function(err, obj) {
       if(person.home_street1 !== undefined) {
+        var addr = {
+          street1: person.home_street1,
+          street2: person.home_street2,
+          city: person.home_city,
+          zipcode: person.home_zipcode,
+          country: person.home_country,
+          additional: person.home_additional
+        };
         Person.app.models.Address.findOrCreate(
-         {where:
-           {and:
-              [
-                {street1: person.home_street1},
-                {street2: person.home_street2},
-                {city: person.home_city},
-                {zipcode: person.home_zipcode},
-                {country: person.home_country},
-                {additional: person.home_additional}
-              ]
-            }
-          },
-          {
-            street1: person.home_street1,
-            street2: person.home_street2,
-            city: person.home_city,
-            zipcode: person.home_zipcode,
-            country: person.home_country,
-            additional: person.home_additional
-          },
+         {where: addr},//find
+          addr,//insert
           {}, //options
-          function(err,address,created) {
-            address.person.create({type:'home'}, function(err, personAddress) {
-              console.log('PersonAdress created');
-              console.log(personAdress);
-              cb(null, '');
+          function(err, address, created) {
+            address.persons.create({type:'home'}, function(err, personAddress) {
             });
           }
         );
-      }
+      } 
+      if(person.work_street1 !== undefined) {
+        var addr = {
+          street1: person.work_street1,
+          street2: person.work_street2,
+          city: person.work_city,
+          zipcode: person.work_zipcode,
+          country: person.work_country,
+          additional: person.work_additional
+        };
+        Person.app.models.Address.findOrCreate(
+         {where: addr},//find
+          addr,//insert
+          {}, //options
+          function(err, address, created) {
+            address.persons.create({type:'work'}, function(err, personAddress) {
+            });
+          }
+        );
+      } 
+      
+      cb(null, obj);
     });
 
   };
@@ -132,4 +139,18 @@ module.exports = function(Person) {
       }
     }
   );
+  
+  Person.afterRemote('find', function (ctx, person, next) {
+    console.log(typeof ctx.args.filter);
+    if(ctx.args && ctx.args.filter){
+      var filter = JSON.parse(ctx.args.filter);
+      console.log(filter);
+      if(filter && _.indexOf(filter.include, 'addresses') !== -1) {
+        ctx.result.forEach(function (result) {
+          console.log(result.addresses);
+        });
+      }
+    }
+    next();
+  });
 };
