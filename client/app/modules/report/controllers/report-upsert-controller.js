@@ -46,7 +46,7 @@ export class ReportUpsertController {
   }
 
   getReport() {
-      return this.$stateParams.id ? this.ReportService.one(this.$stateParams.id) : null;
+    return this.$stateParams.id ? this.ReportService.one(this.$stateParams.id) : null;
   }
 
   saveReport() {

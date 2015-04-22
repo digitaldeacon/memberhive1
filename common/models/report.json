@@ -13,37 +13,29 @@
       "type": "string",
       "required": true
     },
-    "slur": {
-      "type": "string",
-      "required": true
+    "slug": {
+      "type": "string"
     },
     "query": {
-      "type": "object",
-      "required": true
+      "type": "object"
     },
     "rule": {
-      "type": "object",
-      "required": true
+      "type": "object"
     },
     "html": {
-      "type": "string",
-      "required": false
+      "type": "string"
     },
     "active": {
-      "type": "boolean",
-      "required": true
+      "type": "boolean"
     },
     "widgetize": {
-      "type": "boolean",
-      "required": true
+      "type": "boolean"
     },
     "createdAt": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "createdBy": {
-      "type": "number",
-      "required": true
+      "type": "number"
     }
   },
   "validations": [],

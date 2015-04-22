@@ -3,6 +3,7 @@ export function ReportService(Report, gettextCatalog, $rootScope, Shout) {
     one: (id) => {
       return Report.findById({id: id});
     },
+
     all: (pageNumber) => {
       return Report.find({
         filter: {
@@ -12,12 +13,15 @@ export function ReportService(Report, gettextCatalog, $rootScope, Shout) {
         }
       });
     },
+
     delete: (reportId, cb) => {
       Report.deleteById({id: reportId}).$promise.then(cb);
     },
+
     trash: (reportId, cb) => {
       Report.trash({id: reportId}).$promise.then(cb);
     },
+
     save: (reportObj) => {
       Report.upsert({},reportObj).$promise.then(
         (data) => {Shout.success(gettextCatalog.getString('Successfully saved report “{{name}}”', {name: data.name}));},
