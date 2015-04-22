@@ -13,6 +13,7 @@ import {QueryBuilderDirective} from './directives/querybuilder-directive';
 import {PreviewHTMLDirective} from './directives/previewhtml-directive';
 
 import {ReportService} from './services/report-service';
+import {QueryBuilderModelService} from './services/querybuilder-model-service';
 
 import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
@@ -88,3 +89,4 @@ gemReportModule.directive('gemQuerybuilder', QueryBuilderDirective);
 gemReportModule.directive('gemPreview', PreviewHTMLDirective);
 
 gemReportModule.factory('ReportService', ReportService);
+gemReportModule.factory('QueryBuilderModelService', QueryBuilderModelService);
