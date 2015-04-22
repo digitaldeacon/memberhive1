@@ -1,5 +1,4 @@
 <div ng-controller="PersonViewController as personCtrl" class="person-view">
-  {{person=personCtrl.person;""}}
 
   <div class="portlet-default">
 
@@ -9,36 +8,36 @@
       </div>
 
       <div class="col-md-9">
-        <a class="btn green-haze btn-sm pull-right" ui-sref="person.edit({ id: person.id })">
+        <a class="btn green-haze btn-sm pull-right" ui-sref="person.edit({ id: personCtrl.person.id })">
           <fa name="edit"></fa>
           <translate>Edit Person</translate>
         </a>
         <h1 class="topheading">
-          <b>{{person.firstName}} {{person.middleName}}</b>
-          {{person.lastName}}
-          <small class="text-muted" ng-if="person.nickName">({{person.nickName}})</small>
+          <b>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}}</b>
+          {{personCtrl.person.lastName}}
+          <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
         </h1>
 
         <div class="row bootstrap">
           <div class="viewport">
-            <span ng-repeat="tag in personCtrl.tags" class="tag-item">{{tag.text}}</span>
+            <span ng-repeat="tag in personCtrl.person.tags" class="tag-item">{{tag.text}}</span>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-3">
-            <ng-include src="'modules/person/views/person.view.details.html'"></ng-include>
+            <div ng-include="'modules/person/views/person.view.details.html'"></div>
           </div>
           <div class="col-md-3">
-            <ng-include src="'modules/person/views/person.view.contacts.html'"></ng-include>
+            <div ng-include="'modules/person/views/person.view.contacts.html'"></div>
           </div>
           <div class="col-md-3">
-            <ng-include src="'modules/person/views/person.view.addresses.html'"></ng-include>
+            <div ng-include="'modules/person/views/person.view.addresses.html'"></div>
           </div>
         </div>
 
         <div class="row" ng-if="person.household">
-          <ng-include src="'modules/person/views/person.view.household.html'"></ng-include>
+          <div ng-include="'modules/person/views/person.view.household.html'"></ng-include>
         </div>
 
       </div>

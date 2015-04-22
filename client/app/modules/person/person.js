@@ -17,7 +17,6 @@ import {PersonExportController} from './controllers/person-export-controller';
 import {PersonService} from './services/person-service';
 import {AvatarDirective} from './directives/person-directives';
 
-import {TagService} from 'modules/tag/services/tag-service';
 import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
 import './styles/person.css!';
@@ -144,6 +143,5 @@ gemPersonModule.controller('PersonImportController', PersonImportController);
 gemPersonModule.controller('PersonExportController', PersonExportController);
 
 gemPersonModule.factory('PersonService', PersonService);
-gemPersonModule.factory('TagService', TagService);
 
 gemPersonModule.directive('gemAvatar', AvatarDirective);

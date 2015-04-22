@@ -82,11 +82,11 @@
         "validate": true,
         "forceId": false
       }
-      "notes": {
-        "type": "hasMany",
-        "model": "Note",
-        "polymorphic": "notable"
-      }
+    },
+    "notes": {
+      "type": "hasMany",
+      "model": "Note",
+      "polymorphic": "notable"
     }
   },
   "acls": [

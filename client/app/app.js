@@ -47,7 +47,6 @@ import {gemPersonModule} from 'modules/person/person';
 import {gemAuthModule} from 'modules/auth/auth';
 import {gemAclModule} from 'modules/auth/acl';
 import {gemNoteModule} from 'modules/note/note';
-import {gemOptionModule} from 'modules/option/option';
 import {gemReportModule} from 'modules/report/report';
 
 /**
@@ -64,7 +63,7 @@ export var gemMainModule = angular.module('gem.main', [
   // GEM Modules
   'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
-  'gem.dashboard', 'gem.person', 'gem.option', 'gem.acl',
+  'gem.dashboard', 'gem.person', 'gem.acl',
   'gem.auth', 'gem.report', 'gem.note', 'gem.config'
   ]
 );
@@ -74,9 +73,9 @@ gemMainModule.config(
     $urlRouterProvider.otherwise('/dashboard');
 
     cfpLoadingBarProvider.includeSpinner = false;
-    
+
     //This make the interface less interactive, sometimes something is loading, but it should not block the ui
-    
+
     //cfpLoadingBarProvider.spinnerTemplate = '<div class="blockui"><div class="page-spinner-bar"><div class="bounce1">' +
     //  '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
 

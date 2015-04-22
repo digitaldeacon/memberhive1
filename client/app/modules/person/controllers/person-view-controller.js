@@ -1,14 +1,11 @@
 export class PersonViewController {
 
-  constructor(PersonService, Person, AddressService, TagService, $stateParams) {
+  constructor(PersonService, Person, AddressService, $stateParams) {
     this.person = PersonService.one($stateParams.id);
     this.getContacts = PersonService.getContacts;
     this.relationTypes = PersonService.relationTypes;
     this.genders = PersonService.genders;
     this.addressTypes = AddressService.addressTypes;
-    this.person.$promise.then(data => {
-      this.tags = TagService.getTags(Person.model.name,data.id);
-    });
   }
 
   /**
