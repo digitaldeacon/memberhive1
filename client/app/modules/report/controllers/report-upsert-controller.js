@@ -22,7 +22,7 @@ export class ReportUpsertController {
       mode: 'htmlmixed'
     };
 
-    this.personModel = QueryBuilderModelService.personModel();
+    this.personModel = QueryBuilderModelService.getModel(this.Person);
   }
 
   getReport() {

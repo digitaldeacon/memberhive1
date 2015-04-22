@@ -1,17 +1,34 @@
-export function QueryBuilderModelService(Person) {
+export function QueryBuilderModelService(gettextCatalog) {
   return {
-    personModel: () => {
+    /**
+     * Get the model definition for the query builder
+     *
+     * @param loopbackResource A model resource like `Person` or `Contact`
+     * @returns {Array} Properties formatted for the query builder
+     */
+    getModel: (loopbackResource) => {
       var qbModel = [];
-      for (var property in Person.model.properties) {
-        if (!Person.model.properties.hasOwnProperty(property))
+      for (var property in loopbackResource.model.properties) {
+        if (!loopbackResource.model.properties.hasOwnProperty(property))
           continue;
-        let prop = Person.model.properties[property];
+        let prop = loopbackResource.model.properties[property];
 
         // Add only properties which have the `queryBuilder` section
         if (!prop.hasOwnProperty('queryBuilder'))
           continue;
 
         let result = prop.queryBuilder;
+
+        // Translate label and possible values
+        result.label = gettextCatalog.getString(result.label);
+        if (result.hasOwnProperty('values')) {
+          for (var key in result.values) {
+            if (!result.values.hasOwnProperty(key))
+              continue;
+            result.values[key] = gettextCatalog.getString(result.values[key]);
+          }
+        }
+
         // Mix in property name and type
         result.id = property;
         if (!result.hasOwnProperty('type')) // Use Loopback type unless explicitly specified
@@ -27,7 +44,6 @@ export function QueryBuilderModelService(Person) {
               autoclose: true
           };
         }
-
 
         qbModel.push(result);
       }
