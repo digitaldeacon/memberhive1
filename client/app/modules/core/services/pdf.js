@@ -4,10 +4,12 @@ export function GemPdf(Shout, $http) {
   
   return {
     generate: (html, options, filename) => {
-      $http.post(
-        'https://localhost:3000/htmlToPdf', 
-        _.merge(options, {html: html}), 
-        { responseType: 'arraybuffer' })
+      $http({
+        url: 'https://localhost:3000/htmlToPdf',
+        method: 'POST',
+        data: JSON.stringify({html: html, options: options}),
+        headers: { 'Content-Type': 'application/json;charset=utf-8' },
+        responseType: 'arraybuffer'})
       .success(function(data, status, headers, config) {
           var file = new Blob([data], { type: 'application/pdf' });
           saveAs(file, filename);

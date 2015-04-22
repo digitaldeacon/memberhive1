@@ -2,22 +2,28 @@
 
 export function PersonExportController(Person, PersonService, GemPdf)
 {
-  PersonService.reallyAll().$promise.then((data) => console.log(data));
   
   this.persons = Person.find(
     {
       filter: {
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
-          include: [
-            'addresses',
-          ]
         }
       
     }
   );
   
   this.export = () => {
-    GemPdf.generate(angular.element('#export-html').html(), {}, 'gemeindeliste.pdf');
+    GemPdf.generate(
+      angular.element('#export-html').html(),
+      {
+        encoding: 'UTF-8',
+        pageSize : 'A5'
+        /*marginTop :'1.0cm',
+        marginRight :'1.3cm',
+        marginBottom :'1.0cm',
+        marginLeft :'1.3cm'*/
+      }, 
+      'gemeindeliste.pdf');
   };
   
 }

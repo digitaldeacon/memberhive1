@@ -23,8 +23,6 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             },
             'ministries',
             'relationType',
-            'addresses',
-            'tags'
           ]
         }
       });
@@ -43,7 +41,6 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             },
             'ministries',
             'relationType',
-            'addresses'
           ]
         }
       });

@@ -42,6 +42,9 @@
     "contact": {
       "type": "object"
     },
+    "address" : {
+      "type": "object"
+    },
     "tags": {
      "type": "array"
     },
@@ -76,27 +79,6 @@
       "model": "Ministry",
       "foreignKey": "personId",
       "through": "PersonMinistry"
-    },
-    "addresses": {
-      "type": "hasMany",
-      "model": "Address",
-      "foreignKey": "personId",
-      "through": "PersonAddress"
-    },
-    "homeAddress": {
-      "type": "belongsTo",
-      "model": "Address",
-      "foreignKey": "homeAddressId"
-    },
-    "workAddress": {
-      "type": "belongsTo",
-      "model": "Address",
-      "foreignKey": "workAddressId"
-    },
-    "postalAddress": {
-      "type": "belongsTo",
-      "model": "Address",
-      "foreignKey": "postalAddressId"
     }
   },
   "acls": [

@@ -81,37 +81,6 @@ module.exports = function(Person) {
       }
     }
   );
-  Person.simpleInsert = function(person, cb) {
-
-    Person.upsert(_.pick(person, _.keys(Person.definition.properties)), function(err, obj) {
-      if(person.homeAddress !== undefined) {
-        var addr = obj.homeAddress.build(person.homeAddress);
-        obj.homeAddress.create(addr);
-      } 
-      if(person.workAddress !== undefined) {
-        var addr = obj.workAddress.build(person.workAddress);
-        obj.workAddress.create(addr);
-      } 
-      if(person.postalAddress !== undefined) {
-        var addr = obj.postalAddress.build(person.postalAddress);
-        obj.postalAddress.create(addr);
-      }
-      cb(null, obj);
-    });
-
-  };
-
-  Person.remoteMethod(
-    'simpleInsert',
-    {
-      accepts: {
-        arg: 'person',
-        type: 'object',
-        required: true
-      }
-    }
-  );
-  
   
   Person.tags = function(text, cb) {
     var personCollection = Person.getDataSource().connector.collection(Person.modelName);
@@ -119,12 +88,11 @@ module.exports = function(Person) {
       if(err) {
         cb(err, null);
       } else {
-        var t = tags;
         if(text !== undefined) {
-          t = _.filter(tags, function(tag) {return _.includes(tag.text, text);});
+          tags = _.filter(tags, function(tag) {return _.includes(tag.text, text);}); //filter by query
         }
-        t = _.map(t, function(data) {return data.text});
-        cb(null, t);
+        tags = _.map(tags, function(data) {return data.text}); //simplify return
+        cb(null, tags);
       }
     });
   };
@@ -141,6 +109,15 @@ module.exports = function(Person) {
         type: 'array'
       }
     }
+  );
+  
+  Person.truncate = function(cb) {
+    Person.deleteAll({}, cb);
+  };
+
+  Person.remoteMethod(
+    'truncate',
+    {}
   );
   /*Person.afterRemote('find', function (ctx, person, next) {
     console.log(typeof ctx.args.filter);

@@ -1,19 +1,10 @@
 <div ng-controller="PersonExportController as personCtrl">
-
     <button ng-click="personCtrl.export()">
         Export
     </button>
     
     <div id="export-html">
       <style>
-@page {
-    size: A5;
-    font-size: 12px;
-    margin: 1.0cm 1.3cm 1.0cm 1.3cm;
-    line-height: 120%;
-    font-family: 'Tinos', serif;
-}
-
 body { 
     margin: 0;
     font-size: 12px;
@@ -35,8 +26,8 @@ tr
 .bottom {
     border-top: none;
 }
-
-td {
+table {
+  page-break-inside: avoid !important;
 }
 .image {
     width: 93px;
@@ -80,14 +71,15 @@ td {
 }
 </style>
       <table border="0" width="100%" ng-repeat="person in personCtrl.persons">
+      <div class="break">
         <tr class="top">
             <td rowspan="2" class="td-image">
                 <div class="image"><div class="t-img"></div>
             </td>
             <td class="td-name">
                 <div class="name">{{person.firstName}}, {{person.lastName}}</div>
-                    <div class="str">{{person.address.street1}} {{person.address.street2}}</div>
-                    <div class="str">{{person.address.zip}} {{person.address.city}}</div>
+                    <div class="str">{{person.address.home.street1}} {{person.address.home.street2}}</div>
+                    <div class="str">{{person.address.home.zipcode}} {{person.address.home.city}}</div>
             </td>
             <td  class="td-date">
                 <div class="tel">{{person.birthday}}</div>
@@ -106,7 +98,7 @@ td {
                 <div class="dienst">{{person.duties}}</div>      
             </td>  
         </tr>
-         
+      </div>
       </table>
     </div>
 </div>

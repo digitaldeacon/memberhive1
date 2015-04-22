@@ -29,7 +29,6 @@ function serve(response, filename, root)
 function onRequest(request, response) {
     var url = request.url.split('?')[0];
     var filename = "";
-    console.log(url);
     if(url === "/" || url === "") {
         url = "/index.html";
     }

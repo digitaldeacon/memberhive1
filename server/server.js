@@ -21,14 +21,16 @@ app.start = function() {
 };
 app.post('/htmlToPdf', function(req, res){
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Methods', 'POST');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
-  var wkhtmltopdf = require('wkhtmltopdf');
-  wkhtmltopdf(req.body.html).pipe(res);
+  console.log(req.body.options);
+  var wkhtmltopdf = require('wkhtmltopdf', req.body.options);
+  var html = '<!doctype html><html><head><title>Test</title><meta charset="utf-8"></head><body>'+req.body.html+'</body></html>';
+  wkhtmltopdf(html).pipe(res);
 });
 app.options('/htmlToPdf', function(req, res){
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Methods', 'POST');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   res.sendStatus(200);
 });

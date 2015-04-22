@@ -74,7 +74,9 @@ gemMainModule.config(
     $urlRouterProvider.otherwise('/dashboard');
 
     cfpLoadingBarProvider.includeSpinner = false;
+    
     //This make the interface less interactive, sometimes something is loading, but it should not block the ui
+    
     //cfpLoadingBarProvider.spinnerTemplate = '<div class="blockui"><div class="page-spinner-bar"><div class="bounce1">' +
     //  '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
 
