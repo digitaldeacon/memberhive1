@@ -1,8 +1,11 @@
 export class ReportController {
 
-  constructor(ReportService, Report) {
+  constructor(ReportService, Report, Shout, gettextCatalog, $state) {
     this.ReportService = ReportService;
     this.Report = Report;
+    this.Shout = Shout;
+    this.gettextCatalog = gettextCatalog;
+    this.$state = $state;
 
     this.reports = [];
     this.currentPage = 1;
@@ -29,6 +32,9 @@ export class ReportController {
   }
 
   duplicate(report) {
-    this.Report.duplicate({reportId: report.id});
+    this.Report.duplicate({reportId: report.id}).$promise.then((resp) => {
+      this.Shout.success(this.gettextCatalog.getString('Successfully duplicated report.'));
+      this.$state.go('report.edit', {id: resp.result.id});
+    });
   }
 }

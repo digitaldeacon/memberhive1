@@ -4,7 +4,9 @@ module.exports = function(Report) {
     Report.findById(reportId, function(err, reportInstance) {
       reportInstance.id = null;
       reportInstance.createdAt = Date.now();
-      Report.create(reportInstance, cb);
+      Report.create(reportInstance, function(err, instance) {
+        cb(null, instance);
+      });
     });
   };
 
@@ -15,6 +17,10 @@ module.exports = function(Report) {
         arg: 'reportId',
         type: 'number',
         required: true
+      },
+      returns: {
+        arg: 'result',
+        type: 'object'
       }
     }
   );
