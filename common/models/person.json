@@ -6,38 +6,70 @@
   "properties": {
     "firstName": {
       "type": "string",
-      "required": true
+      "required": true,
+      "queryBuilder": {
+        "label": "First Name"
+      }
     },
     "middleName": {
-      "type": "string"
+      "type": "string",
+      "queryBuilder": {
+        "label": "Middle Name"
+      }
     },
     "lastName": {
       "type": "string",
-      "required": true
+      "required": true,
+      "queryBuilder": {
+        "label": "Last Name"
+      }
     },
     "nickName": {
-      "type": "string"
+      "type": "string",
+      "queryBuilder": {
+        "label": "Nick Name"
+      }
     },
     "prefix": {
-      "type": "string"
+      "type": "string",
+      "queryBuilder": {
+        "label": "Prefix"
+      }
     },
     "suffix": {
-      "type": "string"
+      "type": "string",
+      "queryBuilder": {
+        "label": "Suffix"
+      }
     },
     "gender": {
-      "type": "string"
+      "type": "string",
+      "queryBuilder": {
+        "label": "Gender",
+        "input": "radio",
+        "values": {"m": "Male", "f": "Female"}
+      }
     },
     "birthdate": {
-      "type": "date"
+      "type": "date",
+      "queryBuilder": {
+        "label": "Birthdate"
+      }
     },
     "baptismDate": {
-      "type": "date"
+      "type": "date",
+      "queryBuilder": {
+        "label": "Baptism Date"
+      }
     },
     "duties": {
       "type": "string"
     },
     "email": {
-      "type": "string"
+      "type": "string",
+      "queryBuilder": {
+        "label": "Email"
+      }
     },
     "contact": {
       "type": "object"
@@ -54,10 +86,20 @@
         "email",
         "mobile",
         "postal"
-      ]
+      ],
+      "queryBuilder": {
+        "label": "Primary Contact",
+        "input": "select",
+        "values": {"email": "Email", "mobile": "Mobile", "postal": "Postal"}
+      }
     },
     "hasAvatar": {
-      "type": "boolean"
+      "type": "boolean",
+      "queryBuilder": {
+        "label": "Has Profile Picture",
+        "input": "radio",
+        "values": {"false": "No", "true": "Yes"}
+      }
     }
   },
   "validations": [],
