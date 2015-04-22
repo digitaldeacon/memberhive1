@@ -7,9 +7,7 @@ module.exports = function(Person) {
           {firstName: {like: `%${value}%`}},
           {middleName: {like: `%${value}%`}},
           {lastName: {like: `%${value}%`}},
-          {nickName: {like: `%${value}%`}},
-          {prefix: {like: `%${value}%`}},
-          {suffix: {like: `%${value}%`}}
+          {nickName: {like: `%${value}%`}}
         ]
       },
       limit: 10
@@ -17,6 +15,22 @@ module.exports = function(Person) {
       cb(null, persons);
     });
   };
+
+  Person.remoteMethod(
+    'search',
+    {
+      accepts: {
+        arg: 'value',
+        type: 'string',
+        required: true
+      },
+      returns: {
+        arg: 'results',
+        type: 'array'
+      }
+    }
+  );
+
 
   Person.trash = function(personId, cb) {
 
@@ -55,22 +69,6 @@ module.exports = function(Person) {
       });
     })
   });
-
-  Person.remoteMethod(
-    'search',
-    {
-      accepts: {
-        arg: 'value',
-        type: 'string',
-        required: true
-      },
-      returns: {
-        arg: 'results',
-        type: 'array'
-      }
-    }
-  );
-
   Person.remoteMethod(
     'trash',
     {
@@ -81,7 +79,7 @@ module.exports = function(Person) {
       }
     }
   );
-  
+
   Person.tags = function(text, cb) {
     var personCollection = Person.getDataSource().connector.collection(Person.modelName);
     personCollection.distinct('tags', function(err, tags) {
@@ -110,7 +108,7 @@ module.exports = function(Person) {
       }
     }
   );
-  
+
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
   };
@@ -119,17 +117,4 @@ module.exports = function(Person) {
     'truncate',
     {}
   );
-  /*Person.afterRemote('find', function (ctx, person, next) {
-    console.log(typeof ctx.args.filter);
-    if(ctx.args && ctx.args.filter){
-      var filter = JSON.parse(ctx.args.filter);
-      console.log(filter);
-      if(filter && _.indexOf(filter.include, 'addresses') !== -1) {
-        ctx.result.forEach(function (result) {
-          console.log(result.addresses);
-        });
-      }
-    }
-    next();
-  });*/
 };

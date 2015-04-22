@@ -24,6 +24,12 @@
       "type": "number"
     }
   },
+  "relations": {
+    "notable": {
+      "type": "belongsTo",
+      "polymorphic": true
+    }
+  }
   "validations": [],
   "acls": [
     {

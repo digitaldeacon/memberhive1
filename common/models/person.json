@@ -75,10 +75,18 @@
       "model": "RelationType"
     },
     "ministries": {
-      "type": "hasMany",
+      "type": "referencesMany",
       "model": "Ministry",
-      "foreignKey": "personId",
-      "through": "PersonMinistry"
+      "property": "ministriesIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+      "notes": {
+        "type": "hasMany",
+        "model": "Note",
+        "polymorphic": "notable"
+      }
     }
   },
   "acls": [

@@ -27,17 +27,9 @@
     "dataSource": "db",
     "public": true
   },
-  "Option": {
-    "dataSource": "db",
-    "public": true
-  },
   "Household": {
     "dataSource": "db",
     "public": true
-  },
-  "Address": {
-    "dataSource": "db",
-    "public": false
   },
   "Ministry": {
     "dataSource": "db",
@@ -55,27 +47,15 @@
     "dataSource": "db",
     "public": true
   },
-  "PersonMinistry": {
-    "dataSource": "db",
-    "public": false
-  },
   "RelationType": {
     "dataSource": "db",
     "public": true
-  },
-  "PersonAddress": {
-    "dataSource": "db",
-    "public": false
   },
   "GemBase": {
     "dataSource": "db",
     "public": false
   },
   "Site": {
-    "dataSource": "db",
-    "public": true
-  },
-  "Tag": {
     "dataSource": "db",
     "public": true
   },

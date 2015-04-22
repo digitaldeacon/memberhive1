@@ -1,14 +1,13 @@
 {
   "name": "Account",
   "base": "User",
-  "properties": {},
+  "properties": {
+    "options": {
+      "type": "object"
+    }
+  },
   "validations": [],
   "relations": {
-    "options": {
-      "type": "hasMany",
-      "model": "Option",
-      "foreignKey": ""
-    }
   },
   "acls": [
     {
