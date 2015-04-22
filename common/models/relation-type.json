@@ -2,11 +2,6 @@
   "name": "RelationType",
   "base": "PersistedModel",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "PerRelationType"
-    }
-  },
   "scope": {
     "order": "strength ASC"
   },

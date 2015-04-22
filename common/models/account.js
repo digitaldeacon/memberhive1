@@ -24,7 +24,7 @@ module.exports = function(Account) {
   Account.remoteMethod(
     'roles',
     {
-      accepts: {arg: 'user_id', type: 'int'},
+      accepts: {arg: 'user_id', type: 'string'},
       returns: {arg: 'roles', type: 'array'}
     }
   );

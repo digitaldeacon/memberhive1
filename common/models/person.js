@@ -81,40 +81,28 @@ module.exports = function(Person) {
       }
     }
   );
-  Person.simpleUpsert = function(person, cb) {
-    var copy = person;
+  Person.simpleInsert = function(person, cb) {
 
     Person.upsert(_.pick(person, _.keys(Person.definition.properties)), function(err, obj) {
-      if(person.home_street1 !== undefined) {
-        var addr = {
-          street1: person.home_street1,
-          street2: person.home_street2,
-          city: person.home_city,
-          zipcode: person.home_zipcode,
-          country: person.home_country,
-          additional: person.home_additional
-        };
+      if(person.homeAddress !== undefined) {
+        var addr = obj.homeAddress.build(person.homeAddress);
         obj.homeAddress.create(addr);
       } 
-      if(person.work_street1 !== undefined) {
-        var addr = {
-          street1: person.work_street1,
-          street2: person.work_street2,
-          city: person.work_city,
-          zipcode: person.work_zipcode,
-          country: person.work_country,
-          additional: person.work_additional
-        };
+      if(person.workAddress !== undefined) {
+        var addr = obj.workAddress.build(person.workAddress);
         obj.workAddress.create(addr);
       } 
-      
+      if(person.postalAddress !== undefined) {
+        var addr = obj.postalAddress.build(person.postalAddress);
+        obj.postalAddress.create(addr);
+      }
       cb(null, obj);
     });
 
   };
 
   Person.remoteMethod(
-    'simpleUpsert',
+    'simpleInsert',
     {
       accepts: {
         arg: 'person',
@@ -124,7 +112,37 @@ module.exports = function(Person) {
     }
   );
   
-  Person.afterRemote('find', function (ctx, person, next) {
+  
+  Person.tags = function(text, cb) {
+    var personCollection = Person.getDataSource().connector.collection(Person.modelName);
+    personCollection.distinct('tags', function(err, tags) {
+      if(err) {
+        cb(err, null);
+      } else {
+        var t = tags;
+        if(text !== undefined) {
+          t = _.filter(tags, function(tag) {return _.includes(tag.text, text);});
+        }
+        t = _.map(t, function(data) {return data.text});
+        cb(null, t);
+      }
+    });
+  };
+
+  Person.remoteMethod(
+    'tags',
+    {
+      accepts: {
+        arg: 'text',
+        type: 'string',
+      },
+      returns: {
+        arg: 'data',
+        type: 'array'
+      }
+    }
+  );
+  /*Person.afterRemote('find', function (ctx, person, next) {
     console.log(typeof ctx.args.filter);
     if(ctx.args && ctx.args.filter){
       var filter = JSON.parse(ctx.args.filter);
@@ -136,5 +154,5 @@ module.exports = function(Person) {
       }
     }
     next();
-  });
+  });*/
 };

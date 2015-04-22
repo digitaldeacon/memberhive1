@@ -3,11 +3,6 @@
   "plural": "Sites",
   "base": "GemBase",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "CorSite"
-    }
-  },
   "properties": {
     "id": {
       "type": "number",

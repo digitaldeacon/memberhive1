@@ -15,10 +15,12 @@ module.exports = function(app) {
             Role.create(
                 {name: 'root'},
                 function(err, role) {
+                  if(role) {
                     role.principals.create({
                         principalType: RoleMapping.USER,
                         principalId: users[0].id
                     });
+                  }
             });
         });
       }

@@ -2,11 +2,6 @@
   "name": "Household",
   "base": "GemBase",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "PerHousehold"
-    }
-  },
   "properties": {
     "householdName": {
       "type": "string",

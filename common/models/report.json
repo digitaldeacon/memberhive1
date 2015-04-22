@@ -3,11 +3,6 @@
   "plural": "Reports",
   "base": "GemBase",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "CorReport"
-    }
-  },
   "properties": {
     "name": {
       "type": "string",

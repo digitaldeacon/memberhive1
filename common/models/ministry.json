@@ -2,11 +2,6 @@
   "name": "Ministry",
   "base": "GemBase",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "PerMinistry"
-    }
-  },
   "properties": {
     "ministry": {
       "type": "string",

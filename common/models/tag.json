@@ -3,11 +3,6 @@
   "plural": "Tags",
   "base": "PersistedModel",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "CorTag"
-    }
-  },
   "properties": {
     "text": {
       "type": "string",

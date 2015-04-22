@@ -2,11 +2,6 @@
   "name": "Option",
   "base": "GemBase",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "CorOption"
-    }
-  },
   "properties": {
     "accountId": {
       "type": "number",

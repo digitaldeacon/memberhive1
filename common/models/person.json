@@ -3,11 +3,6 @@
   "plural": "Persons",
   "base": "GemBase",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "PerPerson"
-    }
-  },
   "properties": {
     "firstName": {
       "type": "string",
@@ -46,6 +41,9 @@
     },
     "contact": {
       "type": "object"
+    },
+    "tags": {
+     "type": "array"
     },
     "primaryContact": {
       "type": "string",
@@ -86,14 +84,19 @@
       "through": "PersonAddress"
     },
     "homeAddress": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "Address",
       "foreignKey": "homeAddressId"
     },
     "workAddress": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "Address",
       "foreignKey": "workAddressId"
+    },
+    "postalAddress": {
+      "type": "belongsTo",
+      "model": "Address",
+      "foreignKey": "postalAddressId"
     }
   },
   "acls": [

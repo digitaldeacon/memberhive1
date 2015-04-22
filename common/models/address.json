@@ -2,11 +2,6 @@
   "name": "Address",
   "base": "GemBase",
   "idInjection": true,
-  "options": {
-    "mysql": {
-      "table": "CorAddress"
-    }
-  },
   "properties": {
     "street1": {
       "type": "string"

@@ -1,7 +1,6 @@
 export class PersonEditController {
-  constructor(PersonService, TagService, Person, AddressService, $stateParams, $scope, Shout, gettextCatalog, $filter) {
+  constructor(PersonService, Person, AddressService, $stateParams, $scope, Shout, gettextCatalog, $filter) {
     this.PersonService = PersonService;
-    this.TagService = TagService;
     this.Person = Person;
     this.Shout = Shout;
     this.$scope = $scope;
@@ -16,9 +15,6 @@ export class PersonEditController {
     this.households = PersonService.getHouseholds();
     this.addressTypes = AddressService.addressTypes;
 
-    this.person.$promise.then(data=>{
-      this.tags = TagService.getTags(this.Person.model.name,data.id);
-    });
 
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
     this.avatar = null;
@@ -29,12 +25,13 @@ export class PersonEditController {
     this.isEditingAvatar = false;
 
     $scope.datepickerOpened = false;
+    
   }
-
+  
   loadTags(query) {
-    return this.TagService.load();
+    return this.Person.tags({"text":query}).$promise;
   }
-
+  
   isEditing() {
     return this.$stateParams.id !== undefined;
   }
@@ -117,11 +114,10 @@ export class PersonEditController {
    */
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
-    //FIXME: when creating user this wont work
-    this.TagService.save(this.tags, this.Person.model.name, this.person.id);
 
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
+    console.log(this.person);
     this.Person.upsert({}, this.person, function(data) {});
     //FIXME: should be in the person upsert callback
     if (this.avatarDeleted && !this.avatarChanged) {

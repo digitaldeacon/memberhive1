@@ -79,10 +79,6 @@
     "dataSource": "db",
     "public": true
   },
-  "TagEntity": {
-    "dataSource": "db",
-    "public": true
-  },
   "Report": {
     "dataSource": "db",
     "public": true
