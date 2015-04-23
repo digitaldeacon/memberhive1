@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2015-04-16 06:22+0000\n"
-"PO-Revision-Date: 2015-04-16 06:22+0000\n"
+"POT-Creation-Date: 2015-04-23 14:37+0000\n"
+"PO-Revision-Date: 2015-04-23 14:37+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -20,15 +20,11 @@ msgstr "Aktionen"
 msgid "Add a tag"
 msgstr "Ein Schlagwort hinzufügen"
 
-#: client/app/modules/address/address.js:16
-msgid "Address"
-msgstr "Adresse"
-
 #: client/app/modules/person/views/person.edit.html:20
 msgid "Addresses"
 msgstr "Adressen"
 
-#: client/app/modules/person/services/person-service.js:112
+#: client/app/modules/person/services/person-service.js:90
 msgid "Aunt"
 msgstr "Tante"
 
@@ -36,18 +32,11 @@ msgstr "Tante"
 msgid "Avatar"
 msgstr "Profilbild"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:54
-#: client/app/modules/person/views/person.list.html:50
-#: client/app/modules/report/controllers/report-controller.js:46
-#: client/app/modules/report/controllers/report-upsert-controller.js:30
-msgid "Birthdate"
-msgstr "Geburtsdatum"
-
-#: client/app/modules/person/services/person-service.js:113
+#: client/app/modules/person/services/person-service.js:91
 msgid "Brother"
 msgstr "Bruder"
 
-#: client/app/modules/person/services/person-service.js:125
+#: client/app/modules/person/services/person-service.js:103
 msgid "Brother in Law"
 msgstr "Schwager"
 
@@ -55,43 +44,44 @@ msgstr "Schwager"
 msgid "Build Query"
 msgstr "Abfrage erstellen"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:97
+#: client/app/modules/person/controllers/person-edit-controller.js:95
 msgid "Can’t read image. Please try again."
 msgstr "Das Bild konnte nicht geladen werden. Versuchen sie es noch einmal."
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:57
+#: client/app/modules/person/views/person.edit.tab.personal.html:56
 msgid "Close"
 msgstr "Schließen"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:77
+#: client/app/modules/person/views/person.edit.tab.personal.html:76
 msgid "Contact Info"
 msgstr "Kontaktinfos"
 
-#: client/app/modules/person/services/person-service.js:110
+#: client/app/modules/person/services/person-service.js:88
 msgid "Cousin"
 msgstr "Cousin"
 
-#: client/app/modules/note/note.js:48
+#: client/app/modules/note.js:56
+#: client/app/modules/note/note.js:56
 msgid "Create Note"
 msgstr "Neue Notiz"
 
-#: client/app/modules/person/person.js:105
+#: client/app/modules/person/person.js:132
 msgid "Create Person"
 msgstr "Person anlegen"
 
-#: client/app/modules/report/report.js:85
+#: client/app/modules/report/report.js:79
 msgid "Create Report"
 msgstr "Bericht anlegen"
 
-#: client/app/modules/person/person.js:75
+#: client/app/modules/person/person.js:76
 msgid "Create a Person"
 msgstr "Eine Person anlegen"
 
-#: client/app/modules/person/person.js:50
+#: client/app/modules/person/person.js:51
 msgid "Create and edit Persons"
 msgstr "Personen erstellen und bearbeiten"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:49
+#: client/app/modules/person/controllers/person-edit-controller.js:47
 msgid "Create new Person"
 msgstr "Neue Person anlegen"
 
@@ -100,11 +90,11 @@ msgstr "Neue Person anlegen"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: client/app/modules/person/services/person-service.js:109
+#: client/app/modules/person/services/person-service.js:87
 msgid "Daughter"
 msgstr "Tochter"
 
-#: client/app/modules/person/services/person-service.js:128
+#: client/app/modules/person/services/person-service.js:106
 msgid "Daughter in Law"
 msgstr "Schwiegertochter"
 
@@ -131,16 +121,16 @@ msgstr "Duplizieren"
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: client/app/modules/person/person.js:91
-#: client/app/modules/person/views/person.view.html:14
+#: client/app/modules/person/person.js:92
+#: client/app/modules/person/views/person.view.html:13
 msgid "Edit Person"
 msgstr "Person bearbeiten"
 
-#: client/app/modules/report/report.js:53
+#: client/app/modules/report/report.js:56
 msgid "Edit Report"
 msgstr "Bericht bearbeiten"
 
-#: client/app/modules/person/person.js:88
+#: client/app/modules/person/person.js:89
 msgid "Edit a Person"
 msgstr "Eine Person bearbeiten"
 
@@ -148,13 +138,7 @@ msgstr "Eine Person bearbeiten"
 msgid "Edit: {{reportUpCtrl.report.name}}"
 msgstr "{{reportUpCtrl.report.name}} bearbeiten"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:90
-#: client/app/modules/person/views/person.list.html:53
-#: client/app/modules/person/views/person.view.contacts.html:2
-msgid "Email"
-msgstr "E-Mail"
-
-#: client/app/modules/core/controllers/app-controller.js:38
+#: client/app/modules/core/controllers/app-controller.js:39
 msgid "English"
 msgstr "Englisch"
 
@@ -167,58 +151,41 @@ msgstr "Alles"
 msgid "Facebook"
 msgstr "Facebook"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:139
+#: client/app/modules/person/views/person.edit.tab.personal.html:135
 msgid "Facebook Username"
 msgstr "Facebook-Benutzername"
 
-#: client/app/modules/person/services/person-service.js:120
+#: client/app/modules/person/services/person-service.js:98
 msgid "Father"
 msgstr "Vater"
 
-#: client/app/modules/person/services/person-service.js:124
+#: client/app/modules/person/services/person-service.js:102
 msgid "Father in Law"
 msgstr "Schwiegervater"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:129
+#: client/app/modules/person/views/person.edit.tab.personal.html:126
 #: client/app/modules/person/views/person.view.contacts.html:21
 #: client/app/modules/person/views/person.view.contacts.html:23
 msgid "Fax"
 msgstr "Fax"
 
-#: client/app/modules/person/services/person-service.js:99
-#: client/app/modules/report/controllers/report-controller.js:43
-#: client/app/modules/report/controllers/report-upsert-controller.js:27
-msgid "Female"
-msgstr "Weiblich"
-
-#: client/app/modules/person/views/person.edit.tab.personal.html:33
-#: client/app/modules/report/controllers/report-controller.js:39
-#: client/app/modules/report/controllers/report-upsert-controller.js:23
-msgid "First Name"
-msgstr "Vorname"
-
-#: client/app/modules/report/controllers/report-controller.js:42
-#: client/app/modules/report/controllers/report-upsert-controller.js:26
-msgid "Gender"
-msgstr "Geschlecht"
-
-#: client/app/modules/core/controllers/app-controller.js:43
+#: client/app/modules/core/controllers/app-controller.js:44
 msgid "German"
 msgstr "Deutsch"
 
-#: client/app/modules/person/services/person-service.js:118
+#: client/app/modules/person/services/person-service.js:96
 msgid "Granddaughter"
 msgstr "Enkeltochter"
 
-#: client/app/modules/person/services/person-service.js:115
+#: client/app/modules/person/services/person-service.js:93
 msgid "Grandfather"
 msgstr "Großvater"
 
-#: client/app/modules/person/services/person-service.js:116
+#: client/app/modules/person/services/person-service.js:94
 msgid "Grandmother"
 msgstr "Großmutter"
 
-#: client/app/modules/person/services/person-service.js:117
+#: client/app/modules/person/services/person-service.js:95
 msgid "Grandson"
 msgstr "Enkelsohn"
 
@@ -241,35 +208,29 @@ msgstr "Telefon (Privat)"
 msgid "Home phone"
 msgstr "Telefon (Privat)"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:160
+#: client/app/modules/person/views/person.edit.tab.personal.html:154
 msgid "Household"
 msgstr "Haushalt"
 
-#: client/app/modules/person/views/person.view.household.html:25
+#: client/app/modules/person/views/person.view.household.html:26
 msgid "Household Address"
 msgstr "Adresse des Haushalts"
 
-#: client/app/modules/person/services/person-service.js:106
+#: client/app/modules/person/services/person-service.js:84
 msgid "Husband"
 msgstr "Ehemann"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:45
-#: client/app/modules/report/controllers/report-controller.js:40
-#: client/app/modules/report/controllers/report-upsert-controller.js:24
-msgid "Last Name"
-msgstr "Nachname"
-
-#: client/app/modules/person/person.js:104
+#: client/app/modules/person/person.js:131
 msgid "List Persons"
 msgstr "Personenliste"
 
-#: client/app/modules/report/report.js:84
+#: client/app/modules/report/report.js:78
 msgid "List Reports"
 msgstr "Berichte anzeigen"
 
 #: client/app/modules/auth/auth.js:11
 #: client/app/modules/auth/views/login.html:35
-#: client/app/modules/person/views/person.edit.tab.personal.html:66
+#: client/app/modules/person/views/person.edit.tab.personal.html:65
 msgid "Login"
 msgstr "Anmelden"
 
@@ -277,25 +238,11 @@ msgstr "Anmelden"
 msgid "Logout"
 msgstr "Abmelden"
 
-#: client/app/modules/person/services/person-service.js:98
-#: client/app/modules/report/controllers/report-controller.js:43
-#: client/app/modules/report/controllers/report-upsert-controller.js:27
-msgid "Male"
-msgstr "Männlich"
-
-#: client/app/modules/person/views/person.edit.tab.personal.html:41
-msgid "Middle Name"
-msgstr "Zweitname"
-
 #: client/app/modules/person/views/person.list.html:11
 msgid "Ministries"
 msgstr "Dienste"
 
-#: client/app/modules/person/views/person.view.contacts.html:18
-msgid "Mobile"
-msgstr "Handy"
-
-#: client/app/modules/person/views/person.edit.tab.personal.html:119
+#: client/app/modules/person/views/person.edit.tab.personal.html:117
 msgid "Mobile Phone"
 msgstr "Handy"
 
@@ -304,61 +251,59 @@ msgstr "Handy"
 msgid "Mobile phone"
 msgstr "Handy"
 
-#: client/app/modules/person/services/person-service.js:119
+#: client/app/modules/person/services/person-service.js:97
 msgid "Mother"
 msgstr "Mutter"
 
-#: client/app/modules/person/services/person-service.js:123
+#: client/app/modules/person/services/person-service.js:101
 msgid "Mother in Law"
 msgstr "Schwiegermutter"
 
-#: client/app/modules/note/note.js:47
+#: client/app/modules/note.js:55
+#: client/app/modules/note/note.js:55
 msgid "My Notes"
 msgstr "Meine Notizen"
 
-#: client/app/modules/person/services/person-service.js:121
+#: client/app/modules/person/services/person-service.js:99
 msgid "Nephew"
 msgstr "Neffe"
 
-#: client/app/modules/note/note.js:37
+#: client/app/modules/note.js:38
+#: client/app/modules/note/note.js:38
 msgid "New Note"
 msgstr "Neue Notiz"
 
-#: client/app/modules/person/person.js:78
+#: client/app/modules/person/person.js:79
 msgid "New Person"
 msgstr "Neue Person"
 
-#: client/app/modules/report/report.js:40
+#: client/app/modules/report/report.js:43
 msgid "New Report"
 msgstr "Neuer Bericht"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:37
+#: client/app/modules/person/views/person.edit.tab.personal.html:36
 msgid "Nickname"
 msgstr "Spitzname"
 
-#: client/app/modules/person/services/person-service.js:122
+#: client/app/modules/person/services/person-service.js:100
 msgid "Niece"
 msgstr "Nichte"
 
-#: client/app/modules/note/note.js:25
-#: client/app/modules/note/note.js:45
+#: client/app/modules/note.js:26
+#: client/app/modules/note.js:53
+#: client/app/modules/note/note.js:26
+#: client/app/modules/note/note.js:53
 msgid "Notes"
 msgstr "Notizen"
 
 #: client/app/modules/dashboard/views/dashlet.person.count.html:27
-#: client/app/modules/person/person.js:42
-#: client/app/modules/report/controllers/report-controller.js:39
-#: client/app/modules/report/controllers/report-controller.js:40
-#: client/app/modules/report/controllers/report-controller.js:42
-#: client/app/modules/report/controllers/report-controller.js:46
-#: client/app/modules/report/controllers/report-upsert-controller.js:23
-#: client/app/modules/report/controllers/report-upsert-controller.js:24
-#: client/app/modules/report/controllers/report-upsert-controller.js:26
-#: client/app/modules/report/controllers/report-upsert-controller.js:30
-msgid "---||Person||Persons"
-msgstr "Personen"
+#: client/app/modules/person/person.js:43
+msgid "Person"
+msgid_plural "Persons"
+msgstr[0] "Person"
+msgstr[1] "Personen"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:18
+#: client/app/modules/person/views/person.edit.tab.personal.html:17
 msgid "Person Info"
 msgstr "Personen-Info"
 
@@ -371,8 +316,8 @@ msgid "Personal"
 msgstr "Persönlich"
 
 #: client/app/modules/dashboard/views/dashlet.person.count.html:6
-#: client/app/modules/person/person.js:102
-#: client/app/modules/person/person.js:53
+#: client/app/modules/person/person.js:129
+#: client/app/modules/person/person.js:54
 #: client/app/templates/header.html:35
 msgid "Persons"
 msgstr "Personen"
@@ -381,12 +326,12 @@ msgstr "Personen"
 msgid "Please insert a location in the widget configuration"
 msgstr "Geben sie in der Widgeteinstellung einen Ort an"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:88
+#: client/app/modules/person/controllers/person-edit-controller.js:86
 msgid "Please select an image that is at least 800x800 pixels."
 msgstr "Das Bild muss eine Dimension von mindestens 800x800 Pixel haben."
 
 #: client/app/modules/address/services/address-service.js:11
-#: client/app/modules/person/views/person.edit.tab.addresses.html:8
+#: client/app/modules/person/views/person.edit.tab.addresses.html:9
 msgid "Postal Address"
 msgstr "Anschrift (Postalisch)"
 
@@ -418,8 +363,8 @@ msgstr "Berichtsname"
 msgid "Report source"
 msgstr "Berichtsquelle"
 
-#: client/app/modules/report/report.js:66
-#: client/app/modules/report/report.js:82
+#: client/app/modules/report/report.js:69
+#: client/app/modules/report/report.js:76
 msgid "Reports"
 msgstr "Berichte"
 
@@ -436,7 +381,7 @@ msgstr "Rollen"
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
-#: client/app/templates/header.html:42
+#: client/app/templates/header.html:45
 msgid "Search"
 msgstr "Suche"
 
@@ -444,7 +389,7 @@ msgstr "Suche"
 msgid "Select Avatar"
 msgstr "Profilbild auswählen"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:165
+#: client/app/modules/person/views/person.edit.tab.personal.html:159
 msgid "Select household..."
 msgstr "Haushalt auswählen..."
 
@@ -456,11 +401,11 @@ msgstr "Bevorzugte Kontaktart auswählen..."
 msgid "Sign In"
 msgstr "Anmelden"
 
-#: client/app/modules/person/services/person-service.js:114
+#: client/app/modules/person/services/person-service.js:92
 msgid "Sister"
 msgstr "Schwester"
 
-#: client/app/modules/person/services/person-service.js:126
+#: client/app/modules/person/services/person-service.js:104
 msgid "Sister in Law"
 msgstr "Schwägerin"
 
@@ -469,39 +414,32 @@ msgstr "Schwägerin"
 msgid "Skype"
 msgstr "Skype"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:149
+#: client/app/modules/person/views/person.edit.tab.personal.html:144
 msgid "Skype Name"
 msgstr "Skype-Name"
 
-#: client/app/modules/person/services/person-service.js:108
+#: client/app/modules/person/services/person-service.js:86
 msgid "Son"
 msgstr "Sohn"
 
-#: client/app/modules/person/services/person-service.js:127
+#: client/app/modules/person/services/person-service.js:105
 msgid "Son in Law"
 msgstr "Schwiegersohn"
 
-#: client/app/modules/person/services/person-service.js:129
+#: client/app/modules/person/services/person-service.js:107
 msgid "Stepbrother"
 msgstr "Stiefbruder"
 
-#: client/app/modules/person/services/person-service.js:130
+#: client/app/modules/person/services/person-service.js:108
 msgid "Stepsister"
 msgstr "Stiefschwester"
 
-#: client/app/modules/report/controllers/report-controller.js:98
-msgid "Successfully created query for report"
-msgstr "Die Abfrage für den Bericht wurde erfolgreich erstellt"
-
-#: client/app/modules/report/services/report-service.js:24
+#: client/app/modules/report/services/report-service.js:27
 msgid "Successfully saved report “{{name}}”"
 msgstr "Der Bericht „{{name}}“ wurde erfolgreich gespeichert."
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:49
-msgid "Suffix"
-msgstr "Suffix"
-
 #: client/app/modules/person/views/person.edit.tab.personal.html:3
+#: client/app/templates/header.html:38
 msgid "Tags"
 msgstr "Schlagworte"
 
@@ -509,15 +447,15 @@ msgstr "Schlagworte"
 msgid "Temperature:"
 msgstr "Temperatur"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:29
+#: client/app/modules/person/views/person.edit.tab.personal.html:28
 msgid "Title"
 msgstr "Titel"
 
-#: client/app/modules/person/services/person-service.js:111
+#: client/app/modules/person/services/person-service.js:89
 msgid "Uncle"
 msgstr "Onkel"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:71
+#: client/app/modules/person/views/person.edit.tab.personal.html:70
 msgid "User can log in"
 msgstr "Benutzer kann sich einloggen"
 
@@ -525,11 +463,11 @@ msgstr "Benutzer kann sich einloggen"
 msgid "Username"
 msgstr "Benutzername"
 
-#: client/app/modules/person/person.js:65
+#: client/app/modules/person/person.js:66
 msgid "View Person"
 msgstr "Person anzeigen"
 
-#: client/app/modules/person/person.js:62
+#: client/app/modules/person/person.js:63
 msgid "View Person details"
 msgstr "Personendetails anzeigen"
 
@@ -537,7 +475,7 @@ msgstr "Personendetails anzeigen"
 msgid "Weather"
 msgstr "Wetter"
 
-#: client/app/modules/person/services/person-service.js:107
+#: client/app/modules/person/services/person-service.js:85
 msgid "Wife"
 msgstr "Ehefrau"
 
@@ -550,7 +488,7 @@ msgstr "Arbeit"
 msgid "Work Address"
 msgstr "Anschrift (Arbeit)"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:109
+#: client/app/modules/person/views/person.edit.tab.personal.html:108
 msgid "Work Phone"
 msgstr "Telefon (Arbeit)"
 
