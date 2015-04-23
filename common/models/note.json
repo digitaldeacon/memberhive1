@@ -18,10 +18,10 @@
       "type": "date"
     },
     "folderId": {
-      "type": "number"
+      "type": "string"
     },
     "ownerId": {
-      "type": "number"
+      "type": "string"
     }
   },
   "relations": {
