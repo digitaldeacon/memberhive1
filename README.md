@@ -38,7 +38,7 @@ Install process
 
 ## Translations
 
-Check the [Translations Wiki Page](https://github.com/ebtc/gemmii-web/wiki/Translations)
+Check the [Translations Wiki Page](https://github.com/digitaldeacon/memberhive/wiki/Translations)
 
 ## Style Guides
 
