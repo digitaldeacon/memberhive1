@@ -1,12 +1,12 @@
 # MemberHive
-![AngularJS](http://digital-deacon.org/i/memberhive/angularjs.png) &nbsp; ![Strongloop](http://digital-deacon.org/i/memberhive/strongloop.png) &nbsp; ![ES6](http://digital-deacon.org/i/memberhive/es6.png) &nbsp; ![MongoD](http://digital-deacon.org/i/memberhive/mongodb.png)
+![AngularJS](http://digital-deacon.org/i/memberhive/angularjs.png) &nbsp; ![Strongloop](http://digital-deacon.org/i/memberhive/strongloop.png) &nbsp; ![ES6](http://digital-deacon.org/i/memberhive/es6.png) &nbsp; ![MongoDB](http://digital-deacon.org/i/memberhive/mongodb.png)
 
 ## Getting started
 Make sure you have the following requirements installed:
 * git 
 * g++ compiler
 * ruby-dev (e.g. ruby1.9.1-dev), compass
-* MySQL or MariaDB
+* MongoDB
 * libpng-dev
 
 Install process
@@ -56,7 +56,6 @@ Please follow these style guides when writing code:
 * [ADF] (https://github.com/sdorra/angular-dashboard-framework/tree/master/src)
 * [Weather Icons] (https://github.com/erikflowers/weather-icons)
 * [ViewHead] (https://github.com/apparentlymart/angularjs-viewhead) - sets the Browser Title
-* [Metronic] (http://www.keenthemes.com/preview/)
 * [Angular-Gettext] (https://angular-gettext.rocketeer.be/dev-guide/)
 
 ## Dependencies
