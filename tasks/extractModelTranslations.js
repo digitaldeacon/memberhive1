@@ -10,7 +10,7 @@ module.exports = function(grunt) {
       var extractor = new Extractor();
 
       this.files.forEach(function(file) {
-        file.src.forEach(function (filename) {
+        file.src.forEach(function(filename) {
           grunt.log.debug('Properties found in ' + filename + ':');
           var model = grunt.file.readJSON(filename);
 

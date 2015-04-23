@@ -108,9 +108,14 @@ module.exports = function(grunt) {
       ]
     },
 
-    uploadTranslations: {
+    uploadWords: {
+      all: {
+        src: 'po/*.pot'
+      }
+    },
+
+    uploadTemplateFile: {
       options: {
-        templateFile: 'po/template.pot',
         platformId: '22316',
         format: 'GNU_POT'
       }
@@ -378,7 +383,7 @@ module.exports = function(grunt) {
   grunt.registerTask('updateWords', [
     'nggettext_extract',
     'extractModelTranslations',
-    'uploadTranslations'
+    'uploadWords'
   ]);
 
   grunt.registerTask('updateTranslations', [
