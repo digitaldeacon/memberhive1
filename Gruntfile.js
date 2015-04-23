@@ -14,10 +14,10 @@ module.exports = function(grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-  
+
   var devServer = "https://localhost:3000/api";
   var prodServer = "https://localhost:3000/api";
-  
+
   // Configurable paths for the application
   var appConfig = {
     app: 'client/app',
@@ -38,6 +38,14 @@ module.exports = function(grunt) {
           src: ['client/app/modules/note/**.js'],
           dest: 'client/app/modules/note.js'
         }
+    },
+
+    extractModelTranslations: {
+      all: {
+        files: {
+          'po/models.pot': ['common/models/*.json']
+        }
+      }
     },
 
     nggettext_extract: { // jshint ignore:line
@@ -369,6 +377,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('updateWords', [
     'nggettext_extract',
+    'extractModelTranslations',
     'uploadTranslations'
   ]);
 
