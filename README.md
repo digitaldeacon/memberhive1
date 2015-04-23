@@ -1,5 +1,5 @@
 # MemberHive
-![My image](http://bible-survey.org/i/gemmii/angularjs.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/strongloop.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/es6.png) &nbsp; ![My image](http://bible-survey.org/i/gemmii/mariadb.png)
+![AngularJS](http://digital-deacon.org/i/memberhive/angularjs.png) &nbsp; ![Strongloop](http://digital-deacon.org/i/memberhive/strongloop.png) &nbsp; ![ES6](http://digital-deacon.org/i/memberhive/es6.png) &nbsp; ![MongoD](http://digital-deacon.org/i/memberhive/mongodb.png)
 
 ## Getting started
 Make sure you have the following requirements installed:
@@ -71,3 +71,6 @@ Please follow these style guides when writing code:
 
 ## Debug
 * `DEBUG=loopback:datasource npm start` to show debug ouput of the loopback database
+
+## License
+All files are made available under the terms of the GNU Affero General Public License (AGPL).
