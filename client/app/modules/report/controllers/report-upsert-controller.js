@@ -35,6 +35,6 @@ export class ReportUpsertController {
   }
 
   setBuilderFilters() {
-    return this.personModel;
+    return this.dataSources.persons;
   }
 }
