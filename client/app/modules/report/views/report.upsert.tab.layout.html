@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    <h4 translate>Available Variables</h4>
-    <gem-variable-list source="reportUpCtrl.personModel"></gem-variable-list>
+    <gem-variable-list sources="reportUpCtrl.dataSources"></gem-variable-list>
   </div>
   <div class="col-md-9">
     <ui-codemirror ng-model="reportUpCtrl.report.html" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>

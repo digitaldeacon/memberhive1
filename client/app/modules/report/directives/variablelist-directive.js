@@ -6,7 +6,7 @@ export function VariableListDirective() {
   return {
     restrict: 'E',
     scope: {
-      dataSource: '=source'
+      dataSources: '=sources'
     },
     templateUrl: 'modules/report/directives/variablelist-template.html'
   };

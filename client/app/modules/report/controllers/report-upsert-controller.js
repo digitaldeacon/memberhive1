@@ -19,7 +19,9 @@ export class ReportUpsertController {
       mode: 'htmlmixed'
     };
 
-    this.personModel = QueryBuilderModelService.getModel(this.Person);
+
+    this.dataSources = {};
+    this.dataSources.persons = QueryBuilderModelService.getModel(this.Person);
   }
 
   getReport() {
