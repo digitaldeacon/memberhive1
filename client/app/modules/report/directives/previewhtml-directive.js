@@ -1,5 +1,3 @@
-'use strict';
-
 export function PreviewHTMLDirective($compile,$sce) {
 
   return {

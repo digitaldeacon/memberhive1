@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th translate>Name</th>
+    <th translate>Variable Name</th>
+    <th translate>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="elem in dataSource">
+    <td>{{elem.label}}</td>
+    <td><code>{{elem.id}}</code></td>
+    <td>{{elem.type}}</td>
+  </tr>
+  </tbody>
+</table>

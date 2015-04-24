@@ -6,14 +6,12 @@ export class ReportUpsertController {
     this.Report = Report;
     this.ReportService = ReportService;
     this.Person = Person;
-    this.LoopBackAuth = LoopBackAuth;
     this.gettextCatalog = gettextCatalog;
     this.Shout = Shout;
     this.$stateParams = $stateParams;
 
     this.report = this.getReport();
 
-    this.curUser = LoopBackAuth.currentUserId;
     $scope.reportHtml = '';
 
     this.editorOptions = {

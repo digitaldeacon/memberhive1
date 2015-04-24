@@ -5,7 +5,7 @@ export function QueryBuilderDirective($q) {
       controller: 'ReportUpsertController',
       bindToController: true,
       restrict: 'E',
-      compile: function compile(tElement,tAttr,transclude) {
+      compile: function compile(tElement, tAttr, transclude) {
         return {
           post: function postLink(scope,iElement,iAttrs,controller) {
             iElement.queryBuilder({
@@ -24,7 +24,8 @@ export function QueryBuilderDirective($q) {
             var resetBtn = angular.element(document.querySelector('.reset'));
 
             var onSaveButtonClick = function() {
-              if (scope.reportBuilderForm.$invalid) return;
+              if (scope.reportBuilderForm.$invalid)
+                return;
               scope.reportUpCtrl.report.rule = iElement.queryBuilder('getRules');
               scope.reportUpCtrl.report.query = iElement.queryBuilder('getLoopback');
             };
