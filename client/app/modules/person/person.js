@@ -36,18 +36,22 @@ export var gemPersonModule = angular.module('gem.person',
   ]
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
-    $stateProvider.state('person', {
-      url: '/person',
-      template: '<ui-view/>',
+    $stateProvider.state('app.person', {
+      url: 'person',
+      //template: '<ui-view/>',
       data: {
         pageTitle: gettext('Person'),
         component: 'person',
         sidebarFolded: true
       },
       abstract: true
-    }).state('person.list', {
-      url: '/list',
-      templateUrl: 'modules/person/views/person.list.html',
+    }).state('app.person.list', {
+      url: 'list',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/person.list.html'
+        }
+      },
       data: {
         pageSubTitle: gettext('Create and edit Persons')
       },
@@ -57,9 +61,13 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('person.view', {
-      url: '/view/:id',
-      templateUrl: 'modules/person/views/person.view.html',
+    }).state('app.person.view', {
+      url: 'view/:id',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/person.view.html'
+        }
+      },
       data: {
         pageSubTitle: gettext('View Person details')
       },
@@ -70,9 +78,13 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('person.create', {
-      url: '/create',
-      templateUrl: 'modules/person/views/person.edit.html',
+    }).state('app.person.create', {
+      url: 'create',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/person.edit.html'
+        }
+      },
       data: {
         pageSubTitle: gettext('Create a Person')
       },
@@ -83,9 +95,13 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('person.edit', {
-      url: '/edit/:id',
-      templateUrl: 'modules/person/views/person.edit.html',
+    }).state('app.person.edit', {
+      url: 'edit/:id',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/person.edit.html'
+        }
+      },
       data: {
         pageSubTitle: gettext('Edit a Person')
       },
@@ -96,9 +112,13 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('person.import', {
-      url: '/import',
-      templateUrl: 'modules/person/views/person.import.html',
+    }).state('app.person.import', {
+      url: 'import',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/person.import.html'
+        }
+      },
       data: {
         pageSubTitle: gettext('Import Persons')
       },
@@ -109,9 +129,13 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('person.export', {
-      url: '/export',
-      templateUrl: 'modules/person/views/person.export.html',
+    }).state('app.person.export', {
+      url: 'export',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/person.export.html'
+        }
+      },
       data: {
         pageSubTitle: gettext('Export Persons')
       },

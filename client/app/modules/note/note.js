@@ -8,17 +8,21 @@ import {NoteCreateController} from 'modules/note/controllers/note-create-control
 
 export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
   ($stateProvider, MainMenuProvider, gettext) => {
-    $stateProvider.state('note', {
-      url: '/note',
-      template: '<ui-view/>',
+    $stateProvider.state('app.note', {
+      url: 'note',
+      //template: '<ui-view/>',
       abstract: true,
       data: {
         module: 'note',
         pageTitle: 'Note'
       }
-    }).state('note.list', {
-      url: '/list',
-      templateUrl: 'modules/note/views/note.list.html',
+    }).state('app.note.list', {
+      url: 'list',
+      views: {
+        'content@': {
+          templateUrl: 'modules/note/views/note.list.html'
+        }
+      },
       data: {
         pageSubTitle: 'Create and edit notes'
       },
@@ -28,9 +32,13 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('note.create', {
-      url: '/create',
-      templateUrl: 'modules/note/views/note.create.html',
+    }).state('app.note.create', {
+      url: 'create',
+      views: {
+        'content@': {
+          templateUrl: 'modules/note/views/note.create.html'
+        }
+      },
       data: {
         pageSubTitle: 'Create a note'
       },
@@ -41,9 +49,13 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('note.edit', {
-      url: '/edit/:id',
-      templateUrl: 'modules/note/views/note.edit.html',
+    }).state('app.note.edit', {
+      url: 'edit/:id',
+      views: {
+        'content@': {
+          templateUrl: 'modules/note/views/note.edit.html'
+        }
+      },
       acl: {
         needRights: ['$authenticated']
       }

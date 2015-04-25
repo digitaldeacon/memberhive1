@@ -25,17 +25,21 @@ export var gemReportModule = angular.module('gem.report', [
 
 gemReportModule.config(
   ($stateProvider, $provide, MainMenuProvider, gettext) => {
-    $stateProvider.state('report', {
-      url: '/report',
-      template: '<ui-view/>',
+    $stateProvider.state('app.report', {
+      url: 'report',
+      //template: '<ui-view/>',
       abstract: true,
       data: {
         module: 'report',
         pageTitle: 'Report'
       }
-    }).state('report.create', {
-      url: '/create',
-      templateUrl: 'modules/report/views/report.upsert.html',
+    }).state('app.report.create', {
+      url: 'create',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/report.upsert.html'
+        }
+      },
       data: {
         pageSubTitle: 'Create a new report'
       },
@@ -46,9 +50,13 @@ gemReportModule.config(
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('report.edit', {
-      url: '/edit/:id',
-      templateUrl: 'modules/report/views/report.upsert.html',
+    }).state('app.report.edit', {
+      url: 'edit/:id',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/report.upsert.html'
+        }
+      },
       data: {
         pageSubTitle: 'Edit a report'
       },
@@ -59,9 +67,13 @@ gemReportModule.config(
       acl: {
         needRights: ['$authenticated']
       }
-      }).state('report.list', {
-      url: '/list',
-      templateUrl: 'modules/report/views/report.list.html',
+      }).state('app.report.list', {
+      url: 'list',
+      views: {
+        'content@': {
+          templateUrl: 'modules/person/views/report.list.html'
+        }
+      },
       data: {
         pageSubTitle: 'List available reports'
       },

@@ -4,9 +4,13 @@ import './styles/auth.css!';
 
 export var gemAuthModule = angular.module('gem.auth', []).config(
   ($stateProvider, gettext) => {
-      $stateProvider.state('login', {
+      $stateProvider.state('app.login', {
         url: '/login',
-        templateUrl: 'modules/auth/views/login.html',
+        views: {
+          'content@': {
+            templateUrl: 'modules/auth/views/login.html'
+          }
+        },
         data: {
           pageTitle: gettext('Login')
         }
