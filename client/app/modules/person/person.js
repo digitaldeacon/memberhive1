@@ -41,7 +41,8 @@ export var gemPersonModule = angular.module('gem.person',
       template: '<ui-view/>',
       data: {
         pageTitle: gettext('Person'),
-        component: 'person'
+        component: 'person',
+        sidebarFolded: true
       },
       abstract: true
     }).state('person.list', {

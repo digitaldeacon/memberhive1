@@ -4,6 +4,10 @@
 @import "metronic/admin/layout4/layout";
 @import "metronic/admin/layout4/themes/light";
 
+// Material Theme
+@import "material/boxes";
+@import "material/ui";
+
 // Custom styles
 @import "bootstrap-fixes";
 @import "ns-popover";

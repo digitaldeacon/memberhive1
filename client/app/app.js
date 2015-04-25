@@ -1,5 +1,7 @@
 import 'jquery';
 import 'angular';
+import 'angular-material';
+//import 'angular-material-icons';
 import 'bootstrap';
 import 'angular-animate';
 import 'angular-cookies';
@@ -53,7 +55,7 @@ import {gemReportModule} from 'modules/report/report';
  * The main app module.
  */
 export var gemMainModule = angular.module('gem.main', [
-  'ngAnimate', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch',
+  'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch',
   'ui.router', 'ui.bootstrap',  'ui.select',
   'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
@@ -74,10 +76,20 @@ gemMainModule.config(
 
     cfpLoadingBarProvider.includeSpinner = false;
 
-    //This make the interface less interactive, sometimes something is loading, but it should not block the ui
-
-    //cfpLoadingBarProvider.spinnerTemplate = '<div class="blockui"><div class="page-spinner-bar"><div class="bounce1">' +
-    //  '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
+    $stateProvider.state('app',{
+      url: '/',
+      views: {
+        'header': {
+          templateUrl: 'templates/header.html'
+        },
+        'aside': {
+          templateUrl: 'templates/sidebar.html'
+        },
+        'content': {
+          templateUrl: 'templates/content.html'
+        }
+      }
+    });
 
     $breadcrumbProvider.setOptions({
       prefixStateName: 'dashboard',

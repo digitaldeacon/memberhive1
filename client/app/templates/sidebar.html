@@ -1,39 +1,57 @@
-<div class="page-sidebar navbar-collapse collapse">
-	<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-	<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-	<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-	<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-	<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-	<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-	<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
-      ng-class="{'page-sidebar-menu-closed': gemConfig.layout.pageSidebarClosed}" ng-if="acl.isLoggedIn()">
+<md-sidenav id="aside" class="app-aside md-sidenav-left" ng-class="{'folded': app.setting.asideFolded || $state.current.data.folded}" md-component-id="aside" md-is-locked-open="$mdMedia('gt-md')">
+<div class="box bg-white">
+  <div class="navbar md-whiteframe-z1 no-radius" ng-class="$state.current.data.theme ? $state.current.data.theme.primary : app.setting.theme.primary">
+    <!-- brand -->
+    <a class="">
+      <img src="images/logo-d.png" class="img-responsive">
+    </a>
+    <!-- / brand -->
+  </div>
+  <div class="box-row">
+    <div class="box-cell scrollable hover">
+      <div class="box-inner">
 
-    <li ng-repeat="entry in mainMenu">
-      <a ng-if="!entry.children" ui-sref="{{entry.route}}">
-        <fa name="{{entry.icon}}"></fa>
-        <span class="title">{{entry.label | translate}}</span>
-      </a>
+        <li ng-repeat="entry in mainMenu">
+          <a ng-if="!entry.children" ui-sref="{{entry.route}}">
+            <fa name="{{entry.icon}}"></fa>
+            <span class="title">{{entry.label | translate}}</span>
+          </a>
 
-      <a ng-if="entry.children">
-        <fa name="{{entry.icon}}"></fa>
-        <span class="title">{{entry.label | translate}}</span>
-        <span class="arrow "></span>
-      </a>
-      <ul ng-if="entry.children" class="sub-menu">
-        <li ng-repeat="entry in entry.children">
-          <a ui-sref="{{entry.route}}">
-            <fa name="{{entry.icon}}"></fa> {{entry.label | translate}}
+          <a ng-if="entry.children">
+            <fa name="{{entry.icon}}"></fa>
+            <span class="title">{{entry.label | translate}}</span>
+            <span class="arrow "></span>
+          </a>
+          <ul ng-if="entry.children" class="sub-menu">
+            <li ng-repeat="entry in entry.children">
+              <a ui-sref="{{entry.route}}">
+                <fa name="{{entry.icon}}"></fa> {{entry.label | translate}}
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a ng-click="logout()">
+            <fa name="sign-out" fw></fa>
+            <span class="title" translate>Logout</span>
           </a>
         </li>
-      </ul>
-    </li>
 
-    <li>
-      <a ng-click="logout()">
-        <fa name="sign-out" fw></fa>
-        <span class="title" translate>Logout</span>
-      </a>
-    </li>
+        </ul>
 
-	</ul>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <ul class="nav b-t b">
+      <li>
+        <md-button href>
+          <i class="icon mdi-action-help i-20"></i>
+          <span>Help &amp; Feedback</span>
+        </md-button>
+      </li>
+    </ul>
+  </nav>
 </div>
+</md-sidenav>

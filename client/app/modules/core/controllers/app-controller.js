@@ -1,10 +1,11 @@
 export class AppController {
-  constructor($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state, productName) {
+  constructor($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state, productName,$mdSidenav) {
     this.$rootScope = $rootScope;
     this.$cookies = $cookies;
     this.gettextCatalog = gettextCatalog;
     this.$state = $state;
     this.productName = productName;
+    this.$mdSidenav = $mdSidenav;
 
     $scope.init = () => {
       Metronic.init();
@@ -12,6 +13,10 @@ export class AppController {
     $scope.$on('$viewContentLoaded', () => {
       Metronic.initComponents(); // init core components
     });
+
+    $scope.toggleMenu = function() {
+      $mdSidenav('menu').toggle();
+    };
 
     $rootScope.currentUser = PersonService.currentUser();
 
@@ -47,5 +52,12 @@ export class AppController {
     var lang = this.$cookies.lang || navigator.language || navigator.userLanguage;
     this.$rootScope.locale = this.$rootScope.locales[lang] || this.$rootScope.locales.de;
     this.gettextCatalog.setCurrentLanguage(this.$rootScope.locale.lang);
+  }
+
+  openSidebar() {
+    this.$mdSidenav('sidebar').open();
+  }
+  closeSidebar() {
+    this.$mdSidenav('sidebar').close();
   }
 }

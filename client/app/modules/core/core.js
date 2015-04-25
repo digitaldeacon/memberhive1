@@ -23,7 +23,7 @@ export var gemCoreModule = angular.module('gem.core', []);
 gemCoreModule.run(($rootScope) => {
   $rootScope.gemConfig = {
     layout: {
-      pageSidebarClosed: false // sidebar state
+      sidebarClosed: true // sidebar state
     },
     pagination: {
       pageSize: 25
