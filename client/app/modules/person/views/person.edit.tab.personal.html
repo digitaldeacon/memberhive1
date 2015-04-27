@@ -15,8 +15,9 @@
   </div>
 
   <h3 translate>Status</h3>
+  {{person.status}}
   <div class="button-list btn-group">
-    <label class="btn btn-sm btn-primary" ng-repeat="state in personCtrl.status" ng-model="state.selected" btn-checkbox>{{state.text}} </label>
+    <label class="btn btn-sm btn-default" ng-repeat="state in personCtrl.status" ng-model="state.selected" btn-checkbox>{{state.text}} </label>
   </div>
   <pre>status: {{personCtrl.status| json}}</pre>
   <h3 translate>Person Info</h3>
