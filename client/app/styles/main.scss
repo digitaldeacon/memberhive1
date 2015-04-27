@@ -1,8 +1,4 @@
-// Metronic
-@import "metronic/global/components-rounded";
-@import "metronic/global/plugins";
-@import "metronic/admin/layout4/layout";
-@import "metronic/admin/layout4/themes/light";
+$brand-primary: #ff0;
 
 // Material Theme
 @import "material/boxes";
@@ -23,12 +19,7 @@
   margin: 0 auto;
 }
 
-.portlet-default {
-  @extend .portlet;
-  @extend .light;
-  @extend .portlet-body;
-
-  .topheading {
-    margin-top: 0;
-  }
+#sidebar {
+  position: static;
 }
+

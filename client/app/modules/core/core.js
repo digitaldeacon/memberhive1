@@ -29,12 +29,12 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider) => {
       'header': {
         templateUrl: 'templates/header.html'
       },
-      'aside': {
+      'sidebar': {
         templateUrl: 'templates/sidebar.html'
       },
-      'content': {
+      /*'content': {
         templateUrl: 'templates/content.html'
-      }
+      }*/
     }
   });
 });
