@@ -80,6 +80,9 @@
     "tags": {
      "type": "array"
     },
+    "status": {
+      "type": "array"
+    },
     "primaryContact": {
       "type": "string",
       "enum": [

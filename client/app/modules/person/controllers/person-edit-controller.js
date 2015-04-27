@@ -17,6 +17,8 @@ export class PersonEditController {
 
 
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
+    this.status = this.loadStatus();
+
     this.avatar = null;
     this.uploadedAvatar = null;
     this.croppedAvatar = null;
@@ -25,13 +27,17 @@ export class PersonEditController {
     this.isEditingAvatar = false;
 
     $scope.datepickerOpened = false;
-    
+
   }
-  
+
   loadTags(query) {
     return this.Person.tags({"text":query}).$promise;
   }
-  
+
+  loadStatus(query) {
+    return this.PersonService.statusTypes;
+  }
+
   isEditing() {
     return this.$stateParams.id !== undefined;
   }
@@ -115,9 +121,10 @@ export class PersonEditController {
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
+    console.log(this.status);
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
-    console.log(this.person);
+    //console.log(this.person);
     this.Person.upsert({}, this.person, function(data) {});
     //FIXME: should be in the person upsert callback
     if (this.avatarDeleted && !this.avatarChanged) {

@@ -78,6 +78,21 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
     },
 
     /**
+     * A dictionary with translations of standard status items.
+     */
+    statusTypes: [
+      {'key': 'member', 'selected': false, 'text': gettextCatalog.getString('Member')},
+      {'key': 'member_prospect', 'selected': false, 'text': gettextCatalog.getString('Member Prospect')},
+      {'key': 'member_former', 'selected': false, 'text': gettextCatalog.getString('Former Member')},
+      {'key': 'member_passed', 'selected': false, 'text': gettextCatalog.getString('Passed Member')},
+      {'key': 'member_restore', 'selected': false, 'text': gettextCatalog.getString('Church Discipline')},
+      {'key': 'visitor', 'selected': false, 'text': gettextCatalog.getString('Visitor')},
+      {'key': 'visitor_regular', 'selected': false, 'text': gettextCatalog.getString('Regular Visitor')},
+      {'key': 'visitor_irregular', 'selected': false, 'text': gettextCatalog.getString('Irregular Visitor')},
+      {'key': 'visitor_first', 'selected': false, 'text': gettextCatalog.getString('First-Time Visitor')},
+      {'key': 'missionary', 'selected': false, 'text': gettextCatalog.getString('Missionary')}
+    ],
+    /**
      * A dictionary with translations of the relationTypes table.
      */
     relationTypes: {
