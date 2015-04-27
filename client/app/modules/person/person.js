@@ -36,7 +36,7 @@ export var gemPersonModule = angular.module('gem.person',
   ]
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
-    $stateProvider.state('app.persons', {
+    $stateProvider.state('app.person', {
       url: 'person',
       views: {
         'content@': {
@@ -44,6 +44,7 @@ export var gemPersonModule = angular.module('gem.person',
         }
       },
       data: {
+        pageTitle: gettext('Persons'),
         pageSubTitle: gettext('Create and edit Persons')
       },
       ncyBreadcrumb: {
@@ -144,7 +145,7 @@ export var gemPersonModule = angular.module('gem.person',
 
     MainMenuProvider.add(new MenuSection(gettext('Persons'), 'user',
       [
-        new MenuLink(gettext('List Persons'), 'users', 'app.persons'),
+        new MenuLink(gettext('List Persons'), 'users', 'app.person'),
         new MenuLink(gettext('Create Person'), 'user-plus', 'app.person.create'),
         new MenuLink(gettext('Import'), 'upload', 'app.person.import'),
         new MenuLink(gettext('Export'), 'share', 'app.person.export')
