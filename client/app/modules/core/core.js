@@ -20,6 +20,25 @@ import {temperatureFilter} from './filters/format-filters';
  */
 export var gemCoreModule = angular.module('gem.core', []);
 
+gemCoreModule.config(($stateProvider, $urlRouterProvider) => {
+  $urlRouterProvider.otherwise('/dashboard');
+
+  $stateProvider.state('app',{
+    url: '/',
+    views: {
+      'header': {
+        templateUrl: 'templates/header.html'
+      },
+      'aside': {
+        templateUrl: 'templates/sidebar.html'
+      },
+      'content': {
+        templateUrl: 'templates/content.html'
+      }
+    }
+  });
+});
+
 gemCoreModule.run(($rootScope) => {
   $rootScope.gemConfig = {
     layout: {

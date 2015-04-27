@@ -7,7 +7,7 @@
 <div class="col-md-9 householdMembers">
   <ul class="list-inline">
     <li ng-repeat="person in personCtrl.getHouseholdMembers()">
-      <a ui-sref="person.view({ id: person.id })">
+      <a ui-sref="app.person.view({ id: person.id })">
         <gem-avatar class="pull-left" person="person" size="xs"></gem-avatar>
         <div class="person-info">
           <h4><b>{{::person | formatFirstName}}</b></h4>

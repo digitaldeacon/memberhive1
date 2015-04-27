@@ -71,25 +71,8 @@ export var gemMainModule = angular.module('gem.main', [
 );
 
 gemMainModule.config(
-  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider) => {
-    $urlRouterProvider.otherwise('/dashboard');
-
+  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, gettext) => {
     cfpLoadingBarProvider.includeSpinner = false;
-
-    $stateProvider.state('app',{
-      url: '/',
-      views: {
-        'header': {
-          templateUrl: 'templates/header.html'
-        },
-        'aside': {
-          templateUrl: 'templates/sidebar.html'
-        },
-        'content': {
-          templateUrl: 'templates/content.html'
-        }
-      }
-    });
 
     $breadcrumbProvider.setOptions({
       prefixStateName: 'dashboard',

@@ -37,16 +37,7 @@ export var gemPersonModule = angular.module('gem.person',
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('app.person', {
-      url: 'person',
-      //template: '<ui-view/>',
-      data: {
-        pageTitle: gettext('Person'),
-        component: 'person',
-        sidebarFolded: true
-      },
-      abstract: true
-    }).state('app.person.list', {
-      url: 'list',
+      url: 'persons',
       views: {
         'content@': {
           templateUrl: 'modules/person/views/person.list.html'
@@ -73,7 +64,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('View Person'),
-        parent: 'person.list'
+        parent: 'app.person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -90,7 +81,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('New Person'),
-        parent: 'person.list'
+        parent: 'app.person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -107,7 +98,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Edit Person'),
-        parent: 'person.list'
+        parent: 'app.person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -124,7 +115,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Import'),
-        parent: 'person.list'
+        parent: 'app.person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -141,7 +132,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Export'),
-        parent: 'person.list'
+        parent: 'app.person'
       },
       acl: {
         needRights: ['$authenticated']
