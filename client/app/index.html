@@ -13,9 +13,20 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
 
   </head>
-  <body layout="row">
+  <body flex layout="row">
+    <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-left md-whiteframe-z2">
+      <ui-view name="sidebar" layout="vertical" layout-fill></ui-view>
+    </md-sidenav>
+    <div layout="column" flex id="content">
+      <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+          <h1 flex> Search </h1>
+        </div>
 
-  <div ui-view="sidebar"></div>
+      </md-toolbar>
+      <md-content ui-view="content" layout="column" flex layout-padding></md-content>
+  </div>
+  <!--<div ui-view="sidebar"></div>
 
   <div class="box">
     <div ui-view="header"></div>
@@ -25,7 +36,7 @@
       </div>
     </div>
   </div>
-
+-->
 
   <script src="jspm_packages/es6-module-loader.js"></script>
     <script src="jspm_packages/system.js"></script>

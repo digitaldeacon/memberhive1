@@ -1,13 +1,7 @@
 $brand-primary: #ff0;
 
-// Material Theme
-@import "material/boxes";
-@import "material/ui";
-
 // Custom styles
-@import "bootstrap-fixes";
 @import "ns-popover";
-@import "loading";
 @import "header";
 @import "search";
 @import "dropzone";
@@ -17,9 +11,5 @@ $brand-primary: #ff0;
   padding: 15px;
   text-align: center;
   margin: 0 auto;
-}
-
-#sidebar {
-  position: static;
 }
 
