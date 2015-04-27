@@ -3,8 +3,8 @@ module.exports = function(app) {
   var log = bunyan.createLogger({name: 'server.boot.create-roles'});
 
   var Role = app.models.Role;
-  Role.findOne({where : {name: "pastor"}}, function (err, data) { //insert roles only if there no before
-    if(data == null) {
+  Role.findOne({where: {name: "pastor"}}, function(err, data) { //insert roles only if there no before
+    if (data == null) {
       Role.create({name: 'pastor'});
       Role.create({name: 'deacon'});
       Role.create({name: 'leader'});

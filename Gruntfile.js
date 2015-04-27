@@ -139,9 +139,7 @@ module.exports = function(grunt) {
     'loopback_auto': {
       'db_autoupdate': {
         options: {
-          dataSource: 'db',
-          app: './server/server',
-          config: './server/model-config',
+
           method: 'autoupdate'
         }
       }

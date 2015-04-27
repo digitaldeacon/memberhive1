@@ -12,7 +12,6 @@ module.exports = function(grunt) {
           grunt.task.run(['uploadTemplateFile:' + filename]);
         });
       });
-
     });
 
   grunt.registerTask(
