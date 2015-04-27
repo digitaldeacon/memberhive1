@@ -36,13 +36,18 @@ export var gemPersonModule = angular.module('gem.person',
   ]
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
-    $stateProvider.state('app.person', {
-      url: 'person',
-      views: {
-        'content@': {
-          templateUrl: 'modules/person/views/person.list.html'
-        }
+    $stateProvider.state('person', {
+      url: '/person',
+      template: '<ui-view/>',
+      data: {
+        pageTitle: gettext('Person'),
+        component: 'person',
+        sidebarFolded: true
       },
+      abstract: true
+    }).state('person.list', {
+      url: '/list',
+      templateUrl: 'modules/person/views/person.list.html',
       data: {
         pageTitle: gettext('Persons'),
         pageSubTitle: gettext('Create and edit Persons')
@@ -53,13 +58,9 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('app.person.view', {
-      url: 'view/:id',
-      views: {
-        'content@': {
-          templateUrl: 'modules/person/views/person.view.html'
-        }
-      },
+    }).state('person.view', {
+      url: '/view/:id',
+      templateUrl: 'modules/person/views/person.view.html',
       data: {
         pageSubTitle: gettext('View Person details')
       },
@@ -70,13 +71,9 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('app.person.create', {
-      url: 'create',
-      views: {
-        'content@': {
-          templateUrl: 'modules/person/views/person.edit.html'
-        }
-      },
+    }).state('person.create', {
+      url: '/create',
+      templateUrl: 'modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Create a Person')
       },
@@ -87,13 +84,9 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('app.person.edit', {
-      url: 'edit/:id',
-      views: {
-        'content@': {
-          templateUrl: 'modules/person/views/person.edit.html'
-        }
-      },
+    }).state('person.edit', {
+      url: '/edit/:id',
+      templateUrl: 'modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Edit a Person')
       },
@@ -104,13 +97,9 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('app.person.import', {
-      url: 'import',
-      views: {
-        'content@': {
-          templateUrl: 'modules/person/views/person.import.html'
-        }
-      },
+    }).state('person.import', {
+      url: '/import',
+      templateUrl: 'modules/person/views/person.import.html',
       data: {
         pageSubTitle: gettext('Import Persons')
       },
@@ -121,13 +110,9 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('app.person.export', {
-      url: 'export',
-      views: {
-        'content@': {
-          templateUrl: 'modules/person/views/person.export.html'
-        }
-      },
+    }).state('person.export', {
+      url: '/export',
+      templateUrl: 'modules/person/views/person.export.html',
       data: {
         pageSubTitle: gettext('Export Persons')
       },
@@ -145,10 +130,10 @@ export var gemPersonModule = angular.module('gem.person',
 
     MainMenuProvider.add(new MenuSection(gettext('Persons'), 'user',
       [
-        new MenuLink(gettext('List Persons'), 'users', 'app.person'),
-        new MenuLink(gettext('Create Person'), 'user-plus', 'app.person.create'),
-        new MenuLink(gettext('Import'), 'upload', 'app.person.import'),
-        new MenuLink(gettext('Export'), 'share', 'app.person.export')
+        new MenuLink(gettext('List Persons'), 'users', 'person.list'),
+        new MenuLink(gettext('Create Person'), 'user-plus', 'person.create'),
+        new MenuLink(gettext('Import'), 'upload', 'person.import'),
+        new MenuLink(gettext('Export'), 'share', 'person.export')
       ]
     ));
   }

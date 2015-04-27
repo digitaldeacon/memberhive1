@@ -26,21 +26,17 @@ export var gemReportModule = angular.module('gem.report', [
 
 gemReportModule.config(
   ($stateProvider, $provide, MainMenuProvider, gettext) => {
-    $stateProvider.state('app.report', {
-      url: 'report',
-      //template: '<ui-view/>',
+    $stateProvider.state('report', {
+      url: '/report',
+      template: '<ui-view/>',
       abstract: true,
       data: {
         module: 'report',
         pageTitle: 'Report'
       }
-    }).state('app.report.create', {
-      url: 'create',
-      views: {
-        'content@': {
-          templateUrl: 'modules/report/views/report.upsert.html'
-        }
-      },
+    }).state('report.create', {
+      url: '/create',
+      templateUrl: 'modules/report/views/report.upsert.html',
       data: {
         pageSubTitle: 'Create a new report'
       },
@@ -51,13 +47,9 @@ gemReportModule.config(
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('app.report.edit', {
-      url: 'edit/:id',
-      views: {
-        'content@': {
-          templateUrl: 'modules/report/views/report.upsert.html'
-        }
-      },
+    }).state('report.edit', {
+      url: '/edit/:id',
+      templateUrl: 'modules/report/views/report.upsert.html',
       data: {
         pageSubTitle: 'Edit a report'
       },
@@ -68,13 +60,9 @@ gemReportModule.config(
       acl: {
         needRights: ['$authenticated']
       }
-      }).state('app.report.list', {
-      url: 'list',
-      views: {
-        'content@': {
-          templateUrl: 'modules/report/views/report.list.html'
-        }
-      },
+      }).state('report.list', {
+      url: '/list',
+      templateUrl: 'modules/report/views/report.list.html',
       data: {
         pageSubTitle: 'List available reports'
       },
@@ -88,8 +76,8 @@ gemReportModule.config(
 
     MainMenuProvider.add(new MenuSection(gettext('Reports'), 'bar-chart',
       [
-        new MenuLink(gettext('List Reports'), 'eye', 'app.report.list'),
-        new MenuLink(gettext('Create Report'), 'plus-circle', 'app.report.create')
+        new MenuLink(gettext('List Reports'), 'eye', 'report.list'),
+        new MenuLink(gettext('Create Report'), 'plus-circle', 'report.create')
       ]
     ));
   }

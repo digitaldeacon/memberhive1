@@ -17,13 +17,9 @@ export var gemDashboardModule = angular.module('gem.dashboard',
   .config(
     ($stateProvider, MainMenuProvider, gettext) => {
       $stateProvider
-        .state('app.dashboard', {
+        .state('dashboard', {
         url: 'dashboard',
-        views: {
-          'content@': {
-            templateUrl: 'modules/dashboard/views/dashboard.html'
-          }
-        },
+        templateUrl: 'modules/dashboard/views/dashboard.html',
         data: {
           pageTitle: gettext('Dashboard')
         },
@@ -35,7 +31,7 @@ export var gemDashboardModule = angular.module('gem.dashboard',
         }
       });
 
-      MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'laptop', 'app.dashboard'));
+      MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'laptop', 'dashboard'));
     }
   );
 

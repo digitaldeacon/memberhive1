@@ -8,21 +8,17 @@ import {NoteCreateController} from 'modules/note/controllers/note-create-control
 
 export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
   ($stateProvider, MainMenuProvider, gettext) => {
-    $stateProvider.state('app.note', {
-      url: 'note',
-      //template: '<ui-view/>',
+    $stateProvider.state('note', {
+      url: '/note',
+      template: '<ui-view/>',
       abstract: true,
       data: {
         module: 'note',
         pageTitle: 'Note'
       }
-    }).state('app.note.list', {
-      url: 'list',
-      views: {
-        'content@': {
-          templateUrl: 'modules/note/views/note.list.html'
-        }
-      },
+    }).state('note.list', {
+      url: '/list',
+      templateUrl: 'modules/note/views/note.list.html',
       data: {
         pageSubTitle: 'Create and edit notes'
       },
@@ -32,13 +28,9 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('app.note.create', {
-      url: 'create',
-      views: {
-        'content@': {
-          templateUrl: 'modules/note/views/note.create.html'
-        }
-      },
+    }).state('note.create', {
+      url: '/create',
+      templateUrl: 'modules/note/views/note.create.html',
       data: {
         pageSubTitle: 'Create a note'
       },
@@ -49,13 +41,9 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('app.note.edit', {
-      url: 'edit/:id',
-      views: {
-        'content@': {
-          templateUrl: 'modules/note/views/note.edit.html'
-        }
-      },
+    }).state('note.edit', {
+      url: '/edit/:id',
+      templateUrl: 'modules/note/views/note.edit.html',
       acl: {
         needRights: ['$authenticated']
       }
@@ -64,8 +52,8 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
 
     MainMenuProvider.add(new MenuSection(gettext('Notes'), 'file-text',
       [
-        new MenuLink(gettext('My Notes'), 'file-text', 'app.note.list'),
-        new MenuLink(gettext('Create Note'), 'plus-circle', 'app.note.create')
+        new MenuLink(gettext('My Notes'), 'file-text', 'note.list'),
+        new MenuLink(gettext('Create Note'), 'plus-circle', 'note.create')
       ]
     ));
   }

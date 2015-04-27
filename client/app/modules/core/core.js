@@ -32,9 +32,6 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider) => {
       'sidebar': {
         templateUrl: 'templates/sidebar.html'
       },
-      /*'content': {
-        templateUrl: 'templates/content.html'
-      }*/
     }
   });
 });

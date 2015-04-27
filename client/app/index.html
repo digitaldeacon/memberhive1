@@ -15,7 +15,7 @@
   </head>
   <body flex layout="row">
     <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-left md-whiteframe-z2">
-      <ui-view name="sidebar" layout="vertical" layout-fill></ui-view>
+      <div data-ng-include="'templates/sidebar.html'" layout="vertical" layout-fill></div>
     </md-sidenav>
     <div layout="column" flex id="content">
       <md-toolbar layout="row">
@@ -24,7 +24,7 @@
         </div>
 
       </md-toolbar>
-      <md-content ui-view="content" layout="column" flex layout-padding></md-content>
+      <md-content ui-view layout="column" flex layout-padding></md-content>
   </div>
   <!--<div ui-view="sidebar"></div>
 
