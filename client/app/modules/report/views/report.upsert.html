@@ -2,7 +2,7 @@
   <div id="builder"></div>
 </script>
 
-<div class="portlet-default" ng-controller="ReportUpsertController as reportUpCtrl">
+<div class="portlet-default report" ng-controller="ReportUpsertController as reportUpCtrl">
 
   <div class="portlet-title tabbable-line">
     <div class="caption caption-md">
@@ -17,43 +17,15 @@
           <tab-heading>
             <fa name="database"></fa> <translate>Report source</translate>
           </tab-heading>
-          <div class="tab-personal row">
-            <div class="portlet-default">
-              <div class="form-group">
-                <label class="control-label ng-binding" for="reportName"  translate>Report Name</label>
-                <input class="form-control input-lg" type="text" id="reportName" name="name" ng-model="reportUpCtrl.report.name" required />
-              </div>
-              <div class="form-group">
-                <label class="control-label ng-binding" translate>Build Query</label>
-                <gem-querybuilder></gem-querybuilder>
-                <div class="form-actions fluid">
-                  <div class="btn-group">
-                    <button class="btn btn-warning reset">Reset</button>
-                    <button class="btn green-haze parse-json">Save</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="portlet-default tab-query" ng-include="'modules/report/views/report.upsert.tab.query.html'"></div>
         </tab>
 
         <tab>
           <tab-heading>
             <fa name="pencil"></fa> <translate>Report layout</translate>
           </tab-heading>
-          <div class="tab-personal row">
-            <div class="portlet-default">
-              <ui-codemirror ng-model="reportUpCtrl.report.html" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
-              <div class="form-actions fluid">
-                <button class="btn green-haze" type="submit">Save</button>
-              </div>
-              <div class="row">
-                <gem-preview html="{{reportUpCtrl.report.html}}"></gem-preview>
-              </div>
-            </div>
-          </div>
+          <div class="portlet-default tab-layout" ng-include="'modules/report/views/report.upsert.tab.layout.html'"></div>
         </tab>
-
       </tabset>
     </form>
   </div>

@@ -1,5 +1,5 @@
 <div class="col-md-6">
-  {{personCtrl.getTags()}}
+
   <h3 translate>Tags</h3>
   <div class="input-group">
     <span class="input-group-addon"><fa name="tags"></fa></span>
@@ -14,6 +14,12 @@
       </tags-input>
   </div>
 
+  <h3 translate>Status</h3>
+  {{person.status}}
+  <div class="button-list btn-group">
+    <label class="btn btn-sm btn-default" ng-repeat="state in personCtrl.status" ng-model="state.selected" btn-checkbox>{{state.text}} </label>
+  </div>
+  <pre>status: {{personCtrl.status| json}}</pre>
   <h3 translate>Person Info</h3>
 
   <div class="btn-group form-group gender-buttons" role="group">

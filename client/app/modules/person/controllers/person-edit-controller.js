@@ -15,8 +15,9 @@ export class PersonEditController {
     this.households = PersonService.getHouseholds();
     this.addressTypes = AddressService.addressTypes;
 
-
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
+    this.status = this.loadStatus();
+
     this.avatar = null;
     this.uploadedAvatar = null;
     this.croppedAvatar = null;
@@ -25,13 +26,34 @@ export class PersonEditController {
     this.isEditingAvatar = false;
 
     $scope.datepickerOpened = false;
-    
+
   }
-  
+
   loadTags(query) {
     return this.Person.tags({"text":query}).$promise;
   }
-  
+
+  loadStatus() {
+    var whileLoopAlt = function(array1, array2) {
+      var array3 = [];
+      var arr = array1.concat(array2);
+      var len = arr.length;
+      var assoc = {};
+      while(len--) {
+        var itm = arr[len];
+        if(!assoc[itm]) { // Eliminate the indexOf call
+          array3.unshift(itm);
+          assoc[itm] = true;
+        }
+      }
+      return array3;
+    };
+    //TODO: merge saved array with statusTypes (or update the selected flag)
+    console.log(this.Person.status);
+    return this.PersonService.statusTypes;
+  }
+
+
   isEditing() {
     return this.$stateParams.id !== undefined;
   }
@@ -115,9 +137,17 @@ export class PersonEditController {
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
+    var status = [];
+    this.status.forEach( (s)=> {
+      if(s.selected) {
+        status.push(s);
+      }
+    });
+    this.person.status = status;
+
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
-    console.log(this.person);
+    //console.log(this.person);
     this.Person.upsert({}, this.person, function(data) {});
     //FIXME: should be in the person upsert callback
     if (this.avatarDeleted && !this.avatarChanged) {
