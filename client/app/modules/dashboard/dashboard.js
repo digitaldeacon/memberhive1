@@ -35,7 +35,7 @@ export var gemDashboardModule = angular.module('gem.dashboard',
         }
       });
 
-      MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'laptop', 'dashboard'));
+      MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'laptop', 'app.dashboard'));
     }
   );
 

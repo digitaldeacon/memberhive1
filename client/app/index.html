@@ -15,17 +15,16 @@
   </head>
   <body layout="row">
 
-    <div ng-if="acl.isLoggedIn()">
-      <div ui-view="aside"></div>
-      <div class="box">
-        <div ui-view="header"></div>
-        <div class="box-row">
-          <div class="box-cell">
-            <div class="box-inner padding" ui-view="content"></div>
-          </div>
-        </div>
+  <div ui-view="aside"></div>
+  <div class="box">
+    <div ui-view="header"></div>
+    <div class="box-row">
+      <div class="box-cell">
+        <div class="box-inner padding" ui-view="content"></div>
       </div>
     </div>
+  </div>
+
 
   <script src="jspm_packages/es6-module-loader.js"></script>
     <script src="jspm_packages/system.js"></script>

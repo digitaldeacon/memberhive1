@@ -1,5 +1,7 @@
-<md-sidenav id="aside" class="app-aside md-sidenav-left" ng-class="{'folded': app.setting.asideFolded || $state.current.data.folded}" md-component-id="aside" md-is-locked-open="$mdMedia('gt-md')">
-<div class="box bg-white">
+<md-sidenav id="aside" class="app-aside md-sidenav-left"
+            ng-class="{'folded': app.setting.asideFolded || $state.current.data.folded}"
+            md-component-id="aside" md-is-locked-open="$mdMedia('gt-md')">
+<div class="box bg-white" ng-controller="SidebarController">
   <div class="navbar md-whiteframe-z1 no-radius" ng-class="$state.current.data.theme ? $state.current.data.theme.primary : app.setting.theme.primary">
     <!-- brand -->
     <a class="">

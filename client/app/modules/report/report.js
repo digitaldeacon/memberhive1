@@ -37,7 +37,7 @@ gemReportModule.config(
       url: 'create',
       views: {
         'content@': {
-          templateUrl: 'modules/person/views/report.upsert.html'
+          templateUrl: 'modules/report/views/report.upsert.html'
         }
       },
       data: {
@@ -54,7 +54,7 @@ gemReportModule.config(
       url: 'edit/:id',
       views: {
         'content@': {
-          templateUrl: 'modules/person/views/report.upsert.html'
+          templateUrl: 'modules/report/views/report.upsert.html'
         }
       },
       data: {
@@ -71,7 +71,7 @@ gemReportModule.config(
       url: 'list',
       views: {
         'content@': {
-          templateUrl: 'modules/person/views/report.list.html'
+          templateUrl: 'modules/report/views/report.list.html'
         }
       },
       data: {
@@ -87,8 +87,8 @@ gemReportModule.config(
 
     MainMenuProvider.add(new MenuSection(gettext('Reports'), 'bar-chart',
       [
-        new MenuLink(gettext('List Reports'), 'eye', 'report.list'),
-        new MenuLink(gettext('Create Report'), 'plus-circle', 'report.create')
+        new MenuLink(gettext('List Reports'), 'eye', 'app.report.list'),
+        new MenuLink(gettext('Create Report'), 'plus-circle', 'app.report.create')
       ]
     ));
   }

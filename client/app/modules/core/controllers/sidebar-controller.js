@@ -9,7 +9,7 @@ export class SidebarController {
     $scope.logout = () => {
       Account.logout().$promise.then((resp) => {
         GemAcl.setRights([]);
-        $state.go('app.login');
+        $state.go('login');
       });
     };
 

@@ -64,8 +64,8 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
 
     MainMenuProvider.add(new MenuSection(gettext('Notes'), 'file-text',
       [
-        new MenuLink(gettext('My Notes'), 'file-text', 'note.list'),
-        new MenuLink(gettext('Create Note'), 'plus-circle', 'note.create')
+        new MenuLink(gettext('My Notes'), 'file-text', 'app.note.list'),
+        new MenuLink(gettext('Create Note'), 'plus-circle', 'app.note.create')
       ]
     ));
   }
