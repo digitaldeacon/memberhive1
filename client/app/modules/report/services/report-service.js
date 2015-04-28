@@ -14,10 +14,6 @@ export function ReportService(Report, gettextCatalog, $rootScope, Shout) {
       });
     },
 
-    delete: (reportId, cb) => {
-      Report.deleteById({id: reportId}).$promise.then(cb);
-    },
-
     trash: (reportId, cb) => {
       Report.trash({id: reportId}).$promise.then(cb);
     },
