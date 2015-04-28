@@ -1,10 +1,8 @@
-<div class="box bg-white" ng-controller="SidebarController">
-  <div class="navbar md-whiteframe-z1 no-radius" ng-class="$state.current.data.theme ? $state.current.data.theme.primary : app.setting.theme.primary">
-    <a class="">
-      <img src="images/logo-d.png" class="img-responsive">
-    </a>
-  </div>
-  <ul class="nav">
+<md-toolbar layout-padding>
+    <img src="images/logo.png" >
+</md-toolbar>
+<md-content flex>  
+  <ul flex class="nav">
     <li ng-repeat="entry in mainMenu">
       <a ng-if="!entry.children" ui-sref="{{entry.route}}">
         <fa name="{{entry.icon}}"></fa>
@@ -32,5 +30,4 @@
       </a>
     </li>
   </ul>
-
-</div>
+</md-content>

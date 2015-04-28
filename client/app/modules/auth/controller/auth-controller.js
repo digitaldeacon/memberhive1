@@ -20,7 +20,7 @@ export class LoginController {
         this.Account.roles({'user_id': resp.user.id})
           .$promise.then((resp) => {
             this.GemAcl.setRights(resp.roles);
-            this.$state.go('app.dashboard');
+            this.$state.go('dashboard');
           });
       },
       (err) => {

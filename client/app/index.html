@@ -15,28 +15,15 @@
   </head>
   <body flex layout="row">
     <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-left md-whiteframe-z2">
-      <div data-ng-include="'templates/sidebar.html'" layout="vertical" layout-fill></div>
+      <div flex data-ng-include="'templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController"></div>
     </md-sidenav>
+    
     <div layout="column" flex id="content">
-      <md-toolbar layout="row">
-        <div class="md-toolbar-tools">
-          <h1 flex> Search </h1>
-        </div>
-
+      <md-toolbar layout-padding layout="row">
+          <div flex data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" layout="row"> </div>
       </md-toolbar>
       <md-content ui-view layout="column" flex layout-padding></md-content>
   </div>
-  <!--<div ui-view="sidebar"></div>
-
-  <div class="box">
-    <div ui-view="header"></div>
-    <div class="box-row">
-      <div class="box-cell">
-        <div class="box-inner padding" ui-view="content"></div>
-      </div>
-    </div>
-  </div>
--->
 
   <script src="jspm_packages/es6-module-loader.js"></script>
     <script src="jspm_packages/system.js"></script>
