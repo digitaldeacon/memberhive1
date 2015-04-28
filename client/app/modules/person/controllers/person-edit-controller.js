@@ -33,26 +33,15 @@ export class PersonEditController {
     return this.Person.tags({"text":query}).$promise;
   }
 
-  loadStatus() {
-    var whileLoopAlt = function(array1, array2) {
-      var array3 = [];
-      var arr = array1.concat(array2);
-      var len = arr.length;
-      var assoc = {};
-      while(len--) {
-        var itm = arr[len];
-        if(!assoc[itm]) { // Eliminate the indexOf call
-          array3.unshift(itm);
-          assoc[itm] = true;
-        }
-      }
-      return array3;
-    };
-    //TODO: merge saved array with statusTypes (or update the selected flag)
-    console.log(this.Person.status);
-    return this.PersonService.statusTypes;
+  loadStatus(selectedStatus) {
+    var status = this.PersonService.statusTypes;
+    if(selectedStatus) {
+      selectedStatus.forEach((key) => {
+        status[key].selected = true;
+      });
+    }
+    return status;
   }
-
 
   isEditing() {
     return this.$stateParams.id !== undefined;
@@ -137,13 +126,14 @@ export class PersonEditController {
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
-    var status = [];
-    this.status.forEach( (s)=> {
-      if(s.selected) {
-        status.push(s);
+    var status2Save = [];
+    var key;
+    for(key in this.status) {
+      if(this.status[key].selected) {
+        status2Save.push(key);
       }
-    });
-    this.person.status = status;
+    }
+    this.person.status = status2Save;
 
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
