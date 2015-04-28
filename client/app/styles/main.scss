@@ -1,4 +1,4 @@
-$brand-primary: #ff0;
+@import "variables";
 
 // Custom styles
 @import "ns-popover";
@@ -6,6 +6,7 @@ $brand-primary: #ff0;
 @import "search";
 @import "dropzone";
 @import "input-tags";
+@import "sidebar";
 
 .logo {
   padding: 15px;

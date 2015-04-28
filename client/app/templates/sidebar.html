@@ -1,23 +1,23 @@
 <md-toolbar layout-padding>
     <img src="images/logo.png" >
 </md-toolbar>
-<md-content flex>  
-  <ul flex class="nav">
+<md-content flex class="page-sidebar">  
+  <ul flex class="page-sidebar-menu" >
     <li ng-repeat="entry in mainMenu">
       <a ng-if="!entry.children" ui-sref="{{entry.route}}">
-        <fa name="{{entry.icon}}"></fa>
+        <fa name="{{entry.icon}}" fw></fa>
         <span class="title">{{entry.label | translate}}</span>
       </a>
 
       <a ng-if="entry.children">
-        <fa name="{{entry.icon}}"></fa>
+        <fa name="{{entry.icon}}" fw></fa>
         <span class="title">{{entry.label | translate}}</span>
         <span class="arrow "></span>
       </a>
       <ul ng-if="entry.children" class="sub-menu">
         <li ng-repeat="entry in entry.children">
           <a ui-sref="{{entry.route}}">
-            <fa name="{{entry.icon}}"></fa> {{entry.label | translate}}
+            <fa name="{{entry.icon}}" fw></fa> {{entry.label | translate}}
           </a>
         </li>
       </ul>
