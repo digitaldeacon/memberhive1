@@ -1,8 +1,20 @@
-export function DashboardController($scope, Account, LoopBackAuth) {
-  Account.findById({id: LoopBackAuth.currentUserId}).$promise.then((err,data) => this.account = data);
-  this.options = [];
-  $scope.$on('adfDashboardChanged', (event, name, model) => {
-    this.account.options.dashboard = model;
-    Account.upsert(this.account);
-  });
+export class DashboardController {
+
+  constructor($scope, Account, LoopBackAuth) {
+    this.Account = Account;
+    this.LoopBackAuth = LoopBackAuth;
+
+    this.options = [];
+    this.account = this.getAccount();
+
+    $scope.$on('adfDashboardChanged', (event, name, model) => {
+      this.account.options = {dashboard: model};
+      this.account.$save();
+    });
+  }
+
+  getAccount() {
+    return this.Account.findById({id: this.LoopBackAuth.currentUserId});
+  }
+
 }
