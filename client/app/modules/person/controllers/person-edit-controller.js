@@ -143,7 +143,7 @@ export class PersonEditController {
     if (this.avatarDeleted && !this.avatarChanged) {
       this.PersonService.deleteAvatar(this.person);
     } else if (this.avatarChanged) {
-      this.PersonService.saveAvatar(this.person, this.dataURItoBlob(this.croppedAvatar));
+      this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
     }
   }
 
@@ -153,7 +153,7 @@ export class PersonEditController {
    * @param  {String} dataURI
    * @return {Blob}
    */
-  dataURItoBlob(dataURI) {
+  static dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
     var array = [];

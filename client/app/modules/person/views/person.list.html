@@ -8,8 +8,8 @@
     <tr>
       <th></th>
       <th translate>Person details</th>
-      <th translate>Ministries</th>
-      <th translate>Roles</th>
+      <th translate>Member Status</th>
+      <th translate>Tags</th>
       <th translate>Actions</th>
     </tr>
     </thead>
@@ -76,11 +76,15 @@
         </ul>
       </td>
       <td>
-        <span ng-repeat="ministry in person.ministries" class="label label-success">
-          {{ ::ministry.ministry }}
+        <span ng-repeat="status in person.status" class="label label-primary">
+          {{ status.text }}
         </span>
       </td>
-      <td></td>
+      <td>
+        <span ng-repeat="tag in person.tags" class="label label-success">
+          {{ tag.text }}
+        </span>
+      </td>
       <td class="actions">
         <a class="btn btn-default btn-sm" aria-label="{{'Edit' | translate}}"
            ui-sref="person.edit({ id: person.id })">

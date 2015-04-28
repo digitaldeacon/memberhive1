@@ -1,8 +1,9 @@
 {
   "db": {
     "name": "db",
-    "connector": "mysql",
+    "connector": "mongodb",
     "host": "localhost",
+    "port": "27017",
     "database": "memberhive-dev",
     "username": "",
     "password": ""
