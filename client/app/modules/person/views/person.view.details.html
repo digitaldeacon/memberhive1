@@ -1,5 +1,5 @@
 <ul class="list-unstyled">
-  <li>
+  <li ng-if="person.birthdate">
     {{years = (person.birthdate | fromNow: true);""}}
     <translate>{{years}} old</translate> <span class="text-muted">({{person.birthdate | amDateFormat:'ll'}})</span>
   </li>
