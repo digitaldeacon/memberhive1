@@ -16,8 +16,7 @@ export class PersonEditController {
     this.addressTypes = AddressService.addressTypes;
 
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
-    this.status = this.loadStatus();
-    $scope.ava = { ser: this.status };
+    this.status = [];
 
     this.avatar = null;
     this.uploadedAvatar = null;
@@ -34,16 +33,12 @@ export class PersonEditController {
     return this.Person.tags({"text":query}).$promise;
   }
 
-  loadStatus(selectedStatus) {
+  loadStatus($query) {
     var status = this.PersonService.statusTypes;
-    if(selectedStatus) {
-      selectedStatus.forEach((key) => {
-        if(!status[key].selected) {
-          status[key].selected = true;
-        }
-      });
-    }
-    return status;
+    return status.filter((stat) => {
+        return $query ? stat.text.toLowerCase().indexOf($query.toLowerCase()) !== -1
+          : true;
+    });
   }
 
   isEditing() {
@@ -129,19 +124,12 @@ export class PersonEditController {
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
-    var status2Save = [];
-    var key;
-    for(key in this.status) {
-      if(this.status[key].selected) {
-        status2Save.push(key);
-      }
-    }
-    this.person.status = status2Save;
-
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
-    //console.log(this.person);
-    this.Person.upsert({}, this.person, function(data) {});
+    this.Person.upsert({}, this.person, (data) => {
+      this.Shout.success(this.gettextCatalog.getString(
+        'Successfully saved "{{fullname}}"', {fullname: data.lastName+', '+data.firstName}));
+    });
     //FIXME: should be in the person upsert callback
     if (this.avatarDeleted && !this.avatarChanged) {
       this.PersonService.deleteAvatar(this.person);
