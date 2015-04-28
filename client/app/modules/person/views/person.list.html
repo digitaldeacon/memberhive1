@@ -23,7 +23,7 @@
           <h3>{{::person.household.householdName}}</h3>
           <ul>
             <li ng-repeat="person in person.household.persons">
-              <a ui-sref="app.person.view({ id: person.id })">{{::person | formatName}}
+              <a ui-sref="person.view({ id: person.id })">{{::person | formatName}}
                 <span ng-if="person.relationType">({{::personCtrl.relationTypes[person.relationType.type]}})</span>
               </a>
             </li>
@@ -32,13 +32,13 @@
       </script>
 
       <td>
-        <a ui-sref="app.person.view({ id: person.id })">
+        <a ui-sref="person.view({ id: person.id })">
           <gem-avatar person="person" size="xs" circle></gem-avatar>
         </a>
       </td>
       <td>
         <h3>
-          <a ui-sref="app.person.view({ id: person.id })">
+          <a ui-sref="person.view({ id: person.id })">
             {{::person | formatName}}
           </a>
         </h3>
@@ -83,7 +83,7 @@
       <td></td>
       <td class="actions">
         <a class="btn btn-default btn-sm" aria-label="{{'Edit' | translate}}"
-           ui-sref="app.person.edit({ id: person.id })">
+           ui-sref="person.edit({ id: person.id })">
           <fa name="edit"></fa>
         </a>
         <a class="btn btn-default btn-sm" aria-label="{{'Delete' | translate}}"

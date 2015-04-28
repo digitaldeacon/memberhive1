@@ -66,7 +66,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('View Person'),
-        parent: 'app.person'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -79,7 +79,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('New Person'),
-        parent: 'app.person'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -92,7 +92,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Edit Person'),
-        parent: 'app.person'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -105,7 +105,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Import'),
-        parent: 'app.person'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -118,7 +118,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Export'),
-        parent: 'app.person'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']

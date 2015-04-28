@@ -34,7 +34,7 @@ export class ReportController {
   duplicate(report) {
     this.Report.duplicate({reportId: report.id}).$promise.then((resp) => {
       this.Shout.success(this.gettextCatalog.getString('Successfully duplicated report.'));
-      this.$state.go('app.report.edit', {id: resp.result.id});
+      this.$state.go('report.edit', {id: resp.result.id});
     });
   }
 }
