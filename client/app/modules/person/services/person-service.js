@@ -22,7 +22,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
               ]
             },
             'ministries',
-            'relationType',
+            'relationType'
           ]
         }
       });
@@ -40,7 +40,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
               'household': {'persons': 'relationType'}
             },
             'ministries',
-            'relationType',
+            'relationType'
           ]
         }
       });
@@ -81,7 +81,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
      * A dictionary with translations of standard status items.
      */
     statusTypes: [
-      {'key': 'member', 'selected': false, 'text': gettextCatalog.getString('Member')},
+      {'key': 'member', 'selected': true, 'text': gettextCatalog.getString('Member')},
       {'key': 'member_prospect', 'selected': false, 'text': gettextCatalog.getString('Member Prospect')},
       {'key': 'member_former', 'selected': false, 'text': gettextCatalog.getString('Former Member')},
       {'key': 'member_passed', 'selected': false, 'text': gettextCatalog.getString('Passed Member')},

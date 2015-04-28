@@ -16,7 +16,7 @@ export class PersonEditController {
     this.addressTypes = AddressService.addressTypes;
 
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
-    this.status = this.loadStatus();
+    this.status = [];
 
     this.avatar = null;
     this.uploadedAvatar = null;
@@ -33,26 +33,13 @@ export class PersonEditController {
     return this.Person.tags({"text":query}).$promise;
   }
 
-  loadStatus() {
-    var whileLoopAlt = function(array1, array2) {
-      var array3 = [];
-      var arr = array1.concat(array2);
-      var len = arr.length;
-      var assoc = {};
-      while(len--) {
-        var itm = arr[len];
-        if(!assoc[itm]) { // Eliminate the indexOf call
-          array3.unshift(itm);
-          assoc[itm] = true;
-        }
-      }
-      return array3;
-    };
-    //TODO: merge saved array with statusTypes (or update the selected flag)
-    console.log(this.Person.status);
-    return this.PersonService.statusTypes;
+  loadStatus($query) {
+    var status = this.PersonService.statusTypes;
+    return status.filter((stat) => {
+        return $query ? stat.text.toLowerCase().indexOf($query.toLowerCase()) !== -1
+          : true;
+    });
   }
-
 
   isEditing() {
     return this.$stateParams.id !== undefined;
@@ -137,23 +124,17 @@ export class PersonEditController {
   save() {
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
-    var status = [];
-    this.status.forEach( (s)=> {
-      if(s.selected) {
-        status.push(s);
-      }
-    });
-    this.person.status = status;
-
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
-    //console.log(this.person);
-    this.Person.upsert({}, this.person, function(data) {});
+    this.Person.upsert({}, this.person, (data) => {
+      this.Shout.success(this.gettextCatalog.getString(
+        'Successfully saved "{{fullname}}"', {fullname: data.lastName+', '+data.firstName}));
+    });
     //FIXME: should be in the person upsert callback
     if (this.avatarDeleted && !this.avatarChanged) {
       this.PersonService.deleteAvatar(this.person);
     } else if (this.avatarChanged) {
-      this.PersonService.saveAvatar(this.person, this.dataURItoBlob(this.croppedAvatar));
+      this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
     }
   }
 
@@ -163,7 +144,7 @@ export class PersonEditController {
    * @param  {String} dataURI
    * @return {Blob}
    */
-  dataURItoBlob(dataURI) {
+  static dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
     var array = [];

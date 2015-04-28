@@ -1,9 +1,13 @@
 <ul class="list-unstyled">
-  <li>
-    {{years = (person.birthdate | fromNow: true);""}}
-    <translate>{{years}} old</translate> <span class="text-muted">({{person.birthdate | amDateFormat:'ll'}})</span>
+  <li ng-if="personCtrl.person.birthdate" title="{{personCtrl.person.birthdate | amDateFormat:'ll'}}">
+    {{years = (personCtrl.person.birthdate | fromNow: true);""}}
+    <translate>{{years}} old</translate>
+  </li>
+  <li ng-show="personCtrl.person.baptismDate" title="{{personCtrl.person.baptismDate | amDateFormat:'ll'}}">
+    {{years = (personCtrl.person.baptismDate | fromNow: true);""}}
+    <translate>Baptized {{years}} ago</translate>
   </li>
   <li>
-    {{::personCtrl.genders[person.gender]}}
+    {{personCtrl.genders[personCtrl.person.gender]}}
   </li>
 </ul>

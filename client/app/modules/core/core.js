@@ -22,21 +22,9 @@ export var gemCoreModule = angular.module('gem.core', []);
 
 gemCoreModule.config(($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/dashboard');
-
-  $stateProvider.state('app',{
-    url: '/',
-    views: {
-      'header': {
-        templateUrl: 'templates/header.html'
-      },
-      'sidebar': {
-        templateUrl: 'templates/sidebar.html'
-      },
-    }
-  });
 });
 
-gemCoreModule.run(($rootScope) => {
+gemCoreModule.run(($rootScope, gettextCatalog, $cookies) => {
   $rootScope.gemConfig = {
     layout: {
       sidebarClosed: true // sidebar state
@@ -45,6 +33,23 @@ gemCoreModule.run(($rootScope) => {
       pageSize: 25
     }
   };
+
+  // Set up languages
+  $rootScope.locales = {
+    'en': {
+      lang: 'en',
+      country: 'US',
+      name: gettextCatalog.getString('English')
+    },
+    'de': {
+      lang: 'de',
+      country: 'DE',
+      name: gettextCatalog.getString('German')
+    }
+  };
+  var lang = $cookies.lang || navigator.language || navigator.userLanguage;
+  $rootScope.locale = $rootScope.locales[lang] || $rootScope.locales.de;
+  gettextCatalog.setCurrentLanguage($rootScope.locale.lang);
 });
 
 // Controllers
