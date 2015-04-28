@@ -14,8 +14,6 @@ export class AppController {
     });
 
     $rootScope.currentUser = PersonService.currentUser();
-
-    this.setupLanguages();
   }
 
   /**
@@ -29,23 +27,5 @@ export class AppController {
     if (this.$state.current.hasOwnProperty('data'))
       return `${this.$state.current.data.pageTitle} | ${this.productName}`;
     return this.productName;
-  }
-
-  setupLanguages() {
-    this.$rootScope.locales = {
-      'en': {
-        lang: 'en',
-        country: 'US',
-        name: this.gettextCatalog.getString('English')
-      },
-      'de': {
-        lang: 'de',
-        country: 'DE',
-        name: this.gettextCatalog.getString('German')
-      }
-    };
-    var lang = this.$cookies.lang || navigator.language || navigator.userLanguage;
-    this.$rootScope.locale = this.$rootScope.locales[lang] || this.$rootScope.locales.de;
-    this.gettextCatalog.setCurrentLanguage(this.$rootScope.locale.lang);
   }
 }
