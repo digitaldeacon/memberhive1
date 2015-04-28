@@ -77,7 +77,7 @@
       </td>
       <td>
         <span ng-repeat="status in person.status" class="label label-primary">
-          {{ personCtrl.statusTypes[status].text }}
+          {{ status.text }}
         </span>
       </td>
       <td>
@@ -86,11 +86,11 @@
         </span>
       </td>
       <td class="actions">
-        <a class="btn btn-default btn-sm" aria-label="{{'Edit' | translate}}"
+        <a class="btn btn-default btn-sm" tooltip="{{'Edit' | translate}}"
            ui-sref="person.edit({ id: person.id })">
           <fa name="edit"></fa>
         </a>
-        <a class="btn btn-default btn-sm" aria-label="{{'Delete' | translate}}"
+        <a class="btn btn-default btn-sm" tooltip="{{'Delete' | translate}}"
            ng-click="personCtrl.deletePerson(person)"
            confirm="Delete “{{::person | formatName}}”?">
           <fa name="trash"></fa>

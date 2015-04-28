@@ -20,6 +20,11 @@
 
         <div class="row bootstrap">
           <div class="viewport">
+            <span ng-repeat="status in personCtrl.person.status" class="label label-primary">
+              {{ status.text }}
+            </span>
+          </div>
+          <div class="viewport">
             <span ng-repeat="tag in personCtrl.person.tags" class="tag-item">{{tag.text}}</span>
           </div>
         </div>
