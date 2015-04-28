@@ -32,16 +32,7 @@
     </tags-input>
   </div>
 
-  <h3 translate>Status</h3>
-  <div class="button-list btn-group">
-    <label class="btn btn-default col-xs-3"
-           ng-repeat="status in personCtrl.loadStatus(person.status)"
-           ng-model="status.selected"
-           btn-checkbox>{{status.text}}</label>
-  </div>
-
-  <h3 translate>Person Info</h3>
-
+  <h4 translate>Gender</h4>
   <div class="btn-group form-group gender-buttons" role="group">
     <label class="btn btn-male" ng-model="person.gender" btn-radio="'m'" uncheckable>
       <fa name="male"></fa> <translate>Male</translate>
