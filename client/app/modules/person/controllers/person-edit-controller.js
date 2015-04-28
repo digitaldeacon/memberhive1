@@ -17,6 +17,7 @@ export class PersonEditController {
 
     this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
     this.status = this.loadStatus();
+    $scope.ava = { ser: this.status };
 
     this.avatar = null;
     this.uploadedAvatar = null;
@@ -37,7 +38,9 @@ export class PersonEditController {
     var status = this.PersonService.statusTypes;
     if(selectedStatus) {
       selectedStatus.forEach((key) => {
-        status[key].selected = true;
+        if(!status[key].selected) {
+          status[key].selected = true;
+        }
       });
     }
     return status;

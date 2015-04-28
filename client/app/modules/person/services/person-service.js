@@ -81,7 +81,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
      * A dictionary with translations of standard status items.
      */
     statusTypes: {
-      'member': {'selected': false, 'text': gettextCatalog.getString('Member')},
+      'member': {'selected': true, 'text': gettextCatalog.getString('Member')},
       'member_prospect':  {'selected': false, 'text': gettextCatalog.getString('Member Prospect')},
       'member_former': {'selected': false, 'text': gettextCatalog.getString('Former Member')},
       'member_passed': {'selected': false, 'text': gettextCatalog.getString('Passed Member')},
