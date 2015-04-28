@@ -36,9 +36,9 @@ export class PersonEditController {
 
   loadStatus(selectedStatus) {
     var status = this.PersonService.statusTypes;
-    if(selectedStatus) {
+    if (selectedStatus) {
       selectedStatus.forEach((key) => {
-        if(!status[key].selected) {
+        if (!status[key].selected) {
           status[key].selected = true;
         }
       });

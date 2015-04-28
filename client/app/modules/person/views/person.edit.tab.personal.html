@@ -19,7 +19,9 @@
     <label class="btn btn-default col-xs-3"
            ng-repeat="status in personCtrl.loadStatus(person.status)"
            ng-model="status.selected"
-           btn-checkbox>{{status.text}}</label>
+           btn-checkbox>
+      {{status.text}}
+    </label>
   </div>
 
   <h3 translate>Person Info</h3>
