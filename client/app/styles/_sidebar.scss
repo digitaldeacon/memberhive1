@@ -1,11 +1,4 @@
 @import "compass";
-// Z-index master list
-$border-radius: 5px;
-
-$sidebar-menu-link-font-size:                                           14px !default;
-$sidebar-menu-link-font-weight:                                         400 !default;        
-
-/* Page Sidebar */
 
 .page-sidebar,
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover {
@@ -52,7 +45,7 @@ $sidebar-menu-link-font-weight:                                         400 !def
 				text-decoration: none;
 
 				> .title {
-					font-size: $sidebar-menu-link-font-size;
+					font-size: 14px;
 					font-weight: 400;
           color: $text-color;
 				}
@@ -75,7 +68,7 @@ $sidebar-menu-link-font-weight:                                         400 !def
 
 			&.open {
 				> a {
-					font-size: $sidebar-menu-link-font-size;
+					font-size: 14px;
 				}
 			}
 
@@ -83,7 +76,7 @@ $sidebar-menu-link-font-weight:                                         400 !def
 				> a {
 					border: none; 
 					text-shadow:none;
-					font-size: $sidebar-menu-link-font-size;
+					font-size: 14px;
 				}
 			}
 		}
