@@ -13,7 +13,11 @@
     <tbody>
     <tr dir-paginate="report in reportCtrl.reports | itemsPerPage: gemConfig.pagination.pageSize"
         total-items="reportCtrl.totalReports">
-      <td>{{::report.name}}</td>
+      <td>
+        <a ui-sref='report.edit({id:report.id})'>
+          {{::report.name}}
+        </a>
+      </td>
       <td class="actions">
         <a class="btn btn-sm btn-default" tooltip="{{'Edit' | translate}}" ui-sref='report.edit({id:report.id})'>
           <fa name="edit"></fa>
