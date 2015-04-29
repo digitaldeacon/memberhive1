@@ -33,12 +33,6 @@ module.exports = function(grunt) {
 
     // Project settings
     yeoman: appConfig,
-    concat: {
-        notes: {
-          src: ['client/app/modules/note/**.js'],
-          dest: 'client/app/modules/note.js'
-        }
-    },
 
     extractModelTranslations: {
       all: {
