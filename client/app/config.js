@@ -157,6 +157,9 @@ System.config({
     "github:ncuillery/angular-breadcrumb@0.3.3": {
       "angular-ui-router": "github:angular-ui/ui-router@0.2.13"
     },
+    "github:nohros/nsPopover@0.6.7": {
+      "angular": "github:angular/bower-angular@1.3.15"
+    },
     "github:sdorra/angular-dashboard-framework@0.7.0": {
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.1",
