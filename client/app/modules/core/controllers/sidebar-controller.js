@@ -1,14 +1,24 @@
 import {MainMenu} from 'modules/core/providers/menu-provider';
 
-export class SidebarController {
-  constructor($scope, Account, $state, GemAcl, MainMenu) {
-    $scope.logout = () => {
-      Account.logout().$promise.then((resp) => {
-        GemAcl.setRights([]);
-        $state.go('login');
-      });
-    };
+export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, $mdSidenav) {
+  
+  this.logout = () => {
+    Account.logout().$promise.then((resp) => {
+      GemAcl.setRights([]);
+      $state.go('login');
+    });
+  };
 
-    $scope.mainMenu = MainMenu.getItems();
-  }
+  this.mainMenu = MainMenu.getItems();
+ 
+  
+  this.closeMenu = () => {
+    $timeout(function() { $mdSidenav('left').close(); });
+  };
+
+  this.openMenu = () => {
+    $timeout(function() { $mdSidenav('left').open(); });
+  };
+  
+  this.selected = '';
 }
