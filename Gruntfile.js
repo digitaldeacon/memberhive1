@@ -33,12 +33,6 @@ module.exports = function(grunt) {
 
     // Project settings
     yeoman: appConfig,
-    concat: {
-        notes: {
-          src: ['client/app/modules/note/**.js'],
-          dest: 'client/app/modules/note.js'
-        }
-    },
 
     extractModelTranslations: {
       all: {
@@ -355,7 +349,6 @@ module.exports = function(grunt) {
       'lbservices',
       'ngconstant:server',
       'nggettext_compile',
-      'concat',
       'concurrent:server',
       'http2_server',
       'watch'
@@ -399,7 +392,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docular');
   grunt.loadNpmTasks('grunt-loopback-auto');
   grunt.loadNpmTasks('grunt-jscs');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   // Load custom tasks from tasks/ directory
   grunt.loadTasks('tasks');
 };

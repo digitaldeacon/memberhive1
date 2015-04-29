@@ -4,10 +4,6 @@
   "base": "GemBase",
   "idInjection": true,
   "properties": {
-    "id": {
-      "type": "number",
-      "required": true
-    },
     "name": {
       "type": "string",
       "required": true
@@ -15,11 +11,13 @@
     "created": {
       "type": "date",
       "required": true
+    },
+    "options": {
+      "type": "object"
     }
   },
   "validations": [],
-  "relations": {
-  },
+  "relations": {},
   "acls": [],
   "methods": []
 }

@@ -47,7 +47,10 @@
       "queryBuilder": {
         "label": "Gender",
         "input": "radio",
-        "values": {"m": "Male", "f": "Female"}
+        "values": {
+          "m": "Male",
+          "f": "Female"
+        }
       }
     },
     "birthdate": {
@@ -74,11 +77,11 @@
     "contact": {
       "type": "object"
     },
-    "address" : {
+    "address": {
       "type": "object"
     },
     "tags": {
-     "type": "array"
+      "type": "array"
     },
     "status": {
       "type": "array"
@@ -93,7 +96,11 @@
       "queryBuilder": {
         "label": "Primary Contact",
         "input": "select",
-        "values": {"email": "Email", "mobile": "Mobile", "postal": "Postal"}
+        "values": {
+          "email": "Email",
+          "mobile": "Mobile",
+          "postal": "Postal"
+        }
       }
     },
     "hasAvatar": {
@@ -101,7 +108,10 @@
       "queryBuilder": {
         "label": "Has Profile Picture",
         "input": "radio",
-        "values": {"false": "No", "true": "Yes"}
+        "values": {
+          "false": "No",
+          "true": "Yes"
+        }
       }
     }
   },
@@ -110,6 +120,11 @@
     "account": {
       "type": "hasOne",
       "model": "Account"
+    },
+    "site": {
+      "type": "belongsTo",
+      "model": "Site",
+      "foreignKey": ""
     },
     "household": {
       "type": "belongsTo",

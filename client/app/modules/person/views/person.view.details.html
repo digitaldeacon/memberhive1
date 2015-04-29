@@ -1,11 +1,11 @@
 <ul class="list-unstyled">
-  <li ng-if="personCtrl.person.birthdate" title="{{personCtrl.person.birthdate | amDateFormat:'ll'}}">
-    {{years = (personCtrl.person.birthdate | fromNow: true);""}}
-    <translate>{{years}} old</translate>
+  <li ng-if="personCtrl.person.birthdate">
+    {{age = (personCtrl.person.birthdate | fromNow: true);""}}
+    <translate>{{age}} old</translate> <small class="text-muted">{{personCtrl.person.birthdate | amDateFormat:'ll'}}</small>
   </li>
-  <li ng-show="personCtrl.person.baptismDate" title="{{personCtrl.person.baptismDate | amDateFormat:'ll'}}">
-    {{years = (personCtrl.person.baptismDate | fromNow: true);""}}
-    <translate>Baptized {{years}} ago</translate>
+  <li ng-show="personCtrl.person.baptismDate" tooltip="{{personCtrl.person.baptismDate | amDateFormat:'ll'}}">
+    {{timeFromNow = (personCtrl.person.baptismDate | fromNow: true);""}}
+    <translate>Baptized {{timeFromNow}} ago</translate>
   </li>
   <li>
     {{personCtrl.genders[personCtrl.person.gender]}}

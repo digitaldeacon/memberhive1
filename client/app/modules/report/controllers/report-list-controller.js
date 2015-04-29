@@ -1,4 +1,4 @@
-export class ReportController {
+export class ReportListController {
 
   constructor(ReportService, Report, Shout, gettextCatalog, $state) {
     this.ReportService = ReportService;
@@ -27,14 +27,14 @@ export class ReportController {
     this.reports = this.ReportService.all(pageNumber);
   }
 
-  deletePerson(report) {
-    this.ReportService.delete(report.id, this.getReports);
-  }
-
   duplicate(report) {
     this.Report.duplicate({reportId: report.id}).$promise.then((resp) => {
       this.Shout.success(this.gettextCatalog.getString('Successfully duplicated report.'));
       this.$state.go('report.edit', {id: resp.result.id});
     });
+  }
+
+  deleteReport(report) {
+    this.ReportService.trash(report.id, this.getReports);
   }
 }
