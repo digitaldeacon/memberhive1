@@ -1,6 +1,6 @@
 export class PersonViewController {
 
-  constructor(PersonService, Person, AddressService, $stateParams) {
+  constructor(PersonService, AddressService, $stateParams) {
     this.person = PersonService.one($stateParams.id);
     this.getContacts = PersonService.getContacts;
     this.relationTypes = PersonService.relationTypes;

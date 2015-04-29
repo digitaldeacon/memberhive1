@@ -128,7 +128,7 @@ export class PersonEditController {
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
     this.Person.upsert({}, this.person, (data) => {
       this.Shout.success(this.gettextCatalog.getString(
-        'Successfully saved "{{fullname}}"', {fullname: data.lastName+', '+data.firstName}));
+        'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(data)}));
     });
     //FIXME: should be in the person upsert callback
     if (this.avatarDeleted && !this.avatarChanged) {
