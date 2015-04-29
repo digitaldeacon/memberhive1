@@ -42,7 +42,13 @@
       </tabset>
 
 
-      <button type="submit" class="btn green-haze save-btn" translate>Save Changes</button>
+      <div class="form-actions fluid">
+        <div class="btn-group">
+          <button type="submit" class="btn green-haze" translate>Save</button>
+          <button ng-click="personCtrl.saveAndClose()" class="btn btn-default" translate>Save and Close</button>
+        </div>
+      </div>
+
 
     </form>
 
