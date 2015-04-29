@@ -79,7 +79,7 @@ export class PersonEditController {
    *
    * @param files Selected files (should be only one)
    */
-  onAvatarSelected(files) {
+  onAvatarSelected(files, event) {
     var reader = new FileReader();
     var image = new Image();
 
