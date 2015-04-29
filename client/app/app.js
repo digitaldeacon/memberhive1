@@ -48,6 +48,7 @@ import {gemAuthModule} from 'modules/auth/auth';
 import {gemAclModule} from 'modules/auth/acl';
 import {gemNoteModule} from 'modules/note/note';
 import {gemReportModule} from 'modules/report/report';
+import {gemCalendarModule} from 'modules/calendar/calendar';
 
 /**
  * The main app module.
@@ -63,7 +64,7 @@ export var gemMainModule = angular.module('gem.main', [
   // GEM Modules
   'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
-  'gem.dashboard', 'gem.person', 'gem.acl',
+  'gem.dashboard', 'gem.person', 'gem.calendar', 'gem.acl',
   'gem.auth', 'gem.report', 'gem.note', 'gem.config'
   ]
 );
