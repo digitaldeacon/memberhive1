@@ -4,14 +4,16 @@
       md-selected-item-change="headerCtrl.selectedItemChange(item)"
       md-items="item in headerCtrl.querySearch(headerCtrl.searchText)"
       md-min-length="3"
-      placeholder="Search…"
+      placeholder="{{'Search…'|translate}}"
       md-selected-item="headerCtrl.selectedItem"
-      md-search-text-change="headerCtrl.searchTextChange(headerCtrl.searchText)"
+      md-search-text-change="headerCtrl.searchTextChanged(headerCtrl.searchText)"
       md-selected-item-change="headerCtrl.selectedItemChange(item)"
       class="header-search"
-      >
-      
-    <span md-highlight-text="headerCtrl.searchText" md-highlight-flags="^i">{{item}}</span>
-    
+    >
+
+    <span md-highlight-text="headerCtrl.searchText" md-highlight-flags="^i">
+      {{item | formatName}}
+    </span>
+
   </md-autocomplete>
-</form>   
+</form>
