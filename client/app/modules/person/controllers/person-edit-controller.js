@@ -1,5 +1,5 @@
 export class PersonEditController {
-  constructor(PersonService, Person, AddressService, $stateParams, $scope, Shout, gettextCatalog, $filter) {
+  constructor(PersonService, Person, AddressService, $stateParams, $scope, Shout, gettextCatalog, $filter, $state, $q) {
     this.PersonService = PersonService;
     this.Person = Person;
     this.Shout = Shout;
@@ -7,6 +7,8 @@ export class PersonEditController {
     this.gettextCatalog = gettextCatalog;
     this.$stateParams = $stateParams;
     this.$filter = $filter;
+    this.$state = $state;
+    this.$q = $q;
 
     this.person = this.getPerson();
 
@@ -79,7 +81,7 @@ export class PersonEditController {
    *
    * @param files Selected files (should be only one)
    */
-  onAvatarSelected(files) {
+  onAvatarSelected(files, event) {
     var reader = new FileReader();
     var image = new Image();
 
@@ -122,20 +124,31 @@ export class PersonEditController {
    * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
   save() {
+    var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
-    this.Person.upsert({}, this.person, (data) => {
-      this.Shout.success(this.gettextCatalog.getString(
-        'Successfully saved "{{fullname}}"', {fullname: data.lastName+', '+data.firstName}));
-    });
-    //FIXME: should be in the person upsert callback
+    promises.push(this.Person.upsert({}, this.person));
     if (this.avatarDeleted && !this.avatarChanged) {
-      this.PersonService.deleteAvatar(this.person);
+      promises.push(this.PersonService.deleteAvatar(this.person));
     } else if (this.avatarChanged) {
-      this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
+      promises.push(this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar)));
     }
+    var all = this.$q.all(promises);
+    all.then(() => {
+      this.Shout.success(this.gettextCatalog.getString(
+        'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
+    });
+    return all;
+  }
+
+  saveAndClose() {
+    console.log("asdf");
+    this.save().then(() => {
+      console.log("hai");
+      this.$state.go('person.list');
+    });
   }
 
   /**

@@ -1,17 +1,15 @@
 export class AppController {
-  constructor($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state, productName) {
+  constructor($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state, productName, $mdSidenav) {
     this.$rootScope = $rootScope;
     this.$cookies = $cookies;
     this.gettextCatalog = gettextCatalog;
     this.$state = $state;
     this.productName = productName;
+    this.$mdSidenav = $mdSidenav;
 
-    $scope.init = () => {
-      Metronic.init();
+    $scope.toggleMenu = function() {
+      $mdSidenav('menu').toggle();
     };
-    $scope.$on('$viewContentLoaded', () => {
-      Metronic.initComponents(); // init core components
-    });
 
     $rootScope.currentUser = PersonService.currentUser();
   }

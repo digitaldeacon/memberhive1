@@ -1,17 +1,12 @@
-// Metronic
-@import "metronic/global/components-rounded";
-@import "metronic/global/plugins";
-@import "metronic/admin/layout4/layout";
-@import "metronic/admin/layout4/themes/light";
+@import "variables";
 
 // Custom styles
-@import "bootstrap-fixes";
 @import "ns-popover";
-@import "loading";
 @import "header";
 @import "search";
 @import "dropzone";
 @import "input-tags";
+@import "sidebar";
 
 .logo {
   padding: 15px;
@@ -19,21 +14,7 @@
   margin: 0 auto;
 }
 
-.portlet-default {
-  @extend .portlet;
-  @extend .light;
-  @extend .portlet-body;
 
-  .topheading {
-    margin-top: 0;
-  }
-}
-
-.button-list label {
-  margin-bottom: 5px;
-  margin-right: 2px;
-}
-.button-list .btn-default.active {
-  background-color: #81b0ba !important;
-  color: #fff;
+.header-search {
+  color: #000;
 }

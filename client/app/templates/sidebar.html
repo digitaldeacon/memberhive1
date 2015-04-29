@@ -1,39 +1,37 @@
-<div class="page-sidebar navbar-collapse collapse">
-	<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-	<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-	<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-	<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-	<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-	<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-	<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
-      ng-class="{'page-sidebar-menu-closed': gemConfig.layout.pageSidebarClosed}" ng-if="acl.isLoggedIn()">
+<md-toolbar layout-padding>
+    <img src="images/logo.png" >
+</md-toolbar>
+<md-content flex class="page-sidebar">
+  <nav ui-nav>
+    <ul flex class="nav">
+      <li ng-repeat="entry in mainMenu" ui-sref-active="active">
+        <a md-ink-ripple ng-if="!entry.children" ui-sref="{{entry.route}}">
+          <fa name="{{entry.icon}}" fw></fa>
+          <span class="font-normal">{{entry.label | translate}}</span>
+        </a>
 
-    <li ng-repeat="entry in mainMenu">
-      <a ng-if="!entry.children" ui-sref="{{entry.route}}">
-        <fa name="{{entry.icon}}"></fa>
-        <span class="title">{{entry.label | translate}}</span>
-      </a>
+        <a md-ink-ripple ng-if="entry.children">
+          <fa name="{{entry.icon}}" fw></fa>
+          <span class="font-normal">{{entry.label | translate}}</span>
+          <span class="pull-right">
+            <fa name="caret-down"></fa>
+          </span>
+        </a>
+        <ul ng-if="entry.children" class="nav nav-sub">
+          <li ui-sref-active="active" ng-repeat="entry in entry.children">
+            <a md-ink-ripple ui-sref="{{entry.route}}">
+              <fa name="{{entry.icon}}" fw></fa> {{entry.label | translate}}
+            </a>
+          </li>
+        </ul>
+      </li>
 
-      <a ng-if="entry.children">
-        <fa name="{{entry.icon}}"></fa>
-        <span class="title">{{entry.label | translate}}</span>
-        <span class="arrow "></span>
-      </a>
-      <ul ng-if="entry.children" class="sub-menu">
-        <li ng-repeat="entry in entry.children">
-          <a ui-sref="{{entry.route}}">
-            <fa name="{{entry.icon}}"></fa> {{entry.label | translate}}
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li>
-      <a ng-click="logout()">
-        <fa name="sign-out" fw></fa>
-        <span class="title" translate>Logout</span>
-      </a>
-    </li>
-
-	</ul>
-</div>
+      <li>
+        <a ng-click="logout()">
+          <fa name="sign-out" fw></fa>
+          <span class="title" translate>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</md-content>

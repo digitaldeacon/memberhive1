@@ -4,6 +4,7 @@ import {SidebarController} from './controllers/sidebar-controller';
 
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective} from './directives/form-directives';
+import {uiNavDirective} from './directives/nav-directive';
 import {Shout} from './services/shout';
 import {GemFileReader} from './services/filereader';
 import {GemPdf} from './services/pdf';
@@ -20,10 +21,14 @@ import {temperatureFilter} from './filters/format-filters';
  */
 export var gemCoreModule = angular.module('gem.core', []);
 
+gemCoreModule.config(($stateProvider, $urlRouterProvider) => {
+  $urlRouterProvider.otherwise('/dashboard');
+});
+
 gemCoreModule.run(($rootScope, gettextCatalog, $cookies) => {
   $rootScope.gemConfig = {
     layout: {
-      pageSidebarClosed: false // sidebar state
+      sidebarClosed: true // sidebar state
     },
     pagination: {
       pageSize: 25
@@ -66,6 +71,7 @@ gemCoreModule.factory('GemPdf', GemPdf);
 
 // Directives
 gemCoreModule.directive('controlGroup', controlGroupDirective);
+gemCoreModule.directive('uiNav', uiNavDirective);
 
 // Filters
 gemCoreModule.filter('fromNow', fromNowFilter);

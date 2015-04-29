@@ -1,4 +1,4 @@
-import 'danialfarid/ng-file-upload/dist/angular-file-upload-all';
+import 'ng-file-upload/dist/ng-file-upload';
 import 'ngImgCrop/compile/unminified/ng-img-crop';
 import 'ngImgCrop/compile/unminified/ng-img-crop.css!';
 import 'angularUtils-pagination';
@@ -25,7 +25,7 @@ export var gemPersonModule = angular.module('gem.person',
   [
     'angularUtils.directives.dirPagination',
     'nsPopover',
-    'angularFileUpload',
+    'ngFileUpload',
     'ngImgCrop',
     'ngTagsInput',
 
@@ -41,13 +41,15 @@ export var gemPersonModule = angular.module('gem.person',
       template: '<ui-view/>',
       data: {
         pageTitle: gettext('Person'),
-        component: 'person'
+        component: 'person',
+        sidebarFolded: true
       },
       abstract: true
     }).state('person.list', {
       url: '/list',
       templateUrl: 'modules/person/views/person.list.html',
       data: {
+        pageTitle: gettext('Persons'),
         pageSubTitle: gettext('Create and edit Persons')
       },
       ncyBreadcrumb: {
@@ -64,7 +66,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('View Person'),
-        parent: 'person.list'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -77,7 +79,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('New Person'),
-        parent: 'person.list'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -90,7 +92,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Edit Person'),
-        parent: 'person.list'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -103,7 +105,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Import'),
-        parent: 'person.list'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']
@@ -116,7 +118,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Export'),
-        parent: 'person.list'
+        parent: 'person'
       },
       acl: {
         needRights: ['$authenticated']

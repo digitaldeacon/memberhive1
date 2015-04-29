@@ -4,14 +4,15 @@ module.exports = function(Person) {
     Person.find({
       where: {
         or: [
-          {firstName: {like: `%${value}%`}},
-          {middleName: {like: `%${value}%`}},
-          {lastName: {like: `%${value}%`}},
-          {nickName: {like: `%${value}%`}}
+          {firstName: {like: value}},
+          {middleName: {like: value}},
+          {lastName: {like: value}},
+          {nickName: {like: value}}
         ]
       },
       limit: 10
     }, function(err, persons) {
+      console.log(persons);
       cb(null, persons);
     });
   };
