@@ -38,9 +38,6 @@ import 'styles/main.css!';
 import 'scripts/translations';
 
 // Own modules
-import 'scripts/metronic/metronic';
-import 'scripts/metronic/layout';
-
 import {gemCoreModule} from 'modules/core/core';
 import {gemConfigModule} from 'scripts/config';
 import {gemDashboardModule} from 'modules/dashboard/dashboard';

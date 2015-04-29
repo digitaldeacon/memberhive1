@@ -1,6 +1,6 @@
 {
   "esnext": true,
-  "excludeFiles": ["app/scripts/metronic/**", "app/scripts/adf/**", "app/scripts/lb-services.js"],
+  "excludeFiles": ["app/scripts/lb-services.js"],
   "disallowKeywords": ["with"],
   "disallowKeywordsOnNewLine": ["else"],
   "disallowMixedSpacesAndTabs": true,
