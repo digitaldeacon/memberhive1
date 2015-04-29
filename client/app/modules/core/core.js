@@ -4,6 +4,7 @@ import {SidebarController} from './controllers/sidebar-controller';
 
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective} from './directives/form-directives';
+import {uiNavDirective} from './directives/nav-directive';
 import {Shout} from './services/shout';
 import {GemFileReader} from './services/filereader';
 import {GemPdf} from './services/pdf';
@@ -70,6 +71,7 @@ gemCoreModule.factory('GemPdf', GemPdf);
 
 // Directives
 gemCoreModule.directive('controlGroup', controlGroupDirective);
+gemCoreModule.directive('uiNav', uiNavDirective);
 
 // Filters
 gemCoreModule.filter('fromNow', fromNowFilter);

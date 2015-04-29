@@ -1,33 +1,37 @@
 <md-toolbar layout-padding>
     <img src="images/logo.png" >
 </md-toolbar>
-<md-content flex class="page-sidebar">  
-  <ul flex class="page-sidebar-menu" >
-    <li ng-repeat="entry in mainMenu">
-      <a ng-if="!entry.children" ui-sref="{{entry.route}}">
-        <fa name="{{entry.icon}}" fw></fa>
-        <span class="title">{{entry.label | translate}}</span>
-      </a>
+<md-content flex class="page-sidebar">
+  <nav ui-nav>
+    <ul flex class="nav">
+      <li ng-repeat="entry in mainMenu" ui-sref-active="active">
+        <a md-ink-ripple ng-if="!entry.children" ui-sref="{{entry.route}}">
+          <fa name="{{entry.icon}}" fw></fa>
+          <span class="font-normal">{{entry.label | translate}}</span>
+        </a>
 
-      <a ng-if="entry.children">
-        <fa name="{{entry.icon}}" fw></fa>
-        <span class="title">{{entry.label | translate}}</span>
-        <span class="arrow "></span>
-      </a>
-      <ul ng-if="entry.children" class="sub-menu">
-        <li ng-repeat="entry in entry.children">
-          <a ui-sref="{{entry.route}}">
-            <fa name="{{entry.icon}}" fw></fa> {{entry.label | translate}}
-          </a>
-        </li>
-      </ul>
-    </li>
+        <a md-ink-ripple ng-if="entry.children">
+          <fa name="{{entry.icon}}" fw></fa>
+          <span class="font-normal">{{entry.label | translate}}</span>
+          <span class="pull-right">
+            <fa name="caret-down"></fa>
+          </span>
+        </a>
+        <ul ng-if="entry.children" class="nav nav-sub">
+          <li ui-sref-active="active" ng-repeat="entry in entry.children">
+            <a md-ink-ripple ui-sref="{{entry.route}}">
+              <fa name="{{entry.icon}}" fw></fa> {{entry.label | translate}}
+            </a>
+          </li>
+        </ul>
+      </li>
 
-    <li>
-      <a ng-click="logout()">
-        <fa name="sign-out" fw></fa>
-        <span class="title" translate>Logout</span>
-      </a>
-    </li>
-  </ul>
+      <li>
+        <a ng-click="logout()">
+          <fa name="sign-out" fw></fa>
+          <span class="title" translate>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </md-content>
