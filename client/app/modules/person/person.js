@@ -1,4 +1,4 @@
-import 'ng-file-upload/dist/ng-file-upload';
+import 'ng-file-upload';
 import 'ngImgCrop/compile/unminified/ng-img-crop';
 import 'ngImgCrop/compile/unminified/ng-img-crop.css!';
 import 'angularUtils-pagination';

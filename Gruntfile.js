@@ -312,15 +312,19 @@ module.exports = function(grunt) {
             '*.crt',
             '*.key'
           ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
         }]
       }
     },
-
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/images',
+          src: '{,*/}*.{png,jpg,jpeg,gif}',
+          dest: '<%= yeoman.dist %>/images'
+        }]
+      }
+    },
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
@@ -356,6 +360,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'imagemin:dist',
     'lbservices',
     'ngconstant:server',
     'nggettext_compile',
