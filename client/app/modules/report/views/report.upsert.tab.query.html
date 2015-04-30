@@ -1,8 +1,8 @@
 <div class="portlet-default">
-  <div class="form-group">
-    <label class="control-label ng-binding" for="reportName"  translate>Report Name</label>
-    <input class="form-control input-lg" type="text" id="reportName" name="name" ng-model="reportUpCtrl.report.name" required />
-  </div>
+  <md-input-container flex>
+    <label translate>Report Name</label>
+    <input ng-model="reportUpCtrl.report.name">
+  </md-input-container>
   <div class="form-group">
     <label class="control-label ng-binding" translate>Build Query</label>
     <gem-querybuilder></gem-querybuilder>

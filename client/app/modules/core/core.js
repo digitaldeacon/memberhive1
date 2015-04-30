@@ -5,6 +5,7 @@ import {SidebarController} from './controllers/sidebar-controller';
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective} from './directives/form-directives';
 import {uiNavDirective} from './directives/nav-directive';
+import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
 import {Shout} from './services/shout';
 import {GemFileReader} from './services/filereader';
 import {GemPdf} from './services/pdf';
@@ -21,8 +22,18 @@ import {temperatureFilter} from './filters/format-filters';
  */
 export var gemCoreModule = angular.module('gem.core', []);
 
-gemCoreModule.config(($stateProvider, $urlRouterProvider) => {
+gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => {
   $urlRouterProvider.otherwise('/dashboard');
+
+  var myBlue = $mdThemingProvider.extendPalette('blue-grey', {
+    '500': '475069'
+  });
+  $mdThemingProvider.definePalette('my-blue', myBlue);
+
+  $mdThemingProvider.theme('default')
+    .primaryPalette('my-blue')
+    .accentPalette('orange')
+    .warnPalette('lime');
 });
 
 gemCoreModule.run(($rootScope, gettextCatalog, $cookies) => {
@@ -72,6 +83,9 @@ gemCoreModule.factory('GemPdf', GemPdf);
 // Directives
 gemCoreModule.directive('controlGroup', controlGroupDirective);
 gemCoreModule.directive('uiNav', uiNavDirective);
+gemCoreModule.directive('mhPanel', mhPanelDirective);
+gemCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
+gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);
 
 // Filters
 gemCoreModule.filter('fromNow', fromNowFilter);

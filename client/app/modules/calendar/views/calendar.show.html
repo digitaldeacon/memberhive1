@@ -1,14 +1,16 @@
-<div ng-controller="CalendarController as calendarCtrl" class="calendar-view portlet-default">
+<mh-panel ng-controller="CalendarController as calendarCtrl" class="calendar-view portlet-default">
+  <mh-panel-header>Calendar</mh-panel-header>
 
-  <form class="form-inline">
-    <label for="calendarURL">Embed URL</label>
-    <input id="calendarURL" class="form-control" ng-model="calendarCtrl.calendarUrlInput"
-      placeholder="https://www.google.com/calendar/embed?src=...">
-    <button class="btn btn-primary" ng-click="calendarCtrl.updateCalendar()" translate>Update</button>
-  </form>
+  <mh-panel-body>
+    <form class="form-inline">
+      <label for="calendarURL">Embed URL</label>
+      <input id="calendarURL" class="form-control" ng-model="calendarCtrl.calendarUrlInput"
+        placeholder="https://www.google.com/calendar/embed?src=...">
+      <button class="btn btn-primary" ng-click="calendarCtrl.updateCalendar()" translate>Update</button>
+    </form>
 
-  <iframe ng-if="calendarCtrl.calendarUrl" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"
-    ng-src="{{calendarCtrl.calendarUrl}}">
-  </iframe>
-
-</div>
+    <iframe ng-if="calendarCtrl.calendarUrl" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"
+      ng-src="{{calendarCtrl.calendarUrl}}">
+    </iframe>
+  </mh-panel-body>
+</mh-panel>

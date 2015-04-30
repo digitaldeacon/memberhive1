@@ -303,7 +303,7 @@ module.exports = function(grunt) {
             '*.html',
             'templates/{,*/}*.html',
             '**/views/*.html',
-            'images/{,*/}*.{webp}',
+            'images/**',
             'styles/fonts/{,*/}*.*',
             '*.js',
             '**/*.js',
@@ -360,7 +360,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'imagemin:dist',
+    //'imagemin:dist',
     'lbservices',
     'ngconstant:server',
     'nggettext_compile',
