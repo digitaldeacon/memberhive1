@@ -40,6 +40,8 @@ module.exports = function(Avatar) {
 
     // Weird bug: When trying to create thumbnails from `originalfile`, thumbnails will be kaputt.
     // When operating on `copyfile`, it works, whyever.
+    // https://github.com/strongloop/loopback-component-storage/issues/56
+    // https://github.com/strongloop/loopback-component-storage/issues/58
     fs.createReadStream(originalfile).pipe(fs.createWriteStream(copyfile));
 
     if (inputfile.type != 'image/png' && inputfile.type != 'image/jpg' && inputfile.type != 'image/jpeg') {
