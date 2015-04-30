@@ -1,11 +1,6 @@
 <mh-panel ng-controller="PersonEditController as personCtrl">
   {{person=personCtrl.person;""}}
-  <mh-panel-header>
-    <a ui-sref="person.view({ id: person.id })">
-      <fa name="eye"></fa>
-      {{personCtrl.getTitle()}}
-    </a>
-  </mh-panel-header>
+  <mh-panel-header>{{personCtrl.getTitle()}}</mh-panel-header>
 
   <mh-panel-body>
     <form ng-submit="personCtrl.save()" name="personEdit">

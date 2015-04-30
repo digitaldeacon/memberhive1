@@ -18,6 +18,6 @@ export function mhPanelBodyDirective() {
   return {
     restrict: 'E',
     transclude: true,
-    template: '<md-content ng-transclude></md-content>'
+    template: '<md-content layout-padding ng-transclude></md-content>'
   };
 }
