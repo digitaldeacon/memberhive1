@@ -14,8 +14,8 @@ Install process
 * `nvm install iojs` *install iojs*
 * make sure you have iojs added to your PATH variable (e.g. `export PATH="$PATH:$HOME/.nvm/versions/io.js/v1.6.3/bin"`)
 * `npm install -g jspm grunt-cli`
-* clone gemmii-web from git: `git https://github.com/ebtc/gemmii-web.git`
-* cd to gemmi-web/
+* clone memberhive from git: `git clone git@github.com:digitaldeacon/memberhive.git`
+* `cd memberhive/`
 * `npm install` *Install dev dependencies*
 * `jspm install` *Install app dependencies*
 * Follow the persisting data instructions below
