@@ -1,15 +1,13 @@
-<div class="portlet portlet-default light" ng-controller="PersonEditController as personCtrl">
+<mh-panel ng-controller="PersonEditController as personCtrl">
   {{person=personCtrl.person;""}}
-  <div class="portlet-title tabbable-line">
-    <div class="caption caption-md">
-      <span class="caption-subject uppercase bold font-blue-madison">
-        <a ui-sref="person.view({ id: person.id })">
-          <fa name="eye"></fa>
-          {{personCtrl.getTitle()}}
-        </a>
-      </span>
-    </div>
+  <mh-panel-header>
+    <a ui-sref="person.view({ id: person.id })">
+      <fa name="eye"></fa>
+      {{personCtrl.getTitle()}}
+    </a>
+  </mh-panel-header>
 
+  <mh-panel-body>
     <form ng-submit="personCtrl.save()" name="personEdit">
       <md-tabs md-dynamic-height md-border-bottom>
         <md-tab>
@@ -56,6 +54,5 @@
       <md-button class="md-raised md-primary" translate>Save Changes</md-button>
       <md-button class="md-raised"  ng-click="personCtrl.saveAndClose()" translate>Save and Close</md-button>
     </form>
-
-  </div>
-</div>
+  </mh-panel-body>
+</mh-panel>
