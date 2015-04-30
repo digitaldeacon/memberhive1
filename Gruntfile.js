@@ -16,7 +16,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var devServer = "https://localhost:3000/api";
-  var prodServer = "https://localhost:3000/api";
+  var prodServer = "https://memberhive.com:7007/api";
 
   // Configurable paths for the application
   var appConfig = {
@@ -362,7 +362,7 @@ module.exports = function(grunt) {
     'clean:dist',
     //'imagemin:dist',
     'lbservices',
-    'ngconstant:server',
+    'ngconstant:dist',
     'nggettext_compile',
     'concurrent:dist',
     'copy:dist',
