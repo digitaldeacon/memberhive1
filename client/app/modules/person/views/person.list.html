@@ -1,104 +1,122 @@
-<div ng-controller="PersonListController as personCtrl" class="person-list">
-  <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
-    template-url="templates/dirPagination.html">
-  </dir-pagination-controls>
+<mh-panel>
+  <div ng-controller="PersonListController as personCtrl" class="person-list">
+    <mh-panel-header>
+      <translate>Persons</translate>
+    </mh-panel-header>
 
-  <table class="table table-striped table-bordered table-advance table-hover">
-    <thead>
-    <tr>
-      <th></th>
-      <th translate>Person details</th>
-      <th translate>Member Status</th>
-      <th translate>Tags</th>
-      <th translate>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr dir-paginate="person in personCtrl.persons | itemsPerPage: gemConfig.pagination.pageSize"
-        total-items="personCtrl.totalPersons">
+    <mh-panel-body>
+      <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
+                               template-url="templates/dirPagination.html">
+      </dir-pagination-controls>
 
-      <script type="text/ng-template" id="household-popover">
-        <div class="triangle"></div>
-        <div class="ns-popover-tooltip">
-          <h3>{{::person.household.householdName}}</h3>
-          <ul>
-            <li ng-repeat="person in person.household.persons">
-              <a ui-sref="person.view({ id: person.id })">{{::person | formatName}}
-                <span ng-if="person.relationType">({{::personCtrl.relationTypes[person.relationType.type]}})</span>
+      <table class="table table-striped table-bordered table-advance table-hover">
+        <thead>
+        <tr>
+          <th></th>
+          <th translate>Person details</th>
+          <th translate>Member Status</th>
+          <th translate>Tags</th>
+          <th translate>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr dir-paginate="person in personCtrl.persons | itemsPerPage: gemConfig.pagination.pageSize"
+            total-items="personCtrl.totalPersons">
+
+          <script type="text/ng-template" id="household-popover">
+            <div class="triangle"></div>
+            <div class="ns-popover-tooltip">
+              <h3>{{::person.household.householdName}}</h3>
+              <ul>
+                <li ng-repeat="person in person.household.persons">
+                  <a ui-sref="person.view({ id: person.id })">{{::person | formatName}}
+                    <span ng-if="person.relationType">({{::personCtrl.relationTypes[person.relationType.type]}})</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </script>
+
+          <td>
+            <a ui-sref="person.view({ id: person.id })">
+              <gem-avatar person="person" size="xs" circle></gem-avatar>
+            </a>
+          </td>
+          <td>
+            <h3>
+              <a ui-sref="person.view({ id: person.id })">
+                {{::person | formatName}}
               </a>
-            </li>
-          </ul>
-        </div>
-      </script>
-
-      <td>
-        <a ui-sref="person.view({ id: person.id })">
-          <gem-avatar person="person" size="xs" circle></gem-avatar>
-        </a>
-      </td>
-      <td>
-        <h3>
-          <a ui-sref="person.view({ id: person.id })">
-            {{::person | formatName}}
-          </a>
-        </h3>
-        <ul class="list-inline text-muted">
-          <li ng-if="person.household" ns-popover ns-popover-template="household-popover"
-              ns-popover-trigger="mouseenter" ns-popover-placement="bottom" ns-popover-timeout="0.2" ns-popover-theme="ns-popover-tooltip-theme">
-            <fa name="users"></fa> <a>{{ ::person.household.householdName }}</a>
-          </li>
-          <li ng-if="person.birthdate" title="{{'Birthdate' | translate}}">
-            <fa name="calendar"></fa> {{::person.birthdate | date:medium}}
-          </li>
-          <li ng-if="person.email" title="{{'Email' | translate}}">
-            <fa name="envelope"></fa> <a href="mailto:{{ ::person.email }}">{{ ::person.email }}</a>
-          </li>
-          <li ng-if="person.contact.home" title="{{'Home phone' | translate}}">
-            <fa name="phone"></fa> <a href="tel:{{ ::person.contact.home }}">{{ ::person.contact.home }}</a>
-          </li>
-          <li ng-if="person.contact.work" title="{{'Work phone' | translate}}">
-            <fa name="phone"></fa> <a href="tel:{{ ::person.contact.work }}">{{ ::person.contact.work }}</a>
-          </li>
-          <li ng-if="person.contact.mobile" title="{{'Mobile phone' | translate}}">
-            <fa name="mobile"></fa> <a href="tel:{{ ::person.contact.mobile }}">{{ ::person.contact.mobile }}</a>
-          </li>
-          <li ng-if="person.contact.facebook" title="{{'Facebook' | translate}}">
-            <a target="_blank" href="{{ ::person.contact.facebook | formatFacebookUrl }}"><fa name="facebook"></fa></a>
-          </li>
-          <li ng-if="person.contact.skype" title="{{'Skype' | translate}}">
-            <a href="{{ ::person.contact.skype | formatSkypeUrl }}"><fa name="skype"></fa></a>
-          </li>
-        </ul>
-      </td>
-      <td>
+            </h3>
+            <ul class="list-inline text-muted">
+              <li ng-if="person.household" ns-popover ns-popover-template="household-popover"
+                  ns-popover-trigger="mouseenter" ns-popover-placement="bottom" ns-popover-timeout="0.2"
+                  ns-popover-theme="ns-popover-tooltip-theme">
+                <fa name="users"></fa>
+                <a>{{ ::person.household.householdName }}</a>
+              </li>
+              <li ng-if="person.birthdate" title="{{'Birthdate' | translate}}">
+                <fa name="calendar"></fa>
+                {{::person.birthdate | date:medium}}
+              </li>
+              <li ng-if="person.email" title="{{'Email' | translate}}">
+                <fa name="envelope"></fa>
+                <a href="mailto:{{ ::person.email }}">{{ ::person.email }}</a>
+              </li>
+              <li ng-if="person.contact.home" title="{{'Home phone' | translate}}">
+                <fa name="phone"></fa>
+                <a href="tel:{{ ::person.contact.home }}">{{ ::person.contact.home }}</a>
+              </li>
+              <li ng-if="person.contact.work" title="{{'Work phone' | translate}}">
+                <fa name="phone"></fa>
+                <a href="tel:{{ ::person.contact.work }}">{{ ::person.contact.work }}</a>
+              </li>
+              <li ng-if="person.contact.mobile" title="{{'Mobile phone' | translate}}">
+                <fa name="mobile"></fa>
+                <a href="tel:{{ ::person.contact.mobile }}">{{ ::person.contact.mobile }}</a>
+              </li>
+              <li ng-if="person.contact.facebook" title="{{'Facebook' | translate}}">
+                <a target="_blank" href="{{ ::person.contact.facebook | formatFacebookUrl }}">
+                  <fa name="facebook"></fa>
+                </a>
+              </li>
+              <li ng-if="person.contact.skype" title="{{'Skype' | translate}}">
+                <a href="{{ ::person.contact.skype | formatSkypeUrl }}">
+                  <fa name="skype"></fa>
+                </a>
+              </li>
+            </ul>
+          </td>
+          <td>
         <span ng-repeat="status in person.status" class="label label-primary">
           {{ status.text }}
         </span>
-      </td>
-      <td>
+          </td>
+          <td>
         <span ng-repeat="tag in person.tags" class="label label-success">
           {{ tag.text }}
         </span>
-      </td>
-      <td class="actions">
-        <md-button class="md-raised md-icon-button " tooltip="{{'Edit' | translate}}"
-           ui-sref="person.edit({ id: person.id })">
-          <fa name="edit"></fa>
-        </md-button>
-        <md-button class="md-raised md-icon-button " tooltip="{{'Delete' | translate}}"
-           ng-click="personCtrl.deletePerson(person)" href="#"
-           confirm="Delete “{{::person | formatName}}”?">
-           
-          <fa name="trash"></fa>
-        </md-button>
-        
-      </td>
-    </tr>
-    </tbody>
-  </table>
+          </td>
+          <td class="actions">
+            <md-button class="md-raised md-icon-button " tooltip="{{'Edit' | translate}}"
+                       ui-sref="person.edit({ id: person.id })">
+              <fa name="edit"></fa>
+            </md-button>
+            <md-button class="md-raised md-icon-button " tooltip="{{'Delete' | translate}}"
+                       ng-click="personCtrl.deletePerson(person)" href="#"
+                       confirm="Delete “{{::person | formatName}}”?">
 
-  <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
-    template-url="templates/dirPagination.html">
-  </dir-pagination-controls>
+              <fa name="trash"></fa>
+            </md-button>
 
-</div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
+                               template-url="templates/dirPagination.html">
+      </dir-pagination-controls>
+    </mh-panel-body>
+  </div>
+</mh-panel>
