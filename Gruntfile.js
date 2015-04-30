@@ -14,10 +14,10 @@ module.exports = function(grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-  
+
   var devServer = "https://localhost:3000/api";
   var prodServer = "https://localhost:3000/api";
-  
+
   // Configurable paths for the application
   var appConfig = {
     app: 'client/app',
@@ -33,11 +33,13 @@ module.exports = function(grunt) {
 
     // Project settings
     yeoman: appConfig,
-    concat: {
-        notes: {
-          src: ['client/app/modules/note/**.js'],
-          dest: 'client/app/modules/note.js'
+
+    extractModelTranslations: {
+      all: {
+        files: {
+          'po/models.pot': ['common/models/*.json']
         }
+      }
     },
 
     nggettext_extract: { // jshint ignore:line
@@ -100,9 +102,14 @@ module.exports = function(grunt) {
       ]
     },
 
-    uploadTranslations: {
+    uploadWords: {
+      all: {
+        src: 'po/*.pot'
+      }
+    },
+
+    uploadTemplateFile: {
       options: {
-        templateFile: 'po/template.pot',
         platformId: '22316',
         format: 'GNU_POT'
       }
@@ -126,9 +133,7 @@ module.exports = function(grunt) {
     'loopback_auto': {
       'db_autoupdate': {
         options: {
-          dataSource: 'db',
-          app: './server/server',
-          config: './server/model-config',
+
           method: 'autoupdate'
         }
       }
@@ -202,7 +207,6 @@ module.exports = function(grunt) {
           'Gruntfile.js',
           '<%= yeoman.app %>/**/*.js',
           'tasks/*.js',
-          '!<%= yeoman.app %>/scripts/metronic/**/*.js',
           '!<%= yeoman.app %>/modules/core/services/lb-services.js',
           '!<%= yeoman.app %>/scripts/*.js',
           '!<%= yeoman.app %>/config.js'
@@ -344,7 +348,6 @@ module.exports = function(grunt) {
       'lbservices',
       'ngconstant:server',
       'nggettext_compile',
-      'concat',
       'concurrent:server',
       'http2_server',
       'watch'
@@ -369,7 +372,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('updateWords', [
     'nggettext_extract',
-    'uploadTranslations'
+    'extractModelTranslations',
+    'uploadWords'
   ]);
 
   grunt.registerTask('updateTranslations', [
@@ -387,7 +391,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docular');
   grunt.loadNpmTasks('grunt-loopback-auto');
   grunt.loadNpmTasks('grunt-jscs');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   // Load custom tasks from tasks/ directory
   grunt.loadTasks('tasks');
 };

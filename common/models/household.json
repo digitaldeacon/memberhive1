@@ -21,7 +21,7 @@
     "address": {
       "type": "belongsTo",
       "model": "Address"
-  }
+    }
   },
   "acls": [
     {

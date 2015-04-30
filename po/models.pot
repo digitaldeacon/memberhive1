@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Baptism Date"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Birthdate"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Primary Contact"
+msgid "Email"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Email"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Gender"
+msgid "Female"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "First Name"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Gender"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Has Profile Picture"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Last Name"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Gender"
+msgid "Male"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Middle Name"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Primary Contact"
+msgid "Mobile"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Nick Name"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Has Profile Picture"
+msgid "No"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Primary Contact"
+msgid "Postal"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Prefix"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Primary Contact"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
+msgid "Suffix"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Has Profile Picture"
+msgid "Yes"
+msgstr ""

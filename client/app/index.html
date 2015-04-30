@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-controller="AppController as appCtrl" data-ng-init="init()">
+<html ng-controller="AppController as appCtrl">
   <head>
     <meta charset="utf-8">
     <title data-ng-bind="appCtrl.getTitle()"></title>
@@ -13,39 +13,17 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
 
   </head>
-  <body ng-class="{'login-bg': $state.includes('login')}"
-        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
-
-    <!--[if lt IE 10]>
-      <p class="browsehappy" translate>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <div ng-if="acl.isLoggedIn()">
-      <div data-ng-include="'templates/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top" >
-      </div>
-
-      <div class="clearfix"></div>
-
-      <div class="page-container">
-        <div data-ng-include="'templates/sidebar.html'" data-ng-controller="SidebarController as sidebar" class="page-sidebar-wrapper"></div>
-
-        <div class="page-content-wrapper">
-          <div class="page-content">
-            <div data-ng-include="'templates/page-head.html'" class="page-head" ></div>
-
-            <div ncy-breadcrumb></div>
-
-            <ui-view />
-          </div>
-        </div>
-      </div>
-      <div data-ng-include="'templates/footer.html'" class="page-footer">
-      </div>
-    </div>
-
-    <div ng-if="acl.isLoggedOut()">
-      <div class="page-container" >
-          <ui-view />
+  <body flex layout="column">
+    <md-toolbar layout-padding layout="row">
+      <div flex data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" layout="row"> </div>
+    </md-toolbar>
+    <div layout="row" flex>
+      <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-left md-whiteframe-z2">
+        <div flex data-ng-include="'templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>
+      </md-sidenav>
+    
+      <div layout="column" flex id="content">
+        <md-content ui-view layout="column" flex layout-padding></md-content>
       </div>
     </div>
 

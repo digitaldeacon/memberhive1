@@ -1,20 +1,32 @@
 <div>
-  <control-group label="{{'Street 1' | translate}}">
-    <input class="form-control form-inline" type="text" ng-model="address.street1" />
-  </control-group>
-  <control-group label="{{'Street 2' | translate}}">
-    <input class="form-control form-inline" type="text" ng-model="address.street2" />
-  </control-group>
-  <control-group label="{{'Additional' | translate}}">
-    <input class="form-control form-inline" type="text" ng-model="address.additional" />
-  </control-group>
-  <control-group label="{{'Zipcode' | translate}}">
-    <input class="form-control form-inline" type="text" ng-model="address.zipcode" />
-  </control-group>
-  <control-group label="{{'City' | translate}}">
-    <input class="form-control form-inline" type="text" ng-model="address.city" />
-  </control-group>
-  <control-group label="{{'Country' | translate}}">
-    <input class="form-control form-inline" type="text" ng-model="address.country" />
-  </control-group>
+  <md-input-container flex>
+    <label>Street 1</label>
+    <input ng-model="address.street1">
+  </md-input-container>
+  
+   <md-input-container flex>
+    <label>Street 2</label>
+    <input ng-model="address.street2">
+  </md-input-container>
+  
+   <md-input-container flex>
+    <label>Additional</label>
+    <input ng-model="address.additional">
+  </md-input-container>
+  
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Zipcode</label>
+      <input ng-model="address.zipcode">
+    </md-input-container>
+  
+    <md-input-container flex>
+      <label>City</label>
+      <input ng-model="address.city">
+    </md-input-container>
+  </div>
+  <md-input-container flex>
+    <label>Country</label>
+    <input ng-model="address.country">
+  </md-input-container>
 </div>

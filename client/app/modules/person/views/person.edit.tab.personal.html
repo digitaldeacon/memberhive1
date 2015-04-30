@@ -1,53 +1,81 @@
 <div class="col-md-6">
-  {{personCtrl.getTags()}}
-  <h3 translate>Tags</h3>
-  <div class="input-group">
-    <span class="input-group-addon"><fa name="tags"></fa></span>
-      <tags-input class="bootstrap"
-        ng-model="personCtrl.person.tags"
-        replace-spaces-with-dashes="false"
-        add-from-autocomplete-only="false"
-        placeholder="{{'Add a tag' | translate}}">
-        <auto-complete
-          source="personCtrl.loadTags($query)"
-          select-first-match="false"></auto-complete>
-      </tags-input>
-  </div>
 
   <h3 translate>Person Info</h3>
 
+  <h4 translate>Status</h4>
+  <div class="input-group blue-tags">
+    <span class="input-group-addon"><fa name="info"></fa></span>
+    <tags-input class="bootstrap"
+                ng-model="personCtrl.person.status"
+                replace-spaces-with-dashes="false"
+                placeholder="{{'Add a status' | translate}}">
+      <auto-complete
+        source="personCtrl.loadStatus($query)"
+        min-length="0"
+        load-on-focus="true"
+        load-on-empty="true"
+        select-first-match="false"></auto-complete>
+    </tags-input>
+  </div>
+
+  <h4 translate>Tags</h4>
+  <div class="input-group">
+    <span class="input-group-addon"><fa name="tags"></fa></span>
+    <tags-input class="bootstrap"
+                ng-model="personCtrl.person.tags"
+                replace-spaces-with-dashes="false"
+                add-from-autocomplete-only="false"
+                placeholder="{{'Add a tag' | translate}}">
+      <auto-complete
+        source="personCtrl.loadTags($query)"
+        select-first-match="false"></auto-complete>
+    </tags-input>
+  </div>
+
+  <h4 translate>Gender</h4>
   <div class="btn-group form-group gender-buttons" role="group">
     <label class="btn btn-male" ng-model="person.gender" btn-radio="'m'" uncheckable>
-      <fa name="male"></fa> Male
+      <fa name="male"></fa> <translate>Male</translate>
     </label>
     <label class="btn btn-female" ng-model="person.gender" btn-radio="'f'" uncheckable>
-      <fa name="female"></fa> Female
+      <fa name="female"></fa> <translate>Female</translate>
     </label>
   </div>
 
-  <control-group label="{{'Title' | translate}}">
-    <input class="form-control form-inline" type="text" id="prefix" name="prefix" ng-model="person.prefix" />
-  </control-group>
+  <md-input-container flex>
+    <label translate>Title</label>
+    <input ng-model="person.prefix">
+  </md-input-container>
+  
+  <md-input-container flex>
+    <label translate>First Name</label>
+    <input ng-model="person.firstName">
+  </md-input-container>
 
-  <control-group label="{{'First Name' | translate}}">
-    <input class="form-control" type="text" id="firstName" name="firstName" ng-model="person.firstName" required />
-  </control-group>
+  
+  <md-input-container flex>
+    <label translate>Nickname</label>
+    <input ng-model="person.nickName">
+  </md-input-container>
 
-  <control-group label="{{'Nickname' | translate}}">
-    <input class="form-control" type="text" id="nickName" name="nickName" ng-model="person.nickName" />
-  </control-group>
+  
+  <md-input-container flex>
+    <label translate>Middle Name</label>
+    <input ng-model="person.middleName">
+  </md-input-container>
 
-  <control-group label="{{'Middle Name' | translate}}">
-    <input class="form-control" type="text" id="middleName" name="middleName" ng-model="person.middleName" />
-  </control-group>
+  
+  <md-input-container flex>
+    <label translate>Last Name</label>
+    <input ng-model="person.lastName">
+  </md-input-container>
 
-  <control-group label="{{'Last Name' | translate}}">
-    <input class="form-control" type="text" id="lastName" name="lastName" ng-model="person.lastName" required />
-  </control-group>
+  
+  <md-input-container flex>
+    <label translate>Suffix</label>
+    <input ng-model="person.suffix">
+  </md-input-container>
 
-  <control-group label="{{'Suffix' | translate}}">
-    <input class="form-control" type="text" id="suffix" name="suffix" ng-model="person.suffix" />
-  </control-group>
 
   <div class="control-group">
     <label for="birthdate" translate>Birthdate</label>
@@ -74,81 +102,47 @@
 
 <div class="col-md-6">
   <h3 translate>Contact Info</h3>
+  <md-input-container flex>
+    <md-select ng-model="person.primaryContact">
+      <md-select-label translate>Select primary contact type...</md-select-label>
+      <md-option ng-value="opt" ng-repeat="opt in personCtrl.primaryContactTypes">{{ opt }}</md-option>
+    </md-select>
+  </md-input-container>
+  
+  <md-input-container flex>
+    <label><fa name="envelope"></fa> <span translate>EMail</span></label>
+    <input ng-model="person.email">
+  </md-input-container>
+  
+  <md-input-container flex>
+    <label><fa name="phone"></fa> <span translate>Home Phone</span></label>
+    <input ng-model="personCtrl.person.contact.home">
+  </md-input-container>
+  
+  <md-input-container flex>
+    <label><fa name="phone-square"></fa> <span translate>Work Phone</span></label>
+    <input ng-model="personCtrl.person.contact.work">
+  </md-input-container>
+  
+  <md-input-container flex>
+    <label><fa name="mobile-phone"></fa> <span translate>Mobile Phone</span></label>
+    <input ng-model="personCtrl.person.contact.mobile">
+  </md-input-container>
 
-  <div class="form-group">
-    <label class="control-label" for="person.primaryContact">{{'Primary contact' | translate}}</label>
-    <ui-select ng-model="person.primaryContact" theme="bootstrap" id="person.primaryContact">
-      <ui-select-match placeholder="{{'Select primary contact type...' | translate}}">
-        {{$select.selected}}
-      </ui-select-match>
-      <ui-select-choices repeat="contactType in personCtrl.primaryContactTypes | filter:$select.search">
-        <div ng-bind-html="contactType | highlight: $select.search"></div>
-      </ui-select-choices>
-    </ui-select>
-  </div>
-
-  <control-group label="{{'Email' | translate}}">
-    <div class="input-group ">
-      <span class="input-group-addon">
-        <fa name="envelope"></fa>
-      </span>
-      <input class="form-control" type="text" id="contact.email" name="contact.email" ng-model="person.email"/>
-    </div>
-  </control-group>
-
-  <control-group label="{{'Home Phone' | translate}}">
-    <div class="input-group ">
-      <span class="input-group-addon">
-        <i class="glyphicon glyphicon-earphone"></i>
-      </span>
-      <input class="form-control" type="text" id="contact.home" name="contact.home" ng-model="personCtrl.person.contact.home" />
-    </div>
-  </control-group>
-
-  <control-group label="{{'Work Phone' | translate}}">
-    <div class="input-group ">
-      <span class="input-group-addon">
-        <i class="glyphicon glyphicon-phone-alt"></i>
-      </span>
-      <input class="form-control" type="text" id="personCtrl.person.contact.work" name="contact.work" ng-model="personCtrl.person.contact.work" />
-    </div>
-  </control-group>
-
-  <control-group label="{{'Mobile Phone' | translate}}">
-    <div class="input-group ">
-      <span class="input-group-addon">
-        <i class="glyphicon glyphicon-phone"></i>
-      </span>
-      <input class="form-control" type="text" id="contact.mobile" name="contact.mobile" ng-model="personCtrl.person.contact.mobile" />
-    </div>
-  </control-group>
-
-  <control-group label="{{'Fax' | translate}}">
-    <div class="input-group ">
-      <span class="input-group-addon">
-        <fa name="fax"></fa>
-      </span>
-      <input class="form-control" type="text" id="contact.fax" name="contact.fax" ng-model="personCtrl.person.contact.fax" />
-    </div>
-  </control-group>
-
-  <control-group label="{{'Facebook Username' | translate}}">
-    <div class="input-group ">
-      <span class="input-group-addon">
-        <fa name="facebook-official" size="large" style="color:#43609C"></fa>
-      </span>
-      <input class="form-control" type="text" id="contact.facebook" name="contact.facebook" ng-model="personCtrl.person.contact.facebook" />
-    </div>
-  </control-group>
-
-  <control-group label="{{'Skype Name' | translate}}">
-    <div class="input-group ">
-      <span class="input-group-addon">
-        <fa name="skype" size="large" style="color:#00AFF0"></fa>
-      </span>
-      <input class="form-control" type="text" id="contact.skype" name="contact.skype" ng-model="personCtrl.person.contact.skype" />
-    </div>
-  </control-group>
+  <md-input-container flex>
+    <label><fa name="fay"></fa> <span translate>Fax</span></label>
+    <input ng-model="personCtrl.person.contact.fax">
+  </md-input-container>
+  
+  <md-input-container flex>
+    <label><fa name="facebook"></fa> <span translate>Facebook Username</span></label>
+    <input ng-model="personCtrl.person.contact.facebook">
+  </md-input-container>
+  
+  <md-input-container flex>
+    <label><fa name="skype"></fa> <span translate>Skype Name</span></label>
+    <input ng-model="personCtrl.person.contact.skype">
+  </md-input-container>
 
 
   <h3 translate>Household</h3>

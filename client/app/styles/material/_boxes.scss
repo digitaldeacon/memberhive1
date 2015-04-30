@@ -1,0 +1,96 @@
+.box{
+  display: table;
+  table-layout: fixed;
+  border-spacing: 0;
+  width: 100%;
+  height: 100%;
+
+  .box-row {
+    display: table-row;
+    height: 100%;
+    .box-cell {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      -webkit-overflow-scrolling:touch;
+      overflow: auto;
+      .ie & {
+        display: table-cell;
+      }
+    }
+  }
+
+  .box-col{
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .box-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  > [class*="col-"],
+  > [class*=" col-"]{
+    vertical-align: top;
+    height: 100%;
+    float: none;
+    padding: 0;
+    position: static;
+  }
+}
+
+.v-m{
+  vertical-align: middle !important;
+}
+.v-t{
+  vertical-align: top !important;
+}
+.v-b{
+  vertical-align: bottom !important;
+}
+.v-c{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 1200px){
+  .box{
+    > [class*="col-lg"],
+    > [class*=" col-lg"]{
+      display: table-cell;
+    }
+  }
+}
+
+@media (min-width: 992px){
+  .box{
+    > [class*="col-md"],
+    > [class*=" col-md"]{
+      display: table-cell;
+    }
+  }
+}
+
+@media (min-width: 768px){
+  .box{
+    > [class*="col-sm"],
+    > [class*=" col-sm"]{
+      display: table-cell;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .box{
+    > [class*="col-xs"],
+    > [class*=" col-xs"]{
+      display: table-cell;
+    }
+  }
+}

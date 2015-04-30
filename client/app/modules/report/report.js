@@ -6,11 +6,12 @@ import 'ui-codemirror';
 import 'jQuery-QueryBuilder';
 import 'bootstrap-datepicker/js/bootstrap-datepicker';
 
-import {ReportController} from './controllers/report-controller';
+import {ReportListController} from './controllers/report-list-controller';
 import {ReportUpsertController} from './controllers/report-upsert-controller';
 
 import {QueryBuilderDirective} from './directives/querybuilder-directive';
 import {PreviewHTMLDirective} from './directives/previewhtml-directive';
+import {VariableListDirective} from './directives/variablelist-directive';
 
 import {ReportService} from './services/report-service';
 import {QueryBuilderModelService} from './services/querybuilder-model-service';
@@ -82,11 +83,12 @@ gemReportModule.config(
   }
 );
 
-gemReportModule.controller('ReportController', ReportController);
+gemReportModule.controller('ReportListController', ReportListController);
 gemReportModule.controller('ReportUpsertController', ReportUpsertController);
 
 gemReportModule.directive('gemQuerybuilder', QueryBuilderDirective);
 gemReportModule.directive('gemPreview', PreviewHTMLDirective);
+gemReportModule.directive('gemVariableList', VariableListDirective);
 
 gemReportModule.factory('ReportService', ReportService);
 gemReportModule.factory('QueryBuilderModelService', QueryBuilderModelService);

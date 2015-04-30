@@ -1,9 +1,3 @@
-/*
- Import
- 'scripts/metronic/plugins/morris/morris.min.js',
- 'scripts/metronic/plugins/morris/raphael-min.js',
- 'scripts/metronic/pages/tasks.js',
- */
 import 'jquery-ui'; //why do i need to do this?
 import 'angular-ui/ui-sortable';//why do i need to do this?
 import 'angular-dashboard-framework';
@@ -22,8 +16,9 @@ export var gemDashboardModule = angular.module('gem.dashboard',
   ])
   .config(
     ($stateProvider, MainMenuProvider, gettext) => {
-      $stateProvider.state('dashboard', {
-        url: '/dashboard',
+      $stateProvider
+        .state('dashboard', {
+        url: 'dashboard',
         templateUrl: 'modules/dashboard/views/dashboard.html',
         data: {
           pageTitle: gettext('Dashboard')

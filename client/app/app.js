@@ -1,5 +1,7 @@
 import 'jquery';
 import 'angular';
+import 'angular-material';
+//import 'angular-material-icons';
 import 'bootstrap';
 import 'angular-animate';
 import 'angular-cookies';
@@ -36,9 +38,6 @@ import 'styles/main.css!';
 import 'scripts/translations';
 
 // Own modules
-import 'scripts/metronic/metronic';
-import 'scripts/metronic/layout';
-
 import {gemCoreModule} from 'modules/core/core';
 import {gemConfigModule} from 'scripts/config';
 import {gemDashboardModule} from 'modules/dashboard/dashboard';
@@ -48,12 +47,13 @@ import {gemAuthModule} from 'modules/auth/auth';
 import {gemAclModule} from 'modules/auth/acl';
 import {gemNoteModule} from 'modules/note/note';
 import {gemReportModule} from 'modules/report/report';
+import {gemCalendarModule} from 'modules/calendar/calendar';
 
 /**
  * The main app module.
  */
 export var gemMainModule = angular.module('gem.main', [
-  'ngAnimate', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch',
+  'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch',
   'ui.router', 'ui.bootstrap',  'ui.select',
   'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
@@ -63,21 +63,14 @@ export var gemMainModule = angular.module('gem.main', [
   // GEM Modules
   'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
-  'gem.dashboard', 'gem.person', 'gem.acl',
+  'gem.dashboard', 'gem.person', 'gem.calendar', 'gem.acl',
   'gem.auth', 'gem.report', 'gem.note', 'gem.config'
   ]
 );
 
 gemMainModule.config(
-  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider) => {
-    $urlRouterProvider.otherwise('/dashboard');
-
+  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, gettext) => {
     cfpLoadingBarProvider.includeSpinner = false;
-
-    //This make the interface less interactive, sometimes something is loading, but it should not block the ui
-
-    //cfpLoadingBarProvider.spinnerTemplate = '<div class="blockui"><div class="page-spinner-bar"><div class="bounce1">' +
-    //  '</div><div class="bounce2"></div><div class="bounce3"></div></div></div>';
 
     $breadcrumbProvider.setOptions({
       prefixStateName: 'dashboard',

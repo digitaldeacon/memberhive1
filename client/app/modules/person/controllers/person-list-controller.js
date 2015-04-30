@@ -7,6 +7,7 @@ export class PersonListController {
     this.getContacts = PersonService.getContacts;
     this.hasAvatar = PersonService.hasAvatar;
     this.relationTypes = PersonService.relationTypes;
+    this.statusTypes = PersonService.statusTypes;
 
     this.persons = [];
     this.currentPage = 1;

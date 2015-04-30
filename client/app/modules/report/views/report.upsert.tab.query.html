@@ -1,0 +1,16 @@
+<div class="portlet-default">
+  <div class="form-group">
+    <label class="control-label ng-binding" for="reportName"  translate>Report Name</label>
+    <input class="form-control input-lg" type="text" id="reportName" name="name" ng-model="reportUpCtrl.report.name" required />
+  </div>
+  <div class="form-group">
+    <label class="control-label ng-binding" translate>Build Query</label>
+    <gem-querybuilder></gem-querybuilder>
+    <div class="form-actions fluid">
+      <div class="btn-group">
+        <button class="btn btn-warning reset">Reset</button>
+        <button class="btn green-haze parse-json">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ module.exports = function(app) {
     var Role = app.models.Role;
     var RoleMapping = app.models.RoleMapping;
     Account.findOne({where: {username: "root"}}, function (err,data) {
-      if(data == null) {//create root only if there is no root
+      if (data == null) {//create root only if there is no root
         Account.create(
             [{
                 username: 'root',
@@ -15,7 +15,7 @@ module.exports = function(app) {
             Role.create(
                 {name: 'root'},
                 function(err, role) {
-                  if(role) {
+                  if (role) {
                     role.principals.create({
                         principalType: RoleMapping.USER,
                         principalId: users[0].id

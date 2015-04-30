@@ -1,0 +1,119 @@
+$primary:           #3f51b5;
+$info:              #2196f3;
+$success:           #4caf50;
+$warning:           #ffc107;
+$danger:            #f44336;
+$accent:            #7e57c2;
+$light:             #eaebec;
+$dark:              #475069;
+
+$body-bg:                 #efefef;
+$text-color:              rgba(0, 0, 0, 0.87);
+$text-muted:              rgba(0, 0, 0, 0.54);
+
+$font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+$font-family-base:        $font-family-sans-serif;
+$font-family-header:      $font-family-sans-serif;
+
+$font-size-base:          14px;
+$font-size-xl:            ceil($font-size-base * 2.28); // ~32px
+$font-size-lg:            ceil($font-size-base * 1.71); // ~24px
+$font-size-md:            ceil($font-size-base * 1.14); // ~16px
+$font-size-sm:            ceil($font-size-base * 0.92); // ~13px
+$font-size-xs:            ceil($font-size-base * 0.85); // ~12px
+$font-size-xxs:           ceil($font-size-base * 0.71); // ~10px
+
+$link-color:              inherit;
+$text-percent:            40%;
+$link-percent:            50%;
+$color-percent:           5%;
+$color-lt-percent:        5%;
+
+$border-radius-base:      3px;
+$border-color:		  	  darken($light, 5%);
+$border-rgba:			  rgba(110, 115, 120, 0.15);
+
+$line-height-base:        1.42857143; // 20/14
+$line-height-computed:    floor($font-size-base * $line-height-base); // ~20px
+
+$black:     #000000;
+$white:     #ffffff;
+
+$transparent: rgba(0, 0, 0, 0);
+$full-black:  rgba(0, 0, 0, 1);
+$dark-black:  rgba(0, 0, 0, 0.87);
+$light-black: rgba(0, 0, 0, 0.54);
+$min-black:   rgba(0, 0, 0, 0.26);
+$faint-black: rgba(0, 0, 0, 0.12);
+
+$full-white:  rgba(255, 255, 255, 1);
+$dark-white:  rgba(255, 255, 255, 0.87);
+$light-white: rgba(255, 255, 255, 0.54);
+
+$navbar-height:                  64px;
+$navbar-sm-height:               56px;
+$aside-width:                    240px;
+$aside-folded-width:             64px;
+$aside-nav-height:               40px;
+$aside-nav-folded-height:        50px;
+$aside-nav-sub-height:           36px;
+$aside-nav-stacked-height:       30px;
+
+$aside-max: 			         991px;
+$aside-min: 			         992px;
+
+// components
+
+$btn-default-color:              $text-color;
+$btn-default-bg:                 #fff;
+$btn-default-border:             $border-color;
+$btn-border-radius:              $border-radius-base;
+
+$input-border:                   darken($border-color, 5%);
+$input-border-focus:             darken($border-color, 20%);
+$input-border-radius:            0;
+
+$panel-bg:                    	 #fff;
+$panel-border:                	 $border-color;
+$panel-heading-border:           lighten($border-color, 5%);
+$panel-list-group-border:        lighten($border-color, 5%);
+$panel-border-radius:         	 $border-radius-base;
+$panel-heading-sm:               36px;
+$panel-heading-xs:               32px;
+$panel-heading-bg:            	 lighten($light, 3%);
+$panel-footer-bg:             	 $panel-heading-bg;
+
+$dropdown-color:                 $text-color;
+$dropdown-active-color:          $text-color;
+$dropdown-hover:                 $light;
+
+$nav-bg:                         darken($light, 1%);
+$nav-color:                      $text-color;
+$nav-active-color:               darken($nav-color, 5%);
+$nav-pills-active-color:         $text-color;
+$nav-pills-active:               darken($light, 5%);
+
+$badge-bg:                       darken($light, 25%);
+
+$table-border-color:             lighten($border-color, 4%);
+$table-striped-color:            lighten($light, 4.5%);
+
+$placeholder-color:              #ccc;
+
+$arrow-width:         			 8px;
+$arrow-outer-color:              rgba(0,0,0,0.1);
+
+$switch-width:                   32px;
+$switch-height:                  18px;
+$switch-md-width:                40px;
+$switch-md-height:               24px;
+$switch-lg-width:                50px;
+$switch-lg-height:               30px;
+
+$ui-checks-size:                 16px;
+$ui-checks-md-size:              18px;
+$ui-checks-lg-size:              30px;
+$ui-checks-sign-size:            6px;
+$ui-checks-checked-border:       $input-border;
+$ui-checks-sign-color:           $info;

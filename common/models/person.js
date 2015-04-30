@@ -1,14 +1,27 @@
 var _ = require('lodash');
 module.exports = function(Person) {
   Person.search = function(value, cb) {
+    var parts = value.split(" ");
+    var options = [];
+    var fields = [
+      'fistName',
+      'lastName',
+      'middleName',
+      'nickName',
+      'prefix',
+      'suffix'
+    ];
+    fields.forEach(function(field) {
+      parts.forEach(function(part) {
+        var obj = {};
+        obj[field] = {like: `${part}`};
+        options.push(obj);
+      });
+    });
+
     Person.find({
       where: {
-        or: [
-          {firstName: {like: `%${value}%`}},
-          {middleName: {like: `%${value}%`}},
-          {lastName: {like: `%${value}%`}},
-          {nickName: {like: `%${value}%`}}
-        ]
+        or: options
       },
       limit: 10
     }, function(err, persons) {

@@ -6,14 +6,12 @@ export class ReportUpsertController {
     this.Report = Report;
     this.ReportService = ReportService;
     this.Person = Person;
-    this.LoopBackAuth = LoopBackAuth;
     this.gettextCatalog = gettextCatalog;
     this.Shout = Shout;
     this.$stateParams = $stateParams;
 
     this.report = this.getReport();
 
-    this.curUser = LoopBackAuth.currentUserId;
     $scope.reportHtml = '';
 
     this.editorOptions = {
@@ -21,7 +19,9 @@ export class ReportUpsertController {
       mode: 'htmlmixed'
     };
 
-    this.personModel = QueryBuilderModelService.getModel(this.Person);
+
+    this.dataSources = {};
+    this.dataSources.persons = QueryBuilderModelService.getModel(this.Person);
   }
 
   getReport() {
@@ -35,6 +35,6 @@ export class ReportUpsertController {
   }
 
   setBuilderFilters() {
-    return this.personModel;
+    return this.dataSources.persons;
   }
 }

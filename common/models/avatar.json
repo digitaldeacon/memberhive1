@@ -1,10 +1,10 @@
 {
   "name": "Avatar",
-  "base": "Model",
   "description": [
     "container=personId. Available files: ",
     "xs.jpg, s.jpg, m.jpg, l.jpg"
   ],
+  "base": "Model",
   "idInjection": true,
   "properties": {},
   "validations": [],

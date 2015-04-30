@@ -47,7 +47,6 @@ export function QueryBuilderModelService(gettextCatalog) {
 
         qbModel.push(result);
       }
-      console.log(qbModel);
       return qbModel;
     }
   };

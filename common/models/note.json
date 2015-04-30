@@ -24,13 +24,13 @@
       "type": "string"
     }
   },
+  "validations": [],
   "relations": {
     "notable": {
       "type": "belongsTo",
       "polymorphic": true
     }
   },
-  "validations": [],
   "acls": [
     {
       "accessType": "READ",

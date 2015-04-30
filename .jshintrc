@@ -19,8 +19,6 @@
   "globals": {
     "angular": false,
     "$": false,
-    "Metronic": false,
-    "Layout": false,
     "_": false,
     "moment": false,
     "System": false
