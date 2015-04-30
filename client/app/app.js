@@ -32,6 +32,7 @@ import 'angular-loading-bar/build/loading-bar.css!';
 import 'angular-ui-select/dist/select.min.css!';
 
 // Own CSS
+import 'styles/material.css!';
 import 'styles/main.css!';
 
 // Translations

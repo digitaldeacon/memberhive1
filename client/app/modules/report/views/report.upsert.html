@@ -2,28 +2,31 @@
   <div id="builder"></div>
 </script>
 
-<div class="report" ng-controller="ReportUpsertController as reportUpCtrl">
+<mh-panel class="report" ng-controller="ReportUpsertController as reportUpCtrl">
+  <mh-panel-header>
+    <h3>Edit {{reportUpCtrl.report.name}}</h3>
+  </mh-panel-header>
 
-  <h4>Edit: {{reportUpCtrl.report.name}}</h4>
-
-  <form name="reportBuilderForm" class="form" ng-submit="reportUpCtrl.saveReport()">
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab>
-        <md-tab-label>
-          <fa name="database"></fa> <translate>Report source</translate>
-        </md-tab-label>
-        <md-tab-body class="md-padding">
-          <div class="tab-query" ng-include="'modules/report/views/report.upsert.tab.query.html'"></div>
-        </md-tab-body>
-      </md-tab>
-      <md-tab>
-        <md-tab-label>
-          <fa name="pencil"></fa> <translate>Report layout</translate>
-        </md-tab-label>
-        <md-tab-body class="md-padding">
-          <div class="tab-layout" ng-include="'modules/report/views/report.upsert.tab.layout.html'"></div>
-        </md-tab-body>
-      </md-tab>
-    </md-tabs>
-  </form>
-</div>
+  <mh-panel-body>
+    <form name="reportBuilderForm" class="form" ng-submit="reportUpCtrl.saveReport()" layout-padding>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab>
+          <md-tab-label>
+            <fa name="database"></fa> <translate>Report source</translate>
+          </md-tab-label>
+          <md-tab-body layout-padding>
+            <div class="tab-query" layout-padding ng-include="'modules/report/views/report.upsert.tab.query.html'"></div>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            <fa name="pencil"></fa> <translate>Report layout</translate>
+          </md-tab-label>
+          <md-tab-body>
+            <div class="tab-layout" layout-padding ng-include="'modules/report/views/report.upsert.tab.layout.html'"></div>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>
+    </form>
+  </mh-panel-body>
+</mh-panel>
