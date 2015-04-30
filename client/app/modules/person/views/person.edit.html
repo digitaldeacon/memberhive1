@@ -16,45 +16,45 @@
           <md-tab-label>
             <fa name="user"></fa> <translate> Personal</translate>
           </md-tab-label>
-          <md-content class="md-padding">
+          <md-tab-body class="md-padding">
             <div class="tab-personal" ng-include="'modules/person/views/person.edit.tab.personal.html'"></div>
-          </md-content>
+          </md-tab-body>
         </md-tab>
        <md-tab>
           <md-tab-label>
             <fa name="home"></fa> <translate>Addresses</translate>
           </md-tab-label>
-          <md-content class="md-padding">
+         <md-tab-body class="md-padding">
             <div class="tab-addresses" ng-include="'modules/person/views/person.edit.tab.addresses.html'"></div>
-          </md-content>
+         </md-tab-body>
         </md-tab>
         <md-tab>
           <md-tab-label>
             <fa name="photo"></fa> <translate>Avatar</translate>
           </md-tab-label>
-          <md-content class="md-padding">
+          <md-tab-body class="md-padding">
             <div class="tab-avatar" ng-include="'modules/person/views/person.edit.tab.avatar.html'"></div>
-          </md-content>
+          </md-tab-body>
         </md-tab>
         <md-tab>
           <md-tab-label>
            <fa name="users"></fa> <translate>Roles</translate>
           </md-tab-label>
-          <md-content class="md-padding">
+          <md-tab-body class="md-padding">
             <div class="tab-roles" ng-include="'modules/person/views/person.edit.tab.roles.html'"></div>
-          </md-content>
+          </md-tab-body>
         </md-tab>
         <md-tab>
           <md-tab-label>
            <fa name="unlock"></fa> <translate>Rights</translate>
           </md-tab-label>
-          <md-content class="md-padding">
+          <md-tab-body class="md-padding">
             <div class="tab-rights" ng-include="'modules/person/views/person.edit.tab.rights.html'"></div>
-          </md-content>
+          </md-tab-body>
         </md-tab>
       </md-tabs>
       <md-button class="md-raised md-primary" translate>Save Changes</md-button>
-      <md-button ng-click="personCtrl.saveAndClose()" class="md-raised" translate>Save and Close</md-button>
+      <md-button class="md-raised"  ng-click="personCtrl.saveAndClose()" translate>Save and Close</md-button>
     </form>
 
   </div>

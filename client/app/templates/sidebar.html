@@ -1,7 +1,4 @@
-<md-toolbar layout-padding>
-    <img src="images/logo.png" >
-</md-toolbar>
-<md-content flex class="page-sidebar">
+<!--<md-content flex class="page-sidebar">
   <nav ui-nav>
     <ul flex class="nav">
       <li ng-repeat="entry in mainMenu" ui-sref-active="active">
@@ -34,4 +31,40 @@
       </li>
     </ul>
   </nav>
+</md-content>
+-->
+
+<md-content flex role="navigation">
+  <ul class="docs-menu">
+    <li ng-repeat="entry in sidebarCtrl.mainMenu">
+    
+      <md-button ng-if="!entry.children" ui-sref="{{entry.route}}" ui-sref-active="active-menu-item">
+        <fa name="{{entry.icon}}" fw></fa>
+        <span class="font-normal">{{entry.label | translate}}</span>
+      </md-button>
+      
+      <md-button ng-if="entry.children">
+        <span>
+          <fa name="caret-down"></fa>
+        </span>
+        <fa name="{{entry.icon}}" fw></fa>
+        <span class="font-normal">{{entry.label | translate}}</span>
+      </md-button>
+      
+      <ul ng-if="entry.children" class="menu-nested-list">
+        <li ng-repeat="child in entry.children">
+          <md-button ui-sref="{{child.route}}" ui-sref-active="active-menu-item">
+            <fa name="{{child.icon}}" fw></fa>
+            <span class="font-normal">{{child.label | translate}}</span>
+          </md-button>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <md-button ng-click="sidebarCtrl.logout()">
+        <fa name="sign-out" fw></fa>
+        <span class="title" translate>Logout</span>
+      </md-button>
+    </li>
+  </ul>
 </md-content>
