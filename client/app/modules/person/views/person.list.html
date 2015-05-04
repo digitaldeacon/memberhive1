@@ -98,15 +98,14 @@
         </span>
           </td>
           <td class="actions">
-            <md-button class="md-raised md-icon-button " tooltip="{{'Edit' | translate}}"
+            <md-button class="md-icon-button " tooltip="{{'Edit' | translate}}"
                        ui-sref="person.edit({ id: person.id })">
-              <fa name="edit"></fa>
+              <ng-md-icon icon="edit"></ng-md-icon>
             </md-button>
-            <md-button class="md-raised md-icon-button " tooltip="{{'Delete' | translate}}"
+            <md-button class="md-icon-button " tooltip="{{'Delete' | translate}}"
                        ng-click="personCtrl.deletePerson(person)" href="#"
                        confirm="Delete “{{::person | formatName}}”?">
-
-              <fa name="trash"></fa>
+              <ng-md-icon icon="delete"></ng-md-icon>
             </md-button>
 
           </td>

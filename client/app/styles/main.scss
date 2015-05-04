@@ -9,7 +9,7 @@
 @import "sidebar";
 
 body  {
-  background-color: #EFEFEF !important;
+  background-color: #EFEFEF;
 }
 
 #content {
@@ -33,6 +33,6 @@ body  {
   margin-right: 3em;
 }
 
-.active-menu-item {
-  color: rgb(63,81,181);
+.header-toolbar {
+  background-color: rgb(95, 95, 95) !important;
 }

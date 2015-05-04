@@ -25,15 +25,17 @@ export var gemCoreModule = angular.module('gem.core', []);
 gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => {
   $urlRouterProvider.otherwise('/dashboard');
 
-  var myBlue = $mdThemingProvider.extendPalette('blue-grey', {
-    '500': '475069'
-  });
+  var myBlue = $mdThemingProvider.extendPalette(
+    'blue-grey', 
+    {'500': '475069'}
+  );
   $mdThemingProvider.definePalette('my-blue', myBlue);
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('my-blue')
-    .accentPalette('orange')
-    .warnPalette('lime');
+    .primaryPalette('deep-orange')
+    .accentPalette('brown')
+    .warnPalette('red')
+    .backgroundPalette('grey');
 });
 
 gemCoreModule.run(($rootScope, gettextCatalog, $cookies) => {

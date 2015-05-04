@@ -25,27 +25,28 @@ export var gemAclModule = angular.module('gem.acl', [])
 
     acl.setRights = (rights) => self.rights = rights;
     acl.setRightsPromise = (rightsPromise) => self.rightsPromise = rightsPromise;
-
+    
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      console.log("$stateChangeStart");
       if (self.rights === false) {
         self.rightsPromise
         .then(
           (data) => {
             self.rights = data.roles;
             $rootScope.acl = acl;
-            acl.changeState(event,toState);
+            acl.changeState(event, toState);
           },
           (err) => {
             self.rights = [];
             $rootScope.acl = acl;
-            acl.changeState(event,toState);
+            acl.changeState(event, toState);
           }
         );
       } else {
         acl.changeState(event, toState);
       }
     });
-
+    
     acl.changeState = (event, toState) => {
       if (!toState.acl || !toState.acl.needRights) {
         return acl;

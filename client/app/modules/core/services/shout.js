@@ -13,25 +13,29 @@ export function Shout(toastr,toastrConfig, gettext) {
       progressbar: '/templates/toast/progressbar.html'
     },
   });
-  // h= heading, txt= message, response= data object (optional) for saving to log
   return {
-    error: (h,txt,response) => {
-      toastr.error(h, txt);
+    error: (msg, heading,response) => {
+      toastr.error(msg, heading);
     },
-    success: (h,txt,response) => {
-      toastr.success(h, txt);
+    success: (msg, heading,response) => {
+      toastr.success(msg, heading);
     },
-    info: (h,txt,response) => {
-      toastr.info(h, txt);
+    info: (msg, heading,response) => {
+      toastr.info(msg, heading);
     },
     sError: (message) => {
-        toastr.error(gettext("Error"), message);
+      toastr.error(message, gettext("Error"));
+    },
+    vError: (err) => {
+      console.log(err);
+      if(err.data && err.data.error && err.data.error.message)
+        toastr.error(err.data.error.message, gettext("Error"));
     },
     sSuccess: (message) => {
-      toastr.success(gettext("Success"), message);
+      toastr.success(message, gettext("Success"));
     },
     sInfo: (message) => {
-      toastr.info(gettext("Info"), message);
+      toastr.info(message, gettext("Info"));
     }
   };
 }

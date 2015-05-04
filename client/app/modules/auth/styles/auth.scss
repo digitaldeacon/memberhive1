@@ -6,11 +6,8 @@
   width: 360px;
   padding: 30px;
   margin: 0 auto;
-  background: image-url("login/bg-white-lock.png") repeat;
-  border-radius: 7px;
-
-  .rememberMe {
-    margin-top: 8px;
-    display: inline-block;
-  }
+  background-color: #fff;
+}
+.login-container {
+  background-color: rgb(63, 81, 181);
 }

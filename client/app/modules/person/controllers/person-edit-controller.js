@@ -124,6 +124,7 @@ export class PersonEditController {
    * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
   save() {
+    console.log("save");
     var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
