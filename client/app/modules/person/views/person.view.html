@@ -1,54 +1,57 @@
-<div ng-controller="PersonViewController as personCtrl" class="person-view">
+<mh-panel class="person-view">
+  <div ng-controller="PersonViewController as personCtrl">
+    <mh-panel-header>
+      {{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
+      <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
+    </mh-panel-header>
 
-  <div class="portlet-default">
+    <mh-panel-body>
+      <div class="row">
+        <div class="col-md-3">
+          <gem-avatar person="personCtrl.person" size="m" class="img-responsive"></gem-avatar>
+        </div>
 
-    <div class="row">
-      <div class="col-md-3">
-        <gem-avatar person="personCtrl.person" size="m" class="img-responsive"></gem-avatar>
-      </div>
+        <div class="col-md-9">
+          <a class="btn green-haze btn-sm pull-right" ui-sref="person.edit({ id: personCtrl.person.id })">
+            <fa name="edit"></fa>
+            <translate>Edit Person</translate>
+          </a>
 
-      <div class="col-md-9">
-        <a class="btn green-haze btn-sm pull-right" ui-sref="person.edit({ id: personCtrl.person.id })">
-          <fa name="edit"></fa>
-          <translate>Edit Person</translate>
-        </a>
-        <h1 class="topheading">
-          <b>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}}</b>
-          {{personCtrl.person.lastName}}
-          <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
-        </h1>
+          <h1 class="topheading">
 
-        <div class="row bootstrap">
-          <div class="viewport">
+          </h1>
+
+          <div class="row bootstrap">
+            <div class="viewport">
             <span ng-repeat="status in personCtrl.person.status" class="label label-primary">
               {{ status.text }}
             </span>
+            </div>
+            <div class="viewport">
+              <span ng-repeat="tag in personCtrl.person.tags" class="tag-item">{{tag.text}}</span>
+            </div>
           </div>
-          <div class="viewport">
-            <span ng-repeat="tag in personCtrl.person.tags" class="tag-item">{{tag.text}}</span>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-3">
-            <div ng-include="'modules/person/views/person.view.details.html'"></div>
+          <div class="row">
+            <div class="col-md-3">
+              <div ng-include="'modules/person/views/person.view.details.html'"></div>
+            </div>
+            <div class="col-md-3">
+              <div ng-include="'modules/person/views/person.view.contacts.html'"></div>
+            </div>
+            <div class="col-md-3">
+              <div ng-include="'modules/person/views/person.view.addresses.html'"></div>
+            </div>
           </div>
-          <div class="col-md-3">
-            <div ng-include="'modules/person/views/person.view.contacts.html'"></div>
-          </div>
-          <div class="col-md-3">
-            <div ng-include="'modules/person/views/person.view.addresses.html'"></div>
-          </div>
-        </div>
 
-        <div class="row" ng-if="personCtrl.person.household">
-          <div ng-include="'modules/person/views/person.view.household.html'"></ng-include>
-        </div>
+          <div class="row" ng-if="personCtrl.person.household">
+            <div ng-include="'modules/person/views/person.view.household.html'"></ng-include>
+            </div>
 
+          </div>
+
+        </div>
       </div>
-
-    </div>
+    </mh-panel-body>
   </div>
-
-
-</div>
+</mh-panel>
