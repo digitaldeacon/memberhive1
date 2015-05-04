@@ -16,7 +16,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var devServer = "https://localhost:3000/api";
-  var prodServer = "https://localhost:3000/api";
+  var prodServer = "https://memberhive.com:7007/api";
 
   // Configurable paths for the application
   var appConfig = {
@@ -65,6 +65,13 @@ module.exports = function(grunt) {
           output: '<%= yeoman.app %>/modules/core/services/lb-services.js',
           apiUrl: devServer
 
+        }
+      },
+      dist: {
+        options: {
+          input: 'server/server.js',
+          output: '<%= yeoman.app %>/modules/core/services/lb-services.js',
+          apiUrl: prodServer
         }
       }
     },
@@ -361,8 +368,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     //'imagemin:dist',
-    'lbservices',
-    'ngconstant:server',
+    'lbservices_dist',
+    'ngconstant:dist',
     'nggettext_compile',
     'concurrent:dist',
     'copy:dist',
@@ -387,7 +394,8 @@ module.exports = function(grunt) {
     ]);
 
   grunt.registerTask('dbmigrate', ['loopback_auto']);
-  grunt.registerTask('lbservices', ['loopback_sdk_angular','loopback_angular_addModelData']);
+  grunt.registerTask('lbservices', ['loopback_sdk_angular:services','loopback_angular_addModelData']);
+  grunt.registerTask('lbservices_dist', ['loopback_sdk_angular:dist','loopback_angular_addModelData']);
   grunt.registerTask('restApiDocs', ['lbservices', 'docular', 'docularserver']);
 
   grunt.loadNpmTasks('grunt-angular-gettext');
