@@ -1,0 +1,41 @@
+.sidebar-container {
+  background-color: #f6f6f6 !important; //overwrite .md-content
+}
+
+.sidebar-menu {
+  padding: 0;
+  list-style: none;
+}
+.sidebar-menu li {
+  margin: 0;
+}
+.sidebar-menu .md-button {
+  text-transform: none;
+  font-weight: 400;
+  width: 100%;
+  text-align: left;
+}
+
+.fadein,
+.fadeout {
+  -webkit-transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
+  -moz-transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
+  transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.fadein.ng-hide-remove,
+.fadeout.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+  display: block !important;
+}
+
+.fadeout.ng-hide-add,
+.fadein.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+  display: block !important;
+}

@@ -1,0 +1,19 @@
+<md-button ng-if="!item.children" ui-sref="{{item.route}}" ui-sref-active="md-primary">
+  <fa name="{{item.icon}}" fw></fa>
+  <span>{{item.label | translate}}</span>
+</md-button>
+
+<md-button ng-if="item.children" ng-click="toggle()">
+  <ng-md-icon size="18" icon="{{icon()}}" options='{"duration": 375, "rotation": "none"}'></ng-md-icon>
+  <fa name="{{item.icon}}" fw></fa>
+  <span>{{item.label | translate}}</span>
+</md-button>
+
+<ul ng-if="item.children" class="menu-nested-list fadein fadeout" ng-show="isOpen()" >
+  <li ng-repeat="child in item.children">
+    <md-button ui-sref="{{child.route}}" ui-sref-active="md-primary">
+      <fa name="{{child.icon}}" fw></fa>
+      <span>{{child.label | translate}}</span>
+    </md-button>
+  </li>
+</ul> 
