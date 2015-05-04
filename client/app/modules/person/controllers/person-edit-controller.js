@@ -52,6 +52,8 @@ export class PersonEditController {
   }
 
   getTitle() {
+    console.log("getTitle");
+    console.log(this.gettextCatalog.getString('Create new Person'));
     if (this.isEditing()) {
       return this.$filter('formatName')(this.person);
     } else {

@@ -11,7 +11,9 @@
 body  {
   background-color: #EFEFEF;
 }
-
+.main-container {
+  min-height: 1024px;
+}
 #content {
   margin: 24px;
 }

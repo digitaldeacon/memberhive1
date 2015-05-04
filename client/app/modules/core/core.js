@@ -4,7 +4,7 @@ import {SidebarController} from './controllers/sidebar-controller';
 
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective} from './directives/form-directives';
-import {uiNavDirective} from './directives/nav-directive';
+import {uiNavDirective,mhMenuItem} from './directives/nav-directive';
 import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
 import {Shout} from './services/shout';
 import {GemFileReader} from './services/filereader';
@@ -20,7 +20,7 @@ import {temperatureFilter} from './filters/format-filters';
  *
  * @type {module}
  */
-export var gemCoreModule = angular.module('gem.core', []);
+export var gemCoreModule = angular.module('gem.core', ['ngAnimate']);
 
 gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => {
   $urlRouterProvider.otherwise('/dashboard');
@@ -85,6 +85,7 @@ gemCoreModule.factory('GemPdf', GemPdf);
 // Directives
 gemCoreModule.directive('controlGroup', controlGroupDirective);
 gemCoreModule.directive('uiNav', uiNavDirective);
+gemCoreModule.directive('mhMenuItem', mhMenuItem);
 gemCoreModule.directive('mhPanel', mhPanelDirective);
 gemCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
 gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);
