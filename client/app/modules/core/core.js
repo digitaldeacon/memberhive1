@@ -25,9 +25,10 @@ export var gemCoreModule = angular.module('gem.core', []);
 gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => {
   $urlRouterProvider.otherwise('/dashboard');
 
-  var myBlue = $mdThemingProvider.extendPalette('blue-grey', {
-    '500': '475069'
-  });
+  var myBlue = $mdThemingProvider.extendPalette(
+    'blue-grey', 
+    {'500': '475069'}
+  );
   $mdThemingProvider.definePalette('my-blue', myBlue);
 
   $mdThemingProvider.theme('default')

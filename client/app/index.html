@@ -14,6 +14,9 @@
 
   </head>
   <body flex layout="column">
+  <div ng-if="acl.isLoggedOut()">
+  Hallo
+  </div>
     <md-toolbar layout-padding layout="row">
       <div flex data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" layout="row"> </div>
     </md-toolbar>
@@ -27,7 +30,6 @@
         <div ui-view layout="column" flex></div>
       </div>
     </div>
-
     <script src="jspm_packages/es6-module-loader.js"></script>
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>

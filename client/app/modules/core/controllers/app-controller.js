@@ -1,19 +1,8 @@
-export class AppController {
-  constructor($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state, productName, $mdSidenav) {
-    this.$rootScope = $rootScope;
-    this.$cookies = $cookies;
-    this.gettextCatalog = gettextCatalog;
-    this.$state = $state;
-    this.productName = productName;
-    this.$mdSidenav = $mdSidenav;
-
-    $scope.toggleMenu = function() {
-      $mdSidenav('menu').toggle();
-    };
-
-    $rootScope.currentUser = PersonService.currentUser();
-  }
-
+export function AppController($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state, productName, $mdSidenav, GemAcl) {
+  $scope.toggleMenu = function() {
+    $mdSidenav('menu').toggle();
+  };
+    
   /**
    * Get the title of the current page
    *
@@ -21,9 +10,9 @@ export class AppController {
    *
    * @returns {string} The formatted title
    */
-  getTitle() {
-    if (this.$state.current.hasOwnProperty('data'))
-      return `${this.$state.current.data.pageTitle} | ${this.productName}`;
-    return this.productName;
-  }
+  this.getTitle = () => {
+    if ($state.current.hasOwnProperty('data'))
+      return `${$state.current.data.pageTitle} | ${productName}`;
+    return productName;
+  };
 }

@@ -33,12 +33,12 @@ export var gemAclModule = angular.module('gem.acl', [])
           (data) => {
             self.rights = data.roles;
             $rootScope.acl = acl;
-            acl.changeState(event,toState);
+            acl.changeState(event, toState);
           },
           (err) => {
             self.rights = [];
             $rootScope.acl = acl;
-            acl.changeState(event,toState);
+            acl.changeState(event, toState);
           }
         );
       } else {
