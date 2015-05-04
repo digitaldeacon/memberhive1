@@ -23,8 +23,8 @@
         <div flex data-ng-include="'templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>
       </md-sidenav>
 
-      <div layout="column" flex id="content">
-        <md-content ui-view layout="column" flex layout-padding></md-content>
+      <div layout="column" flex id="content" layout-margin>
+        <div ui-view layout="column" flex></div>
       </div>
     </div>
 

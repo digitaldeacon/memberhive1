@@ -2,31 +2,31 @@
   <div id="builder"></div>
 </script>
 
-<div class="portlet-default report" ng-controller="ReportUpsertController as reportUpCtrl">
+<mh-panel class="report" ng-controller="ReportUpsertController as reportUpCtrl">
+  <mh-panel-header>
+    Edit Report
+  </mh-panel-header>
 
-  <div class="portlet-title tabbable-line">
-    <div class="caption caption-md">
-      <span class="caption-subject uppercase bold font-blue-madison" translate>
-        Edit: {{reportUpCtrl.report.name}}
-      </span>
-    </div>
-
-    <form name="reportBuilderForm" class="form" ng-submit="reportUpCtrl.saveReport()">
-      <tabset>
-        <tab>
-          <tab-heading>
+  <mh-panel-body>
+    <form name="reportBuilderForm" class="form" ng-submit="reportUpCtrl.saveReport()" layout-padding>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab>
+          <md-tab-label>
             <fa name="database"></fa> <translate>Report source</translate>
-          </tab-heading>
-          <div class="portlet-default tab-query" ng-include="'modules/report/views/report.upsert.tab.query.html'"></div>
-        </tab>
-
-        <tab>
-          <tab-heading>
+          </md-tab-label>
+          <md-tab-body layout-padding>
+            <div class="tab-query" layout-padding ng-include="'modules/report/views/report.upsert.tab.query.html'"></div>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
             <fa name="pencil"></fa> <translate>Report layout</translate>
-          </tab-heading>
-          <div class="portlet-default tab-layout" ng-include="'modules/report/views/report.upsert.tab.layout.html'"></div>
-        </tab>
-      </tabset>
+          </md-tab-label>
+          <md-tab-body>
+            <div class="tab-layout" layout-padding ng-include="'modules/report/views/report.upsert.tab.layout.html'"></div>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>
     </form>
-  </div>
-</div>
+  </mh-panel-body>
+</mh-panel>

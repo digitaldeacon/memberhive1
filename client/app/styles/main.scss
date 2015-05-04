@@ -8,6 +8,14 @@
 @import "input-tags";
 @import "sidebar";
 
+body  {
+  background-color: #EFEFEF !important;
+}
+
+#content {
+  margin: 24px;
+}
+
 .logo {
   padding: 15px;
   text-align: center;
