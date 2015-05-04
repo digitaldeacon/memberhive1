@@ -32,9 +32,10 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
   $mdThemingProvider.definePalette('my-blue', myBlue);
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('my-blue')
-    .accentPalette('orange')
-    .warnPalette('lime');
+    .primaryPalette('deep-orange')
+    .accentPalette('brown')
+    .warnPalette('red')
+    .backgroundPalette('grey');
 });
 
 gemCoreModule.run(($rootScope, gettextCatalog, $cookies) => {

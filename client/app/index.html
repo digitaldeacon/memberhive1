@@ -14,22 +14,25 @@
 
   </head>
   <body flex layout="column">
-  <div ng-if="acl.isLoggedOut()">
-  Hallo
-  </div>
-    <md-toolbar layout-padding layout="row">
-      <div flex data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" layout="row"> </div>
-    </md-toolbar>
+    <div ng-if="acl.isLoggedIn()">
+      <md-toolbar layout-padding layout="row" class="md-whiteframe-z2 header-toolbar">
+        <div flex data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" layout="row"> </div>
+      </md-toolbar>
 
-    <div layout="row" flex>
-      <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-left md-whiteframe-z2">
-        <div flex data-ng-include="'templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>
-      </md-sidenav>
+      <div layout="row" flex>
+        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-left md-whiteframe-z2">
+          <div flex data-ng-include="'templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>
+        </md-sidenav>
 
-      <div layout="column" flex id="content" layout-margin>
-        <div ui-view layout="column" flex></div>
+        <div layout="column" flex id="content" layout-margin>
+          <div flex ui-view layout="column" ></div>
+        </div>
       </div>
     </div>
+    <div flex ng-if="acl.isLoggedOut()" class="login-container">
+      <div flex ui-view layout="column" ></div>
+    </div>
+    
     <script src="jspm_packages/es6-module-loader.js"></script>
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>

@@ -1,8 +1,4 @@
 export function AppController($scope, $rootScope, $cookies, gettextCatalog, PersonService, $state, productName, $mdSidenav, GemAcl) {
-  $scope.toggleMenu = function() {
-    $mdSidenav('menu').toggle();
-  };
-    
   /**
    * Get the title of the current page
    *

@@ -1,7 +1,7 @@
 import 'jquery';
 import 'angular';
 import 'angular-material';
-//import 'angular-material-icons';
+import 'angular-material-icons';
 import 'bootstrap';
 import 'angular-animate';
 import 'angular-cookies';
@@ -59,7 +59,7 @@ export var gemMainModule = angular.module('gem.main', [
   'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
   'angular-confirm', 'angularMoment', 'angular-loading-bar',
-  'gettext', 'toastr', 'ncy-angular-breadcrumb',
+  'gettext', 'toastr', 'ncy-angular-breadcrumb', 'ngMdIcons',
 
   // GEM Modules
   'gem.core', // This needs to be loaded first
@@ -85,4 +85,17 @@ gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
   $rootScope.accessToken = LoopBackAuth.accessTokenId;
   var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
   GemAcl.setRightsPromise(p);
+  $rootScope.acl = GemAcl;
+  
+  p.then(
+    (data) => {
+      GemAcl.setRights(data.roles);
+      $rootScope.acl = GemAcl;
+    },
+    (err) => {
+      GemAcl.setRights([]);
+      $rootScope.acl = GemAcl;
+    }
+  );
+  
 });
