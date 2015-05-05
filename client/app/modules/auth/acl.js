@@ -27,7 +27,6 @@ export var gemAclModule = angular.module('gem.acl', [])
     acl.setRightsPromise = (rightsPromise) => self.rightsPromise = rightsPromise;
     
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-      console.log("$stateChangeStart");
       if (self.rights === false) {
         self.rightsPromise
         .then(
