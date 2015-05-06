@@ -1,6 +1,7 @@
 import 'jquery';
 import 'angular';
 import 'angular-material';
+import 'svg-morpheus'; // Animations for angular-material-icons
 import 'angular-material-icons';
 import 'bootstrap';
 import 'angular-animate';

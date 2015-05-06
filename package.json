@@ -114,6 +114,7 @@
       "ngTagsInput": "github:lunks/ngTagsInput@^3.0.0",
       "nsPopover": "github:nohros/nsPopover@^0.6.7",
       "restangular": "github:mgonto/restangular@^1.4.0",
+      "svg-morpheus": "github:alexk111/SVG-Morpheus@^0.1.8",
       "ui-codemirror": "github:angular-ui/ui-codemirror@^0.2.3"
     },
     "devDependencies": {
