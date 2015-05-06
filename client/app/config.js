@@ -28,7 +28,7 @@ System.config({
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-gettext": "github:rubenv/angular-gettext@2.0.5",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
-    "angular-material": "github:angular/bower-material@v0.9.0-rc3-master-d2f2765",
+    "angular-material": "github:angular/bower-material@0.9.0",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
     "angular-moment": "npm:angular-moment@0.9.2",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
@@ -89,13 +89,7 @@ System.config({
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
-    "github:angular/bower-material@0.8.3": {
-      "angular": "github:angular/bower-angular@1.3.15",
-      "angular-animate": "github:angular/bower-angular-animate@1.3.15",
-      "angular-aria": "github:angular/bower-angular-aria@1.3.15",
-      "css": "github:systemjs/plugin-css@0.1.10"
-    },
-    "github:angular/bower-material@v0.9.0-rc3-master-d2f2765": {
+    "github:angular/bower-material@0.9.0": {
       "angular": "github:angular/bower-angular@1.3.15",
       "angular-animate": "github:angular/bower-angular-animate@1.3.15",
       "angular-aria": "github:angular/bower-angular-aria@1.3.15",
