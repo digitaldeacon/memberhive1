@@ -52,8 +52,6 @@ export class PersonEditController {
   }
 
   getTitle() {
-    console.log("getTitle");
-    console.log(this.gettextCatalog.getString('Create new Person'));
     if (this.isEditing()) {
       return this.$filter('formatName')(this.person);
     } else {
@@ -126,7 +124,6 @@ export class PersonEditController {
    * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
   save() {
-    console.log("save");
     var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
@@ -147,10 +144,14 @@ export class PersonEditController {
   }
 
   saveAndClose() {
-    console.log("asdf");
     this.save().then(() => {
-      console.log("hai");
       this.$state.go('person.list');
+    });
+  }
+
+  saveAndNew() {
+    this.save().then(() => {
+      this.$state.go('person.create');
     });
   }
 
