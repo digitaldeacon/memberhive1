@@ -12,14 +12,9 @@
         </div>
 
         <div class="col-md-9">
-          <a class="btn green-haze btn-sm pull-right" ui-sref="person.edit({ id: personCtrl.person.id })">
-            <fa name="edit"></fa>
-            <translate>Edit Person</translate>
-          </a>
-
-          <h1 class="topheading">
-
-          </h1>
+          <md-button class="md-fab pull-right" ui-sref="person.edit({ id: personCtrl.person.id })">
+            <ng-md-icon icon="edit"></ng-md-icon>
+          </md-button>
 
           <div class="row bootstrap">
             <div class="viewport">
@@ -45,9 +40,7 @@
           </div>
 
           <div class="row" ng-if="personCtrl.person.household">
-            <div ng-include="'modules/person/views/person.view.household.html'"></ng-include>
-            </div>
-
+            <div ng-include="'modules/person/views/person.view.household.html'"></div>
           </div>
 
         </div>
