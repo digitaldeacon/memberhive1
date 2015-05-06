@@ -89,12 +89,6 @@ System.config({
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
-    "github:angular/bower-material@0.8.3": {
-      "angular": "github:angular/bower-angular@1.3.15",
-      "angular-animate": "github:angular/bower-angular-animate@1.3.15",
-      "angular-aria": "github:angular/bower-angular-aria@1.3.15",
-      "css": "github:systemjs/plugin-css@0.1.10"
-    },
     "github:angular/bower-material@v0.9.0-rc3-master-d2f2765": {
       "angular": "github:angular/bower-angular@1.3.15",
       "angular-animate": "github:angular/bower-angular-animate@1.3.15",
