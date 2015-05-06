@@ -19,7 +19,7 @@ System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
-    "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.1",
+    "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
     "angular-bootstrap-select": "github:joaoneto/angular-bootstrap-select@0.1.0-rc2",
     "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@0.3.3",
     "angular-confirm": "github:Schlogen/angular-confirm@master",
@@ -65,9 +65,6 @@ System.config({
     "traceur": "github:jmcriffey/bower-traceur@0.0.87",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87",
     "ui-codemirror": "github:angular-ui/ui-codemirror@0.2.3",
-    "github:angular-ui/bootstrap-bower@0.12.1": {
-      "angular": "github:angular/bower-angular@1.2.28"
-    },
     "github:angular-ui/ui-codemirror@0.2.3": {
       "npm:codemirror": "npm:codemirror@5.2.0"
     },
@@ -162,7 +159,7 @@ System.config({
     },
     "github:sdorra/angular-dashboard-framework@0.7.0": {
       "angular": "github:angular/bower-angular@1.2.28",
-      "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.1",
+      "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
       "jquery": "github:components/jquery@2.1.3",
       "jquery-ui": "github:components/jqueryui@1.11.4",
