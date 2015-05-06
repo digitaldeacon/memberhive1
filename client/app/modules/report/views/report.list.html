@@ -26,20 +26,15 @@
             </a>
           </td>
           <td class="actions">
-            <a class="btn btn-sm btn-default" tooltip="{{'Edit' | translate}}" aria-label="{{'Edit' | translate}}"
-               ui-sref='report.edit({id:report.id})'>
-              <fa name="edit"></fa>
-            </a>
-            <a class="btn btn-sm btn-default" tooltip="{{'Duplicate' | translate}}" aria-label="{{'Duplicate' | translate}}"
-               ng-click="reportCtrl.duplicate(report)"
-               confirm="Duplicate “{{report.name}}”?">
-              <fa name="paste"></fa>
-            </a>
-            <a class="btn btn-sm btn-default" tooltip="{{'Delete' | translate}}" aria-label="{{'Delete' | translate}}"
-               ng-click="reportCtrl.deleteReport(report)"
-               confirm="Delete “{{report.name}}”?">
-              <fa name="trash"></fa>
-            </a>
+            <md-button class="md-icon-button " tooltip="{{'Duplicate' | translate}}" aria-label="{{'Duplicate' | translate}}"
+                       ng-click="reportCtrl.duplicate(report)" confirm="Duplicate “{{report.name}}”?">
+              <ng-md-icon icon="content_copy"></ng-md-icon>
+            </md-button>
+            <md-button class="md-icon-button " tooltip="{{'Delete' | translate}}" aria-label="{{'Delete' | translate}}"
+                       ng-click="reportCtrl.deleteReport(report)"
+                       confirm="Delete “{{report.name}}”?">
+              <ng-md-icon icon="delete"></ng-md-icon>
+            </md-button>
           </td>
         </tr>
         </tbody>
