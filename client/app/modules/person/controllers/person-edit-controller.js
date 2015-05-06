@@ -90,13 +90,13 @@ export class PersonEditController {
       reader.onload = (event) => {
         this.$scope.$apply(() => {
           image.addEventListener('load', () => {
-            if (this.checkImage(image)) {
-              this.avatarChanged = true;
-              this.uploadedAvatar = event.target.result;
-            } else {
-              this.Shout.error(this.gettextCatalog.getString('Please select an image that is at least 800x800 pixels.'));
-              this.uploadedAvatar = null;
+            if (!this.checkImage(image)) {
+              this.Shout.info(this.gettextCatalog.getString(
+                'For best results the image should be at least 800x800 pixels.'));
             }
+            this.avatarChanged = true;
+            this.uploadedAvatar = event.target.result;
+
           });
           image.src = event.target.result;
 
