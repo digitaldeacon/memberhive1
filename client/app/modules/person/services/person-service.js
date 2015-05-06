@@ -17,8 +17,8 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             'account',
             {
               'household': [
-                {'persons': 'relationType'},
-                'address'
+                {'persons': 'relationType'}
+                // 'address'
               ]
             },
             'ministries',
