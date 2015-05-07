@@ -46,31 +46,31 @@
     <label translate>Title</label>
     <input ng-model="person.prefix">
   </md-input-container>
-  
+
   <md-input-container flex>
     <label translate>First Name</label>
     <input ng-model="person.firstName">
   </md-input-container>
 
-  
+
   <md-input-container flex>
     <label translate>Nickname</label>
     <input ng-model="person.nickName">
   </md-input-container>
 
-  
+
   <md-input-container flex>
     <label translate>Middle Name</label>
     <input ng-model="person.middleName">
   </md-input-container>
 
-  
+
   <md-input-container flex>
     <label translate>Last Name</label>
     <input ng-model="person.lastName">
   </md-input-container>
 
-  
+
   <md-input-container flex>
     <label translate>Suffix</label>
     <input ng-model="person.suffix">
@@ -103,27 +103,28 @@
 <div class="col-md-6">
   <h3 translate>Contact Info</h3>
   <md-input-container flex>
-    <md-select ng-model="person.primaryContact">
-      <md-select-label translate>Select primary contact type...</md-select-label>
-      <md-option ng-value="opt" ng-repeat="opt in personCtrl.primaryContactTypes">{{ opt }}</md-option>
+    <md-select ng-model="person.primaryContact" placeholder="{{'Primary Contact Method...'|translate}}">
+      <md-option ng-repeat="opt in personCtrl.primaryContactTypes">{{opt}}</md-option>
     </md-select>
+    <p class="md-caption" ng-show="person.primaryContact" translate>Your primary contact method is {{person.primaryContact}}</p>
+    <p class="md-caption" ng-hide="person.primaryContact" translate>Please select your primary contact method</p>
   </md-input-container>
-  
+
   <md-input-container flex>
     <label><fa name="envelope"></fa> <span translate>EMail</span></label>
     <input ng-model="person.email">
   </md-input-container>
-  
+
   <md-input-container flex>
     <label><fa name="phone"></fa> <span translate>Home Phone</span></label>
     <input ng-model="personCtrl.person.contact.home">
   </md-input-container>
-  
+
   <md-input-container flex>
     <label><fa name="phone-square"></fa> <span translate>Work Phone</span></label>
     <input ng-model="personCtrl.person.contact.work">
   </md-input-container>
-  
+
   <md-input-container flex>
     <label><fa name="mobile-phone"></fa> <span translate>Mobile Phone</span></label>
     <input ng-model="personCtrl.person.contact.mobile">
@@ -133,12 +134,12 @@
     <label><fa name="fay"></fa> <span translate>Fax</span></label>
     <input ng-model="personCtrl.person.contact.fax">
   </md-input-container>
-  
+
   <md-input-container flex>
     <label><fa name="facebook"></fa> <span translate>Facebook Username</span></label>
     <input ng-model="personCtrl.person.contact.facebook">
   </md-input-container>
-  
+
   <md-input-container flex>
     <label><fa name="skype"></fa> <span translate>Skype Name</span></label>
     <input ng-model="personCtrl.person.contact.skype">
