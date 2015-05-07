@@ -127,6 +127,9 @@ export class PersonEditController {
     var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
+    // Make sure the household is saved
+    this.person.householdId = this.person.household ? this.person.household.id : '';
+
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
     promises.push(this.Person.upsert({}, this.person));
