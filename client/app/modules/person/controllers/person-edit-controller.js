@@ -127,7 +127,7 @@ export class PersonEditController {
     var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
-    // Make sure the household is saved
+    // Make sure the household is saved (`person.householdId` doesn't get updated)
     this.person.householdId = this.person.household ? this.person.household.id : '';
 
     // Use upsert() instead of $save() since $save will drop related data.
