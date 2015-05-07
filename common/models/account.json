@@ -7,8 +7,7 @@
     }
   },
   "validations": [],
-  "relations": {
-  },
+  "relations": {},
   "acls": [
     {
       "principalType": "ROLE",

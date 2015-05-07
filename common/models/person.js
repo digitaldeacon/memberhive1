@@ -87,7 +87,7 @@ module.exports = function(Person) {
     {
       accepts: {
         arg: 'id',
-        type: 'int',
+        type: 'string',
         required: true
       }
     }
