@@ -23,15 +23,26 @@ export function AvatarDirective(apiUrl) {
     },
 
     link: function(scope, element, attrs) {
-      if (scope.person.hasAvatar) {
-        scope.imgSrc = `${apiUrl}/Avatars/${scope.person.id}/download/${scope.size}.jpg`;
-      } else {
-        scope.imgSrc = `/images/avatar/${scope.size}.jpg`;
-      }
-
       scope.imgClass = '';
       if (attrs.circle !== undefined)
         scope.imgClass = 'img-circle';
+
+      var setImgSrc = function() {
+        if (scope.person.hasAvatar) {
+          scope.imgSrc = `${apiUrl}/Avatars/${scope.person.id}/download/${scope.size}.jpg`;
+        } else {
+          scope.imgSrc = `/images/avatar/${scope.size}.jpg`;
+        }
+      };
+
+      // Hack: When scope.person is not yet resolved, we need to wait until it is.
+      if (scope.person.$promise) {
+        scope.person.$promise.then(() => {
+          setImgSrc();
+        });
+      } else {
+        setImgSrc();
+      }
     }
 
   };
