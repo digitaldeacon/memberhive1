@@ -51,8 +51,7 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.10",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
-    "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@2.0.1",
-    "jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
+    "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@2.1.0",
     "jquery": "github:components/jquery@2.1.3",
     "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.7.0",
@@ -146,9 +145,8 @@ System.config({
       "angular": "github:angular/bower-angular@1.3.15",
       "lodash": "npm:lodash@3.7.0"
     },
-    "github:mistic100/jQuery-QueryBuilder@2.0.1": {
+    "github:mistic100/jQuery-QueryBuilder@2.1.0": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
       "jquery": "github:components/jquery@2.1.3",
       "moment": "npm:moment@2.10.2"
     },

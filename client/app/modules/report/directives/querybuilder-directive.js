@@ -1,4 +1,4 @@
-export function QueryBuilderDirective($q) {
+export function QueryBuilderDirective($rootScope) {
   return {
     templateUrl: '/queryBuilderDirective.html',
     controller: 'ReportUpsertController',
@@ -10,7 +10,8 @@ export function QueryBuilderDirective($q) {
           iElement.queryBuilder({
             allow_empty: true,//jshint ignore:line
             plugins: ['sortable'], //bt-tooltip-errors
-            filters: controller.setBuilderFilters()
+            filters: controller.setBuilderFilters(),
+            lang_code: $rootScope.locale.lang // jshint ignore:line
           });
 
           if (controller.report) {

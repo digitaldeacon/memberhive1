@@ -3,7 +3,8 @@ import 'codemirror/lib/codemirror.css!';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'ui-codemirror';
 
-import 'jQuery-QueryBuilder';
+import 'jQuery-QueryBuilder/dist/js/query-builder.standalone';
+import 'jQuery-QueryBuilder/dist/i18n/query-builder.de';
 import 'bootstrap-datepicker/js/bootstrap-datepicker';
 
 import {ReportListController} from './controllers/report-list-controller';
