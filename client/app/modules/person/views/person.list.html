@@ -88,21 +88,21 @@
             </ul>
           </td>
           <td>
-        <span ng-repeat="status in person.status" class="label label-primary">
-          {{ status.text }}
-        </span>
+            <span ng-repeat="status in person.status" class="label label-primary">
+              {{ status.text }}
+            </span>
           </td>
           <td>
-        <span ng-repeat="tag in person.tags" class="label label-success">
-          {{ tag.text }}
-        </span>
+            <span ng-repeat="tag in person.tags" class="label label-success">
+              {{ tag.text }}
+            </span>
           </td>
           <td class="actions">
-            <md-button class="md-icon-button " tooltip="{{'Edit' | translate}}"
+            <md-button class="md-icon-button " tooltip="{{'Edit' | translate}}" aria-label="{{'Edit' | translate}}"
                        ui-sref="person.edit({ id: person.id })">
               <ng-md-icon icon="edit"></ng-md-icon>
             </md-button>
-            <md-button class="md-icon-button " tooltip="{{'Delete' | translate}}"
+            <md-button class="md-icon-button " tooltip="{{'Delete' | translate}}" aria-label="{{'Delete' | translate}}"
                        ng-click="personCtrl.deletePerson(person)" href="#"
                        confirm="Delete “{{::person | formatName}}”?">
               <ng-md-icon icon="delete"></ng-md-icon>

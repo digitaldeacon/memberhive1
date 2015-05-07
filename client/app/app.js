@@ -1,6 +1,7 @@
 import 'jquery';
 import 'angular';
 import 'angular-material';
+import 'svg-morpheus'; // Animations for angular-material-icons
 import 'angular-material-icons';
 import 'bootstrap';
 import 'angular-animate';
@@ -54,7 +55,7 @@ import {gemCalendarModule} from 'modules/calendar/calendar';
  * The main app module.
  */
 export var gemMainModule = angular.module('gem.main', [
-  'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch',
+  'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch', 'ngAria',
   'ui.router', 'ui.bootstrap',  'ui.select',
   'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
@@ -86,7 +87,7 @@ gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
   var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
   GemAcl.setRightsPromise(p);
   $rootScope.acl = GemAcl;
-  
+
   p.then(
     (data) => {
       GemAcl.setRights(data.roles);
@@ -97,5 +98,5 @@ gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
       $rootScope.acl = GemAcl;
     }
   );
-  
+
 });

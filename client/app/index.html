@@ -11,7 +11,6 @@
     <link rel="icon" href="/favicon.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script>
   </head>
   <body flex layout="column">
     <div ng-if="acl.isLoggedIn()">
@@ -32,7 +31,7 @@
     <div flex ng-if="acl.isLoggedOut()" class="login-container">
       <div flex ui-view layout="column" ></div>
     </div>
-    
+
     <script src="jspm_packages/es6-module-loader.js"></script>
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>

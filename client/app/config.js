@@ -19,7 +19,7 @@ System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
-    "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.1",
+    "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
     "angular-bootstrap-select": "github:joaoneto/angular-bootstrap-select@0.1.0-rc2",
     "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@0.3.3",
     "angular-confirm": "github:Schlogen/angular-confirm@master",
@@ -28,7 +28,7 @@ System.config({
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-gettext": "github:rubenv/angular-gettext@2.0.5",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
-    "angular-material": "github:angular/bower-material@v0.9.0-rc3-master-d2f2765",
+    "angular-material": "github:angular/bower-material@0.9.0",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
     "angular-moment": "npm:angular-moment@0.9.2",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
@@ -62,12 +62,10 @@ System.config({
     "ngTagsInput": "github:lunks/ngTagsInput@3.0.0",
     "nsPopover": "github:nohros/nsPopover@0.6.7",
     "restangular": "github:mgonto/restangular@1.5.1",
+    "svg-morpheus": "github:alexk111/SVG-Morpheus@0.1.8",
     "traceur": "github:jmcriffey/bower-traceur@0.0.87",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87",
     "ui-codemirror": "github:angular-ui/ui-codemirror@0.2.3",
-    "github:angular-ui/bootstrap-bower@0.12.1": {
-      "angular": "github:angular/bower-angular@1.2.28"
-    },
     "github:angular-ui/ui-codemirror@0.2.3": {
       "npm:codemirror": "npm:codemirror@5.2.0"
     },
@@ -89,7 +87,7 @@ System.config({
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
-    "github:angular/bower-material@v0.9.0-rc3-master-d2f2765": {
+    "github:angular/bower-material@0.9.0": {
       "angular": "github:angular/bower-angular@1.3.15",
       "angular-animate": "github:angular/bower-angular-animate@1.3.15",
       "angular-aria": "github:angular/bower-angular-aria@1.3.15",
@@ -162,7 +160,7 @@ System.config({
     },
     "github:sdorra/angular-dashboard-framework@0.7.0": {
       "angular": "github:angular/bower-angular@1.2.28",
-      "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.1",
+      "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
       "bootstrap": "github:twbs/bootstrap@3.3.4",
       "jquery": "github:components/jquery@2.1.3",
       "jquery-ui": "github:components/jqueryui@1.11.4",
