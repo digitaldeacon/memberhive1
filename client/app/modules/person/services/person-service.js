@@ -57,10 +57,6 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
       Avatar.destroyContainer({container: person.id});
     },
 
-    delete: (personId, cb) => {
-      Person.trash({id: personId}).$promise.then(cb);
-    },
-
     /**
      * Return a list of available Households
      */
