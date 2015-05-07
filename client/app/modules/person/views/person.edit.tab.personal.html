@@ -103,7 +103,7 @@
 <div class="col-md-6">
   <h3 translate>Contact Info</h3>
   <md-input-container flex>
-    <md-select ng-model="person.primaryContact" placeholder="{{'Primary Contact Method...'|translate}}">
+    <md-select ng-model="person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
       <md-option ng-repeat="opt in personCtrl.primaryContactTypes">{{opt}}</md-option>
     </md-select>
     <p class="md-caption" ng-show="person.primaryContact" translate>Your primary contact method is {{person.primaryContact}}</p>
@@ -145,19 +145,19 @@
     <input ng-model="personCtrl.person.contact.skype">
   </md-input-container>
 
-
   <h3 translate>Household</h3>
-
-  <div class="control-group">
-    <ui-select ng-model="person.household"
-               theme="bootstrap">
-      <ui-select-match placeholder="{{'Select household...' | translate}}">
-        {{$select.selected.householdName}}
-      </ui-select-match>
-      <ui-select-choices repeat="household in personCtrl.households | filter:$select.search">
-        <div ng-bind-html="household.householdName | highlight: $select.search"></div>
-      </ui-select-choices>
-    </ui-select>
-  </div>
+  <md-autocomplete
+    md-selected-item="person.household"
+    md-search-text="householdSearchText"
+    md-items="household in personCtrl.households | filter:householdSearchText"
+    md-item-text="household.householdName"
+    placeholder="{{'Select Household'|translate}}">
+    <md-item-template>
+      <span md-highlight-text="householdSearchText">{{household.householdName}}</span>
+    </md-item-template>
+    <md-not-found>
+      <translate>No matches found for "{{householdSearchText}}".</translate>
+    </md-not-found>
+  </md-autocomplete>
 
 </div>
