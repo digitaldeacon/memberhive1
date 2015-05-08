@@ -1,7 +1,6 @@
 export class ReportUpsertController {
 
-  constructor($scope, Report, ReportService, Person, LoopBackAuth, gettextCatalog, Shout, $stateParams,
-              QueryBuilderModelService) {
+  constructor($scope, Report, ReportService, Person, gettextCatalog, Shout, $stateParams, QueryBuilderModelService) {
     this.$scope = $scope;
     this.Report = Report;
     this.ReportService = ReportService;
@@ -29,6 +28,7 @@ export class ReportUpsertController {
   }
 
   saveReport() {
+    console.log("Save report");
     this.report.name = this.$scope.reportUpCtrl.report.name;
     this.report.html = this.$scope.reportUpCtrl.report.html;
     this.ReportService.save(this.report);

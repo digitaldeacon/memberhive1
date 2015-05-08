@@ -27,8 +27,8 @@ export class PersonEditController {
     this.avatarDeleted = false;
     this.isEditingAvatar = false;
 
-    $scope.datepickerOpened = false;
-
+    this.datepickerBirthdateOpened = false;
+    this.datepickerBaptismDateOpened = false;
   }
 
   loadTags(query) {
@@ -52,8 +52,6 @@ export class PersonEditController {
   }
 
   getTitle() {
-    console.log("getTitle");
-    console.log(this.gettextCatalog.getString('Create new Person'));
     if (this.isEditing()) {
       return this.$filter('formatName')(this.person);
     } else {
@@ -61,8 +59,20 @@ export class PersonEditController {
     }
   }
 
-  openDatepicker() {
-    this.$scope.datepickerOpened = true;
+  openBirthdateDatepicker(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.datepickerBaptismDateOpened = false;
+    this.datepickerBirthdateOpened = true;
+  }
+
+  openBaptismDateDatepicker(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.datepickerBirthdateOpened = false;
+    this.datepickerBaptismDateOpened = true;
   }
 
   editAvatar() {
@@ -92,13 +102,13 @@ export class PersonEditController {
       reader.onload = (event) => {
         this.$scope.$apply(() => {
           image.addEventListener('load', () => {
-            if (this.checkImage(image)) {
-              this.avatarChanged = true;
-              this.uploadedAvatar = event.target.result;
-            } else {
-              this.Shout.error(this.gettextCatalog.getString('Please select an image that is at least 800x800 pixels.'));
-              this.uploadedAvatar = null;
+            if (!this.checkImage(image)) {
+              this.Shout.info(this.gettextCatalog.getString(
+                'For best results the image should be at least 800x800 pixels.'));
             }
+            this.avatarChanged = true;
+            this.uploadedAvatar = event.target.result;
+
           });
           image.src = event.target.result;
 
@@ -126,9 +136,11 @@ export class PersonEditController {
    * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
   save() {
-    console.log("save");
     var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
+
+    // Make sure the household is saved (`person.householdId` doesn't get updated)
+    this.person.householdId = this.person.household ? this.person.household.id : '';
 
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
@@ -147,10 +159,14 @@ export class PersonEditController {
   }
 
   saveAndClose() {
-    console.log("asdf");
     this.save().then(() => {
-      console.log("hai");
       this.$state.go('person.list');
+    });
+  }
+
+  saveAndNew() {
+    this.save().then(() => {
+      this.$state.go('person.create');
     });
   }
 

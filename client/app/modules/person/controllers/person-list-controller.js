@@ -30,7 +30,9 @@ export class PersonListController {
   }
 
   deletePerson(person) {
-    this.PersonService.delete(person.id, this.getPersons);
+    this.Person.trash({id: person.id}, () => {
+      this.getPersons();
+    });
   }
 
 }

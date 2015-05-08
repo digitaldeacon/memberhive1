@@ -17,8 +17,8 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             'account',
             {
               'household': [
-                {'persons': 'relationType'},
-                'address'
+                {'persons': 'relationType'}
+                // 'address'
               ]
             },
             'ministries',
@@ -55,10 +55,6 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
 
     deleteAvatar: (person) => {
       Avatar.destroyContainer({container: person.id});
-    },
-
-    delete: (personId, cb) => {
-      Person.trash({id: personId}).$promise.then(cb);
     },
 
     /**

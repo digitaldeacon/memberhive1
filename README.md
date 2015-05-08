@@ -6,7 +6,7 @@ Make sure you have the following requirements installed:
 * git 
 * g++ compiler
 * ruby-dev (e.g. ruby1.9.1-dev), compass
-* MongoDB
+* MongoDB 2.6
 * libpng-dev
 
 Install process
@@ -33,6 +33,12 @@ Install process
  
  After that, run `grunt dbmigrate`, which will create the collections and update them if the model changes.
  This task is also run each time the grunt default or `serve` task is executed.
+
+## Example data
+
+To get started with some example data, import the data in `resources/exampledata` using `mongoimport`, e.g.:
+
+`mongoimport --db memberhive-dev resources/exampledata/Person.json`
 
 ## Translations
 

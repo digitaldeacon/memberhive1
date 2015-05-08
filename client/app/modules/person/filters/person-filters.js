@@ -12,7 +12,7 @@ angular.module('personFilters', [])
   .filter('formatName', function() {
     return function(person) {
       var ret = person.firstName;
-      if(person.middleName)
+      if (person.middleName)
         ret += ' ' + person.middleName;
       ret += ' ' + person.lastName;
       if (person.nickName)
@@ -26,7 +26,7 @@ angular.module('personFilters', [])
       if(person.middleName)
         ret += ' ' + person.middleName;
       if (person.nickName)
-        ret += + ' (' + person.nickName+')';
+        ret += ' (' + person.nickName + ')';
       return ret;
     };
   });

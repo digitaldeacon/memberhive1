@@ -36,7 +36,6 @@ System.config({
     "angular-toastr": "github:Foxandxss/angular-toastr@1.2.1",
     "angular-touch": "github:angular/bower-angular-touch@1.3.15",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.13",
-    "angular-ui-select": "github:angular-ui/ui-select@0.11.2",
     "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@2.2.0",
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.3",
     "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
@@ -51,8 +50,7 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.10",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
-    "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@2.0.1",
-    "jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
+    "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@2.1.0",
     "jquery": "github:components/jquery@2.1.3",
     "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.7.0",
@@ -146,9 +144,8 @@ System.config({
       "angular": "github:angular/bower-angular@1.3.15",
       "lodash": "npm:lodash@3.7.0"
     },
-    "github:mistic100/jQuery-QueryBuilder@2.0.1": {
+    "github:mistic100/jQuery-QueryBuilder@2.1.0": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "jQuery.extendext": "github:mistic100/jQuery.extendext@0.1.1",
       "jquery": "github:components/jquery@2.1.3",
       "moment": "npm:moment@2.10.2"
     },

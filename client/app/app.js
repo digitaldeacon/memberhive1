@@ -13,7 +13,6 @@ import 'angular-fontawesome';
 import 'angular-ui-router';
 import 'angular-bootstrap';
 import 'bootstrap-select';
-import 'angular-ui-select';
 import 'angular-bootstrap-select';
 
 import 'angular-gettext';
@@ -30,7 +29,6 @@ import 'bootstrap/css/bootstrap-theme.css!';
 import 'font-awesome/css/font-awesome.css!';
 import 'github:silviomoreto/bootstrap-select/dist/css/bootstrap-select.css!';
 import 'angular-loading-bar/build/loading-bar.css!';
-import 'angular-ui-select/dist/select.min.css!';
 
 // Own CSS
 import 'styles/material.css!';
@@ -56,7 +54,7 @@ import {gemCalendarModule} from 'modules/calendar/calendar';
  */
 export var gemMainModule = angular.module('gem.main', [
   'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch', 'ngAria',
-  'ui.router', 'ui.bootstrap',  'ui.select',
+  'ui.router', 'ui.bootstrap',
   'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
   'angular-confirm', 'angularMoment', 'angular-loading-bar',

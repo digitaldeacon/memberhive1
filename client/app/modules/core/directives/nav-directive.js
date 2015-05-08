@@ -20,18 +20,17 @@ export function mhMenuItem() {
     templateUrl: 'modules/core/templates/menu-item.html',
     link: function($scope, $element) {
       var scope = $scope.$new();
-      var self = this;
       scope.open = false;
       scope.icon = 'keyboard_arrow_down';
-      
+
       $scope.isOpen = function() {
         return scope.open;
       };
-      
+
       $scope.icon = () => {
         return scope.icon;
       };
-      
+
       $scope.toggle = function() {
         scope.open = !scope.open;
         if(scope.open) {
@@ -40,7 +39,7 @@ export function mhMenuItem() {
            scope.icon = 'keyboard_arrow_down';
         }
       };
-      
+
     }
   };
 }
@@ -55,7 +54,6 @@ export function mhDropdownMenu() {
     templateUrl: 'modules/core/templates/dropdown-menu.html',
      link: function($scope, $element) {
       var scope = $scope.$new();
-      var self = this;
       scope.open = false;
       $scope.toggle = () => {
         scope.open = !scope.open;
@@ -82,7 +80,7 @@ export function mhOutsideClick($document) {
   return {
     link: function( $scope, $element, $attributes ){
         var scopeExpression = $attributes.mhOutsideClick;
-        
+
         var onDocumentClick = function(event){
           var el = angular.element(event.target);
           console.log(el.hasClass('mh-toggle-button'));

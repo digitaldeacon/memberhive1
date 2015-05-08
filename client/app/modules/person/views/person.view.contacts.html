@@ -18,7 +18,7 @@
     <small class="text-muted" translate>Mobile</small>
   </li>
 
-  <li ng-if="personCtrl.person.contact" title="{{'Fax' | translate}}">
+  <li ng-if="personCtrl.person.contact.fax" title="{{'Fax' | translate}}">
     <fa name="fax"></fa> <a href="tel:{{ ::personCtrl.person.contact.fax}}">{{ ::personCtrl.person.contact.fax}}</a>
     <small class="text-muted" translate>Fax</small>
   </li>
