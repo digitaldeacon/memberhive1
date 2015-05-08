@@ -9,6 +9,9 @@
     },
     "contactTitle": {
       "type": "string"
+    },
+    "address": {
+      "type": "object"
     }
   },
   "validations": [],
