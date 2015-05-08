@@ -27,7 +27,8 @@ export class PersonEditController {
     this.avatarDeleted = false;
     this.isEditingAvatar = false;
 
-    this.datepickerOpened = false;
+    this.datepickerBirthdateOpened = false;
+    this.datepickerBaptismDateOpened = false;
   }
 
   loadTags(query) {
@@ -58,11 +59,20 @@ export class PersonEditController {
     }
   }
 
-  openDatepicker(event) {
+  openBirthdateDatepicker(event) {
     event.preventDefault();
     event.stopPropagation();
 
-    this.datepickerOpened = true;
+    this.datepickerBaptismDateOpened = false;
+    this.datepickerBirthdateOpened = true;
+  }
+
+  openBaptismDateDatepicker(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.datepickerBirthdateOpened = false;
+    this.datepickerBaptismDateOpened = true;
   }
 
   editAvatar() {

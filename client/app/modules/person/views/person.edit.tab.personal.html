@@ -80,10 +80,24 @@
     <label for="birthdate" translate>Birthdate</label>
     <div class="input-group">
       <input type="text" id="birthdate" class="form-control" datepicker-popup ng-model="person.birthdate"
-             is-open="personCtrl.datepickerOpened" close-text="{{'Close' | translate}}"
-             ng-click="personCtrl.openDatepicker($event)" />
+             is-open="personCtrl.datepickerBirthdateOpened" close-text="{{'Close' | translate}}"
+             ng-click="personCtrl.openBirthdateDatepicker($event)" />
       <span class="input-group-btn">
-        <button type="button" class="btn btn-default" ng-click="personCtrl.openDatepicker($event)">
+        <button type="button" class="btn btn-default" ng-click="personCtrl.openBirthdateDatepicker($event)">
+          <i class="glyphicon glyphicon-calendar"></i>
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label for="birthdate" translate>Baptism Date</label>
+    <div class="input-group">
+      <input type="text" id="baptismDate" class="form-control" datepicker-popup ng-model="person.baptismDate"
+             is-open="personCtrl.datepickerBaptismDateOpened" close-text="{{'Close' | translate}}"
+             ng-click="personCtrl.openBaptismDateDatepicker($event)" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="personCtrl.openBaptismDateDatepicker($event)">
           <i class="glyphicon glyphicon-calendar"></i>
         </button>
       </span>
