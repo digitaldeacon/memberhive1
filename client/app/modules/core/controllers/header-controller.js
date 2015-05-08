@@ -1,4 +1,4 @@
-export function HeaderController($scope, $state, $q, Search) {
+export function HeaderController($scope, $state, Search) {
   this.searchText = '';
 
 
@@ -20,12 +20,8 @@ export function HeaderController($scope, $state, $q, Search) {
     $scope.component = this.getComponent();
   });
 
-
-  this.searchTextChanged = (text) => {
-    console.log('Text changed to ' + text);
-  };
   this.selectedItemChange = (item) =>  {
-    console.log('Item changed to ' + JSON.stringify(item));
+    $state.go('person.view', {id: item.id});
   };
 
 }

@@ -8,11 +8,11 @@
       md-min-length="3"
       placeholder="{{'Search…'|translate}}"
       md-selected-item="headerCtrl.selectedItem"
-      md-search-text-change="headerCtrl.searchTextChanged(headerCtrl.searchText)"
       md-selected-item-change="headerCtrl.selectedItemChange(item)"
       class="header-search"
     >
 
+    <gem-avatar person="item" circle size="xs"></gem-avatar>
     <span md-highlight-text="headerCtrl.searchText" md-highlight-flags="^i">
       {{item | formatName}}
     </span>
