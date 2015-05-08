@@ -20,13 +20,8 @@ export function HeaderController($scope, $state, Search) {
     $scope.component = this.getComponent();
   });
 
-
-  this.searchTextChanged = (text) => {
-    console.log('Text changed to ' + text);
-  };
   this.selectedItemChange = (item) =>  {
     $state.go('person.view', {id: item.id});
-    console.log('Item changed to ' + JSON.stringify(item));
   };
 
 }
