@@ -26,15 +26,15 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
   $urlRouterProvider.otherwise('/dashboard');
 
   var myBlue = $mdThemingProvider.extendPalette(
-    'blue-grey', 
+    'blue-grey',
     {'500': '475069'}
   );
   $mdThemingProvider.definePalette('my-blue', myBlue);
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('deep-orange')
-    .accentPalette('brown')
-    .warnPalette('red')
+    .primaryPalette('orange')
+    .accentPalette('deep-orange')
+    .warnPalette('lime')
     .backgroundPalette('grey');
 });
 
