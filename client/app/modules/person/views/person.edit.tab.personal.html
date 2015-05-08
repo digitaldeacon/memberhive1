@@ -76,14 +76,14 @@
     <input ng-model="person.suffix">
   </md-input-container>
 
-
   <div class="control-group">
     <label for="birthdate" translate>Birthdate</label>
     <div class="input-group">
-      <input type="text" id="birthdate" class="form-control" datepicker-popup="{{format}}" ng-model="person.birthdate"
-             is-open="datepickerOpened" close-text="{{'Close' | translate}}" ng-click="personCtrl.openDatepicker()" />
+      <input type="text" id="birthdate" class="form-control" datepicker-popup ng-model="person.birthdate"
+             is-open="personCtrl.datepickerOpened" close-text="{{'Close' | translate}}"
+             ng-click="personCtrl.openDatepicker($event)" />
       <span class="input-group-btn">
-        <button type="button" class="btn btn-default" ng-click="personCtrl.openDatepicker()">
+        <button type="button" class="btn btn-default" ng-click="personCtrl.openDatepicker($event)">
           <i class="glyphicon glyphicon-calendar"></i>
         </button>
       </span>

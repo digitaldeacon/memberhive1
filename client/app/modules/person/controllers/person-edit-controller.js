@@ -27,8 +27,7 @@ export class PersonEditController {
     this.avatarDeleted = false;
     this.isEditingAvatar = false;
 
-    $scope.datepickerOpened = false;
-
+    this.datepickerOpened = false;
   }
 
   loadTags(query) {
@@ -59,8 +58,11 @@ export class PersonEditController {
     }
   }
 
-  openDatepicker() {
-    this.$scope.datepickerOpened = true;
+  openDatepicker(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.datepickerOpened = true;
   }
 
   editAvatar() {
