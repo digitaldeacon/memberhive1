@@ -1,4 +1,4 @@
-export function HeaderController($scope, $state, $q, Search) {
+export function HeaderController($scope, $state, Search) {
   this.searchText = '';
 
 
@@ -25,6 +25,7 @@ export function HeaderController($scope, $state, $q, Search) {
     console.log('Text changed to ' + text);
   };
   this.selectedItemChange = (item) =>  {
+    $state.go('person.view', {id: item.id});
     console.log('Item changed to ' + JSON.stringify(item));
   };
 
