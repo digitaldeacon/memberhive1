@@ -49,27 +49,29 @@
 
   <md-input-container flex>
     <label translate>First Name</label>
-    <input ng-model="person.firstName">
+    <input name="firstName" ng-model="person.firstName" required>
+    <div ng-messages="personEdit.firstName.$error">
+      <ng-message when="required" translate>This field is required.</ng-message>
+    </div>
   </md-input-container>
-
 
   <md-input-container flex>
     <label translate>Nickname</label>
     <input ng-model="person.nickName">
   </md-input-container>
 
-
   <md-input-container flex>
     <label translate>Middle Name</label>
     <input ng-model="person.middleName">
   </md-input-container>
 
-
   <md-input-container flex>
     <label translate>Last Name</label>
-    <input ng-model="person.lastName">
+    <input name="lastName" ng-model="person.lastName" required>
+    <div ng-messages="personEdit.lastName.$error">
+      <ng-message when="required" translate>This field is required.</ng-message>
+    </div>
   </md-input-container>
-
 
   <md-input-container flex>
     <label translate>Suffix</label>
@@ -126,7 +128,10 @@
 
   <md-input-container flex>
     <label><fa name="envelope"></fa> <span translate>EMail</span></label>
-    <input ng-model="person.email">
+    <input name="email" type="email" ng-model="person.email">
+    <div ng-messages="personEdit.email.$error">
+      <ng-message when="email" translate>Please enter a valid email address.</ng-message>
+    </div>
   </md-input-container>
 
   <md-input-container flex>
