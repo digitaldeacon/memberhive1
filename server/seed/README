@@ -1,3 +1,0 @@
-This directory contains seed data for various models.
-To add seeds for a new table, create a $modelName.json file.
-Note that `$modelName` must exactly match the model name in server/model-config.json.

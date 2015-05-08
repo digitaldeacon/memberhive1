@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "5549dccdd47261350f2d6d9f" }, "householdName" : "Familie Fischer", "contactTitle" : "Familie Fischer", "deleted" : false, "address" : { "street1" : "Am Burghof 8", "city" : "Gerstenberg", "zipcode" : "04617" } }
