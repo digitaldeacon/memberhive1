@@ -24,8 +24,6 @@ body  {
   text-align: center;
   margin: 0 auto;
 }
-
-
 .header-search {
   color: #000;
 }
@@ -38,4 +36,10 @@ body  {
 
 .header-toolbar {
   background-color: rgb(95, 95, 95) !important;
+}
+
+.label-row {
+  .label {
+    margin-right: 3px;
+  }
 }
