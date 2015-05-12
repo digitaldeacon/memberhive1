@@ -1,7 +1,9 @@
 export class PersonEditController {
-  constructor(PersonService, Person, AddressService, $stateParams, $scope, Shout, gettextCatalog, $filter, $state, $q) {
+  constructor(PersonService, Person, Household, AddressService, $stateParams, $scope, Shout, gettextCatalog,
+              $filter, $state, $q) {
     this.PersonService = PersonService;
     this.Person = Person;
+    this.Household = Household;
     this.Shout = Shout;
     this.$scope = $scope;
     this.gettextCatalog = gettextCatalog;
@@ -86,6 +88,13 @@ export class PersonEditController {
 
   cancelEditingAvatar() {
     this.isEditingAvatar = false;
+  }
+
+  addHousehold(householdName) {
+    this.Household.create({name: householdName}).$promise.then((household) => {
+      this.person.household = household;
+      this.households = this.PersonService.getHouseholds();
+    });
   }
 
   /**
