@@ -1,9 +1,13 @@
 <mh-panel>
   <div ng-controller="PersonEditController as personCtrl">
-    <mh-panel-header>{{personCtrl.getTitle()}}</mh-panel-header>
+    {{person=personCtrl.person;""}}
 
+    <mh-panel-header>
+      <a ui-sref="person.view({ id: person.id })">
+        <ng-md-icon icon="account_box"></ng-md-icon>
+      </a>
+      {{personCtrl.getTitle()}}</mh-panel-header>
     <mh-panel-body>
-      {{person=personCtrl.person;""}}
 
       <form ng-submit="personCtrl.save(personEdit.$valid)" name="personEdit" novalidate>
         <md-tabs md-dynamic-height md-border-bottom>
