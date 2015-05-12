@@ -151,6 +151,19 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
+    }).state('person.household-create', {
+      url: '/household/create',
+      templateUrl: 'modules/person/views/household.edit.html',
+      data: {
+        pageTitle: gettext('Households'),
+        pageSubTitle: gettext('Create Household')
+      },
+      ncyBreadcrumb: {
+        label: gettext('New Household')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
     });
 
     // Allow skype urls http://stackoverflow.com/a/15769779
@@ -159,8 +172,9 @@ export var gemPersonModule = angular.module('gem.person',
     MainMenuProvider.add(new MenuSection(gettext('Persons'), 'user',
       [
         new MenuLink(gettext('List Persons'), 'users', 'person.list'),
-        new MenuLink(gettext('List Households'), 'hotel', 'person.households'),
         new MenuLink(gettext('Create Person'), 'user-plus', 'person.create'),
+        new MenuLink(gettext('List Households'), 'hotel', 'person.households'),
+        new MenuLink(gettext('Create Household'), 'plus', 'person.household-create'),
         new MenuLink(gettext('Import'), 'upload', 'person.import'),
         new MenuLink(gettext('Export'), 'share', 'person.export')
       ]
