@@ -4,7 +4,7 @@ module.exports = function(Person) {
     var parts = value.split(" ");
     var options = [];
     var fields = [
-      'fistName',
+      'firstName',
       'lastName',
       'middleName',
       'nickName',
