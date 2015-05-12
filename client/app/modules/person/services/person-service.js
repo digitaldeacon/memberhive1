@@ -58,6 +58,17 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
       Avatar.destroyContainer({container: person.id});
     },
 
+    getHousehold: (id) => {
+      return Household.findById({
+        id: id,
+        filter: {
+          include: [
+            'persons'
+          ]
+        }
+      });
+    },
+
     /**
      * Return a list of available Households
      */

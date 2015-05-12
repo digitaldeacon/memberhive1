@@ -15,6 +15,7 @@ import {PersonViewController} from './controllers/person-view-controller';
 import {PersonImportController} from './controllers/person-import-controller';
 import {PersonExportController} from './controllers/person-export-controller';
 import {HouseholdListController} from './controllers/household-list-controller';
+import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {AvatarDirective} from './directives/person-directives';
 
@@ -55,19 +56,6 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Persons')
-      },
-      acl: {
-        needRights: ['$authenticated']
-      }
-    }).state('person.households', {
-      url: '/households',
-      templateUrl: 'modules/person/views/household.list.html',
-      data: {
-        pageTitle: gettext('Households'),
-        pageSubTitle: gettext('View Households')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Households')
       },
       acl: {
         needRights: ['$authenticated']
@@ -137,6 +125,32 @@ export var gemPersonModule = angular.module('gem.person',
       acl: {
         needRights: ['$authenticated']
       }
+    }).state('person.households', {
+      url: '/households',
+      templateUrl: 'modules/person/views/household.list.html',
+      data: {
+        pageTitle: gettext('Households'),
+        pageSubTitle: gettext('View Households')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Households')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
+    }).state('person.household-edit', {
+      url: '/household/edit/:id',
+      templateUrl: 'modules/person/views/household.edit.html',
+      data: {
+        pageTitle: gettext('Households'),
+        pageSubTitle: gettext('Edit Household')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Edit Household')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
     });
 
     // Allow skype urls http://stackoverflow.com/a/15769779
@@ -159,6 +173,7 @@ gemPersonModule.controller('PersonEditController', PersonEditController);
 gemPersonModule.controller('PersonImportController', PersonImportController);
 gemPersonModule.controller('PersonExportController', PersonExportController);
 gemPersonModule.controller('HouseholdListController', HouseholdListController);
+gemPersonModule.controller('HouseholdEditController', HouseholdEditController);
 
 gemPersonModule.factory('PersonService', PersonService);
 

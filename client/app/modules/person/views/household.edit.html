@@ -1,0 +1,24 @@
+<mh-panel>
+  <div ng-controller="HouseholdEditController as householdCtrl">
+    <mh-panel-header>{{householdCtrl.getTitle()}}</mh-panel-header>
+
+    <mh-panel-body>
+      <form ng-submit="householdCtrl.save(householdForm.$valid)" name="householdForm" novalidate>
+
+        <md-input-container flex>
+          <label><translate>Household Name</translate></label>
+          <input ng-model="householdCtrl.household.householdName">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label><translate>Contact Title</translate></label>
+          <input ng-model="householdCtrl.household.contactTitle">
+        </md-input-container>
+
+        <md-button ng-disabled="personEdit.$invalid" class="md-raised md-primary" type="submit"><translate>Save Changes</translate></md-button>
+        <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndClose()"><translate>Save and Close</translate></md-button>
+        <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndNew()"><translate>Save and New</translate></md-button>
+      </form>
+    </mh-panel-body>
+  </div>
+</mh-panel>
