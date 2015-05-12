@@ -14,6 +14,7 @@ import {PersonEditController} from './controllers/person-edit-controller';
 import {PersonViewController} from './controllers/person-view-controller';
 import {PersonImportController} from './controllers/person-import-controller';
 import {PersonExportController} from './controllers/person-export-controller';
+import {HouseholdListController} from './controllers/household-list-controller';
 import {PersonService} from './services/person-service';
 import {AvatarDirective} from './directives/person-directives';
 
@@ -54,6 +55,19 @@ export var gemPersonModule = angular.module('gem.person',
       },
       ncyBreadcrumb: {
         label: gettext('Persons')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
+    }).state('person.households', {
+      url: '/households',
+      templateUrl: 'modules/person/views/household.list.html',
+      data: {
+        pageTitle: gettext('Households'),
+        pageSubTitle: gettext('View Households')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Households')
       },
       acl: {
         needRights: ['$authenticated']
@@ -131,6 +145,7 @@ export var gemPersonModule = angular.module('gem.person',
     MainMenuProvider.add(new MenuSection(gettext('Persons'), 'user',
       [
         new MenuLink(gettext('List Persons'), 'users', 'person.list'),
+        new MenuLink(gettext('List Households'), 'hotel', 'person.households'),
         new MenuLink(gettext('Create Person'), 'user-plus', 'person.create'),
         new MenuLink(gettext('Import'), 'upload', 'person.import'),
         new MenuLink(gettext('Export'), 'share', 'person.export')
@@ -143,6 +158,7 @@ gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);
 gemPersonModule.controller('PersonImportController', PersonImportController);
 gemPersonModule.controller('PersonExportController', PersonExportController);
+gemPersonModule.controller('HouseholdListController', HouseholdListController);
 
 gemPersonModule.factory('PersonService', PersonService);
 

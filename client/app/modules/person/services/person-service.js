@@ -45,6 +45,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
         }
       });
     },
+
     saveAvatar: (person, file) => {
       Upload.upload({
         url: `${apiUrl}/Avatars/${person.id}/upload`,
@@ -60,10 +61,19 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
     /**
      * Return a list of available Households
      */
-    getHouseholds: () => {
-      return Household.find();
-    },
+    getHouseholds: (pageNumber) => {
+      if (!pageNumber)
+        return Household.find();
 
+      return Household.find({
+        filter: {
+          limit: $rootScope.gemConfig.pagination.pageSize,
+          offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
+          order: ['householdName ASC'],
+          include: ['persons']
+        }
+      });
+    },
 
     /**
      * A dictionary with gender translations

@@ -13,16 +13,18 @@
  */
 export function AvatarDirective(apiUrl) {
   return {
-    template: '<img ng-src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}" />',
-
+    template: '<img ng-src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}"' +
+              ' aria-label="{{label}}" tooltip="{{label}}" />',
     restrict: 'E',
     scope: {
       person: '=',
       size: '@',
-      cssClasses: '@class'
+      cssClasses: '@class',
+      label: '@'
     },
 
     link: function(scope, element, attrs) {
+      scope.size = scope.size || 'xs';
       scope.imgClass = '';
       if (attrs.circle !== undefined)
         scope.imgClass = 'img-circle';
