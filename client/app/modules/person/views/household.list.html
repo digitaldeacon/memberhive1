@@ -21,7 +21,9 @@
         <tr dir-paginate="household in householdCtrl.households | itemsPerPage: gemConfig.pagination.pageSize"
             total-items="householdCtrl.totalHouseholds">
           <td>
-            {{household.name}}
+            <a ui-sref="person.household-edit({ id: household.id })">
+              {{household.name}}
+            </a>
           </td>
           <td class="label-row">
             <a ng-repeat="person in household.persons" ui-sref="person.view({id: person.id})">
