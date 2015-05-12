@@ -28,7 +28,6 @@ module.exports = function(Person) {
       cb(null, persons);
     });
   };
-
   Person.remoteMethod(
     'search',
     {
@@ -44,7 +43,6 @@ module.exports = function(Person) {
     }
   );
 
-
   Person.trash = function(personId, cb) {
 
     // Need to reset the default scope because of https://github.com/strongloop/loopback/issues/1018
@@ -58,30 +56,6 @@ module.exports = function(Person) {
     // Restore the default scope
     Person.defaultScope = defaultScope;
   };
-
-  /**
-   * Set the Account's email property to the same value as the Person's email.
-   * We have this redundancy since Account has it's own email field (inheritet from the Loopback model), but
-   * there might be Persons without an Account, but they still need the email field
-   *
-   * So we need to make sure the email field is always the same in both places.
-   */
-  Person.observe('after save', function(ctx, next) {
-    if (!ctx.instance) { // Single model has been updated
-      next();
-      return;
-    }
-    Person.app.models.Account.findById(ctx.instance.id, function(err, account) {
-      if (account === null) { // Person has no account - that's ok
-        next();
-        return;
-      }
-      account.email = ctx.instance.email;
-      account.save(function(err, result) {
-        next();
-      });
-    })
-  });
   Person.remoteMethod(
     'trash',
     {
@@ -107,13 +81,12 @@ module.exports = function(Person) {
       }
     });
   };
-
   Person.remoteMethod(
     'tags',
     {
       accepts: {
         arg: 'text',
-        type: 'string',
+        type: 'string'
       },
       returns: {
         arg: 'data',
@@ -125,9 +98,32 @@ module.exports = function(Person) {
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
   };
-
   Person.remoteMethod(
     'truncate',
     {}
   );
+
+  /**
+   * Set the Account's email property to the same value as the Person's email.
+   * We have this redundancy since Account has it's own email field (inheritet from the Loopback model), but
+   * there might be Persons without an Account, but they still need the email field
+   *
+   * So we need to make sure the email field is always the same in both places.
+   */
+  Person.observe('after save', function(ctx, next) {
+    if (!ctx.instance) { // Single model has been updated
+      next();
+      return;
+    }
+    Person.app.models.Account.findById(ctx.instance.id, function(err, account) {
+      if (account === null) { // Person has no account - that's ok
+        next();
+        return;
+      }
+      account.email = ctx.instance.email;
+      account.save(function(err, result) {
+        next();
+      });
+    })
+  });
 };
