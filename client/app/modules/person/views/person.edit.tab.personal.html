@@ -169,10 +169,10 @@
     md-selected-item="person.household"
     md-search-text="householdSearchText"
     md-items="household in personCtrl.households | filter:householdSearchText"
-    md-item-text="household.householdName"
+    md-item-text="household.name"
     placeholder="{{'Select Household'|translate}}">
     <md-item-template>
-      <span md-highlight-text="householdSearchText">{{household.householdName}}</span>
+      <span md-highlight-text="householdSearchText">{{household.name}}</span>
     </md-item-template>
     <md-not-found>
       <translate>No matches found for "{{householdSearchText}}".</translate>

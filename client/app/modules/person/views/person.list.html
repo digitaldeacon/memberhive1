@@ -26,7 +26,7 @@
           <script type="text/ng-template" id="household-popover">
             <div class="triangle"></div>
             <div class="ns-popover-tooltip">
-              <h3>{{::person.household.householdName}}</h3>
+              <h3>{{::person.household.name}}</h3>
               <ul>
                 <li ng-repeat="person in person.household.persons">
                   <a ui-sref="person.view({ id: person.id })">{{::person | formatName}}
@@ -53,7 +53,7 @@
                   ns-popover-trigger="mouseenter" ns-popover-placement="bottom" ns-popover-timeout="0.2"
                   ns-popover-theme="ns-popover-tooltip-theme">
                 <fa name="users"></fa>
-                <a>{{ ::person.household.householdName }}</a>
+                <a>{{ ::person.household.name }}</a>
               </li>
               <li ng-if="person.birthdate" title="{{'Birthdate' | translate}}">
                 <fa name="calendar"></fa>

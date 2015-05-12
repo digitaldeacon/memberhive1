@@ -80,7 +80,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,
           offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
-          order: ['householdName ASC'],
+          order: ['name ASC'],
           include: ['persons']
         }
       });

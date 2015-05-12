@@ -20,7 +20,7 @@ export class HouseholdEditController {
 
   getTitle() {
     if (this.isEditing()) {
-      return this.household.householdName;
+      return this.household.name;
     } else {
       return this.gettextCatalog.getString('Create new Household');
     }

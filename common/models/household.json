@@ -3,7 +3,7 @@
   "base": "GemBase",
   "idInjection": true,
   "properties": {
-    "householdName": {
+    "name": {
       "type": "string",
       "required": true
     },
