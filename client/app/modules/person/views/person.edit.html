@@ -9,7 +9,7 @@
       {{personCtrl.getTitle()}}</mh-panel-header>
     <mh-panel-body>
 
-      <form ng-submit="personCtrl.save(personEdit.$valid)" name="personEdit" novalidate>
+      <form name="personEdit" novalidate>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab>
             <md-tab-label>
@@ -44,7 +44,10 @@
             </md-tab-body>
           </md-tab>
         </md-tabs>
-        <md-button ng-disabled="personEdit.$invalid" class="md-raised md-primary" type="submit"><translate>Save Changes</translate></md-button>
+        <md-button ng-disabled="personEdit.$invalid" class="md-raised md-primary"
+                   ng-click="personCtrl.save(personEdit.$valid)" type="submit">
+          <translate>Save Changes</translate>
+        </md-button>
         <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="personCtrl.saveAndClose()"><translate>Save and Close</translate></md-button>
         <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="personCtrl.saveAndNew()"><translate>Save and New</translate></md-button>
       </form>

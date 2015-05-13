@@ -31,6 +31,9 @@ export class PersonEditController {
 
     this.datepickerBirthdateOpened = false;
     this.datepickerBaptismDateOpened = false;
+
+    /// Whether a newly created household should be automatically assigned to the edited person
+    this.assignNewHousehold = true;
   }
 
   loadTags(query) {
@@ -92,7 +95,9 @@ export class PersonEditController {
 
   addHousehold(householdName) {
     this.Household.create({name: householdName}).$promise.then((household) => {
-      this.person.household = household;
+      if (this.assignNewHousehold) {
+        this.person.household = household;
+      }
       this.households = this.PersonService.getHouseholds();
     });
   }

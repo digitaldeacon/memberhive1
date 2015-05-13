@@ -177,7 +177,7 @@
           md-search-text="householdSearchText"
           md-items="household in personCtrl.households | filter:householdSearchText"
           md-item-text="household.name"
-          placeholder="{{'Select Household'|translate}}">
+          placeholder="{{'Search Household'|translate}}">
           <md-item-template>
             <span md-highlight-text="householdSearchText">{{household.name}}</span>
           </md-item-template>
@@ -192,12 +192,18 @@
         <translate>New Household</translate>
       </md-tab-label>
       <md-tab-body class="md-padding">
-        <md-input-container flex>
-          <label><translate>Household Name</translate></label>
-          <input ng-model="householdName">
-        </md-input-container>
-        <md-button ng-click="personCtrl.addHousehold(householdName)"
-                   tooltip="{{'Create and assign household to this person'}}" translate>Create Household</md-button>
+        <section layout="row" layout-sm="column" layout-align="center center">
+          <md-input-container flex>
+            <label><translate>Household Name</translate></label>
+            <input ng-model="householdName">
+          </md-input-container>
+          <md-button ng-click="personCtrl.addHousehold(householdName)" class="md-raised">
+            <translate>Create Household</translate>
+          </md-button>
+        </section>
+        <md-checkbox ng-model="personCtrl.assignNewHousehold">
+          <translate>Assign household to this person</translate>
+        </md-checkbox>
       </md-tab-body>
     </md-tab>
   </md-tabs>
