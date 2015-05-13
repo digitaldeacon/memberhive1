@@ -15,6 +15,9 @@
           <input ng-model="householdCtrl.household.letterSalutation">
         </md-input-container>
 
+
+        <gem-address-edit address="householdCtrl.household.address"></gem-address-edit>
+
         <md-button ng-disabled="personEdit.$invalid" class="md-raised md-primary" type="submit"><translate>Save Changes</translate></md-button>
         <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndClose()"><translate>Save and Close</translate></md-button>
         <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndNew()"><translate>Save and New</translate></md-button>
