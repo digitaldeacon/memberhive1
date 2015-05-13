@@ -1,32 +1,35 @@
 <div>
   <md-input-container flex>
-    <label>Street 1</label>
+    <label><translate>Address Line 1</translate></label>
     <input ng-model="address.street1">
   </md-input-container>
-  
+
    <md-input-container flex>
-    <label>Street 2</label>
-    <input ng-model="address.street2">
+     <label><translate>Address Line 2</translate></label>
+     <input ng-model="address.street2">
   </md-input-container>
-  
-   <md-input-container flex>
-    <label>Additional</label>
-    <input ng-model="address.additional">
-  </md-input-container>
-  
+
   <div layout layout-sm="column">
     <md-input-container flex>
-      <label>Zipcode</label>
+      <label><translate>ZIP/Postal Code</translate></label>
       <input ng-model="address.zipcode">
     </md-input-container>
-  
+
     <md-input-container flex>
-      <label>City</label>
+      <label><translate>City</translate></label>
       <input ng-model="address.city">
     </md-input-container>
   </div>
-  <md-input-container flex>
-    <label>Country</label>
-    <input ng-model="address.country">
-  </md-input-container>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label><translate>State/Province/Region</translate></label>
+      <input ng-model="address.state">
+    </md-input-container>
+
+    <md-input-container flex>
+      <label><translate>Country</translate></label>
+      <input ng-model="address.country">
+    </md-input-container>
+  </div>
 </div>
