@@ -68,7 +68,6 @@ module.exports = function(Person) {
   );
 
   Person.setHousehold = function(personId, householdId, cb) {
-
     Person.findById(personId, function(err, personInstance) {
       personInstance.householdId = householdId;
       personInstance.save(function(err, obj) {

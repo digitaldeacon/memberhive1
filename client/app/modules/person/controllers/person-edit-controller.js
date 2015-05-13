@@ -159,7 +159,8 @@ export class PersonEditController {
     // Use upsert() instead of $save() since $save will drop related data.
     // See https://github.com/strongloop/loopback-sdk-angular/issues/120
     promises.push(this.Person.upsert({}, this.person));
-    promises.push(this.Person.setHousehold({id: this.person.id, householdId: this.person.household.id}));
+    var householdId = this.person.household ? this.person.household.id : "";
+    promises.push(this.Person.setHousehold({id: this.person.id, householdId: householdId}));
     if (this.avatarDeleted && !this.avatarChanged) {
       promises.push(this.PersonService.deleteAvatar(this.person));
     } else if (this.avatarChanged) {
