@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2015-05-12 14:01+0000\n"
-"PO-Revision-Date: 2015-05-12 14:01+0000\n"
+"POT-Creation-Date: 2015-05-13 07:15+0000\n"
+"PO-Revision-Date: 2015-05-13 07:15+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -71,6 +71,10 @@ msgstr "Bevorzugte Kontaktart auswählen..."
 msgid "Suffix"
 msgstr "Suffix"
 
+#: client/app/modules/person/views/person.edit.tab.personal.html:173
+msgid "Select Household"
+msgstr "Haushalt auswählen"
+
 #: client/app/modules/person/views/household.list.html:17
 #: client/app/modules/person/views/person.list.html:19
 #: client/app/modules/report/views/report.list.html:17
@@ -85,15 +89,27 @@ msgstr "Status hinzufügen"
 msgid "Add a tag"
 msgstr "Ein Schlagwort hinzufügen"
 
-#: client/app/modules/person/views/person.edit.html:20
+#: client/app/modules/address/directives/address_edit.html:3
+msgid "Address Line 1"
+msgstr "Addresszeile 1"
+
+#: client/app/modules/address/directives/address_edit.html:8
+msgid "Address Line 2"
+msgstr "Addresszeile 2"
+
+#: client/app/modules/person/views/person.edit.html:24
 msgid "Addresses"
 msgstr "Adressen"
+
+#: client/app/modules/person/views/person.edit.tab.personal.html:205
+msgid "Assign household to this person"
+msgstr "Haushalt dieser Person zuweisen"
 
 #: client/app/modules/person/services/person-service.js:122
 msgid "Aunt"
 msgstr "Tante"
 
-#: client/app/modules/person/views/person.edit.html:28
+#: client/app/modules/person/views/person.edit.html:32
 msgid "Avatar"
 msgstr "Profilbild"
 
@@ -124,13 +140,17 @@ msgstr "Abfrage erstellen"
 msgid "Calendar"
 msgstr "Kalender"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:118
+#: client/app/modules/person/controllers/person-edit-controller.js:132
 msgid "Can’t read image. Please try again."
 msgstr "Das Bild konnte nicht geladen werden. Versuchen sie es noch einmal."
 
 #: client/app/modules/person/services/person-service.js:105
 msgid "Church Discipline"
 msgstr "Gemeindezucht"
+
+#: client/app/modules/address/directives/address_edit.html:19
+msgid "City"
+msgstr "Stadt"
 
 #: client/app/modules/person/views/person.edit.tab.personal.html:85
 #: client/app/modules/person/views/person.edit.tab.personal.html:99
@@ -141,12 +161,17 @@ msgstr "Schließen"
 msgid "Contact Info"
 msgstr "Kontaktinfos"
 
+#: client/app/modules/address/directives/address_edit.html:31
+msgid "Country"
+msgstr "Land"
+
 #: client/app/modules/person/services/person-service.js:120
 msgid "Cousin"
 msgstr "Cousin"
 
 #: client/app/modules/person/person.js:159
 #: client/app/modules/person/person.js:177
+#: client/app/modules/person/views/person.edit.tab.personal.html:201
 msgid "Create Household"
 msgstr "Haushalt anlegen"
 
@@ -174,7 +199,7 @@ msgstr "Personen erstellen und bearbeiten"
 msgid "Create new Household"
 msgstr "Neuen Haushalt erstellen"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:58
+#: client/app/modules/person/controllers/person-edit-controller.js:63
 msgid "Create new Person"
 msgstr "Neue Person anlegen"
 
@@ -245,6 +270,10 @@ msgstr "Englisch"
 msgid "Error"
 msgstr "Fehler"
 
+#: client/app/modules/person/views/person.edit.tab.personal.html:172
+msgid "Existing Household"
+msgstr "Bestehender Haushalt"
+
 #: client/app/modules/person/person.js:122
 #: client/app/modules/person/person.js:179
 #: client/app/modules/person/views/person.export.html:8
@@ -287,7 +316,7 @@ msgstr "Datei lesen"
 msgid "First-Time Visitor"
 msgstr "Erstbesucher"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:106
+#: client/app/modules/person/controllers/person-edit-controller.js:120
 msgid "For best results the image should be at least 800x800 pixels."
 msgstr "Für optimale Ergebnisse sollte das Bild mindestens 800x800 Pixel groß sein."
 
@@ -348,6 +377,7 @@ msgstr "Haushaltsmitglieder"
 
 #: client/app/modules/person/views/household.edit.html:9
 #: client/app/modules/person/views/household.list.html:15
+#: client/app/modules/person/views/person.edit.tab.personal.html:197
 msgid "Household Name"
 msgstr "Haushaltsname"
 
@@ -451,6 +481,7 @@ msgid "Nephew"
 msgstr "Neffe"
 
 #: client/app/modules/person/person.js:162
+#: client/app/modules/person/views/person.edit.tab.personal.html:192
 msgid "New Household"
 msgstr "Neuer Haushalt"
 
@@ -474,7 +505,7 @@ msgstr "Spitzname"
 msgid "Niece"
 msgstr "Nichte"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:178
+#: client/app/modules/person/views/person.edit.tab.personal.html:185
 msgid "No matches found for \"{{householdSearchText}}\"."
 msgstr "Keine Treffer für „{{householdSearchText}}“ gefunden."
 
@@ -510,7 +541,7 @@ msgstr "Angabe zur Person"
 msgid "Person imported"
 msgstr "Importierte Person"
 
-#: client/app/modules/person/views/person.edit.html:12
+#: client/app/modules/person/views/person.edit.html:16
 msgid "Personal"
 msgstr "Persönlich"
 
@@ -569,7 +600,7 @@ msgstr "Berichte"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: client/app/modules/person/views/person.edit.html:36
+#: client/app/modules/person/views/person.edit.html:40
 msgid "Roles"
 msgstr "Rollen"
 
@@ -577,21 +608,25 @@ msgstr "Rollen"
 msgid "Save"
 msgstr "Speichern"
 
-#: client/app/modules/person/views/household.edit.html:18
-#: client/app/modules/person/views/person.edit.html:43
+#: client/app/modules/person/views/household.edit.html:21
+#: client/app/modules/person/views/person.edit.html:49
 #: client/app/modules/report/views/report.upsert.html:31
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
-#: client/app/modules/person/views/household.edit.html:19
-#: client/app/modules/person/views/person.edit.html:44
+#: client/app/modules/person/views/household.edit.html:22
+#: client/app/modules/person/views/person.edit.html:51
 msgid "Save and Close"
 msgstr "Speichern und Schließen"
 
-#: client/app/modules/person/views/household.edit.html:20
-#: client/app/modules/person/views/person.edit.html:45
+#: client/app/modules/person/views/household.edit.html:23
+#: client/app/modules/person/views/person.edit.html:52
 msgid "Save and New"
 msgstr "Speichern und Neu"
+
+#: client/app/modules/person/views/person.edit.tab.personal.html:180
+msgid "Search Household"
+msgstr "Haushalt suchen"
 
 #: client/app/templates/header.html:9
 msgid "Search…"
@@ -600,10 +635,6 @@ msgstr "Suche..."
 #: client/app/modules/person/views/person.edit.tab.avatar.html:8
 msgid "Select Avatar"
 msgstr "Profilbild auswählen"
-
-#: client/app/modules/person/views/person.edit.tab.personal.html:173
-msgid "Select Household"
-msgstr "Haushalt auswählen"
 
 #: client/app/modules/auth/views/login.html:15
 msgid "Sign In"
@@ -634,6 +665,10 @@ msgstr "Sohn"
 msgid "Son in Law"
 msgstr "Schwiegersohn"
 
+#: client/app/modules/address/directives/address_edit.html:26
+msgid "State/Province/Region"
+msgstr "Bundesland/Kanton"
+
 #: client/app/modules/person/views/person.edit.tab.personal.html:5
 msgid "Status"
 msgstr "Status"
@@ -654,7 +689,7 @@ msgstr "Erfolg"
 msgid "Successfully duplicated report."
 msgstr "Der Bericht wurde erfolgreich dupliziert"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:158
+#: client/app/modules/person/controllers/person-edit-controller.js:172
 msgid "Successfully saved \"{{fullname}}\""
 msgstr "\"{{fullname}}\" wurde erfolgreich gespeichert"
 
@@ -749,6 +784,10 @@ msgstr "Telefon (Arbeit)"
 #: client/app/modules/person/views/person.edit.tab.personal.html:125
 msgid "Your primary contact method is {{person.primaryContact}}"
 msgstr "Ihre bevorzugte Kontaktmethode ist {{person.primaryContact}}."
+
+#: client/app/modules/address/directives/address_edit.html:14
+msgid "ZIP/Postal Code"
+msgstr "Postleitzahl"
 
 #: client/app/modules/person/views/person.view.details.html:4
 msgid "{{age}} old"
