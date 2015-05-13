@@ -47,9 +47,9 @@ module.exports = function(Person) {
 
     // Need to reset the default scope because of https://github.com/strongloop/loopback/issues/1018
     var defaultScope = Person.defaultScope;
-    Person.defaultScope = function(){};
+    Person.defaultScope = function() {};
 
-    Person.upsert({id:personId, 'deleted': true}, function(err, obj){
+    Person.upsert({id: personId, 'deleted': true}, function(err, obj) {
       cb(null, '');
     });
 
@@ -67,16 +67,50 @@ module.exports = function(Person) {
     }
   );
 
+  Person.setHousehold = function(personId, householdId, cb) {
+
+    Person.findById(personId, function(err, personInstance) {
+      personInstance.householdId = householdId;
+      personInstance.save(function(err, obj) {
+        cb(err, obj);
+      });
+    });
+  };
+  Person.remoteMethod(
+    'setHousehold',
+    {
+      accepts: [
+        {
+          arg: 'id',
+          type: 'string',
+          required: true
+        },
+        {
+          arg: 'householdId',
+          type: 'string',
+          required: true
+        }
+        ],
+      http: {path: '/:id/household', verb: 'post'},
+      description: 'Set the household for this person'
+    }
+  );
+
+
   Person.tags = function(text, cb) {
     var personCollection = Person.getDataSource().connector.collection(Person.modelName);
     personCollection.distinct('tags', function(err, tags) {
-      if(err) {
+      if (err) {
         cb(err, null);
       } else {
-        if(text !== undefined) {
-          tags = _.filter(tags, function(tag) {return _.includes(tag.text, text);}); //filter by query
+        if (text !== undefined) {
+          tags = _.filter(tags, function(tag) {
+            return _.includes(tag.text, text);
+          }); //filter by query
         }
-        tags = _.map(tags, function(data) {return data.text}); //simplify return
+        tags = _.map(tags, function(data) {
+          return data.text
+        }); //simplify return
         cb(null, tags);
       }
     });
