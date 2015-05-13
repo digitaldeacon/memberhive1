@@ -48,36 +48,49 @@
     </mh-panel-body>
     <md-divider ></md-divider>
 
-    <md-content>
-      <md-list>
-        <md-subheader class="md-no-sticky">
-          Verlauf zu {{personCtrl.person.firstName}} {{personCtrl.person.lastName}}
-          <md-button class="md-fab md-mini" aria-label="Add new note" style="background-color:white;padding-top:6px">
-            <ng-md-icon icon="note_add"></ng-md-icon>
-          </md-button>
-        </md-subheader>
-        <md-list-item class="md-2-line">
-          <md-button class="md-fab md-primary md-mini">
-            <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">12.05</span><br>
-          </md-button>
-          <div class="md-list-item-text">
-            <h3><a href="#zurnotiz">Hauskreisbesuche</a></h3>
-            <h4><ng-md-icon icon="event_note"></ng-md-icon> von <b>Theo Friesen </b>, um 10:23</h4>
-            <p>Carriage quitting securing be appetite it declared. High eyes kept so busy feel call in. Would day nor ask walls known. But preserved advantage are but and certainty earnestly enjoyment. Passage weather as up am exposed. And natural related man subject. Eagerness get situation his was delighted.</p>
-          </div>
-        </md-list-item>
-        <md-list-item class="md-3-line">
-          <md-button class="md-fab md-primary md-mini">
-            <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">10.05</span><br>
-          </md-button>
-          <div class="md-list-item-text">
-            <h3><a href="#zurnotiz">Rückruf wegen Sport</a></h3>
-            <h4><ng-md-icon icon="phone_in_talk"></ng-md-icon> von <b>Thomas Hochstetter </b>, um 16:45</h4>
-            <p>Carriage quitting securing be appetite it declared. Eagerness get situation his was delighted.</p>
-          </div>
-        </md-list-item>
-      </md-list>
+    <md-content class="md-padding">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Verlauf">
+
+          <md-content class="md-padding">
+            <md-list>
+              <md-subheader class="md-no-sticky">
+                Verlauf zu {{personCtrl.person.firstName}} {{personCtrl.person.lastName}}
+                <md-button class="md-fab md-mini" aria-label="Add new note" style="background-color:white;padding-top:6px">
+                  <ng-md-icon icon="note_add"></ng-md-icon>
+                </md-button>
+              </md-subheader>
+              <md-list-item class="md-2-line">
+                <md-button class="md-fab md-primary md-mini">
+                  <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">12.05</span><br>
+                </md-button>
+                <div class="md-list-item-text">
+                  <h3><a href="#zurnotiz">Hauskreisbesuche</a></h3>
+                  <h4><ng-md-icon icon="event_note"></ng-md-icon> von <b>Theo Friesen </b>, um 10:23</h4>
+                  <p>Carriage quitting securing be appetite it declared. High eyes kept so busy feel call in. Would day nor ask walls known. But preserved advantage are but and certainty earnestly enjoyment. Passage weather as up am exposed. And natural related man subject. Eagerness get situation his was delighted.</p>
+                </div>
+              </md-list-item>
+              <md-list-item class="md-3-line">
+                <md-button class="md-fab md-primary md-mini">
+                  <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">10.05</span><br>
+                </md-button>
+                <div class="md-list-item-text">
+                  <h3><a href="#zurnotiz">Rückruf wegen Sport</a></h3>
+                  <h4><ng-md-icon icon="phone_in_talk"></ng-md-icon> von <b>Thomas Hochstetter </b>, um 16:45</h4>
+                  <p>Carriage quitting securing be appetite it declared. Eagerness get situation his was delighted.</p>
+                </div>
+              </md-list-item>
+            </md-list>
+          </md-content>
+
+        </md-tab>
+        <md-tab label="Gruppen">
+
+        </md-tab>
+
+      </md-tabs>
     </md-content>
+
 
   </div>
 </mh-panel>
