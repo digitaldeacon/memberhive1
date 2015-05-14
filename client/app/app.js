@@ -69,7 +69,7 @@ export var gemMainModule = angular.module('gem.main', [
 );
 
 gemMainModule.config(
-  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, gettext) => {
+  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider) => {
     cfpLoadingBarProvider.includeSpinner = false;
 
     $breadcrumbProvider.setOptions({

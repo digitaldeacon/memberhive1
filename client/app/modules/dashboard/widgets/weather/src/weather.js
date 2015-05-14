@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright (c) 2013, Sebastian Sdorra
+ * Copyright (c) 2015, Sebastian Sdorra
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,30 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 'use strict';
 
-angular.module('adf.widgets.weather', ['adf.provider'])
+angular.module('adf.widget.weather', ['adf.provider'])
   .value('weatherServiceUrl', 'http://api.openweathermap.org/data/2.5/weather?units=metric&callback=JSON_CALLBACK&q=')
-  .config(function(dashboardProvider, gettext) {
-    dashboardProvider.widget('weather', {
-        title: gettext('Weather'),
-        description: gettext('Display the current temperature of a city'),
-        templateUrl: 'modules/adf/widgets/weather/weather.html',
+  .config(function(dashboardProvider){
+    dashboardProvider
+      .widget('weather', {
+        title: 'Weather',
+        description: 'Display the current temperature of a city',
+        templateUrl: '{widgetsPath}/weather/src/view.html',
         controller: 'weatherCtrl',
         reload: true,
         resolve: {
-          data: function(weatherService, config){
+          data: function(weatcherService, config){
             if (config.location){
-              return weatherService.get(config.location);
+              return weatcherService.get(config.location);
             }
           }
         },
         edit: {
-          templateUrl: 'modules/adf/widgets/weather/edit.html'
+          templateUrl: '{widgetsPath}/weather/src/edit.html'
         }
       });
   })
-  .service('weatherService', function($q, $http, weatherServiceUrl){
+  .service('weatcherService', function($q, $http, weatherServiceUrl){
     return {
       get: function(location){
         var deferred = $q.defer();
