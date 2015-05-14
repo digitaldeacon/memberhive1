@@ -19,8 +19,6 @@ System.config({
   "map": {
     "Sortable": "github:RubaXa/Sortable@1.2.0",
     "adf-structures-base": "github:sdorra/adf-structures-base@master",
-    "adf-widget-clock": "github:sdorra/adf-widget-clock@master",
-    "adf-widget-weather": "github:sdorra/adf-widget-weather@master",
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
