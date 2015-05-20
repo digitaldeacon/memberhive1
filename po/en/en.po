@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2015-05-13 07:15+0000\n"
-"PO-Revision-Date: 2015-05-13 07:15+0000\n"
+"POT-Creation-Date: 2015-05-14 21:04+0000\n"
+"PO-Revision-Date: 2015-05-14 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -74,6 +74,14 @@ msgstr "Suffix"
 #: client/app/modules/person/views/person.edit.tab.personal.html:173
 msgid "Select Household"
 msgstr "Select Household"
+
+#: client/app/modules/adf/widgets/weather/weather.html:2
+msgid "Please insert a location in the widget configuration"
+msgstr "Please insert a location in the widget configuration"
+
+#: client/app/modules/adf/widgets/weather/weather.html:12
+msgid "Temperature:"
+msgstr "Temperature:"
 
 #: client/app/modules/person/views/household.list.html:17
 #: client/app/modules/person/views/person.list.html:19
@@ -152,6 +160,10 @@ msgstr "Church Discipline"
 msgid "City"
 msgstr "City"
 
+#: client/app/modules/dashboard/widgets/clock/mh-widget-clock.js:7
+msgid "Clock"
+msgstr "Clock"
+
 #: client/app/modules/person/views/person.edit.tab.personal.html:85
 #: client/app/modules/person/views/person.edit.tab.personal.html:99
 msgid "Close"
@@ -227,9 +239,13 @@ msgstr "Delete"
 msgid "Display a Calendar"
 msgstr "Display a Calendar"
 
-#: client/app/modules/adf/widgets/weather/weather.js:31
+#: client/app/modules/dashboard/widgets/weather/mh-widget-weather.js:9
 msgid "Display the current temperature of a city"
 msgstr "Display the current temperature of a city"
+
+#: client/app/modules/dashboard/widgets/clock/mh-widget-clock.js:8
+msgid "Displays date and time"
+msgstr "Displays date and time"
 
 #: client/app/modules/report/views/report.list.html:29
 msgid "Duplicate"
@@ -509,6 +525,10 @@ msgstr "Niece"
 msgid "No matches found for \"{{householdSearchText}}\"."
 msgstr "No matches found for \"{{householdSearchText}}\"."
 
+#: client/app/modules/note/templates/note-edit-form-directive.html:6
+msgid "Note"
+msgstr "Note"
+
 #: client/app/modules/note/note.js:26
 #: client/app/modules/note/note.js:53
 msgid "Notes"
@@ -556,10 +576,6 @@ msgstr "Persons"
 #: client/app/modules/person/views/person.edit.tab.personal.html:133
 msgid "Please enter a valid email address."
 msgstr "Please enter a valid email address."
-
-#: client/app/modules/adf/widgets/weather/weather.html:2
-msgid "Please insert a location in the widget configuration"
-msgstr "Please insert a location in the widget configuration"
 
 #: client/app/modules/person/views/person.edit.tab.personal.html:126
 msgid "Please select your primary contact method"
@@ -689,7 +705,7 @@ msgstr "Success"
 msgid "Successfully duplicated report."
 msgstr "Successfully duplicated report."
 
-#: client/app/modules/person/controllers/person-edit-controller.js:172
+#: client/app/modules/person/controllers/person-edit-controller.js:171
 msgid "Successfully saved \"{{fullname}}\""
 msgstr "Successfully saved \"{{fullname}}\""
 
@@ -702,15 +718,12 @@ msgstr "Successfully saved report “{{name}}”"
 msgid "Tags"
 msgstr "Tags"
 
-#: client/app/modules/adf/widgets/weather/weather.html:12
-msgid "Temperature:"
-msgstr "Temperature:"
-
 #: client/app/modules/person/views/person.edit.tab.personal.html:54
 #: client/app/modules/person/views/person.edit.tab.personal.html:72
 msgid "This field is required."
 msgstr "This field is required."
 
+#: client/app/modules/note/templates/note-edit-form-directive.html:2
 #: client/app/modules/person/views/person.edit.tab.personal.html:46
 msgid "Title"
 msgstr "Title"
@@ -755,7 +768,7 @@ msgstr "View Person details"
 msgid "Visitor"
 msgstr "Visitor"
 
-#: client/app/modules/adf/widgets/weather/weather.js:30
+#: client/app/modules/dashboard/widgets/weather/mh-widget-weather.js:8
 msgid "Weather"
 msgstr "Weather"
 

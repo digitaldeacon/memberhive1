@@ -86,6 +86,10 @@ msgstr ""
 msgid "City"
 msgstr ""
 
+#: client/app/modules/dashboard/widgets/clock/mh-widget-clock.js:7
+msgid "Clock"
+msgstr ""
+
 #: client/app/modules/person/views/person.edit.tab.personal.html:85
 #: client/app/modules/person/views/person.edit.tab.personal.html:99
 msgid "Close"
@@ -161,8 +165,12 @@ msgstr ""
 msgid "Display a Calendar"
 msgstr ""
 
-#: client/app/modules/adf/widgets/weather/weather.js:31
+#: client/app/modules/dashboard/widgets/weather/mh-widget-weather.js:9
 msgid "Display the current temperature of a city"
+msgstr ""
+
+#: client/app/modules/dashboard/widgets/clock/mh-widget-clock.js:8
+msgid "Displays date and time"
 msgstr ""
 
 #: client/app/modules/report/views/report.list.html:29
@@ -478,6 +486,10 @@ msgstr ""
 msgid "No matches found for \"{{householdSearchText}}\"."
 msgstr ""
 
+#: client/app/modules/note/templates/note-edit-form-directive.html:6
+msgid "Note"
+msgstr ""
+
 #: client/app/modules/note/note.js:26
 #: client/app/modules/note/note.js:53
 msgid "Notes"
@@ -524,10 +536,6 @@ msgstr ""
 
 #: client/app/modules/person/views/person.edit.tab.personal.html:133
 msgid "Please enter a valid email address."
-msgstr ""
-
-#: client/app/modules/adf/widgets/weather/weather.html:2
-msgid "Please insert a location in the widget configuration"
 msgstr ""
 
 #: client/app/modules/person/views/person.edit.tab.personal.html:126
@@ -658,7 +666,7 @@ msgstr ""
 msgid "Successfully duplicated report."
 msgstr ""
 
-#: client/app/modules/person/controllers/person-edit-controller.js:172
+#: client/app/modules/person/controllers/person-edit-controller.js:171
 msgid "Successfully saved \"{{fullname}}\""
 msgstr ""
 
@@ -675,15 +683,12 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: client/app/modules/adf/widgets/weather/weather.html:12
-msgid "Temperature:"
-msgstr ""
-
 #: client/app/modules/person/views/person.edit.tab.personal.html:54
 #: client/app/modules/person/views/person.edit.tab.personal.html:72
 msgid "This field is required."
 msgstr ""
 
+#: client/app/modules/note/templates/note-edit-form-directive.html:2
 #: client/app/modules/person/views/person.edit.tab.personal.html:46
 msgid "Title"
 msgstr ""
@@ -728,7 +733,7 @@ msgstr ""
 msgid "Visitor"
 msgstr ""
 
-#: client/app/modules/adf/widgets/weather/weather.js:30
+#: client/app/modules/dashboard/widgets/weather/mh-widget-weather.js:8
 msgid "Weather"
 msgstr ""
 

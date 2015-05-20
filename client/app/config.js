@@ -17,7 +17,7 @@ System.config({
 
 System.config({
   "map": {
-    "Sortable": "github:RubaXa/Sortable@1.2.0",
+    "Sortable": "github:RubaXa/Sortable@1.1.1",
     "adf-structures-base": "github:sdorra/adf-structures-base@master",
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
@@ -41,14 +41,14 @@ System.config({
     "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@2.2.0",
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.3",
     "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
-    "babel": "npm:babel-core@5.1.11",
-    "babel-runtime": "npm:babel-runtime@5.1.11",
+    "babel": "npm:babel-core@5.4.3",
+    "babel-runtime": "npm:babel-runtime@5.4.3",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
     "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4",
-    "codemirror": "npm:codemirror@5.2.0",
-    "core-js": "npm:core-js@0.8.4",
+    "codemirror": "github:codemirror/codemirror@5.2.0",
+    "core-js": "npm:core-js@0.9.10",
     "css": "github:systemjs/plugin-css@0.1.10",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
@@ -65,12 +65,12 @@ System.config({
     "svg-morpheus": "github:alexk111/SVG-Morpheus@0.1.8",
     "traceur": "github:jmcriffey/bower-traceur@0.0.87",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87",
-    "ui-codemirror": "github:angular-ui/ui-codemirror@0.2.3",
+    "ui-codemirror": "github:angular-ui/ui-codemirror@master",
     "github:angular-ui/bootstrap-bower@0.12.1": {
       "angular": "github:angular/bower-angular@1.2.28"
     },
-    "github:angular-ui/ui-codemirror@0.2.3": {
-      "npm:codemirror": "npm:codemirror@5.2.0"
+    "github:angular-ui/ui-codemirror@master": {
+      "codemirror": "npm:codemirror@5.2.0"
     },
     "github:angular-ui/ui-router@0.2.13": {
       "angular": "github:angular/bower-angular@1.3.15"
@@ -105,7 +105,7 @@ System.config({
     },
     "github:joaoneto/angular-bootstrap-select@0.1.0-rc2": {
       "angular": "github:angular/bower-angular@1.3.15",
-      "github:silviomoreto/bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4"
+      "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.5"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -214,7 +214,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:core-js@0.8.4": {
+    "npm:core-js@0.9.10": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:core-util-is@1.0.1": {
