@@ -43,3 +43,13 @@ body  {
     margin-right: 3px;
   }
 }
+
+.avatar-shadow {
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(153,151,153,1);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(153,151,153,1);
+  box-shadow: 4px 4px 5px 0px rgba(153,151,153,1);
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+  border: 0px solid #000000;
+}
