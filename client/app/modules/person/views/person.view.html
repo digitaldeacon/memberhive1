@@ -12,7 +12,9 @@
         </div>
 
         <div class="col-md-9">
-          <md-button class="md-icon-button pull-right" ui-sref="person.edit({ id: personCtrl.person.id })">
+          <md-button class="md-icon-button pull-right"
+                     ui-sref="person.edit({ id: personCtrl.person.id })"
+                     aria-label="{{'Edit person' | translate}}">
             <ng-md-icon icon="edit"></ng-md-icon>
           </md-button>
 
@@ -56,7 +58,7 @@
             <md-list>
               <md-subheader class="md-no-sticky">
                 Verlauf zu {{personCtrl.person.firstName}} {{personCtrl.person.lastName}}
-                <md-button class="md-fab md-mini" aria-label="Add new note" style="background-color:white;padding-top:6px">
+                <md-button class="md-fab md-mini fab-white" aria-label="{{'Add new note' | translate}}">
                   <ng-md-icon icon="note_add"></ng-md-icon>
                 </md-button>
               </md-subheader>
@@ -90,7 +92,6 @@
 
       </md-tabs>
     </md-content>
-
 
   </div>
 </mh-panel>

@@ -133,11 +133,11 @@
       },
       "github:angular-ui/bootstrap-bower@0.13.0": {
         "registry": "jspm",
-        "main": "ui-bootstrap.min.js"
+        "main": "ui-bootstrap-tpls.min.js"
       },
       "github:angular-ui/bootstrap-bower@0.12.1": {
         "registry": "jspm",
-        "main": "ui-bootstrap.min.js"
+        "main": "ui-bootstrap-tpls.min.js"
       },
       "github:nohros/nsPopover@0.6.7": {
         "registry": "jspm",
