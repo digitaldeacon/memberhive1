@@ -16,12 +16,27 @@
 }
 .sidebar-menu li {
   margin: 0;
+  .icon-arrow {
+    fill: #aaa;
+  }
+  .icon-placeholder-18 {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+  }
+  .icon-placeholder-24 {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+
 }
 .sidebar-menu .md-button {
   text-transform: none;
   font-weight: 400;
   width: 100%;
   text-align: left;
+  color: #555;
 }
 
 .fadein,
@@ -47,3 +62,4 @@
   opacity: 1;
   display: block !important;
 }
+
