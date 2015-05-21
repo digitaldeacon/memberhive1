@@ -18,10 +18,10 @@ module.exports = function(Note) {
   //return only the results, which belong to the user
   Note.observe('access', function limitToUser(ctx, next) {
     console.log("note - access");
-    log.info(ctx.query);
+    log.info("before", ctx.query);
     var userId = Note.app.loopback.getCurrentContext().get('accessToken').userId;
-    ctx = utils.whereAddAnd(ctx, {"ownerId": userId});
-    log.info(ctx.query);
+    ctx = utils.whereAddAnd(ctx, {"ownerId": userId.toString()});
+    log.info("after", ctx.query.where);
     next();
   });
 };

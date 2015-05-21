@@ -1,7 +1,7 @@
 import 'angular-ui-tree';
 
 import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
-import {NoteEditFormDirective, NoteTreeDirective} from 'modules/note/directives/note-directives';
+import {NoteEditFormDirective, NoteTreeDirective, NoteCreateDirective} from 'modules/note/directives/note-directives';
 import {NoteService} from 'modules/note/services/note-service';
 import {NoteListController} from 'modules/note/controllers/note-list-controller';
 import {NoteCreateController} from 'modules/note/controllers/note-create-controller';
@@ -63,6 +63,7 @@ gemNoteModule.controller('NoteCreateController', NoteCreateController);
 gemNoteModule.service('NoteService', NoteService);
 gemNoteModule.directive('gemNoteEditForm', NoteEditFormDirective);
 gemNoteModule.directive('gemNoteTree', NoteTreeDirective);
+gemNoteModule.directive('mhNoteCreate', NoteCreateDirective);
 
 
 gemNoteModule.config(function($logProvider){

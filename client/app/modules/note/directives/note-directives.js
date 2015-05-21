@@ -24,3 +24,41 @@ export function NoteTreeDirective() {
     templateUrl: 'modules/note/templates/note-tree-directive.html'
   };
 }
+
+export function NoteCreateDirective() {
+  return {
+    scope: {
+        notableId: '@',
+        notableType: '@',
+        newNote : '&'
+    },
+    controller: function (Note, Shout, $scope) {
+      this.create = () => {
+        console.log($scope.notableId);
+        console.log($scope.notableType);
+        Note.upsert(
+          {
+            title: this.title, content: this.content,
+            notableId : $scope.notableId, notableType : $scope.notableType
+          }).$promise
+        .then(
+          (data) => {
+            Shout.success("Note created");
+            $scope.newNote({"note":data});
+          }
+        );
+        this.clear();
+      };
+
+      this.clear = () => {
+        this.title = '';
+        this.content = '';
+      };
+    },
+    controllerAs : 'ctrl',
+    restrict: 'E',
+    templateUrl: 'modules/note/templates/note-create-directive.html'
+  };
+}
+
+
