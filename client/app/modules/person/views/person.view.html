@@ -72,13 +72,14 @@
               </md-subheader>
               <md-list-item class="md-2-line" ng-repeat="note in personCtrl.notes">
                 <md-button class="md-fab md-primary md-mini">
-                <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">{{note.created | date:'M.d'}}</span><br>
+                <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">{{note.created | date:'d.M'}}</span><br>
                 </md-button>
                 <div class="md-list-item-text">
                   <h3><a href="#zurnotiz">{{note.title}}</a></h3>
-                  <h4><ng-md-icon icon="event_note"></ng-md-icon> von, um {{note.created | date:'H:m'}}</h4>
+                  <h4><ng-md-icon icon="event_note"></ng-md-icon> um {{note.created | date:'H:mm'}}</h4>
                   {{note.content}}
                 </div>
+                <md-divider ></md-divider>
               </md-list-item>
             </md-list>
           </md-content>
