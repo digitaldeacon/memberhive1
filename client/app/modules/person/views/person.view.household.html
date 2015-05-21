@@ -14,7 +14,7 @@
           <small class="text-muted" ng-if="person.relationType">
             {{::personCtrl.relationTypes[person.relationType.type]}}
           </small>
-          <small>{{::person.birthdate | fromNow: true}}</small>
+          <small>{{::person.birthdate | fromNowMoment: true}}</small>
         </div>
       </a>
     </li>

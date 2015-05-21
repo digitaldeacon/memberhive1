@@ -1,13 +1,7 @@
 <ul class="list-unstyled">
-  <li ng-if="personCtrl.person.birthdate">
-    {{age = (personCtrl.person.birthdate | fromNow: true);""}}
-    <translate>{{age}} old</translate> <small class="text-muted">{{personCtrl.person.birthdate | amDateFormat:'ll'}}</small>
-  </li>
   <li ng-show="personCtrl.person.baptismDate" tooltip="{{personCtrl.person.baptismDate | amDateFormat:'ll'}}">
-    {{timeFromNow = (personCtrl.person.baptismDate | fromNow: true);""}}
+    {{timeFromNow = (personCtrl.person.baptismDate | fromNowMoment: true);""}}
+    <fa name="tint"></fa>
     <translate>Baptized {{timeFromNow}} ago</translate>
-  </li>
-  <li>
-    {{personCtrl.genders[personCtrl.person.gender]}}
   </li>
 </ul>

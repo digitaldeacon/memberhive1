@@ -11,7 +11,7 @@ import {GemFileReader} from './services/filereader';
 import {GemPdf} from './services/pdf';
 import {Search} from './services/search';
 import './services/lb-services';
-import {fromNowFilter} from './filters/date-filters';
+import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 import {temperatureFilter} from './filters/format-filters';
 
 /**
@@ -97,4 +97,5 @@ gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);
 
 // Filters
 gemCoreModule.filter('fromNow', fromNowFilter);
+gemCoreModule.filter('fromNowMoment', fromNowMomentFilter);
 gemCoreModule.filter('temperature', temperatureFilter);
