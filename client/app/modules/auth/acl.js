@@ -24,8 +24,23 @@ export var gemAclModule = angular.module('gem.acl', [])
     acl.setRedirect = (redirect) => self.redirect = redirect;
 
     acl.setRights = (rights) => self.rights = rights;
-    acl.setRightsPromise = (rightsPromise) => self.rightsPromise = rightsPromise;
-    
+    acl.setRightsPromise = (rightsPromise) => {
+      self.rightsPromise = rightsPromise;
+      self.rightsPromise
+        .then(
+          (data) => {
+            self.rights = data.roles;
+            $rootScope.acl = acl;
+          },
+          (err) => {
+            self.rights = [];
+            $rootScope.acl = acl;
+            $state.go(self.redirect);
+          }
+        );
+
+    };
+
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       if (self.rights === false) {
         self.rightsPromise
@@ -41,11 +56,11 @@ export var gemAclModule = angular.module('gem.acl', [])
             acl.changeState(event, toState);
           }
         );
-      } else {
+      } else { //we have a reponse from loopback and we can check whether the user is allowed to do that
         acl.changeState(event, toState);
       }
     });
-    
+
     acl.changeState = (event, toState) => {
       if (!toState.acl || !toState.acl.needRights) {
         return acl;

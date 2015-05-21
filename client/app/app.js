@@ -86,15 +86,4 @@ gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
   GemAcl.setRightsPromise(p);
   $rootScope.acl = GemAcl;
 
-  p.then(
-    (data) => {
-      GemAcl.setRights(data.roles);
-      $rootScope.acl = GemAcl;
-    },
-    (err) => {
-      GemAcl.setRights([]);
-      $rootScope.acl = GemAcl;
-    }
-  );
-
 });
