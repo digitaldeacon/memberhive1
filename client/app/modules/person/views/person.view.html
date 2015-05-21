@@ -1,49 +1,60 @@
 <mh-panel class="person-view">
   <div ng-controller="PersonViewController as personCtrl">
-    <mh-panel-header>
-      {{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
-      <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
-    </mh-panel-header>
+
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout="row">
+          <div flex="20">
+            <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
+              <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
+            </h3>
+          </div>
+          <div flex="5" style="background-color: #cccccc; height: 100%;padding-top: 20px;text-align:center">
+            <span ng-if="personCtrl.person.birthdate">
+              {{age = (personCtrl.person.birthdate | fromNow);""}}
+              {{age}}
+            </span>
+          </div>
+          <div flex style="height: 100%;padding-top: 20px;text-align:right">
+            <span ng-repeat="status in personCtrl.person.status" class="label label-primary" style="margin-right: 2px">
+              {{ status.text }}
+            </span>
+          </div>
+      </div>
+    </md-toolbar>
 
     <mh-panel-body>
-      <div class="row">
-        <div class="col-md-3">
-          <gem-avatar person="personCtrl.person" size="m" class="img-responsive avatar-shadow"></gem-avatar>
+      <div layout="row" layout-wrap>
+        <div flex="15">
+          <gem-avatar person="personCtrl.person" size="s"></gem-avatar>
         </div>
-
-        <div class="col-md-9">
+        <div flex="85">
           <md-button class="md-icon-button pull-right"
                      ui-sref="person.edit({ id: personCtrl.person.id })"
                      aria-label="{{'Edit person' | translate}}">
             <ng-md-icon icon="edit"></ng-md-icon>
           </md-button>
-
           <div class="row bootstrap">
             <div class="viewport">
-            <span ng-repeat="status in personCtrl.person.status" class="label label-primary">
-              {{ status.text }}
-            </span>
-            </div>
-            <div class="viewport">
+              <fa name="tags"></fa>
               <span ng-repeat="tag in personCtrl.person.tags" class="tag-item">{{tag.text}}</span>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-md-3">
+          <div layout="row">
+            <div flex>
               <div ng-include="'modules/person/views/person.view.details.html'"></div>
             </div>
-            <div class="col-md-3">
+            <div flex>
               <div ng-include="'modules/person/views/person.view.contacts.html'"></div>
             </div>
-            <div class="col-md-3">
+            <div flex>
               <div ng-include="'modules/person/views/person.view.addresses.html'"></div>
             </div>
           </div>
+        </div>
 
-          <div class="row" ng-if="personCtrl.person.household">
-            <div ng-include="'modules/person/views/person.view.household.html'"></div>
-          </div>
+        <div flex="100" ng-if="personCtrl.person.household">
+          <div ng-include="'modules/person/views/person.view.household.html'"></div>
+        </div>
 
         </div>
       </div>

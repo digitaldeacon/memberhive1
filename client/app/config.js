@@ -32,7 +32,7 @@ System.config({
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
     "angular-material": "github:angular/bower-material@0.9.0",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
-    "angular-moment": "npm:angular-moment@0.9.2",
+    "angular-moment": "npm:angular-moment@0.10.1",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.3.15",
     "angular-toastr": "github:Foxandxss/angular-toastr@1.2.1",
@@ -56,7 +56,7 @@ System.config({
     "jquery": "github:components/jquery@2.1.3",
     "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.7.0",
-    "moment": "github:moment/moment@2.9.0",
+    "moment": "github:moment/moment@2.10.3",
     "ng-file-upload": "github:danialfarid/ng-file-upload@4.0.4",
     "ngImgCrop": "github:alexk111/ngImgCrop@0.3.2",
     "ngTagsInput": "github:lunks/ngTagsInput@3.0.0",
@@ -179,8 +179,8 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:angular-moment@0.9.2": {
-      "moment": "npm:moment@2.9.0",
+    "npm:angular-moment@0.10.1": {
+      "moment": "npm:moment@2.10.2",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:assert@1.3.0": {
@@ -236,9 +236,6 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:moment@2.10.2": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
-    "npm:moment@2.9.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:os-browserify@0.1.2": {
