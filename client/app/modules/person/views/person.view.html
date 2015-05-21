@@ -10,8 +10,7 @@
           </div>
           <div flex="5" style="background-color: #cccccc; height: 100%;padding-top: 20px;text-align:center">
             <span ng-if="personCtrl.person.birthdate">
-              {{age = (personCtrl.person.birthdate | fromNow);""}}
-              {{age}}
+              {{personCtrl.person.birthdate | fromNow}}
             </span>
           </div>
           <div flex style="height: 100%;padding-top: 20px;text-align:right">
@@ -71,17 +70,14 @@
             <md-list>
               <md-subheader class="md-no-sticky">
                 Verlauf zu {{personCtrl.person.firstName}} {{personCtrl.person.lastName}}
-                <md-button class="md-fab md-mini fab-white" aria-label="{{'Add new note' | translate}}">
-                  <ng-md-icon icon="note_add"></ng-md-icon>
-                </md-button>
               </md-subheader>
               <md-list-item class="md-2-line" ng-repeat="note in personCtrl.notes">
                 <md-button class="md-fab md-primary md-mini">
-                <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">{{note.created}}</span><br>
+                <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">{{note.created | date:'M.d'}}</span><br>
                 </md-button>
                 <div class="md-list-item-text">
                   <h3><a href="#zurnotiz">{{note.title}}</a></h3>
-                  <h4><ng-md-icon icon="event_note"></ng-md-icon> von <b>Michael Thissen </b>, um 10:23, in <a href="#">Leitungskreis</a></h4>
+                  <h4><ng-md-icon icon="event_note"></ng-md-icon> von, um {{note.created | date:'H:m'}}</h4>
                   {{note.content}}
                 </div>
               </md-list-item>
