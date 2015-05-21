@@ -7,9 +7,7 @@ export class PersonViewController {
     this.genders = PersonService.genders;
     this.addressTypes = AddressService.addressTypes;
     this.notes = Person.notes(
-        {"id":$stateParams.id},
-        {"order":"created DESC"}
-    );
+        {"id":$stateParams.id});
   }
 
   /**

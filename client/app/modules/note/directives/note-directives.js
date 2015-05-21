@@ -44,7 +44,7 @@ export function NoteCreateDirective() {
         .then(
           (data) => {
             Shout.success("Note created");
-            $scope.newNote({"note":data});
+            $scope.newNote({note:data});
           }
         );
         this.clear();
