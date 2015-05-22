@@ -76,7 +76,10 @@
                 </md-button>
                 <div class="md-list-item-text">
                   <h3><a href="#zurnotiz">{{note.title}}</a></h3>
-                  <h4><ng-md-icon icon="event_note"></ng-md-icon> um {{note.created | date:'H:mm'}}</h4>
+                  <h4>
+                    <ng-md-icon icon="event_note"></ng-md-icon>
+                    um {{note.created | date:'H:mm'}}
+                    von <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a> </h4>
                   {{note.content}}
                 </div>
                 <md-divider ></md-divider>
