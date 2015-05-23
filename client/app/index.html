@@ -16,19 +16,24 @@
   </head>
   <body flex layout="column">
     <div ng-if="acl.isLoggedIn()">
-      <md-toolbar layout-padding layout="row" class="md-whiteframe-z3 header-toolbar">
-        <div flex data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" layout="row"> </div>
-      </md-toolbar>
+      
 
       <div flex layout="row" class="main-container">
-        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 500px')" class="md-sidenav-left md-whiteframe-z2">
+        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('min-width: 500px')" class="md-sidenav-left md-whiteframe-z1">
           <div flex data-ng-include="'templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>
         </md-sidenav>
 
-        <div layout="column" flex id="content" layout-margin>
-          <div flex ui-view layout="column" ></div>
-          <div style="color: #555">
-            {{accessToken}}
+        <div flex layout="column">
+        
+          <md-toolbar layout-padding layout="row" class="md-whiteframe-z1 header-toolbar">
+            <div flex data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" layout="row"> </div>
+          </md-toolbar>
+          
+          <div flex layout="column" layout-margin>
+            <div flex ui-view layout="column" ></div>
+            <div style="color: #bbb">
+              {{accessToken}}
+            </div>
           </div>
 
         </div>

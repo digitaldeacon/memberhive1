@@ -39,10 +39,10 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
     '800': 'B06721',
     '900': '814C18',
     
-    'A100': 'ff8a80',
-    'A200': 'ff5252',
-    'A400': 'ff1744',
-    'A700': 'd50000',
+    'A100': 'F8922F',
+    'A200': 'F8922F',
+    'A400': 'F8922F',
+    'A700': 'F8922F',
     
     'contrastDefaultColor': 'light',    // whether, by default, text (contrast) 
                                         // on this palette should be dark or light
@@ -63,10 +63,10 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
     '800': '1697B0',
     '900': '106F81',
     
-    'A100': 'ff8a80',
-    'A200': 'ff5252',
-    'A400': 'ff1744',
-    'A700': 'd50000',
+    'A100': '20D5F8',
+    'A200': '20D5F8',
+    'A400': '20D5F8',
+    'A700': '20D5F8',
     
     'contrastDefaultColor': 'light',    // whether, by default, text (contrast) 
                                         // on this palette should be dark or light
