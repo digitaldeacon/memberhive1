@@ -30,7 +30,7 @@ System.config({
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-gettext": "github:rubenv/angular-gettext@2.0.5",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
-    "angular-material": "github:angular/bower-material@0.9.0",
+    "angular-material": "github:angular/bower-material@0.9.4",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
     "angular-moment": "npm:angular-moment@0.10.1",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
@@ -49,7 +49,7 @@ System.config({
     "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4",
     "codemirror": "github:codemirror/codemirror@5.2.0",
     "core-js": "npm:core-js@0.9.10",
-    "css": "github:systemjs/plugin-css@0.1.10",
+    "css": "github:systemjs/plugin-css@0.1.11",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
     "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@2.1.0",
@@ -90,11 +90,11 @@ System.config({
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
-    "github:angular/bower-material@0.9.0": {
+    "github:angular/bower-material@0.9.4": {
       "angular": "github:angular/bower-angular@1.3.15",
       "angular-animate": "github:angular/bower-angular-animate@1.3.15",
       "angular-aria": "github:angular/bower-angular-aria@1.3.15",
-      "css": "github:systemjs/plugin-css@0.1.10"
+      "css": "github:systemjs/plugin-css@0.1.11"
     },
     "github:components/jqueryui@1.11.4": {
       "jquery": "github:components/jquery@2.1.3"
@@ -111,7 +111,7 @@ System.config({
       "assert": "npm:assert@1.3.0"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
-      "buffer": "npm:buffer@3.2.1"
+      "buffer": "npm:buffer@3.2.2"
     },
     "github:jspm/nodelibs-events@0.1.0": {
       "events-browserify": "npm:events-browserify@0.0.1"
@@ -165,7 +165,7 @@ System.config({
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.1",
       "bootstrap": "github:twbs/bootstrap@3.3.4"
     },
-    "github:systemjs/plugin-css@0.1.10": {
+    "github:systemjs/plugin-css@0.1.11": {
       "clean-css": "npm:clean-css@3.1.9",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
@@ -186,9 +186,9 @@ System.config({
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
     },
-    "npm:buffer@3.2.1": {
+    "npm:buffer@3.2.2": {
       "base64-js": "npm:base64-js@0.0.8",
-      "ieee754": "npm:ieee754@1.1.4",
+      "ieee754": "npm:ieee754@1.1.5",
       "is-array": "npm:is-array@1.0.1"
     },
     "npm:clean-css@3.1.9": {
@@ -224,7 +224,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:font-awesome@4.3.0": {
-      "css": "github:systemjs/plugin-css@0.1.10"
+      "css": "github:systemjs/plugin-css@0.1.11"
     },
     "npm:https-browserify@0.0.0": {
       "http": "github:jspm/nodelibs-http@1.7.1"

@@ -24,16 +24,60 @@ export var gemCoreModule = angular.module('gem.core', ['ngAnimate']);
 
 gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => {
   $urlRouterProvider.otherwise('/dashboard');
+  //main color is: #F8922F
+  //complementär: #0085AB
+  //Generator for palettes http://knizia.biz/mcg/
+  $mdThemingProvider.definePalette('mh-orange', {
+    '50': 'FDF0E3',
+    '100': 'FCDCBD',
+    '200': 'FBC896',
+    '300': 'F9B16C',
+    '400': 'F8A14D',
+    '500': 'F8922F',
+    '600': 'E1842A',
+    '700': 'C97626',
+    '800': 'B06721',
+    '900': '814C18',
+    
+    'A100': 'ff8a80',
+    'A200': 'ff5252',
+    'A400': 'ff1744',
+    'A700': 'd50000',
+    
+    'contrastDefaultColor': 'light',    // whether, by default, text (contrast) 
+                                        // on this palette should be dark or light
+    'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
+     '200', '300', '400', 'A100'],
+    'contrastLightColors': undefined    // could also specify this if default was 'dark'
+  });
 
-  var myBlue = $mdThemingProvider.extendPalette(
-    'blue-grey',
-    {'500': '475069'}
-  );
-  $mdThemingProvider.definePalette('my-blue', myBlue);
+   $mdThemingProvider.definePalette('mh-blue', {
+    '50': 'E1F9FD',
+    '100': 'B9F1FC',
+    '200': '8FE9FB',
+    '300': '61E0F9',
+    '400': '40DAF8',
+    '500': '20D5F8',
+    '600': '1DC1E1',
+    '700': '1AADC9',
+    '800': '1697B0',
+    '900': '106F81',
+    
+    'A100': 'ff8a80',
+    'A200': 'ff5252',
+    'A400': 'ff1744',
+    'A700': 'd50000',
+    
+    'contrastDefaultColor': 'light',    // whether, by default, text (contrast) 
+                                        // on this palette should be dark or light
+    'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
+     '200', '300', '400', 'A100'],
+    'contrastLightColors': undefined    // could also specify this if default was 'dark'
+  });
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('orange')
-    .accentPalette('deep-orange')
+    .primaryPalette('blue')
+    .accentPalette('mh-blue')
     .warnPalette('lime')
     .backgroundPalette('grey');
 });

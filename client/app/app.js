@@ -31,7 +31,6 @@ import 'github:silviomoreto/bootstrap-select/dist/css/bootstrap-select.css!';
 import 'angular-loading-bar/build/loading-bar.css!';
 
 // Own CSS
-import 'styles/material.css!';
 import 'styles/main.css!';
 
 // Translations

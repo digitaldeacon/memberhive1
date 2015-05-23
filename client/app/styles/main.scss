@@ -1,4 +1,9 @@
 @import "variables";
+@import "angular-material/_angular-material.scss";
+
+@import "compass";//import compass after material
+
+@import "components/_dropdown.scss";
 
 // Custom styles
 @import "ns-popover";
@@ -9,12 +14,15 @@
 @import "sidebar";
 @import "autocomplete";
 
+
 body  {
   background-color: #EFEFEF;
 }
+
 .main-container {
   min-height: 1024px;
 }
+
 #content {
   margin: 24px;
 }
@@ -24,6 +32,7 @@ body  {
   text-align: center;
   margin: 0 auto;
 }
+
 .header-search {
   color: #000;
 }
@@ -42,4 +51,9 @@ body  {
   .label {
     margin-right: 3px;
   }
+}
+
+.fab-white {
+  background-color:white !important;
+  padding-top:6px !important;
 }
