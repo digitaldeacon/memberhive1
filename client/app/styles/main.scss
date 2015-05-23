@@ -14,7 +14,9 @@
 @import "sidebar";
 @import "autocomplete";
 
-
+#body {
+  background-color: background-color('100') !important;
+}
 .main-container {
   min-height: 1024px;
 }
@@ -40,7 +42,7 @@
 }
 
 .header-toolbar {
-  background-color: primary-color('800') !important;
+  background-color: background-color('400') !important;
 }
 
 .label-row {
