@@ -1,25 +1,25 @@
 <mh-panel class="person-view">
   <div ng-controller="PersonViewController as personCtrl">
 
-    <md-toolbar>
+    <mh-panel-header>
       <div class="md-toolbar-tools" layout="row">
           <div flex="20">
             <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
               <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
             </h3>
           </div>
-          <div flex="5" style="background-color: #cccccc; height: 100%;padding-top: 20px;text-align:center">
+          <div flex="5" class="section highlight">
             <span ng-if="personCtrl.person.birthdate">
               {{personCtrl.person.birthdate | fromNow}}
             </span>
           </div>
-          <div flex style="height: 100%;padding-top: 20px;text-align:right">
+          <div class="section pull-right" ng-if="personCtrl.person.status">
             <span ng-repeat="status in personCtrl.person.status" class="label label-primary" style="margin-right: 2px">
               {{ status.text }}
             </span>
           </div>
       </div>
-    </md-toolbar>
+    </mh-panel-header>
 
     <mh-panel-body>
       <div layout="row" layout-wrap>
@@ -39,15 +39,24 @@
             </div>
           </div>
           <div layout="row">
-            <div flex>
-              <div ng-include="'modules/person/views/person.view.details.html'"></div>
-            </div>
-            <div flex>
-              <div ng-include="'modules/person/views/person.view.contacts.html'"></div>
-            </div>
-            <div flex>
-              <div ng-include="'modules/person/views/person.view.addresses.html'"></div>
-            </div>
+            <md-card flex>
+              <md-card-content>
+                <h3 translate>Details</h3>
+                <div ng-include="'modules/person/views/person.view.details.html'"></div>
+              </md-card-content>
+            </md-card>
+            <md-card flex>
+              <md-card-content>
+                <h3 translate>Contact</h3>
+                <div ng-include="'modules/person/views/person.view.contacts.html'"></div>
+              </md-card-content>
+            </md-card>
+            <md-card flex>
+              <md-card-content>
+                <h3 translate>Address</h3>
+                <div ng-include="'modules/person/views/person.view.addresses.html'"></div>
+              </md-card-content>
+            </md-card>
           </div>
         </div>
 

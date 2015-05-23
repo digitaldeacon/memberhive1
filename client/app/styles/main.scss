@@ -1,9 +1,9 @@
+@import "compass";
 @import "variables";
-@import "angular-material/_angular-material.scss";
-
-@import "compass";//import compass after material
+@import "theme";
 
 @import "components/_dropdown.scss";
+@import "components/_panel.scss";
 
 // Custom styles
 @import "ns-popover";
@@ -14,10 +14,6 @@
 @import "sidebar";
 @import "autocomplete";
 
-
-body  {
-  background-color: #EFEFEF;
-}
 
 .main-container {
   min-height: 1024px;

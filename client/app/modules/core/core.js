@@ -77,8 +77,8 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
 
   $mdThemingProvider.theme('default')
     .primaryPalette('blue')
-    .accentPalette('mh-blue')
-    .warnPalette('lime')
+    .accentPalette('mh-orange')
+    .warnPalette('red')
     .backgroundPalette('grey');
 });
 

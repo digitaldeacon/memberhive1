@@ -10,7 +10,7 @@ export function mhPanelHeaderDirective() {
   return {
     restrict: 'E',
     transclude: true,
-    template: '<md-toolbar><div class="md-toolbar-tools"><h3 ng-transclude flex></h3></div></md-toolbar>'
+    template: '<md-toolbar class="mh-item-header"><div class="md-toolbar-tools"><h3 ng-transclude flex></h3></div></md-toolbar>'
   };
 }
 
