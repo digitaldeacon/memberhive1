@@ -1,4 +1,13 @@
+.md-sidenav-left,
+.md-sidenav-left.md-locked-open-add-active,
+.md-sidenav-left.md-locked-open {
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+}
+
 .sidebar-container {
+  background-color: primary-color('500') !important; //overwrite .md-content
   .logo-image-container {
     margin-bottom: 2em;
     padding-top: 1em;
@@ -10,24 +19,24 @@
   }
 }
 
-
-.md-sidenav-left,
-.md-sidenav-left.md-locked-open-add-active,
-.md-sidenav-left.md-locked-open {
-  width: 200px;
-  min-width: 200px;
-  max-width: 200px;
-}
-
-.sidebar-container {
-  background-color: primary-color('500') !important; //overwrite .md-content
-}
-
-.sidebar-menu {
+ul.sidebar-menu {
   padding: 0;
   list-style: none;
 }
-.sidebar-menu li {
+.md-sidenav-left.only-icons {
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
+  li {
+    span {
+      display: none;
+    }
+  }
+  .logo-image-container {
+    display: none;
+  }
+}
+ul.sidebar-menu li {
   margin: 0;
   .icon-arrow {
     fill: #aaa;
@@ -42,14 +51,13 @@
     width: 24px;
     height: 24px;
   }
-
-}
-.sidebar-menu .md-button {
-  text-transform: none;
-  font-weight: 400;
-  width: 100%;
-  text-align: left;
-  color: $text-color-light;
+  .md-button {
+    text-transform: none;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    color: $text-color-light;
+  }
 }
 
 .fadein,

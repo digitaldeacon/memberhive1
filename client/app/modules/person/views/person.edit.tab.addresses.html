@@ -1,11 +1,14 @@
-<div class="col-md-6">
-  <h3 translate>Home Address</h3>
+<div flex layout="row">
+  <div flex layout="column" layout-padding>
+    <h3 translate>Home Address</h3>
     <gem-address-edit address="person.address.home"> </gem-address-edit>
-  <h3 translate>Work Address</h3>
+    
+    <h3 translate>Work Address</h3>
     <gem-address-edit address="person.address.work"> </gem-address-edit>
-</div>
+  </div>
 
-<div class="col-md-6">
-  <h3 translate>Postal Address</h3>
+  <div flex layout="column" layout-padding>
+    <h3 translate>Postal Address</h3>
     <gem-address-edit address="person.address.postal"> </gem-address-edit>
+  </div>
 </div>

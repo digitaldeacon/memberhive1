@@ -25,7 +25,6 @@ import 'angular-breadcrumb';
 
 // CSS
 import 'bootstrap/css/bootstrap.css!';
-import 'bootstrap/css/bootstrap-theme.css!';
 import 'font-awesome/css/font-awesome.css!';
 import 'github:silviomoreto/bootstrap-select/dist/css/bootstrap-select.css!';
 import 'angular-loading-bar/build/loading-bar.css!';
