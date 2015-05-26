@@ -4,6 +4,11 @@
 
 @import "components/_dropdown.scss";
 @import "components/_panel.scss";
+@import "components/_table-responsive.scss";
+@import "components/_list.scss";
+@import "components/_tags.scss";
+@import "components/_pagination.scss";
+@import "components/_typography.scss";
 
 // Custom styles
 @import "ns-popover";
@@ -16,6 +21,15 @@
 
 #body {
   background-color: background-color('100') !important;
+}
+a {
+  color: primary-color('400');
+  text-decoration: none;
+}
+
+a:visited, a:hover {
+  text-decoration: none;
+  color: primary-color('600');
 }
 .main-container {
   min-height: 1024px;
