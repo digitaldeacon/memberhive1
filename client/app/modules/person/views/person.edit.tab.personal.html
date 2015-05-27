@@ -47,7 +47,7 @@
     <md-input-container flex>
       <label translate>First Name</label>
       <input name="firstName" ng-model="personCtrl.person.firstName" required>
-      <div ng-messages="personCtrl.personEdit.firstName.$error">
+      <div ng-messages="personEdit.firstName.$error">
         <ng-message when="required" translate>This field is required.</ng-message>
       </div>
     </md-input-container>
@@ -72,13 +72,13 @@
 
     <md-input-container flex>
       <label translate>Suffix</label>
-      <input ng-model="person.suffix">
+      <input ng-model="personCtrl.person.suffix">
     </md-input-container>
 
     <div class="control-group">
       <label for="birthdate" translate>Birthdate</label>
       <div class="input-group">
-        <input type="text" id="birthdate" class="form-control" datepicker-popup ng-model="person.birthdate"
+        <input type="text" id="birthdate" class="form-control" datepicker-popup ng-model="personCtrl.person.birthdate"
               is-open="personCtrl.datepickerBirthdateOpened" close-text="{{'Close' | translate}}"
               ng-click="personCtrl.openBirthdateDatepicker($event)" />
         <span class="input-group-btn">
@@ -92,7 +92,7 @@
     <div class="control-group">
       <label for="birthdate" translate>Baptism Date</label>
       <div class="input-group">
-        <input type="text" id="baptismDate" class="form-control" datepicker-popup ng-model="person.baptismDate"
+        <input type="text" id="baptismDate" class="form-control" datepicker-popup ng-model="personCtrl.person.baptismDate"
               is-open="personCtrl.datepickerBaptismDateOpened" close-text="{{'Close' | translate}}"
               ng-click="personCtrl.openBaptismDateDatepicker($event)" />
         <span class="input-group-btn">
@@ -116,12 +116,11 @@
   <div flex layout="column" layout-padding>
     <h3 translate>Contact Info</h3>
     <md-input-container flex>
-      <md-select ng-model="person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
+      <md-select required ng-model="personCtrl.person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
         <md-option ng-repeat="opt in personCtrl.primaryContactTypes">{{opt}}</md-option>
       </md-select>
-      <br />
-      <p class="md-caption" ng-show="person.primaryContact" translate>Your primary contact method is {{person.primaryContact}}</p>
-      <p class="md-caption" ng-hide="person.primaryContact" translate>Please select your primary contact method</p>
+      <p class="md-caption" ng-show="personCtrl.person.primaryContact" translate>Your primary contact method is {{personCtrl.person.primaryContact}}</p>
+      <p class="md-caption" ng-hide="personCtrl.person.primaryContact" translate>Please select your primary contact method</p>
     </md-input-container>
 
     <md-input-container flex>
