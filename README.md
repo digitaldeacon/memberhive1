@@ -30,9 +30,6 @@ Install process
  However, to persist your data, you should setup a MongoDB database.
  Copy the `server/datasources.local.json.example` file to `server/datasources.local.json` 
  and adjust the settings. You need to manually create the database.
- 
- After that, run `grunt dbmigrate`, which will create the collections and update them if the model changes.
- This task is also run each time the grunt default or `serve` task is executed.
 
 ## Example data
 
