@@ -11,4 +11,9 @@ export function AppController($scope, $rootScope, $cookies, gettextCatalog, Pers
       return `${$state.current.data.pageTitle} | ${productName}`;
     return productName;
   };
+  this.getSubTitle = () => {
+    if ($state.current.hasOwnProperty('data'))
+      return $state.current.data.pageSubTitle;
+    return "";
+  };
 }
