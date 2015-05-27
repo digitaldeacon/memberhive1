@@ -34,37 +34,37 @@
     </div>
 
     <h4 translate>Gender</h4>
-    <md-radio-group ng-model="person.gender">
+    <md-radio-group ng-model="personCtrl.person.gender">
       <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
       <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
     </md-radio-group>
 
     <md-input-container flex>
       <label translate>Title</label>
-      <input ng-model="person.prefix">
+      <input ng-model="personCtrl.person.prefix">
     </md-input-container>
 
     <md-input-container flex>
       <label translate>First Name</label>
-      <input name="firstName" ng-model="person.firstName" required>
-      <div ng-messages="personEdit.firstName.$error">
+      <input name="firstName" ng-model="personCtrl.person.firstName" required>
+      <div ng-messages="personCtrl.personEdit.firstName.$error">
         <ng-message when="required" translate>This field is required.</ng-message>
       </div>
     </md-input-container>
 
     <md-input-container flex>
       <label translate>Nickname</label>
-      <input ng-model="person.nickName">
+      <input ng-model="personCtrl.person.nickName">
     </md-input-container>
 
     <md-input-container flex>
       <label translate>Middle Name</label>
-      <input ng-model="person.middleName">
+      <input ng-model="personCtrl.person.middleName">
     </md-input-container>
 
     <md-input-container flex>
       <label translate>Last Name</label>
-      <input name="lastName" ng-model="person.lastName" required>
+      <input name="lastName" ng-model="personCtrl.person.lastName" required>
       <div ng-messages="personEdit.lastName.$error">
         <ng-message when="required" translate>This field is required.</ng-message>
       </div>
@@ -119,6 +119,7 @@
       <md-select ng-model="person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
         <md-option ng-repeat="opt in personCtrl.primaryContactTypes">{{opt}}</md-option>
       </md-select>
+      <br />
       <p class="md-caption" ng-show="person.primaryContact" translate>Your primary contact method is {{person.primaryContact}}</p>
       <p class="md-caption" ng-hide="person.primaryContact" translate>Please select your primary contact method</p>
     </md-input-container>
