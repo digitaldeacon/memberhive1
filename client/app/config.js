@@ -22,7 +22,6 @@ System.config({
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
-    "angular-bootstrap-select": "github:joaoneto/angular-bootstrap-select@0.1.0-rc2",
     "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@0.3.3",
     "angular-confirm": "github:Schlogen/angular-confirm@master",
     "angular-cookies": "github:angular/bower-angular-cookies@1.3.15",
@@ -32,6 +31,7 @@ System.config({
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
     "angular-material": "github:angular/bower-material@0.9.4",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
+    "angular-messages": "npm:angular-messages@1.4.0",
     "angular-moment": "npm:angular-moment@0.10.1",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.3.15",
@@ -46,7 +46,6 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
-    "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.4",
     "codemirror": "github:codemirror/codemirror@5.2.0",
     "core-js": "npm:core-js@0.9.10",
     "css": "github:systemjs/plugin-css@0.1.11",
@@ -102,10 +101,6 @@ System.config({
     "github:eternicode/bootstrap-datepicker@1.4.0": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
       "jquery": "github:components/jquery@2.1.3"
-    },
-    "github:joaoneto/angular-bootstrap-select@0.1.0-rc2": {
-      "angular": "github:angular/bower-angular@1.3.15",
-      "bootstrap-select": "github:silviomoreto/bootstrap-select@1.6.5"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
