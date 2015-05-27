@@ -48,7 +48,7 @@
       <label translate>First Name</label>
       <input name="firstName" ng-model="personCtrl.person.firstName" required>
       <div ng-messages="personEdit.firstName.$error">
-        <ng-message when="required" translate>This field is required.</ng-message>
+        <ng-message when="required"><translate>This field is required.</translate></ng-message>
       </div>
     </md-input-container>
 
@@ -66,7 +66,7 @@
       <label translate>Last Name</label>
       <input name="lastName" ng-model="personCtrl.person.lastName" required>
       <div ng-messages="personEdit.lastName.$error">
-        <ng-message when="required" translate>This field is required.</ng-message>
+        <ng-message when="required"><translate>This field is required.</translate></ng-message>
       </div>
     </md-input-container>
 
@@ -119,8 +119,12 @@
       <md-select required ng-model="personCtrl.person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
         <md-option ng-repeat="opt in personCtrl.primaryContactTypes">{{opt}}</md-option>
       </md-select>
-      <p class="md-caption" ng-show="personCtrl.person.primaryContact" translate>Your primary contact method is {{personCtrl.person.primaryContact}}</p>
-      <p class="md-caption" ng-hide="personCtrl.person.primaryContact" translate>Please select your primary contact method</p>
+      <p class="md-caption" ng-show="personCtrl.person.primaryContact">
+        <translate>Your primary contact method is {{personCtrl.person.primaryContact}}</translate>
+      </p>
+      <p class="md-caption" ng-hide="personCtrl.person.primaryContact">
+        <translate>Please select your primary contact method</translate>
+      </p>
     </md-input-container>
 
     <md-input-container flex>
