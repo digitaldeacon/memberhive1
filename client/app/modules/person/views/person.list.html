@@ -1,15 +1,12 @@
-<mh-panel>
   <div ng-controller="PersonListController as personCtrl" class="person-list">
-    <mh-panel-header>
-      <translate>Persons</translate>
-    </mh-panel-header>
 
-    <mh-panel-body>
       <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
                                template-url="templates/dirPagination.html">
       </dir-pagination-controls>
-
-      <table class="table table-striped table-bordered table-advance table-hover">
+      <md-card>
+      <md-card-content>
+      <div class="table-responsive-vertical">
+      <table class="table table-striped table-bordered table-hover ">
         <thead>
         <tr>
           <th></th>
@@ -37,12 +34,12 @@
             </div>
           </script>
 
-          <td>
+          <td data-title="Avatar">
             <a ui-sref="person.view({ id: person.id })">
               <gem-avatar person="person" size="xs" circle></gem-avatar>
             </a>
           </td>
-          <td>
+          <td data-title="Name">
             <h3>
               <a ui-sref="person.view({ id: person.id })">
                 {{::person | formatName}}
@@ -87,17 +84,17 @@
               </li>
             </ul>
           </td>
-          <td class="label-row">
+          <td class="label-row" data-title="Status">
             <span ng-repeat="status in person.status" class="status-tag">
               {{ status.text }}
             </span>
           </td>
-          <td class="label-row">
+          <td class="label-row" data-title="Tag">
             <span ng-repeat="tag in person.tags" class="tag">
               {{ tag.text }}
             </span>
           </td>
-          <td class="actions">
+          <td class="actions" data-title="Actions">
             <md-button class="md-icon-button" tooltip="{{'Edit' | translate}}" aria-label="{{'Edit' | translate}}"
                        ui-sref="person.edit({ id: person.id })">
               <ng-md-icon icon="edit"></ng-md-icon>
@@ -112,10 +109,10 @@
         </tr>
         </tbody>
       </table>
-
+      </div>
+      </md-card-content>
+      </md-card>
       <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
                                template-url="templates/dirPagination.html">
       </dir-pagination-controls>
-    </mh-panel-body>
   </div>
-</mh-panel>

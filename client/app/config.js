@@ -22,23 +22,23 @@ System.config({
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-animate": "github:angular/bower-angular-animate@1.3.15",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
-    "angular-bootstrap-select": "github:joaoneto/angular-bootstrap-select@0.1.0-rc2",
     "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@0.3.3",
     "angular-confirm": "github:Schlogen/angular-confirm@master",
     "angular-cookies": "github:angular/bower-angular-cookies@1.3.15",
     "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@master",
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
-    "angular-gettext": "github:rubenv/angular-gettext@2.1.0",
+    "angular-gettext": "github:rubenv/angular-gettext@2.0.5",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
     "angular-material": "github:angular/bower-material@0.9.4",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
+    "angular-messages": "npm:angular-messages@1.4.0",
     "angular-moment": "npm:angular-moment@0.10.1",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.3.15",
     "angular-toastr": "github:Foxandxss/angular-toastr@1.2.1",
     "angular-touch": "github:angular/bower-angular-touch@1.3.15",
-    "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
-    "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@2.4.0",
+    "angular-ui-router": "github:angular-ui/ui-router@0.2.13",
+    "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@2.2.0",
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.3",
     "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
     "babel": "npm:babel-core@5.4.3",
@@ -46,18 +46,17 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
-    "bootstrap-select": "github:silviomoreto/bootstrap-select@1.7.1",
-    "codemirror": "github:codemirror/codemirror@5.3.0",
+    "codemirror": "github:codemirror/codemirror@5.2.0",
     "core-js": "npm:core-js@0.9.10",
     "css": "github:systemjs/plugin-css@0.1.11",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
     "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@2.1.0",
-    "jquery": "github:components/jquery@2.1.4",
+    "jquery": "github:components/jquery@2.1.3",
     "jquery-ui": "github:components/jqueryui@1.11.4",
     "lodash": "npm:lodash@3.7.0",
     "moment": "github:moment/moment@2.10.3",
-    "ng-file-upload": "github:danialfarid/ng-file-upload@4.2.4",
+    "ng-file-upload": "github:danialfarid/ng-file-upload@4.0.4",
     "ngImgCrop": "github:alexk111/ngImgCrop@0.3.2",
     "ngTagsInput": "github:lunks/ngTagsInput@3.0.0",
     "nsPopover": "github:nohros/nsPopover@0.6.7",
@@ -70,9 +69,9 @@ System.config({
       "angular": "github:angular/bower-angular@1.2.28"
     },
     "github:angular-ui/ui-codemirror@master": {
-      "codemirror": "github:codemirror/codemirror@5.3.0"
+      "codemirror": "npm:codemirror@5.2.0"
     },
-    "github:angular-ui/ui-router@0.2.15": {
+    "github:angular-ui/ui-router@0.2.13": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
     "github:angular/bower-angular-animate@1.3.15": {
@@ -97,15 +96,11 @@ System.config({
       "css": "github:systemjs/plugin-css@0.1.11"
     },
     "github:components/jqueryui@1.11.4": {
-      "jquery": "github:components/jquery@2.1.4"
+      "jquery": "github:components/jquery@2.1.3"
     },
     "github:eternicode/bootstrap-datepicker@1.4.0": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "jquery": "github:components/jquery@2.1.4"
-    },
-    "github:joaoneto/angular-bootstrap-select@0.1.0-rc2": {
-      "angular": "github:angular/bower-angular@1.3.15",
-      "bootstrap-select": "github:silviomoreto/bootstrap-select@1.7.1"
+      "jquery": "github:components/jquery@2.1.3"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -151,11 +146,11 @@ System.config({
     },
     "github:mistic100/jQuery-QueryBuilder@2.1.0": {
       "bootstrap": "github:twbs/bootstrap@3.3.4",
-      "jquery": "github:components/jquery@2.1.4",
-      "moment": "npm:moment@2.10.3"
+      "jquery": "github:components/jquery@2.1.3",
+      "moment": "npm:moment@2.10.2"
     },
     "github:ncuillery/angular-breadcrumb@0.3.3": {
-      "angular-ui-router": "github:angular-ui/ui-router@0.2.15"
+      "angular-ui-router": "github:angular-ui/ui-router@0.2.13"
     },
     "github:nohros/nsPopover@0.6.7": {
       "angular": "github:angular/bower-angular@1.3.15"
@@ -171,7 +166,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
     "github:twbs/bootstrap@3.3.4": {
-      "jquery": "github:components/jquery@2.1.4"
+      "jquery": "github:components/jquery@2.1.3"
     },
     "npm:amdefine@0.1.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -180,7 +175,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:angular-moment@0.10.1": {
-      "moment": "npm:moment@2.10.3",
+      "moment": "npm:moment@2.10.2",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:assert@1.3.0": {
@@ -203,6 +198,10 @@ System.config({
       "source-map": "npm:source-map@0.1.43",
       "url": "github:jspm/nodelibs-url@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:codemirror@5.2.0": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:commander@2.6.0": {
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
@@ -231,7 +230,7 @@ System.config({
     "npm:lodash@3.7.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:moment@2.10.3": {
+    "npm:moment@2.10.2": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:os-browserify@0.1.2": {

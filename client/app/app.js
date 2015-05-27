@@ -4,6 +4,7 @@ import 'angular-material';
 import 'svg-morpheus'; // Animations for angular-material-icons
 import 'angular-material-icons';
 import 'bootstrap';
+import 'angular-messages';
 import 'angular-animate';
 import 'angular-cookies';
 import 'angular-resource';
@@ -12,8 +13,6 @@ import 'angular-touch';
 import 'angular-fontawesome';
 import 'angular-ui-router';
 import 'angular-bootstrap';
-import 'bootstrap-select';
-import 'angular-bootstrap-select';
 
 import 'angular-gettext';
 import 'angular-confirm';
@@ -26,7 +25,6 @@ import 'angular-breadcrumb';
 // CSS
 import 'bootstrap/css/bootstrap.css!';
 import 'font-awesome/css/font-awesome.css!';
-import 'github:silviomoreto/bootstrap-select/dist/css/bootstrap-select.css!';
 import 'angular-loading-bar/build/loading-bar.css!';
 
 // Own CSS
@@ -51,10 +49,9 @@ import {gemCalendarModule} from 'modules/calendar/calendar';
  * The main app module.
  */
 export var gemMainModule = angular.module('gem.main', [
-  'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch', 'ngAria',
+  'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch', 'ngAria', 'ngMessages',
   'ui.router', 'ui.bootstrap',
   'lbServices', 'picardy.fontawesome',
-  'angular-bootstrap-select', 'angular-bootstrap-select.extra',
   'angular-confirm', 'angularMoment', 'angular-loading-bar',
   'gettext', 'toastr', 'ncy-angular-breadcrumb', 'ngMdIcons',
 

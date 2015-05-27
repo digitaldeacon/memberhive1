@@ -11,7 +11,7 @@ export function uiNavDirective() {
     }
   };
 }
-export function mhMenuItem() {
+export function mhMenuItem($mdSidenav) {
   return {
     restrict: 'E',
     scope: {
@@ -39,7 +39,9 @@ export function mhMenuItem() {
            scope.icon = 'keyboard_arrow_down';
         }
       };
-
+      $scope.closeMenuBar = function() {
+        $mdSidenav('left').close();
+      };
     }
   };
 }

@@ -137,15 +137,6 @@ module.exports = function(grunt) {
       }
     },
 
-    'loopback_auto': {
-      'db_autoupdate': {
-        options: {
-
-          method: 'autoupdate'
-        }
-      }
-    },
-
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       compass: {
@@ -355,7 +346,6 @@ module.exports = function(grunt) {
     grunt.task.run([
       'githooks',
       'clean:server',
-      'dbmigrate',
       'lbservices',
       'ngconstant:server',
       'nggettext_compile',
@@ -378,7 +368,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'githooks',
-    'dbmigrate',
     'build'
   ]);
 
@@ -393,7 +382,6 @@ module.exports = function(grunt) {
       'nggettext_compile'
     ]);
 
-  grunt.registerTask('dbmigrate', ['loopback_auto']);
   grunt.registerTask('lbservices', ['loopback_sdk_angular:services','loopback_angular_addModelData']);
   grunt.registerTask('lbservices_dist', ['loopback_sdk_angular:dist','loopback_angular_addModelData']);
   grunt.registerTask('restApiDocs', ['lbservices', 'docular', 'docularserver']);
@@ -402,7 +390,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-loopback-sdk-angular');
   grunt.loadNpmTasks('grunt-docular');
-  grunt.loadNpmTasks('grunt-loopback-auto');
   grunt.loadNpmTasks('grunt-jscs');
   // Load custom tasks from tasks/ directory
   grunt.loadTasks('tasks');

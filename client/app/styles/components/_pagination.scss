@@ -1,7 +1,5 @@
-
 .md-pagination {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
   padding: 0;
   li {
     display: inline-block;
@@ -18,12 +16,6 @@
     width: 30px;
     height: 30px;
     background-color: primary-color('500');
-  }
-  li:first-child i {
-    mask: url(https://google.github.io/material-design-icons/navigation/svg/ic_chevron_left_24px.svg) center center / cover;
-  }
-  li:last-child i {
-    mask: url(https://google.github.io/material-design-icons/navigation/svg/ic_chevron_right_24px.svg) center center / cover;
   }
   li.active {
     background: primary-color('500');
