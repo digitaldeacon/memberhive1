@@ -1,4 +1,11 @@
-<span> {{appCtrl.getSubTitle()}} </span>
+<md-button 
+  class="md-icon-button mh-toogle-button" 
+  ng-click="appCtrl.toggleLeft()"> 
+    <ng-md-icon icon="menu">
+    </ng-md-icon>
+</md-button>
+
+<span class="sub-title"> {{appCtrl.getSubTitle()}} </span>
 
 <form flex ng-submit="$event.preventDefault()">
   <md-autocomplete flex

@@ -1,10 +1,5 @@
-<mh-panel>
   <div ng-controller="PersonListController as personCtrl" class="person-list">
-    <mh-panel-header>
-      <translate>Persons</translate>
-    </mh-panel-header>
 
-    <mh-panel-body>
       <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
                                template-url="templates/dirPagination.html">
       </dir-pagination-controls>
@@ -116,6 +111,4 @@
       <dir-pagination-controls boundary-links="true" on-page-change="personCtrl.pageChanged(newPageNumber)"
                                template-url="templates/dirPagination.html">
       </dir-pagination-controls>
-    </mh-panel-body>
   </div>
-</mh-panel>

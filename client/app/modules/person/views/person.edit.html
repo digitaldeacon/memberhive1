@@ -1,13 +1,4 @@
-<mh-panel>
   <div ng-controller="PersonEditController as personCtrl">
-
-    <mh-panel-header>
-      <a ui-sref="person.view({ id: personCtrl.person.id })" ng-if="personCtrl.person.id">
-        <fa name="user"></fa>
-      </a>
-      {{personCtrl.getTitle()}}</mh-panel-header>
-    <mh-panel-body>
-
       <form name="personEdit" novalidate>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab>
@@ -52,4 +43,3 @@
       </form>
     </mh-panel-body>
   </div>
-</mh-panel>

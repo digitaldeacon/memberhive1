@@ -1,108 +1,103 @@
-<mh-panel class="person-view">
-  <div ng-controller="PersonViewController as personCtrl">
+<div ng-controller="PersonViewController as personCtrl">
 
-    <mh-panel-header>
-      <div class="md-toolbar-tools" layout="row">
-          <div flex="20">
-            <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
-              <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
-            </h3>
-          </div>
-          <div flex="5" class="section highlight">
-            <span ng-if="personCtrl.person.birthdate">
-              {{personCtrl.person.birthdate | fromNow}}
-            </span>
-          </div>
-          <div class="section pull-right" ng-if="personCtrl.person.status">
-            <span ng-repeat="status in personCtrl.person.status" class="label label-primary" style="margin-right: 2px">
-              {{ status.text }}
-            </span>
-          </div>
+  <div class="md-toolbar-tools" layout="row">
+      <div flex="20">
+        <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
+          <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
+        </h3>
       </div>
-    </mh-panel-header>
-
-    <mh-panel-body>
-      <div layout="row" layout-wrap>
-        <div flex="14">
-          <gem-avatar person="personCtrl.person" size="s"></gem-avatar>
-        </div>
-        <div flex="85">
-          <md-button class="md-icon-button pull-right"
-                     ui-sref="person.edit({ id: personCtrl.person.id })"
-                     aria-label="{{'Edit person' | translate}}">
-            <ng-md-icon icon="edit"></ng-md-icon>
-          </md-button>
-          <div class="row bootstrap">
-            <div class="viewport">
-              <fa name="tags"></fa>
-              <span ng-repeat="tag in personCtrl.person.tags" class="tag-item">{{tag.text}}</span>
-            </div>
-          </div>
-          <div layout="row">
-            <md-card flex>
-              <md-card-content>
-                <h3 translate>Details</h3>
-                <div ng-include="'modules/person/views/person.view.details.html'"></div>
-              </md-card-content>
-            </md-card>
-            <md-card flex>
-              <md-card-content>
-                <h3 translate>Contact</h3>
-                <div ng-include="'modules/person/views/person.view.contacts.html'"></div>
-              </md-card-content>
-            </md-card>
-            <md-card flex>
-              <md-card-content>
-                <h3 translate>Address</h3>
-                <div ng-include="'modules/person/views/person.view.addresses.html'"></div>
-              </md-card-content>
-            </md-card>
-          </div>
-        </div>
-
-        <div flex="100" ng-if="personCtrl.person.household">
-          <div ng-include="'modules/person/views/person.view.household.html'"></div>
-        </div>
-
+      <div flex="5" class="section highlight">
+        <span ng-if="personCtrl.person.birthdate">
+          {{personCtrl.person.birthdate | fromNow}}
+        </span>
       </div>
-    </mh-panel-body>
-    <md-divider ></md-divider>
+      <div class="section pull-right" ng-if="personCtrl.person.status">
+        <span ng-repeat="status in personCtrl.person.status" class="label label-primary" style="margin-right: 2px">
+          {{ status.text }}
+        </span>
+      </div>
+  </div>
 
-    <md-content class="md-padding">
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="Verlauf">
+  <div layout="row" layout-wrap>
+    <div flex="14">
+      <gem-avatar person="personCtrl.person" size="s"></gem-avatar>
+    </div>
+    <div flex="85">
+      <md-button class="md-icon-button pull-right"
+                  ui-sref="person.edit({ id: personCtrl.person.id })"
+                  aria-label="{{'Edit person' | translate}}">
+        <ng-md-icon icon="edit"></ng-md-icon>
+      </md-button>
+      <div class="row bootstrap">
+        <div class="viewport">
+          <fa name="tags"></fa>
+          <span ng-repeat="tag in personCtrl.person.tags" class="tag-item">{{tag.text}}</span>
+        </div>
+      </div>
+      <div layout="row">
+        <md-card flex>
+          <md-card-content>
+            <h3 translate>Details</h3>
+            <div ng-include="'modules/person/views/person.view.details.html'"></div>
+          </md-card-content>
+        </md-card>
+        <md-card flex>
+          <md-card-content>
+            <h3 translate>Contact</h3>
+            <div ng-include="'modules/person/views/person.view.contacts.html'"></div>
+          </md-card-content>
+        </md-card>
+        <md-card flex>
+          <md-card-content>
+            <h3 translate>Address</h3>
+            <div ng-include="'modules/person/views/person.view.addresses.html'"></div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
 
-          <md-content class="md-padding">
-
-            <mh-note-create notable-type="Person" notable-id="{{personCtrl.person.id}}" new-note="personCtrl.newNote(note)"></mh-note-create>
-            <md-list>
-              <md-subheader class="md-no-sticky">
-                Verlauf zu {{personCtrl.person.firstName}} {{personCtrl.person.lastName}}
-              </md-subheader>
-              <md-list-item class="md-2-line" ng-repeat="note in personCtrl.notes">
-                <md-button class="md-fab md-primary md-mini">
-                <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">{{note.created | date:'d.M'}}</span><br>
-                </md-button>
-                <div class="md-list-item-text">
-                  <h3><a href="#zurnotiz">{{note.title}}</a></h3>
-                  <h4>
-                    <ng-md-icon icon="event_note"></ng-md-icon>
-                    um {{note.created | date:'H:mm'}}
-                    von <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a> </h4>
-                  {{note.content}}
-                </div>
-                <md-divider ></md-divider>
-              </md-list-item>
-            </md-list>
-          </md-content>
-
-        </md-tab>
-        <md-tab label="Gruppen">
-
-        </md-tab>
-
-      </md-tabs>
-    </md-content>
+    <div flex="100" ng-if="personCtrl.person.household">
+      <div ng-include="'modules/person/views/person.view.household.html'"></div>
+    </div>
 
   </div>
-</mh-panel>
+    
+
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="Verlauf">
+
+      <md-content class="md-padding">
+
+        <mh-note-create notable-type="Person" notable-id="{{personCtrl.person.id}}" new-note="personCtrl.newNote(note)"></mh-note-create>
+        
+        <md-list>
+          <md-subheader class="md-no-sticky">
+            Verlauf zu {{personCtrl.person.firstName}} {{personCtrl.person.lastName}}
+          </md-subheader>
+          <md-list-item class="md-2-line" ng-repeat="note in personCtrl.notes">
+            <md-button class="md-fab md-primary md-mini">
+            <span style="color: #f9f9f9;font-size: 11px;font-weight:bolder">{{note.created | date:'d.M'}}</span><br>
+            </md-button>
+            <div class="md-list-item-text">
+              <h3><a href="#zurnotiz">{{note.title}}</a></h3>
+              <h4>
+                <ng-md-icon icon="event_note"></ng-md-icon>
+                um {{note.created | date:'H:mm'}}
+                von <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a> </h4>
+              {{note.content}}
+            </div>
+            <md-divider ></md-divider>
+          </md-list-item>
+        </md-list>
+        
+      </md-content>
+
+    </md-tab>
+    
+    <md-tab label="Gruppen">
+
+    </md-tab>
+
+  </md-tabs>
+
+</div>
