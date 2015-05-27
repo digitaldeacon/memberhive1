@@ -32,6 +32,7 @@ System.config({
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
     "angular-material": "github:angular/bower-material@0.9.4",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
+    "angular-messages": "npm:angular-messages@1.4.0",
     "angular-moment": "npm:angular-moment@0.10.1",
     "angular-resource": "github:angular/bower-angular-resource@1.3.15",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.3.15",

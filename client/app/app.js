@@ -4,6 +4,7 @@ import 'angular-material';
 import 'svg-morpheus'; // Animations for angular-material-icons
 import 'angular-material-icons';
 import 'bootstrap';
+import 'angular-messages';
 import 'angular-animate';
 import 'angular-cookies';
 import 'angular-resource';
@@ -51,7 +52,7 @@ import {gemCalendarModule} from 'modules/calendar/calendar';
  * The main app module.
  */
 export var gemMainModule = angular.module('gem.main', [
-  'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch', 'ngAria',
+  'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch', 'ngAria', 'ngMessages',
   'ui.router', 'ui.bootstrap',
   'lbServices', 'picardy.fontawesome',
   'angular-bootstrap-select', 'angular-bootstrap-select.extra',
