@@ -1,5 +1,4 @@
-export function PersonViewController(PersonService, AddressService, 
-                                     $stateParams, Person, Shout) {
+export function PersonViewController(PersonService, AddressService, $stateParams, Person) {
 
   this.person = PersonService.one($stateParams.id);
   this.getContacts = PersonService.getContacts;
