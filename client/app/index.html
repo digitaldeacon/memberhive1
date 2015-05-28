@@ -15,8 +15,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="386x382" href="images/apple-touch-icon-386-precomposed.png">
   </head>
   <body flex layout="column">
+
+    <mhStateLoader></mhStateLoader>
+
     <div ng-if="acl.isLoggedIn()">
-      
+
 
       <div flex layout="row" class="main-container">
         <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z1">
@@ -24,11 +27,11 @@
         </md-sidenav>
 
         <div flex layout="column">
-        
+
           <md-toolbar layout-padding layout="row" class="md-whiteframe-z0 header-toolbar">
             <div flex data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" layout="row"> </div>
           </md-toolbar>
-          
+
           <div flex layout="column" layout-margin>
             <div flex ui-view layout="column" ></div>
             <div style="color: #bbb">

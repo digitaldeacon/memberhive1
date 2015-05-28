@@ -90,6 +90,7 @@
       "angular-moment": "npm:angular-moment@~0.10.1",
       "angular-resource": "github:angular/bower-angular-resource@~1.3.15",
       "angular-sanitize": "github:angular/bower-angular-sanitize@~1.3.15",
+      "angular-spinkit": "github:Urigo/angular-spinkit@master",
       "angular-toastr": "github:Foxandxss/angular-toastr@1.2.1",
       "angular-touch": "github:angular/bower-angular-touch@~1.3.15",
       "angular-ui-router": "github:angular-ui/ui-router@^0.2.13",

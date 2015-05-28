@@ -6,6 +6,7 @@ import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective} from './directives/form-directives';
 import {uiNavDirective, mhMenuItem,mhDropdownMenuItem, mhDropdownMenu, mhOutsideClick} from './directives/nav-directive';
 import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
+import {stateLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
 import {GemFileReader} from './services/filereader';
 import {GemPdf} from './services/pdf';
@@ -38,13 +39,13 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
     '700': 'C97626',
     '800': 'B06721',
     '900': '814C18',
-    
+
     'A100': 'F8922F',
     'A200': 'F8922F',
     'A400': 'F8922F',
     'A700': 'F8922F',
-    
-    'contrastDefaultColor': 'light',    // whether, by default, text (contrast) 
+
+    'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
                                         // on this palette should be dark or light
     'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
      '200', '300', '400', 'A100'],
@@ -62,13 +63,13 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
     '700': '1AADC9',
     '800': '1697B0',
     '900': '106F81',
-    
+
     'A100': '20D5F8',
     'A200': '20D5F8',
     'A400': '20D5F8',
     'A700': '20D5F8',
-    
-    'contrastDefaultColor': 'light',    // whether, by default, text (contrast) 
+
+    'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
                                         // on this palette should be dark or light
     'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
      '200', '300', '400', 'A100'],
@@ -139,6 +140,7 @@ gemCoreModule.directive('mhPanel', mhPanelDirective);
 gemCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
 gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);
 
+gemCoreModule.directive('mhStateLoader', stateLoader);
 // Filters
 gemCoreModule.filter('fromNow', fromNowFilter);
 gemCoreModule.filter('fromNowMoment', fromNowMomentFilter);

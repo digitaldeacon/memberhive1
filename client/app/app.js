@@ -13,6 +13,7 @@ import 'angular-touch';
 import 'angular-fontawesome';
 import 'angular-ui-router';
 import 'angular-bootstrap';
+import 'angular-spinkit';
 
 import 'angular-gettext';
 import 'angular-confirm';
@@ -52,7 +53,7 @@ export var gemMainModule = angular.module('gem.main', [
   'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch', 'ngAria', 'ngMessages',
   'ui.router', 'ui.bootstrap',
   'lbServices', 'picardy.fontawesome',
-  'angular-confirm', 'angularMoment', 'angular-loading-bar',
+  'angular-confirm', 'angularMoment', 'angular-loading-bar','angular-spinkit',
   'gettext', 'toastr', 'ncy-angular-breadcrumb', 'ngMdIcons',
 
   // GEM Modules
