@@ -1,46 +1,35 @@
-<div flex layout="column">
-  <div flex layout="row">
-    <md-button 
-      class="md-icon-button mh-toogle-button" 
-      ng-click="appCtrl.toggleLeft()"> 
-        <ng-md-icon icon="menu">
-        </ng-md-icon>
-    </md-button>
 
-    <span class="sub-title"> {{appCtrl.getSubTitle()}} </span>
+<md-button 
+  class="md-icon-button mh-toogle-button" 
+  ng-click="appCtrl.toggleLeft()"> 
+    <ng-md-icon icon="menu">
+    </ng-md-icon>
+</md-button>
 
-    <form flex ng-submit="$event.preventDefault()">
-      <md-autocomplete flex
-          md-search-text="headerCtrl.searchText"
-          md-selected-item-change="headerCtrl.selectedItemChange(item)"
-          md-items="item in headerCtrl.querySearch(headerCtrl.searchText)"
-          md-min-length="2"
-          placeholder="{{'Search…'|translate}}"
-          md-selected-item="headerCtrl.selectedItem"
-          md-selected-item-change="headerCtrl.selectedItemChange(item)"
-          class="header-search"
-        >
+<span class="sub-title"> {{appCtrl.getSubTitle()}} </span>
 
-        <gem-avatar person="item" circle size="xs"></gem-avatar>
-        <span md-highlight-text="headerCtrl.searchText" md-highlight-flags="^i">
-          {{item | formatName}}
-        </span>
+<form flex ng-submit="$event.preventDefault()">
+  <md-autocomplete flex
+      md-search-text="headerCtrl.searchText"
+      md-selected-item-change="headerCtrl.selectedItemChange(item)"
+      md-items="item in headerCtrl.querySearch(headerCtrl.searchText)"
+      md-min-length="2"
+      placeholder="{{'Search…'|translate}}"
+      md-selected-item="headerCtrl.selectedItem"
+      md-selected-item-change="headerCtrl.selectedItemChange(item)"
+      class="header-search"
+    >
 
-      </md-autocomplete>
-    </form>
+    <gem-avatar person="item" circle size="xs"></gem-avatar>
+    <span md-highlight-text="headerCtrl.searchText" md-highlight-flags="^i">
+      {{item | formatName}}
+    </span>
 
-    <mh-dropdown-menu icon="more_vert">
-      <mh-dropdown-menu-item href="#">Mein Konto</mh-dropdown-menu-item>
-      <mh-dropdown-menu-item href="#">Hilfe</mh-dropdown-menu-item>
-      <mh-dropdown-menu-item href="#">Logout</mh-dropdown-menu-item>
-    </mh-dropdown-menu>
-  </div>
- <!-- <div flex>
-    <md-tabs>
-      <md-tab label="Übersicht"></md-tab>
-      <md-tab label="Personen"></md-tab>
-      <md-tab label="Gruppen"></md-tab>
-      <md-tab label="Kalender"></md-tab>
-    </md-tabs>
-  </div>-->
-</div>
+  </md-autocomplete>
+</form>
+
+<mh-dropdown-menu icon="more_vert">
+  <mh-dropdown-menu-item href="#">Mein Konto</mh-dropdown-menu-item>
+  <mh-dropdown-menu-item href="#">Hilfe</mh-dropdown-menu-item>
+  <mh-dropdown-menu-item href="#">Logout</mh-dropdown-menu-item>
+</mh-dropdown-menu>

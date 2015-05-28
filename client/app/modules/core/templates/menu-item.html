@@ -5,9 +5,15 @@
 </md-button>
 
 <md-button ng-if="item.children" ng-click="toggle()">
-  <ng-md-icon size="18" icon="{{icon()}}" options='{"duration": 375, "rotation": "none"}' class='icon-arrow'></ng-md-icon>
-  <fa name="{{item.icon}}" fw></fa>
-  <span>{{item.label | translate}}</span>
+  <div flex layout="row" style="line-height: 0">
+    <div flex style="max-width: 32px">  
+      <ng-md-icon  size="18" icon="{{icon()}}" options='{"duration": 375, "rotation": "none"}' class='icon-arrow'></ng-md-icon>
+    </div>
+    <div flex>
+      <fa name="{{item.icon}}" fw></fa>
+      <span>{{item.label | translate}}</span>
+    </div>
+  </div>
 </md-button>
 
 <ul ng-if="item.children" class="menu-nested-list fadein fadeout" ng-show="isOpen()" >
