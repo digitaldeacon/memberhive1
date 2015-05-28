@@ -39,7 +39,11 @@ a:visited, a:hover {
 #content {
   margin: 24px;
 }
-
+.md-button svg {
+  //this is needed to center them in ng-md-icon
+  display: block;
+  margin: 0 auto;
+}
 .logo {
   padding: 15px;
   text-align: center;
