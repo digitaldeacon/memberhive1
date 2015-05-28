@@ -73,14 +73,11 @@
         <mh-note-create notable-type="Person" notable-id="{{personCtrl.person.id}}" new-note="personCtrl.newNote(note)"></mh-note-create>
         <md-card class="md-2-line" ng-repeat="note in personCtrl.notes">
           <md-card-content flex layout="row">
-            <div flex style="max-width: 90px">
-              <span class="text-muted">{{note.created | date:'d.M.YY'}}</span>
-            </div>
             <div flex class="md-list-item-text">
-              <h3>{{note.title}}</h3>
-              <ng-md-icon icon="event_note"></ng-md-icon>
-              <span am-time-ago="note.created"></span>
-              <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a>
+              <h4>{{note.title}}</h4>
+              <ng-md-icon size="16" icon="event_note"></ng-md-icon>
+              <small><i><span am-time-ago="note.created"></span>
+              <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>
               <p>{{note.content}}</p>
             </div>
           </md-card-content>

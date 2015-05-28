@@ -2,6 +2,9 @@
   "name": "Note",
   "base": "GemBase",
   "idInjection": true,
+  "scope": {
+    "order": "created DESC"
+  },
   "properties": {
     "title": {
       "type": "string",
