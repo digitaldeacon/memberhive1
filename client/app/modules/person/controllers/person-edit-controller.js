@@ -19,7 +19,8 @@ export class PersonEditController {
     this.households = PersonService.getHouseholds();
     this.addressTypes = AddressService.addressTypes;
 
-    this.primaryContactTypes = ['Email', 'Mobile', 'Postal'];
+    this.primaryContactTypes = ['Email', 'Mobile', 'Letter (Home Address)', 'Letter (Work Address)',
+      'Letter (Postal Address)'];
     this.status = [];
 
     this.avatar = null;
@@ -100,6 +101,34 @@ export class PersonEditController {
       }
       this.households = this.PersonService.getHouseholds();
     });
+  }
+
+  hasValidAddress() {
+    var address;
+    var needsAddress = false;
+    var addressType = '';
+    if (this.person.primaryContact === 'Letter (Home Address)') {
+      needsAddress = true;
+      addressType = 'home';
+    }
+    if (this.person.primaryContact === 'Letter (Work Address)') {
+      needsAddress = true;
+      addressType = 'work';
+    }
+    if (this.person.primaryContact === 'Letter (Postal Address)') {
+      needsAddress = true;
+      addressType = 'postal';
+    }
+    if (!needsAddress) // No address required
+      return true;
+
+    if (!this.person.address) // Address needed, but no address found at all
+      return false;
+
+    address = this.person.address[addressType];
+
+    // Validate address: Require at least street and city
+    return address && address.street1 && address.city;
   }
 
   /**

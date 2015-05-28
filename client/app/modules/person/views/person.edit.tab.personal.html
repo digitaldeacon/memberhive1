@@ -125,13 +125,17 @@
       <p class="md-caption" ng-hide="personCtrl.person.primaryContact">
         <translate>Please select your primary contact method</translate>
       </p>
+      <p class="md-caption" ng-hide="personCtrl.hasValidAddress()">
+        <translate>You need to enter an address.</translate>
+      </p>
     </md-input-container>
 
     <md-input-container flex>
       <label><fa name="envelope"></fa> <span translate>EMail</span></label>
-      <input name="email" type="email" ng-model="person.email">
+      <input name="email" type="email" ng-model="person.email" ng-required="personCtrl.person.primaryContact == 'Email'">
       <div ng-messages="personEdit.email.$error">
-        <ng-message when="email" translate>Please enter a valid email address.</ng-message>
+        <ng-message when="email"><translate>Please enter a valid email address.</translate></ng-message>
+        <ng-message when="required"><translate>This field is required.</translate></ng-message>
       </div>
     </md-input-container>
 
@@ -147,7 +151,10 @@
 
     <md-input-container flex>
       <label><fa name="mobile-phone"></fa> <span translate>Mobile Phone</span></label>
-      <input ng-model="personCtrl.person.contact.mobile">
+      <input name="mobile" ng-model="personCtrl.person.contact.mobile" ng-required="personCtrl.person.primaryContact == 'Mobile'">
+      <div ng-messages="personEdit.mobile.$error">
+        <ng-message when="required"><translate>This field is required.</translate></ng-message>
+      </div>
     </md-input-container>
 
     <md-input-container flex>
