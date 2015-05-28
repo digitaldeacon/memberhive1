@@ -63,8 +63,6 @@ System.config({
     "nsPopover": "github:nohros/nsPopover@0.6.7",
     "restangular": "github:mgonto/restangular@1.5.1",
     "svg-morpheus": "github:alexk111/SVG-Morpheus@0.1.8",
-    "traceur": "github:jmcriffey/bower-traceur@0.0.87",
-    "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87",
     "ui-codemirror": "github:angular-ui/ui-codemirror@master",
     "github:angular-ui/bootstrap-bower@0.12.1": {
       "angular": "github:angular/bower-angular@1.2.28"
