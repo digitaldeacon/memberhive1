@@ -16,10 +16,102 @@
   </head>
   <body flex layout="column">
 
-    <mhStateLoader></mhStateLoader>
+  <div class="mh-app-loader" ng-animate-children>
+    <style type="text/css">
+      .sk-spinner-rotating-plane.sk-spinner {
+        width: 40px;
+        height: 40px;
+        background-color: #eb8c2d;
+        margin: 0 auto;
+        -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+        animation: sk-rotatePlane 1.2s infinite ease-in-out;
+        z-index: 999999 ;
+      }
+
+      @-webkit-keyframes sk-rotatePlane {
+        0% {
+          -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+          transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+
+        50% {
+          -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+          transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+
+        100% {
+          -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+          transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+
+      @keyframes sk-rotatePlane {
+        0% {
+          -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+          transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+
+        50% {
+          -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+          transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+
+        100% {
+          -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+          transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+
+      div.mh-app-loader {
+        position: fixed ;
+      }
+
+      div.mh-app-loader div.animated-container {
+        background-color: #eee ;
+        bottom: 0px ;
+        left: 0px ;
+        opacity: 1.0 ;
+        position: fixed ;
+        right: 0px ;
+        top: 0px ;
+        z-index: 999999 ;
+      }
+
+      /* Used to initialize the ng-leave animation state. */
+      div.mh-app-loader div.animated-container.ng-leave {
+        opacity: 1.0 ;
+        transition: all linear 200ms ;
+        -webkit-transition: all linear 200ms ;
+      }
+
+      /* Used to set the end properties of the ng-leave animation state. */
+      div.mh-app-loader div.animated-container.ng-leave-active {
+        opacity: 0 ;
+      }
+
+      div.mh-app-loader div.messaging {
+        color: #FFFFFF ;
+        font-family: monospace ;
+        left: 0px ;
+        margin-top: -37px ;
+        position: absolute ;
+        right: 0px ;
+        text-align: center ;
+        top: 50% ;
+      }
+    </style>
+
+    <!-- BEGIN: Actual animated container. -->
+
+    <div class="animated-container">
+
+      <div class="messaging">
+
+        <div class="sk-spinner sk-spinner-rotating-plane"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- END: Actual animated container. -->
+  </div>
 
     <div ng-if="acl.isLoggedIn()">
 
+      <mhStateLoader></mhStateLoader>
 
       <div flex layout="row" class="main-container">
         <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z1">

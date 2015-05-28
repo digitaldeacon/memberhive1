@@ -6,7 +6,7 @@ import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective} from './directives/form-directives';
 import {uiNavDirective, mhMenuItem,mhDropdownMenuItem, mhDropdownMenu, mhOutsideClick} from './directives/nav-directive';
 import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
-import {stateLoader} from './directives/loading-directive';
+import {stateLoader,appLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
 import {GemFileReader} from './services/filereader';
 import {GemPdf} from './services/pdf';
@@ -141,6 +141,7 @@ gemCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
 gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);
 
 gemCoreModule.directive('mhStateLoader', stateLoader);
+gemCoreModule.directive('mhAppLoader', appLoader);
 // Filters
 gemCoreModule.filter('fromNow', fromNowFilter);
 gemCoreModule.filter('fromNowMoment', fromNowMomentFilter);
