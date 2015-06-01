@@ -7,7 +7,10 @@ export class DashboardController {
     this.account = this.getAccount();
 
     $scope.$on('adfDashboardChanged', (event, name, model) => {
-      this.account.options.dashboard = model;
+      if(this.account.options)
+        this.account.options.dashboard = model;
+      else
+        this.account.options = {dashboard: model};
       this.account.$save();
     });
   }
