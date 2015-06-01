@@ -13,26 +13,28 @@ export var gemDashboardModule = angular.module('gem.dashboard',
     'adf.structures.base',
     'adf.widget.clock',
     'adf.widget.weather'
-  ])
-  .config(
-    ($stateProvider, MainMenuProvider, gettext) => {
-      $stateProvider
-        .state('dashboard', {
-        url: 'dashboard',
-        templateUrl: 'modules/dashboard/views/dashboard.html',
-        data: {
-          pageTitle: gettext('Dashboard')
-        },
-        ncyBreadcrumb: {
-          label: gettext('Home')
-        },
-        acl: {
-          needRights: ['$authenticated']
-        }
-      });
+  ]);
+gemDashboardModule.config(
+  ($stateProvider, MainMenuProvider, gettext) => {
+    $stateProvider
+      .state('dashboard', {
+      url: 'dashboard',
+      templateUrl: 'modules/dashboard/views/dashboard.html',
+      data: {
+        pageTitle: gettext('Dashboard')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Home')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
+    });
 
-      MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'laptop', 'dashboard'));
-    }
-  );
+    MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'laptop', 'dashboard'));
+  }
+);
+
+gemDashboardModule.value('adfTemplatePath', 'modules/dashboard/templates/');
 
 gemDashboardModule.controller('DashboardController', DashboardController);

@@ -4,7 +4,6 @@ export class DashboardController {
     this.Account = Account;
     this.LoopBackAuth = LoopBackAuth;
 
-    this.options = [];
     this.account = this.getAccount();
 
     $scope.$on('adfDashboardChanged', (event, name, model) => {
