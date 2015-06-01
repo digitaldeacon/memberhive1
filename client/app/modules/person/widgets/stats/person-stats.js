@@ -8,9 +8,13 @@ PersonStatsWidget.config((dashboardProvider, gettext) => {
     description: gettext('Show Person Statistics'),
     templateUrl: '/modules/person/widgets/stats/view.html',
     controller: 'PersonStatsController as pc',
-    reload: true,
-    edit: {
-      templateUrl: '/modules/person/widgets/stats/edit.html'
+    resolve: {
+      personCount: function(Person) {
+        return Person.count();
+      },
+      householdCount: function(Household) {
+        return Household.count();
+      }
     }
   });
 });
