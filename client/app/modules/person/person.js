@@ -18,6 +18,7 @@ import {HouseholdListController} from './controllers/household-list-controller';
 import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {AvatarDirective} from './directives/person-directives';
+import {PersonStatsWidget} from './widgets/stats/person-stats';
 
 import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
@@ -32,6 +33,7 @@ export var gemPersonModule = angular.module('gem.person',
     'ngTagsInput',
 
     'personFilters',
+    'gem.person.widget.stats',
 
     'gem.core',
     'gem.address'
