@@ -19,6 +19,7 @@ import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {AvatarDirective} from './directives/person-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
+import {PersonRandomWidget} from './widgets/random/person-random';
 
 import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
@@ -34,6 +35,7 @@ export var gemPersonModule = angular.module('gem.person',
 
     'personFilters',
     'gem.person.widget.stats',
+    'gem.person.widget.random',
 
     'gem.core',
     'gem.address'
