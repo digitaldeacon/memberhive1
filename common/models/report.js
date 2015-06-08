@@ -7,9 +7,9 @@ module.exports = function(Report) {
       jsreport.render({
         template: {
           content: report.html,
-          recipe: "html"
+          recipe: 'html'
         },
-        data: { name: "jsreport" }
+        data: {}
       }).then(function(out) {
         out.result.pipe(res);
         // Callback intentionally not invoked

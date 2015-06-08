@@ -1,5 +1,3 @@
-<button ng-click="reportUpCtrl.generatePDF()">PDF</button>
-<button ng-click="reportUpCtrl.generateHTML()">HTML</button>
 <div class="row">
   <!--<div class="col-md-3">
     <gem-variable-list sources="reportUpCtrl.dataSources"></gem-variable-list>
@@ -8,10 +6,24 @@
     <ui-codemirror ng-model="reportUpCtrl.report.html" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
   </div>
   <div class="col-md-6">
-    <h4>HTML Preview</h4>
-    <iframe ng-src="{{reportUpCtrl.htmlPreviewURL}}" width="800" height="600"></iframe>
-    <h4>PDF Preview</h4>
-    <a href="{{reportUpCtrl.pdfPreviewURL}}" download>Download PDF</a>
-    <iframe ng-src="{{reportUpCtrl.pdfPreviewURL}}" width="800" height="600"></iframe>
+
+    <md-tabs>
+      <md-tab>
+        <md-tab-label>
+          <translate>HTML</translate>
+        </md-tab-label>
+        <md-tab-body layout-padding>
+          <iframe ng-src="{{reportUpCtrl.htmlPreviewURL}}" width="800" height="600"></iframe>
+        </md-tab-body>
+      </md-tab>
+      <md-tab>
+        <md-tab-label>
+          <translate>PDF</translate>
+        </md-tab-label>
+        <md-tab-body layout-padding>
+          <iframe ng-src="{{reportUpCtrl.pdfPreviewURL}}" width="800" height="600"></iframe>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
   </div>
 </div>
