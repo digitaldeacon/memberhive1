@@ -1,4 +1,51 @@
+var jsreport = require('jsreport');
+
 module.exports = function(Report) {
+
+  Report.renderHTML = function(reportId, res, cb) {
+    jsreport.render({
+      template: {
+        content: "<h1>Hello world from {{this.name}}</h1>",
+        recipe: "html"
+      },
+      data: { name: "jsreport" }
+    }).then(function(out) {
+      out.result.pipe(res);
+      // Callback intentionally not invoked
+    });
+  };
+  Report.remoteMethod('renderHTML', {
+    accepts: [
+      {arg: 'reportId', type: 'string'},
+      {arg: 'res', type: 'object', 'http': {source: 'res'}}
+    ],
+    http: {
+      verb: 'get'
+    }
+  });
+
+  Report.renderPDF = function(reportId, res, cb) {
+    jsreport.render({
+      template: {
+        content: "<h1>Hello world from {{this.name}}</h1>",
+        recipe: "phantom-pdf"
+      },
+      data: { name: "jsreport" }
+    }).then(function(out) {
+      res.type('application/pdf');
+      out.result.pipe(res);
+      // Callback intentionally not invoked
+    });
+  };
+  Report.remoteMethod('renderPDF', {
+    accepts: [
+      {arg: 'reportId', type: 'string'},
+      {arg: 'res', type: 'object', 'http': {source: 'res'}}
+    ],
+    http: {
+      verb: 'get'
+    }
+  });
 
   Report.duplicate = function(reportId, cb) {
     Report.findById(reportId, function(err, reportInstance) {

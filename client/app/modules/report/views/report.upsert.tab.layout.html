@@ -1,11 +1,17 @@
+<button ng-click="reportUpCtrl.generatePDF()">PDF</button>
+<button ng-click="reportUpCtrl.generateHTML()">HTML</button>
 <div class="row">
-  <div class="col-md-3">
+  <!--<div class="col-md-3">
     <gem-variable-list sources="reportUpCtrl.dataSources"></gem-variable-list>
-  </div>
-  <div class="col-md-9">
+  </div>-->
+  <div class="col-md-6">
     <ui-codemirror ng-model="reportUpCtrl.report.html" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
   </div>
-</div>
-<div class="row">
-  <gem-preview html="{{reportUpCtrl.report.html}}"></gem-preview>
+  <div class="col-md-6">
+    <h4>HTML Preview</h4>
+    <iframe ng-src="{{reportUpCtrl.htmlPreviewURL}}" width="800" height="600"></iframe>
+    <h4>PDF Preview</h4>
+    <a href="{{reportUpCtrl.pdfPreviewURL}}">Download PDF</a>
+    <iframe ng-src="{{reportUpCtrl.pdfPreviewURL}}" width="800" height="600"></iframe>
+  </div>
 </div>

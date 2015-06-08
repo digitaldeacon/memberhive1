@@ -1,6 +1,7 @@
 export class ReportUpsertController {
 
-  constructor($scope, Report, ReportService, Person, gettextCatalog, Shout, $stateParams, QueryBuilderModelService) {
+  constructor($scope, Report, ReportService, Person, gettextCatalog, Shout, $stateParams, QueryBuilderModelService,
+              apiUrl, $sce) {
     this.$scope = $scope;
     this.Report = Report;
     this.ReportService = ReportService;
@@ -10,6 +11,8 @@ export class ReportUpsertController {
     this.$stateParams = $stateParams;
 
     this.report = this.getReport();
+    this.htmlPreviewURL = $sce.trustAsResourceUrl(`${apiUrl}/Reports/renderHTML?reportId=${this.$stateParams.id}`);
+    this.pdfPreviewURL = $sce.trustAsResourceUrl(`${apiUrl}/Reports/renderPDF?reportId=${this.$stateParams.id}`);
 
     $scope.reportHtml = '';
 
@@ -36,5 +39,11 @@ export class ReportUpsertController {
 
   setBuilderFilters() {
     return this.dataSources.persons;
+  }
+
+  generateHTML() {
+  }
+
+  generatePDF() {
   }
 }
