@@ -3,20 +3,22 @@ var jsreport = require('jsreport');
 module.exports = function(Report) {
 
   Report.renderHTML = function(reportId, res, cb) {
-    jsreport.render({
-      template: {
-        content: "<h1>Hello world from {{this.name}}</h1>",
-        recipe: "html"
-      },
-      data: { name: "jsreport" }
-    }).then(function(out) {
-      out.result.pipe(res);
-      // Callback intentionally not invoked
+    Report.findById(reportId, function(err, report) {
+      jsreport.render({
+        template: {
+          content: report.html,
+          recipe: "html"
+        },
+        data: { name: "jsreport" }
+      }).then(function(out) {
+        out.result.pipe(res);
+        // Callback intentionally not invoked
+      });
     });
   };
   Report.remoteMethod('renderHTML', {
     accepts: [
-      {arg: 'reportId', type: 'string'},
+      {arg: 'reportId', type: 'string', required: true},
       {arg: 'res', type: 'object', 'http': {source: 'res'}}
     ],
     http: {
@@ -25,16 +27,18 @@ module.exports = function(Report) {
   });
 
   Report.renderPDF = function(reportId, res, cb) {
-    jsreport.render({
-      template: {
-        content: "<h1>Hello world from {{this.name}}</h1>",
-        recipe: "phantom-pdf"
-      },
-      data: { name: "jsreport" }
-    }).then(function(out) {
-      res.type('application/pdf');
-      out.result.pipe(res);
-      // Callback intentionally not invoked
+    Report.findById(reportId, function(err, report) {
+      jsreport.render({
+        template: {
+          content: report.html,
+          recipe: "phantom-pdf"
+        },
+        data: { name: "jsreport" }
+      }).then(function(out) {
+        res.type('application/pdf');
+        out.result.pipe(res);
+        // Callback intentionally not invoked
+      });
     });
   };
   Report.remoteMethod('renderPDF', {
