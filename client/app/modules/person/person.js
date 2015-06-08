@@ -13,7 +13,6 @@ import {PersonListController} from './controllers/person-list-controller';
 import {PersonEditController} from './controllers/person-edit-controller';
 import {PersonViewController} from './controllers/person-view-controller';
 import {PersonImportController} from './controllers/person-import-controller';
-import {PersonExportController} from './controllers/person-export-controller';
 import {HouseholdListController} from './controllers/household-list-controller';
 import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
@@ -180,7 +179,6 @@ export var gemPersonModule = angular.module('gem.person',
         new MenuLink(gettext('List Households'), 'hotel', 'person.households'),
         new MenuLink(gettext('Create Household'), 'plus', 'person.household-create'),
         new MenuLink(gettext('Import'), 'upload', 'person.import'),
-        new MenuLink(gettext('Export'), 'share', 'person.export')
       ]
     ));
   }
@@ -189,7 +187,6 @@ gemPersonModule.controller('PersonListController', PersonListController);
 gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);
 gemPersonModule.controller('PersonImportController', PersonImportController);
-gemPersonModule.controller('PersonExportController', PersonExportController);
 gemPersonModule.controller('HouseholdListController', HouseholdListController);
 gemPersonModule.controller('HouseholdEditController', HouseholdEditController);
 
