@@ -4,15 +4,17 @@ module.exports = function(Report) {
 
   Report.renderHTML = function(reportId, res, cb) {
     Report.findById(reportId, function(err, report) {
-      jsreport.render({
-        template: {
-          content: report.html,
-          recipe: 'html'
-        },
-        data: {}
-      }).then(function(out) {
-        out.result.pipe(res);
-        // Callback intentionally not invoked
+      Report.app.models.Person.find({where: report.query}, function(err, persons) {
+        jsreport.render({
+          template: {
+            content: report.html,
+            recipe: 'html'
+          },
+          data: {persons: persons}
+        }).then(function(out) {
+          out.result.pipe(res);
+          // Callback intentionally not invoked
+        });
       });
     });
   };
@@ -28,16 +30,17 @@ module.exports = function(Report) {
 
   Report.renderPDF = function(reportId, res, cb) {
     Report.findById(reportId, function(err, report) {
-      jsreport.render({
-        template: {
-          content: report.html,
-          recipe: "phantom-pdf"
-        },
-        data: { name: "jsreport" }
-      }).then(function(out) {
-        res.type('application/pdf');
-        out.result.pipe(res);
-        // Callback intentionally not invoked
+      Report.app.models.Person.find({where: report.query}, function(err, persons) {
+        jsreport.render({
+          template: {
+            content: report.html,
+            recipe: 'phantom-pdf'
+          },
+          data: {persons: persons}
+        }).then(function(out) {
+          out.result.pipe(res);
+          // Callback intentionally not invoked
+        });
       });
     });
   };
