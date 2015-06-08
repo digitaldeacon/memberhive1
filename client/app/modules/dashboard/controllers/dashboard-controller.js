@@ -3,7 +3,6 @@ export class DashboardController {
   constructor($scope, Account, LoopBackAuth) {
     this.Account = Account;
     this.LoopBackAuth = LoopBackAuth;
-
     this.account = this.getAccount();
 
     $scope.$on('adfDashboardChanged', (event, name, model) => {
@@ -18,5 +17,4 @@ export class DashboardController {
   getAccount() {
     return this.Account.findById({id: this.LoopBackAuth.currentUserId});
   }
-
 }
