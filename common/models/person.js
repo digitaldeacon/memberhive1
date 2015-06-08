@@ -128,6 +128,28 @@ module.exports = function(Person) {
     }
   );
 
+  /**
+   * Return a random person
+   */
+  Person.random = function(cb) {
+    Person.count({}, function(err, count) {
+      var number = parseInt(Math.random() * count);
+      Person.find({}, function(err, persons) {
+        cb(err, persons[number]);
+       });
+    });
+
+  };
+  Person.remoteMethod(
+    'random',
+    {
+      returns: {
+        arg: 'person',
+        type: 'Person'
+      }
+    }
+  );
+
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
   };
