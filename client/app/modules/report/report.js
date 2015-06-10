@@ -11,7 +11,6 @@ import {ReportListController} from './controllers/report-list-controller';
 import {ReportUpsertController} from './controllers/report-upsert-controller';
 
 import {QueryBuilderDirective} from './directives/querybuilder-directive';
-import {PreviewHTMLDirective} from './directives/previewhtml-directive';
 import {VariableListDirective} from './directives/variablelist-directive';
 
 import {ReportService} from './services/report-service';
@@ -88,7 +87,6 @@ gemReportModule.controller('ReportListController', ReportListController);
 gemReportModule.controller('ReportUpsertController', ReportUpsertController);
 
 gemReportModule.directive('gemQuerybuilder', QueryBuilderDirective);
-gemReportModule.directive('gemPreview', PreviewHTMLDirective);
 gemReportModule.directive('gemVariableList', VariableListDirective);
 
 gemReportModule.factory('ReportService', ReportService);

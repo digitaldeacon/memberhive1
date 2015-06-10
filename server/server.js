@@ -19,21 +19,7 @@ app.start = function() {
       console.log('LoopBack server listening @ %s%s', baseUrl, '/');
     });
 };
-app.post('/htmlToPdf', function(req, res){
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'POST');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  console.log(req.body.options);
-  var wkhtmltopdf = require('wkhtmltopdf', req.body.options);
-  var html = '<!doctype html><html><head><title>Test</title><meta charset="utf-8"></head><body>'+req.body.html+'</body></html>';
-  wkhtmltopdf(html).pipe(res);
-});
-app.options('/htmlToPdf', function(req, res){
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'POST');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  res.sendStatus(200);
-});
+
 // start the server if `$ node server.js`
 if (require.main === module) {
   app.start();

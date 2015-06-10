@@ -67,7 +67,6 @@ Please follow these style guides when writing code:
 * strongloop
 * [babel transpiler (formely 6to5)] (https://github.com/babel/babel)
 * ECMAScript 6 (ES6)
-* [wkhtmltopdf] (http://wkhtmltopdf.org/)
 
 ## License
 All files are made available under the terms of the GNU Affero General Public License (AGPL).

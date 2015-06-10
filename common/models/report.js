@@ -1,4 +1,58 @@
+var jsreport = require('jsreport');
+
 module.exports = function(Report) {
+
+  Report.renderHTML = function(reportId, res, cb) {
+    Report.findById(reportId, function(err, report) {
+      Report.app.models.Person.find({where: report.query}, function(err, persons) {
+        jsreport.render({
+          template: {
+            content: report.html,
+            recipe: 'html'
+          },
+          data: {persons: persons}
+        }).then(function(out) {
+          out.result.pipe(res);
+          // Callback intentionally not invoked
+        });
+      });
+    });
+  };
+  Report.remoteMethod('renderHTML', {
+    accepts: [
+      {arg: 'reportId', type: 'string', required: true},
+      {arg: 'res', type: 'object', 'http': {source: 'res'}}
+    ],
+    http: {
+      verb: 'get'
+    }
+  });
+
+  Report.renderPDF = function(reportId, res, cb) {
+    Report.findById(reportId, function(err, report) {
+      Report.app.models.Person.find({where: report.query}, function(err, persons) {
+        jsreport.render({
+          template: {
+            content: report.html,
+            recipe: 'phantom-pdf'
+          },
+          data: {persons: persons}
+        }).then(function(out) {
+          out.result.pipe(res);
+          // Callback intentionally not invoked
+        });
+      });
+    });
+  };
+  Report.remoteMethod('renderPDF', {
+    accepts: [
+      {arg: 'reportId', type: 'string'},
+      {arg: 'res', type: 'object', 'http': {source: 'res'}}
+    ],
+    http: {
+      verb: 'get'
+    }
+  });
 
   Report.duplicate = function(reportId, cb) {
     Report.findById(reportId, function(err, reportInstance) {
