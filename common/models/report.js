@@ -4,6 +4,10 @@ module.exports = function(Report) {
 
   Report.renderHTML = function(reportId, res, cb) {
     Report.findById(reportId, function(err, report) {
+      if (err || !report) {
+        cb('Couldn’t find report with id ' + reportId);
+        return;
+      }
       Report.app.models.Person.find({where: report.query}, function(err, persons) {
         jsreport.render({
           template: {

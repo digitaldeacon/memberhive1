@@ -19,8 +19,8 @@ System.config({
   "map": {
     "Sortable": "github:RubaXa/Sortable@1.1.1",
     "adf-structures-base": "github:sdorra/adf-structures-base@master",
-    "angular": "github:angular/bower-angular@1.3.15",
-    "angular-animate": "github:angular/bower-angular-animate@1.3.15",
+    "angular": "github:angular/bower-angular@1.3.16",
+    "angular-animate": "github:angular/bower-angular-animate@1.3.16",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
     "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@0.3.3",
     "angular-confirm": "github:Schlogen/angular-confirm@master",
@@ -29,7 +29,7 @@ System.config({
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-gettext": "github:rubenv/angular-gettext@2.0.5",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
-    "angular-material": "github:angular/bower-material@0.9.4",
+    "angular-material": "github:angular/bower-material@0.9.8",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
     "angular-messages": "npm:angular-messages@1.4.0",
     "angular-moment": "npm:angular-moment@0.10.1",
@@ -49,7 +49,7 @@ System.config({
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
     "codemirror": "github:codemirror/codemirror@5.2.0",
     "core-js": "npm:core-js@0.9.10",
-    "css": "github:systemjs/plugin-css@0.1.11",
+    "css": "github:systemjs/plugin-css@0.1.12",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
     "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@2.1.0",
@@ -71,28 +71,28 @@ System.config({
       "codemirror": "npm:codemirror@5.2.0"
     },
     "github:angular-ui/ui-router@0.2.13": {
-      "angular": "github:angular/bower-angular@1.3.15"
+      "angular": "github:angular/bower-angular@1.3.16"
     },
-    "github:angular/bower-angular-animate@1.3.15": {
-      "angular": "github:angular/bower-angular@1.3.15"
+    "github:angular/bower-angular-animate@1.3.16": {
+      "angular": "github:angular/bower-angular@1.4.0"
     },
-    "github:angular/bower-angular-aria@1.3.15": {
-      "angular": "github:angular/bower-angular@1.3.15"
+    "github:angular/bower-angular-aria@1.4.0": {
+      "angular": "github:angular/bower-angular@1.4.0"
     },
     "github:angular/bower-angular-cookies@1.3.15": {
-      "angular": "github:angular/bower-angular@1.3.15"
+      "angular": "github:angular/bower-angular@1.3.16"
     },
     "github:angular/bower-angular-sanitize@1.3.15": {
-      "angular": "github:angular/bower-angular@1.3.15"
+      "angular": "github:angular/bower-angular@1.3.16"
     },
     "github:angular/bower-angular-touch@1.3.15": {
-      "angular": "github:angular/bower-angular@1.3.15"
+      "angular": "github:angular/bower-angular@1.3.16"
     },
-    "github:angular/bower-material@0.9.4": {
-      "angular": "github:angular/bower-angular@1.3.15",
-      "angular-animate": "github:angular/bower-angular-animate@1.3.15",
-      "angular-aria": "github:angular/bower-angular-aria@1.3.15",
-      "css": "github:systemjs/plugin-css@0.1.11"
+    "github:angular/bower-material@0.9.8": {
+      "angular": "github:angular/bower-angular@1.4.0",
+      "angular-animate": "github:angular/bower-angular-animate@1.3.16",
+      "angular-aria": "github:angular/bower-angular-aria@1.4.0",
+      "css": "github:systemjs/plugin-css@0.1.12"
     },
     "github:components/jqueryui@1.11.4": {
       "jquery": "github:components/jquery@2.1.3"
@@ -107,12 +107,12 @@ System.config({
     "github:jspm/nodelibs-buffer@0.1.0": {
       "buffer": "npm:buffer@3.2.2"
     },
-    "github:jspm/nodelibs-events@0.1.0": {
-      "events-browserify": "npm:events-browserify@0.0.1"
+    "github:jspm/nodelibs-events@0.1.1": {
+      "events": "npm:events@1.0.2"
     },
     "github:jspm/nodelibs-http@1.7.1": {
       "Base64": "npm:Base64@0.2.1",
-      "events": "github:jspm/nodelibs-events@0.1.0",
+      "events": "github:jspm/nodelibs-events@0.1.1",
       "inherits": "npm:inherits@2.0.1",
       "stream": "github:jspm/nodelibs-stream@0.1.0",
       "url": "github:jspm/nodelibs-url@0.1.0",
@@ -140,7 +140,7 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "github:mgonto/restangular@1.5.1": {
-      "angular": "github:angular/bower-angular@1.3.15",
+      "angular": "github:angular/bower-angular@1.3.16",
       "lodash": "npm:lodash@3.7.0"
     },
     "github:mistic100/jQuery-QueryBuilder@2.1.0": {
@@ -152,14 +152,14 @@ System.config({
       "angular-ui-router": "github:angular-ui/ui-router@0.2.13"
     },
     "github:nohros/nsPopover@0.6.7": {
-      "angular": "github:angular/bower-angular@1.3.15"
+      "angular": "github:angular/bower-angular@1.3.16"
     },
     "github:sdorra/angular-dashboard-framework@master": {
       "angular": "github:angular/bower-angular@1.2.28",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.12.1",
       "bootstrap": "github:twbs/bootstrap@3.3.4"
     },
-    "github:systemjs/plugin-css@0.1.11": {
+    "github:systemjs/plugin-css@0.1.12": {
       "clean-css": "npm:clean-css@3.1.9",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
@@ -167,7 +167,7 @@ System.config({
     "github:twbs/bootstrap@3.3.4": {
       "jquery": "github:components/jquery@2.1.3"
     },
-    "npm:amdefine@0.1.0": {
+    "npm:amdefine@0.1.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "module": "github:jspm/nodelibs-module@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
@@ -204,7 +204,7 @@ System.config({
     },
     "npm:commander@2.6.0": {
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "events": "github:jspm/nodelibs-events@0.1.0",
+      "events": "github:jspm/nodelibs-events@0.1.1",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
@@ -214,11 +214,8 @@ System.config({
     "npm:core-util-is@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:events-browserify@0.0.1": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
     "npm:font-awesome@4.3.0": {
-      "css": "github:systemjs/plugin-css@0.1.11"
+      "css": "github:systemjs/plugin-css@0.1.12"
     },
     "npm:https-browserify@0.0.0": {
       "http": "github:jspm/nodelibs-http@1.7.1"
@@ -244,7 +241,7 @@ System.config({
     "npm:readable-stream@1.1.13": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "core-util-is": "npm:core-util-is@1.0.1",
-      "events": "github:jspm/nodelibs-events@0.1.0",
+      "events": "github:jspm/nodelibs-events@0.1.1",
       "inherits": "npm:inherits@2.0.1",
       "isarray": "npm:isarray@0.0.1",
       "process": "github:jspm/nodelibs-process@0.1.1",
@@ -254,13 +251,13 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:source-map@0.1.43": {
-      "amdefine": "npm:amdefine@0.1.0",
+      "amdefine": "npm:amdefine@0.1.1",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:stream-browserify@1.0.0": {
-      "events": "github:jspm/nodelibs-events@0.1.0",
+      "events": "github:jspm/nodelibs-events@0.1.1",
       "inherits": "npm:inherits@2.0.1",
       "readable-stream": "npm:readable-stream@1.1.13"
     },

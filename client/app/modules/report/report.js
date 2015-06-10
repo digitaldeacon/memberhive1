@@ -13,6 +13,8 @@ import {ReportUpsertController} from './controllers/report-upsert-controller';
 import {QueryBuilderDirective} from './directives/querybuilder-directive';
 import {VariableListDirective} from './directives/variablelist-directive';
 
+import {ReportHtmlWidget} from './widgets/htmlreport/htmlreport';
+
 import {ReportService} from './services/report-service';
 import {QueryBuilderModelService} from './services/querybuilder-model-service';
 
@@ -21,8 +23,10 @@ import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 import './styles/report.css!';
 
 export var gemReportModule = angular.module('gem.report', [
-    'ui.codemirror'
-  ]);
+  'ui.codemirror',
+
+  'gem.report.widget.htmlreport'
+]);
 
 gemReportModule.config(
   ($stateProvider, $provide, MainMenuProvider, gettext) => {
