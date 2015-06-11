@@ -1,17 +1,8 @@
 var jsreport = require('jsreport');
+var Handlebars = require('handlebars');
+var moment = require('moment');
 
 module.exports = function(Report) {
-
-  Report.getHandlebarsHelpers = function() {
-    return `
-      function avatarUrl(personId, size) {
-        var validSizes = ['xs', 's', 'm', 'l'];
-        if (validSizes.indexOf(size) < 0)
-          size = 'xs';
-        return "${Report.app.baseUrl}/Avatars/" + personId + "/download/" + size + ".jpg";
-      }
-    `;
-  };
 
   Report.renderHTML = function(reportId, res, cb) {
     Report.findById(reportId, function(err, report) {
@@ -20,13 +11,29 @@ module.exports = function(Report) {
         return;
       }
       Report.app.models.Person.find({where: report.query}, function(err, persons) {
+
+        // We manually do the handlebars compilation (instead of letting jsreport do the work) to be able to include
+        // external libraries with helpers
+
+        Handlebars.registerHelper('avatarUrl', function(personId, size) {
+          var validSizes = ['xs', 's', 'm', 'l'];
+          if (validSizes.indexOf(size) < 0)
+            size = 'xs';
+          return `${Report.app.baseUrl}/Avatars/${personId}/download/${size}.jpg`;
+        });
+
+        Handlebars.registerHelper('formatDate', function(date, format){
+          return moment(date).format(format);
+        });
+
+        var template = Handlebars.compile(report.html);
+        var result = template({persons: persons});
+
         jsreport.render({
           template: {
-            content: report.html,
-            helpers: Report.getHandlebarsHelpers(),
+            content: result,
             recipe: 'html'
-          },
-          data: {persons: persons}
+          }
         }).then(function(out) {
           out.result.pipe(res);
           // Callback intentionally not invoked
