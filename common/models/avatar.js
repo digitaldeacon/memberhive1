@@ -1,6 +1,6 @@
 var path = require('path');
 var fs = require('fs');
-var lwip = require('lwip');
+//var lwip = require('lwip');
 var bunyan = require('bunyan');
 var log = bunyan.createLogger({name: 'gem.avatar'});
 
@@ -32,7 +32,7 @@ module.exports = function(Avatar) {
    * Check input file and create thumbnails
    */
   Avatar.afterRemote('upload', function(ctx, res, next) {
-    var inputfile = res.result.files.file[0];
+   /* var inputfile = res.result.files.file[0];
 
     var folder = path.join(self.uploadPath, inputfile.container);
     var originalfile = path.join(folder, inputfile.name);
@@ -68,7 +68,7 @@ module.exports = function(Avatar) {
           });
       });
     });
-
+*/
     next();
   });
 

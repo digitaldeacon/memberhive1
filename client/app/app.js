@@ -22,6 +22,8 @@ import 'bootstrap-hover-dropdown';
 import 'angular-toastr';
 import 'angular-loading-bar';
 import 'angular-breadcrumb';
+import 'ng-material-floating-button/src/mfb-directive';
+import 'ng-material-floating-button/mfb/dist/mfb.css!';
 
 // CSS
 import 'bootstrap/css/bootstrap.css!';
@@ -54,7 +56,7 @@ export var gemMainModule = angular.module('gem.main', [
   'ui.router', 'ui.bootstrap',
   'lbServices', 'picardy.fontawesome',
   'angular-confirm', 'angularMoment', 'angular-loading-bar','angular-spinkit',
-  'gettext', 'toastr', 'ncy-angular-breadcrumb', 'ngMdIcons',
+  'gettext', 'toastr', 'ncy-angular-breadcrumb', 'ngMdIcons', 'ng-mfb',
 
   // GEM Modules
   'gem.core', // This needs to be loaded first
