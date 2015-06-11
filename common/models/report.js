@@ -2,6 +2,17 @@ var jsreport = require('jsreport');
 
 module.exports = function(Report) {
 
+  Report.getHandlebarsHelpers = function() {
+    return `
+      function avatarUrl(personId, size) {
+        var validSizes = ['xs', 's', 'm', 'l'];
+        if (validSizes.indexOf(size) < 0)
+          size = 'xs';
+        return "${Report.app.baseUrl}/Avatars/" + personId + "/download/" + size + ".jpg";
+      }
+    `;
+  };
+
   Report.renderHTML = function(reportId, res, cb) {
     Report.findById(reportId, function(err, report) {
       if (err || !report) {
@@ -12,6 +23,7 @@ module.exports = function(Report) {
         jsreport.render({
           template: {
             content: report.html,
+            helpers: Report.getHandlebarsHelpers(),
             recipe: 'html'
           },
           data: {persons: persons}
