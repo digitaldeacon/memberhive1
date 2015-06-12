@@ -1,7 +1,7 @@
 export function uiNavDirective() {
   return {
     restrict: 'AC',
-    link: function (scope, el, attr) {
+    link: function(scope, el, attr) {
       el.find('a').bind('click', function (e) {
         var li = angular.element(this).parent();
         var active = li.parent()[0].querySelectorAll('.active');
@@ -15,7 +15,7 @@ export function mhMenuItem($mdSidenav) {
   return {
     restrict: 'E',
     scope: {
-      'item' : '='
+      'item': '='
     },
     templateUrl: 'modules/core/templates/menu-item.html',
     link: function($scope, $element) {
@@ -50,7 +50,7 @@ export function mhDropdownMenu() {
   return {
     restrict: 'E',
     scope: {
-      'icon' : '='
+      'icon': '='
     },
     transclude: true,
     templateUrl: 'modules/core/templates/dropdown-menu.html',

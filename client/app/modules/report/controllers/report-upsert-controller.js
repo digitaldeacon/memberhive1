@@ -1,7 +1,7 @@
 export class ReportUpsertController {
 
   constructor($scope, Report, ReportService, Person, gettextCatalog, Shout, $stateParams, QueryBuilderModelService,
-              apiUrl, $sce) {
+              apiUrl, $sce, $document) {
     this.$scope = $scope;
     this.Report = Report;
     this.ReportService = ReportService;
@@ -9,6 +9,7 @@ export class ReportUpsertController {
     this.gettextCatalog = gettextCatalog;
     this.Shout = Shout;
     this.$stateParams = $stateParams;
+    this.$document = $document;
 
     this.report = this.getReport();
     this.htmlPreviewURL = $sce.trustAsResourceUrl(`${apiUrl}/Reports/renderHTML?reportId=${this.$stateParams.id}`);
@@ -31,10 +32,14 @@ export class ReportUpsertController {
   }
 
   saveReport() {
-    console.log("Save report");
     this.report.name = this.$scope.reportUpCtrl.report.name;
     this.report.html = this.$scope.reportUpCtrl.report.html;
-    this.ReportService.save(this.report);
+    this.ReportService.save(this.report).then(() => {
+      var iFrame = this.$document.find("#htmlPreviewFrame");
+      iFrame.attr("src", iFrame.attr("src"));
+      iFrame = this.$document.find("#pdfPreviewFrame");
+      iFrame.attr("src", iFrame.attr("src"));
+    });
   }
 
   setBuilderFilters() {

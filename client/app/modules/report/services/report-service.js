@@ -19,10 +19,14 @@ export function ReportService(Report, gettextCatalog, $rootScope, Shout) {
     },
 
     save: (reportObj) => {
-      Report.upsert({},reportObj).$promise.then(
-        (data) => {Shout.success(gettextCatalog.getString('Successfully saved report “{{name}}”', {name: data.name}));},
+      var p = Report.upsert({},reportObj).$promise;
+      p.then(
+        (data) => {
+          Shout.success(gettextCatalog.getString('Successfully saved report “{{name}}”', {name: data.name}));
+        },
         (error) => {Shout.error(error.data.error.message, error.data.error.name);}
       );
+      return p;
     }
   };
 }
