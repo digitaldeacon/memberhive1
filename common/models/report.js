@@ -1,4 +1,4 @@
-var jsreport = require('jsreport');
+var Toner = require("toner");
 var Handlebars = require('handlebars');
 var moment = require('moment');
 
@@ -69,13 +69,23 @@ module.exports = function(Report) {
         var template = Handlebars.compile(html);
         var result = template({persons: persons});
 
-        jsreport.render({
+        var toner = Toner();
+        toner.engine('none', Toner.noneEngine);
+        toner.recipe('html', Toner.htmlRecipe);
+        toner.recipe('phantom-pdf', require("toner-phantom")());
+
+        toner.render({
           template: {
-            content: result,
-            recipe: recipe
+            engine: 'none',
+            recipe: recipe,
+            content: result
           }
-        }).then(function(out) {
-          out.result.pipe(res);
+        }, function(err, out) {
+          if (err) {
+            cb(new Error(err));
+            return;
+          }
+          out.stream.pipe(res);
           // Callback intentionally not invoked
         });
       });
