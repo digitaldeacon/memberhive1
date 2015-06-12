@@ -5,9 +5,43 @@ var moment = require('moment');
 module.exports = function(Report) {
 
   Report.renderHTML = function(reportId, res, cb) {
+    Report.render(reportId, res, cb, 'html');
+  };
+  Report.remoteMethod('renderHTML', {
+    accepts: [
+      {arg: 'reportId', type: 'string', required: true},
+      {arg: 'res', type: 'object', 'http': {source: 'res'}}
+    ],
+    http: {
+      verb: 'get'
+    }
+  });
+
+  Report.renderPDF = function(reportId, res, cb) {
+    Report.render(reportId, res, cb, 'phantom-pdf');
+  };
+  Report.remoteMethod('renderPDF', {
+    accepts: [
+      {arg: 'reportId', type: 'string'},
+      {arg: 'res', type: 'object', 'http': {source: 'res'}}
+    ],
+    http: {
+      verb: 'get'
+    }
+  });
+
+  /**
+   * Render the report
+   *
+   * @param reportId
+   * @param res
+   * @param cb
+   * @param recipe `html` or `phantom-pdf`
+   */
+  Report.render = function(reportId, res, cb, recipe) {
     Report.findById(reportId, function(err, report) {
       if (err || !report) {
-        cb('Couldn’t find report with id ' + reportId);
+        cb(new Error('Couldn’t find report with id ' + reportId));
         return;
       }
       Report.app.models.Person.find({where: report.query}, function(err, persons) {
@@ -32,7 +66,7 @@ module.exports = function(Report) {
         jsreport.render({
           template: {
             content: result,
-            recipe: 'html'
+            recipe: recipe
           }
         }).then(function(out) {
           out.result.pipe(res);
@@ -41,41 +75,6 @@ module.exports = function(Report) {
       });
     });
   };
-  Report.remoteMethod('renderHTML', {
-    accepts: [
-      {arg: 'reportId', type: 'string', required: true},
-      {arg: 'res', type: 'object', 'http': {source: 'res'}}
-    ],
-    http: {
-      verb: 'get'
-    }
-  });
-
-  Report.renderPDF = function(reportId, res, cb) {
-    Report.findById(reportId, function(err, report) {
-      Report.app.models.Person.find({where: report.query}, function(err, persons) {
-        jsreport.render({
-          template: {
-            content: report.html,
-            recipe: 'phantom-pdf'
-          },
-          data: {persons: persons}
-        }).then(function(out) {
-          out.result.pipe(res);
-          // Callback intentionally not invoked
-        });
-      });
-    });
-  };
-  Report.remoteMethod('renderPDF', {
-    accepts: [
-      {arg: 'reportId', type: 'string'},
-      {arg: 'res', type: 'object', 'http': {source: 'res'}}
-    ],
-    http: {
-      verb: 'get'
-    }
-  });
 
   Report.duplicate = function(reportId, cb) {
     Report.findById(reportId, function(err, reportInstance) {
