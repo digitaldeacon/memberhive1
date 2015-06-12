@@ -60,7 +60,13 @@ module.exports = function(Report) {
           return moment(date).format(format);
         });
 
-        var template = Handlebars.compile(report.html);
+        var html = `
+          <html>
+            <head></head>
+            <body>${report.html}</body>
+          </html>`;
+
+        var template = Handlebars.compile(html);
         var result = template({persons: persons});
 
         jsreport.render({
