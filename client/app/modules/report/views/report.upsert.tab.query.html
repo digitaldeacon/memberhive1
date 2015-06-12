@@ -3,6 +3,25 @@
     <label translate>Report Name</label>
     <input ng-model="reportUpCtrl.report.name">
   </md-input-container>
+  <md-input-container flex>
+    <span translate>Order by</span>
+    <md-select ng-model="reportUpCtrl.report.order.first" placeholder="{{'Select property'|translate}}">
+      <md-option ng-repeat="property in reportUpCtrl.dataSources.persons" value="{{property.id}}">{{property.label}}</md-option>
+    </md-select>
+    <md-button class="md-icon-button" ng-show="!reportUpCtrl.report.order.second"
+               ng-click="reportUpCtrl.report.order.first=undefined;">
+      <ng-md-icon icon="clear"></ng-md-icon>
+    </md-button>
+    <span ng-show="reportUpCtrl.report.order.first">
+      <span translate>Then by</span>
+      <md-select ng-model="reportUpCtrl.report.order.second" placeholder="{{'Select property'|translate}}">
+        <md-option ng-repeat="property in reportUpCtrl.dataSources.persons" value="{{property.id}}">{{property.label}}</md-option>
+      </md-select>
+      <md-button class="md-icon-button" ng-click="reportUpCtrl.report.order.second=undefined;">
+        <ng-md-icon icon="clear"></ng-md-icon>
+      </md-button>
+    </span>
+  </md-input-container>
 
   <label class="control-label" translate>Build Query</label>
   <gem-querybuilder></gem-querybuilder>

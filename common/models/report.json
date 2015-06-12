@@ -8,39 +8,21 @@
       "type": "string",
       "required": true
     },
-    "slug": {
-      "type": "string"
-    },
     "query": {
       "type": "object"
     },
     "rule": {
       "type": "object"
     },
+    "order": {
+      "type": "object"
+    },
     "html": {
       "type": "string"
-    },
-    "active": {
-      "type": "boolean"
-    },
-    "widgetize": {
-      "type": "boolean"
-    },
-    "createdAt": {
-      "type": "date"
-    },
-    "createdBy": {
-      "type": "number"
     }
   },
   "validations": [],
-  "relations": {
-    "person": {
-      "type": "belongsTo",
-      "model": "Person",
-      "foreignKey": "createdBy"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": []
 }

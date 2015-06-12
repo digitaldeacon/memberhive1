@@ -44,7 +44,19 @@ module.exports = function(Report) {
         cb(new Error('Couldn’t find report with id ' + reportId));
         return;
       }
-      Report.app.models.Person.find({where: report.query}, function(err, persons) {
+
+      var order = [];
+      if (report.order.first)
+        order.push(`${report.order.first} ASC`);
+      if (report.order.second)
+        order.push(`${report.order.second} ASC`);
+
+      Report.app.models.Person.find(
+        {
+          where: report.query,
+          order: order
+        },
+        function(err, persons) {
 
         // We manually do the handlebars compilation (instead of letting jsreport do the work) to be able to include
         // external libraries with helpers
