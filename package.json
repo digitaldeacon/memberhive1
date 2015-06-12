@@ -121,9 +121,9 @@
       "ui-codemirror": "github:angular-ui/ui-codemirror@master"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.1.13",
-      "babel-runtime": "npm:babel-runtime@^5.1.13",
-      "core-js": "npm:core-js@^0.8.1"
+      "babel": "npm:babel-core@^5.4.3",
+      "babel-runtime": "npm:babel-runtime@^5.4.3",
+      "core-js": "npm:core-js@^0.9.10"
     },
     "overrides": {
       "github:RubaXa/Sortable@1.1.1": {

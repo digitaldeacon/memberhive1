@@ -42,13 +42,13 @@ System.config({
     "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@2.2.0",
     "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@0.13.3",
     "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@0.5.1",
-    "babel": "npm:babel-core@5.4.3",
-    "babel-runtime": "npm:babel-runtime@5.4.3",
+    "babel": "npm:babel-core@5.5.6",
+    "babel-runtime": "npm:babel-runtime@5.5.6",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@1.4.0",
     "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@2.1.3",
     "codemirror": "github:codemirror/codemirror@5.2.0",
-    "core-js": "npm:core-js@0.9.10",
+    "core-js": "npm:core-js@0.9.15",
     "css": "github:systemjs/plugin-css@0.1.12",
     "font-awesome": "npm:font-awesome@4.3.0",
     "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@1.1.1",
@@ -181,6 +181,9 @@ System.config({
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
     },
+    "npm:babel-runtime@5.5.6": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
     "npm:buffer@3.2.2": {
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.5",
@@ -209,8 +212,10 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:core-js@0.9.10": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
+    "npm:core-js@0.9.15": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:core-util-is@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
