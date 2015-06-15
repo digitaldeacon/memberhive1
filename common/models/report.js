@@ -46,10 +46,10 @@ module.exports = function(Report) {
       }
 
       var order = [];
-      if (report.order.first)
-        order.push(`${report.order.first} ASC`);
-      if (report.order.second)
-        order.push(`${report.order.second} ASC`);
+      if (report.order && report.order.first)
+        order.push(`${report.order.first.property} ${report.order.first.direction}`);
+      if (report.order && report.order.second)
+        order.push(`${report.order.second.property} ${report.order.second.direction}`);
 
       Report.app.models.Person.find(
         {
