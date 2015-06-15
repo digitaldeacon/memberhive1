@@ -4,14 +4,12 @@
     <input ng-model="reportUpCtrl.report.name">
   </md-input-container>
 
-  <span translate>Order by</span>
-  <pre>
-    {{reportUpCtrl.report.order}}
-  </pre>
-  <md-select ng-model="reportUpCtrl.report.order.first.property" placeholder="{{'Select property'|translate}}">
+  <b translate>Order by</b><br/>
+  <md-select ng-model="reportUpCtrl.report.order.first.property" placeholder="{{'Select property'|translate}}"
+             class="inline">
     <md-option ng-repeat="property in reportUpCtrl.dataSources.persons" value="{{property.id}}">{{property.label}}</md-option>
   </md-select>
-  <md-select ng-model="reportUpCtrl.report.order.first.direction">
+  <md-select ng-model="reportUpCtrl.report.order.first.direction" class="inline">
     <md-option value="ASC"><translate>Ascending</translate></md-option>
     <md-option value="DESC"><translate>Descending</translate></md-option>
   </md-select>
@@ -19,19 +17,20 @@
              ng-click="reportUpCtrl.report.order.first=undefined;">
     <ng-md-icon icon="clear"></ng-md-icon>
   </md-button>
-  <span ng-show="reportUpCtrl.report.order.first">
-    <span translate>Then by</span>
-    <md-select ng-model="reportUpCtrl.report.order.second.property" placeholder="{{'Select property'|translate}}">
+  <div ng-show="reportUpCtrl.report.order.first">
+    <b translate>Then by</b><br/>
+    <md-select ng-model="reportUpCtrl.report.order.second.property" placeholder="{{'Select property'|translate}}"
+               class="inline">
       <md-option ng-repeat="property in reportUpCtrl.dataSources.persons" value="{{property.id}}">{{property.label}}</md-option>
     </md-select>
-    <md-select ng-model="reportUpCtrl.report.order.second.direction">
+    <md-select ng-model="reportUpCtrl.report.order.second.direction" class="inline">
       <md-option value="ASC"><translate>Ascending</translate></md-option>
       <md-option value="DESC"><translate>Descending</translate></md-option>
     </md-select>
     <md-button class="md-icon-button" ng-click="reportUpCtrl.report.order.second=undefined;">
       <ng-md-icon icon="clear"></ng-md-icon>
     </md-button>
-  </span>
+  </div>
 
   <label class="control-label" translate>Build Query</label>
   <gem-querybuilder></gem-querybuilder>
