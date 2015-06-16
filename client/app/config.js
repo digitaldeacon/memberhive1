@@ -29,7 +29,7 @@ System.config({
     "angular-fontawesome": "npm:angular-fontawesome@0.3.1",
     "angular-gettext": "github:rubenv/angular-gettext@2.0.5",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.7.1",
-    "angular-material": "github:angular/bower-material@0.9.8",
+    "angular-material": "github:angular/bower-material@0.10.0",
     "angular-material-icons": "github:klarsys/angular-material-icons@0.4.0",
     "angular-messages": "npm:angular-messages@1.4.0",
     "angular-moment": "npm:angular-moment@0.10.1",
@@ -89,7 +89,7 @@ System.config({
     "github:angular/bower-angular-touch@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.16"
     },
-    "github:angular/bower-material@0.9.8": {
+    "github:angular/bower-material@0.10.0": {
       "angular": "github:angular/bower-angular@1.4.0",
       "angular-animate": "github:angular/bower-angular-animate@1.3.16",
       "angular-aria": "github:angular/bower-angular-aria@1.4.0",
@@ -186,7 +186,7 @@ System.config({
     },
     "npm:buffer@3.2.2": {
       "base64-js": "npm:base64-js@0.0.8",
-      "ieee754": "npm:ieee754@1.1.5",
+      "ieee754": "npm:ieee754@1.1.6",
       "is-array": "npm:is-array@1.0.1"
     },
     "npm:clean-css@3.1.9": {
