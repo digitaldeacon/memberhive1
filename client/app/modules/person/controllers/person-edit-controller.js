@@ -19,8 +19,15 @@ export class PersonEditController {
     this.households = PersonService.getHouseholds();
     this.addressTypes = AddressService.addressTypes;
 
-    this.primaryContactTypes = ['Email', 'Mobile', 'Letter (Home Address)', 'Letter (Work Address)',
-      'Letter (Postal Address)'];
+    this.primaryContactTypes = ['none', 'email', 'mobile', 'letterHome', 'letterWork', 'letterPostal'];
+    this.primaryContactTypesTranslated = {
+      'none': gettextCatalog.getString('None (no contact)'),
+      'email': gettextCatalog.getString('Email'),
+      'mobile': gettextCatalog.getString('Mobile'),
+      'letterHome': gettextCatalog.getString('Letter (Home Address)'),
+      'letterWork': gettextCatalog.getString('Letter (Work Address)'),
+      'letterPostal': gettextCatalog.getString('Letter (Postal Address)')
+    };
     this.status = [];
 
     this.avatar = null;
@@ -107,15 +114,15 @@ export class PersonEditController {
     var address;
     var needsAddress = false;
     var addressType = '';
-    if (this.person.primaryContact === 'Letter (Home Address)') {
+    if (this.person.primaryContact === 'letterHome') {
       needsAddress = true;
       addressType = 'home';
     }
-    if (this.person.primaryContact === 'Letter (Work Address)') {
+    if (this.person.primaryContact === 'letterWork') {
       needsAddress = true;
       addressType = 'work';
     }
-    if (this.person.primaryContact === 'Letter (Postal Address)') {
+    if (this.person.primaryContact === 'letterPostal') {
       needsAddress = true;
       addressType = 'postal';
     }

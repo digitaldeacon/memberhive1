@@ -117,10 +117,13 @@
     <h3 translate>Contact Info</h3>
     <md-input-container flex>
       <md-select required ng-model="personCtrl.person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
-        <md-option ng-repeat="opt in personCtrl.primaryContactTypes">{{opt}}</md-option>
+        <md-option ng-repeat="opt in personCtrl.primaryContactTypes" ng-value="opt">
+          {{personCtrl.primaryContactTypesTranslated[opt]}}
+        </md-option>
       </md-select>
       <p class="md-caption" ng-show="personCtrl.person.primaryContact">
-        <translate>Your primary contact method is {{personCtrl.person.primaryContact}}</translate>
+        {{contactMethod=personCtrl.primaryContactTypesTranslated[personCtrl.person.primaryContact];""}}
+        <translate>Your primary contact method is {{contactMethod}}</translate>
       </p>
       <p class="md-caption" ng-hide="personCtrl.person.primaryContact">
         <translate>Please select your primary contact method</translate>
@@ -131,8 +134,8 @@
     </md-input-container>
 
     <md-input-container flex>
-      <label><fa name="envelope"></fa> <span translate>EMail</span></label>
-      <input name="email" type="email" ng-model="person.email" ng-required="personCtrl.person.primaryContact == 'Email'">
+      <label><fa name="envelope"></fa> <span translate>Email</span></label>
+      <input name="email" type="email" ng-model="personCtrl.person.email" ng-required="personCtrl.person.primaryContact == 'email'">
       <div ng-messages="personEdit.email.$error">
         <ng-message when="email"><translate>Please enter a valid email address.</translate></ng-message>
         <ng-message when="required"><translate>This field is required.</translate></ng-message>
@@ -151,7 +154,7 @@
 
     <md-input-container flex>
       <label><fa name="mobile-phone"></fa> <span translate>Mobile Phone</span></label>
-      <input name="mobile" ng-model="personCtrl.person.contact.mobile" ng-required="personCtrl.person.primaryContact == 'Mobile'">
+      <input name="mobile" ng-model="personCtrl.person.contact.mobile" ng-required="personCtrl.person.primaryContact == 'mobile'">
       <div ng-messages="personEdit.mobile.$error">
         <ng-message when="required"><translate>This field is required.</translate></ng-message>
       </div>

@@ -88,18 +88,16 @@
     },
     "primaryContact": {
       "type": "string",
-      "enum": [
-        "email",
-        "mobile",
-        "postal"
-      ],
       "queryBuilder": {
         "label": "Primary Contact",
         "input": "select",
         "values": {
+          "none": "None (no contact)",
           "email": "Email",
           "mobile": "Mobile",
-          "postal": "Postal"
+          "letterHome": "Letter (Home Address)",
+          "letterWork": "Letter (Work Address)",
+          "letterPostal": "Letter (Postal Address)"
         }
       }
     },

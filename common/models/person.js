@@ -2,7 +2,35 @@ var _ = require('lodash');
 
 module.exports = function(Person) {
 
+  /** Set primaryContact to `none` by default */
+  Person.definition.rawProperties.primaryContact.default = 'none';
+
+  /** Validations */
   Person.validatesInclusionOf('gender', {in: ['m', 'f']});
+  Person.validate('primaryContact', primaryContactValidator);
+  function primaryContactValidator(err) {
+    var validOptions = ['none', 'email', 'mobile', 'letterHome', 'letterWork', 'letterPostal'];
+
+    if (!_.includes(validOptions, this.primaryContact))
+      err();
+
+    if (this.primaryContact == 'none')
+      return;
+    else if (this.primaryContact == 'email' && !this.email)
+      err();
+
+    else if (this.primaryContact == 'mobile' && !this.contact.mobile)
+      err();
+
+    else if (this.primaryContact == 'letterHome' && !this.address.home)
+      err();
+
+    else if (this.primaryContact == 'letterWork' && !this.address.work)
+      err();
+
+    else if (this.primaryContact == 'letterPostal' && !this.address.postal)
+      err();
+  }
 
   Person.search = function(value, cb) {
     var parts = value.split(" ");

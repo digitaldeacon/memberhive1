@@ -6,8 +6,8 @@ var moment = require('moment');
 
 module.exports = function(Report) {
 
-  Report.validate('order', customValidator, {message: 'order not valid'});
-  function customValidator(err) {
+  Report.validate('order', orderValidator);
+  function orderValidator(err) {
     var directions = ['ASC', 'DESC'];
     if (this.order && this.order.first) {
       if (!this.order.first.property || !_.includes(directions, this.order.first.direction))
@@ -17,7 +17,7 @@ module.exports = function(Report) {
       if (!this.order.second.property || !_.includes(directions, this.order.second.direction))
         err();
     }
-  };
+  }
 
   Report.renderHTML = function(reportId, res, cb) {
     Report.render(reportId, res, cb, 'html');
