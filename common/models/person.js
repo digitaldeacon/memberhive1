@@ -1,5 +1,9 @@
 var _ = require('lodash');
+
 module.exports = function(Person) {
+
+  Person.validatesInclusionOf('gender', {in: ['m', 'f']});
+
   Person.search = function(value, cb) {
     var parts = value.split(" ");
     var options = [];

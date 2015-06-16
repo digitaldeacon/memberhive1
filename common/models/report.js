@@ -1,8 +1,23 @@
+var _ = require('lodash');
+
 var Toner = require("toner");
 var Handlebars = require('handlebars');
 var moment = require('moment');
 
 module.exports = function(Report) {
+
+  Report.validate('order', customValidator, {message: 'order not valid'});
+  function customValidator(err) {
+    var directions = ['ASC', 'DESC'];
+    if (this.order && this.order.first) {
+      if (!this.order.first.property || !_.includes(directions, this.order.first.direction))
+        err();
+    }
+    if (this.order && this.order.second) {
+      if (!this.order.second.property || !_.includes(directions, this.order.second.direction))
+        err();
+    }
+  };
 
   Report.renderHTML = function(reportId, res, cb) {
     Report.render(reportId, res, cb, 'html');
