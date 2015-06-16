@@ -9,7 +9,8 @@
              class="inline">
     <md-option ng-repeat="property in reportUpCtrl.dataSources.persons" value="{{property.id}}">{{property.label}}</md-option>
   </md-select>
-  <md-select ng-model="reportUpCtrl.report.order.first.direction" class="inline">
+  <md-select class="inline" name="orderFirstDirection" ng-model="reportUpCtrl.report.order.first.direction"
+             ng-required="reportUpCtrl.report.order.first.property">
     <md-option value="ASC"><translate>Ascending</translate></md-option>
     <md-option value="DESC"><translate>Descending</translate></md-option>
   </md-select>
@@ -17,19 +18,26 @@
              ng-click="reportUpCtrl.report.order.first=undefined;">
     <ng-md-icon icon="clear"></ng-md-icon>
   </md-button>
+  <span class="errormsg" ng-messages="reportBuilderForm.orderFirstDirection.$error">
+    <ng-message when="required"><translate>Please select a sort direction.</translate></ng-message>
+  </span>
   <div ng-show="reportUpCtrl.report.order.first">
     <b translate>Then by</b><br/>
     <md-select ng-model="reportUpCtrl.report.order.second.property" placeholder="{{'Select property'|translate}}"
                class="inline">
       <md-option ng-repeat="property in reportUpCtrl.dataSources.persons" value="{{property.id}}">{{property.label}}</md-option>
     </md-select>
-    <md-select ng-model="reportUpCtrl.report.order.second.direction" class="inline">
+    <md-select class="inline" name="orderSecondDirection" ng-model="reportUpCtrl.report.order.second.direction"
+               ng-required="reportUpCtrl.report.order.second.property">
       <md-option value="ASC"><translate>Ascending</translate></md-option>
       <md-option value="DESC"><translate>Descending</translate></md-option>
     </md-select>
     <md-button class="md-icon-button" ng-click="reportUpCtrl.report.order.second=undefined;">
       <ng-md-icon icon="clear"></ng-md-icon>
     </md-button>
+    <span class="errormsg" ng-messages="reportBuilderForm.orderSecondDirection.$error">
+      <ng-message when="required"><translate>Please select a sort direction.</translate></ng-message>
+    </span>
   </div>
 
   <label class="control-label" translate>Build Query</label>
