@@ -185,7 +185,7 @@ export class PersonEditController {
    *
    * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
-  save(isValid) {
+  save(isValid=true) {
     if (!isValid)
       return;
 

@@ -29,7 +29,7 @@ export class HouseholdEditController {
   /**
    * Save all household data
    */
-  save(isValid) {
+  save(isValid=true) {
     if (!isValid)
       return;
 
