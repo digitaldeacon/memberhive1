@@ -2,6 +2,7 @@
   "name": "GemBase",
   "base": "PersistedModel",
   "idInjection": true,
+  "validateUpsert": true,
   "scope": {
     "where": {
       "deleted": false
