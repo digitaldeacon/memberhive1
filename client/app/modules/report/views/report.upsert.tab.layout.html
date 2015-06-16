@@ -4,6 +4,15 @@
   </div>-->
   <div class="col-md-6">
     <ui-codemirror ng-model="reportUpCtrl.report.html" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+
+    <h4 translate>PDF Options</h4>
+    <h5 translate>Header</h5>
+    <ui-codemirror ng-model="reportUpCtrl.report.pdfOptions.header" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+    <h5 translate>Footer</h5>
+    <ui-codemirror ng-model="reportUpCtrl.report.pdfOptions.footer" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+    <h5 translate>Other Options</h5>
+    <p>Paper size, Orientation, Header height, Footer height, margin.</p>
+
   </div>
   <div class="col-md-6">
 
