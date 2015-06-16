@@ -1,223 +1,230 @@
-<div layout="row">
-  <div flex layout="column" layout-padding>
+<md-card>
+  <md-card-content>
 
-    <h3 translate>Person Info</h3>
+    <div layout="row">
+      <div flex layout="column" layout-padding>
 
-    <h4 translate>Status</h4>
-    <div class="input-group blue-tags">
-      <span class="input-group-addon"><fa name="info"></fa></span>
-      <tags-input class="bootstrap"
-                  ng-model="personCtrl.person.status"
-                  replace-spaces-with-dashes="false"
-                  placeholder="{{'Add a status' | translate}}">
-        <auto-complete
-          source="personCtrl.loadStatus($query)"
-          min-length="0"
-          load-on-focus="true"
-          load-on-empty="true"
-          select-first-match="false"></auto-complete>
-      </tags-input>
+        <h3 translate>Person Info</h3>
+
+        <h4 translate>Status</h4>
+        <div class="input-group blue-tags">
+          <span class="input-group-addon"><fa name="info"></fa></span>
+          <tags-input class="bootstrap"
+                      ng-model="personCtrl.person.status"
+                      replace-spaces-with-dashes="false"
+                      placeholder="{{'Add a status' | translate}}">
+            <auto-complete
+              source="personCtrl.loadStatus($query)"
+              min-length="0"
+              load-on-focus="true"
+              load-on-empty="true"
+              select-first-match="false"></auto-complete>
+          </tags-input>
+        </div>
+
+        <h4 translate>Tags</h4>
+        <div class="input-group">
+          <span class="input-group-addon"><fa name="tags"></fa></span>
+          <tags-input class="bootstrap"
+                      ng-model="personCtrl.person.tags"
+                      replace-spaces-with-dashes="false"
+                      add-from-autocomplete-only="false"
+                      placeholder="{{'Add a tag' | translate}}">
+            <auto-complete
+              source="personCtrl.loadTags($query)"
+              select-first-match="false"></auto-complete>
+          </tags-input>
+        </div>
+
+        <h4 translate>Gender</h4>
+        <md-radio-group ng-model="personCtrl.person.gender">
+          <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
+          <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
+        </md-radio-group>
+
+        <md-input-container flex>
+          <label translate>Title</label>
+          <input ng-model="personCtrl.person.prefix">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label translate>First Name</label>
+          <input name="firstName" ng-model="personCtrl.person.firstName" required>
+          <div ng-messages="personEdit.firstName.$error">
+            <ng-message when="required"><translate>This field is required.</translate></ng-message>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex>
+          <label translate>Nickname</label>
+          <input ng-model="personCtrl.person.nickName">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label translate>Middle Name</label>
+          <input ng-model="personCtrl.person.middleName">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label translate>Last Name</label>
+          <input name="lastName" ng-model="personCtrl.person.lastName" required>
+          <div ng-messages="personEdit.lastName.$error">
+            <ng-message when="required"><translate>This field is required.</translate></ng-message>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex>
+          <label translate>Suffix</label>
+          <input ng-model="personCtrl.person.suffix">
+        </md-input-container>
+
+        <div class="control-group">
+          <label for="birthdate" translate>Birthdate</label>
+          <div class="input-group">
+            <input type="text" id="birthdate" class="form-control" datepicker-popup ng-model="personCtrl.person.birthdate"
+                  is-open="personCtrl.datepickerBirthdateOpened" close-text="{{'Close' | translate}}"
+                  ng-click="personCtrl.openBirthdateDatepicker($event)" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="personCtrl.openBirthdateDatepicker($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="birthdate" translate>Baptism Date</label>
+          <div class="input-group">
+            <input type="text" id="baptismDate" class="form-control" datepicker-popup ng-model="personCtrl.person.baptismDate"
+                  is-open="personCtrl.datepickerBaptismDateOpened" close-text="{{'Close' | translate}}"
+                  ng-click="personCtrl.openBaptismDateDatepicker($event)" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="personCtrl.openBaptismDateDatepicker($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <h3 translate>Login</h3>
+
+        <div class="form-group">
+          <label for="login">
+            <input type="checkbox" id="login" name="login" />
+            <translate>User can log in</translate>
+          </label>
+        </div>
+      </div>
+
+      <div flex layout="column" layout-padding>
+        <h3 translate>Contact Info</h3>
+        <md-input-container flex>
+          <md-select required ng-model="personCtrl.person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
+            <md-option ng-repeat="opt in personCtrl.primaryContactTypes" ng-value="opt">
+              {{personCtrl.primaryContactTypesTranslated[opt]}}
+            </md-option>
+          </md-select>
+          <p class="md-caption" ng-show="personCtrl.person.primaryContact">
+            {{contactMethod=personCtrl.primaryContactTypesTranslated[personCtrl.person.primaryContact];""}}
+            <translate>Your primary contact method is {{contactMethod}}</translate>
+          </p>
+          <p class="md-caption" ng-hide="personCtrl.person.primaryContact">
+            <translate>Please select your primary contact method</translate>
+          </p>
+          <p class="md-caption" ng-hide="personCtrl.hasValidAddress()">
+            <translate>You need to enter an address.</translate>
+          </p>
+        </md-input-container>
+
+        <md-input-container flex>
+          <label><fa name="envelope"></fa> <span translate>Email</span></label>
+          <input name="email" type="email" ng-model="personCtrl.person.email" ng-required="personCtrl.person.primaryContact == 'email'">
+          <div ng-messages="personEdit.email.$error">
+            <ng-message when="email"><translate>Please enter a valid email address.</translate></ng-message>
+            <ng-message when="required"><translate>This field is required.</translate></ng-message>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex>
+          <label><fa name="phone"></fa> <span translate>Home Phone</span></label>
+          <input ng-model="personCtrl.person.contact.home">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label><fa name="phone-square"></fa> <span translate>Work Phone</span></label>
+          <input ng-model="personCtrl.person.contact.work">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label><fa name="mobile-phone"></fa> <span translate>Mobile Phone</span></label>
+          <input name="mobile" ng-model="personCtrl.person.contact.mobile" ng-required="personCtrl.person.primaryContact == 'mobile'">
+          <div ng-messages="personEdit.mobile.$error">
+            <ng-message when="required"><translate>This field is required.</translate></ng-message>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex>
+          <label><fa name="fay"></fa> <span translate>Fax</span></label>
+          <input ng-model="personCtrl.person.contact.fax">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label><fa name="facebook"></fa> <span translate>Facebook Username</span></label>
+          <input ng-model="personCtrl.person.contact.facebook">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label><fa name="skype"></fa> <span translate>Skype Name</span></label>
+          <input ng-model="personCtrl.person.contact.skype">
+        </md-input-container>
+
+        <h3 translate>Household</h3>
+
+        <md-tabs>
+          <md-tab>
+            <md-tab-label>
+              <translate>Existing Household</translate>
+            </md-tab-label>
+            <md-tab-body class="md-padding">
+              <md-autocomplete
+                md-selected-item="person.household"
+                md-search-text="householdSearchText"
+                md-items="household in personCtrl.households | filter:householdSearchText"
+                md-item-text="household.name"
+                placeholder="{{'Search Household'|translate}}">
+                <md-item-template>
+                  <span md-highlight-text="householdSearchText">{{household.name}}</span>
+                </md-item-template>
+                <md-not-found>
+                  <translate>No matches found for "{{householdSearchText}}".</translate>
+                </md-not-found>
+              </md-autocomplete>
+            </md-tab-body>
+          </md-tab>
+          <md-tab>
+            <md-tab-label>
+              <translate>New Household</translate>
+            </md-tab-label>
+            <md-tab-body class="md-padding">
+              <section layout="row" layout-sm="column" layout-align="center center">
+                <md-input-container flex>
+                  <label><translate>Household Name</translate></label>
+                  <input ng-model="householdName">
+                </md-input-container>
+                <md-button ng-click="personCtrl.addHousehold(householdName)" class="md-raised">
+                  <translate>Create Household</translate>
+                </md-button>
+              </section>
+              <md-checkbox ng-model="personCtrl.assignNewHousehold">
+                <translate>Assign household to this person</translate>
+              </md-checkbox>
+            </md-tab-body>
+          </md-tab>
+        </md-tabs>
+
+      </div>
     </div>
 
-    <h4 translate>Tags</h4>
-    <div class="input-group">
-      <span class="input-group-addon"><fa name="tags"></fa></span>
-      <tags-input class="bootstrap"
-                  ng-model="personCtrl.person.tags"
-                  replace-spaces-with-dashes="false"
-                  add-from-autocomplete-only="false"
-                  placeholder="{{'Add a tag' | translate}}">
-        <auto-complete
-          source="personCtrl.loadTags($query)"
-          select-first-match="false"></auto-complete>
-      </tags-input>
-    </div>
 
-    <h4 translate>Gender</h4>
-    <md-radio-group ng-model="personCtrl.person.gender">
-      <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
-      <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
-    </md-radio-group>
-
-    <md-input-container flex>
-      <label translate>Title</label>
-      <input ng-model="personCtrl.person.prefix">
-    </md-input-container>
-
-    <md-input-container flex>
-      <label translate>First Name</label>
-      <input name="firstName" ng-model="personCtrl.person.firstName" required>
-      <div ng-messages="personEdit.firstName.$error">
-        <ng-message when="required"><translate>This field is required.</translate></ng-message>
-      </div>
-    </md-input-container>
-
-    <md-input-container flex>
-      <label translate>Nickname</label>
-      <input ng-model="personCtrl.person.nickName">
-    </md-input-container>
-
-    <md-input-container flex>
-      <label translate>Middle Name</label>
-      <input ng-model="personCtrl.person.middleName">
-    </md-input-container>
-
-    <md-input-container flex>
-      <label translate>Last Name</label>
-      <input name="lastName" ng-model="personCtrl.person.lastName" required>
-      <div ng-messages="personEdit.lastName.$error">
-        <ng-message when="required"><translate>This field is required.</translate></ng-message>
-      </div>
-    </md-input-container>
-
-    <md-input-container flex>
-      <label translate>Suffix</label>
-      <input ng-model="personCtrl.person.suffix">
-    </md-input-container>
-
-    <div class="control-group">
-      <label for="birthdate" translate>Birthdate</label>
-      <div class="input-group">
-        <input type="text" id="birthdate" class="form-control" datepicker-popup ng-model="personCtrl.person.birthdate"
-              is-open="personCtrl.datepickerBirthdateOpened" close-text="{{'Close' | translate}}"
-              ng-click="personCtrl.openBirthdateDatepicker($event)" />
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-default" ng-click="personCtrl.openBirthdateDatepicker($event)">
-            <i class="glyphicon glyphicon-calendar"></i>
-          </button>
-        </span>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label for="birthdate" translate>Baptism Date</label>
-      <div class="input-group">
-        <input type="text" id="baptismDate" class="form-control" datepicker-popup ng-model="personCtrl.person.baptismDate"
-              is-open="personCtrl.datepickerBaptismDateOpened" close-text="{{'Close' | translate}}"
-              ng-click="personCtrl.openBaptismDateDatepicker($event)" />
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-default" ng-click="personCtrl.openBaptismDateDatepicker($event)">
-            <i class="glyphicon glyphicon-calendar"></i>
-          </button>
-        </span>
-      </div>
-    </div>
-
-    <h3 translate>Login</h3>
-
-    <div class="form-group">
-      <label for="login">
-        <input type="checkbox" id="login" name="login" />
-        <translate>User can log in</translate>
-      </label>
-    </div>
-  </div>
-
-  <div flex layout="column" layout-padding>
-    <h3 translate>Contact Info</h3>
-    <md-input-container flex>
-      <md-select required ng-model="personCtrl.person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
-        <md-option ng-repeat="opt in personCtrl.primaryContactTypes" ng-value="opt">
-          {{personCtrl.primaryContactTypesTranslated[opt]}}
-        </md-option>
-      </md-select>
-      <p class="md-caption" ng-show="personCtrl.person.primaryContact">
-        {{contactMethod=personCtrl.primaryContactTypesTranslated[personCtrl.person.primaryContact];""}}
-        <translate>Your primary contact method is {{contactMethod}}</translate>
-      </p>
-      <p class="md-caption" ng-hide="personCtrl.person.primaryContact">
-        <translate>Please select your primary contact method</translate>
-      </p>
-      <p class="md-caption" ng-hide="personCtrl.hasValidAddress()">
-        <translate>You need to enter an address.</translate>
-      </p>
-    </md-input-container>
-
-    <md-input-container flex>
-      <label><fa name="envelope"></fa> <span translate>Email</span></label>
-      <input name="email" type="email" ng-model="personCtrl.person.email" ng-required="personCtrl.person.primaryContact == 'email'">
-      <div ng-messages="personEdit.email.$error">
-        <ng-message when="email"><translate>Please enter a valid email address.</translate></ng-message>
-        <ng-message when="required"><translate>This field is required.</translate></ng-message>
-      </div>
-    </md-input-container>
-
-    <md-input-container flex>
-      <label><fa name="phone"></fa> <span translate>Home Phone</span></label>
-      <input ng-model="personCtrl.person.contact.home">
-    </md-input-container>
-
-    <md-input-container flex>
-      <label><fa name="phone-square"></fa> <span translate>Work Phone</span></label>
-      <input ng-model="personCtrl.person.contact.work">
-    </md-input-container>
-
-    <md-input-container flex>
-      <label><fa name="mobile-phone"></fa> <span translate>Mobile Phone</span></label>
-      <input name="mobile" ng-model="personCtrl.person.contact.mobile" ng-required="personCtrl.person.primaryContact == 'mobile'">
-      <div ng-messages="personEdit.mobile.$error">
-        <ng-message when="required"><translate>This field is required.</translate></ng-message>
-      </div>
-    </md-input-container>
-
-    <md-input-container flex>
-      <label><fa name="fay"></fa> <span translate>Fax</span></label>
-      <input ng-model="personCtrl.person.contact.fax">
-    </md-input-container>
-
-    <md-input-container flex>
-      <label><fa name="facebook"></fa> <span translate>Facebook Username</span></label>
-      <input ng-model="personCtrl.person.contact.facebook">
-    </md-input-container>
-
-    <md-input-container flex>
-      <label><fa name="skype"></fa> <span translate>Skype Name</span></label>
-      <input ng-model="personCtrl.person.contact.skype">
-    </md-input-container>
-
-    <h3 translate>Household</h3>
-
-    <md-tabs>
-      <md-tab>
-        <md-tab-label>
-          <translate>Existing Household</translate>
-        </md-tab-label>
-        <md-tab-body class="md-padding">
-          <md-autocomplete
-            md-selected-item="person.household"
-            md-search-text="householdSearchText"
-            md-items="household in personCtrl.households | filter:householdSearchText"
-            md-item-text="household.name"
-            placeholder="{{'Search Household'|translate}}">
-            <md-item-template>
-              <span md-highlight-text="householdSearchText">{{household.name}}</span>
-            </md-item-template>
-            <md-not-found>
-              <translate>No matches found for "{{householdSearchText}}".</translate>
-            </md-not-found>
-          </md-autocomplete>
-        </md-tab-body>
-      </md-tab>
-      <md-tab>
-        <md-tab-label>
-          <translate>New Household</translate>
-        </md-tab-label>
-        <md-tab-body class="md-padding">
-          <section layout="row" layout-sm="column" layout-align="center center">
-            <md-input-container flex>
-              <label><translate>Household Name</translate></label>
-              <input ng-model="householdName">
-            </md-input-container>
-            <md-button ng-click="personCtrl.addHousehold(householdName)" class="md-raised">
-              <translate>Create Household</translate>
-            </md-button>
-          </section>
-          <md-checkbox ng-model="personCtrl.assignNewHousehold">
-            <translate>Assign household to this person</translate>
-          </md-checkbox>
-        </md-tab-body>
-      </md-tab>
-    </md-tabs>
-
-  </div>
-</div>
+      </md-card-content>
+</md-card>

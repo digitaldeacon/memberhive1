@@ -1,14 +1,20 @@
-<div flex layout="row">
-  <div flex layout="column" layout-padding>
-    <h3 translate>Home Address</h3>
-    <gem-address-edit address="personCtrl.person.address.home"> </gem-address-edit>
+<md-card>
+  <md-card-content>
 
-    <h3 translate>Work Address</h3>
-    <gem-address-edit address="personCtrl.person.address.work"> </gem-address-edit>
-  </div>
+    <div flex layout="row">
+      <div flex layout="column" layout-padding>
+        <h3 translate>Home Address</h3>
+        <gem-address-edit address="personCtrl.person.address.home"> </gem-address-edit>
 
-  <div flex layout="column" layout-padding>
-    <h3 translate>Postal Address</h3>
-    <gem-address-edit address="personCtrl.person.address.postal"> </gem-address-edit>
-  </div>
-</div>
+        <h3 translate>Work Address</h3>
+        <gem-address-edit address="personCtrl.person.address.work"> </gem-address-edit>
+      </div>
+
+      <div flex layout="column" layout-padding>
+        <h3 translate>Postal Address</h3>
+        <gem-address-edit address="personCtrl.person.address.postal"> </gem-address-edit>
+      </div>
+    </div>
+
+    </md-card-content>
+  </md-card>
