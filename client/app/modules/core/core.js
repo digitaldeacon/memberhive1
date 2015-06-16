@@ -75,10 +75,34 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
     'contrastLightColors': undefined    // could also specify this if default was 'dark'
   });
 
+  $mdThemingProvider.definePalette('mh-deep-blue', {
+    '50': 'E6E7EA',
+    '100': 'C5C8CF',
+    '200': 'A2A7B3',
+    '300': '7C8394',
+    '400': '61697E',
+    '500': '475069',
+    '600': '40485F',
+    '700': '394155',
+    '800': '32384A',
+    '900': '252936',
+
+    'A100': '20D5F8',
+    'A200': '20D5F8',
+    'A400': '20D5F8',
+    'A700': '20D5F8',
+
+    'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
+                                        // on this palette should be dark or light
+    'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
+      '200', '300', '400', 'A100'],
+    'contrastLightColors': undefined    // could also specify this if default was 'dark'
+  });
+
   $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
-    .accentPalette('mh-orange')
-    .warnPalette('red')
+    .primaryPalette('blue-grey')
+    .accentPalette('deep-orange')
+    .warnPalette('lime')
     .backgroundPalette('grey');
 });
 

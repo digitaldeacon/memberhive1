@@ -1,7 +1,7 @@
 
-<md-button 
-  class="md-icon-button mh-toogle-button" 
-  ng-click="appCtrl.toggleLeft()"> 
+<md-button
+  class="md-icon-button mh-toogle-button"
+  ng-click="appCtrl.toggleLeft()">
     <ng-md-icon icon="menu">
     </ng-md-icon>
 </md-button>
@@ -28,8 +28,16 @@
   </md-autocomplete>
 </form>
 
-<mh-dropdown-menu icon="more_vert">
-  <mh-dropdown-menu-item href="#">Mein Konto</mh-dropdown-menu-item>
-  <mh-dropdown-menu-item href="#">Hilfe</mh-dropdown-menu-item>
-  <mh-dropdown-menu-item href="#">Logout</mh-dropdown-menu-item>
-</mh-dropdown-menu>
+<md-menu>
+  <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu()">
+    <ng-md-icon icon="more_vert"></ng-md-icon>
+  </md-button>
+  <md-menu-content width="4">
+    <md-menu-item ng-repeat="item in ['Profile', 'Help', 'Logout']">
+      <md-button ng-click="ctrl.announceClick($index)">
+        <md-icon md-menu-align-target md-svg-icon="call:no-sim"></md-icon>
+          <a href="#">{{item}}</a>
+      </md-button>
+    </md-menu-item>
+  </md-menu-content>
+</md-menu>

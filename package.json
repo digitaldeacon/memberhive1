@@ -86,7 +86,7 @@
       "angular-fontawesome": "npm:angular-fontawesome@^0.3.1",
       "angular-gettext": "github:rubenv/angular-gettext@^2.0.3",
       "angular-loading-bar": "github:chieffancypants/angular-loading-bar@^0.7.1",
-      "angular-material": "github:angular/bower-material@^0.9.8",
+      "angular-material": "github:angular/bower-material@^0.10",
       "angular-material-icons": "github:klarsys/angular-material-icons@^0.4.0",
       "angular-messages": "npm:angular-messages@^1.4.0",
       "angular-moment": "npm:angular-moment@~0.10.1",

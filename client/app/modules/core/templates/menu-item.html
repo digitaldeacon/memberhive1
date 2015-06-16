@@ -6,12 +6,12 @@
 
 <md-button ng-if="item.children" ng-click="toggle()">
   <div flex layout="row" style="line-height: 0">
-    <div flex style="max-width: 32px">  
-      <ng-md-icon  size="18" icon="{{icon()}}" options='{"duration": 375, "rotation": "none"}' class='icon-arrow'></ng-md-icon>
-    </div>
     <div flex>
       <fa name="{{item.icon}}" fw></fa>
       <span>{{item.label | translate}}</span>
+    </div>
+    <div flex style="max-width: 32px">
+      <ng-md-icon  size="18" icon="{{icon()}}" options='{"duration": 375, "rotation": "none"}' class='icon-arrow'></ng-md-icon>
     </div>
   </div>
 </md-button>

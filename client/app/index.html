@@ -57,7 +57,6 @@
       div.mh-app-loader {
         position: fixed ;
       }
-
       div.mh-app-loader div.animated-container {
         background-color: #eee ;
         bottom: 0px ;
@@ -68,19 +67,16 @@
         top: 0px ;
         z-index: 999999 ;
       }
-
       /* Used to initialize the ng-leave animation state. */
       div.mh-app-loader div.animated-container.ng-leave {
         opacity: 1.0 ;
         transition: all linear 200ms ;
         -webkit-transition: all linear 200ms ;
       }
-
       /* Used to set the end properties of the ng-leave animation state. */
       div.mh-app-loader div.animated-container.ng-leave-active {
         opacity: 0 ;
       }
-
       div.mh-app-loader div.messaging {
         color: #FFFFFF ;
         font-family: monospace ;
@@ -92,20 +88,12 @@
         top: 50% ;
       }
     </style>
-
     <!-- BEGIN: Actual animated container. -->
-
     <div class="animated-container">
-
       <div class="messaging">
-
         <div class="sk-spinner sk-spinner-rotating-plane"></div>
-
       </div>
-
     </div>
-
-
     <!-- END: Actual animated container. -->
   </div>
 

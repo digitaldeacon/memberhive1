@@ -347,6 +347,23 @@ $colors-mh-blue: (
     'A700': #d50000
 );
 
+$colors-mh-deep-blue: (
+    '50': #E6E7EA,
+    '100': #C5C8CF,
+    '200': #A2A7B3,
+    '300': #7C8394,
+    '400': #61697E,
+    '500': #475069,
+    '600': #40485F,
+    '700': #394155,
+    '800': #32384A,
+    '900': #252936,
+    'A100': #20D5F8,
+    'A200': #20D5F8,
+    'A400': #20D5F8,
+    'A700': #20D5F8
+);
+
 $colorshemes : (
   "red": $colors-red,
   "pink": $colors-pink,
@@ -369,9 +386,10 @@ $colorshemes : (
   "blue-grey": $colors-blue-grey,
   "mh-orange": $colors-mh-orange,
   "mh-blue": $colors-mh-blue,
+  "mh-deep-blue": $colors-mh-deep-blue,
 );
 
-$primary-color-sheme: "blue";
+$primary-color-sheme: "mh-deep-blue";
 $accent-color-sheme: "mh-orange";
 $warn-color-sheme: "red";
 $background-color-sheme: "grey";
