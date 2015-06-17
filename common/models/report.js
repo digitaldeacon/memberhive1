@@ -74,7 +74,7 @@ module.exports = function(Report) {
         function(err, persons) {
 
         // We manually do the handlebars compilation (instead of letting jsreport do the work) to be able to include
-        // external libraries with helpers
+        // external libraries (like moment) with helpers
 
         Handlebars.registerHelper('avatarUrl', function(personId, size) {
           var validSizes = ['xs', 's', 'm', 'l'];

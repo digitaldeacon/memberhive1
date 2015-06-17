@@ -10,11 +10,11 @@
       <md-option ng-repeat="property in reportUpCtrl.dataSources.persons" value="{{property.id}}">{{property.label}}</md-option>
     </md-select>
     <md-select name="orderFirstDirection" ng-model="reportUpCtrl.report.order.first.direction"
-               ng-required="reportUpCtrl.report.order.first.property">
+               ng-required="reportUpCtrl.report.order.first.property" placeholder="{{'Sort direction'|translate}}">
       <md-option value="ASC"><translate>Ascending</translate></md-option>
       <md-option value="DESC"><translate>Descending</translate></md-option>
     </md-select>
-    <md-button class="md-icon-button" ng-show="!reportUpCtrl.report.order.second"
+    <md-button class="md-icon-button" ng-show="!reportUpCtrl.report.order.second" aria-label="{{'Remove'|translate}}"
                ng-click="reportUpCtrl.report.order.first=undefined;">
       <ng-md-icon icon="clear"></ng-md-icon>
     </md-button>
@@ -31,11 +31,11 @@
         <md-option ng-repeat="property in reportUpCtrl.dataSources.persons" value="{{property.id}}">{{property.label}}</md-option>
       </md-select>
       <md-select name="orderSecondDirection" ng-model="reportUpCtrl.report.order.second.direction"
-                 ng-required="reportUpCtrl.report.order.second.property">
+                 ng-required="reportUpCtrl.report.order.second.property" placeholder="{{'Sort direction'|translate}}">
         <md-option value="ASC"><translate>Ascending</translate></md-option>
         <md-option value="DESC"><translate>Descending</translate></md-option>
       </md-select>
-      <md-button class="md-icon-button" ng-click="reportUpCtrl.report.order.second=undefined;">
+      <md-button class="md-icon-button" ng-click="reportUpCtrl.report.order.second=undefined;" aria-label="{{'Remove'|translate}}">
         <ng-md-icon icon="clear"></ng-md-icon>
       </md-button>
       <span class="errormsg" ng-messages="reportBuilderForm.orderSecondDirection.$error">
