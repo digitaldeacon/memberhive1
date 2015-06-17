@@ -1,4 +1,18 @@
+var _ = require('lodash');
+
 module.exports = function(Household) {
+
+  Household.validate('type', typeValidator);
+  function typeValidator(err) {
+    var validOptions = ['family', 'sharedFlat', 'other'];
+
+    if (!this.type)
+      return;
+
+    if (!_.includes(validOptions, this.type))
+      err();
+  }
+
   Household.trash = function(householdId, cb) {
 
     // Need to reset the default scope because of https://github.com/strongloop/loopback/issues/1018

@@ -16,6 +16,7 @@ module.exports = function(Person) {
 
     if (this.primaryContact == 'none')
       return;
+
     else if (this.primaryContact == 'email' && !this.email)
       err();
 
