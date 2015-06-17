@@ -34,27 +34,9 @@ module.exports = function(Person) {
   }
 
   Person.search = function(value, cb) {
-    var parts = value.split(" ");
-    var options = [];
-    var fields = [
-      'firstName',
-      'lastName',
-      'middleName',
-      'nickName',
-      'prefix',
-      'suffix'
-    ];
-    fields.forEach(function(field) {
-      parts.forEach(function(part) {
-        var obj = {};
-        obj[field] = {like: `${part}`};
-        options.push(obj);
-      });
-    });
-
     Person.find({
       where: {
-        or: options
+        search: {like: value.toLowerCase()}
       },
       limit: 10
     }, function(err, persons) {
@@ -213,5 +195,32 @@ module.exports = function(Person) {
         next();
       });
     })
+  });
+
+  /**
+   * Fill search field
+   */
+  Person.observe('after save', function(ctx, next) {
+    var person = ctx.instance;
+    person.search = "";
+    var properties = [
+      person.prefix,
+      person.firstName,
+      person.middleName,
+      person.lastName,
+      person.nickName,
+      person.suffix,
+      person.email
+    ];
+
+    properties.forEach(function(property) {
+      if (property) {
+        person.search += property.toLowerCase() + ' ';
+      }
+    });
+
+    person.save(function(){
+      next();
+    });
   });
 };
