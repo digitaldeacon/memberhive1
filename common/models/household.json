@@ -12,6 +12,9 @@
     },
     "address": {
       "type": "object"
+    },
+    "type": {
+      "type": "string"
     }
   },
   "validations": [],

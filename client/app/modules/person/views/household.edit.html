@@ -5,15 +5,24 @@
     <mh-panel-body>
       <form ng-submit="householdCtrl.save(householdForm.$valid)" name="householdForm" novalidate>
 
-        <md-input-container flex>
-          <label><translate>Household Name</translate></label>
-          <input ng-model="householdCtrl.household.name">
-        </md-input-container>
+        <div layout="row">
+          <md-input-container flex="40">
+            <label><translate>Household Name</translate></label>
+            <input ng-model="householdCtrl.household.name">
+          </md-input-container>
 
-        <md-input-container flex>
-          <label><translate>Letter Salutation</translate></label>
-          <input ng-model="householdCtrl.household.letterSalutation">
-        </md-input-container>
+
+          <md-input-container flex="40">
+            <label><translate>Letter Salutation</translate></label>
+            <input ng-model="householdCtrl.household.letterSalutation">
+          </md-input-container>
+
+          <md-select placeholder="{{'Select household type'|translate}}" ng-model="householdCtrl.household.type" flex="20">
+            <md-option value="family"><translate>Family</translate></md-option>
+            <md-option value="sharedFlat"><translate>Shared Flat</translate></md-option>
+            <md-option value="other"><translate>Other</translate></md-option>
+          </md-select>
+        </div>
 
 
         <gem-address-edit address="householdCtrl.household.address"></gem-address-edit>
