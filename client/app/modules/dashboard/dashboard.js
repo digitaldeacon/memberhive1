@@ -7,6 +7,8 @@ import './widgets/weather/mh-widget-weather';
 import {DashboardController} from './controllers/dashboard-controller';
 import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
 
+import './styles/dashboard.css!';
+
 export var gemDashboardModule = angular.module('gem.dashboard',
   [
     'adf',
