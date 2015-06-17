@@ -7,10 +7,20 @@
 
     <h3 translate>PDF Options</h3>
 
-    <md-select placeholder="{{'Orientation'|translate}}" ng-model="reportUpCtrl.report.pdfOptions.orientation">
-      <md-option value="portrait"><translate>Portrait</translate></md-option>
-      <md-option value="landscape"><translate>Landscape</translate></md-option>
-    </md-select>
+    <div layout="row">
+      <md-select placeholder="{{'Orientation'|translate}}" ng-model="reportUpCtrl.report.pdfOptions.orientation" flex="25">
+        <md-option value="portrait"><translate>Portrait</translate></md-option>
+        <md-option value="landscape"><translate>Landscape</translate></md-option>
+      </md-select>
+      <md-select placeholder="{{'Page Size'|translate}}" ng-model="reportUpCtrl.report.pdfOptions.pageSize" flex="25">
+        <md-option value="A3">A3</md-option>
+        <md-option value="A4">A4</md-option>
+        <md-option value="A5">A5</md-option>
+        <md-option value="Legal">Legal</md-option>
+        <md-option value="Letter">Letter</md-option>
+        <md-option value="Tabloid">Tabloid</md-option>
+      </md-select>
+    </div>
 
     <div layout="row">
       <md-input-container flex="25">

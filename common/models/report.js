@@ -109,6 +109,7 @@ module.exports = function(Report) {
         var marginRight = report.pdfOptions.marginRight || 0;
         var marginTop = report.pdfOptions.marginTop || 0;
         var marginBottom = report.pdfOptions.marginBottom || 0;
+        var pageSize = report.pdfOptions.pageSize || 'A4';
 
         toner.render({
           template: {
@@ -119,7 +120,7 @@ module.exports = function(Report) {
               header: header,
               footer: footer,
               paperSize: {
-                format: 'A4',
+                format: pageSize,
                 margin: {
                   left: marginLeft + 'cm',
                   right: marginRight + 'cm',
