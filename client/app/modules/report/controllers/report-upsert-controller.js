@@ -35,6 +35,7 @@ export class ReportUpsertController {
     this.report.name = this.$scope.reportUpCtrl.report.name;
     this.report.html = this.$scope.reportUpCtrl.report.html;
     this.ReportService.save(this.report).then(() => {
+      // Reload iframes
       var iFrame = this.$document.find("#htmlPreviewFrame");
       iFrame.attr("src", iFrame.attr("src"));
       iFrame = this.$document.find("#pdfPreviewFrame");

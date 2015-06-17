@@ -19,6 +19,9 @@
     },
     "html": {
       "type": "string"
+    },
+    "pdfOptions": {
+      "type": "object"
     }
   },
   "validations": [],

@@ -4,6 +4,53 @@
   </div>-->
   <div class="col-md-6">
     <ui-codemirror ng-model="reportUpCtrl.report.html" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+
+    <h3 translate>PDF Options</h3>
+
+    <md-select placeholder="{{'Orientation'|translate}}" ng-model="reportUpCtrl.report.pdfOptions.orientation">
+      <md-option value="portrait"><translate>Portrait</translate></md-option>
+      <md-option value="landscape"><translate>Landscape</translate></md-option>
+    </md-select>
+
+    <div layout="row">
+      <md-input-container flex="25">
+        <label translate>Margin Left (cm)</label>
+        <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginLeft">
+      </md-input-container>
+      <md-input-container flex="25">
+        <label translate>Margin Right (cm)</label>
+        <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginRight">
+      </md-input-container>
+      <md-input-container flex="25">
+        <label translate>Margin Top (cm)</label>
+        <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginTop">
+      </md-input-container>
+      <md-input-container flex="25">
+        <label translate>Margin Bottom (cm)</label>
+        <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginBottom">
+      </md-input-container>
+    </div>
+
+    <h4 translate>Header</h4>
+    <md-checkbox ng-model="reportUpCtrl.report.pdfOptions.enableHeader"><translate>Enable Header</translate></md-checkbox>
+    <div ng-show="reportUpCtrl.report.pdfOptions.enableHeader">
+      <md-input-container>
+        <label translate>Header Height (cm)</label>
+        <input type="number" step="any" ng-model="reportUpCtrl.report.pdfOptions.headerHeight">
+      </md-input-container>
+      <ui-codemirror ng-model="reportUpCtrl.report.pdfOptions.header" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+    </div>
+
+    <h4 translate>Footer</h4>
+    <md-checkbox ng-model="reportUpCtrl.report.pdfOptions.enableFooter"><translate>Enable Footer</translate></md-checkbox>
+    <div ng-show="reportUpCtrl.report.pdfOptions.enableFooter">
+      <md-input-container>
+        <label translate>Footer Height (cm)</label>
+        <input type="number" step="any" ng-model="reportUpCtrl.report.pdfOptions.footerHeight">
+      </md-input-container>
+      <ui-codemirror ng-model="reportUpCtrl.report.pdfOptions.footer" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+    </div>
+
   </div>
   <div class="col-md-6">
 

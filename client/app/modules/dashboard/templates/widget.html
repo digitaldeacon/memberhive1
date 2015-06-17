@@ -1,5 +1,5 @@
-<div adf-id="{{definition.wid}}" class="widget panel panel-default">
-  <div class="panel-heading clearfix">
+<md-card adf-id="{{definition.wid}}">
+  <div class="panel-heading">
     <h3 class="panel-title">
     {{definition.title | translate}}
       <span class="pull-right">
@@ -32,7 +32,7 @@
       </span>
     </h3>
   </div>
-  <div class="panel-body" collapse="isCollapsed">
+  <md-card-content collapse="isCollapsed">
     <adf-widget-content model="definition" content="widget" />
-  </div>
-</div>
+  </md-card-content>
+</md-card>

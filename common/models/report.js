@@ -101,12 +101,38 @@ module.exports = function(Report) {
         toner.recipe('html', Toner.htmlRecipe);
         toner.recipe('phantom-pdf', require("toner-phantom")());
 
+        var header = report.pdfOptions.enableHeader ? report.pdfOptions.header : '';
+        var footer = report.pdfOptions.enableFooter ? report.pdfOptions.footer : '';
+        var headerHeight = report.pdfOptions.enableHeader ? report.pdfOptions.headerHeight : 0;
+        var footerHeight = report.pdfOptions.enableFooter ? report.pdfOptions.footerHeight : 0;
+        var marginLeft = report.pdfOptions.marginLeft || 0;
+        var marginRight = report.pdfOptions.marginRight || 0;
+        var marginTop = report.pdfOptions.marginTop || 0;
+        var marginBottom = report.pdfOptions.marginBottom || 0;
+
         toner.render({
           template: {
             engine: 'none',
             recipe: recipe,
-            content: result
-          }
+            content: result,
+            phantom: {
+              header: header,
+              footer: footer,
+              paperSize: {
+                format: 'A4',
+                margin: {
+                  left: marginLeft + 'cm',
+                  right: marginRight + 'cm',
+                  top: marginTop + 'cm',
+                  bottom: marginBottom + 'cm'
+                },
+                orientation: report.pdfOptions.orientation,
+                headerHeight: headerHeight + 'cm',
+                footerHeight: footerHeight + 'cm'
+              }
+            }
+          },
+          options: {}
         }, function(err, out) {
           if (err) {
             cb(new Error(err));
