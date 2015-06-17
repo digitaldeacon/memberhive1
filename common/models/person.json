@@ -44,6 +44,7 @@
     },
     "gender": {
       "type": "string",
+      "required": true,
       "queryBuilder": {
         "label": "Gender",
         "input": "radio",
@@ -111,8 +112,13 @@
           "true": "Yes"
         }
       }
+    },
+    "search": {
+      "type": "string",
+      "description": "Stores lowercase keywords for searching"
     }
   },
+  "hidden": ["search"],
   "validations": [],
   "relations": {
     "account": {

@@ -59,12 +59,12 @@
       }
       div.mh-app-loader div.animated-container {
         background-color: #eee ;
-        bottom: 0px ;
-        left: 0px ;
+        bottom: 0 ;
+        left: 0 ;
         opacity: 1.0 ;
         position: fixed ;
-        right: 0px ;
-        top: 0px ;
+        right: 0 ;
+        top: 0 ;
         z-index: 999999 ;
       }
       /* Used to initialize the ng-leave animation state. */
@@ -80,10 +80,10 @@
       div.mh-app-loader div.messaging {
         color: #FFFFFF ;
         font-family: monospace ;
-        left: 0px ;
+        left: 0;
         margin-top: -37px ;
         position: absolute ;
-        right: 0px ;
+        right: 0 ;
         text-align: center ;
         top: 50% ;
       }
@@ -109,7 +109,7 @@
         <div flex layout="column">
 
           <md-toolbar class="md-whiteframe-z0 header-toolbar">
-            <div flex layout="row" layout-padding data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" > </div>
+            <div layout="row" layout-padding data-ng-include="'templates/header.html'" data-ng-controller="HeaderController as headerCtrl" > </div>
           </md-toolbar>
 
           <div flex layout="column" layout-margin>
