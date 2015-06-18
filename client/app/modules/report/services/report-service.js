@@ -8,8 +8,7 @@ export function ReportService(Report, gettextCatalog, $rootScope, Shout) {
       return Report.find({
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,
-          offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
-          //order: ['lastName ASC', 'firstName ASC', 'middleName ASC']
+          offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize
         }
       });
     },
@@ -22,9 +21,11 @@ export function ReportService(Report, gettextCatalog, $rootScope, Shout) {
       var p = Report.upsert({},reportObj).$promise;
       p.then(
         (data) => {
-          Shout.success(gettextCatalog.getString('Successfully saved report “{{name}}”', {name: data.name}));
+          Shout.message(gettextCatalog.getString('Report saved.'));
         },
-        (error) => {Shout.error(error.data.error.message, error.data.error.name);}
+        (error) => {
+          Shout.vError(error);
+        }
       );
       return p;
     }

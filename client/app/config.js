@@ -36,7 +36,6 @@ System.config({
     "angular-resource": "github:angular/bower-angular-resource@1.4.1",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.4.1",
     "angular-spinkit": "github:Urigo/angular-spinkit@master",
-    "angular-toastr": "github:Foxandxss/angular-toastr@1.2.1",
     "angular-touch": "github:angular/bower-angular-touch@1.4.1",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@2.5.0",

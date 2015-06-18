@@ -43,7 +43,7 @@ export function NoteCreateDirective() {
           }).$promise
         .then(
           (data) => {
-            Shout.success(gettextCatalog.getString('Note created'));
+            Shout.message(gettextCatalog.getString('Note created'));
             $scope.newNote({note:data});
           }
         );

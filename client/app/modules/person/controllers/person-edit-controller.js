@@ -153,7 +153,7 @@ export class PersonEditController {
         this.$scope.$apply(() => {
           image.addEventListener('load', () => {
             if (!this.checkImage(image)) {
-              this.Shout.info(this.gettextCatalog.getString(
+              this.Shout.message(this.gettextCatalog.getString(
                 'For best results the image should be at least 800x800 pixels.'));
             }
             this.avatarChanged = true;
@@ -165,7 +165,7 @@ export class PersonEditController {
         });
       };
       reader.onerror = (err) => {
-        this.Shout.error(this.gettextCatalog.getString('Can’t read image. Please try again.'));
+        this.Shout.message(this.gettextCatalog.getString('Can’t read image. Please try again.'));
       };
     }
   }
@@ -204,7 +204,7 @@ export class PersonEditController {
     }
     var all = this.$q.all(promises);
     all.then(() => {
-      this.Shout.success(this.gettextCatalog.getString(
+      this.Shout.message(this.gettextCatalog.getString(
         'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
     });
     return all;

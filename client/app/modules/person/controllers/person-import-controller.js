@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
-export function PersonImportController(Person, GemFileReader, Shout, $scope, gettext)
-{
+export function PersonImportController(Person, GemFileReader, Shout, $scope, gettext, gettextCatalog) {
   this.csvToArray = (strData, strDelimiter) => {
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
@@ -86,23 +85,20 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
   };
 
   this.uploadImportFile = (files) => {
-    console.log("uploadImportFile");
-    if(files && files[0]) {
-      console.log("uploadImportFile  not empty");
+    if (files && files[0]) {
       GemFileReader.readAsText(files[0], 'UTF-8', $scope).then(
         (resp) => {
           console.log(resp);
           this.fillTable(this.csvToArray(resp));
-          Shout.sSuccess(gettext("File read"));
+          Shout.message(gettextCatalog.getString("File read"));
         }, (err) => {
-          console.log(err);
-          Shout.sError(err);
+          Shout.vError(err);
         }
       );
     }
   };
   this.options = Object.keys(Person.model.properties);
-  this.options.push('contact.home', 'contact.mobile', 'contact.skype', 'contact.facebook', 
+  this.options.push('contact.home', 'contact.mobile', 'contact.skype', 'contact.facebook',
                     'address.home.street1', 'address.home.street2', 'address.home.city', 'address.home.zipcode', 'address.home.country', 'address.home.additional',
                     'address.work.street1', 'address.work.street2', 'address.work.city', 'address.work.zipcode', 'address.work.country', 'address.work.additional'
                    );
@@ -117,13 +113,12 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
 
 
   this.import = () => {
-    console.log(this.assign);
     var persons = _.map(_.drop(this.tableData), this.convert);
     _.forEach(persons, (person, pos) => {
-      if(person.lastName !== undefined) {
+      if (person.lastName !== undefined) {
         Person.upsert(person).$promise.then(
-          (data) => Shout.sSuccess(gettext("Person imported ") + data.firstName + " " + data.lastName),
-          (err) => Shout.sError(err)
+          (data) => Shout.message(gettext("Person imported ") + data.firstName + " " + data.lastName),
+          (err) => Shout.vError(err)
         );
       }
     });
@@ -133,7 +128,7 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
   this.convert = (row) => {
     var person = {};
     _.forEach(row, (value, pos) => {
-      if(this.assign[pos] && value.trim() !== "") {
+      if (this.assign[pos] && value.trim() !== "") {
         person = this.dotToObject(person, value.trim(), this.assign[pos]);
       }
     });
@@ -147,7 +142,7 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
       var objectName = paths.shift();
       var newpath = paths.join('.');
 
-      if(! _.has(obj, objectName)) {
+      if (! _.has(obj, objectName)) {
         obj[objectName] = {};
       }
       obj[objectName] = this.dotToObject(obj[objectName], value, newpath);
