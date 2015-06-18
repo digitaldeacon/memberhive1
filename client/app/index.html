@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-controller="AppController as appCtrl">
+<html ng-app="gem.main" ng-controller="AppController as appCtrl">
   <head>
     <meta charset="utf-8">
     <title data-ng-bind="appCtrl.getTitle()"></title>
@@ -126,12 +126,50 @@
       <div flex ui-view layout="column" ></div>
     </div>
 
-    <script src="jspm_packages/system.js"></script>
-    <script src="config.js"></script>
-    <script>
-      System.import('app').then(function() {
-        angular.bootstrap(document, ['gem.main']);
-      });
-    </script>
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-animate/angular-animate.js"></script>
+  <script src="../bower_components/angular-confirm/dist/angular-confirm.min.js"></script>
+  <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../bower_components/Sortable/Sortable.js"></script>
+  <script src="../bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.js"></script>
+  <script src="../bower_components/angular-fontawesome/dist/angular-fontawesome.js"></script>
+  <script src="../bower_components/angular-gettext/dist/angular-gettext.js"></script>
+  <script src="../bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="../bower_components/angular-aria/angular-aria.js"></script>
+  <script src="../bower_components/angular-material/angular-material.js"></script>
+  <script src="../bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+  <script src="../bower_components/angular-messages/angular-messages.js"></script>
+  <script src="../bower_components/moment/moment.js"></script>
+  <script src="../bower_components/angular-moment/angular-moment.js"></script>
+  <script src="../bower_components/angular-spinkit/build/angular-spinkit.js"></script>
+  <script src="../bower_components/angular-touch/angular-touch.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="../bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+  <script src="../bower_components/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
+  <script src="../bower_components/angular-utils-pagination/dirPagination.js"></script>
+  <script src="../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script src="../bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+  <script src="../bower_components/codemirror/lib/codemirror.js"></script>
+  <script src="../bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+  <script src="../bower_components/ng-mfb/src/mfb-directive.js"></script>
+  <script src="../bower_components/adf-structures-base/dist/adf-structures-base.js"></script>
+  <script src="../bower_components/angular-resource/angular-resource.js"></script>
+  <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="../bower_components/iso-3166-country-codes-angular/dist/iso-3166-country-codes-angular.min.js"></script>
+  <script src="../bower_components/svg-morpheus/compile/minified/svg-morpheus.js"></script>
+  <script src="../bower_components/lodash/lodash.js"></script>
+  <script src="../bower_components/ng-file-upload/ng-file-upload.js"></script>
+  <script src="../bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+  <script src="../bower_components/restangular/dist/restangular.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <script src="app.js"></script>
+
   </body>
 </html>

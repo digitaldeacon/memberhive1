@@ -6,7 +6,7 @@ var path = require('path');
 var http2 = require('http2');
 var argv = require('optimist').argv;
 var root = argv.root || path.normalize(__dirname + "/../");
-var jspmRoot = path.normalize(root + "/jspm_packages/");
+var jspmRoot = path.normalize(root + "/bower_components/");
 var filesRoot = path.normalize(root + "/client/app/");
 var tmpRoot = path.normalize(root + "/.tmp/");
 var mime = require('mime');
@@ -32,7 +32,7 @@ function onRequest(request, response) {
     if(url === "/" || url === "") {
         url = "/index.html";
     }
-    if(url.indexOf("/jspm_packages/") === 0) {
+    if(url.indexOf("/bower_components/") === 0) {
         filename = path.join(root, url);
         serve(response, filename, jspmRoot);
     } else {

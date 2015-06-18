@@ -139,6 +139,10 @@ module.exports = function(grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      bower: {
+        files: ['bower.json'],
+        tasks: ['wiredep']
+      },
       compass: {
         files: ['<%= yeoman.app %>/**/*.{scss,sass}'],
         tasks: ['compass:server']
@@ -163,6 +167,18 @@ module.exports = function(grunt) {
       }
     },
 
+    // Automatically inject Bower components into the app
+    wiredep: {
+      app: {
+        src: ['<%= yeoman.app %>/index.html'],
+        ignorePath:  /\.\.\//
+      },
+      sass: {
+        src: ['<%= yeoman.app %>/**/*.{scss,sass}'],
+        ignorePath: /(\.\.\/){1,2}bower_components\//
+      }
+    },
+
     // The actual grunt server settings
     connect: {
       options: {
@@ -179,8 +195,8 @@ module.exports = function(grunt) {
               connect.static(appConfig.app),
               connect.static('.tmp'),
               connect().use(
-                '/jspm_packages',
-                connect.static('./jspm_packages')
+                '/bower_components',
+                connect.static('./bower_components')
               )
             ];
           }
@@ -266,7 +282,7 @@ module.exports = function(grunt) {
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: './jspm_packages',
+        importPath: './bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
@@ -346,6 +362,7 @@ module.exports = function(grunt) {
     grunt.task.run([
       'githooks',
       'clean:server',
+      'wiredep',
       'lbservices',
       'ngconstant:server',
       'nggettext_compile',
@@ -357,6 +374,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'wiredep',
     //'imagemin:dist',
     'lbservices_dist',
     'ngconstant:dist',
