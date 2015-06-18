@@ -83,7 +83,12 @@ module.exports = function(Report) {
           return `${Report.app.baseUrl}/Avatars/${personId}/download/${size}.jpg`;
         });
 
-        Handlebars.registerHelper('formatDate', function(date, format){
+        Handlebars.registerHelper('formatDate', function(date, format, locale) {
+          try {
+            moment.locale(locale);
+          } catch(err) {
+            moment.locale('en');
+          }
           return moment(date).format(format);
         });
 
