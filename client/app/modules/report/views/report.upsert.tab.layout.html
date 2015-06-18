@@ -24,25 +24,27 @@
 
     <div layout="row">
       <md-input-container flex="25">
-        <label translate>Margin Left (cm)</label>
+        <label translate>Left Margin (cm)</label>
         <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginLeft">
       </md-input-container>
       <md-input-container flex="25">
-        <label translate>Margin Right (cm)</label>
+        <label translate>Right Margin (cm)</label>
         <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginRight">
       </md-input-container>
       <md-input-container flex="25">
-        <label translate>Margin Top (cm)</label>
+        <label translate>Top Margin (cm)</label>
         <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginTop">
       </md-input-container>
       <md-input-container flex="25">
-        <label translate>Margin Bottom (cm)</label>
+        <label translate>Bottom Margin (cm)</label>
         <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginBottom">
       </md-input-container>
     </div>
 
     <h4 translate>Header</h4>
-    <md-checkbox ng-model="reportUpCtrl.report.pdfOptions.enableHeader"><translate>Enable Header</translate></md-checkbox>
+    <md-switch ng-model="reportUpCtrl.report.pdfOptions.enableHeader">
+      <translate>Enable Header</translate>
+    </md-switch>
     <div ng-show="reportUpCtrl.report.pdfOptions.enableHeader">
       <md-input-container>
         <label translate>Header Height (cm)</label>
@@ -52,7 +54,9 @@
     </div>
 
     <h4 translate>Footer</h4>
-    <md-checkbox ng-model="reportUpCtrl.report.pdfOptions.enableFooter"><translate>Enable Footer</translate></md-checkbox>
+    <md-switch ng-model="reportUpCtrl.report.pdfOptions.enableFooter">
+      <translate>Enable Footer</translate>
+    </md-switch>
     <div ng-show="reportUpCtrl.report.pdfOptions.enableFooter">
       <md-input-container>
         <label translate>Footer Height (cm)</label>

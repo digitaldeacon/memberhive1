@@ -18,6 +18,7 @@ export class ReportUpsertController {
     $scope.reportHtml = '';
 
     this.editorOptions = {
+      lineNumbers: true,
       lineWrapping: true,
       mode: 'htmlmixed'
     };
