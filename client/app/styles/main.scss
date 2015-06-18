@@ -85,3 +85,8 @@ a:visited, a:hover {
 .errormsg {
   color: #F44336;
 }
+
+md-toast {
+  // https://github.com/angular/material/issues/1106
+  position: fixed !important;
+}

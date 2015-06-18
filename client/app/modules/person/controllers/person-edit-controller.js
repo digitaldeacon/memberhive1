@@ -165,7 +165,7 @@ export class PersonEditController {
         });
       };
       reader.onerror = (err) => {
-        this.Shout.message(this.gettextCatalog.getString('Can’t read image. Please try again.'));
+        this.Shout.error(this.gettextCatalog.getString('Can’t read image. Please try again.'));
       };
     }
   }
