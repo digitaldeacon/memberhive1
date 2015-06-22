@@ -1,52 +1,14 @@
-import 'jquery';
-import 'angular';
-import 'angular-material';
-import 'svg-morpheus'; // Animations for angular-material-icons
-import 'angular-material-icons';
-import 'bootstrap';
-import 'angular-messages';
-import 'angular-animate';
-import 'angular-cookies';
-import 'angular-resource';
-import 'angular-sanitize';
-import 'angular-touch';
-import 'angular-fontawesome';
-import 'angular-ui-router';
-import 'angular-bootstrap';
-import 'angular-spinkit';
-
-import 'angular-gettext';
-import 'angular-confirm';
-import 'angular-moment';
-import 'bootstrap-hover-dropdown';
-import 'angular-loading-bar';
-import 'angular-breadcrumb';
-import 'ng-material-floating-button/src/mfb-directive';
-import 'ng-material-floating-button/mfb/dist/mfb.css!';
-
-// CSS
-import 'bootstrap/css/bootstrap.css!';
-import 'font-awesome/css/font-awesome.css!';
-import 'angular-loading-bar/build/loading-bar.css!';
-
-// Own CSS
-import 'styles/main.css!';
-
-// Translations
-import 'scripts/translations';
-
-// Own modules
-import {gemCoreModule} from 'modules/core/core';
-import {gemConfigModule} from 'scripts/config';
-import {gemDashboardModule} from 'modules/dashboard/dashboard';
-import {gemAddressModule} from 'modules/address/address';
-import {gemPersonModule} from 'modules/person/person';
-import {gemAuthModule} from 'modules/auth/auth';
-import {gemAclModule} from 'modules/auth/acl';
-import {gemNoteModule} from 'modules/note/note';
-import {gemReportModule} from 'modules/report/report';
-import {gemCalendarModule} from 'modules/calendar/calendar';
-
+import {gemCoreModule} from './modules/core/core';
+import {gemConfigModule} from './scripts/config';
+import {gemDashboardModule} from './modules/dashboard/dashboard';
+import {gemAddressModule} from './modules/address/address';
+import {gemPersonModule} from './modules/person/person';
+import {gemAuthModule} from './modules/auth/auth';
+import {gemAclModule} from './modules/auth/acl';
+import {gemNoteModule} from './modules/note/note';
+import {gemReportModule} from './modules/report/report';
+import {gemCalendarModule} from './modules/calendar/calendar';
+import {MenuSection, MenuLink} from './modules/core/providers/menu-provider';
 /**
  * The main app module.
  */

@@ -1,11 +1,3 @@
-import 'ng-file-upload';
-import 'ngImgCrop/compile/unminified/ng-img-crop';
-import 'ngImgCrop/compile/unminified/ng-img-crop.css!';
-import 'angularUtils-pagination';
-import 'nsPopover';
-import 'ngTagsInput';
-import 'ngTagsInput/build/ng-tags-input.css!';
-import 'ngTagsInput/build/ng-tags-input.bootstrap.css!';
 
 import './filters/person-filters';
 
@@ -20,9 +12,6 @@ import {AvatarDirective} from './directives/person-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {PersonRandomWidget} from './widgets/random/person-random';
 
-import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
-
-import './styles/person.css!';
 
 export var gemPersonModule = angular.module('gem.person',
   [

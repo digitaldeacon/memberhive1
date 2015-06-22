@@ -1,6 +1,4 @@
-import {LoginController} from 'modules/auth/controller/auth-controller';
-
-import './styles/auth.css!';
+import {LoginController} from './controller/auth-controller';
 
 export var gemAuthModule = angular.module('gem.auth', []).config(
   ($stateProvider, gettext) => {

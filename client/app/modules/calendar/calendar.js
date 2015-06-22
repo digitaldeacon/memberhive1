@@ -1,8 +1,5 @@
 import {CalendarController} from './controllers/calendar-controller';
 
-import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
-
-import './styles/calendar.css!';
 
 export var gemCalendarModule = angular.module('gem.calendar', []
 ).config(

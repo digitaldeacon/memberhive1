@@ -1,5 +1,3 @@
-import 'iso-3166-country-codes-angular';
-
 import {AddressService} from './services/address-service';
 import {AddressDirective, AddressEditDirective} from './directives/address-directive';
 

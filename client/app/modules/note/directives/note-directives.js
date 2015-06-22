@@ -14,7 +14,6 @@ export function NoteEditFormDirective() {
   };
 }
 
-import 'angular-ui-tree/angular-ui-tree.min.css!';
 export function NoteTreeDirective() {
   return {
     scope: {

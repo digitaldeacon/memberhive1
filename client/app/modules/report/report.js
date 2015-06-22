@@ -1,12 +1,3 @@
-import 'codemirror';
-import 'codemirror/lib/codemirror.css!';
-import 'codemirror/mode/htmlmixed/htmlmixed';
-import 'ui-codemirror';
-
-import 'jQuery-QueryBuilder/dist/js/query-builder.standalone';
-import 'jQuery-QueryBuilder/dist/i18n/query-builder.de';
-import 'bootstrap-datepicker/js/bootstrap-datepicker';
-
 import {ReportListController} from './controllers/report-list-controller';
 import {ReportUpsertController} from './controllers/report-upsert-controller';
 
@@ -18,9 +9,6 @@ import {ReportHtmlWidget} from './widgets/htmlreport/htmlreport';
 import {ReportService} from './services/report-service';
 import {QueryBuilderModelService} from './services/querybuilder-model-service';
 
-import {MenuSection, MenuLink} from 'modules/core/providers/menu-provider';
-
-import './styles/report.css!';
 
 export var gemReportModule = angular.module('gem.report', [
   'ui.codemirror',

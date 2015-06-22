@@ -1,7 +1,5 @@
-import {MainMenu} from 'modules/core/providers/menu-provider';
-
 export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, $mdSidenav) {
-  
+
   this.logout = () => {
     Account.logout().$promise.then((resp) => {
       GemAcl.setRights([]);
@@ -10,8 +8,8 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
   };
 
   this.mainMenu = MainMenu.getItems();
- 
-  
+
+
   this.closeMenu = () => {
     $timeout(function() { $mdSidenav('left').close(); });
   };
@@ -19,6 +17,6 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
   this.openMenu = () => {
     $timeout(function() { $mdSidenav('left').open(); });
   };
-  
+
   this.selected = '';
 }

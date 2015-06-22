@@ -13,7 +13,10 @@ export function PersonViewController(PersonService, AddressService, $stateParams
   this.getHouseholdMembers = () => {
     if (!this.person.household)
       return [];
-    return [for (person of this.person.household.persons) if (person.id !== this.person.id) person];
+    var ret = [];
+    this.person.household.persons.forEach((person) => {
+      if (person.id !== this.person.id) ret.push(person);
+    });
   };
 
   this.newNote = (note) => {
