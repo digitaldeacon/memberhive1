@@ -10,7 +10,16 @@ module.exports = function(options) {
     var webpackOptions = {
       watch: watch,
       module: {
-        preLoaders: [{ test: /\.js$/, exclude: /node_modules/, loader: 'jshint-loader'}],
+        preLoaders: 
+        [
+          { 
+            test: /\.js$/, 
+            exclude: [/node_modules/, /lb-services.js/],
+            loader: 'jshint-loader'
+            
+          }
+          
+        ],
         loaders:
         [
           {

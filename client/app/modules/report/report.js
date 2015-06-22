@@ -1,3 +1,5 @@
+import {MenuSection, MenuLink} from '../core/providers/menu-provider';
+
 import {ReportListController} from './controllers/report-list-controller';
 import {ReportUpsertController} from './controllers/report-upsert-controller';
 

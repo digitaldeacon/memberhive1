@@ -1,5 +1,6 @@
 
 import './filters/person-filters';
+import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 import {PersonListController} from './controllers/person-list-controller';
 import {PersonEditController} from './controllers/person-edit-controller';

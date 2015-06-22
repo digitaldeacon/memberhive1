@@ -32,6 +32,7 @@ module.exports = function(options) {
       startPath: '/',
       server: server,
       browser: browser,
+      port: 9000,
       ghostMode: false
     });
   }

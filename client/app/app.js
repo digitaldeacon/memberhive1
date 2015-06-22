@@ -16,8 +16,8 @@ export var gemMainModule = angular.module('gem.main', [
   'ngAnimate', 'ngMaterial', 'ngCookies', 'ngResource', 'ngSanitize', 'ngTouch', 'ngAria', 'ngMessages',
   'ui.router', 'ui.bootstrap',
   'lbServices', 'picardy.fontawesome',
-  'angular-confirm', 'angularMoment', 'angular-loading-bar','angular-spinkit',
-  'gettext', 'ncy-angular-breadcrumb', 'ngMdIcons', 'ng-mfb',
+  'ngConfirm', 'angularMoment', 'angular-loading-bar','angular-spinkit',
+  'gettext', 'ngMdIcons', 'ng-mfb', 'ncy-angular-breadcrumb',
 
   // GEM Modules
   'gem.core', // This needs to be loaded first

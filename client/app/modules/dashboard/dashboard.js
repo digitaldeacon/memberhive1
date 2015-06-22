@@ -1,10 +1,12 @@
 import {DashboardController} from './controllers/dashboard-controller';
+import {MenuSection, MenuLink} from '../core/providers/menu-provider';
+
 export var gemDashboardModule = angular.module('gem.dashboard',
   [
     'adf',
     'adf.structures.base',
-    'adf.widget.clock',
-    'adf.widget.weather'
+    //'adf.widget.clock',
+   // 'adf.widget.weather'
   ]);
 gemDashboardModule.config(
   ($stateProvider, MainMenuProvider, gettext) => {

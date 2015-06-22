@@ -2,6 +2,7 @@ import {NoteEditFormDirective, NoteTreeDirective, NoteCreateDirective} from './d
 import {NoteService} from './services/note-service';
 import {NoteListController} from './controllers/note-list-controller';
 import {NoteCreateController} from './controllers/note-create-controller';
+import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
   ($stateProvider, MainMenuProvider, gettext) => {

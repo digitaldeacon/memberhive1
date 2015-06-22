@@ -42,14 +42,14 @@ $table-border-color:            #e0e0e0;
   > tbody,
   > tfoot {
     > tr {
-      @include transition(all .3s ease);
+      transition: all .3s ease;
       > th,
       > td {
         text-align: left;
         padding: $table-cell-padding;
         vertical-align: top;
         border-top: 0;
-        @include transition(all .3s ease);
+        transition: all .3s ease;
       }
     }
   }

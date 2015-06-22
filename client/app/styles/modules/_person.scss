@@ -1,3 +1,29 @@
+.person-view {
+  .householdMembers {
+    ul {
+      li {
+        min-width: 160px;
+        vertical-align: top;
+        a {
+          display: block;
+          text-decoration: none;
+          color: black;
+
+          h4 {
+            margin: 0;
+            font-size: 14px;
+          }
+          img {
+            margin-right: 10px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+
+}
+
 .gender-buttons {
   $gender-male: #578ebe;
   $gender-female: #e08283;
