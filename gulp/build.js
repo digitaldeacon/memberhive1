@@ -9,7 +9,7 @@ var $ = require('gulp-load-plugins')({
 module.exports = function(options) {
   gulp.task('partials', function () {
     return gulp.src([
-      options.src + '/**/*.html',
+      options.src + '/app/**/*.html',
       options.tmp + '/serve/app/**/*.html'
     ])
       .pipe($.minifyHtml({
@@ -18,8 +18,8 @@ module.exports = function(options) {
         quotes: true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-        module: 'lifiApp',
-        root: 'app'
+        module: 'gem.core',
+        root: 'app/'
       }))
       .pipe(gulp.dest(options.tmp + '/partials/'));
   });
@@ -75,8 +75,8 @@ module.exports = function(options) {
 
   gulp.task('other', function () {
     return gulp.src([
-      options.src + '/**/*',
-      '!' + options.src + '/**/*.{html,css,js,scss}'
+      options.src + 'app/**/*',
+      '!' + options.src + 'app/**/*.{html,css,js,scss}'
     ])
       .pipe(gulp.dest(options.dist + '/'));
   });

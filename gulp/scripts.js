@@ -28,7 +28,7 @@ module.exports = function(options) {
           }
         ]
       },
-      output: { filename: 'index.js' }
+      output: { filename: 'app/index.js' }
     };
 
     if(watch) {
@@ -52,7 +52,7 @@ module.exports = function(options) {
       }
     };
 
-    return gulp.src(options.src + '/app.js')
+    return gulp.src(options.src + '/app/app.js')
       .pipe($.webpack(webpackOptions, null, webpackChangeHandler))
       .pipe(gulp.dest(options.tmp + '/serve/app'));
   }

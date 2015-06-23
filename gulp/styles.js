@@ -15,12 +15,13 @@ module.exports = function(options) {
 
     var injectFiles = gulp.src([
       options.src + '/**/*.scss',
-      '!' + options.src + '/styles/main.scss',
+      '!' + options.src + '/app/styles/main.scss',
+      '!' + options.src + '/app/styles/vendor.scss'
     ], { read: false });
 
     var injectOptions = {
       transform: function(filePath) {
-        filePath = filePath.replace(options.src, '');
+        filePath = filePath.replace(options.src + '/app/', '');
         return '@import \'' + filePath + '\';';
       },
       starttag: '// injector',
@@ -29,14 +30,18 @@ module.exports = function(options) {
     };
 
     var indexFilter = $.filter('index.scss');
+    var vendorFilter = $.filter('vendor.scss');
 
     return gulp.src([
-      options.src + '/styles/main.scss',
+      options.src + '/app/styles/main.scss',
+      options.src + '/app/styles/vendor.scss'
     ])
       .pipe(indexFilter)
       .pipe($.inject(injectFiles, injectOptions))
       .pipe(indexFilter.restore())
+      .pipe(vendorFilter)
       .pipe(wiredep(options.wiredep))
+      .pipe(vendorFilter.restore())
       .pipe($.sourcemaps.init())
       .pipe($.sass(sassOptions)).on('error', options.errorHandler('Sass'))
       .pipe($.autoprefixer()).on('error', options.errorHandler('Autoprefixer'))

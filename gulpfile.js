@@ -5,7 +5,7 @@ var gutil = require('gulp-util');
 var wrench = require('wrench');
 
 var options = {
-  src: 'client/app',
+  src: 'client',
   dist: 'dist',
   tmp: '.tmp',
   errorHandler: function(title) {
@@ -16,7 +16,7 @@ var options = {
   },
   wiredep: {
     directory: 'bower_components',
-    exclude: [/bootstrap-sass-official\/.*\.js/, /bootstrap\.css/]
+    //exclude: [/bootstrap-sass-official\/.*\.js/, /bootstrap\.css/]
   }
 };
 

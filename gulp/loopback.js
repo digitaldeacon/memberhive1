@@ -9,6 +9,6 @@ module.exports = function(options) {
       return gulp.src('./server/server.js')
       .pipe(loopbackAngular({apiUrl:'http://127.0.0.1:3000/api'}))
       .pipe(rename('lb-services.js'))
-      .pipe(gulp.dest(options.src+'./modules/core/services/'));
+      .pipe(gulp.dest(options.src+'/app/modules/core/services/'));
   });
 }

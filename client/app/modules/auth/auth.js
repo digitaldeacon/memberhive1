@@ -5,7 +5,7 @@ export var gemAuthModule = angular.module('gem.auth', []).config(
   ($stateProvider, gettext) => {
       $stateProvider.state('login', {
         url: '/login',
-        templateUrl: 'modules/auth/views/login.html',
+        templateUrl: 'app/modules/auth/views/login.html',
         data: {
           pageTitle: gettext('Login')
         }

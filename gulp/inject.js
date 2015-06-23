@@ -9,13 +9,14 @@ var wiredep = require('wiredep').stream;
 module.exports = function(options) {
   gulp.task('inject', ['scripts', 'styles'], function () {
     var injectStyles = gulp.src([
-      options.tmp + '/serve/app/**/*.css'
+      options.tmp + '/serve/app/**/*.css',
+      '!' + options.tmp + '/serve/app/vendor.css'
     ], { read: false });
 
     var injectScripts = gulp.src([
       options.tmp + '/serve/app/**/*.js',
-      '!' + options.src + '/**/*.spec.js',
-      '!' + options.src + '/**/*.mock.js'
+      '!' + options.src + '/app/**/*.spec.js',
+      '!' + options.src + '/app/**/*.mock.js'
     ], { read: false });
 
     var injectOptions = {
