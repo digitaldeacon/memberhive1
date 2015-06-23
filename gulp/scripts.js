@@ -16,7 +16,6 @@ module.exports = function(options) {
             test: /\.js$/, 
             exclude: [/node_modules/, /lb-services.js/],
             loader: 'jshint-loader'
-            
           }
           
         ],
@@ -26,9 +25,6 @@ module.exports = function(options) {
             test: /\.js$/,
             exclude: /node_modules/,
             loader: 'babel-loader',
-            resolve: {
-              root : [options.src]
-            }
           }
         ]
       },

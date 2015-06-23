@@ -47,7 +47,6 @@
     "gulp-loopback-sdk-angular": "^0.1.3",
     "gulp-minify-html": "~0.1.7",
     "gulp-ng-annotate": "~0.5.2",
-    "gulp-protractor": "~0.0.12",
     "gulp-rename": "~1.2.0",
     "gulp-replace": "~0.5.0",
     "gulp-rev": "~3.0.1",
@@ -72,10 +71,8 @@
     "jscs": "^1.11.3",
     "jshint": "^2.5.6",
     "jshint-stylish": "^2.0.0",
-    "load-grunt-tasks": "^3.1.0",
     "nodemon": "^1.3.7",
-    "onesky": "^0.1.6",
-    "time-grunt": "^1.0.0"
+    "onesky": "^0.1.6"
   },
   "engines": {
     "iojs": "^1.8.1"
@@ -86,162 +83,5 @@
     "start": "nodemon --watch server/ --watch common/ . | bunyan",
     "debug": "DEBUG=loopback npm start"
   },
-  "main": "server/server.js",
-  "jspm": {
-    "directories": {
-      "baseURL": "client/app",
-      "lib": "client/app",
-      "packages": "jspm_packages"
-    },
-    "dependencies": {
-      "Sortable": "github:RubaXa/Sortable@1.1.1",
-      "adf-structures-base": "github:sdorra/adf-structures-base@master",
-      "angular": "github:angular/bower-angular@~1.4.0",
-      "angular-animate": "github:angular/bower-angular-animate@~1.4.1",
-      "angular-bootstrap": "github:angular-ui/bootstrap-bower@^0.13.0",
-      "angular-breadcrumb": "github:ncuillery/angular-breadcrumb@^0.3.3",
-      "angular-confirm": "github:Schlogen/angular-confirm@master",
-      "angular-cookies": "github:angular/bower-angular-cookies@^1.4.1",
-      "angular-dashboard-framework": "github:sdorra/angular-dashboard-framework@master",
-      "angular-fontawesome": "npm:angular-fontawesome@^0.3.1",
-      "angular-gettext": "github:rubenv/angular-gettext@^2.0.3",
-      "angular-loading-bar": "github:chieffancypants/angular-loading-bar@^0.7.1",
-      "angular-material": "github:angular/bower-material@^0.10.0",
-      "angular-material-icons": "github:klarsys/angular-material-icons@^0.4.0",
-      "angular-messages": "npm:angular-messages@^1.4.0",
-      "angular-moment": "npm:angular-moment@~0.10.1",
-      "angular-resource": "github:angular/bower-angular-resource@~1.4.1",
-      "angular-sanitize": "github:angular/bower-angular-sanitize@~1.4.1",
-      "angular-spinkit": "github:Urigo/angular-spinkit@master",
-      "angular-touch": "github:angular/bower-angular-touch@~1.4.1",
-      "angular-ui-router": "github:angular-ui/ui-router@^0.2.13",
-      "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@^2.1.5",
-      "angular-ui/ui-sortable": "github:angular-ui/ui-sortable@^0.13.0",
-      "angularUtils-pagination": "github:michaelbromley/angularUtils-pagination@^0.5.1",
-      "bootstrap": "github:twbs/bootstrap@^3.3.4",
-      "bootstrap-datepicker": "github:eternicode/bootstrap-datepicker@^1.4.0",
-      "bootstrap-hover-dropdown": "github:CWSpear/bootstrap-hover-dropdown@^2.1.3",
-      "codemirror": "github:codemirror/codemirror@^5.2.0",
-      "css": "github:systemjs/plugin-css@^0.1.6",
-      "font-awesome": "npm:font-awesome@^4.3.0",
-      "iso-3166-country-codes-angular": "github:rsertelon/iso-3166-country-codes-angular@^1.1.1",
-      "jQuery-QueryBuilder": "github:mistic100/jQuery-QueryBuilder@~2.1.0",
-      "jquery": "github:components/jquery@^2.1.3",
-      "jquery-ui": "github:components/jqueryui@^1.11.4",
-      "lodash": "npm:lodash@~3.7.0",
-      "moment": "github:moment/moment@~2.10.2",
-      "ng-file-upload": "github:danialfarid/ng-file-upload@^4.2.1",
-      "ng-material-floating-button": "npm:ng-material-floating-button@^0.6.1",
-      "ngImgCrop": "github:alexk111/ngImgCrop@^0.3.2",
-      "ngTagsInput": "github:lunks/ngTagsInput@^3.0.0",
-      "nsPopover": "github:nohros/nsPopover@^0.6.7",
-      "restangular": "github:mgonto/restangular@^1.4.0",
-      "svg-morpheus": "github:alexk111/SVG-Morpheus@^0.1.8",
-      "ui-codemirror": "github:angular-ui/ui-codemirror@master"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.4.3",
-      "babel-runtime": "npm:babel-runtime@^5.4.3",
-      "core-js": "npm:core-js@^0.9.10"
-    },
-    "overrides": {
-      "github:RubaXa/Sortable@1.1.1": {
-        "registry": "jspm",
-        "format": "global",
-        "main": "Sortable.min.js"
-      },
-      "github:angular-ui/bootstrap-bower@0.13.0": {
-        "registry": "jspm",
-        "main": "ui-bootstrap-tpls.min.js"
-      },
-      "github:moment/moment@2.10.3": {
-        "registry": "jspm",
-        "format": "global",
-        "main": "moment.js"
-      },
-      "github:angular-ui/bootstrap-bower@0.12.1": {
-        "registry": "jspm",
-        "main": "ui-bootstrap-tpls.min.js"
-      },
-      "github:nohros/nsPopover@0.6.7": {
-        "registry": "jspm",
-        "main": "src/nsPopover.js"
-      },
-      "github:danialfarid/ng-file-upload@4.2.1": {
-        "registry": "jspm",
-        "main": "dist/ng-file-upload-all.min.js"
-      },
-      "github:angular-ui/ui-codemirror@master": {
-        "registry": "jspm",
-        "format": "global",
-        "main": "src/ui-codemirror.js",
-        "dependencies": {
-          "codemirror": "github:codemirror/codemirror@^5.3.0"
-        }
-      },
-      "github:codemirror/codemirror@5.3.0": {
-        "registry": "jspm",
-        "directories": {
-          "lib": "."
-        },
-        "shim": {
-          "lib/codemirror": {
-            "exports": "CodeMirror"
-          }
-        }
-      },
-      "github:mistic100/jQuery-QueryBuilder@2.1.0": {
-        "registry": "jspm",
-        "format": "global",
-        "main": "dist/js/query-builder.standalone.js",
-        "dependencies": {
-          "jquery": "github:components/jquery@^2.1.3",
-          "bootstrap": "github:twbs/bootstrap@^3.3.4",
-          "moment": "npm:moment@^2.10.2"
-        },
-        "shim": {
-          "dist/js/query-builder.standalone.js": {
-            "deps": [
-              "jquery",
-              "bootstrap",
-              "moment"
-            ]
-          }
-        }
-      },
-      "github:sdorra/angular-dashboard-framework@master": {
-        "registry": "jspm",
-        "main": "dist/angular-dashboard-framework.min",
-        "dependencies": {
-          "angular": "~1.2.28",
-          "angular-bootstrap": "^0.12.0",
-          "bootstrap": "^3.3.4"
-        },
-        "shim": {
-          "dist/angular-dashboard-framework.min": {
-            "deps": [
-              "bootstrap",
-              "angular-bootstrap"
-            ]
-          }
-        }
-      },
-      "github:eternicode/bootstrap-datepicker@1.4.0": {
-        "registry": "jspm",
-        "main": "js/bootstrap-datepicker",
-        "dependencies": {
-          "jquery": "^2.1.3",
-          "bootstrap": "^3.3.4"
-        },
-        "shim": {
-          "js/bootstrap-datepicker": {
-            "deps": [
-              "jquery",
-              "bootstrap"
-            ]
-          }
-        }
-      }
-    }
-  }
+  "main": "server/server.js"
 }

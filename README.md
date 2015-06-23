@@ -5,22 +5,21 @@
 Make sure you have the following requirements installed:
 * git 
 * g++ compiler
-* ruby-dev (e.g. ruby1.9.1-dev), compass
 * MongoDB 2.6
 * libpng-dev
 
 Install process
 * `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
 * `nvm install iojs` *install iojs*
-* make sure you have iojs added to your PATH variable (e.g. `export PATH="$PATH:$HOME/.nvm/versions/io.js/v1.6.3/bin"`)
-* `npm install -g jspm grunt-cli`
+* `nvm alias default iojs`
+* `npm install -g bower gulp nodemon`
 * clone memberhive from git: `git clone git@github.com:digitaldeacon/memberhive.git`
 * `cd memberhive/`
 * `npm install` *Install dev dependencies*
-* `jspm install` *Install app dependencies*
+* `bower install` *Install app dependencies*
 * Follow the persisting data instructions below
 * `npm start` *start io.js server* or `npm run debug` *to see debug output*
-* `grunt serve` *Run local webserver (will compile SASS and ES6 files when changed)*
+* `gulp serve` *Run local webserver (will compile SASS and ES6 files when changed)*
 
 ## Persisting data
 
@@ -61,8 +60,8 @@ Please follow these style guides when writing code:
 
 ## Dependencies
 * NPM
-* JSPM
-* Grunt
+* gulp
+* bower
 * io.js (a node.js fork)
 * strongloop
 * [babel transpiler (formely 6to5)] (https://github.com/babel/babel)

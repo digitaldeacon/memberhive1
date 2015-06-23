@@ -13,8 +13,8 @@ module.exports = function(options) {
     gulp.watch([options.src + '/*.html', 'bower.json'], ['inject']);
 
     gulp.watch([
-      options.src + '/client/app/**/*.css',
-      options.src + '/client/app/**/*.scss'
+      options.src + '/**/*.css',
+      options.src + '/**/*.scss'
     ], function(event) {
       if(isOnlyChange(event)) {
         gulp.start('styles');
@@ -24,7 +24,7 @@ module.exports = function(options) {
     });
 
 
-    gulp.watch(options.src + '/client/app/**/*.html', function(event) {
+    gulp.watch(options.src + '/**/*.html', function(event) {
       browserSync.reload(event.path);
     });
   });
