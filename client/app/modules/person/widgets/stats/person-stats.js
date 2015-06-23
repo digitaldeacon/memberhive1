@@ -6,7 +6,7 @@ PersonStatsWidget.config((dashboardProvider, gettext) => {
   dashboardProvider.widget('person.stats', {
     title: gettext('Person Statistics'),
     description: gettext('Show Person Statistics'),
-    templateUrl: '/modules/person/widgets/stats/view.html',
+    templateUrl: '/app/modules/person/widgets/stats/view.html',
     controller: 'PersonStatsController as pc',
     resolve: {
       personCount: function(Person) {

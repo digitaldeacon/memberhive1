@@ -6,9 +6,9 @@ ReportHtmlWidget.config((dashboardProvider, gettext) => {
   dashboardProvider.widget('report.htmlreport', {
     title: gettext('Show Report'),
     description: gettext('Display a single report'),
-    templateUrl: '/modules/report/widgets/htmlreport/view.html',
+    templateUrl: '/app/modules/report/widgets/htmlreport/view.html',
     edit: {
-      templateUrl: '/modules/report/widgets/htmlreport/edit.html',
+      templateUrl: '/app/modules/report/widgets/htmlreport/edit.html',
       controller: 'ReportHtmlEditController as reportHtmlEditCtrl'
     },
     controller: 'ReportHtmlController as reportHtmlCtrl',

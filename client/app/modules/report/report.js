@@ -30,7 +30,7 @@ gemReportModule.config(
       }
     }).state('report.create', {
       url: '/create',
-      templateUrl: 'modules/report/views/report.upsert.html',
+      templateUrl: 'app/modules/report/views/report.upsert.html',
       data: {
         pageSubTitle: 'Create a new report'
       },
@@ -43,7 +43,7 @@ gemReportModule.config(
       }
     }).state('report.edit', {
       url: '/edit/:id',
-      templateUrl: 'modules/report/views/report.upsert.html',
+      templateUrl: 'app/modules/report/views/report.upsert.html',
       data: {
         pageSubTitle: 'Edit a report'
       },
@@ -56,7 +56,7 @@ gemReportModule.config(
       }
       }).state('report.list', {
       url: '/list',
-      templateUrl: 'modules/report/views/report.list.html',
+      templateUrl: 'app/modules/report/views/report.list.html',
       data: {
         pageSubTitle: 'List available reports'
       },

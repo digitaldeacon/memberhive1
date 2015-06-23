@@ -10,7 +10,7 @@ export function NoteEditFormDirective() {
         note: '='
     },
     restrict: 'E',
-    templateUrl: 'modules/note/templates/note-edit-form-directive.html'
+    templateUrl: 'app/modules/note/templates/note-edit-form-directive.html'
   };
 }
 
@@ -20,7 +20,7 @@ export function NoteTreeDirective() {
         tree: '='
     },
     restrict: 'E',
-    templateUrl: 'modules/note/templates/note-tree-directive.html'
+    templateUrl: 'app/modules/note/templates/note-tree-directive.html'
   };
 }
 
@@ -56,7 +56,7 @@ export function NoteCreateDirective() {
     },
     controllerAs: 'ctrl',
     restrict: 'E',
-    templateUrl: 'modules/note/templates/note-create-directive.html'
+    templateUrl: 'app/modules/note/templates/note-create-directive.html'
   };
 }
 

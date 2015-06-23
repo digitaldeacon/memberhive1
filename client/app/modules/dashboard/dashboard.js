@@ -13,7 +13,7 @@ gemDashboardModule.config(
     $stateProvider
       .state('dashboard', {
       url: 'dashboard',
-      templateUrl: 'modules/dashboard/views/dashboard.html',
+      templateUrl: 'app/modules/dashboard/views/dashboard.html',
       data: {
         pageTitle: gettext('Dashboard')
       },
@@ -29,6 +29,6 @@ gemDashboardModule.config(
   }
 );
 
-gemDashboardModule.value('adfTemplatePath', 'modules/dashboard/templates/');
+gemDashboardModule.value('adfTemplatePath', 'app/modules/dashboard/templates/');
 
 gemDashboardModule.controller('DashboardController', DashboardController);

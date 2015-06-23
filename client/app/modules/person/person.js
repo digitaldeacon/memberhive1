@@ -42,7 +42,7 @@ export var gemPersonModule = angular.module('gem.person',
       abstract: true
     }).state('person.list', {
       url: '/list',
-      templateUrl: 'modules/person/views/person.list.html',
+      templateUrl: 'app/modules/person/views/person.list.html',
       data: {
         pageTitle: gettext('Persons'),
         pageSubTitle: gettext('Create and edit Persons')
@@ -55,7 +55,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.view', {
       url: '/view/:id',
-      templateUrl: 'modules/person/views/person.view.html',
+      templateUrl: 'app/modules/person/views/person.view.html',
       data: {
         pageSubTitle: gettext('View Person details')
       },
@@ -68,7 +68,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.create', {
       url: '/create',
-      templateUrl: 'modules/person/views/person.edit.html',
+      templateUrl: 'app/modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Create a Person')
       },
@@ -81,7 +81,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.edit', {
       url: '/edit/:id',
-      templateUrl: 'modules/person/views/person.edit.html',
+      templateUrl: 'app/modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Edit a Person')
       },
@@ -94,7 +94,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.import', {
       url: '/import',
-      templateUrl: 'modules/person/views/person.import.html',
+      templateUrl: 'app/modules/person/views/person.import.html',
       data: {
         pageSubTitle: gettext('Import Persons')
       },
@@ -107,7 +107,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.export', {
       url: '/export',
-      templateUrl: 'modules/person/views/person.export.html',
+      templateUrl: 'app/modules/person/views/person.export.html',
       data: {
         pageSubTitle: gettext('Export Persons')
       },
@@ -120,7 +120,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.households', {
       url: '/households',
-      templateUrl: 'modules/person/views/household.list.html',
+      templateUrl: 'app/modules/person/views/household.list.html',
       data: {
         pageTitle: gettext('Households'),
         pageSubTitle: gettext('View Households')
@@ -133,7 +133,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.household-edit', {
       url: '/household/edit/:id',
-      templateUrl: 'modules/person/views/household.edit.html',
+      templateUrl: 'app/modules/person/views/household.edit.html',
       data: {
         pageTitle: gettext('Households'),
         pageSubTitle: gettext('Edit Household')
@@ -146,7 +146,7 @@ export var gemPersonModule = angular.module('gem.person',
       }
     }).state('person.household-create', {
       url: '/household/create',
-      templateUrl: 'modules/person/views/household.edit.html',
+      templateUrl: 'app/modules/person/views/household.edit.html',
       data: {
         pageTitle: gettext('Households'),
         pageSubTitle: gettext('Create Household')

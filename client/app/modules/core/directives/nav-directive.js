@@ -17,7 +17,7 @@ export function mhMenuItem($mdSidenav) {
     scope: {
       'item': '='
     },
-    templateUrl: 'modules/core/templates/menu-item.html',
+    templateUrl: 'app/modules/core/templates/menu-item.html',
     link: function($scope, $element) {
       var scope = $scope.$new();
       scope.open = false;
@@ -53,7 +53,7 @@ export function mhDropdownMenu() {
       'icon': '='
     },
     transclude: true,
-    templateUrl: 'modules/core/templates/dropdown-menu.html',
+    templateUrl: 'app/modules/core/templates/dropdown-menu.html',
      link: function($scope, $element) {
       var scope = $scope.$new();
       scope.open = false;

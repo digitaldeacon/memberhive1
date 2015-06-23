@@ -6,7 +6,7 @@ PersonRandomWidget.config((dashboardProvider, gettext) => {
   dashboardProvider.widget('person.random', {
     title: gettext('Pray for …'),
     description: gettext('Show random person as a prayer reminder'),
-    templateUrl: '/modules/person/widgets/random/view.html',
+    templateUrl: '/app/modules/person/widgets/random/view.html',
     controller: 'PersonRandomController as pc',
     reload: true,
     resolve: {

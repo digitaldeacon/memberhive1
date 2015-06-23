@@ -16,7 +16,7 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
       }
     }).state('note.list', {
       url: '/list',
-      templateUrl: 'modules/note/views/note.list.html',
+      templateUrl: 'app/modules/note/views/note.list.html',
       data: {
         pageSubTitle: 'Create and edit notes'
       },
@@ -28,7 +28,7 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
       }
     }).state('note.create', {
       url: '/create',
-      templateUrl: 'modules/note/views/note.create.html',
+      templateUrl: 'app/modules/note/views/note.create.html',
       data: {
         pageSubTitle: 'Create a note'
       },
@@ -41,7 +41,7 @@ export var gemNoteModule = angular.module('gem.note', ['ui.tree']).config(
       }
     }).state('note.edit', {
       url: '/edit/:id',
-      templateUrl: 'modules/note/views/note.edit.html',
+      templateUrl: 'app/modules/note/views/note.edit.html',
       acl: {
         needRights: ['$authenticated']
       }

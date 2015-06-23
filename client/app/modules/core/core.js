@@ -15,8 +15,8 @@ import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 import {temperatureFilter} from './filters/format-filters';
 
 /**
- * This module holds dependencies needed by other modules including the `gem.main` module.
- * Thus, it will be loaded before all other modules.
+ * This module holds dependencies needed by other app/modules including the `gem.main` module.
+ * Thus, it will be loaded before all other app/modules.
  *
  * @type {module}
  */

@@ -33,7 +33,7 @@ export function AvatarDirective(apiUrl) {
         if (scope.person.hasAvatar) {
           scope.imgSrc = `${apiUrl}/Avatars/${scope.person.id}/download/${scope.size}.jpg`;
         } else {
-          scope.imgSrc = `/images/avatar/${scope.size}.jpg`;
+          scope.imgSrc = `/app/images/avatar/${scope.size}.jpg`;
         }
       };
 

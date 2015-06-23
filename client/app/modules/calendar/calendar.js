@@ -15,7 +15,7 @@ export var gemCalendarModule = angular.module('gem.calendar', []
       abstract: true
     }).state('calendar.show', {
       url: '/show',
-      templateUrl: 'modules/calendar/views/calendar.show.html',
+      templateUrl: 'app/modules/calendar/views/calendar.show.html',
       data: {
         pageSubTitle: gettext('Display a Calendar')
       },
