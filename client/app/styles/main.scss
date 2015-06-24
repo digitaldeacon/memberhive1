@@ -96,3 +96,13 @@ md-toast {
   // https://github.com/angular/material/issues/1106
   position: fixed !important;
 }
+
+.header-toolbar {
+  form, md-menu, .md-icon-button {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  span {
+    padding-top: 12px;
+  }
+}
