@@ -36,7 +36,8 @@
     "restangular": "~1.5.1",
     "nsPopover": "~0.6.8",
     "ngImgCrop": "~0.3.2",
-    "angular-breadcrumb": "~0.4.0"
+    "angular-breadcrumb": "~0.4.0",
+    "jQuery-QueryBuilder": "2.1.0"
   },
   "devDependencies": {},
   "appPath": "client/app",

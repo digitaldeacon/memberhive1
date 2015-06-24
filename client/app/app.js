@@ -19,9 +19,9 @@ export var gemMainModule = angular.module('gem.main', [
   'ngConfirm', 'angularMoment', 'angular-loading-bar','angular-spinkit',
   'gettext', 'ngMdIcons', 'ng-mfb', 'ncy-angular-breadcrumb',
 
-  // GEM app/modules
+  // GEM modules
   'gem.core', // This needs to be loaded first
-  // The order of the following app/modules will be reflected in the main menu.
+  // The order of the following modules will be reflected in the main menu.
   'gem.dashboard', 'gem.person', 'gem.calendar', 'gem.acl',
   'gem.auth', 'gem.report', 'gem.note', 'gem.config'
   ]
