@@ -8,6 +8,7 @@
 @import "components/_tags.scss";
 @import "components/_pagination.scss";
 @import "components/_typography.scss";
+@import "components/_fab.scss";
 
 @import "modules/_auth.scss";
 @import "modules/_calendar.scss";
@@ -45,12 +46,13 @@ a:visited, a:hover {
 #content {
   margin: 24px;
 }
-.md-button svg {
+button.md-button svg {
   line-height: 0;
   //this is needed to center them in ng-md-icon
   display: block;
   margin: 0 auto;
 }
+
 .logo {
   padding: 15px;
   text-align: center;
@@ -75,6 +77,13 @@ a:visited, a:hover {
   .md-icon-button {
     fill: $text-color-light;
   }
+  form, md-menu, .md-icon-button {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  span {
+    padding-top: 12px;
+  }
 }
 
 .label-row {
@@ -95,14 +104,4 @@ a:visited, a:hover {
 md-toast {
   // https://github.com/angular/material/issues/1106
   position: fixed !important;
-}
-
-.header-toolbar {
-  form, md-menu, .md-icon-button {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  span {
-    padding-top: 12px;
-  }
 }
