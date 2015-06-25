@@ -59,13 +59,7 @@ export class PersonEditController {
 
   loadStatus(query) {
     var status = this.PersonService.statusTypes;
-    var result = query ? status.filter(this.createStatusFilter(query)) : [];
-    return result;
-    /*var status = this.PersonService.statusTypes;
-    return status.filter((stat) => {
-        return $query ? stat.text.toLowerCase().indexOf($query.toLowerCase()) !== -1
-          : true;
-    });*/
+    return query ? status.filter(this.createStatusFilter(query)) : [];
   }
 
 
