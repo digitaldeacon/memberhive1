@@ -2,8 +2,12 @@
   margin: 20px 0;
   padding: 40px;
   max-width: 500px;
-  border: 2px dashed $brand-primary;
+  background: #F8F8F8;
+  border: 5px dashed #DDD;
   border-radius: 5px;
   font-weight: bold;
   font-size: 14px;
+}
+.dragover {
+  border: 5px dashed accent-color('500');
 }
