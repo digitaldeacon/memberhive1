@@ -3,20 +3,35 @@ export function Shout($mdToast) {
   return {
     message: (msg, icon='info') => {
       $mdToast.show({
-          template: `<md-toast><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          template: `<md-toast class="toast-success"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
           position: 'top right',
           hideDelay: 30000
       });
     },
     warning: (msg) => {
-      this.message(msg, 'warning');
+      $mdToast.show({
+          template: `<md-toast class="toast-warning"><ng-md-icon icon="warning" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          position: 'top right',
+          hideDelay: 30000
+      });
     },
     error: (msg) => {
-      this.message(msg, 'error');
+      $mdToast.show({
+          template: '<md-toast class="toast-error"><ng-md-icon icon="error" style="fill: white" size="18"></ng-md-icon> &nbsp; ' + msg + '</md-toast>',
+          position: 'top right',
+          hideDelay: 300000
+      });
     },
     vError: (err) => {
+      var msg = "";
       if (err.data && err.data.error && err.data.error.message)
-        this.message(err.data.error.message, 'error');
+        msg = err.data.error.message;
+      $mdToast.show({
+          template: '<md-toast class="toast-error"><ng-md-icon icon="error" style="fill: white" size="18"></ng-md-icon> &nbsp; ' + msg + '</md-toast>',
+          position: 'top right',
+          hideDelay: 300000
+      });
+     
     }
   };
 }

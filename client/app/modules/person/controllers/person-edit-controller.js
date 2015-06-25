@@ -46,28 +46,15 @@ export class PersonEditController {
   }
 
   loadTags(query) {
-    return this.Person.tags({"text":query}).$promise.then((resp)=>{
-      return resp.data.map((tag)=>{
-        return tag;
-      });
+    return this.Person.tags({"text": query}).$promise.then((resp)=>{
+      return resp.data;
     });
   }
 
   loadStatus(query) {
-    //var status = this.PersonService.statusTypes;
-    //return query ? status.filter(this.createStatusFilter(query)) : [];
-    return this.Person.status({"text":query}).$promise.then((resp)=>{
-      return resp.data.map((status)=>{
-        return status;
-      });
+    return this.Person.status({"text": query}).$promise.then((resp)=>{
+      return resp.data;
     });
-  }
-
-  createStatusFilter(q) {
-    var lcq = angular.lowercase(q);
-    return function filterFn(stat) {
-      return stat.text.toLowerCase().indexOf(lcq) !== -1;
-    };
   }
 
   isEditing() {
@@ -205,22 +192,24 @@ export class PersonEditController {
 
     var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
-
-    // Use upsert() instead of $save() since $save will drop related data.
-    // See https://github.com/strongloop/loopback-sdk-angular/issues/120
-    promises.push(this.Person.upsert({}, this.person));
-    var householdId = this.person.household ? this.person.household.id : "";
-    promises.push(this.Person.setHousehold({id: this.person.id, householdId: householdId}));
-    if (this.avatarDeleted && !this.avatarChanged) {
-      promises.push(this.PersonService.deleteAvatar(this.person));
-    } else if (this.avatarChanged) {
-      promises.push(this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar)));
-    }
-    var all = this.$q.all(promises);
-    all.then(() => {
-      this.Shout.message(this.gettextCatalog.getString(
+    
+    this.Person.upsert({}, this.person).$promise.then(
+      (data) => {
+        var householdId = this.person.household ? this.person.household.id : "";
+        this.Person.setHousehold({id: this.person.id, householdId: householdId})
+        if (this.avatarDeleted && !this.avatarChanged) {
+          this.PersonService.deleteAvatar(this.person);
+        } else if (this.avatarChanged) {
+          this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
+        }
+        this.Shout.message(this.gettextCatalog.getString(
         'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
-    });
+      },
+      (err) => {
+        this.Shout.vError(err);
+      }
+    );
+    
     return all;
   }
 

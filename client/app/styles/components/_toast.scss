@@ -1,0 +1,12 @@
+.toast-success {
+  background-color: #4D9617;
+}
+
+.toast-warning {
+  background-color: accent-color('500');
+}
+
+.toast-error {
+  background-color: #A60000;
+  max-height: 100px;
+}
