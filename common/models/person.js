@@ -117,7 +117,7 @@ module.exports = function(Person) {
         cb(err, null);
       } else {
         if (text !== undefined) {
-          status = _.filter(tags, function(stat) {
+          status = _.filter(status, function(stat) {
             return _.includes(stat, text);
           }); //filter by query
         };
