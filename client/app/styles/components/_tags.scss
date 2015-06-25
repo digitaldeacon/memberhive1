@@ -1,7 +1,7 @@
 .status-tag {
   border-radius: 1px;
-  background-color: primary-color('500');
-  
+  background-color: accent-color('500');
+
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;
@@ -15,8 +15,8 @@
 }
 .tag {
   border-radius: 1px;
-  background-color: accent-color('500');
-  
+  background-color: primary-color('300');
+
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;
