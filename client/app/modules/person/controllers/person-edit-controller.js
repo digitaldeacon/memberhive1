@@ -196,7 +196,7 @@ export class PersonEditController {
     this.Person.upsert({}, this.person).$promise.then(
       (data) => {
         var householdId = this.person.household ? this.person.household.id : "";
-        this.Person.setHousehold({id: this.person.id, householdId: householdId})
+        this.Person.setHousehold({id: this.person.id, householdId: householdId});
         if (this.avatarDeleted && !this.avatarChanged) {
           this.PersonService.deleteAvatar(this.person);
         } else if (this.avatarChanged) {
@@ -209,8 +209,6 @@ export class PersonEditController {
         this.Shout.vError(err);
       }
     );
-    
-    return all;
   }
 
   saveAndClose() {

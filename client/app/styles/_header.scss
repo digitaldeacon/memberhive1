@@ -1,5 +1,20 @@
-.page-header.navbar {
-  .page-logo .logo-default {
-    margin: 10px;
+.header-toolbar {
+  background-color: primary-color('600') !important;
+  .sub-title {
+    margin-right: 1em;
   }
+  .md-icon-button {
+    fill: $text-color-light;
+  }
+  form, md-menu, .md-icon-button {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  span {
+    padding-top: 12px;
+  }
+}
+
+.header-search {
+  color: #000;
 }

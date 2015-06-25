@@ -1,12 +1,19 @@
 .login-bg {
   background-size: 100% auto;
 }
-.login-content {
-  width: 360px;
-  padding: 30px;
-  margin: 0 auto;
-  background-color: #fff;
-}
+
 .login-container {
   background-color: #D8D8D6;
+  .logo {
+    padding: 15px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .login-content {
+    width: 360px;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: #fff;
+  }
 }
+

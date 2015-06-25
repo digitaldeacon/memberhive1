@@ -1,6 +1,11 @@
 <div ng-if="item.children">
   <md-menu>
-    <md-button md-menu-origin aria-label="{{item.label | translate}}" class="md-icon-button" ng-click="$mdOpenMenu()">
+    <md-button 
+      md-menu-origin 
+      aria-label="{{item.label | translate}}" 
+      class="md-icon-button" 
+      ng-click="$mdOpenMenu()"
+    >
       <ng-md-icon size="32" icon="{{item.icon}}"></ng-md-icon>
     </md-button>
 
@@ -17,9 +22,11 @@
 
 
 <div ng-if="!item.children">
-  <md-button aria-label="{{item.label | translate}}" class="md-icon-button" ui-sref="{{item.route}}">
-    <ng-md-icon size="32" icon="{{item.icon}}"></ng-md-icon>
+  <a ui-sref="{{item.route}}" ui-sref-active="md-accent">
+    <md-button aria-label="{{item.label | translate}}" class="md-icon-button" >
+      <ng-md-icon size="32" icon="{{item.icon}}"></ng-md-icon>
     </md-button>
+  </a>
 </div>
 
 
