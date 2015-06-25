@@ -110,6 +110,34 @@ module.exports = function(Person) {
     }
   );
 
+  Person.status = function(text, cb) {
+    var personCollection = Person.getDataSource().connector.collection(Person.modelName);
+    personCollection.distinct('status', function(err, status) {
+      if (err) {
+        cb(err, null);
+      } else {
+        if (text !== undefined) {
+          status = _.filter(tags, function(stat) {
+            return _.includes(stat, text);
+          }); //filter by query
+        };
+        cb(null, status);
+      }
+    });
+  };
+  Person.remoteMethod(
+    'status',
+    {
+      accepts: {
+        arg: 'text',
+        type: 'string'
+      },
+      returns: {
+        arg: 'data',
+        type: 'array'
+      }
+    }
+  );
 
   Person.tags = function(text, cb) {
     var personCollection = Person.getDataSource().connector.collection(Person.modelName);

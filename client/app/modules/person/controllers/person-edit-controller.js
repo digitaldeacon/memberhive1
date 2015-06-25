@@ -54,8 +54,13 @@ export class PersonEditController {
   }
 
   loadStatus(query) {
-    var status = this.PersonService.statusTypes;
-    return query ? status.filter(this.createStatusFilter(query)) : [];
+    //var status = this.PersonService.statusTypes;
+    //return query ? status.filter(this.createStatusFilter(query)) : [];
+    return this.Person.status({"text":query}).$promise.then((resp)=>{
+      return resp.data.map((status)=>{
+        return status;
+      });
+    });
   }
 
   createStatusFilter(q) {
