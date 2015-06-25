@@ -46,7 +46,11 @@ export class PersonEditController {
   }
 
   loadTags(query) {
-    return this.Person.tags({"text":query}).$promise;
+    return this.Person.tags({"text":query}).$promise.then((resp)=>{
+      return resp.data.map((tag)=>{
+        return tag;
+      });
+    });
   }
 
   loadStatus(query) {
@@ -58,7 +62,7 @@ export class PersonEditController {
     var lcq = angular.lowercase(q);
     return function filterFn(stat) {
       console.log(stat.text);
-      return stat.text.toLowerCase().indexOf(lcq) !== -1
+      return stat.text.toLowerCase().indexOf(lcq) !== -1;
     };
   }
 
