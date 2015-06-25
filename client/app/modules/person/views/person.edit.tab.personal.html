@@ -7,39 +7,44 @@
         <h3 translate>Person Info</h3>
 
         <h4 translate>Status</h4>
-        <md-chips ng-model="personCtrl.person.status" md-autocomplete-snap>
+        <md-chips ng-model="personCtrl.person.status" class="status-chips" md-autocomplete-snap md-require-match>
           <md-autocomplete
-            md-search-text="searchTxt"
-            md-selected-item="personCtrl.selectedStatus"
-            md-items="item in personCtrl.loadStatus(searchTxt)"
+            md-search-text="searchStatusTxt"
+            md-items="item in personCtrl.loadStatus(searchStatusTxt)"
             md-item-text="item.text"
-            md-min-length="0"
+            md-min-length="1"
             md-autoselect="false"
             md-search-text-change="null"
-            placeholder="Add a status">
-            <span md-highlight-text="searchTxt">{{item.text}}</span>
+            placeholder="{{'Add a status' | translate}}">
+            <span md-highlight-text="searchStatusTxt">{{item.text}}</span>
           </md-autocomplete>
           <md-chip-template>
             <span>
-              <strong>{{$chip}}</strong>
+              {{$chip.text}}
             </span>
           </md-chip-template>
         </md-chips>
 
 
         <h4 translate>Tags</h4>
-        <div class="input-group">
-          <span class="input-group-addon"><fa name="tags"></fa></span>
-          <tags-input class="bootstrap"
-                      ng-model="personCtrl.person.tags"
-                      replace-spaces-with-dashes="false"
-                      add-from-autocomplete-only="false"
-                      placeholder="{{'Add a tag' | translate}}">
-            <auto-complete
-              source="personCtrl.loadTags($query)"
-              select-first-match="false"></auto-complete>
-          </tags-input>
-        </div>
+        <md-chips ng-model="personCtrl.person.tags" class="tags-chips" md-autocomplete-snap md-require-match>
+          <md-autocomplete
+            md-search-text="searchTagTxt"
+            md-items="item in personCtrl.loadTags(searchTagTxt)"
+            md-item-text="item.text"
+            md-min-length="1"
+            md-autoselect="false"
+            md-search-text-change="null"
+            placeholder="{{'Add a tag' | translate}}">
+            <span md-highlight-text="searchTagTxt">{{item.text}}</span>
+          </md-autocomplete>
+          <md-chip-template>
+            <span>
+              {{$chip.text}}
+            </span>
+          </md-chip-template>
+        </md-chips>
+
 
         <h4 translate>Gender</h4>
         <md-radio-group ng-model="personCtrl.person.gender" layout="row">
