@@ -4,7 +4,7 @@ import {SidebarController} from './controllers/sidebar-controller';
 
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective} from './directives/form-directives';
-import {uiNavDirective, mhMenuItem,mhDropdownMenuItem, mhDropdownMenu, mhOutsideClick} from './directives/nav-directive';
+import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
 import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
 import {stateLoader,appLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
@@ -153,11 +153,7 @@ gemCoreModule.factory('GemFileReader', GemFileReader);
 gemCoreModule.directive('controlGroup', controlGroupDirective);
 gemCoreModule.directive('uiNav', uiNavDirective);
 gemCoreModule.directive('mhMenuItem', mhMenuItem);
-
-gemCoreModule.directive('mhDropdownMenu', mhDropdownMenu);
-gemCoreModule.directive('mhDropdownMenuItem', mhDropdownMenuItem);
-gemCoreModule.directive('mhOutsideClick', mhOutsideClick);
-
+gemCoreModule.directive('mhMenuIconItem', mhMenuIconItem);
 gemCoreModule.directive('mhPanel', mhPanelDirective);
 gemCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
 gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);

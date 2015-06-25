@@ -27,7 +27,7 @@ export var gemCalendarModule = angular.module('gem.calendar', []
       }
     });
 
-    MainMenuProvider.add(new MenuLink(gettext('Calendar'), 'calendar', 'calendar.show'));
+    MainMenuProvider.add(new MenuLink(gettext('Calendar'), 'today', 'calendar.show'));
   }
 );
 

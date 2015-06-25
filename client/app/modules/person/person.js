@@ -162,13 +162,13 @@ export var gemPersonModule = angular.module('gem.person',
     // Allow skype urls http://stackoverflow.com/a/15769779
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|skype):/);
 
-    MainMenuProvider.add(new MenuSection(gettext('Persons'), 'user',
+    MainMenuProvider.add(new MenuSection(gettext('Persons'), 'people',
       [
-        new MenuLink(gettext('List Persons'), 'users', 'person.list'),
-        new MenuLink(gettext('Create Person'), 'user-plus', 'person.create'),
-        new MenuLink(gettext('List Households'), 'hotel', 'person.households'),
-        new MenuLink(gettext('Create Household'), 'plus', 'person.household-create'),
-        new MenuLink(gettext('Import'), 'upload', 'person.import'),
+        new MenuLink(gettext('List Persons'), 'people', 'person.list'),
+        new MenuLink(gettext('Create Person'), 'person_add', 'person.create'),
+        new MenuLink(gettext('List Households'), 'location_city', 'person.households'),
+        new MenuLink(gettext('Create Household'), 'add', 'person.household-create'),
+        new MenuLink(gettext('Import'), 'file_upload', 'person.import'),
       ]
     ));
   }

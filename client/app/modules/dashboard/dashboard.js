@@ -25,7 +25,7 @@ gemDashboardModule.config(
       }
     });
 
-    MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'laptop', 'dashboard'));
+    MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'computer', 'dashboard'));
   }
 );
 

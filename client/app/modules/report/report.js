@@ -68,10 +68,10 @@ gemReportModule.config(
       }
     });
 
-    MainMenuProvider.add(new MenuSection(gettext('Reports'), 'bar-chart',
+    MainMenuProvider.add(new MenuSection(gettext('Reports'), 'insert_chart',
       [
-        new MenuLink(gettext('List Reports'), 'eye', 'report.list'),
-        new MenuLink(gettext('Create Report'), 'plus-circle', 'report.create')
+        new MenuLink(gettext('List Reports'), 'list', 'report.list'),
+        new MenuLink(gettext('Create Report'), 'add', 'report.create')
       ]
     ));
   }

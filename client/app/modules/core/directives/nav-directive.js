@@ -46,56 +46,13 @@ export function mhMenuItem($mdSidenav) {
   };
 }
 
-export function mhDropdownMenu() {
+export function mhMenuIconItem() {
   return {
     restrict: 'E',
     scope: {
-      'icon': '='
+      'item': '='
     },
-    transclude: true,
-    templateUrl: 'app/modules/core/templates/dropdown-menu.html',
-     link: function($scope, $element) {
-      var scope = $scope.$new();
-      scope.open = false;
-      $scope.toggle = () => {
-        scope.open = !scope.open;
-      };
-      $scope.close = () => {
-        scope.open = false;
-      };
-      $scope.isOpen = () => {
-        return scope.open;
-      };
-    }
+    templateUrl: 'app/modules/core/templates/menu-icon-item.html',
   };
 }
 
-
-export function mhDropdownMenuItem() {
-  return {
-    restrict: 'E',
-    transclude: true,
-    template: '<li ng-transclude></li>'
-  };
-}
-export function mhOutsideClick($document) {
-  return {
-    link: function( $scope, $element, $attributes ){
-        var scopeExpression = $attributes.mhOutsideClick;
-
-        var onDocumentClick = function(event){
-          var el = angular.element(event.target);
-          console.log(el.hasClass('mh-toggle-button'));
-          if(!el.hasClass('mh-toggle-button') && !el.hasClass('mh-toogle-menu')) {
-            $scope.$apply(scopeExpression);
-          }
-        };
-
-        $document.on("click", onDocumentClick);
-
-        $element.on('$destroy', function() {
-            $document.off("click", onDocumentClick);
-        });
-    }
-  };
-}
