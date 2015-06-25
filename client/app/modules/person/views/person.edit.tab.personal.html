@@ -7,20 +7,25 @@
         <h3 translate>Person Info</h3>
 
         <h4 translate>Status</h4>
-        <div class="input-group blue-tags">
-          <span class="input-group-addon"><fa name="info"></fa></span>
-          <tags-input class="bootstrap"
-                      ng-model="personCtrl.person.status"
-                      replace-spaces-with-dashes="false"
-                      placeholder="{{'Add a status' | translate}}">
-            <auto-complete
-              source="personCtrl.loadStatus($query)"
-              min-length="0"
-              load-on-focus="true"
-              load-on-empty="true"
-              select-first-match="false"></auto-complete>
-          </tags-input>
-        </div>
+        <md-chips ng-model="personCtrl.person.status" md-autocomplete-snap>
+          <md-autocomplete
+            md-search-text="searchTxt"
+            md-selected-item="personCtrl.selectedStatus"
+            md-items="item in personCtrl.loadStatus(searchTxt)"
+            md-item-text="item.text"
+            md-min-length="0"
+            md-autoselect="false"
+            md-search-text-change="null"
+            placeholder="Add a status">
+            <span md-highlight-text="searchTxt">{{item.text}}</span>
+          </md-autocomplete>
+          <md-chip-template>
+            <span>
+              <strong>{{$chip}}</strong>
+            </span>
+          </md-chip-template>
+        </md-chips>
+
 
         <h4 translate>Tags</h4>
         <div class="input-group">
