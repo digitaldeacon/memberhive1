@@ -119,12 +119,9 @@ module.exports = function(Person) {
       } else {
         if (text !== undefined) {
           tags = _.filter(tags, function(tag) {
-            return _.includes(tag.text, text);
+            return _.includes(tag, text);
           }); //filter by query
-        }
-        tags = _.map(tags, function(data) {
-          return data.text
-        }); //simplify return
+        };
         cb(null, tags);
       }
     });
@@ -200,7 +197,7 @@ module.exports = function(Person) {
   /**
    * Fill search field
    */
-  Person.observe('after save', function(ctx, next) {
+  /*Person.observe('after save', function(ctx, next) {
     var person = ctx.instance;
     person.search = "";
     var properties = [
@@ -222,5 +219,5 @@ module.exports = function(Person) {
     person.save(function(){
       next();
     });
-  });
+  });*/
 };

@@ -49,6 +49,11 @@ export class PersonEditController {
     return this.Person.tags({"text":query}).$promise;
   }
 
+  loadStatus(query) {
+    var status = this.PersonService.statusTypes;
+    return query ? status.filter(this.createStatusFilter(query)) : [];
+  }
+
   createStatusFilter(q) {
     var lcq = angular.lowercase(q);
     return function filterFn(stat) {
@@ -56,13 +61,6 @@ export class PersonEditController {
       return stat.text.toLowerCase().indexOf(lcq) !== -1
     };
   }
-
-  loadStatus(query) {
-    var status = this.PersonService.statusTypes;
-    return query ? status.filter(this.createStatusFilter(query)) : [];
-  }
-
-
 
   isEditing() {
     return this.$stateParams.id !== undefined;

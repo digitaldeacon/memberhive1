@@ -10,13 +10,13 @@
         <md-chips ng-model="personCtrl.person.status" class="status-chips" md-autocomplete-snap md-require-match>
           <md-autocomplete
             md-search-text="searchStatusTxt"
-            md-items="item in personCtrl.loadStatus(searchStatusTxt)"
-            md-item-text="item.text"
+            md-items="status in personCtrl.loadStatus(searchStatusTxt)"
+            md-item-text="status.text"
             md-min-length="1"
             md-autoselect="false"
             md-search-text-change="null"
             placeholder="{{'Add a status' | translate}}">
-            <span md-highlight-text="searchStatusTxt">{{item.text}}</span>
+            <span md-highlight-text="searchStatusTxt">{{status.text}}</span>
           </md-autocomplete>
           <md-chip-template>
             <span>
@@ -30,17 +30,16 @@
         <md-chips ng-model="personCtrl.person.tags" class="tags-chips" md-autocomplete-snap md-require-match>
           <md-autocomplete
             md-search-text="searchTagTxt"
-            md-items="item in personCtrl.loadTags(searchTagTxt)"
-            md-item-text="item.text"
+            md-items="tag in personCtrl.loadTags(searchTagTxt)"
+            md-item-text="tag"
             md-min-length="1"
-            md-autoselect="false"
             md-search-text-change="null"
             placeholder="{{'Add a tag' | translate}}">
-            <span md-highlight-text="searchTagTxt">{{item.text}}</span>
+            <span md-highlight-text="searchTagTxt">{{tag}}</span>
           </md-autocomplete>
           <md-chip-template>
             <span>
-              {{$chip.text}}
+              {{$chip}}
             </span>
           </md-chip-template>
         </md-chips>
