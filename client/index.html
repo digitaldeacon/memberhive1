@@ -121,17 +121,21 @@
         <div flex layout="column">
 
           <md-toolbar class="md-whiteframe-z0 header-toolbar">
-            <div layout="row" layout-padding data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl" > 
+            <div layout="row" layout-padding data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl" >
             </div>
           </md-toolbar>
-
-          <div flex layout="column" layout-margin>
-            <div flex ui-view layout="column" ></div>
-            <div style="color: #bbb">
-              {{accessToken}}
+          <div flex layout="row">
+            <div flex layout="row" layout-fill class="sidebar-icon" hide-sm>
+              <div flex data-ng-include="'app/templates/sidebar-icons.html'" data-ng-controller="SidebarController as sidebarCtrl"></div>
+              </div>
+              <div flex layout="column" layout-margin>
+                <div flex ui-view layout="column" ></div>
+                <div style="color: #bbb">
+                  {{accessToken}}
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
