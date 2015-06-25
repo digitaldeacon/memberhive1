@@ -88,17 +88,15 @@
       }
     }
   }
+}
 
-
-  .menu-item-child-icon {
-    margin-top: 5px;
-    margin-right: 1em;
-    fill: background-color('800');
-  }
-  .md-accent .menu-item-child-icon {
-    fill: accent-color('600');
-  }
-
+.menu-item-child-icon {
+  margin-top: 5px;
+  margin-right: 1em;
+  fill: background-color('800');
+}
+.md-accent .menu-item-child-icon {
+  fill: accent-color('600');
 }
 
 
