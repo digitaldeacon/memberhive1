@@ -66,7 +66,6 @@ export class PersonEditController {
   createStatusFilter(q) {
     var lcq = angular.lowercase(q);
     return function filterFn(stat) {
-      console.log(stat.text);
       return stat.text.toLowerCase().indexOf(lcq) !== -1;
     };
   }
