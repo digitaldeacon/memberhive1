@@ -4,6 +4,8 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var wrench = require('wrench');
 
+require('gulp-grunt')(gulp); // add all the gruntfile tasks to gulp
+
 var options = {
   src: 'client',
   dist: 'dist',
