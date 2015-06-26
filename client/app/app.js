@@ -27,7 +27,7 @@ export var gemMainModule = angular.module('gem.main', [
   // GEM modules
   'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
-  'gem.dashboard', 'gem.person', 'gem.calendar', 'gem.acl',
+  'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'gem.acl',
   'gem.auth', 'gem.report', 'gem.note', 'gem.config'
   ]
 );
