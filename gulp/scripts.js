@@ -10,14 +10,14 @@ module.exports = function(options) {
     var webpackOptions = {
       watch: watch,
       module: {
-        preLoaders: 
+        preLoaders:
         [
-          { 
-            test: /\.js$/, 
+          {
+            test: /\.js$/,
             exclude: [/node_modules/, /lb-services.js/],
             loader: 'jshint-loader'
           }
-          
+
         ],
         loaders:
         [
@@ -28,7 +28,7 @@ module.exports = function(options) {
           }
         ]
       },
-      output: { filename: 'app/index.js' }
+      output: { filename: 'index.js' }
     };
 
     if(watch) {
