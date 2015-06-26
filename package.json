@@ -62,6 +62,7 @@
     "gulp-uglify": "~1.1.0",
     "gulp-useref": "~1.1.0",
     "gulp-util": "~3.0.2",
+    "gulp-webpack": "^1.5.0",
     "http-proxy": "~1.8.0",
     "jscs": "^1.11.3",
     "jshint": "^2.5.6",
@@ -75,7 +76,6 @@
     "require-dir": "~0.1.0",
     "uglify-save-license": "~0.4.1",
     "webpack": "^1.9.11",
-    "webpack-stream": "^2.0.0",
     "wiredep": "~2.2.0",
     "wrench": "~1.5.8"
   },
