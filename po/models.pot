@@ -15,12 +15,12 @@ msgid "Birthdate"
 msgstr ""
 
 #: common/models/person.json
-msgctxt "Primary Contact"
+msgctxt "Person"
 msgid "Email"
 msgstr ""
 
 #: common/models/person.json
-msgctxt "Person"
+msgctxt "Primary Contact"
 msgid "Email"
 msgstr ""
 
@@ -50,6 +50,21 @@ msgid "Last Name"
 msgstr ""
 
 #: common/models/person.json
+msgctxt "Primary Contact"
+msgid "Letter (Home Address)"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Primary Contact"
+msgid "Letter (Postal Address)"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Primary Contact"
+msgid "Letter (Work Address)"
+msgstr ""
+
+#: common/models/person.json
 msgctxt "Gender"
 msgid "Male"
 msgstr ""
@@ -76,7 +91,7 @@ msgstr ""
 
 #: common/models/person.json
 msgctxt "Primary Contact"
-msgid "Postal"
+msgid "None (no contact)"
 msgstr ""
 
 #: common/models/person.json
