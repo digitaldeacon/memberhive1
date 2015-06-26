@@ -186,13 +186,13 @@ export class PersonEditController {
    *
    * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
-  save(isValid=true) {
+  save(isValid=true,onward='') {
     if (!isValid)
       return;
 
     var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
-    
+
     this.Person.upsert({}, this.person).$promise.then(
       (data) => {
         var householdId = this.person.household ? this.person.household.id : "";
@@ -204,6 +204,9 @@ export class PersonEditController {
         }
         this.Shout.message(this.gettextCatalog.getString(
         'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
+        if(onward!=='') {
+          this.$state.go(onward);
+        }
       },
       (err) => {
         this.Shout.vError(err);
@@ -212,15 +215,11 @@ export class PersonEditController {
   }
 
   saveAndClose() {
-    this.save().then(() => {
-      this.$state.go('person.list');
-    });
+    this.save(true,'person.list');
   }
 
   saveAndNew() {
-    this.save().then(() => {
-      this.$state.go('person.create');
-    });
+    this.save(true,'person.create');
   }
 
   /**
