@@ -1,3 +1,6 @@
+// Translations
+import './scripts/translations';
+
 import {gemCoreModule} from './modules/core/core';
 import {gemConfigModule} from './scripts/config';
 import {gemDashboardModule} from './modules/dashboard/dashboard';
@@ -9,6 +12,7 @@ import {gemNoteModule} from './modules/note/note';
 import {gemReportModule} from './modules/report/report';
 import {gemCalendarModule} from './modules/calendar/calendar';
 import {MenuSection, MenuLink} from './modules/core/providers/menu-provider';
+
 /**
  * The main app module.
  */
