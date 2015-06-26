@@ -49,32 +49,32 @@
               <li ng-if="person.household" ns-popover ns-popover-template="household-popover"
                   ns-popover-trigger="mouseenter" ns-popover-placement="bottom" ns-popover-timeout="0.2"
                   ns-popover-theme="ns-popover-tooltip-theme">
-                <fa name="users"></fa>
+                <ng-md-icon size="14" icon="face"></ng-md-icon>
                 <a>{{ ::person.household.name }}</a>
               </li>
               <li ng-if="person.birthdate" title="{{'Birthdate' | translate}}">
-                <fa name="calendar"></fa>
+                <ng-md-icon size="15" icon="cake"></ng-md-icon>
                 {{::person.birthdate | date:medium}}
               </li>
               <li ng-if="person.email" title="{{'Email' | translate}}">
-                <fa name="envelope"></fa>
+                <ng-md-icon size="15" icon="email"></ng-md-icon>
                 <a href="mailto:{{ ::person.email }}">{{ ::person.email }}</a>
               </li>
               <li ng-if="person.contact.home" title="{{'Home phone' | translate}}">
-                <fa name="phone"></fa>
+                <ng-md-icon size="16" icon="phone"></ng-md-icon>
                 <a href="tel:{{ ::person.contact.home }}">{{ ::person.contact.home }}</a>
               </li>
               <li ng-if="person.contact.work" title="{{'Work phone' | translate}}">
-                <fa name="phone"></fa>
+                <ng-md-icon size="16" icon="phone"></ng-md-icon>
                 <a href="tel:{{ ::person.contact.work }}">{{ ::person.contact.work }}</a>
               </li>
               <li ng-if="person.contact.mobile" title="{{'Mobile phone' | translate}}">
-                <fa name="mobile"></fa>
+                <ng-md-icon size="15" icon="stay_primary_portrait"></ng-md-icon>
                 <a href="tel:{{ ::person.contact.mobile }}">{{ ::person.contact.mobile }}</a>
               </li>
               <li ng-if="person.contact.facebook" title="{{'Facebook' | translate}}">
                 <a target="_blank" href="{{ ::person.contact.facebook | formatFacebookUrl }}">
-                  <fa name="facebook"></fa>
+                  <ng-md-icon size="15" icon="facebook"></ng-md-icon>
                 </a>
               </li>
               <li ng-if="person.contact.skype" title="{{'Skype' | translate}}">
