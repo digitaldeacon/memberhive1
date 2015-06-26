@@ -8,6 +8,7 @@ var options = {
   src: 'client',
   dist: 'dist',
   tmp: '.tmp',
+  po: 'po',
   errorHandler: function(title) {
     return function(err) {
       gutil.log(gutil.colors.red('[' + title + ']'), err.toString());

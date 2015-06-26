@@ -1,5 +1,6 @@
 // Translations
-import './scripts/translations';
+import './translations/en/en';
+import './translations/de/de';
 
 import {gemCoreModule} from './modules/core/core';
 import {gemConfigModule} from './scripts/config';
