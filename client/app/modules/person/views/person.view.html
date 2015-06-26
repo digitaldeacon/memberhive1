@@ -1,7 +1,7 @@
 <div ng-controller="PersonViewController as personCtrl">
 
   <div class="md-toolbar-tools" layout="row">
-      <div flex="20">
+      <div flex="15">
         <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
           <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
         </h3>
@@ -12,13 +12,13 @@
         </span>
       </div>
       <div class="section pull-right" ng-if="personCtrl.person.status">
-        <span ng-repeat="status in personCtrl.person.status" class="label label-primary" style="margin-right: 2px">
-          {{ status.text }}
+        <span ng-repeat="status in personCtrl.person.status" class="tag status-tag" style="margin-right: 2px">
+          {{ status }}
         </span>
       </div>
   </div>
 
-  <div flex layout="row" layout-wrap>
+  <div flex layout-gt-md="row" layout-wrap>
     <div flex="14">
       <gem-avatar person="personCtrl.person" size="s"></gem-avatar>
     </div>
@@ -31,7 +31,7 @@
       <div class="row bootstrap">
         <div class="viewport">
           <fa name="tags"></fa>
-          <span ng-repeat="tag in personCtrl.person.tags" class="tag-item">{{tag.text}}</span>
+          <span ng-repeat="tag in personCtrl.person.tags" class="tag"><md-chip>{{tag}}</md-chip></span>
         </div>
       </div>
       <div layout="row">
