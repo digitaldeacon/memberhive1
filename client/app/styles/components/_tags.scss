@@ -1,6 +1,35 @@
+.md-chips .md-chip {
+
+  .md-chip-remove-container {
+    display: -webkit-box;
+  }
+
+  button {
+    height: 24px !important;
+    width: 24px !important;
+    line-height: 30px;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 50%;
+    margin: 4px 2px 0 4px !important;
+    transition: background 0.15s linear;
+    display: block;
+
+    md-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0) scale(0.7);
+      color: white;
+      fill: white;
+    }
+  }
+}
+
 .status-chips .md-chips .md-chip {
   background-color: accent-color('100');
 }
+
+
 .tag {
   display: inline;
   padding: .2em .6em .3em;
