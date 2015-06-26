@@ -48,10 +48,6 @@ Please follow these style guides when writing code:
 * [AngularJS Style Guide by johnpapa](https://github.com/johnpapa/angularjs-styleguide)
 * [Frontend Guidelines](https://github.com/bendc/frontend-guidelines)
 
-## Publish app
-* `grunt` (Builds the app in the `dist` directory)
-* Copy `dist` folder to webserver
-
 ## 3rd Party Drop-Ins
 * [ADF] (https://github.com/sdorra/angular-dashboard-framework/tree/master/src)
 * [Weather Icons] (https://github.com/erikflowers/weather-icons)
