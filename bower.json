@@ -48,5 +48,17 @@
     "jquery": "2.x.x",
     "angular-dashboard-framework": "~0.9.0",
     "bootstrap": "3.3.4"
+  },
+  "overrides": {
+    "codemirror": {
+      "main": [
+        "lib/codemirror.js",
+        "lib/codemirror.css",
+        "addon/mode/simple.js",
+        "addon/mode/multiplex.js",
+        "mode/xml/xml.js",
+        "mode/handlebars/handlebars.js"
+      ]
+    }
   }
 }

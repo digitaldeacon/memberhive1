@@ -20,9 +20,8 @@ export class ReportUpsertController {
     this.editorOptions = {
       lineNumbers: true,
       lineWrapping: true,
-      mode: 'htmlmixed'
+      mode: 'htmlhandlebars'
     };
-
 
     this.dataSources = {};
     this.dataSources.persons = QueryBuilderModelService.getModel(this.Person);

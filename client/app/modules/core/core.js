@@ -104,6 +104,18 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
     .accentPalette('deep-orange')
     .warnPalette('lime')
     .backgroundPalette('grey');
+
+  // Codemirror: Create html/handlebars mixed mode
+  // https://github.com/codemirror/CodeMirror/blob/master/mode/handlebars/index.html#L64
+  CodeMirror.defineMode("htmlhandlebars", function(config) {
+    return CodeMirror.multiplexingMode(
+      CodeMirror.getMode(config, "text/html"), {
+        open: "{{", close: "}}",
+        mode: CodeMirror.getMode(config, "handlebars"),
+        parseDelimiters: true
+      }
+    );
+  });
 });
 
 gemCoreModule.run(($rootScope, gettextCatalog, $cookies) => {
