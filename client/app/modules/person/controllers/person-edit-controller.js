@@ -181,19 +181,14 @@ export class PersonEditController {
   checkImage(image) {
     return (image.height >= 800 && image.width >= 800);
   }
-  test(asd) {
-    console.log("hallo");
-  }
   /**
    * Save all person data
    *
    * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
   save(isValid=true,onward='') {
-    this.$log.log("asd");
     if (!isValid)
       return;
-    this.test("ASd");
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
     this.Person.upsert({}, this.person).$promise.then(
@@ -206,8 +201,7 @@ export class PersonEditController {
           this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
         }
         this.Shout.message(this.gettextCatalog.getString(
-        'Not Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
-        console.log("asd");
+        'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
         if(onward!=='') {
           this.$state.go(onward);
         }

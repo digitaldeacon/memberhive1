@@ -28,7 +28,7 @@ module.exports = function(options) {
           }
         ]
       },
-      output: { filename: 'app/index.js' }
+      output: { filename: 'index.js' }
     };
 
     if(watch) {
