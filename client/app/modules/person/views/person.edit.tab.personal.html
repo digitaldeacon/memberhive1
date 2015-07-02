@@ -1,12 +1,7 @@
 <md-card>
   <md-card-content>
-
-    <div layout-gt-md="row">
-      <div flex layout="column" layout-padding>
-
-        <h3 translate>Person Info</h3>
-
-        <h4 translate>Status</h4>
+    <div flex layout-gt-md="row">
+      <h4 translate>Status</h4>
         <md-chips ng-model="personCtrl.person.status" class="status-chips" md-autocomplete-snap md-require-match>
           <md-autocomplete
             md-search-text="searchStatusTxt"
@@ -51,76 +46,73 @@
             </button>
           </div>
         </md-chips>
+    </div>
+
+    <div layout-gt-md="row">
+      <div flex layout="column" layout-padding>
+
+        <h3 translate>Person Info</h3>
+
+        <div flex layout-gt-sm="row">
+          <md-input-container flex>
+            <label translate>First Name</label>
+            <input name="firstName" ng-model="personCtrl.person.firstName" required>
+            <div ng-messages="personEdit.firstName.$error">
+              <ng-message when="required"><translate>This field is required.</translate></ng-message>
+            </div>
+          </md-input-container>
+
+          <md-input-container flex>
+            <label translate>Middle Name</label>
+            <input ng-model="personCtrl.person.middleName">
+          </md-input-container>
+
+          <md-input-container flex>
+            <label translate>Last Name</label>
+            <input name="lastName" ng-model="personCtrl.person.lastName" required>
+            <div ng-messages="personEdit.lastName.$error">
+              <ng-message when="required"><translate>This field is required.</translate></ng-message>
+            </div>
+          </md-input-container>
+        </div>
+
+        <div flex layout-gt-sm="row">
+          <md-input-container flex>
+            <label translate>Title</label>
+            <input ng-model="personCtrl.person.prefix">
+          </md-input-container>
+
+          <md-input-container flex>
+            <label translate>Nickname</label>
+            <input ng-model="personCtrl.person.nickName">
+          </md-input-container>
+
+          <md-input-container flex>
+            <label translate>Suffix</label>
+            <input ng-model="personCtrl.person.suffix">
+          </md-input-container>
+        </div>
+
+        <md-input-container flex>
+          <label translate>Birthdate</label>
+          <input type="date" ng-model="personCtrl.person.birthdate" />
+        </md-input-container>
+
+        <md-input-container flex>
+          <label translate>Baptism Date</label>
+          <input type="date" ng-model="personCtrl.person.baptismDate" />
+        </md-input-container>
+
+        <md-input-container flex>
+          <label translate>Anniversary</label>
+          <input type="date" ng-model="personCtrl.person.anniversary" />
+        </md-input-container>
 
         <h4 translate>Gender</h4>
         <md-radio-group ng-model="personCtrl.person.gender" layout="row">
           <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
           <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
         </md-radio-group>
-
-        <md-input-container flex>
-          <label translate>Title</label>
-          <input ng-model="personCtrl.person.prefix">
-        </md-input-container>
-
-        <md-input-container flex>
-          <label translate>First Name</label>
-          <input name="firstName" ng-model="personCtrl.person.firstName" required>
-          <div ng-messages="personEdit.firstName.$error">
-            <ng-message when="required"><translate>This field is required.</translate></ng-message>
-          </div>
-        </md-input-container>
-
-        <md-input-container flex>
-          <label translate>Nickname</label>
-          <input ng-model="personCtrl.person.nickName">
-        </md-input-container>
-
-        <md-input-container flex>
-          <label translate>Middle Name</label>
-          <input ng-model="personCtrl.person.middleName">
-        </md-input-container>
-
-        <md-input-container flex>
-          <label translate>Last Name</label>
-          <input name="lastName" ng-model="personCtrl.person.lastName" required>
-          <div ng-messages="personEdit.lastName.$error">
-            <ng-message when="required"><translate>This field is required.</translate></ng-message>
-          </div>
-        </md-input-container>
-
-        <md-input-container flex>
-          <label translate>Suffix</label>
-          <input ng-model="personCtrl.person.suffix">
-        </md-input-container>
-
-        <div class="control-group">
-          <label for="birthdate" translate>Birthdate</label>
-          <div class="input-group">
-            <input type="text" id="birthdate" class="form-control" datepicker-popup ng-model="personCtrl.person.birthdate"
-                  is-open="personCtrl.datepickerBirthdateOpened" close-text="{{'Close' | translate}}"
-                  ng-click="personCtrl.openBirthdateDatepicker($event)" />
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-default" ng-click="personCtrl.openBirthdateDatepicker($event)">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </button>
-            </span>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <label for="birthdate" translate>Baptism Date</label>
-          <div class="input-group">
-            <input type="text" id="baptismDate" class="form-control" datepicker-popup ng-model="personCtrl.person.baptismDate"
-                  is-open="personCtrl.datepickerBaptismDateOpened" close-text="{{'Close' | translate}}"
-                  ng-click="personCtrl.openBaptismDateDatepicker($event)" />
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-default" ng-click="personCtrl.openBaptismDateDatepicker($event)">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </button>
-            </span>
-          </div>
-        </div>
 
         <h3 translate>Login</h3>
 

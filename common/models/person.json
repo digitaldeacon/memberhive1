@@ -60,6 +60,13 @@
         "label": "Birthdate"
       }
     },
+    "anniversary" : {
+      "type": "date",
+      "queryBuilder": {
+        "label": "Anniversary"
+      }
+    },
+
     "baptismDate": {
       "type": "date",
       "queryBuilder": {
