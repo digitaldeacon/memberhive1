@@ -101,7 +101,7 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
 
   $mdThemingProvider.theme('default')
     .primaryPalette('blue-grey')
-    .accentPalette('deep-orange')
+    .accentPalette('mh-orange')
     .warnPalette('lime')
     .backgroundPalette('grey');
 

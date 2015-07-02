@@ -1,60 +1,57 @@
 <md-card>
+  <div layout-padding flex layout-gt-md="row" class="dark-background">
+    <md-chips flex="50" ng-model="personCtrl.person.status" class="status-chips" md-autocomplete-snap md-require-match>
+      <md-autocomplete
+        md-search-text="searchStatusTxt"
+        md-items="status in personCtrl.loadStatus(searchStatusTxt)"
+        md-item-text="status"
+        md-min-length="1"
+        md-search-text-change="null"
+        placeholder="{{'Add a status' | translate}}">
+        <span md-highlight-text="searchStatusTxt">{{status}}</span>
+      </md-autocomplete>
+      <md-chip-template>
+        <span>
+          {{$chip}}
+        </span>
+      </md-chip-template>
+      <div class="md-chip-remove-container">
+        <button md-chip-remove class="md-primary">
+          <md-icon md-svg-icon="md-close" class="md-default-theme"></md-icon>
+        </button>
+      </div>
+    </md-chips>
+
+    <md-chips flex="50" ng-model="personCtrl.person.tags" class="tags-chips" md-autocomplete-snap md-require-match>
+      <md-autocomplete
+        md-search-text="searchTagTxt"
+        md-items="tag in personCtrl.loadTags(searchTagTxt)"
+        md-item-text="tag"
+        md-min-length="1"
+        md-search-text-change="null"
+        placeholder="{{'Add a tag' | translate}}">
+        <span md-highlight-text="searchTagTxt">{{tag}}</span>
+      </md-autocomplete>
+      <md-chip-template>
+        <span>
+          {{$chip}}
+        </span>
+      </md-chip-template>
+      <div class="md-chip-remove-container">
+        <button md-chip-remove class="md-primary">
+          <md-icon md-svg-icon="md-close" class="md-default-theme"></md-icon>
+        </button>
+      </div>
+    </md-chips>
+  </div>
+
+
   <md-card-content>
-    <div flex layout-gt-md="row">
-      <h4 translate>Status</h4>
-        <md-chips ng-model="personCtrl.person.status" class="status-chips" md-autocomplete-snap md-require-match>
-          <md-autocomplete
-            md-search-text="searchStatusTxt"
-            md-items="status in personCtrl.loadStatus(searchStatusTxt)"
-            md-item-text="status"
-            md-min-length="1"
-            md-search-text-change="null"
-            placeholder="{{'Add a status' | translate}}">
-            <span md-highlight-text="searchStatusTxt">{{status}}</span>
-          </md-autocomplete>
-          <md-chip-template>
-            <span>
-              {{$chip}}
-            </span>
-          </md-chip-template>
-          <div class="md-chip-remove-container">
-            <button md-chip-remove class="md-primary">
-              <md-icon md-svg-icon="md-close" class="md-default-theme"></md-icon>
-            </button>
-          </div>
-        </md-chips>
-
-        <h4 translate>Tags</h4>
-        <md-chips ng-model="personCtrl.person.tags" class="tags-chips" md-autocomplete-snap md-require-match>
-          <md-autocomplete
-            md-search-text="searchTagTxt"
-            md-items="tag in personCtrl.loadTags(searchTagTxt)"
-            md-item-text="tag"
-            md-min-length="1"
-            md-search-text-change="null"
-            placeholder="{{'Add a tag' | translate}}">
-            <span md-highlight-text="searchTagTxt">{{tag}}</span>
-          </md-autocomplete>
-          <md-chip-template>
-            <span>
-              {{$chip}}
-            </span>
-          </md-chip-template>
-          <div class="md-chip-remove-container">
-            <button md-chip-remove class="md-primary">
-              <md-icon md-svg-icon="md-close" class="md-default-theme"></md-icon>
-            </button>
-          </div>
-        </md-chips>
-    </div>
-
     <div layout-gt-md="row">
 
-      <div flex layout="column" layout-padding>
-
+      <div layout="column" layout-padding>
         <h3 translate>Person Info</h3>
-
-        <div flex layout-gt-sm="row">
+        <div layout-gt-sm="row">
           <md-input-container flex>
             <label translate>First Name</label>
             <input name="firstName" ng-model="personCtrl.person.firstName" required>
@@ -76,37 +73,35 @@
             </div>
           </md-input-container>
         </div>
-
-        <div flex layout-gt-sm="row">
-          <md-input-container flex>
+        <div layout-gt-sm="row">
+          <md-input-container>
             <label translate>Title</label>
             <input ng-model="personCtrl.person.prefix">
           </md-input-container>
 
-          <md-input-container flex>
+          <md-input-container>
             <label translate>Nickname</label>
             <input ng-model="personCtrl.person.nickName">
           </md-input-container>
 
-          <md-input-container flex>
+          <md-input-container>
             <label translate>Suffix</label>
             <input ng-model="personCtrl.person.suffix">
           </md-input-container>
         </div>
-
-        <md-input-container flex>
+        <md-input-container>
           <label translate>Birthdate</label>
-          <input type="date" ng-model="personCtrl.person.birthdate" />
+          <input type="date" ng-model="personCtrl.person.birthdate"></input>
         </md-input-container>
 
-        <md-input-container flex>
+        <md-input-container>
           <label translate>Baptism Date</label>
-          <input type="date" ng-model="personCtrl.person.baptismDate" />
+          <input type="date" ng-model="personCtrl.person.baptismDate"></input>
         </md-input-container>
 
-        <md-input-container flex>
+        <md-input-container>
           <label translate>Anniversary</label>
-          <input type="date" ng-model="personCtrl.person.anniversary" />
+          <input type="date" ng-model="personCtrl.person.anniversary">
         </md-input-container>
 
         <h4 translate>Gender</h4>
@@ -115,14 +110,11 @@
           <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
         </md-radio-group>
 
-        <h3 translate>Login</h3>
-
-        <div class="form-group">
-          <label for="login">
-            <input type="checkbox" id="login" name="login" />
-            <translate>User can log in</translate>
-          </label>
-        </div>
+        <md-input-container>
+          <md-checkbox>
+            <translate> User can log in </translate>
+          </md-checkbox>
+        </md-input-container>
       </div>
 
       <div flex layout="column" layout-padding>
