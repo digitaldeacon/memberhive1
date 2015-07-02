@@ -32,4 +32,25 @@
       <input ng-model="address.country">
     </md-input-container>
   </div>
+
+  <div layout layout-sm="column" ng-if="address.geocode">
+    <md-input-container flex>
+      <label><translate>Latitude</translate></label>
+      <input ng-model="address.geocode.lat">
+    </md-input-container>
+
+    <md-input-container flex>
+      <label><translate>Longitude</translate></label>
+      <input ng-model="address.geocode.lng">
+    </md-input-container>
+    <div>
+      <gm-map options="{center: [{{address.geocode.lat}}, {{address.geocode.lng}}], zoom: 18, mapTypeId: google.maps.MapTypeId.ROADMAP}">
+        <gm-marker options="{position:  [{{address.geocode.lat}}, {{address.geocode.lng}}], draggable: false}">
+          <gm-infowindow options="{content: '{{address.street1}}'}"></gm-infowindow>
+        </gm-marker>
+      </gm-map>
+    </div>
+
+  </div>
+
 </div>

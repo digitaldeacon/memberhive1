@@ -55,4 +55,12 @@ span.errormsg {
   color: #fff;
 }
 
-
+gm-map {
+  display: block;
+  width: 100%;
+  div {
+    max-width:200px !important;
+    max-height: 200px;
+    position:relative !important;
+  }
+}

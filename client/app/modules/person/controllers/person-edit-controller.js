@@ -186,17 +186,21 @@ export class PersonEditController {
     var geocalls = [];
     _.mapValues(this.person.address, (value)=> {
       var adr = value.street1+', '+value.zipcode+' '+value.city;
-      geocalls.push(this.$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+adr).then((gdata)=>{
-        value.geocode = gdata.data.results[0].geometry.location;
-      }));
+      if(!value.geocode) {
+        geocalls.push(this.$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+adr).then((gdata)=>{
+          value.geocode = gdata.data.results[0].geometry.location;
+        }));
+      }
       return value;
     });
 
-    this.$q.all(geocalls).then((res)=>{
-      this.Person.upsert({}, this.person).$promise.then((r)=>{
-        this.Shout.message(this.gettextCatalog.getString('Successfully saved geocodes'));
+    if(geocalls.length > 0) {
+      this.$q.all(geocalls).then((res)=>{
+        this.Person.upsert({}, this.person).$promise.then((r)=>{
+          this.Shout.message(this.gettextCatalog.getString('Successfully saved geocodes'));
+        });
       });
-    });
+    }
   }
 
   codeAddress(address) {

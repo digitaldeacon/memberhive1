@@ -21,6 +21,7 @@ export var gemPersonModule = angular.module('gem.person',
     'ngFileUpload',
     'ngImgCrop',
     'ngTagsInput',
+    'GoogleMapsNative',
 
     'personFilters',
     'gem.person.widget.stats',
