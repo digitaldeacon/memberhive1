@@ -5,14 +5,14 @@ export function Shout($mdToast) {
       $mdToast.show({
           template: `<md-toast class="toast-success"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
           position: 'top right',
-          hideDelay: 30000
+          hideDelay: 3000
       });
     },
     warning: (msg) => {
       $mdToast.show({
           template: `<md-toast class="toast-warning"><ng-md-icon icon="warning" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
           position: 'top right',
-          hideDelay: 30000
+          hideDelay: 6000
       });
     },
     error: (msg) => {
@@ -31,7 +31,7 @@ export function Shout($mdToast) {
           position: 'top right',
           hideDelay: 300000
       });
-     
+
     }
   };
 }
