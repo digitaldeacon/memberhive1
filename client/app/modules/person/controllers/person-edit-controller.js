@@ -1,6 +1,6 @@
 export class PersonEditController {
   constructor(PersonService, Person, Household, AddressService, $stateParams, $scope, Shout, gettextCatalog,
-              $filter, $state, $q) {
+              $filter, $state, $q, $log) {
     this.PersonService = PersonService;
     this.Person = Person;
     this.Household = Household;
@@ -11,6 +11,7 @@ export class PersonEditController {
     this.$filter = $filter;
     this.$state = $state;
     this.$q = $q;
+    this.$log = $log;
     this.selectedStatus = null;
 
     this.person = this.getPerson();
@@ -180,17 +181,19 @@ export class PersonEditController {
   checkImage(image) {
     return (image.height >= 800 && image.width >= 800);
   }
-
+  test(asd) {
+    console.log("hallo");
+  }
   /**
    * Save all person data
    *
    * @todo When creating a new person, we should redirect to the person/view screen afterwards
    */
   save(isValid=true,onward='') {
+    this.$log.log("asd");
     if (!isValid)
       return;
-
-    var promises = [];
+    this.test("ASd");
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
 
     this.Person.upsert({}, this.person).$promise.then(
@@ -203,7 +206,8 @@ export class PersonEditController {
           this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
         }
         this.Shout.message(this.gettextCatalog.getString(
-        'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
+        'Not Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
+        console.log("asd");
         if(onward!=='') {
           this.$state.go(onward);
         }

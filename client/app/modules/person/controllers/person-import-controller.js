@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 export function PersonImportController(Person, GemFileReader, Shout, $scope, gettext, gettextCatalog) {
   this.csvToArray = (strData, strDelimiter) => {
     // Check to see if the delimiter is defined. If not,

@@ -1,5 +1,3 @@
-import 'moment';
-
 export function fromNowFilter() {
   return function(date) {
     if (!date)
