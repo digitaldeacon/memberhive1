@@ -181,6 +181,33 @@ export class PersonEditController {
     return (image.height >= 800 && image.width >= 800);
   }
 
+  geoCodeAddress() {
+    _.mapValues(this.person.address, (value)=> {
+      console.log(value);
+      var adr = value.street1+', '+value.zipcode+' '+value.city;
+      console.log(adr);
+      var gcode = this.codeAddress(adr);
+
+      return value;
+    });
+    console.log(this.person.address);
+  }
+
+  codeAddress(address) {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        console.log(results[0].geometry.location);
+        var latLng = {
+          lat: result[0].geometry.location.lat(),
+          lng: result[0].geometry.location.lng()
+        };
+        console.log(latLng);
+      } else {
+        console.log("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
   /**
    * Save all person data
    *
@@ -192,6 +219,8 @@ export class PersonEditController {
 
     var promises = [];
     this.person.hasAvatar = this.person.hasAvatar || this.avatarChanged;
+
+    this.geoCodeAddress();
 
     this.Person.upsert({}, this.person).$promise.then(
       (data) => {
