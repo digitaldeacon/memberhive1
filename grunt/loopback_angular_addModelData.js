@@ -20,7 +20,7 @@ module.exports = function(grunt) {
       var options = this.options({
         modelConfig: 'server/model-config.json',
         modelDir: 'common/models',
-        serviceFile: 'client/app/scripts/lb-services.js'
+        serviceFile: 'client/app/model/core/services/lb-services.js'
       });
 
       var serviceFile;
