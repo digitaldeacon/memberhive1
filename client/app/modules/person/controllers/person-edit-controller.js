@@ -1,6 +1,6 @@
 export class PersonEditController {
   constructor(PersonService, Person, Household, AddressService, $stateParams, $scope, Shout, gettextCatalog,
-              $filter, $state, $q) {
+              $filter, $state, $q, $http) {
     this.PersonService = PersonService;
     this.Person = Person;
     this.Household = Household;
@@ -11,6 +11,7 @@ export class PersonEditController {
     this.$filter = $filter;
     this.$state = $state;
     this.$q = $q;
+    this.$http = $http;
     this.selectedStatus = null;
 
     this.person = this.getPerson();
@@ -182,31 +183,24 @@ export class PersonEditController {
   }
 
   geoCodeAddress() {
+    var geocalls = [];
     _.mapValues(this.person.address, (value)=> {
-      console.log(value);
       var adr = value.street1+', '+value.zipcode+' '+value.city;
-      console.log(adr);
-      var gcode = this.codeAddress(adr);
-
+      geocalls.push(this.$http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+adr).then((gdata)=>{
+        value.geocode = gdata.data.results[0].geometry.location;
+      }));
       return value;
     });
-    console.log(this.person.address);
+
+    this.$q.all(geocalls).then((res)=>{
+      this.Person.upsert({}, this.person).$promise.then((r)=>{
+        this.Shout.message(this.gettextCatalog.getString('Successfully saved geocodes'));
+      });
+    });
   }
 
   codeAddress(address) {
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        console.log(results[0].geometry.location);
-        var latLng = {
-          lat: result[0].geometry.location.lat(),
-          lng: result[0].geometry.location.lng()
-        };
-        console.log(latLng);
-      } else {
-        console.log("Geocode was not successful for the following reason: " + status);
-      }
-    });
+    console.log(address);
   }
   /**
    * Save all person data
