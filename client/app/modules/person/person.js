@@ -21,7 +21,7 @@ export var gemPersonModule = angular.module('gem.person',
     'ngFileUpload',
     'ngImgCrop',
     'ngTagsInput',
-    'GoogleMapsNative',
+    'uiGmapgoogle-maps',
 
     'personFilters',
     'gem.person.widget.stats',
@@ -31,7 +31,7 @@ export var gemPersonModule = angular.module('gem.person',
     'gem.address'
   ]
 ).config(
-  ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
+  ($stateProvider, $compileProvider, MainMenuProvider, gettext, uiGmapGoogleMapApiProvider) => {
     $stateProvider.state('person', {
       url: '/person',
       template: '<ui-view/>',
@@ -172,6 +172,12 @@ export var gemPersonModule = angular.module('gem.person',
         new MenuLink(gettext('Import'), 'file_upload', 'person.import'),
       ]
     ));
+
+    uiGmapGoogleMapApiProvider.configure({
+      //    key: 'your api key',
+      v: '3.17',
+      libraries: 'weather,geometry,visualization'
+    });
   }
 );
 gemPersonModule.controller('PersonListController', PersonListController);

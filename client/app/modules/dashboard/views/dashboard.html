@@ -1,7 +1,13 @@
 <div ng-controller="DashboardController as dashboard" class="margin-top-10">
   <div class="portlet light">
       <div>
-        <adf-dashboard name="{{dashboard.name}}" structure="4-8" adf-model="dashboard.account.options.dashboard" />
+        <adf-dashboard name="{{dashboard.name}}"
+                       structure="4-8"
+                       collapsible="true"
+                       adf-model="dashboard.account.options.dashboard"
+          >
+
+        </adf-dashboard>
       </div>
   </div>
 </div>

@@ -43,12 +43,14 @@
       <label><translate>Longitude</translate></label>
       <input ng-model="address.geocode.lng">
     </md-input-container>
-    <div>
-      <gm-map options="{center: [{{address.geocode.lat}}, {{address.geocode.lng}}], zoom: 18, mapTypeId: google.maps.MapTypeId.ROADMAP}">
-        <gm-marker options="{position:  [{{address.geocode.lat}}, {{address.geocode.lng}}], draggable: false}">
-          <gm-infowindow options="{content: '{{address.street1}}'}"></gm-infowindow>
-        </gm-marker>
-      </gm-map>
+    <div id="map-canvas">
+      <ui-gmap-google-map center='latitude: {{address.geocode.lat}}, longitude: {{address.geocode.lng}}'
+                          zoom='18'
+        >
+
+        <!-- other ui-gmap-directives here -->
+
+      </ui-gmap-google-map>
     </div>
 
   </div>
