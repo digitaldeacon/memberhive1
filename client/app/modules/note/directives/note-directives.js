@@ -32,11 +32,28 @@ export function NoteCreateDirective() {
         newNote: '&'
     },
     controller: function (Note, Shout, $scope, gettextCatalog) {
+      this.type = 'note';
+      this.noteTypes = [{
+        icon: 'chat',
+        title: 'Note',
+        value: 'note'
+      },{
+        icon: 'email',
+        title: 'Email',
+        value: 'email'
+      },{
+        icon: 'call',
+        title: 'Phone',
+        value: 'phone'
+      },
+      ];
+
       this.create = () => {
         Note.upsert(
           {
             title: this.title,
             content: this.content,
+            type: this.type,
             notableId: $scope.notableId,
             notableType: $scope.notableType
           }).$promise
@@ -52,6 +69,7 @@ export function NoteCreateDirective() {
       this.clear = () => {
         this.title = '';
         this.content = '';
+        this.note_type = '';
       };
     },
     controllerAs: 'ctrl',

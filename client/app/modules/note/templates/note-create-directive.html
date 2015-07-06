@@ -1,6 +1,15 @@
 <md-card>
   <md-card-content>
     <h3 translate>Create new Note</h3>
+    <md-radio-group ng-model="ctrl.type" class="radio-buttons-hz">
+      <md-radio-button ng-repeat="type in ctrl.noteTypes"
+                        ng-value="type.value"
+                       aria-label="{{type.title}}">
+        <md-tooltip>{{type.title}}</md-tooltip>
+        <ng-md-icon icon="{{type.icon}}" style="fill:#61697E"></ng-md-icon>
+      </md-radio-button>
+    </md-radio-group>
+
     <md-input-container>
       <label translate>Title (optional)</label>
       <input ng-model="ctrl.title" type="text"/>

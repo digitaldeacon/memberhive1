@@ -73,13 +73,23 @@
         <mh-note-create
           notable-type="Person"
           notable-id="{{personCtrl.person.id}}"
-          new-note="personCtrl.newNote(note)"></mh-note-create>
+          new-note="personCtrl.newNote(note)"
+          ng-show="addNote"></mh-note-create>
+
+        <md-card class="md-2-line" ng-show="!addNote">
+          <md-card-content flex layout="row">
+            <div class="md-actions" layout="row" layout-align="end center">
+              <md-button ng-click="addNote = true" class="md-raised"><translate>New Note</translate></md-button>
+            </div>
+          </md-card-content>
+        </md-card>
 
         <md-card class="md-2-line" ng-repeat="note in personCtrl.notes">
           <md-card-content flex layout="row">
             <div flex class="md-list-item-text">
               <h4>{{note.title}}</h4>
-              <ng-md-icon size="16" icon="event_note"></ng-md-icon>
+              <ng-md-icon size="18" icon="{{note.type}}" ng-if="note.type"></ng-md-icon>
+              <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
               <small><i><span am-time-ago="note.created"></span>
               <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>
               <p>{{note.content}}</p>
