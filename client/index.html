@@ -114,11 +114,38 @@
       <mhStateLoader></mhStateLoader>
 
       <div flex layout="row" class="main-container">
-        <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z1">
-          <div flex data-ng-include="'app/templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>
-        </md-sidenav>
 
-        <div flex layout="column">
+        <div data-ng-controller="SidebarController as sidebarCtrl">
+          <!-- sidebar: left -->
+          <md-sidenav md-component-id="left"
+                      class="admin-sidebar-left md-sidenav-left md-whiteframe-z2 md-closed md-locked-open collapse"
+                      md-is-locked-open="$mdMedia('gt-md')"
+                      ng-class="collapse" ng-mouseover="collapse = ''" ng-mouseleave="collapse = 'admin-sidebar-collapsed'"
+            >
+            <!--<div flex data-ng-include="'app/templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>-->
+            <md-toolbar class="sidebar-left-toolbar">
+              <div class="md-toolbar-tools" layout="row" layout-align="start center">
+
+                <div class="sidebar-left-logo">
+                  <img ng-src="app/images/logo-xs.png" alt="MemberHive" width="28px" src="app/images/logo-xs.png">
+                </div>
+
+                <h2 flex="" class="sidebar-left-title">MemberHive</h2>
+
+              </div>
+            </md-toolbar>
+            <side-menu>
+              <md-content>
+                <side-menu-item ng-repeat="entry in sidebarCtrl.mainMenu">
+                  <mh-menu-item item="::entry"> </mh-menu-item>
+                </side-menu-item>
+              </md-content>
+            </side-menu>
+          </md-sidenav>
+          <!-- /sidebar: left -->
+          </div>
+
+        <div flex layout="column" style="  overflow: hidden;position: relative;">
 
           <md-toolbar class="md-whiteframe-z0 header-toolbar">
             <div layout="row" layout-padding data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl" >

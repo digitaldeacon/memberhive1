@@ -2,18 +2,18 @@
   <md-button ng-click="closeMenuBar()">
     <div class="icon-placeholder-32"> </div>
     <ng-md-icon class="item-icon" size="24" icon="{{item.icon}}"></ng-md-icon>
-    <span>{{item.label | translate}}</span>
+    <span class="nav-label">{{item.label | translate}}</span>
   </md-button>
 </a>
 
-<md-button ng-if="item.children" ng-click="toggle()">
+<md-button ng-if="item.children" ng-click="toggle()" class="side-menu-link">
   <div flex layout="row">
-    <div flex style="max-width: 32px">
-      <ng-md-icon size="18" icon="{{icon()}}" options='{"duration": 375, "rotation": "none"}' class='icon-arrow'></ng-md-icon>
-    </div>
     <div flex layout="row">
       <ng-md-icon size="24" icon="{{item.icon}}"></ng-md-icon>
-      <span>{{item.label | translate}}</span>
+      <span class="nav-label">{{item.label | translate}}</span>
+    </div>
+    <div flex style="max-width: 32px">
+      <ng-md-icon size="18" icon="{{icon()}}" options='{"duration": 375, "rotation": "none"}' class='icon-arrow'></ng-md-icon>
     </div>
   </div>
 </md-button>
@@ -28,3 +28,4 @@
     </a>
   </li>
 </ul>
+<div class="md-ripple-container"></div>

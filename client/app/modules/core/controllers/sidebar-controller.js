@@ -18,5 +18,9 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
     $timeout(function() { $mdSidenav('left').open(); });
   };
 
+  this.expand = (e) => {
+    console.log(e);
+  };
+
   this.selected = '';
 }
