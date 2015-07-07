@@ -73,16 +73,7 @@
         <mh-note-create
           notable-type="Person"
           notable-id="{{personCtrl.person.id}}"
-          new-note="personCtrl.newNote(note)"
-          ng-show="addNote"></mh-note-create>
-
-        <md-card class="md-2-line" ng-show="!addNote">
-          <md-card-content flex layout="row">
-            <div class="md-actions" layout="row" layout-align="end center">
-              <md-button ng-click="addNote = true" class="md-raised"><translate>New Note</translate></md-button>
-            </div>
-          </md-card-content>
-        </md-card>
+          new-note="personCtrl.newNote(note)"></mh-note-create>
 
         <md-card class="md-2-line" ng-repeat="note in personCtrl.notes">
           <md-card-content flex layout="row">

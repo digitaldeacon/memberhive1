@@ -31,7 +31,7 @@ export function NoteCreateDirective() {
         notableType: '@',
         newNote: '&'
     },
-    controller: function (Note, Shout, $scope, gettextCatalog) {
+    controller: function ($scope, $element, Note, Shout, gettextCatalog) {
       this.type = 'note';
       this.noteTypes = [{
         icon: 'chat',
@@ -45,6 +45,10 @@ export function NoteCreateDirective() {
         icon: 'call',
         title: 'Phone',
         value: 'phone'
+      },{
+        icon: 'group',
+        title: 'Meeting',
+        value: 'meeting'
       },
       ];
 
@@ -70,6 +74,10 @@ export function NoteCreateDirective() {
         this.title = '';
         this.content = '';
         this.note_type = '';
+      };
+
+      this.close = ($element) => {
+        console.log($scope);
       };
     },
     controllerAs: 'ctrl',
