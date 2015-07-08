@@ -16,7 +16,7 @@ app.start = function() {
   return https.createServer(options, app).listen(app.get('port'), function() {
     var baseUrl = 'https://' + app.get('host') + ':' + app.get('port');
     app.emit('started', baseUrl);
-    app.baseUrl = `${baseUrl}/api`;
+    app.baseUrl = baseUrl+"/api`;
     console.log('LoopBack server listening @ %s%s', baseUrl, '/');
   });
 };
