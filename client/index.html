@@ -115,12 +115,13 @@
 
       <div flex layout="row" class="main-container">
 
-        <div data-ng-controller="SidebarController as sidebarCtrl">
+        <div data-ng-controller="SidebarController as sidebarCtrl" layout="vertical">
           <!-- sidebar: left -->
           <md-sidenav md-component-id="left"
-                      class="admin-sidebar-left md-sidenav-left md-whiteframe-z2 md-closed md-locked-open collapse"
+                      class="admin-sidebar-left md-sidenav-left md-whiteframe-z2 md-closed md-locked-open"
                       md-is-locked-open="$mdMedia('gt-md')"
-                      ng-class="collapse" ng-mouseover="collapse = ''" ng-mouseleave="collapse = 'admin-sidebar-collapsed'"
+                      ng-class="sidebarCtrl.menuClass()" ng-mouseover="sidebarCtrl.hover(false)" ng-mouseleave="sidebarCtrl.hover(true)"
+                      flex
             >
             <!--<div flex data-ng-include="'app/templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>-->
             <md-toolbar class="sidebar-left-toolbar">
@@ -131,14 +132,14 @@
                 </div>
 
                 <h2 flex="" class="sidebar-left-title">MemberHive</h2>
-                <button class="md-icon-button sidebar-left-icon md-button" ng-transclude="" ng-click="toggleMenuLock()" tabindex="0">
+                <button class="md-icon-button sidebar-left-icon md-button" ng-transclude="" ng-click="sidebarCtrl.toggleMenuLock()" tabindex="0">
                   <ng-md-icon icon="unfold_more"></ng-md-icon>
                   <div class="md-ripple-container"></div></button>
 
               </div>
             </md-toolbar>
             <side-menu>
-              <md-content>
+              <md-content layout-fill>
                 <side-menu-item ng-repeat="entry in sidebarCtrl.mainMenu">
                   <mh-menu-item item="::entry"> </mh-menu-item>
                 </side-menu-item>
@@ -155,14 +156,10 @@
             </div>
           </md-toolbar>
           <div flex layout="row">
-            <div flex layout="row" layout-fill class="sidebar-icon" hide-sm>
-              <div flex data-ng-include="'app/templates/sidebar-icons.html'" data-ng-controller="SidebarController as sidebarCtrl"></div>
-              </div>
-              <div flex layout="column" layout-margin>
-                <div flex ui-view layout="column" ></div>
-                <div style="color: #bbb">
-                  {{accessToken}}
-                </div>
+            <div flex layout="column" layout-margin>
+              <div flex ui-view layout="column" ></div>
+              <div style="color: #bbb">
+                {{accessToken}}
               </div>
             </div>
           </div>

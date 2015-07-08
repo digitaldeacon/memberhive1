@@ -18,8 +18,31 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
     $timeout(function() { $mdSidenav('left').open(); });
   };
 
-  this.expand = (e) => {
+  this.toggleMenuLock = (e) => {
     console.log(e);
+  };
+
+  this.isMenuLocked = false;
+  this.isMenuCollapsing = false;
+  this.isHovering = false;
+
+  this.menuClass = () => {
+    return this.isMenuLocked === !0
+      ? ''
+      : this.isMenuCollapsing === !0
+        ? 'is-collapsing'
+        : 1 == this.isHovering
+          ? 'admin-sidebar-collapsed'
+          : '';
+  };
+
+  this.toggleMenuLock = () => {
+    !this.isMenuLocked ? this.isMenuLocked = true : this.isMenuLocked = false;
+    console.log(this.isMenuLocked);
+  };
+
+  this.hover = (state) => {
+    this.isHovering = state;
   };
 
   this.selected = '';
