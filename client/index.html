@@ -133,9 +133,8 @@
 
                 <h2 flex="" class="sidebar-left-title">MemberHive</h2>
                 <button class="md-icon-button sidebar-left-icon md-button" ng-transclude="" ng-click="sidebarCtrl.toggleMenuLock()" tabindex="0">
-                  <ng-md-icon icon="unfold_more"></ng-md-icon>
+                  <ng-md-icon icon="{{sidebarCtrl.menuLockIcon()}}" style="fill:#fefefe"></ng-md-icon>
                   <div class="md-ripple-container"></div></button>
-
               </div>
             </md-toolbar>
             <side-menu>

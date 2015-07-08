@@ -31,7 +31,6 @@ md-sidenav.md-locked-open-remove.md-closed {
   transition: all .2s;
   color:#fefefe;
 }
-
 .side-menu-link {
   display: block;
   text-align: left;
@@ -54,6 +53,13 @@ md-sidenav.md-locked-open-remove.md-closed {
 }
 .sidebar-left-title {
   margin-left: 10px !important;
+}
+.sidebar-left-icon {
+  color: #fefefe;
+  ng-md-icon {
+    line-height:inherit;
+    color: #fefefe;
+  }
 }
 
 .admin-sidebar-collapsed.md-locked-open .sidebar-left-title,

@@ -41,6 +41,10 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
     console.log(this.isMenuLocked);
   };
 
+  this.menuLockIcon = () => {
+    return this.isMenuLocked ? 'unfold_less' : 'unfold_more';
+  };
+
   this.hover = (state) => {
     this.isHovering = state;
   };
