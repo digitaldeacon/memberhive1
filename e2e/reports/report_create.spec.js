@@ -9,7 +9,7 @@ describe('creating reports', function () {
   });
 
  
-  xit('it should have an save button', function () {
+  it('it should have an save button', function () {
     var list = element.all(by.css('[ng-click="reportUpCtrl.saveReport()"]'));
     expect(list.count()).toBe(1);
   });
