@@ -109,11 +109,11 @@
     <!-- END: Actual animated container. -->
   </div>
 
-    <div ng-if="acl.isLoggedIn()">
+    <div ng-if="acl.isLoggedIn()" class="full-height">
 
       <mhStateLoader></mhStateLoader>
 
-      <div flex layout="row" class="main-container">
+      <div flex layout="row" class="full-height">
 
         <div data-ng-include="'app/templates/adminSidebar.html'" layout="vertical" data-ng-controller="SidebarController as sidebarCtrl"></div>
 
