@@ -39,14 +39,17 @@ md-sidenav.md-locked-open-remove.md-closed {
   padding: 0 16px;
   margin: 0;
   text-transform: none;
-  border-radius: 0!important;
+  border-radius: 0 !important;
   white-space: normal;
-  line-height: 30px !important;
+  line-height: 48px;
   position: relative;
   z-index: 2;
-  box-shadow: none!important;
-  -webkit-transform: translate3d(0,0,0);
+  box-shadow: none !important;
   transform: translate3d(0,0,0);
+  ng-md-icon {
+    line-height:inherit;
+  }
+
 }
 .sidebar-left-title {
   margin-left: 10px !important;

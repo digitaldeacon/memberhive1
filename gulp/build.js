@@ -37,7 +37,7 @@ module.exports = function(options) {
     var cssFilter = $.filter('**/*.css');
     var assets;
 
-    return gulp.src(options.tmp + '/serve/*.html')
+    return gulp.src(options.tmp + '/serve/index.html')
       .pipe($.inject(partialsInjectFile, partialsInjectOptions))
       .pipe(assets = $.useref.assets())
       .pipe($.rev())
