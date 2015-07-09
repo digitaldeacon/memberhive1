@@ -17,7 +17,6 @@ md-sidenav.md-locked-open-remove.md-closed {
 .sidebar-left-toolbar {
   box-shadow: 0 1px 0 rgba(0,0,0,.12);
   z-index: 10;
-  height: 72px;
 }
 .sidebar-left-logo {
   -webkit-flex-shrink: 0;
@@ -49,7 +48,9 @@ md-sidenav.md-locked-open-remove.md-closed {
   ng-md-icon {
     line-height:inherit;
   }
+  .icon-arrow {
 
+  }
 }
 .sidebar-left-title {
   margin-left: 10px !important;
@@ -90,4 +91,10 @@ md-sidenav.md-locked-open-remove.md-closed {
 }
 .nav-label-sub {
   margin-left: 5px;
+}
+.no-scroll {
+  overflow: hidden;
+}
+.no-scroll-horizontal {
+  overflow-x: hidden;
 }
