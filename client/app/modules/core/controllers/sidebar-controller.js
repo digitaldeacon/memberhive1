@@ -9,7 +9,6 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
 
   this.mainMenu = MainMenu.getItems();
 
-
   this.closeMenu = () => {
     $timeout(function() { $mdSidenav('left').close(); });
   };
@@ -18,13 +17,9 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
     $timeout(function() { $mdSidenav('left').open(); });
   };
 
-  this.toggleMenuLock = (e) => {
-    console.log(e);
-  };
-
   this.isMenuLocked = false;
   this.isMenuCollapsing = false;
-  this.isHovering = false;
+  this.isHovering = true;
 
   this.menuClass = () => {
     return this.isMenuLocked === !0
@@ -34,6 +29,10 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
         : 1 == this.isHovering
           ? 'admin-sidebar-collapsed'
           : '';
+  };
+
+  this.collapseSubmenu = () => {
+    return !this.isMenuLocked ? this.isHovering : false;
   };
 
   this.toggleMenuLock = () => {
