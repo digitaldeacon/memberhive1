@@ -38,7 +38,7 @@ module.exports = function(options) {
   }
 
 
-  gulp.task('serve', ['watch'], function () {
+  gulp.task('serve', ['loopback','watch'], function () {
     browserSyncInit([options.tmp + '/serve', options.src]);
   });
 
