@@ -62,9 +62,9 @@ module.exports = function(Report) {
 
       var order = [];
       if (report.order && report.order.first)
-        order.push(`${report.order.first.property} ${report.order.first.direction}`);
+        order.push(report.order.first.property + " " + report.order.first.direction);
       if (report.order && report.order.second)
-        order.push(`${report.order.second.property} ${report.order.second.direction}`);
+        order.push(report.order.second.property + " " + report.order.second.direction);
 
       Report.app.models.Person.find(
         {
@@ -80,7 +80,7 @@ module.exports = function(Report) {
           var validSizes = ['xs', 's', 'm', 'l'];
           if (validSizes.indexOf(size) < 0)
             size = 'xs';
-          return `${Report.app.baseUrl}/Avatars/${personId}/download/${size}.jpg`;
+          return Report.app.baseUrl+"/Avatars/"+personId+"/download/"+size+".jpg";
         });
 
         Handlebars.registerHelper('formatDate', function(date, format, locale) {
