@@ -115,22 +115,29 @@
 
       <div flex layout="row" class="full-height">
 
-        <div data-ng-include="'app/templates/adminSidebar.html'" layout="vertical" data-ng-controller="SidebarController as sidebarCtrl"></div>
+        <div data-ng-include="'app/templates/adminSidebar.html'"
+             data-ng-controller="SidebarController as sidebarCtrl"
+             layout="vertical"></div>
 
-        <div flex layout="column" style="  overflow: hidden;position: relative;">
+        <div flex layout="column" style="overflow: hidden;position: relative;">
 
           <md-toolbar class="md-whiteframe-z0 header-toolbar">
-            <div layout="row" layout-padding data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl" >
-            </div>
+            <div layout="row"
+                 layout-padding data-ng-include="'app/templates/header.html'"
+                 data-ng-controller="HeaderController as headerCtrl"></div>
           </md-toolbar>
+
           <div flex layout="row">
             <div flex layout="column" layout-margin>
+              <!-- Main Content -->
               <div flex ui-view layout="column" ></div>
+              <!-- /Main Content -->
               <div style="color: #bbb">
                 {{accessToken}}
               </div>
             </div>
           </div>
+
         </div>
 
       </div>

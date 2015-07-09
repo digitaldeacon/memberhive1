@@ -41,15 +41,12 @@ md-sidenav.md-locked-open-remove.md-closed {
   text-transform: none;
   border-radius: 0!important;
   white-space: normal;
-  line-height: 48px;
+  line-height: 30px !important;
   position: relative;
   z-index: 2;
   box-shadow: none!important;
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
-  ng-md-icon {
-    line-height:inherit;
-  }
 }
 .sidebar-left-title {
   margin-left: 10px !important;
@@ -87,4 +84,7 @@ md-sidenav.md-locked-open-remove.md-closed {
 }
 .nav-label {
   margin-left: 18px;
+}
+.nav-label-sub {
+  margin-left: 5px;
 }

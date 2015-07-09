@@ -11,24 +11,30 @@ export function uiNavDirective() {
     }
   };
 }
-export function mhMenuItem($mdSidenav) {
+export function mhMenuItem($mdSidenav, $timeout) {
   return {
     restrict: 'E',
     scope: {
-      'item': '='
+      'item': '=',
+      'collapsing': '='
     },
     templateUrl: 'app/modules/core/templates/menu-item.html',
     link: function($scope, $element) {
       var scope = $scope.$new();
       scope.open = false;
+      scope.iconVisible = false;
       scope.icon = 'keyboard_arrow_down';
-
+      scope.forceClosed = false;
       $scope.isOpen = function() {
         return scope.open;
       };
 
       $scope.icon = () => {
         return scope.icon;
+      };
+
+      $scope.iconVisible = () => {
+        return scope.iconVisible;
       };
 
       $scope.toggle = function() {
@@ -42,6 +48,24 @@ export function mhMenuItem($mdSidenav) {
       $scope.closeMenuBar = function() {
         $mdSidenav('left').close();
       };
+
+      scope.$watch('collapsing',()=>{
+        console.log(scope.collapsing);
+        if(scope.collapsing) {
+          scope.forceClosed = scope.open;
+          scope.open = false;
+          scope.iconVisible = false;
+          scope.icon = 'keyboard_arrow_down';
+
+        } else {
+          scope.iconVisible = true;
+          if(scope.forceClosed) {
+            scope.forceClosed = false;
+            scope.open = true;
+          }
+        }
+
+      });
     }
   };
 }
