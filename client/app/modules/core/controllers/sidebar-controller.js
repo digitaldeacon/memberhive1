@@ -38,7 +38,6 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
 
   this.toggleMenuLock = () => {
     !this.isMenuLocked ? this.isMenuLocked = true : this.isMenuLocked = false;
-    console.log(this.isMenuLocked);
   };
 
   this.menuLockIcon = () => {
