@@ -55,8 +55,9 @@ module.exports = function(grunt) {
             for (var prop in model.properties) {
               model.properties[prop].key = prop;
             }
-            var regex = new RegExp("(module\\.factory\\([\\s]*\""+modelName+"\"[\\s\\S]*?)(return R;)");
+            var regex = new RegExp(`(module\\.factory\\([\\s]*\"${modelName}\"[\\s\\S]*?)(return R;)`);
             var replace = '$1' + 'R.model=' + JSON.stringify(model) + ';\n\n' + '$2';
+            console.log(replace);
             serviceFile = serviceFile.replace(regex, replace);
           } catch (e) {
             grunt.log.warn("Could not find model file "+fileName+".json");
