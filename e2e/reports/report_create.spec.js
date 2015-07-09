@@ -5,7 +5,6 @@ describe('creating reports', function () {
 
   beforeEach(function () {
     browser.get('http://localhost:9000/#/report/create');
-    browser.sleep(500)
 
   });
 

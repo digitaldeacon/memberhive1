@@ -5,7 +5,6 @@ describe('test the dashboard', function () {
 
   beforeEach(function () {
     browser.get('http://localhost:9000/#/dashboard');
-    browser.sleep(500)
   });
 
  
