@@ -47,7 +47,7 @@ module.exports = function(grunt) {
           // Convert model name to filename
           var fileName = modelName.charAt(0).toLowerCase() + modelName.slice(1);
           fileName = fileName.replace(/([A-Z])/g, function($1) {
-            return `-${$1.toLowerCase()}`;
+            return "-"+$1.toLowerCase();
           });
           grunt.verbose.ok(`Checking ${modelName}`);
           try {
@@ -55,11 +55,11 @@ module.exports = function(grunt) {
             for (var prop in model.properties) {
               model.properties[prop].key = prop;
             }
-            var regex = new RegExp(`(module\\.factory\\([\\s]*\"${modelName}\"[\\s\\S]*?)(return R;)`);
+            var regex = new RegExp("(module\\.factory\\([\\s]*\""+modelName+"\"[\\s\\S]*?)(return R;)");
             var replace = '$1' + 'R.model=' + JSON.stringify(model) + ';\n\n' + '$2';
             serviceFile = serviceFile.replace(regex, replace);
           } catch (e) {
-            grunt.log.warn(`Could not find model file ${fileName}.json`);
+            grunt.log.warn("Could not find model file "+fileName+".json");
           }
         }
       }
