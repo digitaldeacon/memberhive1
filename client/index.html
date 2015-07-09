@@ -109,34 +109,37 @@
     <!-- END: Actual animated container. -->
   </div>
 
-    <div ng-if="acl.isLoggedIn()">
+    <div ng-if="acl.isLoggedIn()" class="full-height">
 
       <mhStateLoader></mhStateLoader>
 
-      <div flex layout="row" class="main-container">
-        <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z1">
-          <div flex data-ng-include="'app/templates/sidebar.html'" layout="column" layout-fill data-ng-controller="SidebarController as sidebarCtrl"></div>
-        </md-sidenav>
+      <div flex layout="row" class="full-height">
 
-        <div flex layout="column">
+        <div data-ng-include="'app/templates/adminSidebar.html'"
+             data-ng-controller="SidebarController as sidebarCtrl"
+             layout="vertical"></div>
+
+        <div flex layout="column" style="overflow: hidden;position: relative;">
 
           <md-toolbar class="md-whiteframe-z0 header-toolbar">
-            <div layout="row" layout-padding data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl" >
-            </div>
+            <div layout="row"
+                 layout-padding data-ng-include="'app/templates/header.html'"
+                 data-ng-controller="HeaderController as headerCtrl"></div>
           </md-toolbar>
+
           <div flex layout="row">
-            <div flex layout="row" layout-fill class="sidebar-icon" hide-sm>
-              <div flex data-ng-include="'app/templates/sidebar-icons.html'" data-ng-controller="SidebarController as sidebarCtrl"></div>
-              </div>
-              <div flex layout="column" layout-margin>
-                <div flex ui-view layout="column" ></div>
-                <div style="color: #bbb">
-                  {{accessToken}}
-                </div>
+            <div flex layout="column" layout-margin>
+              <!-- Main Content -->
+              <div flex ui-view layout="column" ></div>
+              <!-- /Main Content -->
+              <div style="color: #bbb">
+                {{accessToken}}
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
     </div>
     <div flex ng-if="acl.isLoggedOut()" class="login-container">

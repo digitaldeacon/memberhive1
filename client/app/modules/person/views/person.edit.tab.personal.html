@@ -1,6 +1,7 @@
 <md-card>
   <div layout-padding flex layout-gt-md="row" class="dark-background">
-    <md-chips flex="50" ng-model="personCtrl.person.status" class="status-chips" md-autocomplete-snap md-require-match>
+
+    <md-chips flex="50" ng-model="personCtrl.person.status" class="status-chips dusk-background" md-autocomplete-snap md-require-match>
       <md-autocomplete
         md-search-text="searchStatusTxt"
         md-items="status in personCtrl.loadStatus(searchStatusTxt)"
@@ -22,7 +23,7 @@
       </div>
     </md-chips>
 
-    <md-chips flex="50" ng-model="personCtrl.person.tags" class="tags-chips" md-autocomplete-snap md-require-match>
+    <md-chips flex="50" ng-model="personCtrl.person.tags" class="tags-chips dusk-background" md-autocomplete-snap md-require-match>
       <md-autocomplete
         md-search-text="searchTagTxt"
         md-items="tag in personCtrl.loadTags(searchTagTxt)"
