@@ -13,6 +13,6 @@ module.exports = function(options) {
   });
 
   gulp.task('loopback', ['loopback-services'], function () {
-    gulp.start('grunt-loopback_angular_addModelData');
+    //gulp.start('grunt-loopback_angular_addModelData');
   });
 }
