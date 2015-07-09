@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
-  var devServer = "https://localhost:3000/api";
+  var devServer = "https://localhost:3994/api";
   var prodServer = "https://memberhive.com:7007/api";
 
   // Configurable paths for the application

@@ -12,12 +12,20 @@ var options = {
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname);
-app.start = function() {
+/*app.start = function() {
   return https.createServer(options, app).listen(app.get('port'), function() {
     var baseUrl = 'https://' + app.get('host') + ':' + app.get('port');
     app.emit('started', baseUrl);
     app.baseUrl = baseUrl+"/api";
     console.log('LoopBack server listening @ %s%s', baseUrl, '/');
+  });
+};*/
+
+app.start = function() {
+  // start the web server
+  return app.listen(function() {
+    app.emit('started');
+    console.log('Web server listening at: %s', app.get('url'));
   });
 };
 

@@ -1,0 +1,18 @@
+{
+  "deployBranch" : "deploy",
+  "hosts" : {
+    "lukas" : "148.251.133.116",
+    "localhost" : "localhost"
+  },
+  "clients" : {
+    "ecg" : {
+      "name" : "Evangeliums Christen Gemeinde Berlin",
+      "host": "lukas"
+    },
+    "test" : {
+      "name" : "Test",
+      "host" : "localhost"
+      
+    }
+  }
+}

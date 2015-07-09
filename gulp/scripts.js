@@ -57,7 +57,7 @@ module.exports = function(options) {
       .pipe(gulp.dest(options.tmp + '/serve/app'));
   }
 
-  gulp.task('scripts', function () {
+  gulp.task('scripts', ['loopback'], function () {
     return webpack(false);
   });
 
