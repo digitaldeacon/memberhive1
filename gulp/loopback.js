@@ -54,6 +54,6 @@ module.exports = function(options) {
       .pipe(loopbackAngular({apiUrl:'http://127.0.0.1:3994/api'}))
       .pipe(rename('lb-services.js'))
       .pipe(addModel())
-      .pipe(gulp.dest(options.src+'/app/modules/core/services/'));
+      .pipe(gulp.dest(options.src+'/app/scripts/'));
   });
 }

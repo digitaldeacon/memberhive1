@@ -10,7 +10,6 @@ import {stateLoader,appLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
 import {GemFileReader} from './services/filereader';
 import {Search} from './services/search';
-import './services/lb-services';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 import {temperatureFilter} from './filters/format-filters';
 

@@ -13,7 +13,7 @@ import {gemNoteModule} from './modules/note/note';
 import {gemReportModule} from './modules/report/report';
 import {gemCalendarModule} from './modules/calendar/calendar';
 import {MenuSection, MenuLink} from './modules/core/providers/menu-provider';
-
+import './scripts/lb-services';
 /**
  * The main app module.
  */

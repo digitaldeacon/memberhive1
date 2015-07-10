@@ -22,4 +22,4 @@ before_script:
   - npm start &
   - sleep 2
 script:
-  - gulp protractor
+  - gulp test
