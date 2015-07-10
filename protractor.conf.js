@@ -39,6 +39,3 @@ exports.config = {
     }, 10000);
   }
 };
-if (process.env.TRAVIS) {
-  exports.config.multiCapabilities[0].chromeOptions.binary = __dirname + '/chrome-linux/chrome';
-}
