@@ -8,7 +8,7 @@ exports.config = {
   directConnect: true,
   multiCapabilities: [
     {
-      'browserName' : 'chrome'
+      'browserName' : 'chrome',
       'chromeOptions': {
         'args': ['no-sandbox']
       }
