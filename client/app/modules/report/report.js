@@ -26,13 +26,13 @@ gemReportModule.config(
       abstract: true,
       data: {
         module: 'report',
-        pageTitle: 'Report'
+        pageTitle: gettext('Report')
       }
     }).state('report.create', {
       url: '/create',
       templateUrl: 'app/modules/report/views/report.upsert.html',
       data: {
-        pageSubTitle: 'Create a new report'
+        pageSubTitle: gettext('Create a new report')
       },
       ncyBreadcrumb: {
         label: gettext('New Report'),
@@ -45,7 +45,7 @@ gemReportModule.config(
       url: '/edit/:id',
       templateUrl: 'app/modules/report/views/report.upsert.html',
       data: {
-        pageSubTitle: 'Edit a report'
+        pageSubTitle: gettext('Edit a report')
       },
       ncyBreadcrumb: {
         label: gettext('Edit Report'),
@@ -58,7 +58,7 @@ gemReportModule.config(
       url: '/list',
       templateUrl: 'app/modules/report/views/report.list.html',
       data: {
-        pageSubTitle: 'List available reports'
+        pageSubTitle: gettext('List available reports')
       },
       ncyBreadcrumb: {
         label: gettext('Reports')

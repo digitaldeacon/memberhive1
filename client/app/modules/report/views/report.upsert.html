@@ -5,7 +5,7 @@
 <mh-panel class="report">
   <div ng-controller="ReportUpsertController as reportUpCtrl">
     <mh-panel-header>
-      Edit Report
+      <translate>Edit Report</translate>
     </mh-panel-header>
 
     <mh-panel-body>
@@ -25,6 +25,14 @@
             </md-tab-label>
             <md-tab-body>
               <div class="tab-layout" layout-padding ng-include="'app/modules/report/views/report.upsert.tab.layout.html'"></div>
+            </md-tab-body>
+          </md-tab>
+          <md-tab>
+            <md-tab-label>
+              <fa name="eye"></fa> <translate>Report preview</translate>
+            </md-tab-label>
+            <md-tab-body>
+              <div class="tab-layout" layout-padding ng-include="'app/modules/report/views/report.upsert.tab.preview.html'"></div>
             </md-tab-body>
           </md-tab>
         </md-tabs>

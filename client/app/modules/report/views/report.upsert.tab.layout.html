@@ -1,27 +1,27 @@
-<div layout="row">
+<div layout-gt-md="row">
   <!--<div class="col-md-3">
     <gem-variable-list sources="reportUpCtrl.dataSources"></gem-variable-list>
   </div>-->
-  <div flex="50">
+  <div flex class="md-padding">
     <ui-codemirror ng-model="reportUpCtrl.report.html" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+  </div>
+  <div layout="column" flex class="md-padding">
+    <div>
+      <h3 translate>PDF Options</h3>
 
-    <h3 translate>PDF Options</h3>
-
-    <div layout="row">
-      <md-select placeholder="{{'Orientation'|translate}}" ng-model="reportUpCtrl.report.pdfOptions.orientation" flex="25">
-        <md-option value="portrait"><translate>Portrait</translate></md-option>
-        <md-option value="landscape"><translate>Landscape</translate></md-option>
-      </md-select>
-      <md-select placeholder="{{'Page Size'|translate}}" ng-model="reportUpCtrl.report.pdfOptions.pageSize" flex="25">
-        <md-option value="A3">A3</md-option>
-        <md-option value="A4">A4</md-option>
-        <md-option value="A5">A5</md-option>
-        <md-option value="Legal">Legal</md-option>
-        <md-option value="Letter">Letter</md-option>
-        <md-option value="Tabloid">Tabloid</md-option>
-      </md-select>
+        <md-select placeholder="{{'Orientation'|translate}}" ng-model="reportUpCtrl.report.pdfOptions.orientation" flex="25">
+          <md-option value="portrait"><translate>Portrait</translate></md-option>
+          <md-option value="landscape"><translate>Landscape</translate></md-option>
+        </md-select>
+        <md-select placeholder="{{'Page Size'|translate}}" ng-model="reportUpCtrl.report.pdfOptions.pageSize" flex="25">
+          <md-option value="A3">A3</md-option>
+          <md-option value="A4">A4</md-option>
+          <md-option value="A5">A5</md-option>
+          <md-option value="Legal">Legal</md-option>
+          <md-option value="Letter">Letter</md-option>
+          <md-option value="Tabloid">Tabloid</md-option>
+        </md-select>
     </div>
-
     <div layout="row">
       <md-input-container flex="25">
         <label translate>Left Margin (cm)</label>
@@ -40,51 +40,31 @@
         <input type="number" step="0.1" ng-model="reportUpCtrl.report.pdfOptions.marginBottom">
       </md-input-container>
     </div>
-
-    <h4 translate>Header</h4>
-    <md-switch ng-model="reportUpCtrl.report.pdfOptions.enableHeader">
-      <translate>Enable Header</translate>
-    </md-switch>
-    <div ng-show="reportUpCtrl.report.pdfOptions.enableHeader">
-      <md-input-container>
-        <label translate>Header Height (cm)</label>
-        <input type="number" step="any" ng-model="reportUpCtrl.report.pdfOptions.headerHeight">
-      </md-input-container>
-      <ui-codemirror ng-model="reportUpCtrl.report.pdfOptions.header" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+    <div>
+      <h4 translate>Header</h4>
+      <md-switch ng-model="reportUpCtrl.report.pdfOptions.enableHeader">
+        <translate>Enable Header</translate>
+      </md-switch>
+      <div ng-show="reportUpCtrl.report.pdfOptions.enableHeader">
+        <md-input-container>
+          <label translate>Header Height (cm)</label>
+          <input type="number" step="any" ng-model="reportUpCtrl.report.pdfOptions.headerHeight">
+        </md-input-container>
+        <ui-codemirror class="min" ng-model="reportUpCtrl.report.pdfOptions.header" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+      </div>
     </div>
-
-    <h4 translate>Footer</h4>
-    <md-switch ng-model="reportUpCtrl.report.pdfOptions.enableFooter">
-      <translate>Enable Footer</translate>
-    </md-switch>
-    <div ng-show="reportUpCtrl.report.pdfOptions.enableFooter">
-      <md-input-container>
-        <label translate>Footer Height (cm)</label>
-        <input type="number" step="any" ng-model="reportUpCtrl.report.pdfOptions.footerHeight">
-      </md-input-container>
-      <ui-codemirror ng-model="reportUpCtrl.report.pdfOptions.footer" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+    <div>
+      <h4 translate>Footer</h4>
+      <md-switch ng-model="reportUpCtrl.report.pdfOptions.enableFooter">
+        <translate>Enable Footer</translate>
+      </md-switch>
+      <div ng-show="reportUpCtrl.report.pdfOptions.enableFooter">
+        <md-input-container>
+          <label translate>Footer Height (cm)</label>
+          <input type="number" step="any" ng-model="reportUpCtrl.report.pdfOptions.footerHeight">
+        </md-input-container>
+        <ui-codemirror ng-model="reportUpCtrl.report.pdfOptions.footer" ui-codemirror-opts="reportUpCtrl.editorOptions"></ui-codemirror>
+      </div>
     </div>
-
-  </div>
-  <div flex="50">
-
-    <md-tabs>
-      <md-tab>
-        <md-tab-label>
-          <translate>HTML</translate>
-        </md-tab-label>
-        <md-tab-body layout-padding>
-          <iframe ng-src="{{reportUpCtrl.htmlPreviewURL}}" width="800" height="600" id="htmlPreviewFrame"></iframe>
-        </md-tab-body>
-      </md-tab>
-      <md-tab>
-        <md-tab-label>
-          <translate>PDF</translate>
-        </md-tab-label>
-        <md-tab-body layout-padding>
-          <iframe ng-src="{{reportUpCtrl.pdfPreviewURL}}" width="800" height="600" id="pdfPreviewFrame"></iframe>
-        </md-tab-body>
-      </md-tab>
-    </md-tabs>
   </div>
 </div>
