@@ -73,7 +73,7 @@ export function NoteCreateDirective() {
       this.clear = () => {
         this.title = '';
         this.content = '';
-        this.note_type = '';
+        this.noteType = '';
       };
 
       this.close = ($element) => {

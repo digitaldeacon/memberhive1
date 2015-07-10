@@ -21,6 +21,7 @@
     "$": false,
     "_": false,
     "moment": false,
-    "System": false
+    "System": false,
+    "CodeMirror": false
   }
 }

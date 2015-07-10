@@ -22,13 +22,18 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
   this.isHovering = true;
 
   this.menuClass = () => {
-    return this.isMenuLocked === !0
-      ? ''
-      : this.isMenuCollapsing === !0
-        ? 'is-collapsing'
-        : 1 == this.isHovering
-          ? 'admin-sidebar-collapsed'
-          : '';
+    if(this.isMenuLocked !== 0) {
+      return '';
+    } else {
+      if(this.isMenuCollapsing !== 0) {
+        return 'is-collapsing';
+      } else {
+        if(this.isHovering === 1)
+          return 'admin-sidebar-collapsed';
+        else
+          return '';
+      }
+    }
   };
 
   this.collapseSubmenu = () => {
@@ -36,7 +41,11 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
   };
 
   this.toggleMenuLock = () => {
-    !this.isMenuLocked ? this.isMenuLocked = true : this.isMenuLocked = false;
+    if(this.isMenuLocked === false) {
+      this.isMenuLocked = true;
+    } else {
+      this.isMenuLocked = false;
+    }
   };
 
   this.menuLockIcon = () => {
