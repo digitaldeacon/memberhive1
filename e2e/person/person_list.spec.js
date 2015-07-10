@@ -4,7 +4,7 @@ describe('list reports', function () {
   var page;
 
   beforeEach(function () {
-    browser.get('http://localhost:9000/#/person/list');
+    browser.get('#/person/list');
   });
 
  

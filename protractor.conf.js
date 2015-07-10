@@ -1,21 +1,17 @@
 'use strict';
-
-// An example configuration file.
 exports.config = {
-  // The address of a running selenium server.
-  //seleniumAddress: 'http://localhost:4444/wd/hub',
-  //seleniumServerJar: deprecated, this should be set on node_modules/protractor/config.json
+  multiCapabilities: [
+    {
+      browserName : 'firefox'
+    }
+  ],
 
-  // Capabilities to be passed to the webdriver instance.
-  capabilities: {
-    'browserName': 'firefox'
-  },
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.
   specs: ['e2e/**/*.js'],
   
-  baseUrl : "http://localhost:9000/#",
+  baseUrl : "http://localhost:9000/",
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
@@ -24,7 +20,7 @@ exports.config = {
   },
   
   onPrepare: function() {
-    browser.get('http://localhost:9000/#/login');
+    browser.get('#/login');
 
     browser.findElement(by.model('loginCtrl.username')).sendKeys('root');
     browser.findElement(by.model('loginCtrl.password')).sendKeys('bibel');

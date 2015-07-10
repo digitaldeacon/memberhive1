@@ -4,13 +4,12 @@ describe('test the dashboard', function () {
   var page;
 
   beforeEach(function () {
-    browser.get('http://localhost:9000/#/dashboard');
+    browser.get('#/dashboard');
   });
 
  
   xit('it should have a edit button', function () {
-    var list = element.all(by.css('[ng-click="toggleEditMode()"]'));
-    expect(list.count()).toBe(1);
+    expect(element(by.css('[ng-click="toggleEditMode()"]')).isPresent()).toBe(true);
   });
 
 });

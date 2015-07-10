@@ -1,4 +1,4 @@
-import {LoginController} from './controller/auth-controller';
+import {LoginController} from './controller/login-controller';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 export var gemAuthModule = angular.module('gem.auth', []).config(
