@@ -1,9 +1,6 @@
-export function LoginController (Account, $state, GemAcl, Shout) {
+export function LoginController (Account, $state, GemAcl, Shout, gettextCatalog) {
 
   this.rememberMe = true;
-  this.error = false;
-  this.errorMsg = '';
-  this.errorCode = '';
   this.login = () => {
     Account.login(
       {rememberMe: this.rememberMe},
@@ -19,7 +16,10 @@ export function LoginController (Account, $state, GemAcl, Shout) {
           });
       },
       (err) => {
-        Shout.vError(err);
+        if (err.status === 401)
+          Shout.error(gettextCatalog.getString('Could not login. Please check your username and password.'));
+        else
+          Shout.error(gettextCatalog.getString('Could not login. Please check your connection.'));
       }
     );
   };
