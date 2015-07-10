@@ -4,7 +4,7 @@ describe('test the dashboard', function () {
   var page;
 
   beforeEach(function () {
-    browser.get('http://localhost:9000/#/dashboard');
+    browser.get('#/dashboard');
   });
 
  
