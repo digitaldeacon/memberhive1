@@ -1,16 +1,10 @@
-<!-- BEGIN LOGO -->
 <div class="logo">
   <a href="#login">
     <img src="app/images/logo.png" alt=""/>
   </a>
 </div>
-<!-- END LOGO -->
+
 <div ng-controller="LoginController as loginCtrl" class="login-content md-whiteframe-z1" >
-  <!-- BEGIN LOGIN FORM -->
-  <div class="note note-danger" ng-show="loginCtrl.error">
-    <h4>  {{ loginCtrl.errorCode }}</h4>
-    {{ loginCtrl.errorMsg }}
-  </div>
   <form class="login-form" ng-submit="loginCtrl.login()">
     <h3 class="form-title" translate>Sign In</h3>
     <md-input-container flex>
@@ -26,7 +20,7 @@
       <span tranlate>Remember me</span>
     </md-checkbox>
 
-    <md-button class="md-raised md-primary" translate>
-      Login
+    <md-button class="md-raised md-primary">
+      <translate>Login</translate>
     </md-button>
 </div>
