@@ -10,11 +10,11 @@
     "handlebars": "^3.0.3",
     "http2": "^3.2.0",
     "lodash": "^3.9.3",
-    "loopback": "^2.16.3",
+    "loopback": "^2.19.0",
     "loopback-boot": "^2.4.0",
     "loopback-component-storage": "^1.3.1",
-    "loopback-connector-mongodb": "^1.8.0",
-    "loopback-datasource-juggler": "^2.23.0",
+    "loopback-connector-mongodb": "^1.11.3",
+    "loopback-datasource-juggler": "^2.32.0",
     "lwip": "^0.0.7",
     "mime": "^1.3.4",
     "moment": "^2.10.3",
@@ -24,7 +24,7 @@
     "toner-phantom": "^0.1.0"
   },
   "optionalDependencies": {
-    "loopback-explorer": "^1.1.0"
+    "loopback-explorer": "^1.8.0"
   },
   "repository": {},
   "devDependencies": {
