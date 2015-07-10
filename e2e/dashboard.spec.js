@@ -9,8 +9,7 @@ describe('test the dashboard', function () {
 
  
   xit('it should have a edit button', function () {
-    var list = element.all(by.css('[ng-click="toggleEditMode()"]'));
-    expect(list.count()).toBe(1);
+    expect(element(by.css('[ng-click="toggleEditMode()"]')).isPresent()).toBe(true);
   });
 
 });

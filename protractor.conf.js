@@ -5,11 +5,19 @@ exports.config = {
   // The address of a running selenium server.
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   //seleniumServerJar: deprecated, this should be set on node_modules/protractor/config.json
+  directConnect: true,
+  multiCapabilities: [
+    {
+      'browserName' : 'chrome'
+      'chromeOptions': {
+        'args': ['no-sandbox']
+      }
+    },
+    {
+      'browserName' : 'firefox'
+    }
+  ],
 
-  // Capabilities to be passed to the webdriver instance.
-  capabilities: {
-    'browserName': 'firefox'
-  },
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.
@@ -40,3 +48,6 @@ exports.config = {
     }, 10000);
   }
 };
+if (process.env.TRAVIS) {
+  exports.config.capabilities.chromeOptions.binary = __dirname + '/chrome-linux/chrome';
+}
