@@ -56,7 +56,6 @@ export function mhMenuItem($mdSidenav, $timeout) {
           scope.open = false;
           scope.iconVisible = false;
           scope.icon = 'keyboard_arrow_down';
-
         } else {
           scope.iconVisible = true;
           if(scope.forceClosed) {
@@ -64,7 +63,6 @@ export function mhMenuItem($mdSidenav, $timeout) {
             scope.open = true;
           }
         }
-
       });
     }
   };

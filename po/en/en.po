@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2015-06-26 10:47+0000\n"
-"PO-Revision-Date: 2015-06-26 10:47+0000\n"
+"POT-Creation-Date: 2015-07-10 10:31+0000\n"
+"PO-Revision-Date: 2015-07-10 10:31+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -11,64 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: modules/person/views/person.edit.tab.personal.html:88
-#: modules/person/views/person.list.html:55
-msgid "Birthdate"
-msgstr "Birthdate"
-
-#: modules/person/views/person.edit.tab.personal.html:146
-#: modules/person/views/person.list.html:59
-#: modules/person/views/person.view.contacts.html:2
-msgid "Email"
-msgstr "Email"
-
-#: modules/person/views/person.edit.tab.personal.html:48
-msgid "Female"
-msgstr "Female"
-
-#: modules/person/views/person.edit.tab.personal.html:57
-msgid "First Name"
-msgstr "First Name"
-
-#: modules/person/views/person.edit.tab.personal.html:45
-msgid "Gender"
-msgstr "Gender"
-
-#: modules/person/views/person.edit.tab.personal.html:75
-msgid "Last Name"
-msgstr "Last Name"
-
-#: modules/person/views/person.edit.tab.personal.html:47
-msgid "Male"
-msgstr "Male"
-
-#: modules/person/views/person.edit.tab.personal.html:70
-msgid "Middle Name"
-msgstr "Middle Name"
-
-#: modules/person/views/person.view.contacts.html:18
-msgid "Mobile"
-msgstr "Mobile"
-
-#: client/app/modules/person/controllers/person-edit-controller.js:97
-msgid "Please select an image that is at least 800x800 pixels."
-msgstr "Please select an image that is at least 800x800 pixels."
-
-#: client/app/modules/person/views/person.edit.html:44
-msgid "Rights"
-msgstr "Rights"
-
-#: client/app/modules/person/views/person.edit.tab.personal.html:153
-msgid "Select household..."
-msgstr "Select household..."
-
-#: client/app/modules/person/views/person.edit.tab.personal.html:107
-msgid "Select primary contact type..."
-msgstr "Select primary contact type..."
-
-#: modules/person/views/person.edit.tab.personal.html:83
-msgid "Suffix"
-msgstr "Suffix"
+#: modules/note/templates/note-create-directive.html:22
+msgid "Abbrechen"
+msgstr "Abbrechen"
 
 #: client/app/modules/person/views/person.edit.tab.personal.html:173
 msgid "Select Household"
@@ -96,11 +41,11 @@ msgstr "{{age}} old"
 msgid "Actions"
 msgstr "Actions"
 
-#: modules/person/views/person.edit.tab.personal.html:17
+#: modules/person/views/person.edit.tab.personal.html:11
 msgid "Add a status"
 msgstr "Add a status"
 
-#: modules/person/views/person.edit.tab.personal.html:35
+#: modules/person/views/person.edit.tab.personal.html:33
 msgid "Add a tag"
 msgstr "Add a tag"
 
@@ -120,12 +65,16 @@ msgstr "Address Line 2"
 msgid "Addresses"
 msgstr "Addresses"
 
+#: modules/person/views/person.edit.tab.personal.html:104
+msgid "Anniversary"
+msgstr "Anniversary"
+
 #: modules/report/views/report.upsert.tab.query.html:14
 #: modules/report/views/report.upsert.tab.query.html:35
 msgid "Ascending"
 msgstr "Ascending"
 
-#: modules/person/views/person.edit.tab.personal.html:225
+#: modules/person/views/person.edit.tab.personal.html:221
 msgid "Assign household to this person"
 msgstr "Assign household to this person"
 
@@ -137,13 +86,18 @@ msgstr "Aunt"
 msgid "Avatar"
 msgstr "Avatar"
 
-#: modules/person/views/person.edit.tab.personal.html:102
+#: modules/person/views/person.edit.tab.personal.html:99
 msgid "Baptism Date"
 msgstr "Baptism Date"
 
 #: modules/person/views/person.view.details.html:5
 msgid "Baptized {{timeFromNow}} ago"
 msgstr "Baptized {{timeFromNow}} ago"
+
+#: modules/person/views/person.edit.tab.personal.html:94
+#: modules/person/views/person.list.html:55
+msgid "Birthdate"
+msgstr "Birthdate"
 
 #: client/app/modules/person/services/person-service.js:124
 msgid "Brother"
@@ -164,6 +118,10 @@ msgstr "Build Query"
 #: modules/calendar/views/calendar.show.html:3
 msgid "Calendar"
 msgstr "Calendar"
+
+#: modules/note/templates/note-create-directive.html:22
+msgid "Cancel"
+msgstr "Cancel"
 
 #: client/app/modules/person/controllers/person-edit-controller.js:161
 msgid "Can’t read image. Please try again."
@@ -190,7 +148,7 @@ msgstr "Close"
 msgid "Contact"
 msgstr "Contact"
 
-#: modules/person/views/person.edit.tab.personal.html:126
+#: modules/person/views/person.edit.tab.personal.html:122
 msgid "Contact Info"
 msgstr "Contact Info"
 
@@ -202,11 +160,11 @@ msgstr "Country"
 msgid "Cousin"
 msgstr "Cousin"
 
-#: modules/person/views/person.edit.tab.personal.html:221
+#: modules/person/views/person.edit.tab.personal.html:217
 msgid "Create Household"
 msgstr "Create Household"
 
-#: modules/note/templates/note-create-directive.html:13
+#: modules/note/templates/note-create-directive.html:23
 msgid "Create Note"
 msgstr "Create Note"
 
@@ -320,6 +278,12 @@ msgstr "Edit Dashboard"
 msgid "Edit person"
 msgstr "Edit person"
 
+#: modules/person/views/person.edit.tab.personal.html:142
+#: modules/person/views/person.list.html:59
+#: modules/person/views/person.view.contacts.html:2
+msgid "Email"
+msgstr "Email"
+
 #: client/app/modules/core/core.js:101
 msgid "English"
 msgstr "English"
@@ -337,7 +301,7 @@ msgstr "Enable Footer"
 msgid "Enable Header"
 msgstr "Enable Header"
 
-#: modules/person/views/person.edit.tab.personal.html:192
+#: modules/person/views/person.edit.tab.personal.html:188
 msgid "Existing Household"
 msgstr "Existing Household"
 
@@ -357,7 +321,7 @@ msgstr "Export Persons"
 msgid "Facebook"
 msgstr "Facebook"
 
-#: modules/person/views/person.edit.tab.personal.html:178
+#: modules/person/views/person.edit.tab.personal.html:174
 msgid "Facebook Username"
 msgstr "Facebook Username"
 
@@ -373,11 +337,15 @@ msgstr "Father in Law"
 msgid "Family"
 msgstr "Family"
 
-#: modules/person/views/person.edit.tab.personal.html:173
+#: modules/person/views/person.edit.tab.personal.html:169
 #: modules/person/views/person.view.contacts.html:21
 #: modules/person/views/person.view.contacts.html:23
 msgid "Fax"
 msgstr "Fax"
+
+#: modules/person/views/person.edit.tab.personal.html:111
+msgid "Female"
+msgstr "Female"
 
 #: client/app/modules/person/controllers/person-import-controller.js:96
 msgid "File read"
@@ -386,6 +354,10 @@ msgstr "File read"
 #: modules/person/views/person.edit.tab.avatar.html:17
 msgid "File Drag/Drop is not supported for this browser"
 msgstr "File Drag/Drop is not supported for this browser"
+
+#: modules/person/views/person.edit.tab.personal.html:57
+msgid "First Name"
+msgstr "First Name"
 
 #: client/app/modules/person/services/person-service.js:110
 msgid "First-Time Visitor"
@@ -407,6 +379,10 @@ msgstr "Footer"
 msgid "Footer Height (cm)"
 msgstr "Footer Height (cm)"
 
+#: modules/person/views/person.edit.tab.personal.html:108
+msgid "Gender"
+msgstr "Gender"
+
 #: client/app/modules/core/core.js:106
 msgid "German"
 msgstr "German"
@@ -427,7 +403,7 @@ msgstr "Grandmother"
 msgid "Grandson"
 msgstr "Grandson"
 
-#: modules/person/views/person.view.html:90
+#: modules/person/views/person.view.html:95
 msgid "Groups"
 msgstr "Groups"
 
@@ -451,11 +427,11 @@ msgstr "History"
 msgid "Home"
 msgstr "Home"
 
-#: modules/person/views/person.edit.tab.addresses.html:6
+#: modules/person/views/person.edit.tab.addresses.html:5
 msgid "Home Address"
 msgstr "Home Address"
 
-#: modules/person/views/person.edit.tab.personal.html:155
+#: modules/person/views/person.edit.tab.personal.html:151
 msgid "Home Phone"
 msgstr "Home Phone"
 
@@ -464,11 +440,11 @@ msgstr "Home Phone"
 msgid "Home phone"
 msgstr "Home phone"
 
-#: modules/person/views/person.edit.tab.personal.html:187
+#: modules/person/views/person.edit.tab.personal.html:183
 msgid "Household"
 msgstr "Household"
 
-#: modules/person/views/person.view.household.html:25
+#: modules/person/views/person.view.household.html:29
 msgid "Household Address"
 msgstr "Household Address"
 
@@ -478,7 +454,7 @@ msgstr "Household Members"
 
 #: modules/person/views/household.edit.html:10
 #: modules/person/views/household.list.html:15
-#: modules/person/views/person.edit.tab.personal.html:217
+#: modules/person/views/person.edit.tab.personal.html:213
 msgid "Household Name"
 msgstr "Household Name"
 
@@ -511,6 +487,14 @@ msgstr "Irregular Visitor"
 msgid "Landscape"
 msgstr "Landscape"
 
+#: modules/person/views/person.edit.tab.personal.html:70
+msgid "Last Name"
+msgstr "Last Name"
+
+#: modules/address/directives/address_edit.html:38
+msgid "Latitude"
+msgstr "Latitude"
+
 #: modules/report/views/report.upsert.tab.layout.html:27
 msgid "Left Margin (cm)"
 msgstr "Left Margin (cm)"
@@ -531,10 +515,17 @@ msgstr "List Persons"
 msgid "List Reports"
 msgstr "List Reports"
 
-#: modules/auth/views/login.html:29
-#: modules/person/views/person.edit.tab.personal.html:115
+#: modules/auth/views/login.html:24
 msgid "Login"
 msgstr "Login"
+
+#: modules/address/directives/address_edit.html:43
+msgid "Longitude"
+msgstr "Longitude"
+
+#: modules/person/views/person.edit.tab.personal.html:110
+msgid "Male"
+msgstr "Male"
 
 #: client/app/modules/person/services/person-service.js:102
 msgid "Member"
@@ -548,11 +539,19 @@ msgstr "Member Prospect"
 msgid "Member Status"
 msgstr "Member Status"
 
+#: modules/person/views/person.edit.tab.personal.html:65
+msgid "Middle Name"
+msgstr "Middle Name"
+
+#: modules/person/views/person.view.contacts.html:18
+msgid "Mobile"
+msgstr "Mobile"
+
 #: client/app/modules/person/services/person-service.js:111
 msgid "Missionary"
 msgstr "Missionary"
 
-#: modules/person/views/person.edit.tab.personal.html:165
+#: modules/person/views/person.edit.tab.personal.html:161
 msgid "Mobile Phone"
 msgstr "Mobile Phone"
 
@@ -582,11 +581,11 @@ msgstr "Name"
 msgid "Nephew"
 msgstr "Nephew"
 
-#: modules/person/views/person.edit.tab.personal.html:212
+#: modules/person/views/person.edit.tab.personal.html:208
 msgid "New Household"
 msgstr "New Household"
 
-#: client/app/modules/note/note.js:38
+#: modules/note/templates/note-create-directive.html:32
 msgid "New Note"
 msgstr "New Note"
 
@@ -598,7 +597,7 @@ msgstr "New Person"
 msgid "New Report"
 msgstr "New Report"
 
-#: modules/person/views/person.edit.tab.personal.html:65
+#: modules/person/views/person.edit.tab.personal.html:84
 msgid "Nickname"
 msgstr "Nickname"
 
@@ -606,11 +605,11 @@ msgstr "Nickname"
 msgid "Niece"
 msgstr "Niece"
 
-#: modules/person/views/person.edit.tab.personal.html:205
+#: modules/person/views/person.edit.tab.personal.html:201
 msgid "No matches found for \"{{householdSearchText}}\"."
 msgstr "No matches found for \"{{householdSearchText}}\"."
 
-#: modules/note/templates/note-create-directive.html:9
+#: modules/note/templates/note-create-directive.html:18
 #: modules/note/templates/note-edit-form-directive.html:6
 msgid "Note"
 msgstr "Note"
@@ -652,7 +651,7 @@ msgstr "PDF Options"
 msgid "Page Size"
 msgstr "Page Size"
 
-#: modules/auth/views/login.html:21
+#: modules/auth/views/login.html:15
 msgid "Passwort"
 msgstr "Passwort"
 
@@ -663,7 +662,7 @@ msgid_plural "Persons"
 msgstr[0] "Person"
 msgstr[1] "Persons"
 
-#: modules/person/views/person.edit.tab.personal.html:7
+#: modules/person/views/person.edit.tab.personal.html:54
 msgid "Person Info"
 msgstr "Person Info"
 
@@ -683,7 +682,7 @@ msgstr "Personal"
 msgid "Persons"
 msgstr "Persons"
 
-#: modules/person/views/person.edit.tab.personal.html:149
+#: modules/person/views/person.edit.tab.personal.html:145
 msgid "Please enter a valid email address."
 msgstr "Please enter a valid email address."
 
@@ -692,7 +691,7 @@ msgstr "Please enter a valid email address."
 msgid "Please select a sort direction."
 msgstr "Please select a sort direction."
 
-#: modules/person/views/person.edit.tab.personal.html:138
+#: modules/person/views/person.edit.tab.personal.html:134
 msgid "Please select your primary contact method"
 msgstr "Please select your primary contact method"
 
@@ -700,11 +699,11 @@ msgstr "Please select your primary contact method"
 msgid "Portrait"
 msgstr "Portrait"
 
-#: modules/person/views/person.edit.tab.addresses.html:14
+#: modules/person/views/person.edit.tab.addresses.html:13
 msgid "Postal Address"
 msgstr "Postal Address"
 
-#: modules/person/views/person.edit.tab.personal.html:128
+#: modules/person/views/person.edit.tab.personal.html:124
 msgid "Primary Contact Method"
 msgstr "Primary Contact Method"
 
@@ -765,11 +764,11 @@ msgstr "Save and Close"
 msgid "Save and New"
 msgstr "Save and New"
 
-#: modules/person/views/person.edit.tab.personal.html:200
+#: modules/person/views/person.edit.tab.personal.html:196
 msgid "Search Household"
 msgstr "Search Household"
 
-#: templates/header.html:17
+#: templates/header.html:18
 msgid "Search…"
 msgstr "Search…"
 
@@ -794,7 +793,7 @@ msgstr "Select property"
 msgid "Shared Flat"
 msgstr "Shared Flat"
 
-#: modules/auth/views/login.html:15
+#: modules/auth/views/login.html:9
 msgid "Sign In"
 msgstr "Sign In"
 
@@ -811,7 +810,7 @@ msgstr "Sister in Law"
 msgid "Skype"
 msgstr "Skype"
 
-#: modules/person/views/person.edit.tab.personal.html:183
+#: modules/person/views/person.edit.tab.personal.html:179
 msgid "Skype Name"
 msgstr "Skype Name"
 
@@ -864,7 +863,26 @@ msgstr "Successfully saved report “{{name}}”"
 msgid "Structure"
 msgstr "Structure"
 
-#: modules/person/views/person.edit.tab.personal.html:27
+#: client/app/modules/person/controllers/person-edit-controller.js:97
+msgid "Please select an image that is at least 800x800 pixels."
+msgstr "Please select an image that is at least 800x800 pixels."
+
+#: client/app/modules/person/views/person.edit.html:44
+msgid "Rights"
+msgstr "Rights"
+
+#: client/app/modules/person/views/person.edit.tab.personal.html:153
+msgid "Select household..."
+msgstr "Select household..."
+
+#: client/app/modules/person/views/person.edit.tab.personal.html:107
+msgid "Select primary contact type..."
+msgstr "Select primary contact type..."
+
+#: modules/person/views/person.edit.tab.personal.html:89
+msgid "Suffix"
+msgstr "Suffix"
+
 #: modules/person/views/person.list.html:15
 msgid "Tags"
 msgstr "Tags"
@@ -873,20 +891,20 @@ msgstr "Tags"
 msgid "Then by"
 msgstr "Then by"
 
-#: modules/person/views/person.edit.tab.personal.html:150
-#: modules/person/views/person.edit.tab.personal.html:168
+#: modules/person/views/person.edit.tab.personal.html:146
+#: modules/person/views/person.edit.tab.personal.html:164
 #: modules/person/views/person.edit.tab.personal.html:60
-#: modules/person/views/person.edit.tab.personal.html:78
+#: modules/person/views/person.edit.tab.personal.html:73
 msgid "This field is required."
 msgstr "This field is required."
 
 #: modules/dashboard/templates/dashboard-edit.html:8
 #: modules/note/templates/note-edit-form-directive.html:2
-#: modules/person/views/person.edit.tab.personal.html:52
+#: modules/person/views/person.edit.tab.personal.html:79
 msgid "Title"
 msgstr "Title"
 
-#: modules/note/templates/note-create-directive.html:5
+#: modules/note/templates/note-create-directive.html:14
 msgid "Title (optional)"
 msgstr "Title (optional)"
 
@@ -906,11 +924,11 @@ msgstr "Uncle"
 msgid "Update"
 msgstr "Update"
 
-#: modules/person/views/person.edit.tab.personal.html:120
+#: modules/person/views/person.edit.tab.personal.html:116
 msgid "User can log in"
 msgstr "User can log in"
 
-#: modules/auth/views/login.html:17
+#: modules/auth/views/login.html:11
 msgid "Username"
 msgstr "Username"
 
@@ -946,11 +964,11 @@ msgstr "Wife"
 msgid "Work"
 msgstr "Work"
 
-#: modules/person/views/person.edit.tab.addresses.html:9
+#: modules/person/views/person.edit.tab.addresses.html:8
 msgid "Work Address"
 msgstr "Work Address"
 
-#: modules/person/views/person.edit.tab.personal.html:160
+#: modules/person/views/person.edit.tab.personal.html:156
 msgid "Work Phone"
 msgstr "Work Phone"
 
@@ -959,7 +977,7 @@ msgstr "Work Phone"
 msgid "Work phone"
 msgstr "Work phone"
 
-#: modules/person/views/person.edit.tab.personal.html:141
+#: modules/person/views/person.edit.tab.personal.html:137
 msgid "You need to enter an address."
 msgstr "You need to enter an address."
 
@@ -967,7 +985,7 @@ msgstr "You need to enter an address."
 msgid "Your primary contact method is {{personCtrl.person.primaryContact}}"
 msgstr "Your primary contact method is {{personCtrl.person.primaryContact}}"
 
-#: modules/person/views/person.edit.tab.personal.html:135
+#: modules/person/views/person.edit.tab.personal.html:131
 msgid "Your primary contact method is {{contactMethod}}"
 msgstr "Your primary contact method is {{contactMethod}}"
 
@@ -975,7 +993,7 @@ msgstr "Your primary contact method is {{contactMethod}}"
 msgid "ZIP/Postal Code"
 msgstr "ZIP/Postal Code"
 
-#: modules/person/views/person.view.html:80
+#: modules/person/views/person.view.html:85
 msgid "from"
 msgstr "from"
 

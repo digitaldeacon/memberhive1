@@ -6,6 +6,11 @@ msgstr ""
 
 #: common/models/person.json
 msgctxt "Person"
+msgid "Anniversary"
+msgstr ""
+
+#: common/models/person.json
+msgctxt "Person"
 msgid "Baptism Date"
 msgstr ""
 
@@ -15,12 +20,12 @@ msgid "Birthdate"
 msgstr ""
 
 #: common/models/person.json
-msgctxt "Person"
+msgctxt "Primary Contact"
 msgid "Email"
 msgstr ""
 
 #: common/models/person.json
-msgctxt "Primary Contact"
+msgctxt "Person"
 msgid "Email"
 msgstr ""
 
