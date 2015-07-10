@@ -8,7 +8,7 @@
 
   <span class="sub-title" hide show-gt-md> {{appCtrl.getSubTitle()}} </span>
 </div>
-<div flex-gt-md="70" flex>
+<div flex-gt-sm="66">
   <form flex ng-submit="$event.preventDefault()">
     <md-autocomplete flex
         md-search-text="headerCtrl.searchText"
@@ -29,7 +29,7 @@
     </md-autocomplete>
   </form>
 </div>
-<div flex="10">
+<div flex="10" style="text-align:right">
   <md-menu>
     <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu()">
       <ng-md-icon icon="more_vert"></ng-md-icon>

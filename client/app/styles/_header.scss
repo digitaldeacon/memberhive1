@@ -1,8 +1,11 @@
 .header-toolbar {
   background-color: primary-color('600') !important;
-  max-height: 64px;
+  min-height: 68px;
+  max-height: 68px;
   .sub-title {
     margin-right: 1em;
+    line-height: 2em;
+    white-space: nowrap;
   }
   .md-icon-button {
     fill: $text-color-light;
