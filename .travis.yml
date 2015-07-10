@@ -8,10 +8,7 @@ cache:
     - bower_components
     - $HOME/.nvm
 before_install:
-
-  - npm install -g bower
-  - npm install -g gulp
-  - npm install -g nodemon
+  - npm install -g bower gulp 
 install:
   - npm install
   - bower install
@@ -23,3 +20,4 @@ before_script:
   - sleep 2
 script:
   - gulp test
+  - gulp test:dist
