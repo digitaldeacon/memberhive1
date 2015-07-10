@@ -3,9 +3,6 @@ exports.config = {
   multiCapabilities: [
     {
       browserName : 'chrome',
-      chromeOptions: {
-        args: ['no-sandbox']
-      }
     },
     {
       browserName : 'firefox'
