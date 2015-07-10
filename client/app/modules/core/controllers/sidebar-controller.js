@@ -22,13 +22,13 @@ export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, 
   this.isHovering = true;
 
   this.menuClass = () => {
-    if(this.isMenuLocked !== 0) {
+    if(this.isMenuLocked) {
       return '';
     } else {
-      if(this.isMenuCollapsing !== 0) {
+      if(this.isMenuCollapsing) {
         return 'is-collapsing';
       } else {
-        if(this.isHovering === 1)
+        if(this.isHovering)
           return 'admin-sidebar-collapsed';
         else
           return '';
