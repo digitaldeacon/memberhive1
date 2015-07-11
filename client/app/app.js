@@ -33,9 +33,9 @@ export var gemMainModule = angular.module('gem.main', [
 );
 
 gemMainModule.config(
-  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider) => {
+  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, mhConfig, LoopBackResourceProvider) => {
     cfpLoadingBarProvider.includeSpinner = false;
-
+    LoopBackResourceProvider.setUrlBase(mhConfig.apiUrl);
     $breadcrumbProvider.setOptions({
       prefixStateName: 'dashboard',
       templateUrl: 'app/templates/breadcrumb.html'

@@ -1,5 +1,5 @@
 export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCatalog,
-                              Upload, apiUrl, $rootScope) {
+                              Upload, mhConfig, $rootScope) {
   return {
     modelName: () => {
       return Person.model.name;
@@ -49,7 +49,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
 
     saveAvatar: (person, file) => {
       Upload.upload({
-        url: `${apiUrl}/Avatars/${person.id}/upload`,
+        url: `${mhConfig.apiUrl}/Avatars/${person.id}/upload`,
         file: file,
         fileName: 'avatar.jpg'
       });
