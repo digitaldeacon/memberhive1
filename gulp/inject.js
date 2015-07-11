@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
 var wiredep = require('wiredep').stream;
-
+var replace = require('gulp-replace');
 module.exports = function(options) {
   gulp.task('inject', ['scripts', 'styles'], function () {
     var injectStyles = gulp.src([
@@ -24,10 +24,17 @@ module.exports = function(options) {
       addRootSlash: false
     };
 
-    return gulp.src(options.src + '/*.html')
+    return gulp.src(options.src + '/index.html')
       .pipe($.inject(injectStyles, injectOptions))
       .pipe($.inject(injectScripts, injectOptions))
       .pipe(wiredep(options.wiredep))
+      .pipe(gulp.dest(options.tmp + '/serve'));
+
+  });
+  
+  gulp.task('inject_config_default', ['inject'], function () {
+    return gulp.src(options.tmp + '/serve/index.html')
+      .pipe(replace("'--replace-global-config--'", '{"test":"test"}'))
       .pipe(gulp.dest(options.tmp + '/serve'));
 
   });

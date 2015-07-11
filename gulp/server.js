@@ -38,11 +38,11 @@ module.exports = function(options) {
   }
 
 
-  gulp.task('serve', ['watch'], function () {
+  gulp.task('serve', ['watch', 'inject_config_default'], function () {
     browserSyncInit([options.tmp + '/serve', options.src]);
   });
   
-   gulp.task('surf', ['watch'], function () {
+   gulp.task('surf', ['watch', 'inject_config_default'], function () {
     browserSyncInit([options.tmp + '/serve', options.src]);
   });
 
