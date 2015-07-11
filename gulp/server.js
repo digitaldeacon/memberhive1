@@ -50,7 +50,7 @@ module.exports = function(options) {
     browserSyncInit(options.dist);
   });
   
-   gulp.task('serve:e2e', ['inject'], function () {
+   gulp.task('serve:e2e', ['inject_config_default'], function () {
     browserSyncInit([options.tmp + '/serve', options.src], []);
   });
 
