@@ -67,3 +67,22 @@ td.label-row {
     margin-right: 3px;
   }
 }
+
+.box {
+  padding: 10px;
+  width: 100%;
+}
+.highlight {
+  background-color: accent-color('100') !important;
+  color: primary-color('600');
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+}
+.person-view {
+  .note-add {
+    button {
+      min-width:48px !important;
+    }
+  }
+}

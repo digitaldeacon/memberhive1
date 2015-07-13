@@ -26,10 +26,10 @@
 
 </md-card>
 
-<md-card class="md-2-line" ng-show="!showNote">
-  <md-card-content flex layout="row">
-    <div class="md-actions" layout="row" layout-align="end center">
-      <md-button ng-click="showNote = true" class="md-raised"><translate>New Note</translate></md-button>
-    </div>
-  </md-card-content>
-</md-card>
+
+<div class="md-actions note-add" layout="row" layout-align="center">
+  <md-button ng-click="showNote = true" class="md-raised md-mini">
+    <ng-md-icon icon="message" options="{'duration': 300, 'rotation':'none'}"></ng-md-icon>
+  </md-button>
+</div>
+
