@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2015-07-10 10:31+0000\n"
-"PO-Revision-Date: 2015-07-10 10:31+0000\n"
+"POT-Creation-Date: 2015-07-10 12:29+0000\n"
+"PO-Revision-Date: 2015-07-10 12:29+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -253,6 +253,14 @@ msgstr "EMail"
 msgid "Edit"
 msgstr "Edit"
 
+#: client/app/modules/person/person.js:93
+msgid "Edit a Person"
+msgstr "Edit a Person"
+
+#: modules/dashboard/templates/dashboard-edit.html:3
+msgid "Edit Dashboard"
+msgstr "Edit Dashboard"
+
 #: client/app/modules/person/person.js:146
 #: client/app/modules/person/person.js:149
 msgid "Edit Household"
@@ -262,17 +270,9 @@ msgstr "Edit Household"
 msgid "Edit Person"
 msgstr "Edit Person"
 
-#: client/app/modules/report/report.js:58
+#: modules/report/views/report.upsert.html:8
 msgid "Edit Report"
 msgstr "Edit Report"
-
-#: client/app/modules/person/person.js:93
-msgid "Edit a Person"
-msgstr "Edit a Person"
-
-#: modules/dashboard/templates/dashboard-edit.html:3
-msgid "Edit Dashboard"
-msgstr "Edit Dashboard"
 
 #: modules/person/views/person.view.html:28
 msgid "Edit person"
@@ -293,7 +293,7 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: modules/report/views/report.upsert.tab.layout.html:58
+#: modules/report/views/report.upsert.tab.layout.html:59
 msgid "Enable Footer"
 msgstr "Enable Footer"
 
@@ -371,11 +371,11 @@ msgstr "For best results the image should be at least 800x800 pixels."
 msgid "Former Member"
 msgstr "Former Member"
 
-#: modules/report/views/report.upsert.tab.layout.html:56
+#: modules/report/views/report.upsert.tab.layout.html:57
 msgid "Footer"
 msgstr "Footer"
 
-#: modules/report/views/report.upsert.tab.layout.html:62
+#: modules/report/views/report.upsert.tab.layout.html:63
 msgid "Footer Height (cm)"
 msgstr "Footer Height (cm)"
 
@@ -407,7 +407,7 @@ msgstr "Grandson"
 msgid "Groups"
 msgstr "Groups"
 
-#: modules/report/views/report.upsert.tab.layout.html:74
+#: modules/report/views/report.upsert.tab.preview.html:5
 msgid "HTML"
 msgstr "HTML"
 
@@ -483,7 +483,7 @@ msgstr "Info"
 msgid "Irregular Visitor"
 msgstr "Irregular Visitor"
 
-#: modules/report/views/report.upsert.tab.layout.html:13
+#: modules/report/views/report.upsert.tab.layout.html:14
 msgid "Landscape"
 msgstr "Landscape"
 
@@ -631,7 +631,7 @@ msgstr "Passed Member"
 msgid "Order by"
 msgstr "Order by"
 
-#: modules/report/views/report.upsert.tab.layout.html:11
+#: modules/report/views/report.upsert.tab.layout.html:12
 msgid "Orientation"
 msgstr "Orientation"
 
@@ -639,15 +639,15 @@ msgstr "Orientation"
 msgid "Other"
 msgstr "Other"
 
-#: modules/report/views/report.upsert.tab.layout.html:82
+#: modules/report/views/report.upsert.tab.preview.html:13
 msgid "PDF"
 msgstr "PDF"
 
-#: modules/report/views/report.upsert.tab.layout.html:8
+#: modules/report/views/report.upsert.tab.layout.html:10
 msgid "PDF Options"
 msgstr "PDF Options"
 
-#: modules/report/views/report.upsert.tab.layout.html:15
+#: modules/report/views/report.upsert.tab.layout.html:16
 msgid "Page Size"
 msgstr "Page Size"
 
@@ -695,7 +695,7 @@ msgstr "Please select a sort direction."
 msgid "Please select your primary contact method"
 msgstr "Please select your primary contact method"
 
-#: modules/report/views/report.upsert.tab.layout.html:12
+#: modules/report/views/report.upsert.tab.layout.html:13
 msgid "Portrait"
 msgstr "Portrait"
 
@@ -724,6 +724,10 @@ msgstr "Report Name"
 msgid "Report layout"
 msgstr "Report layout"
 
+#: modules/report/views/report.upsert.html:32
+msgid "Report preview"
+msgstr "Report preview"
+
 #: modules/report/views/report.upsert.html:16
 msgid "Report source"
 msgstr "Report source"
@@ -732,7 +736,7 @@ msgstr "Report source"
 msgid "Reports"
 msgstr "Reports"
 
-#: modules/report/views/report.upsert.html:35
+#: modules/report/views/report.upsert.html:43
 msgid "Reset"
 msgstr "Reset"
 
@@ -750,7 +754,7 @@ msgstr "Save"
 
 #: modules/person/views/household.edit.html:30
 #: modules/person/views/person.edit.html:39
-#: modules/report/views/report.upsert.html:33
+#: modules/report/views/report.upsert.html:41
 msgid "Save Changes"
 msgstr "Save Changes"
 

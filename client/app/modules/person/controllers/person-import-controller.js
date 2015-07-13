@@ -86,7 +86,7 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
     if (files && files[0]) {
       GemFileReader.readAsText(files[0], 'UTF-8', $scope).then(
         (resp) => {
-          console.log(resp);
+          //console.log(resp);
           this.fillTable(this.csvToArray(resp));
           Shout.message(gettextCatalog.getString("File read"));
         }, (err) => {

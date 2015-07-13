@@ -140,6 +140,10 @@ msgstr ""
 msgid "Edit Dashboard"
 msgstr ""
 
+#: modules/report/views/report.upsert.html:8
+msgid "Edit Report"
+msgstr ""
+
 #: modules/person/views/person.view.html:28
 msgid "Edit person"
 msgstr ""
@@ -150,7 +154,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:58
+#: modules/report/views/report.upsert.tab.layout.html:59
 msgid "Enable Footer"
 msgstr ""
 
@@ -193,11 +197,11 @@ msgstr ""
 msgid "First Name"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:56
+#: modules/report/views/report.upsert.tab.layout.html:57
 msgid "Footer"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:62
+#: modules/report/views/report.upsert.tab.layout.html:63
 msgid "Footer Height (cm)"
 msgstr ""
 
@@ -209,7 +213,7 @@ msgstr ""
 msgid "Groups"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:74
+#: modules/report/views/report.upsert.tab.preview.html:5
 msgid "HTML"
 msgstr ""
 
@@ -273,7 +277,7 @@ msgstr ""
 msgid "Import Persons"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:13
+#: modules/report/views/report.upsert.tab.layout.html:14
 msgid "Landscape"
 msgstr ""
 
@@ -356,7 +360,7 @@ msgstr ""
 msgid "Order by"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:11
+#: modules/report/views/report.upsert.tab.layout.html:12
 msgid "Orientation"
 msgstr ""
 
@@ -364,15 +368,15 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:82
+#: modules/report/views/report.upsert.tab.preview.html:13
 msgid "PDF"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:8
+#: modules/report/views/report.upsert.tab.layout.html:10
 msgid "PDF Options"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:15
+#: modules/report/views/report.upsert.tab.layout.html:16
 msgid "Page Size"
 msgstr ""
 
@@ -409,7 +413,7 @@ msgstr ""
 msgid "Please select your primary contact method"
 msgstr ""
 
-#: modules/report/views/report.upsert.tab.layout.html:12
+#: modules/report/views/report.upsert.tab.layout.html:13
 msgid "Portrait"
 msgstr ""
 
@@ -434,6 +438,10 @@ msgstr ""
 msgid "Report layout"
 msgstr ""
 
+#: modules/report/views/report.upsert.html:32
+msgid "Report preview"
+msgstr ""
+
 #: modules/report/views/report.upsert.html:16
 msgid "Report source"
 msgstr ""
@@ -442,7 +450,7 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
-#: modules/report/views/report.upsert.html:35
+#: modules/report/views/report.upsert.html:43
 msgid "Reset"
 msgstr ""
 
@@ -460,7 +468,7 @@ msgstr ""
 
 #: modules/person/views/household.edit.html:30
 #: modules/person/views/person.edit.html:39
-#: modules/report/views/report.upsert.html:33
+#: modules/report/views/report.upsert.html:41
 msgid "Save Changes"
 msgstr ""
 

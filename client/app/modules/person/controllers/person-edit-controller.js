@@ -203,9 +203,6 @@ export class PersonEditController {
     }
   }
 
-  codeAddress(address) {
-    console.log(address);
-  }
   /**
    * Save all person data
    *

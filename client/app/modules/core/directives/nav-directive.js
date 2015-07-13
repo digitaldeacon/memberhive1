@@ -50,7 +50,6 @@ export function mhMenuItem($mdSidenav, $timeout) {
       };
 
       scope.$watch('collapsing',()=>{
-        console.log(scope.collapsing);
         if(scope.collapsing) {
           scope.forceClosed = scope.open;
           scope.open = false;

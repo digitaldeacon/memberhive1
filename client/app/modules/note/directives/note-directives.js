@@ -77,7 +77,7 @@ export function NoteCreateDirective() {
       };
 
       this.close = ($element) => {
-        console.log($scope);
+        //console.log($scope);
       };
     },
     controllerAs: 'ctrl',
