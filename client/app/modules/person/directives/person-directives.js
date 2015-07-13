@@ -11,7 +11,7 @@
  * You might also apply any css classes:
  *   <gem-avatar person="personCtrl.person" size="m" circle class="foo bar"></gem-avatar>
  */
-export function AvatarDirective(apiUrl) {
+export function AvatarDirective(mhConfig) {
   return {
     template: '<img ng-src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}"' +
               ' aria-label="{{label}}" tooltip="{{label}}" />',
@@ -31,7 +31,7 @@ export function AvatarDirective(apiUrl) {
 
       var setImgSrc = function() {
         if (scope.person.hasAvatar) {
-          scope.imgSrc = `${apiUrl}/Avatars/${scope.person.id}/download/${scope.size}.jpg`;
+          scope.imgSrc = `${mhConfig.apiUrl}/Avatars/${scope.person.id}/download/${scope.size}.jpg`;
         } else {
           scope.imgSrc = `/app/images/avatar/${scope.size}.jpg`;
         }

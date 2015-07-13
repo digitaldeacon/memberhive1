@@ -1,7 +1,7 @@
 export class ReportUpsertController {
 
   constructor($scope, Report, ReportService, Person, gettextCatalog, Shout, $stateParams, QueryBuilderModelService,
-              apiUrl, $sce, $document) {
+              mhConfig, $sce, $document) {
     this.$scope = $scope;
     this.Report = Report;
     this.ReportService = ReportService;
@@ -12,8 +12,8 @@ export class ReportUpsertController {
     this.$document = $document;
 
     this.report = this.getReport();
-    this.htmlPreviewURL = $sce.trustAsResourceUrl(`${apiUrl}/Reports/renderHTML?reportId=${this.$stateParams.id}`);
-    this.pdfPreviewURL = $sce.trustAsResourceUrl(`${apiUrl}/Reports/renderPDF?reportId=${this.$stateParams.id}`);
+    this.htmlPreviewURL = $sce.trustAsResourceUrl(`${mhConfig.apiUrl}/Reports/renderHTML?reportId=${this.$stateParams.id}`);
+    this.pdfPreviewURL = $sce.trustAsResourceUrl(`${mhConfig.apiUrl}/Reports/renderPDF?reportId=${this.$stateParams.id}`);
 
     $scope.reportHtml = '';
 

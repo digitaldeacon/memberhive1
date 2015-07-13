@@ -1,7 +1,7 @@
 export class ReportHtmlController {
 
-  constructor(selectedReport, $sce, apiUrl) {
-    this.htmlPreviewURL = $sce.trustAsResourceUrl(`${apiUrl}/Reports/renderHTML?reportId=${selectedReport.id}`);
+  constructor(selectedReport, $sce, mhConfig) {
+    this.htmlPreviewURL = $sce.trustAsResourceUrl(`${mhConfig.apiUrl}/Reports/renderHTML?reportId=${selectedReport.id}`);
   }
 }
 
