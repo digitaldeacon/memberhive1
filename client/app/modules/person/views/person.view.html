@@ -32,10 +32,15 @@
             {{personCtrl.person.birthdate | fromNow}}
           </span>
         </div>
-
         <div>
           <h4 translate>Contact</h4>
           <div ng-include="'app/modules/person/views/person.view.contacts.html'"></div>
+        </div>
+        <div>
+          <mh-note-create
+            notable-type="Person"
+            notable-id="{{personCtrl.person.id}}"
+            new-note="personCtrl.newNote(note)"></mh-note-create>
         </div>
       </div>
       <div flex>
@@ -49,20 +54,20 @@
               <timeline class="md-padding">
                 <timeline-event ng-repeat="note in personCtrl.notes">
                   <timeline-badge class="info bounce-in" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                    <ng-md-icon size="18" icon="{{note.type}}" ng-if="note.type"></ng-md-icon>
-                    <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
+                    <span>{{note.created | amDifference : null : 'days'}}</span>
                   </timeline-badge>
                   <timeline-panel class="info bounce-in" when-visible="animateElementIn" when-not-visible="animateElementOut">
                     <timeline-heading>
                       <h4 ng-if="note.title">{{note.title}}</h4>
-                      <small><i><span am-time-ago="note.created"></span>
+                      <ng-md-icon size="18" icon="{{note.type}}" ng-if="note.type"></ng-md-icon>
+                      <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
+                      <small><i>{{note.created | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}
                         <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>
                     </timeline-heading>
                     <p>{{note.content}}</p>
                   </timeline-panel>
                 </timeline-event>
               </timeline>
-
 
             </md-tab-body>
           </md-tab>
@@ -71,10 +76,7 @@
               <fa name="user"></fa> <translate> Personal</translate>
             </md-tab-label>
             <md-tab-body class="md-padding">
-              <mh-note-create
-                notable-type="Person"
-                notable-id="{{personCtrl.person.id}}"
-                new-note="personCtrl.newNote(note)"></mh-note-create>
+
             </md-tab-body>
           </md-tab>
         </md-tabs>

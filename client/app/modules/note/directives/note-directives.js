@@ -31,7 +31,7 @@ export function NoteCreateDirective() {
         notableType: '@',
         newNote: '&'
     },
-    controller: function ($scope, $element, Note, Shout, gettextCatalog) {
+    controller: function ($scope, $element, $mdDialog, Note, Shout, gettextCatalog) {
       this.type = 'note';
       this.noteTypes = [{
         icon: 'chat',
@@ -49,7 +49,11 @@ export function NoteCreateDirective() {
         icon: 'group',
         title: 'Meeting',
         value: 'meeting'
-      },
+      },{
+          icon: 'backup',
+          title: 'Prayer',
+          value: 'prayer'
+        },
       ];
 
       this.create = () => {
@@ -75,6 +79,32 @@ export function NoteCreateDirective() {
         this.content = '';
         this.noteType = '';
       };
+
+      this.createDialog = (event) => {
+        $mdDialog.show({
+          //controller: this.DialogController,
+          templateUrl: 'createNote.html',
+          parent: angular.element(document.body),
+          targetEvent: event,
+        })
+          .then(function(answer) {
+            $scope.alert = 'You said the information was "' + answer + '".';
+          }, function() {
+            $scope.alert = 'You cancelled the dialog.';
+          });
+      };
+
+      this.DialogController = ($scope, $mdDialog) => {
+        $scope.hide = function() {
+          $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+          $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+          $mdDialog.hide(answer);
+        };
+      }
 
       this.close = ($element) => {
         //console.log($scope);
