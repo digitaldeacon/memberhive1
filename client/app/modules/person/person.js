@@ -22,6 +22,7 @@ export var gemPersonModule = angular.module('gem.person',
     'ngImgCrop',
     'ngTagsInput',
     'uiGmapgoogle-maps',
+    'angular-timeline',
 
     'personFilters',
     'gem.person.widget.stats',

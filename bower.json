@@ -39,7 +39,8 @@
     "nsPopover": "~0.6.8",
     "ngImgCrop": "~0.3.2",
     "jQuery-QueryBuilder": "2.1.0",
-    "roboto-fontface": "~0.4.2"
+    "roboto-fontface": "~0.4.2",
+    "angular-timeline": "~1.5.2"
   },
   "devDependencies": {},
   "appPath": "client/app",
