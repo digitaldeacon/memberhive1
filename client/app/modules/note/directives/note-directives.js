@@ -82,10 +82,14 @@ export function NoteCreateDirective() {
 
       this.createDialog = (event) => {
         $mdDialog.show({
-          //controller: this.DialogController,
+          controller: this.DialogController,
           templateUrl: 'createNote.html',
           parent: angular.element(document.body),
           targetEvent: event,
+          locals: {
+            noteTypes: this.noteTypes,
+            type: 'bad'
+          },
         })
           .then(function(answer) {
             $scope.alert = 'You said the information was "' + answer + '".';
