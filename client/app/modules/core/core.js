@@ -117,7 +117,7 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
   });
 });
 
-gemCoreModule.run(($rootScope, gettextCatalog, $cookies) => {
+gemCoreModule.run(($rootScope, gettextCatalog, $cookies, amMoment) => {
   $rootScope.gemConfig = {
     layout: {
       sidebarClosed: true // sidebar state
@@ -143,6 +143,9 @@ gemCoreModule.run(($rootScope, gettextCatalog, $cookies) => {
   var lang = $cookies.lang || navigator.language || navigator.userLanguage;
   $rootScope.locale = $rootScope.locales[lang] || $rootScope.locales.de;
   gettextCatalog.setCurrentLanguage($rootScope.locale.lang);
+  console.log($rootScope.locale.lang);
+  amMoment.changeLocale($rootScope.locale.lang);
+  console.log(amMoment);
 });
 
 // Controllers

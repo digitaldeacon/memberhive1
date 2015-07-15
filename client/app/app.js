@@ -43,11 +43,10 @@ gemMainModule.config(
 
   });
 
-gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
+gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth, amMoment) => {
   $rootScope.$state = $state; // state to be accessed from view
   $rootScope.accessToken = LoopBackAuth.accessTokenId;
   var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
   GemAcl.setRightsPromise(p);
   $rootScope.acl = GemAcl;
-
 });
