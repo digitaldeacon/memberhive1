@@ -108,7 +108,7 @@ export function NoteCreateDirective() {
         $scope.answer = function(answer) {
           $mdDialog.hide(answer);
         };
-      }
+      };
 
       this.close = ($element) => {
         //console.log($scope);
