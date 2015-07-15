@@ -22,7 +22,7 @@
   </div>
 
   <md-card layout-gt-md="row">
-    <div flex="15" layout="column" class="md-padding">
+    <div flex="20" layout="column" class="md-padding">
       <div>
         <gem-avatar person="personCtrl.person" size="m"></gem-avatar>
       </div>
@@ -42,7 +42,7 @@
           new-note="personCtrl.newNote(note)"></mh-note-create>
       </div>
     </div>
-    <div flex>
+    <div flex="80">
       <md-tabs md-dynamic-height md-border-bottom class="md-padding">
         <md-tab>
           <md-tab-label>
@@ -67,6 +67,7 @@
                 </timeline-panel>
               </timeline-event>
             </timeline>-->
+
             <md-card class="md-2-line" ng-repeat="note in personCtrl.notes">
               <md-card-content flex layout="row">
                 <div flex class="md-list-item-text">
@@ -86,7 +87,19 @@
           <md-tab-label>
             <fa name="user"></fa> <translate> Personal</translate>
           </md-tab-label>
-          <md-tab-body class="md-padding">
+          <md-tab-body class="md-padding" layout="column">
+
+            <h4 translate>Household details</h4>
+            <div ng-include="'app/modules/person/views/person.view.household.html'"></div>
+
+            <h4 translate>Personal details</h4>
+            <div ng-include="'app/modules/person/views/person.view.details.html'"></div>
+
+            <h4 translate>Contact details</h4>
+            <div ng-include="'app/modules/person/views/person.view.contacts.html'"></div>
+
+            <h4 translate>Address details</h4>
+            <div ng-include="'app/modules/person/views/person.view.addresses.html'"></div>
 
           </md-tab-body>
         </md-tab>
