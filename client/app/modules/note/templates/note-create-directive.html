@@ -2,13 +2,12 @@
   <md-dialog>
     <md-dialog-content>
       <h3 translate>Create new Note</h3>
-      {{type}}
-      <md-radio-group ng-model="type" class="radio-buttons-hz">
-        <md-radio-button ng-repeat="type in vm.noteTypes"
-                         ng-value="type.value"
-                         aria-label="{{type.title}}">
-          <md-tooltip>{{type.title}}</md-tooltip>
-          <ng-md-icon icon="{{type.icon}}" style="fill:#61697E"></ng-md-icon>
+      <md-radio-group ng-model="ctrl.type" class="radio-buttons-hz">
+        <md-radio-button ng-repeat="notetype in ctrl.noteTypes"
+                         ng-value="notetype.value"
+                         aria-label="{{notetype.title}}">
+          <md-tooltip>{{notetype.title}}</md-tooltip>
+          <ng-md-icon icon="{{notetype.icon}}" style="fill:#61697E"></ng-md-icon>
         </md-radio-button>
       </md-radio-group>
 

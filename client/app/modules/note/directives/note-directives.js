@@ -57,6 +57,7 @@ export function NoteCreateDirective() {
       ];
 
       this.create = () => {
+        console.log('create');
         Note.upsert(
           {
             title: this.title,
@@ -80,33 +81,39 @@ export function NoteCreateDirective() {
         this.noteType = '';
       };
 
-      this.createDialog = (event) => {
+      this.createDialog = ($event) => {
         $mdDialog.show({
           controller: this.DialogController,
+          controllerAs: 'ctrl',
+          bindToController: true,
           templateUrl: 'createNote.html',
           parent: angular.element(document.body),
-          targetEvent: event,
+          targetEvent: $event,
           locals: {
             noteTypes: this.noteTypes,
-            type: 'bad'
+            type: this.type,
+            title: this.title,
+            content: this.content
           },
         })
           .then(function(answer) {
-            $scope.alert = 'You said the information was "' + answer + '".';
+            console.log('You said the information was good: '+answer);
           }, function() {
-            $scope.alert = 'You cancelled the dialog.';
+            console.log('You said the information was nada');
           });
       };
 
-      this.DialogController = ($scope, $mdDialog) => {
+      this.DialogController = ($scope, $mdDialog, content) => {
         $scope.hide = function() {
+          console.log('hide');
           $mdDialog.hide();
         };
         $scope.cancel = function() {
           $mdDialog.cancel();
         };
-        $scope.answer = function(answer) {
-          $mdDialog.hide(answer);
+        $scope.create = function(content) {
+          console.log('OK: '+content);
+          $mdDialog.hide();
         };
       };
 
