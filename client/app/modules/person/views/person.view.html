@@ -26,20 +26,20 @@
       <div>
         <gem-avatar person="personCtrl.person" size="m"></gem-avatar>
       </div>
-      <div class="box highlight">
-        <span ng-if="personCtrl.person.birthdate">
+      <div class="highlight" layout="row">
+        <div ng-if="personCtrl.person.birthdate" flex class="md-padding">
           {{personCtrl.person.birthdate | fromNow}}
-        </span>
+        </div>
+        <div flex>
+          <mh-note-create
+              notable-type="Person"
+              notable-id="{{personCtrl.person.id}}"
+              new-note="personCtrl.newNote(note)"></mh-note-create>
+        </div>
       </div>
       <div>
         <h4 translate>Contact</h4>
         <div ng-include="'app/modules/person/views/person.view.contacts.html'"></div>
-      </div>
-      <div>
-        <mh-note-create
-          notable-type="Person"
-          notable-id="{{personCtrl.person.id}}"
-          new-note="personCtrl.newNote(note)"></mh-note-create>
       </div>
     </div>
     <div flex="80">
