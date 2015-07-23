@@ -31,38 +31,16 @@ export function NoteCreateDirective() {
         notableType: '@',
         newNote: '&'
     },
-    controller: function ($scope, $element, $mdDialog, Note, Shout, gettextCatalog) {
+    controller: function ($scope, $element, $mdDialog, Note, NoteIconConfig, Shout, gettextCatalog) {
       this.type = 'note';
-      this.noteTypes = [{
-        icon: 'chat',
-        title: 'Note',
-        value: 'note'
-      },{
-        icon: 'email',
-        title: 'Email',
-        value: 'email'
-      },{
-        icon: 'call',
-        title: 'Phone',
-        value: 'phone'
-      },{
-        icon: 'group',
-        title: 'Meeting',
-        value: 'meeting'
-      },{
-          icon: 'backup',
-          title: 'Prayer',
-          value: 'prayer'
-        },
-      ];
+      this.noteTypes = NoteIconConfig;
 
-      this.create = () => {
-        console.log('create');
+      this.create = (controller) => {
         Note.upsert(
           {
-            title: this.title,
-            content: this.content,
-            type: this.type,
+            title: controller.title,
+            content: controller.content,
+            type: controller.type,
             notableId: $scope.notableId,
             notableType: $scope.notableType
           }).$promise
@@ -93,14 +71,11 @@ export function NoteCreateDirective() {
             noteTypes: this.noteTypes,
             type: this.type,
             title: this.title,
-            content: this.content
+            content: this.content,
+            vm: this
           },
         })
-          .then(function(answer) {
-            console.log('You said the information was good: '+answer);
-          }, function() {
-            console.log('You said the information was nada');
-          });
+
       };
 
       this.DialogController = ($scope, $mdDialog, content) => {
@@ -112,13 +87,13 @@ export function NoteCreateDirective() {
           $mdDialog.cancel();
         };
         $scope.create = function(content) {
-          console.log('OK: '+content);
+          this.ctrl.vm.create(this.ctrl);
           $mdDialog.hide();
         };
       };
 
       this.close = ($element) => {
-        //console.log($scope);
+
       };
     },
     controllerAs: 'ctrl',

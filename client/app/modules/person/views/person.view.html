@@ -72,7 +72,7 @@
               <md-card-content flex layout="row">
                 <div flex class="md-list-item-text">
                   <h4>{{note.title}}</h4>
-                  <ng-md-icon size="18" icon="{{note.type}}" ng-if="note.type"></ng-md-icon>
+                  <ng-md-icon size="18" icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
                   <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
                   <small><i><span am-time-ago="note.created"></span>
                     <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>
