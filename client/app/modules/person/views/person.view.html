@@ -1,6 +1,6 @@
 <div ng-controller="PersonViewController as personCtrl" class="person-view">
 
-  <div layout="column" class="md-padding">
+  <div layout="column">
     <div layout="row">
       <div flex>
         <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
@@ -10,6 +10,7 @@
     </div>
     <div layout="row" ng-if="personCtrl.person.status">
       <div flex="20">
+        <fa name="info"></fa>
         <span ng-repeat="status in personCtrl.person.status" class="tag status-tag" style="margin-right: 2px">
         {{ status }}
         </span>
@@ -26,7 +27,7 @@
             new-note="personCtrl.newNote(note)"></mh-note-create>
         </div>
         <div flex>
-          <md-button class="md-icon-button launch" ng-click="ctrl.createDialog($event)">
+          <md-button class="md-icon-button" ui-sref="person.edit({ id: personCtrl.person.id })">
             <ng-md-icon icon="edit" options="{'duration': 300, 'rotation':'none'}"></ng-md-icon>
           </md-button>
         </div>
