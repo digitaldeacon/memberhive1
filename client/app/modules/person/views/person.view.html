@@ -18,6 +18,19 @@
         <fa name="tags"></fa>
         <span ng-repeat="tag in personCtrl.person.tags" class="tag"><md-chip>{{tag}}</md-chip></span>
       </div>
+      <div flex="10" layout="row">
+        <div flex>
+          <mh-note-create
+            notable-type="Person"
+            notable-id="{{personCtrl.person.id}}"
+            new-note="personCtrl.newNote(note)"></mh-note-create>
+        </div>
+        <div flex>
+          <md-button class="md-icon-button launch" ng-click="ctrl.createDialog($event)">
+            <ng-md-icon icon="edit" options="{'duration': 300, 'rotation':'none'}"></ng-md-icon>
+          </md-button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -29,12 +42,6 @@
       <div class="highlight" layout="row">
         <div ng-if="personCtrl.person.birthdate" flex class="md-padding">
           {{personCtrl.person.birthdate | fromNow}}
-        </div>
-        <div flex>
-          <mh-note-create
-              notable-type="Person"
-              notable-id="{{personCtrl.person.id}}"
-              new-note="personCtrl.newNote(note)"></mh-note-create>
         </div>
       </div>
       <div>
