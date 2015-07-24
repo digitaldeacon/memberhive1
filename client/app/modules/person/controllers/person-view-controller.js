@@ -31,6 +31,14 @@ export function PersonViewController(PersonService, AddressService, $stateParams
     return icon;
   };
 
+  this.badgeClass = (noteType) => {
+    var bclass = 'info';
+    NoteIconConfig.forEach((type) => {
+      if(type.value === noteType) bclass = type.class;
+    });
+    return bclass;
+  };
+
   this.isDefaultAddress = (address) =>  {
     return address.type === 'home';
   };

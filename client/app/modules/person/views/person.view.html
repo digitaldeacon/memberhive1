@@ -52,13 +52,13 @@
 
             <!--<timeline class="md-padding">
               <timeline-event ng-repeat="note in personCtrl.notes">
-                <timeline-badge class="info bounce-in" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                <timeline-badge class="bounce-in" ng-class="personCtrl.badgeClass(note.type)" when-visible="animateElementIn" when-not-visible="animateElementOut">
                   <span>{{note.created | amDifference : null : 'days'}}</span>
                 </timeline-badge>
                 <timeline-panel class="info bounce-in" when-visible="animateElementIn" when-not-visible="animateElementOut">
                   <timeline-heading>
                     <h4 ng-if="note.title">{{note.title}}</h4>
-                    <ng-md-icon size="18" icon="{{note.type}}" ng-if="note.type"></ng-md-icon>
+                    <ng-md-icon size="18" icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
                     <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
                     <small><i>{{note.created | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}
                       <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>
