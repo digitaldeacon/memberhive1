@@ -2,7 +2,7 @@ export var gemConfigModule = angular.module('gem.config', [])
 
 .constant('productName', 'MemberHive')
 
-.constant('mhConfig', configGlobal)
+.constant('mhConfig', configGlobal) // jshint ignore:line
 
   .constant('NoteIconConfig', [{
       icon: 'chat',

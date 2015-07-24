@@ -74,8 +74,7 @@ export function NoteCreateDirective() {
             content: this.content,
             vm: this
           },
-        })
-
+        });
       };
 
       this.DialogController = ($scope, $mdDialog, content) => {
