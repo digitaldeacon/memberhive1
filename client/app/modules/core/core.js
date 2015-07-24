@@ -143,9 +143,9 @@ gemCoreModule.run(($rootScope, gettextCatalog, $cookies, amMoment) => {
   var lang = $cookies.lang || navigator.language || navigator.userLanguage;
   $rootScope.locale = $rootScope.locales[lang] || $rootScope.locales.de;
   gettextCatalog.setCurrentLanguage($rootScope.locale.lang);
-  console.log($rootScope.locale.lang);
+  //console.log($rootScope.locale.lang);
   amMoment.changeLocale($rootScope.locale.lang);
-  console.log(amMoment);
+  //console.log(amMoment);
 });
 
 // Controllers
