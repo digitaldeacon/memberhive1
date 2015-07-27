@@ -6,6 +6,7 @@ import {PersonListController} from './controllers/person-list-controller';
 import {PersonEditController} from './controllers/person-edit-controller';
 import {PersonViewController} from './controllers/person-view-controller';
 import {PersonImportController} from './controllers/person-import-controller';
+import {PersonExportController} from './controllers/person-export-controller';
 import {HouseholdListController} from './controllers/household-list-controller';
 import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
@@ -23,6 +24,7 @@ export var gemPersonModule = angular.module('gem.person',
     'ngTagsInput',
     'uiGmapgoogle-maps',
     'angular-timeline',
+    'angular-google-gapi',
 
     'personFilters',
     'gem.person.widget.stats',
@@ -171,6 +173,7 @@ export var gemPersonModule = angular.module('gem.person',
         new MenuLink(gettext('List Households'), 'location_city', 'person.households'),
         new MenuLink(gettext('Create Household'), 'add', 'person.household-create'),
         new MenuLink(gettext('Import'), 'file_upload', 'person.import'),
+        new MenuLink(gettext('Export'), 'file_upload', 'person.export')
       ]
     ));
 
@@ -185,6 +188,7 @@ gemPersonModule.controller('PersonListController', PersonListController);
 gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);
 gemPersonModule.controller('PersonImportController', PersonImportController);
+gemPersonModule.controller('PersonExportController', PersonExportController);
 gemPersonModule.controller('HouseholdListController', HouseholdListController);
 gemPersonModule.controller('HouseholdEditController', HouseholdEditController);
 

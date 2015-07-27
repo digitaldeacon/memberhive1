@@ -1,0 +1,14 @@
+<div ng-controller="PersonExportController as personCtrl">
+  <div> {{personCtrl.info()}} {{personCtrl.isAuthenticated()}} </div>
+  <md-button ng-click="personCtrl.authenticate()">
+    Login with Google
+  </md-button>
+  {{gapi.user.name}}
+  <md-button ng-click="personCtrl.get()">
+    Get
+  </md-button>
+  
+  <li ng-repeat="contact in personCtrl.contacts">
+    {{contact.title.$t}}
+  </li>
+</div>
