@@ -1,8 +1,7 @@
-
 .tag {
   display: inline;
-  padding: .2em .6em .3em;
-  font-size: 75%;
+  padding: .6em;
+  font-size: 85%;
   font-weight: 700;
   line-height: 1;
   color: #fff;
@@ -11,8 +10,8 @@
   vertical-align: baseline;
   border-radius: .25em;
   margin-right: 2px;
-  background-color: primary-color('600');
+  background-color: primary-color('300');
 }
 .status-tag {
-  background-color: accent-color('500');
+  background-color: accent-color('400');
 }

@@ -1,4 +1,4 @@
-export function PersonViewController(PersonService, AddressService, $stateParams, Person) {
+export function PersonViewController(PersonService, AddressService, $stateParams, Person, NoteIconConfig) {
 
   this.person = PersonService.one($stateParams.id);
   this.getContacts = PersonService.getContacts;
@@ -20,9 +20,24 @@ export function PersonViewController(PersonService, AddressService, $stateParams
   };
 
   this.newNote = (note) => {
-    this.notes.push(note);
+    this.notes.unshift(note);
   };
 
+  this.icon = (noteType) => {
+    var icon = 'chat';
+    NoteIconConfig.forEach((type) => {
+      if(type.value === noteType) icon = type.icon;
+    });
+    return icon;
+  };
+
+  this.badgeClass = (noteType) => {
+    var bclass = 'info';
+    NoteIconConfig.forEach((type) => {
+      if(type.value === noteType) bclass = type.class;
+    });
+    return bclass;
+  };
 
   this.isDefaultAddress = (address) =>  {
     return address.type === 'home';

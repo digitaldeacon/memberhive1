@@ -10,6 +10,7 @@
     </div>
     <div layout="row" ng-if="personCtrl.person.status">
       <div flex="20">
+        <fa name="info"></fa>
         <span ng-repeat="status in personCtrl.person.status" class="tag status-tag" style="margin-right: 2px">
         {{ status }}
         </span>
@@ -17,6 +18,19 @@
       <div flex>
         <fa name="tags"></fa>
         <span ng-repeat="tag in personCtrl.person.tags" class="tag"><md-chip>{{tag}}</md-chip></span>
+      </div>
+      <div flex="10" layout="row">
+        <div flex>
+          <mh-note-create
+            notable-type="Person"
+            notable-id="{{personCtrl.person.id}}"
+            new-note="personCtrl.newNote(note)"></mh-note-create>
+        </div>
+        <div flex>
+          <md-button class="md-icon-button" ui-sref="person.edit({ id: personCtrl.person.id })">
+            <ng-md-icon icon="edit" options="{'duration': 300, 'rotation':'none'}"></ng-md-icon>
+          </md-button>
+        </div>
       </div>
     </div>
   </div>
@@ -26,20 +40,14 @@
       <div>
         <gem-avatar person="personCtrl.person" size="m"></gem-avatar>
       </div>
-      <div class="box highlight">
-        <span ng-if="personCtrl.person.birthdate">
+      <div class="highlight" layout="row">
+        <div ng-if="personCtrl.person.birthdate" flex class="md-padding">
           {{personCtrl.person.birthdate | fromNow}}
-        </span>
+        </div>
       </div>
       <div>
         <h4 translate>Contact</h4>
         <div ng-include="'app/modules/person/views/person.view.contacts.html'"></div>
-      </div>
-      <div>
-        <mh-note-create
-          notable-type="Person"
-          notable-id="{{personCtrl.person.id}}"
-          new-note="personCtrl.newNote(note)"></mh-note-create>
       </div>
     </div>
     <div flex="80">
@@ -52,13 +60,13 @@
 
             <!--<timeline class="md-padding">
               <timeline-event ng-repeat="note in personCtrl.notes">
-                <timeline-badge class="info bounce-in" when-visible="animateElementIn" when-not-visible="animateElementOut">
+                <timeline-badge class="bounce-in" ng-class="personCtrl.badgeClass(note.type)" when-visible="animateElementIn" when-not-visible="animateElementOut">
                   <span>{{note.created | amDifference : null : 'days'}}</span>
                 </timeline-badge>
                 <timeline-panel class="info bounce-in" when-visible="animateElementIn" when-not-visible="animateElementOut">
                   <timeline-heading>
                     <h4 ng-if="note.title">{{note.title}}</h4>
-                    <ng-md-icon size="18" icon="{{note.type}}" ng-if="note.type"></ng-md-icon>
+                    <ng-md-icon size="18" icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
                     <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
                     <small><i>{{note.created | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}
                       <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>
@@ -72,7 +80,7 @@
               <md-card-content flex layout="row">
                 <div flex class="md-list-item-text">
                   <h4>{{note.title}}</h4>
-                  <ng-md-icon size="18" icon="{{note.type}}" ng-if="note.type"></ng-md-icon>
+                  <ng-md-icon size="18" icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
                   <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
                   <small><i><span am-time-ago="note.created"></span>
                     <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>

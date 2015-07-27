@@ -31,37 +31,16 @@ export function NoteCreateDirective() {
         notableType: '@',
         newNote: '&'
     },
-    controller: function ($scope, $element, $mdDialog, Note, Shout, gettextCatalog) {
+    controller: function ($scope, $element, $mdDialog, Note, NoteIconConfig, Shout, gettextCatalog) {
       this.type = 'note';
-      this.noteTypes = [{
-        icon: 'chat',
-        title: 'Note',
-        value: 'note'
-      },{
-        icon: 'email',
-        title: 'Email',
-        value: 'email'
-      },{
-        icon: 'call',
-        title: 'Phone',
-        value: 'phone'
-      },{
-        icon: 'group',
-        title: 'Meeting',
-        value: 'meeting'
-      },{
-          icon: 'backup',
-          title: 'Prayer',
-          value: 'prayer'
-        },
-      ];
+      this.noteTypes = NoteIconConfig;
 
-      this.create = () => {
+      this.create = (controller) => {
         Note.upsert(
           {
-            title: this.title,
-            content: this.content,
-            type: this.type,
+            title: controller.title,
+            content: controller.content,
+            type: controller.type,
             notableId: $scope.notableId,
             notableType: $scope.notableType
           }).$promise
@@ -80,38 +59,40 @@ export function NoteCreateDirective() {
         this.noteType = '';
       };
 
-      this.createDialog = (event) => {
+      this.createDialog = ($event) => {
         $mdDialog.show({
           controller: this.DialogController,
+          controllerAs: 'ctrl',
+          bindToController: true,
           templateUrl: 'createNote.html',
           parent: angular.element(document.body),
-          targetEvent: event,
+          targetEvent: $event,
           locals: {
             noteTypes: this.noteTypes,
-            type: 'bad'
+            type: this.type,
+            title: this.title,
+            content: this.content,
+            vm: this
           },
-        })
-          .then(function(answer) {
-            $scope.alert = 'You said the information was "' + answer + '".';
-          }, function() {
-            $scope.alert = 'You cancelled the dialog.';
-          });
+        });
       };
 
-      this.DialogController = ($scope, $mdDialog) => {
+      this.DialogController = ($scope, $mdDialog, content) => {
         $scope.hide = function() {
+          console.log('hide');
           $mdDialog.hide();
         };
         $scope.cancel = function() {
           $mdDialog.cancel();
         };
-        $scope.answer = function(answer) {
-          $mdDialog.hide(answer);
+        $scope.create = function(content) {
+          this.ctrl.vm.create(this.ctrl);
+          $mdDialog.hide();
         };
       };
 
       this.close = ($element) => {
-        //console.log($scope);
+
       };
     },
     controllerAs: 'ctrl',
