@@ -21,7 +21,8 @@
     "optimist": "^0.6.1",
     "serve-favicon": "^2.0.1",
     "toner": "^0.1.2",
-    "toner-phantom": "^0.1.0"
+    "toner-phantom": "^0.1.0",
+    "vcards-js": "^2.2.0"
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.8.0"

@@ -1,7 +1,10 @@
+"use strict";
 var _ = require('lodash');
 
 module.exports = function(Person) {
-
+  var utils = require('../utils.js');
+  var Lomongo = require('../lomongo.js');
+  //
   /** Set primaryContact to `none` by default */
   Person.definition.rawProperties.primaryContact.default = 'none';
 
@@ -148,7 +151,7 @@ module.exports = function(Person) {
         if (text !== undefined) {
           tags = _.filter(tags, function(tag) {
             return _.includes(tag, text);
-          }); //filter by query
+          }); 
         };
         cb(null, tags);
       }
@@ -172,12 +175,16 @@ module.exports = function(Person) {
    * Return a random person
    */
   Person.random = function(cb) {
-    Person.count({}, function(err, count) {
-      var number = parseInt(Math.random() * count);
+    var lomongo = new Lomongo(Person);
+    var count = lomongo.collection.count()
+    var skip = parseInt(Math.random() * count);
+    lomongo.ok(cb, lomongo.collection.find().limit(1));
+    /*Person.count({}, function(err, count) {
+      var skip = parseInt(Math.random() * count);
       Person.find({}, function(err, persons) {
-        cb(err, persons[number]);
+        cb(err, persons[skip]);
        });
-    });
+    });*/
 
   };
   Person.remoteMethod(
