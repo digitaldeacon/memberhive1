@@ -176,15 +176,12 @@ module.exports = function(Person) {
    */
   Person.random = function(cb) {
     var lomongo = new Lomongo(Person);
-    var count = lomongo.collection.count()
-    var skip = parseInt(Math.random() * count);
-    lomongo.ok(cb, lomongo.collection.find().limit(1));
-    /*Person.count({}, function(err, count) {
+    Person.count({}, function(err, count) {
       var skip = parseInt(Math.random() * count);
-      Person.find({}, function(err, persons) {
-        cb(err, persons[skip]);
-       });
-    });*/
+      lomongo.collection.find().limit(1).skip(skip).toArray(function(err, data) {
+        lomongo.ok(cb, data);
+      });
+    });
 
   };
   Person.remoteMethod(
