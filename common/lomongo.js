@@ -6,10 +6,17 @@ module.exports = class Lomongo {
     this.model = model;
     this.collection = model.getDataSource().connector.collection(model.modelName)
     this.connector = model.getDataSource().connector;
-    //console.log(this.conn);
   }
   
   ok(cb, data) {
-    cb(null, this.connector.fromDatabase(this.model.modelName, data));
+    this.callback(cb, null, data);
+  }
+  
+  error(cb, err) {
+    this.callback(cb, err, null);
+  }
+  
+  callback(cb, err, data) {
+    cb(err, this.connector.fromDatabase(this.model.modelName, data));
   }
 }

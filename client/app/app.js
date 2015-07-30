@@ -34,13 +34,14 @@ export var gemMainModule = angular.module('gem.main', [
 );
 
 gemMainModule.config(
-  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, mhConfig, LoopBackResourceProvider) => {
+  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, mhConfig, LoopBackResourceProvider, $httpProvider) => {
     cfpLoadingBarProvider.includeSpinner = false;
     LoopBackResourceProvider.setUrlBase(mhConfig.apiUrl);
     $breadcrumbProvider.setOptions({
       prefixStateName: 'dashboard',
       templateUrl: 'app/templates/breadcrumb.html'
     });
+    delete $httpProvider.defaults.headers.common["X-Requested-With"]
   });
 
 gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth, GAuth, GApi) => {

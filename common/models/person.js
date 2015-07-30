@@ -1,5 +1,6 @@
 "use strict";
 var _ = require('lodash');
+var vCard = require('vcards-js');
 
 module.exports = function(Person) {
   var utils = require('../utils.js');
@@ -179,7 +180,7 @@ module.exports = function(Person) {
     Person.count({}, function(err, count) {
       var skip = parseInt(Math.random() * count);
       lomongo.collection.find().limit(1).skip(skip).toArray(function(err, data) {
-        lomongo.ok(cb, data);
+        lomongo.callback(cb, err, data);
       });
     });
 
@@ -191,6 +192,61 @@ module.exports = function(Person) {
         arg: 'person',
         type: 'Person'
       }
+    }
+  );
+  
+  Person.exportVCard = function(res, callback) {
+    var datetime = new Date();
+    res.set('Expires', 'Tue, 03 Jul 2001 06:00:00 GMT');
+    res.set('Cache-Control', 'max-age=0, no-cache, must-revalidate, proxy-revalidate');
+    res.set('Last-Modified', datetime +'GMT');
+    res.set('Content-Type','application/force-download');
+    res.set('Content-Type','application/octet-stream');
+    res.set('Content-Type','application/download');
+    res.set('Content-Disposition','attachment;filename=export.vcf');
+    res.set('Content-Transfer-Encoding','binary');
+    
+    Person.find({}, function(err, persons) {
+      var ret = "";
+      _.each(persons, function(person) {     
+        var v = vCard();
+        v.firstName = person.firstName;
+        if(person.middleName)
+          v.middleName = person.middleName;
+        v.lastName = person.lastName;
+        if(person.contact) {
+          if(person.contact.work)
+            v.workPhone = person.contact.work;
+          if(person.contact.mobile)
+            v.cellPhone = person.contact.mobile;
+           if(person.contact.home)
+            v.homePhone = person.contact.home;
+        }
+        v.gender = person.gender;
+        if(person.nickName)
+          v.nickname = person.nickName;
+        if(person.prefix)
+          v.namePrefix = person.prefix;
+        if(person.suffix)
+          v.nameSuffix = person.suffix;
+        if(person.anniversary)
+          v.anniversary = new Date(person.anniversary);
+        if(person.birthdate)
+          v.birthday = new Date(person.birthdate);
+        v.note = 'Test';
+        ret += v.getFormattedString();
+      });
+      res.send(ret);
+    });
+  }
+  Person.remoteMethod(
+    'exportVCard',
+    {
+      accepts: [
+        {arg: 'res', type: 'object', 'http': {source: 'res'}}
+      ],
+      returns: {},
+      http: {path: '/exportVCard', verb: 'get'}
     }
   );
 

@@ -92,7 +92,7 @@
     "wrench": "~1.5.8"
   },
   "engines": {
-    "iojs": "^1.6.4"
+    "iojs": "^2.5.0"
   },
   "scripts": {
     "test": "gulp protractor",

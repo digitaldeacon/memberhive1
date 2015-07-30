@@ -20,8 +20,7 @@ export function PersonExportController(GAuth,$rootScope, GApi, $http, Person) {
       url: 'https://www.google.com/m8/feeds/contacts/default/full?access_token=' + this.token,
       data: this.contactToXml(contact),
       headers: {
-      'Content-Type': 'application/atom+xml',
-      'GData-Version': '3.0',
+      'Content-Type': 'multipart/form-data',
       'X-Requested-With': null
     },
     }).then((response) => {
