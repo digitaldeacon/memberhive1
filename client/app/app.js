@@ -41,7 +41,6 @@ gemMainModule.config(
       prefixStateName: 'dashboard',
       templateUrl: 'app/templates/breadcrumb.html'
     });
-    delete $httpProvider.defaults.headers.common["X-Requested-With"]
   });
 
 gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {

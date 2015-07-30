@@ -105,7 +105,7 @@ export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, 
                     'address.home.street1', 'address.home.street2', 'address.home.city', 'address.home.zipcode', 'address.home.country', 'address.home.additional',
                     'address.work.street1', 'address.work.street2', 'address.work.city', 'address.work.zipcode', 'address.work.country', 'address.work.additional',
                     ''
-                   )
+                   );
   this.assign = [];
   this.showTable = false;
   this.tableData = {};

@@ -41,10 +41,10 @@ module.exports = function(Person) {
       err();
   }
 
-  Person.search = function(value, cb) {
+  Person.search = function(query, cb) {
     Person.find({
       where: {
-        search: {like: value.toLowerCase()}
+        search: {like: utils.stringToRegexp(query)}
       },
       limit: 10
     }, function(err, persons) {
@@ -55,12 +55,12 @@ module.exports = function(Person) {
     'search',
     {
       accepts: {
-        arg: 'value',
+        arg: 'query',
         type: 'string',
         required: true
       },
       returns: {
-        arg: 'results',
+        arg: 'data',
         type: 'array'
       }
     }
@@ -310,27 +310,28 @@ module.exports = function(Person) {
   /**
    * Fill search field
    */
-  /*Person.observe('after save', function(ctx, next) {
-    var person = ctx.instance;
-    person.search = "";
+  Person.observe('before save', function(ctx, next) {
+    if (ctx.instance) {
+      ctx.instance.search = Person.createIndex(ctx.instance);
+    }
+    next();
+  });
+  
+  Person.createIndex = function(data) {
+    var ret;
     var properties = [
-      person.prefix,
-      person.firstName,
-      person.middleName,
-      person.lastName,
-      person.nickName,
-      person.suffix,
-      person.email
-    ];
-
-    properties.forEach(function(property) {
-      if (property) {
-        person.search += property.toLowerCase() + ' ';
-      }
-    });
-
-    person.save(function(){
-      next();
-    });
-  });*/
+        data.firstName,
+        data.middleName,
+        data.lastName,
+        data.nickName,
+        data.email
+      ];
+      ret = "";
+      properties.forEach(function(property) {
+        if (property) {
+          ret += property.toLowerCase() + ' ';
+        }
+      });
+    return ret;
+  }
 };

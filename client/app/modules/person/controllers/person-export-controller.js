@@ -68,6 +68,5 @@ export function PersonExportController(GAuth,$rootScope, GApi, $http, Person) {
         saveAs(file, "export.vcard");
       }
     );
-
-  }
+  };
 }
