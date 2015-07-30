@@ -10,7 +10,11 @@ module.exports = function(Person) {
   Person.definition.rawProperties.primaryContact.default = 'none';
 
   /** Validations */
+  // i dont know how to fix this, so i commented it out
+  // gender should not be required. if we have to import data, 
+  // there is seldom a gender column
   //Person.validatesInclusionOf('gender', {in: [null, 'm', 'f']});
+  
   Person.validate('primaryContact', primaryContactValidator);
   function primaryContactValidator(err) {
     var validOptions = ['none', 'email', 'mobile', 'letterHome', 'letterWork', 'letterPostal'];
