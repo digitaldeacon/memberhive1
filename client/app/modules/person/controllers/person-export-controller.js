@@ -1,4 +1,12 @@
+import {saveAs} from "../../../scripts/FileSaver.min";
+
 export function PersonExportController(GAuth,$rootScope, GApi, $http, Person) {
+  /*
+  
+  var CLIENT = '88164908200-d3jlteogf8d67m5lefqqsppuq8ehbbec.apps.googleusercontent.com';
+  GApi.load('plus', 'v1');
+  GAuth.setClient(CLIENT);
+  GAuth.setScope('https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/calendar.readonly https://www.google.com/m8/feeds');
   this.authenticate = () => {
       GAuth.login().then(() => {
         console.log("ok")
@@ -50,5 +58,16 @@ export function PersonExportController(GAuth,$rootScope, GApi, $http, Person) {
 
 
   }
+*/
+  
+  this.getAllVCard = () => {
+    Person.exportVCard().$promise.then(
+      (data) => {
+        console.log(data);
+        var file = new Blob([data.vcard], { type: 'text/vard' });
+        saveAs(file, "export.vcard");
+      }
+    );
 
+  }
 }

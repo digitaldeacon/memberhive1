@@ -33,7 +33,7 @@
     "svg-morpheus": "~0.1.8",
     "moment": "~2.10.3",
     "lodash": "~3.9.3",
-    "ng-file-upload": "~5.0.7",
+    "ng-file-upload": "~6.0.2",
     "ng-tags-input": "~2.3.0",
     "restangular": "~1.5.1",
     "nsPopover": "~0.6.8",

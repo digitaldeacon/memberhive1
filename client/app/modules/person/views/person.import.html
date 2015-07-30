@@ -1,25 +1,18 @@
-<mh-panel>
-  <div ng-controller="PersonImportController as personCtrl">
-    <mh-panel-header>
-      <translate>Import Persons</translate>
-    </mh-panel-header>
-    <mh-panel-body>
-      <input type="file" ng-file-select ng-file-change="personCtrl.uploadImportFile($files)">
-
-      <div ng-if="personCtrl.showTable">
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="(key, value) in personCtrl.tableData[0] track by $index">
-            {{value}} ->
-            <md-select ng-model="personCtrl.assign[$index]">
-              <md-option ng-repeat="item in personCtrl.options">{{item}}</md-option>
-            </md-select>
-            Example: <span>{{personCtrl.tableData[1][$index]}}</span>
-          </li>
-        </ul>
-        <md-button ng-click="personCtrl.import()" translate>
-          Import
-        </md-button>
-      </div>
-    </mh-panel-body>
-  </div>
+<mh-panel >
+  <mh-panel-header>
+    <translate>Import Persons</translate>
+  </mh-panel-header>
+  <mh-panel-body>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab>
+        <md-tab-label>CSV Import</md-tab-label>
+        <md-tab-body class="md-padding">
+          <div ng-include="'app/modules/person/views/person.import.csv.html'"></div>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+  </mh-panel-body>
 </mh-panel>
+
+
+   

@@ -81,8 +81,16 @@ gm-map {
     display: inline !important;
   }
 }
-/*ng-md-icon {
-  vertical-align: middle;
-  display: inline-block;
-  line-height: 1;
-}*/
+.fileupload-drop-box {
+    background: #F8F8F8;
+    border: 2px dashed #DDD;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 10px;
+    font-size: 18px;
+}
+.fileupload-dragover {
+    border: 2px dashed blue;
+}

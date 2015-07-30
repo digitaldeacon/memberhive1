@@ -10,7 +10,7 @@ module.exports = function(Person) {
   Person.definition.rawProperties.primaryContact.default = 'none';
 
   /** Validations */
-  Person.validatesInclusionOf('gender', {in: ['m', 'f']});
+  //Person.validatesInclusionOf('gender', {in: [null, 'm', 'f']});
   Person.validate('primaryContact', primaryContactValidator);
   function primaryContactValidator(err) {
     var validOptions = ['none', 'email', 'mobile', 'letterHome', 'letterWork', 'letterPostal'];
@@ -195,61 +195,82 @@ module.exports = function(Person) {
     }
   );
   
-  Person.exportVCard = function(res, callback) {
-    var datetime = new Date();
-    res.set('Expires', 'Tue, 03 Jul 2001 06:00:00 GMT');
-    res.set('Cache-Control', 'max-age=0, no-cache, must-revalidate, proxy-revalidate');
-    res.set('Last-Modified', datetime +'GMT');
-    res.set('Content-Type','application/force-download');
-    res.set('Content-Type','application/octet-stream');
-    res.set('Content-Type','application/download');
-    res.set('Content-Disposition','attachment;filename=export.vcf');
-    res.set('Content-Transfer-Encoding','binary');
-    
+  Person.exportVCard = function(cb) {
     Person.find({}, function(err, persons) {
       var ret = "";
       _.each(persons, function(person) {     
-        var v = vCard();
-        v.firstName = person.firstName;
-        if(person.middleName)
-          v.middleName = person.middleName;
-        v.lastName = person.lastName;
-        if(person.contact) {
-          if(person.contact.work)
-            v.workPhone = person.contact.work;
-          if(person.contact.mobile)
-            v.cellPhone = person.contact.mobile;
-           if(person.contact.home)
-            v.homePhone = person.contact.home;
-        }
-        v.gender = person.gender;
-        if(person.nickName)
-          v.nickname = person.nickName;
-        if(person.prefix)
-          v.namePrefix = person.prefix;
-        if(person.suffix)
-          v.nameSuffix = person.suffix;
-        if(person.anniversary)
-          v.anniversary = new Date(person.anniversary);
-        if(person.birthdate)
-          v.birthday = new Date(person.birthdate);
-        v.note = 'Test';
-        ret += v.getFormattedString();
+        ret += Person.toVCard(person).getFormattedString();
       });
-      res.send(ret);
+      cb(err, ret);
     });
   }
+  
   Person.remoteMethod(
     'exportVCard',
     {
-      accepts: [
-        {arg: 'res', type: 'object', 'http': {source: 'res'}}
-      ],
-      returns: {},
+      returns: {  
+        arg: 'vcard',
+        type: 'string'
+      },
       http: {path: '/exportVCard', verb: 'get'}
     }
   );
 
+  
+  Person.toVCard = function(person) {
+    var v = vCard();
+    
+    v.firstName = person.firstName;
+    
+    if(person.middleName)
+      v.middleName = person.middleName;
+    v.lastName = person.lastName;
+    
+    if(person.nickName)
+      v.nickname = person.nickName;
+    if(person.prefix)
+      v.namePrefix = person.prefix;
+    if(person.suffix)
+      v.nameSuffix = person.suffix;
+    
+    if(person.contact) {
+      if(person.contact.work)
+        v.workPhone = person.contact.work;
+      if(person.contact.mobile)
+        v.cellPhone = person.contact.mobile;
+      if(person.contact.home)
+        v.homePhone = person.contact.home;
+    }
+    
+    v.gender = person.gender;
+    
+    if(person.anniversary)
+      v.anniversary = new Date(person.anniversary);
+    
+    if(person.birthdate)
+      v.birthday = new Date(person.birthdate);
+    
+    if(person.address) {
+      if(person.address.home) {  
+        v.homeAddress.label = 'Home';
+        v.homeAddress.street = person.address.home.street1;
+        v.homeAddress.city = person.address.home.city;
+        v.homeAddress.stateProvince = person.address.home.state;
+        v.homeAddress.postalCode = person.address.home.zipcode;
+        v.homeAddress.countryRegion = person.address.home.county;
+      }
+      if(person.address.work) {  
+        v.workAddress.label = 'Work';
+        v.workAddress.street = person.address.work.street1;
+        v.workAddress.city = person.address.work.city;
+        v.workAddress.stateProvince = person.address.work.state;
+        v.workAddress.postalCode = person.address.work.zipcode;
+        v.workAddress.countryRegion = person.address.work.county;
+      }
+    }
+    return v;
+  }
+  
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
   };
