@@ -1,38 +1,28 @@
-export class PersonListController {
+export function PersonListController(PersonService,Person)  {
+  this.relationTypes = PersonService.relationTypes;
+  this.statusTypes = PersonService.statusTypes;
 
-  constructor(PersonService, Person) {
-    this.PersonService = PersonService;
-    this.Person = Person;
+  this.persons = [];
+  this.currentPage = 1;
+  this.totalPersons = 0;
 
-    this.getContacts = PersonService.getContacts;
-    this.hasAvatar = PersonService.hasAvatar;
-    this.relationTypes = PersonService.relationTypes;
-    this.statusTypes = PersonService.statusTypes;
-
-    this.persons = [];
-    this.currentPage = 1;
-    this.totalPersons = 0;
-
-    this.getPersons();
-  }
-
-  pageChanged(pageNum) {
-    this.getPersons(pageNum);
-  }
-
-  getPersons(pageNumber) {
-    pageNumber = pageNumber || 1;
-
-    this.Person.count().$promise.then((result) => {
+  this.getPersons = (pageNumber) => {
+    console.log("get person");
+    Person.count().$promise.then((result) => {
       this.totalPersons = result.count;
     });
-    this.persons = this.PersonService.all(pageNumber);
+    this.persons = PersonService.all(pageNumber);
   }
 
-  deletePerson(person) {
-    this.Person.trash({id: person.id}, () => {
-      this.getPersons();
+  this.deletePerson = (person) => {
+    Person.trash({id: person.id}, () => {
+      this.getPersons(this.currentPage);
     });
   }
+  
+  this.pageChanged = (pageNum) => {
+    this.getPersons(pageNum);
+  }
+  this.getPersons(1);
 
 }
