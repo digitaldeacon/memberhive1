@@ -12,17 +12,18 @@ export function PersonListController(PersonService,Person)  {
       this.totalPersons = result.count;
     });
     this.persons = PersonService.all(pageNumber);
-  }
+  };
 
   this.deletePerson = (person) => {
     Person.trash({id: person.id}, () => {
       this.getPersons(this.currentPage);
     });
-  }
+  };
   
   this.pageChanged = (pageNum) => {
     this.getPersons(pageNum);
-  }
+  };
+  
   this.getPersons(1);
 
 }

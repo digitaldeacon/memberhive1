@@ -14,7 +14,7 @@ module.exports = function(options) {
         [
           {
             test: /\.js$/,
-            exclude: [/node_modules/, /lb-services.js/],
+            exclude: [/node_modules/, /lb-services.js/, /FileSaver.min.js/],
             loader: 'jshint-loader'
           }
 
