@@ -12,6 +12,7 @@ import {gemAclModule} from './modules/auth/acl';
 import {gemNoteModule} from './modules/note/note';
 import {gemReportModule} from './modules/report/report';
 import {gemCalendarModule} from './modules/calendar/calendar';
+import {gemEventModule} from './modules/event/event';
 import {MenuSection, MenuLink} from './modules/core/providers/menu-provider';
 import './scripts/lb-services';
 /**
@@ -28,8 +29,8 @@ export var gemMainModule = angular.module('gem.main', [
   // GEM modules
   'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
-  'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'gem.acl',
-  'gem.auth', 'gem.report', 'gem.note', 'gem.config'
+  'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'gem.event', 'gem.acl',
+  'gem.auth', 'gem.report', 'gem.note', 'gem.config', 
   ]
 );
 

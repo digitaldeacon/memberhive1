@@ -1,0 +1,15 @@
+<div ng-controller="EventsController as ctrl">
+  <mh-panel>
+    <mh-panel-header><translate>Events</translate></mh-panel-header>
+    <mh-panel-body>
+      <ul ng-repeat="event in ctrl.events">
+        <li><a ui-sref="event.one({eventId: event.id})">{{event.name}} on {{event.data}}</a></li>
+      </ul>
+    </mh-panel-body>
+  </mh-panel>
+  <a ui-sref="event.one">
+    <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Report">
+      <ng-md-icon icon="add"></ng-md-icon>
+    </md-button>
+  </a>
+</div>

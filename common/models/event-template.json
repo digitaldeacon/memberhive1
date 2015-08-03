@@ -1,0 +1,19 @@
+{
+  "name": "EventTemplate",
+  "plural": "EventTemplates",
+  "base": "GemBase",
+  "idInjection": true,
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "data": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
