@@ -10,11 +10,11 @@ export function EventController(Event, EventTemplate, $stateParams, $state) {
   this.templates = EventTemplate.find();
   this.updateTemplate = () => {
     
-  }
+  };
   
   this.save = () => {
     this.item.templateId = this.template.id;
     Event.upsert(this.item).$promise
       .then(() => $state.go("event.all"));
-  }
+  };
 }
