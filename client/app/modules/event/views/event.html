@@ -19,10 +19,13 @@
         <md-input-container>
           <label>{{option.name}}</label>
           <div ng-if="option.type == 'text'">
-            <input type="text" ng-model="ctrl.item.data[$index]">
+            <input type="text" ng-model="ctrl.item.data[$index]" />
           </div>
           <div ng-if="option.type == 'date'">
-            <input type="date" ng-model="ctrl.item.data[$index]">
+            <input type="date" ng-model="ctrl.item.data[$index]" />
+          </div>
+          <div ng-if="option.type == 'person'">
+            <mh-person-chips ng-model="ctrl.item.data[$index]"></mh-person-chips>
           </div>
         </md-input-container>
       </div>

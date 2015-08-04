@@ -10,7 +10,7 @@ import {PersonExportController} from './controllers/person-export-controller';
 import {HouseholdListController} from './controllers/household-list-controller';
 import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
-import {AvatarDirective} from './directives/person-directives';
+import {mhAvatar, mhPersonChips} from './directives/person-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {PersonRandomWidget} from './widgets/random/person-random';
 
@@ -194,4 +194,5 @@ gemPersonModule.controller('HouseholdEditController', HouseholdEditController);
 
 gemPersonModule.factory('PersonService', PersonService);
 
-gemPersonModule.directive('gemAvatar', AvatarDirective);
+gemPersonModule.directive('mhAvatar', mhAvatar);
+gemPersonModule.directive('mhPersonChips', mhPersonChips);

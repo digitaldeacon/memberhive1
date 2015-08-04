@@ -2,16 +2,16 @@
  * Directive to show a person's avatar.
  *
  * Minimal Usage:
- *   <gem-avatar person="personCtrl.person" size="m"></gem-avatar>
+ *   <mh-avatar person="personCtrl.person" size="m"></mh-avatar>
  *
  * `size` can be anything from ['xs', 's', 'm', 'l'].
  * `person` must be a Loopback `Person` object.
  *
  * Optionally, you can also provide the `circle` attribute to have a circle avatar.
  * You might also apply any css classes:
- *   <gem-avatar person="personCtrl.person" size="m" circle class="foo bar"></gem-avatar>
+ *   <mh-avatar person="personCtrl.person" size="m" circle class="foo bar"></mh-avatar>
  */
-export function AvatarDirective(mhConfig) {
+export function mhAvatar(mhConfig) {
   return {
     template: '<img ng-src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}"' +
               ' aria-label="{{label}}" tooltip="{{label}}" />',
@@ -47,6 +47,28 @@ export function AvatarDirective(mhConfig) {
       }
     }
 
+  };
+}
+
+
+export function mhPersonChips(mhConfig, PersonService) {
+  return {
+    templateUrl: 'app/modules/person/templates/person-chips.html',
+    restrict: 'E',
+    scope: {
+      person: '=',
+      size: '@',
+      cssClasses: '@class',
+      label: '@'
+    },
+    link: function(scope, element, attrs) {
+      scope.contacts = [];
+      scope.filterSelected = true;
+      scope.querySearch = (query) => {
+        return PersonService.search(query);
+      };
+      
+    }
   };
 }
 

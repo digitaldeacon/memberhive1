@@ -334,4 +334,9 @@ module.exports = function(Person) {
       });
     return ret;
   }
+  
+  Person.afterInitialize = function() {
+    var ctx = Person.app.loopback.getCurrentContext();
+    console.log(ctx);
+  };
 };
