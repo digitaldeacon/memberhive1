@@ -1,0 +1,31 @@
+<mh-panel >
+  <mh-panel-header>
+    <translate>Export Persons</translate>
+  </mh-panel-header>
+  <mh-panel-body>
+    <div ng-controller="PersonExportController as personCtrl">
+      <!--<div> {{personCtrl.info()}} {{personCtrl.isAuthenticated()}} </div>
+      <md-button ng-click="personCtrl.authenticate()">
+        Login with Google
+      </md-button>
+      {{gapi.user.name}}
+      <md-button ng-click="personCtrl.get()">
+        Get
+      </md-button>
+      
+      <li ng-repeat="contact in personCtrl.contacts">
+        {{contact.title.$t}}
+      </li>
+      -->
+      
+      <h2> VCard Export </h2>
+      <p> You can download all the contacts saved in Memberhive in the vCard Format,</p>
+      <p> You can use the resulting file to import in Google, iCloud, and many more.</p> 
+      <md-button class="md-primary md-raised" ng-click="personCtrl.getAllVCard()">
+        Download all in VCard
+      </md-button>
+  </div>
+  </mh-panel-body>
+</mh-panel>
+
+

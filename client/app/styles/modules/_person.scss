@@ -86,3 +86,10 @@ td.label-row {
     }
   }
 }
+
+.person-import-example > span {
+  background-color: background-color('100') !important;
+  color: primary-color('600');
+  border: 1px darken(background-color('100'), 5%);
+  padding: 5px;
+}

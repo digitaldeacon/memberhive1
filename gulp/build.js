@@ -73,17 +73,29 @@ module.exports = function(options) {
       .pipe(gulp.dest(options.dist + '/fonts/'));
   });
 
-  gulp.task('other', function () {
+  gulp.task('images', function () {
     return gulp.src([
-      options.src + 'app/**/*',
-      '!' + options.src + 'app/**/*.{html,css,js,scss}'
+      options.src + '/app/images/*',
+      '!' + options.src + '/app/**/*.{html,css,js,scss}',
     ])
-      .pipe(gulp.dest(options.dist + '/'));
+    .pipe(gulp.dest(options.dist + '/app/images'));
+  });
+   gulp.task('other', function () {
+    return gulp.src([
+      options.src + '/*.{ico,png,txt}',
+    ])
+    .pipe(gulp.dest(options.dist + '/'));
   });
 
   gulp.task('clean', function (done) {
     $.del([options.dist + '/', options.tmp + '/'], done);
   });
 
-  gulp.task('build', ['html', 'fonts', 'other']);
+  gulp.task('build', ['html', 'fonts', 'images', 'other'], function(){
+    return gulp.src([
+      options.src + '/*.{ico,png,txt}',
+    ]).once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
+      process.exit();
+    });
+  });
 };

@@ -1,12 +1,20 @@
+"use strict";
 var _ = require('lodash');
+var vCard = require('vcards-js');
 
 module.exports = function(Person) {
-
+  var utils = require('../utils.js');
+  var Lomongo = require('../lomongo.js');
+  //
   /** Set primaryContact to `none` by default */
   Person.definition.rawProperties.primaryContact.default = 'none';
 
   /** Validations */
-  Person.validatesInclusionOf('gender', {in: ['m', 'f']});
+  // i dont know how to fix this, so i commented it out
+  // gender should not be required. if we have to import data, 
+  // there is seldom a gender column
+  //Person.validatesInclusionOf('gender', {in: [null, 'm', 'f']});
+  
   Person.validate('primaryContact', primaryContactValidator);
   function primaryContactValidator(err) {
     var validOptions = ['none', 'email', 'mobile', 'letterHome', 'letterWork', 'letterPostal'];
@@ -33,10 +41,10 @@ module.exports = function(Person) {
       err();
   }
 
-  Person.search = function(value, cb) {
+  Person.search = function(query, cb) {
     Person.find({
       where: {
-        search: {like: value.toLowerCase()}
+        search: {like: utils.stringToRegexp(query)}
       },
       limit: 10
     }, function(err, persons) {
@@ -47,12 +55,12 @@ module.exports = function(Person) {
     'search',
     {
       accepts: {
-        arg: 'value',
+        arg: 'query',
         type: 'string',
         required: true
       },
       returns: {
-        arg: 'results',
+        arg: 'data',
         type: 'array'
       }
     }
@@ -148,7 +156,7 @@ module.exports = function(Person) {
         if (text !== undefined) {
           tags = _.filter(tags, function(tag) {
             return _.includes(tag, text);
-          }); //filter by query
+          }); 
         };
         cb(null, tags);
       }
@@ -172,11 +180,12 @@ module.exports = function(Person) {
    * Return a random person
    */
   Person.random = function(cb) {
+    var lomongo = new Lomongo(Person);
     Person.count({}, function(err, count) {
-      var number = parseInt(Math.random() * count);
-      Person.find({}, function(err, persons) {
-        cb(err, persons[number]);
-       });
+      var skip = parseInt(Math.random() * count);
+      lomongo.collection.find().limit(1).skip(skip).toArray(function(err, data) {
+        lomongo.callback(cb, err, data);
+      });
     });
 
   };
@@ -189,7 +198,83 @@ module.exports = function(Person) {
       }
     }
   );
+  
+  Person.exportVCard = function(cb) {
+    Person.find({}, function(err, persons) {
+      var ret = "";
+      _.each(persons, function(person) {     
+        ret += Person.toVCard(person).getFormattedString();
+      });
+      cb(err, ret);
+    });
+  }
+  
+  Person.remoteMethod(
+    'exportVCard',
+    {
+      returns: {  
+        arg: 'vcard',
+        type: 'string'
+      },
+      http: {path: '/exportVCard', verb: 'get'}
+    }
+  );
 
+  
+  Person.toVCard = function(person) {
+    var v = vCard();
+    
+    v.firstName = person.firstName;
+    
+    if(person.middleName)
+      v.middleName = person.middleName;
+    v.lastName = person.lastName;
+    
+    if(person.nickName)
+      v.nickname = person.nickName;
+    if(person.prefix)
+      v.namePrefix = person.prefix;
+    if(person.suffix)
+      v.nameSuffix = person.suffix;
+    
+    if(person.contact) {
+      if(person.contact.work)
+        v.workPhone = person.contact.work;
+      if(person.contact.mobile)
+        v.cellPhone = person.contact.mobile;
+      if(person.contact.home)
+        v.homePhone = person.contact.home;
+    }
+    
+    v.gender = person.gender;
+    
+    if(person.anniversary)
+      v.anniversary = new Date(person.anniversary);
+    
+    if(person.birthdate)
+      v.birthday = new Date(person.birthdate);
+    
+    if(person.address) {
+      if(person.address.home) {  
+        v.homeAddress.label = 'Home';
+        v.homeAddress.street = person.address.home.street1;
+        v.homeAddress.city = person.address.home.city;
+        v.homeAddress.stateProvince = person.address.home.state;
+        v.homeAddress.postalCode = person.address.home.zipcode;
+        v.homeAddress.countryRegion = person.address.home.county;
+      }
+      if(person.address.work) {  
+        v.workAddress.label = 'Work';
+        v.workAddress.street = person.address.work.street1;
+        v.workAddress.city = person.address.work.city;
+        v.workAddress.stateProvince = person.address.work.state;
+        v.workAddress.postalCode = person.address.work.zipcode;
+        v.workAddress.countryRegion = person.address.work.county;
+      }
+    }
+    return v;
+  }
+  
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
   };
@@ -225,27 +310,28 @@ module.exports = function(Person) {
   /**
    * Fill search field
    */
-  /*Person.observe('after save', function(ctx, next) {
-    var person = ctx.instance;
-    person.search = "";
+  Person.observe('before save', function(ctx, next) {
+    if (ctx.instance) {
+      ctx.instance.search = Person.createIndex(ctx.instance);
+    }
+    next();
+  });
+  
+  Person.createIndex = function(data) {
+    var ret;
     var properties = [
-      person.prefix,
-      person.firstName,
-      person.middleName,
-      person.lastName,
-      person.nickName,
-      person.suffix,
-      person.email
-    ];
-
-    properties.forEach(function(property) {
-      if (property) {
-        person.search += property.toLowerCase() + ' ';
-      }
-    });
-
-    person.save(function(){
-      next();
-    });
-  });*/
+        data.firstName,
+        data.middleName,
+        data.lastName,
+        data.nickName,
+        data.email
+      ];
+      ret = "";
+      properties.forEach(function(property) {
+        if (property) {
+          ret += property.toLowerCase() + ' ';
+        }
+      });
+    return ret;
+  }
 };

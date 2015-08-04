@@ -22,6 +22,7 @@
     "_": false,
     "moment": false,
     "System": false,
-    "CodeMirror": false
+    "CodeMirror": false,
+    "configGlobal": false
   }
 }

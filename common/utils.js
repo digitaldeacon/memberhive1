@@ -1,6 +1,6 @@
 var _ = require('lodash');
-exports.whereAddAnd = function (ctx, add)
-{
+
+exports.whereAddAnd = function (ctx, add)  {
   if(ctx.query.where === undefined) {
     ctx.query.where = add;
   } else {
@@ -12,5 +12,24 @@ exports.whereAddAnd = function (ctx, add)
     }
   }
   return ctx;
+}
 
+exports.getCollection = function(model) {
+  console.log(model.getDataSource().connector)
+  return model.getDataSource().connector.collection(model.modelName);
+}
+
+
+exports.stringToRegexp = function (string) {
+  var ret = "";
+  var split = string.split(" ")
+  if(split.length > 1) {
+    _.each(split, function(part) {
+      ret += "(?=.*" + part.toLowerCase().trim() + ")";
+    });
+    ret = ret + ".*";
+  } else {
+    ret = string.toLowerCase().trim();
+  }
+  return ret;
 }

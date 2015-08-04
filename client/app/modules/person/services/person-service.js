@@ -21,15 +21,14 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
                 // 'address'
               ]
             },
-            'ministries',
-            'relationType',
-            'notes'
+            'ministries','relationType','notes'
           ]
         }
       });
     },
 
     all: (pageNumber) => {
+      console.log("PersonService All");
       return Person.find({
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,
@@ -49,7 +48,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
 
     saveAvatar: (person, file) => {
       Upload.upload({
-        url: `${mhConfig.apiUrl}/Avatars/${person.id}/upload`,
+        url: mhConfig.apiUrl+"/Avatars/"+person.id+"/upload",
         file: file,
         fileName: 'avatar.jpg'
       });

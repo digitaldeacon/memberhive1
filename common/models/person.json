@@ -44,7 +44,6 @@
     },
     "gender": {
       "type": "string",
-      "required": true,
       "queryBuilder": {
         "label": "Gender",
         "input": "radio",

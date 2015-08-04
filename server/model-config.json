@@ -63,6 +63,14 @@
     "dataSource": "db",
     "public": true
   },
+  "Event": {
+    "dataSource": "db",
+    "public": true
+  },
+  "EventTemplate": {
+    "dataSource": "db",
+    "public": true
+  },
   "Avatar": {
     "dataSource": "uploads.avatar",
     "public": true

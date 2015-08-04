@@ -21,7 +21,8 @@
     "optimist": "^0.6.1",
     "serve-favicon": "^2.0.1",
     "toner": "^0.1.2",
-    "toner-phantom": "^0.1.0"
+    "toner-phantom": "^0.1.0",
+    "vcards-js": "^2.2.0"
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.8.0"
@@ -44,6 +45,7 @@
     "gulp-angular-templatecache": "~1.5.0",
     "gulp-autoprefixer": "~2.1.0",
     "gulp-csso": "~1.0.0",
+    "gulp-debug": "^2.0.1",
     "gulp-filter": "~2.0.2",
     "gulp-flatten": "~0.0.4",
     "gulp-graph": "0.0.3",
@@ -90,7 +92,7 @@
     "wrench": "~1.5.8"
   },
   "engines": {
-    "iojs": "^1.6.4"
+    "iojs": "^2.5.0"
   },
   "scripts": {
     "test": "gulp protractor",
