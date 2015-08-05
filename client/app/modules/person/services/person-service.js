@@ -85,7 +85,12 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
         }
       });
     },
-
+    
+    
+    search: (query) => {
+      return Person.search({query: query});
+    },
+    
     /**
      * A dictionary with gender translations
      */

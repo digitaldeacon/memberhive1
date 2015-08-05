@@ -12,7 +12,7 @@
         <ul class="list-inline">
           <li ng-repeat="person in personCtrl.getHouseholdMembers()">
             <a ui-sref="person.view({ id: person.id })">
-              <gem-avatar class="pull-left" person="person" size="xs"></gem-avatar>
+              <mh-avatar class="pull-left" person="person" size="xs"></mh-avatar>
               <div class="person-info">
                 <h4><b>{{::person | formatFirstName}}</b></h4>
                 <small class="text-muted" ng-if="person.relationType">
