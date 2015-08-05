@@ -1,20 +1,12 @@
-export var PersonRandomWidget = angular.module('gem.person.widget.random', ['adf.provider']);
-
-import {PersonRandomController} from './person-random-controller';
-
-PersonRandomWidget.config((dashboardProvider, gettext) => {
-  dashboardProvider.widget('person.random', {
-    title: gettext('Pray for …'),
-    description: gettext('Show random person as a prayer reminder'),
+export function mhWidgetPersonRandom() {
+  return {
     templateUrl: '/app/modules/person/widgets/random/view.html',
-    controller: 'PersonRandomController as pc',
-    reload: true,
-    resolve: {
-      randomPerson: function(Person) {
-        return Person.random().$promise;
-      }
+    restrict: 'E',
+    scope: {
+      person: '=',
+    },
+    controller: function($scope, Person) {
+      $scope.randomPerson = Person.random();
     }
-  });
-});
-
-PersonRandomWidget.controller('PersonRandomController', PersonRandomController);
+  };
+}

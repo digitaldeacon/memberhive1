@@ -1,7 +1,7 @@
-export var PersonStatsWidget = angular.module('gem.person.widget.stats', ['adf.provider']);
+export var PersonStatsWidget = angular.module('gem.person.widget.stats', []);
 
 import {PersonStatsController} from './person-stats-controller';
-
+/*
 PersonStatsWidget.config((dashboardProvider, gettext) => {
   dashboardProvider.widget('person.stats', {
     title: gettext('Person Statistics'),
@@ -18,5 +18,5 @@ PersonStatsWidget.config((dashboardProvider, gettext) => {
     }
   });
 });
-
+*/
 PersonStatsWidget.controller('PersonStatsController', PersonStatsController);

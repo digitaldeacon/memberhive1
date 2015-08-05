@@ -184,7 +184,7 @@ module.exports = function(Person) {
     Person.count({}, function(err, count) {
       var skip = parseInt(Math.random() * count);
       lomongo.collection.find().limit(1).skip(skip).toArray(function(err, data) {
-        lomongo.callback(cb, err, data);
+        lomongo.callback(cb, err, data[0]);
       });
     });
 
@@ -193,8 +193,8 @@ module.exports = function(Person) {
     'random',
     {
       returns: {
-        arg: 'person',
-        type: 'Person'
+        type: 'Person', 
+        root: true
       }
     }
   );
@@ -337,6 +337,5 @@ module.exports = function(Person) {
   
   Person.afterInitialize = function() {
     var ctx = Person.app.loopback.getCurrentContext();
-    console.log(ctx);
   };
 };

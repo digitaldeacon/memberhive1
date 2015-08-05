@@ -4,7 +4,7 @@ export function HeaderController($scope, $state, Search, gettext, LoopBackAuth) 
   this.selectedItem = null;
   this.personalMenu = [
     {name: gettext('Profile'), icon: 'person', link: 'person.view({id: "'+LoopBackAuth.currentUserId+'"})'},
-    {name: gettext('Logout'), icon: 'logout', link: ''}
+    {name: gettext('Logout'), icon: 'logout', link: 'dashboard'}
   ];
 
   this.querySearch = (query) => {

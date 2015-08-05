@@ -38,7 +38,7 @@
       <md-menu-item ng-repeat="item in headerCtrl.personalMenu">
         <md-button ng-click="ctrl.announceClick($index)">
           <ng-md-icon md-menu-align-target icon="{{item.icon}}"></ng-md-icon>
-            <a ui-sref="{{item.link}}">{{item.name}}</a>
+          <a ui-sref="{{item.link}}">{{item.name}}</a>
         </md-button>
       </md-menu-item>
     </md-menu-content>

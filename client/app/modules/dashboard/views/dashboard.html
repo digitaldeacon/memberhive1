@@ -1,13 +1,16 @@
 <div ng-controller="DashboardController as dashboard" class="margin-top-10">
-  <div class="portlet light">
-      <div>
-        <adf-dashboard name="{{dashboard.name}}"
-                       structure="4-8"
-                       collapsible="true"
-                       adf-model="dashboard.account.options.dashboard"
-          >
-
-        </adf-dashboard>
-      </div>
+ <div layout="row">
+  <div flex="50">
+    <mh-widget>
+      <mh-widget-person-random>
+      </mh-widget-person-random>
+    </mh-widget>
   </div>
+  <div flex="50">
+    <mh-widget>
+      <mh-widget-person-random>
+      </mh-widget-person-random>
+    </mh-widget>
+  </div>
+ </div>
 </div>

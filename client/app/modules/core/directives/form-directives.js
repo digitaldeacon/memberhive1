@@ -46,3 +46,19 @@ export function controlGroupDirective() {
 
   };
 }
+
+export function mhDateInput($filter) {
+  return {
+    template: '<datepicker date-format="shortDate"><input ng-model="date" type="text"/></datepicker>',
+    restrict: 'E',
+    scope: {
+      ngModel: '=',
+    },
+    controller: function($scope) {
+      $scope.date = $filter('date')(Date.parse($scope.ngModel), 'shortDate');
+      $scope.$watch('date', function() {
+        $scope.ngModel = $filter('date')(Date.parse($scope.date), 'medium');
+      });
+    }
+  };
+}

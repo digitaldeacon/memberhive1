@@ -57,9 +57,6 @@ export function mhPersonChips(mhConfig, PersonService) {
     restrict: 'E',
     scope: {
       person: '=',
-      size: '@',
-      cssClasses: '@class',
-      label: '@'
     },
     link: function(scope, element, attrs) {
       scope.contacts = [];

@@ -9,10 +9,10 @@
       </md-input-container>
       <md-input-container >
         <label>Event Date</label>
-        <input type="date" ng-model="ctrl.item.date">
+        <mh-date-input ng-model="ctrl.item.date"></mh-date-input>
       </md-input-container>
       <md-select ng-model="ctrl.templateId" ng-change="ctrl.updateTemplate()">
-        <md-option ng-repeat="template in ctrl.templates"   ng-value="template.id">{{template.name}}</md-option>
+        <md-option ng-repeat="template in ctrl.templates" ng-value="template.id">{{template.name}}</md-option>
       </md-select>
       
       <div class="event-template-item" ng-repeat="option in ctrl.template.data track by $index">
@@ -22,7 +22,7 @@
             <input type="text" ng-model="ctrl.item.data[$index]" />
           </div>
           <div ng-if="option.type == 'date'">
-            <input type="date" ng-model="ctrl.item.data[$index]" />
+            <mh-date-input ng-model="ctrl.item.data[$index]"></mh-date-input>
           </div>
           <div ng-if="option.type == 'person'">
             <mh-person-chips ng-model="ctrl.item.data[$index]"></mh-person-chips>
