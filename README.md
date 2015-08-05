@@ -51,8 +51,6 @@ Please follow these style guides when writing code:
 * [Frontend Guidelines](https://github.com/bendc/frontend-guidelines)
 
 ## 3rd Party Drop-Ins
-* [ADF] (https://github.com/sdorra/angular-dashboard-framework/tree/master/src)
-* [Weather Icons] (https://github.com/erikflowers/weather-icons)
 * [ViewHead] (https://github.com/apparentlymart/angularjs-viewhead) - sets the Browser Title
 * [Angular-Gettext] (https://angular-gettext.rocketeer.be/dev-guide/)
 
@@ -60,9 +58,9 @@ Please follow these style guides when writing code:
 * NPM
 * gulp
 * bower
-* io.js (a node.js fork)
+* iojs
 * strongloop
-* [babel transpiler (formely 6to5)] (https://github.com/babel/babel)
+* [babel] (https://github.com/babel/babel)
 * ECMAScript 6 (ES6)
 
 ## License
