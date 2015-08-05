@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - iojs-2.5.0
 sudo: false
+services:
+  - mongodb
 cache:
   directories:
     - bower_components
@@ -12,6 +14,9 @@ install:
   - npm install
   - bower install
 before_script:
+  - export NODE_ENV="travis"
+  - sleep 15
+  - mongo mydb_test --eval 'db.addUser("travis", "test");'
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
