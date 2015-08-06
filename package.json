@@ -95,11 +95,8 @@
     "iojs": "^2.5.0"
   },
   "scripts": {
-    "test": "gulp protractor",
-    "pretest": "jshint .",
-    "start": "node server/server.js",
-    "run": "nodemon --watch server/ --watch common/ . | bunyan",
-    "debug": "DEBUG=loopback npm run"
+    "test": "nodemon --watch server/ --watch common/ . | bunyan",
+    "start": "node server/server.js"
   },
   "main": "server/server.js"
 }
