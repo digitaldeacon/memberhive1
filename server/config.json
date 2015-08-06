@@ -4,6 +4,7 @@
   "port": 3994,
   "legacyExplorer": false,
   "url": "http://localhost:3994/",
+  "aclErrorStatus" : 403,
   "remoting": {
     "context": {
       "enableHttpContext": true
