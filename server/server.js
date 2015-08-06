@@ -4,10 +4,10 @@ var https = require('https');
 var path = require('path');
 var fs = require("fs");
 var app = module.exports = loopback();
-var options = {
+/*var options = {
   key: fs.readFileSync(path.join(__dirname, '../private/privatekey.pem')).toString(),
   cert: fs.readFileSync(path.join(__dirname, '../private/certificate.pem')).toString()
-};
+};*/
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
