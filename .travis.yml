@@ -27,7 +27,6 @@ before_script:
   - sleep 2
 script:
   - gulp test
-  - slc build
   - gulp build
 after_success:
   - sh deploy.sh
