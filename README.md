@@ -7,7 +7,7 @@
 Make sure you have the following requirements installed:
 * git 
 * g++ compiler
-* MongoDB 2.6
+* MongoDB 2.4
 * libpng-dev
 
 Install process
@@ -20,8 +20,8 @@ Install process
 * `npm install` *Install dev dependencies*
 * `bower install` *Install app dependencies*
 * Follow the persisting data instructions below
-* `npm start` *start io.js server* or `npm run debug` *to see debug output*
-* `gulp serve` *Run local webserver (will compile SASS and ES6 files when changed)*
+* `npm test` *start io.js server* or `npm run debug` *to see debug output*
+* `gulp surf` *Run local webserver (will compile SASS and ES6 files when changed)*
 
 ## Persisting data
 
