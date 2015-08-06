@@ -64,4 +64,4 @@ Please follow these style guides when writing code:
 * ECMAScript 6 (ES6)
 
 ## License
-All files are made available under the terms of the GNU Affero General Public License (AGPL).
+All files are made available under the terms of the GNU Affero General Public License (AGPL). See [LICENSE](https://github.com/digitaldeacon/memberhive/blob/master/LICENSE).
