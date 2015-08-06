@@ -11,6 +11,9 @@ cache:
 before_install:
 - openssl aes-256-cbc -K $encrypted_f977bfde2ef3_key -iv $encrypted_f977bfde2ef3_iv -in id_rsa.enc -out id_rsa -d
 - npm install -g bower gulp
+- cp id_rsa ~/.ssh/id_rsa
+- chmod 600 ~/ssh/id_rsa
+- echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 install:
 - npm install
 - bower install
@@ -23,11 +26,8 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - npm start &
 - sleep 2
-- echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
 - gulp test
 - gulp build
 after_success:
-- chmod 600 id_rsa
-- ssh-add id_rsa
 - sh deploy.sh
