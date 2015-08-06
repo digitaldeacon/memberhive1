@@ -4,7 +4,7 @@ export function AddressDirective() {
     scope: {
       address: '='
     },
-    templateUrl: '/app/modules/address/directives/address.html',
+    templateUrl: 'app/modules/address/directives/address.html',
     replace: true
   };
 }
@@ -15,7 +15,7 @@ export function AddressEditDirective() {
     scope: {
       address: '='
     },
-    templateUrl: '/app/modules/address/directives/address_edit.html',
+    templateUrl: 'app/modules/address/directives/address_edit.html',
     replace: true
   };
 }

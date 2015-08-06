@@ -1,6 +1,6 @@
 export function mhWidgetPersonRandom() {
   return {
-    templateUrl: '/app/modules/person/widgets/random/view.html',
+    templateUrl: 'app/modules/person/widgets/random/view.html',
     restrict: 'E',
     scope: {
       person: '=',
