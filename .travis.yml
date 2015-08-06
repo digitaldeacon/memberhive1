@@ -1,35 +1,32 @@
 language: node_js
 node_js:
-  - iojs-2.5.0
+- iojs-2.5.0
 sudo: false
 services:
-  - mongodb
+- mongodb
 cache:
   directories:
-    - bower_components
-    - "$HOME/.nvm"
+  - bower_components
+  - "$HOME/.nvm"
 before_install:
-- openssl aes-256-cbc -K $encrypted_f977bfde2ef3_key -iv $encrypted_f977bfde2ef3_iv
-  -in id_rsa.pub.enc -out .ssh/id_rsa.pub -d
-- openssl aes-256-cbc -K $encrypted_f977bfde2ef3_key -iv $encrypted_f977bfde2ef3_iv
-  -in id_rsa.enc -out .ssh/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_f977bfde2ef3_key -iv $encrypted_f977bfde2ef3_iv -in id_rsa.enc -out id_rsa -d
 - npm install -g bower gulp
 install:
-  - npm install
-  - bower install
+- npm install
+- bower install
 before_script:
-  - export NODE_ENV="travis"
-  - sleep 10
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm start &
-  - sleep 2
+- export NODE_ENV="travis"
+- sleep 10
+- mongo mydb_test --eval 'db.addUser("travis", "test");'
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm start &
+- sleep 2
 script:
-  - gulp test
-  - gulp build
+- gulp test
+- gulp build
 after_success:
-  - chmod 600 .ssh/id_rsa # this key should have push access
-  - ssh-add .ssh/id_rsa
-  - sh deploy.sh
+- chmod 600 id_rsa
+- ssh-add id_rsa
+- sh deploy.sh

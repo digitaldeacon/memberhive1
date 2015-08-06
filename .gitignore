@@ -8,6 +8,7 @@ server/datasources.local.json
 Caddyfile
 .ssh/id_rsa
 .ssh/id_rsa.pub
+id_rsa
 
 # Scripts
 run.sh
