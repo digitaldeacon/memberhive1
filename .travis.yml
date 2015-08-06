@@ -19,7 +19,6 @@ install:
 - bower install
 before_script:
 - export NODE_ENV="travis"
-- sleep 10
 - mongo mydb_test --eval 'db.addUser("travis", "test");'
 - export CHROME_BIN=chromium-browser
 - export DISPLAY=:99.0
