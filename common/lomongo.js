@@ -2,6 +2,7 @@
 var _ = require('lodash');
 
 module.exports = class Lomongo {
+  
   constructor(model) {
     this.model = model;
     this.collection = model.getDataSource().connector.collection(model.modelName)
