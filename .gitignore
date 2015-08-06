@@ -6,6 +6,8 @@ node_modules
 # Config files
 server/datasources.local.json
 Caddyfile
+.ssh/id_rsa
+.ssh/id_rsa.pub
 
 # Scripts
 run.sh
