@@ -97,8 +97,9 @@
   "scripts": {
     "test": "gulp protractor",
     "pretest": "jshint .",
-    "start": "nodemon --watch server/ --watch common/ . | bunyan",
-    "debug": "DEBUG=loopback npm start"
+    "start": "node server/server.js",
+    "run": "nodemon --watch server/ --watch common/ . | bunyan",
+    "debug": "DEBUG=loopback npm run"
   },
   "main": "server/server.js"
 }
