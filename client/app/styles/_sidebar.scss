@@ -1,119 +1,90 @@
-.md-sidenav-left,
-.md-sidenav-left.md-locked-open-add-active,
-.md-sidenav-left.md-locked-open {
-  width: 250px;
-  min-width: 250px;
-  max-width: 250px;
+md-sidenav.md-locked-open.md-closed.md-sidenav-left,
+md-sidenav.md-locked-open.md-closed,
+md-sidenav.md-locked-open.md-closed.md-sidenav-right,
+md-sidenav.md-locked-open-remove.md-closed {
+  position: static;
+  display: flex;
+  transform: translate3d(0,0,0);
 }
 
-.sidebar-container {
-  background-color: primary-color('500') !important; //overwrite .md-content
-  .logo-image-container {
-    margin-bottom: 2em;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    background-color: primary-color('800');
-    border-bottom: 1px solid primary-color('900');
-    
-    .logo-image {
-      max-width:100%;
-      max-height:100%;
-      margin-right: 3em;
-    }
-
-  }
-
-  ul.sidebar-menu {
-    padding: 0;
-    list-style: none;
-    line-height: 0px;
-  }
-  ul.sidebar-menu li {
-    margin: 0;
-    align-items: stretch;
-    .icon-arrow {
-      fill: $text-color-light;
-    }
-    .icon-placeholder-32 {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-    }
-    .md-button {
-      text-transform: none;
-      font-weight: 600;
-      width: 100%;
-      color: $text-color-light;
-      fill: $text-color-light;
-      display: inline-block;
-      align-items: stretch;
-    }
-    .md-accent .md-button {
-      fill: accent-color('600');
-      color: accent-color('600');
-    }
-    .item-icon {
-      margin-right: 0.5em;
-    }
-  }
-
-  .fadein,
-  .fadeout {
-    transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
-    transform: translateZ(0);
-  }
-
-  .fadein.ng-hide-remove,
-  .fadeout.ng-hide-add.ng-hide-add-active {
-    opacity: 0;
-    display: block !important;
-  }
-
-  .fadeout.ng-hide-add,
-  .fadein.ng-hide-remove.ng-hide-remove-active {
-    opacity: 1;
-    display: block !important;
-  }
-
+.md-locked-open .sidebar-left-icon {
+  display: block;
 }
 
-.sidebar-icon {
-  background: background-color('900');
-  border: 1px solid background-color('800');
-  padding: 0.5em;
-  max-width: 75px;
-  width: 75px;
-  ul.sidebar-icon-menu {
-    position: fixed;
-    padding: 0;
-    list-style: none;
-    li {
-      margin: 0;
-      margin-top: 1em;
-      margin-right: 1em;
-      .md-button {
-        text-transform: none;
-        font-weight: 600;
-        width: 100%;
-        color: $text-color-light;
-        fill: $text-color-light;
-      }
-      .md-accent .md-button {
-        fill: accent-color('600');
-      }
-    }
+.sidebar-left-toolbar {
+  box-shadow: 0 1px 0 rgba(0,0,0,.12);
+  z-index: 10;
+  min-height: $toolbar-height;
+  max-height: $toolbar-height;
+}
+.sidebar-left-logo {
+  flex-shrink: 0;
+}
+.sidebar-left-icon md-icon {
+  transform: rotate(90deg);
+  transition: all .2s;
+  color:#fefefe;
+}
+.side-menu-link {
+  display: block;
+  text-align: left;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  margin: 0;
+  text-transform: none;
+  white-space: normal;
+  line-height: 48px;
+  position: relative;
+  z-index: 2;
+  transform: translate3d(0,0,0);
+  ng-md-icon {
+    line-height:inherit;
+  }
+}
+.sidebar-left-title {
+  margin-left: 10px !important;
+}
+.sidebar-left-icon {
+  color: #fefefe;
+  ng-md-icon {
+    line-height:inherit;
+    color: #fefefe;
   }
 }
 
-.menu-item-child-icon {
-  margin-top: 5px;
-  margin-right: 1em;
-  fill: background-color('800');
+.admin-sidebar-collapsed.md-locked-open .sidebar-left-title,
+.admin-sidebar-collapsed.md-locked-open .sidebar-left-icon,
+.admin-sidebar-collapsed.md-locked-open .side-menu-link span {
+  opacity: 0;
+  transition: all .2s;
+  transition-delay: .3s;
 }
-.md-accent .menu-item-child-icon {
-  fill: accent-color('600');
+.admin-sidebar-left.md-locked-open {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  -ms-overflow-style: none;
 }
-
-
+.admin-sidebar-left.md-locked-open.admin-sidebar-collapsed {
+  min-width: 60px;
+  max-width: 60px;
+  transition: all .3s;
+}
+.is-collapsing{
+  min-width:60px;
+  max-width:60px;
+  transition:all .3s
+}
+.nav-label {
+  margin-left: 18px;
+}
+.nav-label-sub {
+  margin-left: 5px;
+}
+.no-scroll {
+  overflow: hidden;
+}
+.no-scroll-horizontal {
+  overflow-x: hidden;
+}

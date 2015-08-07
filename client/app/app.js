@@ -51,8 +51,9 @@ gemMainModule.config(
     cfpLoadingBarProvider.includeSpinner = false;
     if(!mhConfig.apiUrl) {
       console.error("API URL not definied");
+    } else {
+      LoopBackResourceProvider.setUrlBase(mhConfig.apiUrl);
     }
-    LoopBackResourceProvider.setUrlBase(mhConfig.apiUrl);
     $breadcrumbProvider.setOptions({
       prefixStateName: 'dashboard',
       templateUrl: 'app/templates/breadcrumb.html'

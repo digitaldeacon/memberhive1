@@ -30,7 +30,7 @@ export function SidebarController (
   this.isHovering = true;
 
   this.menuClass = () => {
-    if(this.isMenuLocked) {
+    if(this.isMenuLocked || ($mdSidenav('left').isLockedOpen() === false && $mdSidenav('left').isOpen() === true)) {
       return '';
     } else {
       if(this.isMenuCollapsing) {
