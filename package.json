@@ -95,7 +95,7 @@
     "iojs": "^2.5.0"
   },
   "scripts": {
-    "test": "nodemon --watch server/ --watch common/ . | bunyan",
+    "test": "nodemon -e js,json --watch server/ --watch common/ . | bunyan",
     "start": "node server/server.js"
   },
   "main": "server/server.js"

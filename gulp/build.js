@@ -43,7 +43,7 @@ module.exports = function(options) {
       .pipe($.rev())
       .pipe(jsFilter)
       .pipe($.ngAnnotate())
-      .pipe($.uglify()).on('error', options.errorHandler('Uglify'))
+      //.pipe($.uglify()).on('error', options.errorHandler('Uglify'))
       .pipe(jsFilter.restore())
       .pipe(cssFilter)
       .pipe($.csso())
@@ -95,7 +95,17 @@ module.exports = function(options) {
       .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
-      process.exit();
-    });
+        process.exit();
+      });
+  });
+  
+  gulp.task('build-default', ['html', 'fonts', 'images', 'other'], function () {
+     return gulp.src(options.dist + '/index.html')
+      .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
+      .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "http://127.0.0.1:3994/api"}'))
+      .pipe(gulp.dest(options.dist + '/'))
+      .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
+        process.exit();
+      });
   });
 };
