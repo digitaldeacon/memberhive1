@@ -99,7 +99,7 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
   });
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('blue-grey')
+    .primaryPalette('blue')
     .accentPalette('mh-orange')
     .warnPalette('lime')
     .backgroundPalette('grey');

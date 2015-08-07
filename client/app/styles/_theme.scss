@@ -389,9 +389,9 @@ $colorshemes : (
   "mh-deep-blue": $colors-mh-deep-blue,
 );
 
-$primary-color-sheme: "blue-grey";
+$primary-color-sheme: "blue";
 $accent-color-sheme: "mh-orange";
-$warn-color-sheme: "red";
+$warn-color-sheme: "lime";
 $background-color-sheme: "grey";
 
 @function colorsheme($key) {
