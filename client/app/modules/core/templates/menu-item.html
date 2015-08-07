@@ -38,11 +38,9 @@
 
 <ul ng-if="item.children" class="menu-nested-list fadein fadeout" ng-show="isOpen()" >
   <li ng-repeat="child in item.children">
-    <a ui-sref="{{child.route}}" ui-sref-active="md-accent" class="text-dark">
-      <md-button ng-click="closeMenuBar()" class="side-menu-link">
+      <md-button ng-click="closeMenuBar()" class="side-menu-link" ui-sref="{{child.route}}" ui-sref-active="md-accent">
         <ng-md-icon class="item-icon" size="24" icon="{{child.icon}}"></ng-md-icon>
         <span class="nav-label-sub">{{child.label | translate}}</span>
       </md-button>
-    </a>
   </li>
 </ul>

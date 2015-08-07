@@ -28,5 +28,12 @@ export function HeaderController(
     $state.go('person.view', {id: id});
     
   };
+  
+   
+  this.showSearch = false;
+  
+  this.toogleSearch = () => {
+    this.showSearch = !this.showSearch;
+  };
 
 }

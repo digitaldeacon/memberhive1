@@ -7,10 +7,12 @@
       <ng-md-icon icon="menu"></ng-md-icon>
     </md-button>
   </div>
-  <div class="item">
+  <div class="item" ng-if="!headerCtrl.showSearch">
     <span class="sub-title"> {{appCtrl.getSubTitle()}} </span>
   </div>
-  <div flex class="item search">
+  <div flex ng-if="!headerCtrl.showSearch">
+  </div>
+  <div flex class="item search" ng-if="headerCtrl.showSearch">
       <md-autocomplete
           md-search-text="headerCtrl.searchText"
           md-selected-item-change="headerCtrl.selectedItemChange(item)"
@@ -21,22 +23,27 @@
           md-selected-item-change="headerCtrl.selectedItemChange(item)"
           class="header-search"
         >
-
         <mh-avatar person="item" circle size="xs"></mh-avatar>
         <span md-highlight-text="headerCtrl.searchText" md-highlight-flags="^i">
           {{item | formatName}}
         </span>
 
       </md-autocomplete>
+     
   </div>
-  <div style="text-align:right" class="item">
+  <div style="text-align:right" class="item button">
+       <md-button ng-click="headerCtrl.toogleSearch()" aria-label="Toggle Search">
+        <ng-md-icon md-menu-align-target icon="search"></ng-md-icon>
+      </md-button>
+  </div>
+  <div style="text-align:right" class="item button">
     <md-menu>
       <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu()">
         <ng-md-icon icon="more_vert"></ng-md-icon>
       </md-button>
       <md-menu-content width="4">
         <md-menu-item ng-repeat="item in headerCtrl.personalMenu">
-          <md-button ng-click="ctrl.announceClick($index)">
+          <md-button>
             <ng-md-icon md-menu-align-target icon="{{item.icon}}"></ng-md-icon>
             <a ui-sref="{{item.link}}">{{item.name}}</a>
           </md-button>
