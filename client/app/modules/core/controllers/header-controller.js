@@ -3,7 +3,8 @@ export function HeaderController(
   $state, 
   Search, 
   gettext, 
-  LoopBackAuth
+  LoopBackAuth,
+  $mdMedia
 ) 
 {
   "ngInject";
@@ -30,10 +31,23 @@ export function HeaderController(
   };
   
    
-  this.showSearch = false;
+  this.showSearch = $mdMedia('gt-md');
+  this.showTitle = true;
   
   this.toogleSearch = () => {
+    console.log(this.showSearch, $mdMedia('gt-md'));
     this.showSearch = !this.showSearch;
+    if(this.showSearch) {
+      this.showTitle = $mdMedia('gt-md');
+    } else {
+      this.showTitle = true;
+    }
   };
-
+  $scope.$watch(function() { return $mdMedia('gt-md'); }, (big) => {
+    if(big) {
+      this.showTitle = true;
+    } else if(this.showSearch) {
+      this.showTitle = false;
+    }
+  });
 }
