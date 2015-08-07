@@ -28,7 +28,6 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
     },
 
     all: (pageNumber) => {
-      console.log("PersonService All");
       return Person.find({
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,

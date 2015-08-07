@@ -7,7 +7,6 @@ export function PersonListController(PersonService,Person)  {"ngInject";
   this.totalPersons = 0;
 
   this.getPersons = (pageNumber) => {
-    console.log("get person");
     Person.count().$promise.then((result) => {
       this.totalPersons = result.count;
     });
