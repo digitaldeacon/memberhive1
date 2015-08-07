@@ -94,7 +94,7 @@ gm-map {
 .fileupload-dragover {
     border: 2px dashed blue;
 }
-.text-dark {
+.text-dark, .text-dark:visited {
   color: $text-color-dark;
   fill: $text-color-dark;
 }

@@ -22,9 +22,7 @@ export function SidebarController (
   this.isHovering = true;
 
   this.menuClass = () => {
-    console.log("call");
     if(this.isMenuLocked || ($mdSidenav('left').isLockedOpen() === false && $mdSidenav('left').isOpen() === true)) {
-      console.log("locked");
       return '';
     } else {
       if(this.isMenuCollapsing) {

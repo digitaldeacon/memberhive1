@@ -1,5 +1,5 @@
 <md-toolbar class="md-whiteframe-z1 header-toolbar" layout="row" layout-align="center center">
-  <div hide-gt-md class="item">
+  <div hide-gt-md class="item" ng-if="headerCtrl.showTitle">
     <md-button 
               class="md-icon-button mh-toogle-button"
               aria-label="Toogle Menu"
@@ -36,7 +36,7 @@
         <ng-md-icon md-menu-align-target icon="search"></ng-md-icon>
       </md-button>
   </div>
-  <div style="text-align:right" class="item button">
+  <div style="text-align:right" class="item button" ng-if="headerCtrl.showTitle">
     <md-menu>
       <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu()">
         <ng-md-icon icon="more_vert"></ng-md-icon>
