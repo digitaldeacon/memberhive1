@@ -8,6 +8,7 @@ import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-direc
 import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
 import {stateLoader,appLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
+import {AccountOptions} from './services/account-options';
 import {GemFileReader} from './services/filereader';
 import {Search} from './services/search';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
@@ -158,6 +159,7 @@ gemCoreModule.provider('MainMenu', MainMenu);
 
 // Services
 gemCoreModule.service('Search', Search);
+gemCoreModule.service('AccountOptions', AccountOptions);
 
 // Factories
 gemCoreModule.factory('Shout', Shout);

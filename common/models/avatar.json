@@ -9,7 +9,8 @@
   "properties": {},
   "validations": [],
   "relations": {},
-  "acls": [{
+  "acls": [
+    {
       "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$authenticated",

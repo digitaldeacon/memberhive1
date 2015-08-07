@@ -4,7 +4,8 @@ export function SidebarController (
   GemAcl, 
   MainMenu, 
   $timeout, 
-  $mdSidenav
+  $mdSidenav,
+  AccountOptions
 ) 
 {"ngInject";
   this.mainMenu = MainMenu.getItems();
@@ -17,7 +18,7 @@ export function SidebarController (
     $mdSidenav('left').open();
   };
 
-  this.isMenuLocked = false;
+  this.isMenuLocked = AccountOptions.get('sidebar_locked');
   this.isMenuCollapsing = false;
   this.isHovering = true;
 
@@ -41,11 +42,8 @@ export function SidebarController (
   };
 
   this.toggleMenuLock = () => {
-    if(this.isMenuLocked === false) {
-      this.isMenuLocked = true;
-    } else {
-      this.isMenuLocked = false;
-    }
+    this.isMenuLocked = !this.isMenuLocked;
+    AccountOptions.set('sidebar_locked', this.isMenuLocked);
   };
 
   this.menuLockIcon = () => {
@@ -53,7 +51,6 @@ export function SidebarController (
   };
 
   this.hover = (state) => {
-    console.log("hover", state);
     this.isHovering = state;
   };
 

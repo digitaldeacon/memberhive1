@@ -17,7 +17,6 @@ export function EventController(Event, EventTemplate, $stateParams, $state) {"ng
   };
   
   this.save = () => {
-    console.log(this.item.data);
     this.item.templateId = this.templateId;
     Event.upsert(this.item).$promise
       .then(() => $state.go("event.all"));
