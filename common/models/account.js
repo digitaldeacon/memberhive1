@@ -6,6 +6,8 @@ module.exports = function(Account) {
 
   Account.roles = function(msg, cb) {
     console.log("get roles");
+    console.log(model.getDataSource()),
+    console.log(model.getDataSource().connector);
     Role.getRoles({principalType: RoleMapping.USER, principalId: msg}, function(err, roles) {
       Role.find({}, function(err, allRoles) {
         var ret = [];
