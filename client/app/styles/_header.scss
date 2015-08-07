@@ -1,7 +1,7 @@
 .header-toolbar {
   background-color: primary-color('600') !important;
-  min-height: 68px;
-  max-height: 68px;
+  min-height: $toolbar-height;
+  max-height: $toolbar-height;
   .sub-title {
     margin-right: 1em;
     line-height: 2em;
@@ -14,11 +14,19 @@
     padding-top: 0;
     padding-bottom: 0;
   }
-  span {
-    padding-top: 12px;
+  
+  div.item {
+    height: $toolbar-height;
+    span {
+      padding-left: 1em;
+      line-height: $toolbar-height;
+    }
   }
+  
+  div.search {
+    color: $text-color-light !important;
+    padding-top: 5px;
+  }
+  
 }
 
-.header-search {
-  color: #000;
-}

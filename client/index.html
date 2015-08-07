@@ -123,13 +123,9 @@
              layout="vertical"></div>
 
         <div flex layout="column">
-
-          <md-toolbar class="md-whiteframe-z0 header-toolbar">
-            <div layout="row"
-                 layout-padding data-ng-include="'app/templates/header.html'"
-                 data-ng-controller="HeaderController as headerCtrl">
-            </div>
-          </md-toolbar>
+          <div data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl">
+          </div>
+         
           <md-content flex class="full-height">
             <div ui-view layout="column" layout-padding></div>
           </md-content>
