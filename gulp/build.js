@@ -43,7 +43,7 @@ module.exports = function(options) {
       .pipe($.rev())
       .pipe(jsFilter)
       .pipe($.ngAnnotate())
-      //.pipe($.uglify()).on('error', options.errorHandler('Uglify'))
+      .pipe($.uglify()).on('error', options.errorHandler('Uglify'))
       .pipe(jsFilter.restore())
       .pipe(cssFilter)
       .pipe($.csso())
