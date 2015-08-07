@@ -44,5 +44,8 @@ export function AppController(
   
   this.toggleLeft = buildToggler('left');
   
+  this.swipeRight = () => {
+    $mdSidenav('left').open();
+  }
   
 }

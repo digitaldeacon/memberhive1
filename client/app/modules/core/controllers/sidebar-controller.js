@@ -61,5 +61,7 @@ export function SidebarController (
 
   this.selected = '';
   
+  
+  
  
 }
