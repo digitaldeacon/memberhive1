@@ -1,5 +1,5 @@
 <a ui-sref="{{item.route}}" ui-sref-active="md-accent" ng-if="!item.children">
-  <md-button ng-click="closeMenuBar()" class="side-menu-link">
+  <md-button ng-click="closeMenuBar()" class="side-menu-link" aria-label="Close Menu Bar">
 
     <div layout="row">
       <div flex="10"><ng-md-icon size="24" icon="{{item.icon}}"></ng-md-icon></div>
@@ -9,7 +9,7 @@
   </md-button>
 </a>
 
-<md-button ng-if="item.children" ng-click="toggle()" class="side-menu-link">
+<md-button ng-if="item.children" ng-click="toggle()" class="side-menu-link" aria-label="{{item.label | translate}}">
   <div layout="row">
     <div flex="10"><ng-md-icon size="24" icon="{{item.icon}}"></ng-md-icon></div>
     <div flex="70" ng-if="iconVisible()"><span class="nav-label">{{item.label | translate}}</span></div>
