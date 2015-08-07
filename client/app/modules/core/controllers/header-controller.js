@@ -4,7 +4,9 @@ export function HeaderController(
   Search, 
   gettext, 
   LoopBackAuth,
-  $mdMedia
+  $mdMedia,
+  Account,
+  GemAcl
 ) 
 {
   "ngInject";

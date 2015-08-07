@@ -46,6 +46,6 @@ export function AppController(
   
   this.swipeRight = () => {
     $mdSidenav('left').open();
-  }
+  };
   
 }
