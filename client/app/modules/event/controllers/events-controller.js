@@ -1,3 +1,3 @@
-export function EventsController(Event) {
+export function EventsController(Event) {"ngInject";
   this.events = Event.find();
 }

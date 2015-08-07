@@ -1,7 +1,7 @@
 export class ReportUpsertController {
 
   constructor($scope, Report, ReportService, Person, gettextCatalog, Shout, $stateParams, QueryBuilderModelService,
-              mhConfig, $sce, $document) {
+              mhConfig, $sce, $document) {"ngInject";
     this.$scope = $scope;
     this.Report = Report;
     this.ReportService = ReportService;

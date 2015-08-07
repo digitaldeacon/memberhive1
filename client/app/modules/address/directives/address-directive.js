@@ -1,4 +1,4 @@
-export function AddressDirective() {
+export function AddressDirective() {"ngInject";
   return {
     restrict: 'E',
     scope: {
@@ -9,7 +9,7 @@ export function AddressDirective() {
   };
 }
 
-export function AddressEditDirective() {
+export function AddressEditDirective() {"ngInject";
   return {
     restrict: 'E',
     scope: {

@@ -54,7 +54,7 @@ export function mhDateInput($filter) {"ngInject";
     scope: {
       ngModel: '=',
     },
-    controller: function($scope) {
+    controller: function($scope) {"ngInject";
       $scope.date = $filter('date')(Date.parse($scope.ngModel), 'shortDate');
       $scope.$watch('date', function() {
         $scope.ngModel = $filter('date')(Date.parse($scope.date), 'medium');

@@ -1,4 +1,4 @@
-export function QueryBuilderDirective($rootScope) {
+export function QueryBuilderDirective($rootScope) {"ngInject";
   return {
     templateUrl: '/queryBuilderDirective.html',
     controller: 'ReportUpsertController',

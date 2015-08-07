@@ -5,7 +5,7 @@ export function mhWidgetPersonRandom() {"ngInject";
     scope: {
       person: '=',
     },
-    controller: function($scope, Person) {
+    controller: function($scope, Person) {"ngInject";
       $scope.randomPerson = Person.random();
     }
   };

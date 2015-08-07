@@ -1,4 +1,4 @@
-export function PersonImportController(Person, GemFileReader, Shout, $scope, gettext, gettextCatalog) {
+export function PersonImportController(Person, GemFileReader, Shout, $scope, gettext, gettextCatalog) {"ngInject";
   this.csvToArray = (strData, strDelimiter) => {
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
