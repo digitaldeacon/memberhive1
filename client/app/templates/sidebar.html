@@ -3,6 +3,7 @@
             class="admin-sidebar-left md-sidenav-left md-whiteframe-z2 md-closed md-locked-open no-scroll-horizontal"
             md-is-locked-open="$mdMedia('gt-md')"
             ng-class="sidebarCtrl.menuClass()" ng-mouseover="sidebarCtrl.hover(false)" ng-mouseleave="sidebarCtrl.hover(true)"
+            md-swipe-right="sidebarCtrl.closeMenu()"
             flex
   >
   <md-toolbar class="sidebar-left-toolbar">

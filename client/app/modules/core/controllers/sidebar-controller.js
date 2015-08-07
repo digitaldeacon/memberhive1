@@ -10,11 +10,11 @@ export function SidebarController (
   this.mainMenu = MainMenu.getItems();
 
   this.closeMenu = () => {
-    $timeout(function() { $mdSidenav('left').close(); });
+    $mdSidenav('left').close();
   };
 
   this.openMenu = () => {
-    $timeout(function() { $mdSidenav('left').open(); });
+    $mdSidenav('left').open();
   };
 
   this.isMenuLocked = false;

@@ -8,7 +8,8 @@ export function AppController(
   productName, 
   $mdSidenav, 
   GemAcl, 
-  $mdUtil
+  $mdUtil,
+  $timeout
 ) 
 {
  "ngInject";
@@ -44,7 +45,7 @@ export function AppController(
   
   this.toggleLeft = buildToggler('left');
   
-  this.swipeRight = () => {
+  this.openMenu = () => {
     $mdSidenav('left').open();
   };
   
