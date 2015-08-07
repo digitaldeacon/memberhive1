@@ -49,6 +49,9 @@ export var gemMainModule = angular.module('gem.main', [
 gemMainModule.config(
   ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, mhConfig, LoopBackResourceProvider, $httpProvider) => {
     cfpLoadingBarProvider.includeSpinner = false;
+    if(!mhConfig.apiUrl) {
+      console.error("API URL not definied");
+    }
     LoopBackResourceProvider.setUrlBase(mhConfig.apiUrl);
     $breadcrumbProvider.setOptions({
       prefixStateName: 'dashboard',

@@ -11,7 +11,7 @@
  * You might also apply any css classes:
  *   <mh-avatar person="personCtrl.person" size="m" circle class="foo bar"></mh-avatar>
  */
-export function mhAvatar(mhConfig) {
+export function mhAvatar(mhConfig) {"ngInject";
   return {
     template: '<img ng-src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}"' +
               ' aria-label="{{label}}" tooltip="{{label}}" />',
@@ -51,7 +51,7 @@ export function mhAvatar(mhConfig) {
 }
 
 
-export function mhPersonChips(mhConfig, PersonService) {
+export function mhPersonChips(mhConfig, PersonService) {"ngInject";
   return {
     templateUrl: 'app/modules/person/templates/person-chips.html',
     restrict: 'E',

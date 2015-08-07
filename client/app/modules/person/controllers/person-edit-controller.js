@@ -1,6 +1,7 @@
 export class PersonEditController {
   constructor(PersonService, Person, Household, AddressService, $stateParams, $scope, Shout, gettextCatalog,
               $filter, $state, $q, $http) {
+    "ngInject";
     this.PersonService = PersonService;
     this.Person = Person;
     this.Household = Household;

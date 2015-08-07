@@ -9,7 +9,7 @@
  * From http://aboutcode.net/2013/07/13/twitter-bootstrap-control-group-directive-for-angularjs.html
  */
 
-export function controlGroupDirective() {
+export function controlGroupDirective() {"ngInject";
   return {
     template:
       /*jshint multistr: true */
@@ -47,7 +47,7 @@ export function controlGroupDirective() {
   };
 }
 
-export function mhDateInput($filter) {
+export function mhDateInput($filter) {"ngInject";
   return {
     template: '<datepicker date-format="shortDate"><input ng-model="date" type="text"/></datepicker>',
     restrict: 'E',

@@ -1,4 +1,4 @@
-export function stateLoader($rootScope) {
+export function stateLoader($rootScope) {"ngInject";
   return {
     restrict: 'E',
     template: "<div ng-show='isStateLoading' class='loading-indicator'>" +
@@ -20,7 +20,7 @@ export function stateLoader($rootScope) {
   };
 }
 
-export function appLoader($animate) {
+export function appLoader($animate) {"ngInject";
   return {
       restrict: 'C',
       link: function link( scope, element, attributes ) {

@@ -1,5 +1,5 @@
 'use strict';
-export function GemFileReader($q, $window) {
+export function GemFileReader($q, $window) {"ngInject";
     // Wrap the onLoad event in the promise
     var onLoad = function(reader, deferred, scope) {
       return function () {

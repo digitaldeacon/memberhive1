@@ -1,5 +1,5 @@
 
-export function Shout($mdToast) {
+export function Shout($mdToast) {"ngInject";
   return {
     message: (msg, icon='info') => {
       $mdToast.show({

@@ -1,4 +1,4 @@
-export function LoginController (Account, $state, GemAcl, Shout, gettextCatalog) {
+export function LoginController (Account, $state, GemAcl, Shout, gettextCatalog) {"ngInject";
 
   this.rememberMe = true;
   this.login = () => {

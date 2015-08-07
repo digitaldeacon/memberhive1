@@ -1,4 +1,4 @@
-export function uiNavDirective() {
+export function uiNavDirective() {"ngInject";
   return {
     restrict: 'AC',
     link: function(scope, el, attr) {
@@ -11,7 +11,7 @@ export function uiNavDirective() {
     }
   };
 }
-export function mhMenuItem($mdSidenav, $timeout) {
+export function mhMenuItem($mdSidenav, $timeout) {"ngInject";
   return {
     restrict: 'E',
     scope: {
@@ -67,7 +67,7 @@ export function mhMenuItem($mdSidenav, $timeout) {
   };
 }
 
-export function mhMenuIconItem() {
+export function mhMenuIconItem() {"ngInject";
   return {
     restrict: 'E',
     scope: {

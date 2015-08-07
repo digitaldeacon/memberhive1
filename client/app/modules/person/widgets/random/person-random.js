@@ -1,4 +1,4 @@
-export function mhWidgetPersonRandom() {
+export function mhWidgetPersonRandom() {"ngInject";
   return {
     templateUrl: 'app/modules/person/widgets/random/view.html',
     restrict: 'E',

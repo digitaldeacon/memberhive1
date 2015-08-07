@@ -1,5 +1,5 @@
 export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCatalog,
-                              Upload, mhConfig, $rootScope) {
+                              Upload, mhConfig, $rootScope) {"ngInject";
   return {
     modelName: () => {
       return Person.model.name;

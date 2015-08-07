@@ -1,6 +1,7 @@
 export class HouseholdListController {
 
   constructor(PersonService, Household) {
+    "ngInject";
     this.PersonService = PersonService;
     this.Household = Household;
 

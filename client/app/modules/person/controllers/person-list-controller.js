@@ -1,4 +1,4 @@
-export function PersonListController(PersonService,Person)  {
+export function PersonListController(PersonService,Person)  {"ngInject";
   this.relationTypes = PersonService.relationTypes;
   this.statusTypes = PersonService.statusTypes;
 

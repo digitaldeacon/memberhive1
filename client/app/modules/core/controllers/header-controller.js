@@ -1,4 +1,12 @@
-export function HeaderController($scope, $state, Search, gettext, LoopBackAuth) {
+export function HeaderController(
+  $scope, 
+  $state, 
+  Search, 
+  gettext, 
+  LoopBackAuth
+) 
+{
+  "ngInject";
 
   this.searchText = '';
   this.selectedItem = null;
