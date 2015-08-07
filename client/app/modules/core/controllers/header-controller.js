@@ -31,23 +31,22 @@ export function HeaderController(
   };
   
    
-  this.showSearch = $mdMedia('gt-md');
-  this.showTitle = true;
+  this.showSearch = $mdMedia('gt-md'); // show searchbar only when screen is large
+  this.showTitle = true; //always show title at start
   
   this.toogleSearch = () => {
-    console.log(this.showSearch, $mdMedia('gt-md'));
-    this.showSearch = !this.showSearch;
+    this.showSearch = !this.showSearch;//toggle
     if(this.showSearch) {
-      this.showTitle = $mdMedia('gt-md');
+      this.showTitle = $mdMedia('gt-md'); //show title only if screen is big
     } else {
-      this.showTitle = true;
+      this.showTitle = true; // when there is not search alway show title
     }
   };
   $scope.$watch(function() { return $mdMedia('gt-md'); }, (big) => {
     if(big) {
-      this.showTitle = true;
-    } else if(this.showSearch) {
-      this.showTitle = false;
+      this.showTitle = true;//if the screen was resized to big then show title
+    } else if(!big && this.showSearch) {
+      this.showTitle = false; // if the screen was resized to small and search is visible then hide title
     }
   });
 }
