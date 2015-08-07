@@ -49,4 +49,10 @@ export function HeaderController(
       this.showTitle = false; // if the screen was resized to small and search is visible then hide title
     }
   });
+  this.logout = () => {
+    Account.logout().$promise.then((resp) => {
+      GemAcl.setRights([]);
+      $state.go('login');
+    });
+  };
 }
