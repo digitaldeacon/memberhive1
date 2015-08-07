@@ -5,6 +5,7 @@ module.exports = function(Account) {
   var RoleMapping = loopback.RoleMapping;
 
   Account.roles = function(msg, cb) {
+    console.log("get roles");
     Role.getRoles({principalType: RoleMapping.USER, principalId: msg}, function(err, roles) {
       Role.find({}, function(err, allRoles) {
         var ret = [];
