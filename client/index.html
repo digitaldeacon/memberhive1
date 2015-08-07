@@ -116,7 +116,7 @@
 
       <mhStateLoader></mhStateLoader>
 
-      <div flex layout="row">
+      <div flex layout="row" class="full-height">
 
         <div data-ng-include="'app/templates/adminSidebar.html'"
              data-ng-controller="SidebarController as sidebarCtrl"
@@ -130,7 +130,7 @@
                  data-ng-controller="HeaderController as headerCtrl">
             </div>
           </md-toolbar>
-          <md-content>
+          <md-content flex class="full-height">
             <div ui-view layout="column" layout-padding></div>
           </md-content>
         </div>
