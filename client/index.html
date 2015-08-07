@@ -116,17 +116,15 @@
 
       <mhStateLoader></mhStateLoader>
 
-      <div flex layout="row" class="full-height">
-
+      <div flex layout="row">
         <div data-ng-include="'app/templates/sidebar.html'"
              data-ng-controller="SidebarController as sidebarCtrl"
              layout="vertical"></div>
-
         <div flex layout="column">
           <div data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl">
           </div>
          
-          <md-content flex class="full-height">
+          <md-content flex>
             <div ui-view layout="column" layout-padding></div>
           </md-content>
         </div>
