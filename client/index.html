@@ -29,7 +29,7 @@
     </script>
 
   </head>
-  <body flex layout="column" md-swipe-right="appCtrl.openMenu()">
+  <body flex layout="column" md-swipe-right="appCtrl.openMenu()" class="full-height" layout-fill>
 
   <div class="mh-app-loader" ng-animate-children>
     <style type="text/css">
@@ -112,28 +112,26 @@
     <!-- END: Actual animated container. -->
   </div>
 
-    <div ng-if="acl.isLoggedIn()" class="full-height">
-
-      <mhStateLoader></mhStateLoader>
-
-      <div flex layout="row">
-        <div data-ng-include="'app/templates/sidebar.html'"
-             data-ng-controller="SidebarController as sidebarCtrl"
-             layout="vertical"></div>
-        <div flex layout="column">
-          <div data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl">
-          </div>
-         
-          <md-content flex>
-            <div ui-view layout="column" layout-padding></div>
-          </md-content>
+  <div flex ng-if="acl.isLoggedIn()" class="full-height">
+    <mhStateLoader></mhStateLoader>
+    <div flex layout="row" class="full-height">
+      <div data-ng-include="'app/templates/sidebar.html'"
+            data-ng-controller="SidebarController as sidebarCtrl"
+            layout="vertical"></div>
+      <div flex layout="column" class="full-height">
+        <div data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl">
         </div>
+        
+        <md-content flex class="content-background">
+          <div ui-view layout="column" layout-padding></div>
+        </md-content>
       </div>
     </div>
-    
-    <div flex ng-if="acl.isLoggedOut()" class="login-container">
-      <div flex ui-view layout="column" ></div>
-    </div>
+  </div>
+  
+  <div flex ng-if="acl.isLoggedOut()" class="login-container">
+    <div flex ui-view layout="column" ></div>
+  </div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
