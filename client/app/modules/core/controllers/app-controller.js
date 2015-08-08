@@ -48,5 +48,7 @@ export function AppController(
   this.openMenu = () => {
     $mdSidenav('left').open();
   };
-  
+  this.closeMenu = () => {
+    $mdSidenav('left').close();
+  };
 }
