@@ -7,8 +7,8 @@ module.exports = function(app) {
         Account.create(
             [{
                 username: 'root',
-                email: 'root@memberhive.io',
-                password: 'bibel'
+                email:  process.env.MH_ROOT_EMAIL || 'root@memberhive.com',
+                password:  process.env.MH_ROOT_PASSWORD || 'bibel'
             }],
             function(err, users) {
             // Create the admin role
