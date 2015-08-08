@@ -16,6 +16,7 @@ md-sidenav.md-locked-open-remove.md-closed {
   z-index: 10;
   min-height: $toolbar-height;
   max-height: $toolbar-height;
+  background-color: primary-color('700');
 }
 .sidebar-left-logo {
   flex-shrink: 0;
@@ -87,4 +88,9 @@ md-sidenav.md-locked-open-remove.md-closed {
 }
 .no-scroll-horizontal {
   overflow-x: hidden;
+}
+.side-menu-content {
+  background-color: primary-color('700');
+  color: $text-color-light;
+  fill: $text-color-light;
 }

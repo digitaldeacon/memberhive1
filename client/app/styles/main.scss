@@ -98,3 +98,15 @@ gm-map {
   color: $text-color-dark;
   fill: $text-color-dark;
 }
+.text-light, .text-light:visited {
+  color: $text-color-light;
+  fill: $text-color-light;
+}
+.simple-link, .simple-link:visited, .simple-link:active {
+  color: $text-color-dark;
+}
+.md-action-icon-button {
+  svg {
+     fill: lighten($text-color-dark, 20%);
+  }
+}

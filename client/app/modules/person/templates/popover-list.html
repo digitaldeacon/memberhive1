@@ -1,0 +1,11 @@
+<div class="triangle"></div>
+<div class="ns-popover-tooltip">
+  <h3>{{::person.household.name}}</h3>
+  <ul>
+    <li ng-repeat="person in person.household.persons">
+      <a ui-sref="person.view({ id: person.id })">{{::person | formatName}}
+        <span ng-if="person.relationType">({{::personCtrl.relationTypes[person.relationType.type]}})</span>
+      </a>
+    </li>
+  </ul>
+</div>

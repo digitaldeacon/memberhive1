@@ -1,6 +1,6 @@
  <!-- sidebar: left -->
 <md-sidenav md-component-id="left"
-            class="admin-sidebar-left md-sidenav-left md-whiteframe-z2 md-closed md-locked-open no-scroll-horizontal"
+            class="side-menu-content admin-sidebar-left md-sidenav-left md-whiteframe-z2 md-closed md-locked-open no-scroll-horizontal"
             md-is-locked-open="$mdMedia('gt-md')"
             ng-class="sidebarCtrl.menuClass()" ng-mouseover="sidebarCtrl.hover(false)" ng-mouseleave="sidebarCtrl.hover(true)"
             md-swipe-right="sidebarCtrl.closeMenu()"
@@ -22,7 +22,7 @@
   </md-toolbar>
   
   <side-menu>
-    <md-content layout-fill class="no-scroll">
+    <md-content layout-fill class="side-menu-content no-scroll">
       <side-menu-item ng-repeat="entry in sidebarCtrl.mainMenu">
         <mh-menu-item item="::entry" collapsing="sidebarCtrl.collapseSubmenu()"></mh-menu-item>
       </side-menu-item>

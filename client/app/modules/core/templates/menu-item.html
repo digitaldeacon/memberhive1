@@ -8,7 +8,6 @@
       <div flex="10"><ng-md-icon size="24" icon="{{item.icon}}"></ng-md-icon></div>
       <div flex ng-if="iconVisible()"><span class="nav-label">{{item.label | translate}}</span></div>
     </div>
-  <!--  <div flex ng-if="iconVisible()"><div class="icon-placeholder-32"> </div></div>-->
   </md-button>
 </a>
 
@@ -38,7 +37,7 @@
 
 <ul ng-if="item.children" class="menu-nested-list fadein fadeout" ng-show="isOpen()" >
   <li ng-repeat="child in item.children">
-      <md-button ng-click="closeMenuBar()" class="side-menu-link text-dark" ui-sref="{{child.route}}" ui-sref-active="md-primary">
+      <md-button ng-click="closeMenuBar()" class="side-menu-link text-light" ui-sref="{{child.route}}" ui-sref-active="md-accent">
         <ng-md-icon class="item-icon" size="24" icon="{{child.icon}}"></ng-md-icon>
         <span class="nav-label-sub">{{child.label | translate}}</span>
       </md-button>
