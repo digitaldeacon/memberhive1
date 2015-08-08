@@ -45,6 +45,9 @@ export class PersonEditController {
 
     /// Whether a newly created household should be automatically assigned to the edited person
     this.assignNewHousehold = true;
+    
+    this.hasAccount = false;
+    this.shouldHaveAccount = false;
   }
 
   loadTags(query) {
@@ -64,7 +67,18 @@ export class PersonEditController {
   }
 
   getPerson() {
+    this.Person.account({'id': this.$stateParams.id}).$promise.
+      then(
+        (data) => {
+          if (data) {
+            this.hasAccount = true;
+            this.shouldHaveAccount = true;
+            this.account = data;
+          }
+        }
+      );
     return this.isEditing() ? this.PersonService.one(this.$stateParams.id) : new this.Person();
+    
   }
 
   getTitle() {
@@ -221,15 +235,19 @@ export class PersonEditController {
     this.Person.upsert({}, this.person).$promise.then(
       (data) => {
         var householdId = this.person.household ? this.person.household.id : "";
+        if(this.shouldHaveAccount && !this.hasAccount) {
+          this.Person.account.create({id: data.id}, {"username": data.firstName + "_"+data.lastName, "email": data.email, "password": data.lastName});
+        }
         this.Person.setHousehold({id: this.person.id, householdId: householdId});
         if (this.avatarDeleted && !this.avatarChanged) {
           this.PersonService.deleteAvatar(this.person);
         } else if (this.avatarChanged) {
           this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
         }
-        this.Shout.message(this.gettextCatalog.getString(
-        'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
-        if(onward!=='') {
+        this.Shout.message(
+          this.gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
+        
+        if(onward !== '') {
           this.$state.go(onward);
         }
       },

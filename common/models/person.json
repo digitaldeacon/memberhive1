@@ -225,6 +225,12 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "trash"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "root",
+      "permission": "ALLOW"
     }
   ],
   "methods": []
