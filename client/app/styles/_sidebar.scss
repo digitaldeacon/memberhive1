@@ -93,3 +93,16 @@ md-sidenav.md-locked-open-remove.md-closed {
   color: $text-color-light;
   fill: $text-color-light;
 }
+
+.side-menu-link, .side-menu-link:visited, .side-menu-link:active{
+    color: $text-color-light;
+    fill: $text-color-light;
+}   
+.side-menu-link:hover {   
+    color: $text-color-light;
+    fill: $text-color-light;
+    .item-icon {
+      color: accent-color('500');
+      fill: accent-color('500');
+    }
+}

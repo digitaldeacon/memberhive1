@@ -1,6 +1,7 @@
 import {AppController} from './controllers/app-controller';
 import {HeaderController} from './controllers/header-controller';
 import {SidebarController} from './controllers/sidebar-controller';
+import {ShoutController} from './controllers/shout-controller';
 
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective, mhDateInput} from './directives/form-directives';
@@ -153,6 +154,7 @@ gemCoreModule.run(($rootScope, gettextCatalog, $cookies, amMoment) => {
 gemCoreModule.controller('AppController', AppController);
 gemCoreModule.controller('HeaderController', HeaderController);
 gemCoreModule.controller('SidebarController', SidebarController);
+gemCoreModule.controller('ShoutController', ShoutController);
 
 // Providers
 gemCoreModule.provider('MainMenu', MainMenu);

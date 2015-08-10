@@ -15,7 +15,6 @@ export function HeaderController(
   this.selectedItem = null;
   this.personalMenu = [
     {name: gettext('Profile'), icon: 'person', link: 'person.view({id: "'+LoopBackAuth.currentUserId+'"})'},
-    {name: gettext('Logout'), icon: 'logout', link: 'dashboard'}
   ];
 
   this.querySearch = (query) => {
