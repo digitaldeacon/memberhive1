@@ -1,8 +1,9 @@
 export class PersonEditController {
   constructor(PersonService, Person, Household, AddressService, $stateParams, $scope, Shout, gettextCatalog,
-              $filter, $state, $q, $http) {
+              $filter, $state, $q, $http, AvatarService) {
     "ngInject";
     this.PersonService = PersonService;
+    this.AvatarService = AvatarService;
     this.Person = Person;
     this.Household = Household;
     this.Shout = Shout;
@@ -242,7 +243,7 @@ export class PersonEditController {
         if (this.avatarDeleted && !this.avatarChanged) {
           this.PersonService.deleteAvatar(this.person);
         } else if (this.avatarChanged) {
-          this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
+          this.AvatarService.saveAvatarFromDataURI(this.person.id, this.croppedAvatar);
         }
         this.Shout.message(
           this.gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
@@ -263,22 +264,6 @@ export class PersonEditController {
 
   saveAndNew() {
     this.save(true,'person.create');
-  }
-
-  /**
-   * Converts data uri to Blob. Necessary for uploading.
-   * @see http://stackoverflow.com/questions/4998908/convert-data-uri-to-file-then-append-to-formdata
-   * @param  {String} dataURI
-   * @return {Blob}
-   */
-  static dataURItoBlob(dataURI) {
-    var binary = atob(dataURI.split(',')[1]);
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-    var array = [];
-    for (var i = 0; i < binary.length; i++) {
-      array.push(binary.charCodeAt(i));
-    }
-    return new Blob([new Uint8Array(array)], {type: mimeString});
   }
 
 }

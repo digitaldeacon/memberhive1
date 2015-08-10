@@ -19,14 +19,21 @@ module.exports = function(Avatar) {
    * Create the container (=folder named by userId) if it doesn't exist
    */
   Avatar.beforeRemote('upload', function(ctx, res, next) {
-    console.log("avatar before remote upload");
     var personId = ctx.req.params.container;
     Avatar.getContainer(personId, function(err, container){
       if (err && err.code == 'ENOENT') { // Container doesn't exist
-        Avatar.createContainer({name: personId}, function(err, container) { next();});
-        console.log("container created");
+        Avatar.createContainer({name: personId}, function(err, container) { 
+          Avatar.app.models.Person.findById(personId, function(err, person) {
+            person.hasAvatar = true;
+            Avatar.app.models.Person.upsert(person, next);
+          });
+        });
+        
       } else {
-        next();
+       Avatar.app.models.Person.findById(personId, function(err, person) {
+          person.hasAvatar = true;
+          Avatar.app.models.Person.upsert(person, next);
+        });
       }
     });
    
@@ -36,7 +43,6 @@ module.exports = function(Avatar) {
    * Check input file and create thumbnails
    */
   Avatar.afterRemote('upload', function(ctx, res, next) {
-    console.log("avatar after remote");
     var inputfile = res.result.files.file[0];
     var folderPath = path.join(self.uploadPath, inputfile.container);
     var filePath = path.join(folderPath, inputfile.name);
@@ -46,7 +52,7 @@ module.exports = function(Avatar) {
       return;
     }
     //hacky callbacks
-    // FIXME: use a async library or q
+    //FIXME: use a async library or q
     this.createThumb(filePath, folderPath, 'xs',
       this.createThumb(filePath, folderPath, 's',
         this.createThumb(filePath, folderPath, 'm',

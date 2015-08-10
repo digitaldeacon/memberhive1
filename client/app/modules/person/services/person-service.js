@@ -45,18 +45,6 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
       });
     },
 
-    saveAvatar: (person, file) => {
-      Upload.upload({
-        url: mhConfig.apiUrl+"/Avatars/"+person.id+"/upload",
-        file: file,
-        fileName: 'avatar.jpg'
-      });
-    },
-
-    deleteAvatar: (person) => {
-      Avatar.destroyContainer({container: person.id});
-    },
-
     getHousehold: (id) => {
       return Household.findById({
         id: id,

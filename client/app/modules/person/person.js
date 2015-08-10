@@ -6,10 +6,12 @@ import {PersonListController} from './controllers/person-list-controller';
 import {PersonEditController} from './controllers/person-edit-controller';
 import {PersonViewController} from './controllers/person-view-controller';
 import {PersonImportCSVController} from './controllers/person-import-csv-controller';
+import {PersonImportImagesController} from './controllers/person-import-images-controller';
 import {PersonExportController} from './controllers/person-export-controller';
 import {HouseholdListController} from './controllers/household-list-controller';
 import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
+import {AvatarService} from './services/avatar-service';
 import {mhAvatar, mhPersonChips} from './directives/person-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
@@ -185,11 +187,13 @@ gemPersonModule.controller('PersonListController', PersonListController);
 gemPersonModule.controller('PersonViewController', PersonViewController);
 gemPersonModule.controller('PersonEditController', PersonEditController);
 gemPersonModule.controller('PersonImportCSVController', PersonImportCSVController);
+gemPersonModule.controller('PersonImportImagesController', PersonImportImagesController);
 gemPersonModule.controller('PersonExportController', PersonExportController);
 gemPersonModule.controller('HouseholdListController', HouseholdListController);
 gemPersonModule.controller('HouseholdEditController', HouseholdEditController);
 
 gemPersonModule.factory('PersonService', PersonService);
+gemPersonModule.factory('AvatarService', AvatarService);
 
 gemPersonModule.directive('mhAvatar', mhAvatar);
 gemPersonModule.directive('mhPersonChips', mhPersonChips);
