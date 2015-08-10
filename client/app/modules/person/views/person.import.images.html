@@ -1,0 +1,16 @@
+<div ng-controller="PersonImportImagesController as personCtrl">
+  <div 
+    ngf-drop 
+    ngf-select 
+    ng-model="files" 
+    ngf-multiple="true"
+    class="fileupload-drop-box" 
+    ngf-drag-over-class="fileupload-dragover" 
+  >
+      <translate>Drop Files here</translate>
+  </div>
+  <div ng-if="personCtrl.importStarted">
+    <md-progress-circular class="md-primary" md-mode="determinate" ng-value="personCtrl.progress"></md-progress-circular>
+    <translate> Import started </translate>
+  </div>
+</div>
