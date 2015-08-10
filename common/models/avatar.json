@@ -29,6 +29,13 @@
       "permission": "ALLOW"
     },
     {
+      "accessType": "EXECUTE",
+      "property": "download",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",

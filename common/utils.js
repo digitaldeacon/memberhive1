@@ -14,11 +14,6 @@ exports.whereAddAnd = function (ctx, add)  {
   return ctx;
 }
 
-exports.getCollection = function(model) {
-  console.log(model.getDataSource().connector)
-  return model.getDataSource().connector.collection(model.modelName);
-}
-
 
 exports.stringToRegexp = function (string) {
   var ret = "";

@@ -1,6 +1,5 @@
 var path = require('path');
 var fs = require('fs');
-//var lwip = require('lwip');
 var bunyan = require('bunyan');
 var log = bunyan.createLogger({name: 'gem.avatar'});
 
@@ -19,20 +18,25 @@ module.exports = function(Avatar) {
    * Create the container (=folder named by userId) if it doesn't exist
    */
   Avatar.beforeRemote('upload', function(ctx, res, next) {
+    console.log("before remote upload");
     var personId = ctx.req.params.container;
     Avatar.getContainer(personId, function(err, container){
       if (err && err.code == 'ENOENT') { // Container doesn't exist
-        Avatar.createContainer({name: personId}, function(err, container) {});
+        Avatar.createContainer({name: personId}, function(err, container) { next();});
+        console.log("container created");
+      } else {
+         next();
       }
     });
-    next();
+   
   });
 
   /**
    * Check input file and create thumbnails
    */
   Avatar.afterRemote('upload', function(ctx, res, next) {
-   /* var inputfile = res.result.files.file[0];
+    console.log("after remote");
+    var inputfile = res.result.files.file[0];
 
     var folder = path.join(self.uploadPath, inputfile.container);
     var originalfile = path.join(folder, inputfile.name);
@@ -60,7 +64,7 @@ module.exports = function(Avatar) {
         }
         image.batch()
           .resize(self.thumbSizes[size])
-          .writeFile(path.join(folder, `${size}.jpg`), function(err) {
+          .writeFile(path.join(folder, size+".jpg"), function(err) {
             if (err) {
               log.error(err);
               next(new Error('Could not create image thumbnails.'));
@@ -68,7 +72,6 @@ module.exports = function(Avatar) {
           });
       });
     });
-*/
     next();
   });
 

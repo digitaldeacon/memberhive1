@@ -194,7 +194,7 @@ export class PersonEditController {
    * @returns {boolean} True, when
    */
   checkImage(image) {
-    return (image.height >= 800 && image.width >= 800);
+    return (image.height >= 50 && image.width >= 50);
   }
 
   geoCodeAddress() {
