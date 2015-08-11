@@ -5,10 +5,6 @@ var lwip = require('lwip');
 var log = bunyan.createLogger({name: 'gem.avatar'});
 
 module.exports = function(Avatar) {
-  var self = this;
-
-  this.uploadPath = Avatar.app.datasources["uploads.avatar"].root;
-  console.log("upload path = ", this.uploadPath);
   this.thumbSizes = {
     'xs': 50,
     's':  150,
@@ -49,8 +45,10 @@ module.exports = function(Avatar) {
    * Check input file and create thumbnails
    */
   Avatar.afterRemote('upload', function(ctx, res, next) {
+    var uploadPath = Avatar.app.datasources["uploads.avatar"].root;
+    console.log("upload path", uploadPath);
     var inputfile = res.result.files.file[0];
-    var folderPath = path.join(self.uploadPath, inputfile.container);
+    var folderPath = path.join(uploadPath, inputfile.container);
     var filePath = path.join(folderPath, inputfile.name);
     if (inputfile.type != 'image/png' && inputfile.type != 'image/jpg' && inputfile.type != 'image/jpeg') {
       fs.unlinkSync(filePath);
