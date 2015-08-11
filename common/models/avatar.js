@@ -61,7 +61,7 @@ module.exports = function(Avatar) {
     this.createThumb(filePath, folderPath, 'xs',
       this.createThumb(filePath, folderPath, 's',
         this.createThumb(filePath, folderPath, 'm',
-          this.createThumb(filePath, folderPath, 'l', function(err) { next();})
+          this.createThumb(filePath, folderPath, 'l', function(err) { console.log(err); next();})
         )
       )
     )();
@@ -70,9 +70,14 @@ module.exports = function(Avatar) {
   this.createThumb = function (filePath, folder, size, cb) {
     return function(err) {
       lwip.open(filePath, function(err, image) {
-        image.batch()
-          .resize(self.thumbSizes[size])
-          .writeFile(path.join(folder, size+".jpg"), cb);
+        console.log(err);
+        if(image) {
+          image.batch()
+            .resize(self.thumbSizes[size])
+            .writeFile(path.join(folder, size+".jpg"), cb);
+        } else {
+          cb();
+        }
       });
     };
   };
