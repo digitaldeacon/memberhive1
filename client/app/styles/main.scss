@@ -23,7 +23,7 @@
 @import "modules/event";
 
 @import "header";
-@import "sidebar-n";
+@import "sidebar";
 
 @import "hacks";
 
@@ -64,7 +64,6 @@ span.errormsg {
 
 .full-height {
   height: 100%;
-  box-sizing: border-box;
 }
 
 gm-map {
@@ -94,4 +93,28 @@ gm-map {
 }
 .fileupload-dragover {
     border: 2px dashed blue;
+}
+.text-dark, .text-dark:visited {
+  color: $text-color-dark;
+  fill: $text-color-dark;
+}
+.text-light, .text-light:visited {
+  color: $text-color-light;
+  fill: $text-color-light;
+}
+.simple-link, .simple-link:visited, .simple-link:active {
+  color: $text-color-dark;
+}
+.md-action-icon-button {
+  svg {
+     fill: lighten($text-color-dark, 20%);
+  }
+}
+
+.content-background {
+  background-color: #FDFDFD;
+}
+
+.flex-full {
+  flex: 1 1 auto;
 }

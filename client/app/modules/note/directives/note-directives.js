@@ -29,6 +29,7 @@ export function NoteCreateDirective() {"ngInject";
     scope: {
         notableId: '@',
         notableType: '@',
+        buttonClass: '@',
         newNote: '&'
     },
     controller: function ($scope, $element, $mdDialog, Note, NoteIconConfig, Shout, gettextCatalog) {"ngInject";

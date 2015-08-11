@@ -3,7 +3,10 @@ export function HeaderController(
   $state, 
   Search, 
   gettext, 
-  LoopBackAuth
+  LoopBackAuth,
+  $mdMedia,
+  Account,
+  GemAcl
 ) 
 {
   "ngInject";
@@ -12,7 +15,6 @@ export function HeaderController(
   this.selectedItem = null;
   this.personalMenu = [
     {name: gettext('Profile'), icon: 'person', link: 'person.view({id: "'+LoopBackAuth.currentUserId+'"})'},
-    {name: gettext('Logout'), icon: 'logout', link: 'dashboard'}
   ];
 
   this.querySearch = (query) => {
@@ -28,5 +30,30 @@ export function HeaderController(
     $state.go('person.view', {id: id});
     
   };
-
+  
+   
+  this.showSearch = $mdMedia('gt-md'); // show searchbar only when screen is large
+  this.showTitle = true; //always show title at start
+  
+  this.toogleSearch = () => {
+    this.showSearch = !this.showSearch;//toggle
+    if(this.showSearch) {
+      this.showTitle = $mdMedia('gt-md'); //show title only if screen is big
+    } else {
+      this.showTitle = true; // when there is not search alway show title
+    }
+  };
+  $scope.$watch(function() { return $mdMedia('gt-md'); }, (big) => {
+    if(big) {
+      this.showTitle = true;//if the screen was resized to big then show title
+    } else if(!big && this.showSearch) {
+      this.showTitle = false; // if the screen was resized to small and search is visible then hide title
+    }
+  });
+  this.logout = () => {
+    Account.logout().$promise.then((resp) => {
+      GemAcl.setRights([]);
+      $state.go('login');
+    });
+  };
 }

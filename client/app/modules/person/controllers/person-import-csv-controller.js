@@ -81,9 +81,8 @@ export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, 
     // Return the parsed data.
     return( arrData );
   };
-  
+
   this.uploadImportFile = (file) => {
-    console.log(file);
     if (file) {
       GemFileReader.readAsText(file, 'UTF-8', $scope).then(
         (resp) => {
@@ -95,11 +94,11 @@ export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, 
       );
     }
   };
-  
+
   $scope.$watch('file', () => {
     this.uploadImportFile($scope.file);
   });
-  
+
   this.options = Object.keys(Person.model.properties);
   this.options.push('contact.home', 'contact.mobile', 'contact.skype', 'contact.facebook',
                     'address.home.street1', 'address.home.street2', 'address.home.city', 'address.home.zipcode', 'address.home.country', 'address.home.additional',
@@ -113,6 +112,13 @@ export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, 
   this.fillTable = (data) => {
     this.tableData = data;
     this.showTable = true;
+    _.forEach(data[0], (n, key) => {
+      if(_.includes(this.options, n)) {
+        this.assign[key] = n;
+      } else {
+        this.assign[key] = "";
+      }
+    });
   };
 
 
@@ -132,7 +138,7 @@ export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, 
   this.convert = (row) => {
     var person = {};
     _.forEach(row, (value, pos) => {
-      if (this.assign[pos] && value.trim() !== "") {
+      if (this.assign[pos] && value && value.trim() !== "") {
         person = this.dotToObject(person, value.trim(), this.assign[pos]);
       }
     });

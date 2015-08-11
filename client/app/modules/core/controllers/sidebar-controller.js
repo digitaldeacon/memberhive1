@@ -4,33 +4,26 @@ export function SidebarController (
   GemAcl, 
   MainMenu, 
   $timeout, 
-  $mdSidenav
+  $mdSidenav,
+  AccountOptions
 ) 
-{
-  "ngInject";
-  this.logout = () => {
-    Account.logout().$promise.then((resp) => {
-      GemAcl.setRights([]);
-      $state.go('login');
-    });
-  };
-
+{"ngInject";
   this.mainMenu = MainMenu.getItems();
 
   this.closeMenu = () => {
-    $timeout(function() { $mdSidenav('left').close(); });
+    $mdSidenav('left').close();
   };
 
   this.openMenu = () => {
-    $timeout(function() { $mdSidenav('left').open(); });
+    $mdSidenav('left').open();
   };
 
-  this.isMenuLocked = false;
+  this.isMenuLocked = AccountOptions.get('sidebar_locked');
   this.isMenuCollapsing = false;
   this.isHovering = true;
 
   this.menuClass = () => {
-    if(this.isMenuLocked) {
+    if(this.isMenuLocked || ($mdSidenav('left').isLockedOpen() === false && $mdSidenav('left').isOpen() === true)) {
       return '';
     } else {
       if(this.isMenuCollapsing) {
@@ -45,15 +38,12 @@ export function SidebarController (
   };
 
   this.collapseSubmenu = () => {
-    return !this.isMenuLocked ? this.isHovering : false;
+    return !this.isMenuLocked && !($mdSidenav('left').isLockedOpen() === false && $mdSidenav('left').isOpen() === true) ? this.isHovering : false;
   };
 
   this.toggleMenuLock = () => {
-    if(this.isMenuLocked === false) {
-      this.isMenuLocked = true;
-    } else {
-      this.isMenuLocked = false;
-    }
+    this.isMenuLocked = !this.isMenuLocked;
+    AccountOptions.set('sidebar_locked', this.isMenuLocked);
   };
 
   this.menuLockIcon = () => {
@@ -65,4 +55,8 @@ export function SidebarController (
   };
 
   this.selected = '';
+  
+  
+  
+ 
 }

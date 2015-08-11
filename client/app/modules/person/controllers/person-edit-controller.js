@@ -1,8 +1,9 @@
 export class PersonEditController {
   constructor(PersonService, Person, Household, AddressService, $stateParams, $scope, Shout, gettextCatalog,
-              $filter, $state, $q, $http) {
+              $filter, $state, $q, $http, AvatarService) {
     "ngInject";
     this.PersonService = PersonService;
+    this.AvatarService = AvatarService;
     this.Person = Person;
     this.Household = Household;
     this.Shout = Shout;
@@ -45,6 +46,9 @@ export class PersonEditController {
 
     /// Whether a newly created household should be automatically assigned to the edited person
     this.assignNewHousehold = true;
+    
+    this.hasAccount = false;
+    this.shouldHaveAccount = false;
   }
 
   loadTags(query) {
@@ -64,7 +68,18 @@ export class PersonEditController {
   }
 
   getPerson() {
+    this.Person.account({'id': this.$stateParams.id}).$promise.
+      then(
+        (data) => {
+          if (data) {
+            this.hasAccount = true;
+            this.shouldHaveAccount = true;
+            this.account = data;
+          }
+        }
+      );
     return this.isEditing() ? this.PersonService.one(this.$stateParams.id) : new this.Person();
+    
   }
 
   getTitle() {
@@ -180,7 +195,7 @@ export class PersonEditController {
    * @returns {boolean} True, when
    */
   checkImage(image) {
-    return (image.height >= 800 && image.width >= 800);
+    return (image.height >= 50 && image.width >= 50);
   }
 
   geoCodeAddress() {
@@ -221,15 +236,19 @@ export class PersonEditController {
     this.Person.upsert({}, this.person).$promise.then(
       (data) => {
         var householdId = this.person.household ? this.person.household.id : "";
+        if(this.shouldHaveAccount && !this.hasAccount) {
+          this.Person.account.create({id: data.id}, {"username": data.firstName + "_"+data.lastName, "email": data.email, "password": data.lastName});
+        }
         this.Person.setHousehold({id: this.person.id, householdId: householdId});
         if (this.avatarDeleted && !this.avatarChanged) {
           this.PersonService.deleteAvatar(this.person);
         } else if (this.avatarChanged) {
-          this.PersonService.saveAvatar(this.person, PersonEditController.dataURItoBlob(this.croppedAvatar));
+          this.AvatarService.saveAvatarFromDataURI(this.person.id, this.croppedAvatar);
         }
-        this.Shout.message(this.gettextCatalog.getString(
-        'Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
-        if(onward!=='') {
+        this.Shout.message(
+          this.gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
+        
+        if(onward !== '') {
           this.$state.go(onward);
         }
       },
@@ -245,22 +264,6 @@ export class PersonEditController {
 
   saveAndNew() {
     this.save(true,'person.create');
-  }
-
-  /**
-   * Converts data uri to Blob. Necessary for uploading.
-   * @see http://stackoverflow.com/questions/4998908/convert-data-uri-to-file-then-append-to-formdata
-   * @param  {String} dataURI
-   * @return {Blob}
-   */
-  static dataURItoBlob(dataURI) {
-    var binary = atob(dataURI.split(',')[1]);
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-    var array = [];
-    for (var i = 0; i < binary.length; i++) {
-      array.push(binary.charCodeAt(i));
-    }
-    return new Blob([new Uint8Array(array)], {type: mimeString});
   }
 
 }

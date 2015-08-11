@@ -1,15 +1,13 @@
 <div ng-controller="PersonViewController as personCtrl" class="person-view">
 
   <div layout="column" class="md-padding">
-    <div layout="row">
-      <div flex>
-        <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
-          <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
-        </h3>
-      </div>
+    <div flex>
+      <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
+        <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
+      </h3>
     </div>
-    <div layout="row" ng-if="personCtrl.person.status">
-      <div flex="20">
+    <!--<div>
+      <div>
         <fa name="info"></fa>
         <span ng-repeat="status in personCtrl.person.status" class="tag status-tag" style="margin-right: 2px">
         {{ status }}
@@ -19,37 +17,21 @@
         <fa name="tags"></fa>
         <span ng-repeat="tag in personCtrl.person.tags" class="tag"><md-chip>{{tag}}</md-chip></span>
       </div>
-      <div flex="10" layout="row">
-        <div flex>
-          <mh-note-create
-            notable-type="Person"
-            notable-id="{{personCtrl.person.id}}"
-            new-note="personCtrl.newNote(note)"></mh-note-create>
-        </div>
-        <div flex>
-          <md-button class="md-icon-button" ui-sref="person.edit({ id: personCtrl.person.id })">
-            <ng-md-icon icon="edit" options="{'duration': 300, 'rotation':'none'}"></ng-md-icon>
-          </md-button>
-        </div>
-      </div>
-    </div>
+     </div>
+    </div>-->
   </div>
 
-  <md-card layout-gt-md="row">
-    <div flex="20" layout="column" class="md-padding">
+  <div layout-gt-md="row">
+    <div flex layout="column" class="md-padding">
       <div>
-        <gem-avatar person="personCtrl.person" size="m"></gem-avatar>
-      </div>
-      <div class="highlight" layout="row">
-        <div ng-if="personCtrl.person.birthdate" flex class="md-padding">
-          {{personCtrl.person.birthdate | fromNow}}
-        </div>
+        <mh-avatar person="personCtrl.person" size="s"></mh-avatar>
       </div>
       <div>
         <h4 translate>Contact</h4>
         <div ng-include="'app/modules/person/views/person.view.contacts.html'"></div>
       </div>
     </div>
+
     <div flex="80">
       <md-tabs md-dynamic-height md-border-bottom class="md-padding">
         <md-tab>
@@ -57,25 +39,6 @@
             <fa name="comments"></fa> <translate>History</translate>
           </md-tab-label>
           <md-tab-body class="md-padding">
-
-            <!--<timeline class="md-padding">
-              <timeline-event ng-repeat="note in personCtrl.notes">
-                <timeline-badge class="bounce-in" ng-class="personCtrl.badgeClass(note.type)" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                  <span>{{note.created | amDifference : null : 'days'}}</span>
-                </timeline-badge>
-                <timeline-panel class="info bounce-in" when-visible="animateElementIn" when-not-visible="animateElementOut">
-                  <timeline-heading>
-                    <h4 ng-if="note.title">{{note.title}}</h4>
-                    <ng-md-icon size="18" icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
-                    <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
-                    <small><i>{{note.created | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}
-                      <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>
-                  </timeline-heading>
-                  <p>{{note.content}}</p>
-                </timeline-panel>
-              </timeline-event>
-            </timeline>-->
-
             <md-card class="md-2-line" ng-repeat="note in personCtrl.notes">
               <md-card-content flex layout="row">
                 <div flex class="md-list-item-text">
@@ -113,7 +76,9 @@
         </md-tab>
       </md-tabs>
     </div>
-  </md-card>
-
-
+  </div>
+        <mh-note-create
+            notable-type="Person"
+            notable-id="{{personCtrl.person.id}}"
+            new-note="personCtrl.newNote(note)" button-class="md-fab md-raised md-accent md-fab-floating-br"></mh-note-create>
 </div>

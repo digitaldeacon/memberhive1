@@ -62,12 +62,6 @@
 }
 
 
-td.label-row {
-  .label {
-    margin-right: 3px;
-  }
-}
-
 .box {
   padding: 10px;
   width: 100%;
@@ -92,4 +86,13 @@ td.label-row {
   color: primary-color('600');
   border: 1px darken(background-color('100'), 5%);
   padding: 5px;
+}
+
+.person-list {
+  .avatar {
+    margin-right: 1em;
+  }
+  .person-list-item {
+    margin-bottom: 2em;
+  }
 }

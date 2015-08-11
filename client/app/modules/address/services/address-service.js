@@ -1,4 +1,4 @@
-export function AddressService(gettextCatalog) {
+export function AddressService(gettextCatalog) {"ngInject";
 
   return {
 

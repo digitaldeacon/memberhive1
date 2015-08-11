@@ -23,6 +23,12 @@ Install process
 * `npm test` *start io.js server* or `npm run debug` *to see debug output*
 * `gulp surf` *Run local webserver (will compile SASS and ES6 files when changed)*
 
+
+## Supported Versions of Software
+* MongoDB == 2.4
+* iojs == 2.5
+* angular == 1.4
+
 ## Persisting data
 
  By default, all data is stored using the [Loopback's memory connector](http://docs.strongloop.com/display/public/LB/Memory+connector).

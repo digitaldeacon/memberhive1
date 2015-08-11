@@ -14,7 +14,7 @@
 export function mhAvatar(mhConfig) {"ngInject";
   return {
     template: '<img ng-src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}"' +
-              ' aria-label="{{label}}" tooltip="{{label}}" />',
+              ' aria-label="{{label}}" tooltip="{{label}}" height="{{height}}" width="{{width}}" />',
     restrict: 'E',
     scope: {
       person: '=',
@@ -24,12 +24,21 @@ export function mhAvatar(mhConfig) {"ngInject";
     },
 
     link: function(scope, element, attrs) {
+       
       scope.size = scope.size || 'xs';
       scope.imgClass = '';
       if (attrs.circle !== undefined)
         scope.imgClass = 'img-circle';
 
       var setImgSrc = function() {
+        var thumbSizes = {
+          'xs': 50,
+          's':  150,
+          'm':  400,
+          'l': 800
+        };
+        scope.height = thumbSizes[scope.size];
+        scope.width = thumbSizes[scope.size];
         if (scope.person.hasAvatar) {
           scope.imgSrc = `${mhConfig.apiUrl}/Avatars/${scope.person.id}/download/${scope.size}.jpg`;
         } else {

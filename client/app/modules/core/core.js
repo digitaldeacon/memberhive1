@@ -1,6 +1,7 @@
 import {AppController} from './controllers/app-controller';
 import {HeaderController} from './controllers/header-controller';
 import {SidebarController} from './controllers/sidebar-controller';
+import {ShoutController} from './controllers/shout-controller';
 
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective, mhDateInput} from './directives/form-directives';
@@ -8,6 +9,7 @@ import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-direc
 import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
 import {stateLoader,appLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
+import {AccountOptions} from './services/account-options';
 import {GemFileReader} from './services/filereader';
 import {Search} from './services/search';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
@@ -99,7 +101,7 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
   });
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('blue-grey')
+    .primaryPalette('blue')
     .accentPalette('mh-orange')
     .warnPalette('lime')
     .backgroundPalette('grey');
@@ -152,12 +154,14 @@ gemCoreModule.run(($rootScope, gettextCatalog, $cookies, amMoment) => {
 gemCoreModule.controller('AppController', AppController);
 gemCoreModule.controller('HeaderController', HeaderController);
 gemCoreModule.controller('SidebarController', SidebarController);
+gemCoreModule.controller('ShoutController', ShoutController);
 
 // Providers
 gemCoreModule.provider('MainMenu', MainMenu);
 
 // Services
 gemCoreModule.service('Search', Search);
+gemCoreModule.service('AccountOptions', AccountOptions);
 
 // Factories
 gemCoreModule.factory('Shout', Shout);
