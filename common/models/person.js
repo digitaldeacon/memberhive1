@@ -236,7 +236,6 @@ module.exports = function(Person) {
     ];
     Person.find({}, function(err, persons) {
       json2csv({ data: persons, fields: fields, nested: true }, function(err, csv) {
-        console.log(err, csv);
         cb(err, csv);
       });
     });
