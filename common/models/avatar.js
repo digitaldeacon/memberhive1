@@ -11,7 +11,7 @@ module.exports = function(Avatar) {
     'm':  400,
     'l': 800
   };
-
+  var self = this;
   /**
    * Create the container (=folder named by userId) if it doesn't exist
    */
