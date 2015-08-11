@@ -21,14 +21,15 @@ module.exports = function(Avatar) {
   Avatar.beforeRemote('upload', function(ctx, res, next) {
     var personId = ctx.req.params.container;
     Avatar.getContainer(personId, function(err, container){
+      console.log("get container of ", personId, "err =", err);
       if (err && err.code == 'ENOENT') { // Container doesn't exist
-        Avatar.createContainer({name: personId}, function(err, container) { 
+        Avatar.createContainer({name: personId}, function(err, container) {
           Avatar.app.models.Person.findById(personId, function(err, person) {
             person.hasAvatar = true;
             Avatar.app.models.Person.upsert(person, next);
           });
         });
-        
+
       } else {
        Avatar.app.models.Person.findById(personId, function(err, person) {
           person.hasAvatar = true;
@@ -36,7 +37,7 @@ module.exports = function(Avatar) {
         });
       }
     });
-   
+
   });
 
   /**
@@ -61,7 +62,7 @@ module.exports = function(Avatar) {
       )
     )();
   });
-  
+
   this.createThumb = function (filePath, folder, size, cb) {
     return function(err) {
       lwip.open(filePath, function(err, image) {
@@ -71,6 +72,6 @@ module.exports = function(Avatar) {
       });
     };
   };
-    
+
 
 };
