@@ -12,6 +12,6 @@ module.exports = {
     name: "uploads.avatar",
     connector: "loopback-component-storage",
     provider: "filesystem",
-    root: "/var/data/files/avatar"
+    root: "/usr/local/files/avatar"
   }
 };
