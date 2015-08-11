@@ -22,8 +22,9 @@ module.exports = function(Avatar) {
     var personId = ctx.req.params.container;
     Avatar.getContainer(personId, function(err, container){
       console.log("get container of ", personId, "err =", err);
-      if (err && err.code == 'ENOENT') { // Container doesn't exist
+      if (err) { // Container doesn't exist
         Avatar.createContainer({name: personId}, function(err, container) {
+          console.log("create container");
           Avatar.app.models.Person.findById(personId, function(err, person) {
             person.hasAvatar = true;
             Avatar.app.models.Person.upsert(person, next);
