@@ -7,7 +7,8 @@ var log = bunyan.createLogger({name: 'gem.avatar'});
 module.exports = function(Avatar) {
   var self = this;
 
-  this.uploadPath = './uploads/avatar/';
+  this.uploadPath = Avatar.app.datasources["uploads.avatar"].root;
+  console.log("upload path = ", this.uploadPath);
   this.thumbSizes = {
     'xs': 50,
     's':  150,
