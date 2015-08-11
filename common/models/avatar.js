@@ -46,9 +46,6 @@ module.exports = function(Avatar) {
    */
   Avatar.afterRemote('upload', function(ctx, res, next) {
     var uploadPath = Avatar.app.datasources["uploads.avatar"].settings.root;
-    console.log(Avatar.app.datasources["uploads.avatar"]);
-    console.log("upload path", uploadPath);
-    var inputfile = res.result.files.file[0];
     var folderPath = path.join(uploadPath, inputfile.container);
     var filePath = path.join(folderPath, inputfile.name);
     if (inputfile.type != 'image/png' && inputfile.type != 'image/jpg' && inputfile.type != 'image/jpeg') {
