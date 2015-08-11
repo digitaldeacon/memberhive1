@@ -1,7 +1,7 @@
-export var ReportHtmlWidget = angular.module('gem.report.widget.htmlreport', ['adf.provider']);
+export var ReportHtmlWidget = angular.module('gem.report.widget.htmlreport', []);
 
 import {ReportHtmlController, ReportHtmlEditController} from './htmlreport-controller';
-
+/*
 ReportHtmlWidget.config((dashboardProvider, gettext) => {
   dashboardProvider.widget('report.htmlreport', {
     title: gettext('Show Report'),
@@ -24,3 +24,4 @@ ReportHtmlWidget.config((dashboardProvider, gettext) => {
 
 ReportHtmlWidget.controller('ReportHtmlController', ReportHtmlController);
 ReportHtmlWidget.controller('ReportHtmlEditController', ReportHtmlEditController);
+*/

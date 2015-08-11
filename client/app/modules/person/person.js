@@ -12,7 +12,7 @@ import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {mhAvatar, mhPersonChips} from './directives/person-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
-import {PersonRandomWidget} from './widgets/random/person-random';
+import {mhWidgetPersonRandom} from './widgets/random/person-random';
 
 
 export var gemPersonModule = angular.module('gem.person',
@@ -24,11 +24,8 @@ export var gemPersonModule = angular.module('gem.person',
     'ngTagsInput',
     'uiGmapgoogle-maps',
     'angular-timeline',
-    'angular-google-gapi',
 
     'personFilters',
-    'gem.person.widget.stats',
-    'gem.person.widget.random',
 
     'gem.core',
     'gem.address'
@@ -196,3 +193,5 @@ gemPersonModule.factory('PersonService', PersonService);
 
 gemPersonModule.directive('mhAvatar', mhAvatar);
 gemPersonModule.directive('mhPersonChips', mhPersonChips);
+
+gemPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);

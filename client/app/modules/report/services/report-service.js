@@ -1,4 +1,4 @@
-export function ReportService(Report, gettextCatalog, $rootScope, Shout) {
+export function ReportService(Report, gettextCatalog, $rootScope, Shout) {"ngInject";
   return {
     one: (id) => {
       return Report.findById({id: id});

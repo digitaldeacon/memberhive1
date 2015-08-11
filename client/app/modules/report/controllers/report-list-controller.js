@@ -1,6 +1,6 @@
 export class ReportListController {
 
-  constructor(ReportService, Report, Shout, gettextCatalog, $state) {
+  constructor(ReportService, Report, Shout, gettextCatalog, $state) {"ngInject";
     this.ReportService = ReportService;
     this.Report = Report;
     this.Shout = Shout;

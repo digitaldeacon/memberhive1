@@ -1,6 +1,6 @@
 import {saveAs} from "../../../scripts/FileSaver.min";
 
-export function PersonExportController(GAuth,$rootScope, GApi, $http, Person) {
+export function PersonExportController(GAuth,$rootScope, GApi, $http, Person) {"ngInject";
   /*
   
   var CLIENT = '88164908200-d3jlteogf8d67m5lefqqsppuq8ehbbec.apps.googleusercontent.com';

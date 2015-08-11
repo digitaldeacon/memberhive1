@@ -14,8 +14,6 @@ import {QueryBuilderModelService} from './services/querybuilder-model-service';
 
 export var gemReportModule = angular.module('gem.report', [
   'ui.codemirror',
-
-  'gem.report.widget.htmlreport'
 ]);
 
 gemReportModule.config(

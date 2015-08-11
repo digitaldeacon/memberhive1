@@ -1,12 +1,9 @@
 import {DashboardController} from './controllers/dashboard-controller';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
+import {mhWidget} from './directives/dashboard-directives';
 
 export var gemDashboardModule = angular.module('gem.dashboard',
   [
-    'adf',
-    'adf.structures.base',
-    //'adf.widget.clock',
-   // 'adf.widget.weather'
   ]);
 gemDashboardModule.config(
   ($stateProvider, MainMenuProvider, gettext) => {
@@ -29,6 +26,5 @@ gemDashboardModule.config(
   }
 );
 
-gemDashboardModule.value('adfTemplatePath', 'app/modules/dashboard/templates/');
-
 gemDashboardModule.controller('DashboardController', DashboardController);
+gemDashboardModule.directive('mhWidget', mhWidget);

@@ -7,7 +7,7 @@
 Make sure you have the following requirements installed:
 * git 
 * g++ compiler
-* MongoDB 2.6
+* MongoDB 2.4
 * libpng-dev
 
 Install process
@@ -20,8 +20,8 @@ Install process
 * `npm install` *Install dev dependencies*
 * `bower install` *Install app dependencies*
 * Follow the persisting data instructions below
-* `npm start` *start io.js server* or `npm run debug` *to see debug output*
-* `gulp serve` *Run local webserver (will compile SASS and ES6 files when changed)*
+* `npm test` *start io.js server* or `npm run debug` *to see debug output*
+* `gulp surf` *Run local webserver (will compile SASS and ES6 files when changed)*
 
 ## Persisting data
 
@@ -51,8 +51,6 @@ Please follow these style guides when writing code:
 * [Frontend Guidelines](https://github.com/bendc/frontend-guidelines)
 
 ## 3rd Party Drop-Ins
-* [ADF] (https://github.com/sdorra/angular-dashboard-framework/tree/master/src)
-* [Weather Icons] (https://github.com/erikflowers/weather-icons)
 * [ViewHead] (https://github.com/apparentlymart/angularjs-viewhead) - sets the Browser Title
 * [Angular-Gettext] (https://angular-gettext.rocketeer.be/dev-guide/)
 
@@ -60,10 +58,10 @@ Please follow these style guides when writing code:
 * NPM
 * gulp
 * bower
-* io.js (a node.js fork)
+* iojs
 * strongloop
-* [babel transpiler (formely 6to5)] (https://github.com/babel/babel)
+* [babel] (https://github.com/babel/babel)
 * ECMAScript 6 (ES6)
 
 ## License
-All files are made available under the terms of the GNU Affero General Public License (AGPL).
+All files are made available under the terms of the GNU Affero General Public License (AGPL). See [LICENSE](https://github.com/digitaldeacon/memberhive/blob/master/LICENSE).

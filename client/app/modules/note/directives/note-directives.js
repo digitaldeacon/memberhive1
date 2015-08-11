@@ -4,7 +4,7 @@
  * Minimal Usage:
  *   <gem:note-editform />
  */
-export function NoteEditFormDirective() {
+export function NoteEditFormDirective() {"ngInject";
   return {
     scope: {
         note: '='
@@ -14,7 +14,7 @@ export function NoteEditFormDirective() {
   };
 }
 
-export function NoteTreeDirective() {
+export function NoteTreeDirective() {"ngInject";
   return {
     scope: {
         tree: '='
@@ -24,14 +24,14 @@ export function NoteTreeDirective() {
   };
 }
 
-export function NoteCreateDirective() {
+export function NoteCreateDirective() {"ngInject";
   return {
     scope: {
         notableId: '@',
         notableType: '@',
         newNote: '&'
     },
-    controller: function ($scope, $element, $mdDialog, Note, NoteIconConfig, Shout, gettextCatalog) {
+    controller: function ($scope, $element, $mdDialog, Note, NoteIconConfig, Shout, gettextCatalog) {"ngInject";
       this.type = 'note';
       this.noteTypes = NoteIconConfig;
 

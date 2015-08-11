@@ -1,5 +1,6 @@
 export class CalendarController {
   constructor($sce) {
+    "ngInject";
     this.$sce = $sce;
 
     this.calendarUrlInput = "";

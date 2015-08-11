@@ -1,4 +1,4 @@
-export function PersonViewController(PersonService, AddressService, $stateParams, Person, NoteIconConfig) {
+export function PersonViewController(PersonService, AddressService, $stateParams, Person, NoteIconConfig) {"ngInject";
 
   this.person = PersonService.one($stateParams.id);
   this.getContacts = PersonService.getContacts;

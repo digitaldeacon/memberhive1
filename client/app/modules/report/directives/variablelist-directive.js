@@ -1,7 +1,7 @@
 /**
  * This directive lists the available variables from the QueryBuilder.
  */
-export function VariableListDirective() {
+export function VariableListDirective() {"ngInject";
 
   return {
     restrict: 'E',

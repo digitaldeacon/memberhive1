@@ -1,5 +1,13 @@
-export function SidebarController (Account, $state, GemAcl, MainMenu, $timeout, $mdSidenav) {
-
+export function SidebarController (
+  Account, 
+  $state, 
+  GemAcl, 
+  MainMenu, 
+  $timeout, 
+  $mdSidenav
+) 
+{
+  "ngInject";
   this.logout = () => {
     Account.logout().$promise.then((resp) => {
       GemAcl.setRights([]);

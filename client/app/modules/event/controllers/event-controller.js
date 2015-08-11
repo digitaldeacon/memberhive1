@@ -1,4 +1,4 @@
-export function EventController(Event, EventTemplate, $stateParams, $state) {
+export function EventController(Event, EventTemplate, $stateParams, $state) {"ngInject";
   if($stateParams.eventId) {
     this.item = Event.findById({id: $stateParams.eventId});
     Event.template({id: $stateParams.eventId}).$promise

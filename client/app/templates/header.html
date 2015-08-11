@@ -1,14 +1,15 @@
-
-<div flex>
-  <md-button hide-gt-md
+<div hide-gt-md>
+  <md-button 
              class="md-icon-button mh-toogle-button"
+             aria-label="Toogle Menu"
              ng-click="appCtrl.toggleLeft()">
     <ng-md-icon icon="menu"></ng-md-icon>
   </md-button>
-
-  <span class="sub-title" hide show-gt-md> {{appCtrl.getSubTitle()}} </span>
 </div>
-<div flex-gt-sm="66">
+<div hide show-gt-md>
+  <span class="sub-title"> {{appCtrl.getSubTitle()}} </span>
+</div>
+<div flex>
   <form flex ng-submit="$event.preventDefault()">
     <md-autocomplete flex
         md-search-text="headerCtrl.searchText"
@@ -29,7 +30,7 @@
     </md-autocomplete>
   </form>
 </div>
-<div flex="10" style="text-align:right">
+<div style="text-align:right">
   <md-menu>
     <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu()">
       <ng-md-icon icon="more_vert"></ng-md-icon>
@@ -38,7 +39,7 @@
       <md-menu-item ng-repeat="item in headerCtrl.personalMenu">
         <md-button ng-click="ctrl.announceClick($index)">
           <ng-md-icon md-menu-align-target icon="{{item.icon}}"></ng-md-icon>
-            <a ui-sref="{{item.link}}">{{item.name}}</a>
+          <a ui-sref="{{item.link}}">{{item.name}}</a>
         </md-button>
       </md-menu-item>
     </md-menu-content>

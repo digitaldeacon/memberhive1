@@ -1,4 +1,4 @@
-export function PersonListController(PersonService,Person)  {
+export function PersonListController(PersonService,Person)  {"ngInject";
   this.relationTypes = PersonService.relationTypes;
   this.statusTypes = PersonService.statusTypes;
 
@@ -7,7 +7,6 @@ export function PersonListController(PersonService,Person)  {
   this.totalPersons = 0;
 
   this.getPersons = (pageNumber) => {
-    console.log("get person");
     Person.count().$promise.then((result) => {
       this.totalPersons = result.count;
     });

@@ -1,4 +1,4 @@
-export function mhPanelDirective() {
+export function mhPanelDirective() {"ngInject";
   return {
     restrict: 'E',
     transclude: true,
@@ -6,7 +6,7 @@ export function mhPanelDirective() {
   };
 }
 
-export function mhPanelHeaderDirective() {
+export function mhPanelHeaderDirective() {"ngInject";
   return {
     restrict: 'E',
     transclude: true,
@@ -14,7 +14,7 @@ export function mhPanelHeaderDirective() {
   };
 }
 
-export function mhPanelBodyDirective() {
+export function mhPanelBodyDirective() {"ngInject";
   return {
     restrict: 'E',
     transclude: true,

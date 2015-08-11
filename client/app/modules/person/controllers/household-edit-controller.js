@@ -1,5 +1,5 @@
 export class HouseholdEditController {
-  constructor(PersonService, Household, $stateParams, Shout, gettextCatalog, $state) {
+  constructor(PersonService, Household, $stateParams, Shout, gettextCatalog, $state) {"ngInject";
     this.PersonService = PersonService;
     this.Household = Household;
     this.Shout = Shout;

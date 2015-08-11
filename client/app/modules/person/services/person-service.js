@@ -1,5 +1,5 @@
 export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCatalog,
-                              Upload, mhConfig, $rootScope) {
+                              Upload, mhConfig, $rootScope) {"ngInject";
   return {
     modelName: () => {
       return Person.model.name;
@@ -28,7 +28,6 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
     },
 
     all: (pageNumber) => {
-      console.log("PersonService All");
       return Person.find({
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,

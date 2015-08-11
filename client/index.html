@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title data-ng-bind="appCtrl.getTitle()"></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="icon" href="favicon.png">
@@ -130,19 +130,14 @@
                  data-ng-controller="HeaderController as headerCtrl"></div>
           </md-toolbar>
 
-          <div flex layout="row">
-            <div flex layout="column" layout-margin>
+          <div flayout="row">
+            <div layout="column" layout-margin>
               <!-- Main Content -->
-              <div flex ui-view layout="column" ></div>
+              <div ui-view layout="column" ></div>
               <!-- /Main Content -->
-              <div style="color: #bbb">
-                {{accessToken}}
-              </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
     <div flex ng-if="acl.isLoggedOut()" class="login-container">

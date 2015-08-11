@@ -160,22 +160,16 @@
     }
   },
   "acls": [
-    {
-      "accessType": "*",
+   {
+      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "root",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     },
     {
-      "accessType": "*",
+      "accessType": "WRITE",
       "principalType": "ROLE",
-      "principalId": "pastor",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "deacon",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     },
     {
@@ -183,6 +177,54 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "random"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "count"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "status"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportVCard"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "tags"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "setHousehold"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "search"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "trash"
     }
   ],
   "methods": []

@@ -1,5 +1,4 @@
-export function NoteCreateController(NoteService, Note)
-{
+export function NoteCreateController(NoteService, Note) {"ngInject";
     this.note = {};
 
     this.save = () => {

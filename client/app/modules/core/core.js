@@ -3,7 +3,7 @@ import {HeaderController} from './controllers/header-controller';
 import {SidebarController} from './controllers/sidebar-controller';
 
 import {MainMenu} from './providers/menu-provider';
-import {controlGroupDirective} from './directives/form-directives';
+import {controlGroupDirective, mhDateInput} from './directives/form-directives';
 import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
 import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
 import {stateLoader,appLoader} from './directives/loading-directive';
@@ -19,7 +19,7 @@ import {temperatureFilter} from './filters/format-filters';
  *
  * @type {module}
  */
-export var gemCoreModule = angular.module('gem.core', ['ngAnimate']);
+export var gemCoreModule = angular.module('gem.core', ['ngAnimate', '720kb.datepicker']);
 
 gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => {
   $urlRouterProvider.otherwise('/dashboard');
@@ -165,6 +165,7 @@ gemCoreModule.factory('GemFileReader', GemFileReader);
 
 // Directives
 gemCoreModule.directive('controlGroup', controlGroupDirective);
+gemCoreModule.directive('mhDateInput', mhDateInput);
 gemCoreModule.directive('uiNav', uiNavDirective);
 gemCoreModule.directive('mhMenuItem', mhMenuItem);
 gemCoreModule.directive('mhMenuIconItem', mhMenuIconItem);

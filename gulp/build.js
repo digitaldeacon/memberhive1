@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-
+var replace = require('gulp-replace');
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
@@ -43,10 +43,9 @@ module.exports = function(options) {
       .pipe($.rev())
       .pipe(jsFilter)
       .pipe($.ngAnnotate())
-      //.pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', options.errorHandler('Uglify'))
+      .pipe($.uglify()).on('error', options.errorHandler('Uglify'))
       .pipe(jsFilter.restore())
       .pipe(cssFilter)
-      .pipe($.replace('../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/', '../fonts/'))
       .pipe($.csso())
       .pipe(cssFilter.restore())
       .pipe(assets.restore())
@@ -86,16 +85,27 @@ module.exports = function(options) {
     ])
     .pipe(gulp.dest(options.dist + '/'));
   });
-
+   
   gulp.task('clean', function (done) {
     $.del([options.dist + '/', options.tmp + '/'], done);
   });
 
   gulp.task('build', ['html', 'fonts', 'images', 'other'], function(){
-    return gulp.src([
-      options.src + '/*.{ico,png,txt}',
-    ]).once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
-      process.exit();
-    });
+    return gulp.src(options.dist + '/index.html')
+      .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
+      .pipe(gulp.dest(options.dist + '/'))
+      .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
+        process.exit();
+      });
+  });
+  
+  gulp.task('build-default', ['html', 'fonts', 'images', 'other'], function () {
+     return gulp.src(options.dist + '/index.html')
+      .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
+      .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "http://127.0.0.1:3994/api"}'))
+      .pipe(gulp.dest(options.dist + '/'))
+      .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
+        process.exit();
+      });
   });
 };

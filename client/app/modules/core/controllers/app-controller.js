@@ -1,8 +1,17 @@
-export function AppController($scope, 
-                              $rootScope, $cookies, 
-                              gettextCatalog, PersonService, 
-                              $state, productName, $mdSidenav, 
-                              GemAcl, $mdUtil) {
+export function AppController(
+  $scope, 
+  $rootScope, 
+  $cookies, 
+  gettextCatalog, 
+  PersonService, 
+  $state, 
+  productName, 
+  $mdSidenav, 
+  GemAcl, 
+  $mdUtil
+) 
+{
+ "ngInject";
   /**
    * Get the title of the current page
    *

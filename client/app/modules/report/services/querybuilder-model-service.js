@@ -1,4 +1,4 @@
-export function QueryBuilderModelService(gettextCatalog) {
+export function QueryBuilderModelService(gettextCatalog) {"ngInject";
   return {
     /**
      * Get the model definition for the query builder

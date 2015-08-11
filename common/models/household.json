@@ -26,22 +26,16 @@
     }
   },
   "acls": [
-    {
-      "accessType": "*",
+   {
+      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "root",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     },
     {
-      "accessType": "*",
+      "accessType": "WRITE",
       "principalType": "ROLE",
-      "principalId": "pastor",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "deacon",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     },
     {
