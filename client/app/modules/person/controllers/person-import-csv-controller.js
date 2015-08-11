@@ -112,6 +112,13 @@ export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, 
   this.fillTable = (data) => {
     this.tableData = data;
     this.showTable = true;
+    _.forEach(data[0], (n, key) => {
+      if(_.includes(this.options, n)) {
+        this.assign[key] = n;
+      } else {
+        this.assign[key] = "";
+      }
+    });
   };
 
 
@@ -131,7 +138,7 @@ export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, 
   this.convert = (row) => {
     var person = {};
     _.forEach(row, (value, pos) => {
-      if (this.assign[pos] && value.trim() !== "") {
+      if (this.assign[pos] && value && value.trim() !== "") {
         person = this.dotToObject(person, value.trim(), this.assign[pos]);
       }
     });
