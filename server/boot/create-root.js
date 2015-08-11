@@ -6,7 +6,7 @@ module.exports = function(app) {
       if (data == null) {//create root only if there is no root
         Account.create(
             [{
-                username: 'root',
+                username: process.env.MH_ROOT_USERNAME || 'root',
                 email:  process.env.MH_ROOT_EMAIL || 'root@memberhive.com',
                 password:  process.env.MH_ROOT_PASSWORD || 'bibel'
             }],
