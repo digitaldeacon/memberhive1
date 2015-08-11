@@ -45,9 +45,7 @@ module.exports = function(Avatar) {
    * Check input file and create thumbnails
    */
   Avatar.afterRemote('upload', function(ctx, res, next) {
-    var uploadPath = Avatar.app.datasources["uploads.avatar"].root;
-    console.log(Avatar.app.datasources);
-    console.log(Avatar.app.datasources.uploads.avatar);
+    var uploadPath = Avatar.app.datasources["uploads.avatar"].settings.root;
     console.log(Avatar.app.datasources["uploads.avatar"]);
     console.log("upload path", uploadPath);
     var inputfile = res.result.files.file[0];
