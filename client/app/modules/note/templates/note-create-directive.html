@@ -27,10 +27,7 @@
   </md-dialog>
 </script>
 
-
-<div class="md-actions note-add" layout="row" layout-align="center">
-  <md-button class="md-icon-button launch" ng-click="ctrl.createDialog($event)">
-    <ng-md-icon icon="message" options="{'duration': 300, 'rotation':'none'}"></ng-md-icon>
-  </md-button>
-</div>
+<md-button class="{{buttonClass}}" ng-click="ctrl.createDialog($event)">
+  <ng-md-icon icon="message" options="{'duration': 300, 'rotation':'none'}"></ng-md-icon>
+</md-button>
 
