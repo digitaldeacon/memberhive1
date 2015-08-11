@@ -230,9 +230,9 @@ module.exports = function(Person) {
     "address.home.street1",
     "address.home.street2",
     "address.home.city",
-    "address.home.stateProvince",
-    "address.home.postalCode",
-    "address.home.countryRegion"
+    "address.home.state",
+    "address.home.zipcode",
+    "address.home.country"
     ];
     Person.find({}, function(err, persons) {
       json2csv({ data: persons, fields: fields, nested: true }, function(err, csv) {
@@ -293,7 +293,7 @@ module.exports = function(Person) {
         v.homeAddress.city = person.address.home.city;
         v.homeAddress.stateProvince = person.address.home.state;
         v.homeAddress.postalCode = person.address.home.zipcode;
-        v.homeAddress.countryRegion = person.address.home.county;
+        v.homeAddress.countryRegion = person.address.home.country;
       }
       if(person.address.work) {
         v.workAddress.label = 'Work';
@@ -301,7 +301,7 @@ module.exports = function(Person) {
         v.workAddress.city = person.address.work.city;
         v.workAddress.stateProvince = person.address.work.state;
         v.workAddress.postalCode = person.address.work.zipcode;
-        v.workAddress.countryRegion = person.address.work.county;
+        v.workAddress.countryRegion = person.address.work.country;
       }
     }
     return v;
