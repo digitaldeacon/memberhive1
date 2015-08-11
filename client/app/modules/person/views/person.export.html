@@ -1,44 +1,21 @@
-<div ng-controller="PersonExportController as personCtrl">
-  <md-tabs md-dynamic-height md-border-bottom>
-    <md-tab>
-      <md-tab-label>VCard Export</md-tab-label>
-      <md-tab-body class="md-padding">
-        <h2> VCard Export </h2>
-        <p> You can download all the contacts saved in Memberhive in the vCard Format,</p>
-        <p> You can use the resulting file to import in Google, iCloud, and many more.</p> 
-        <md-button class="md-primary md-raised" ng-click="personCtrl.getAllVCard()">
-          Download all in VCard
-        </md-button>
-      </md-tab-body>
-    </md-tab>
-    <md-tab>
-      <md-tab-label>CSV Export</md-tab-label>
-      <md-tab-body class="md-padding">
-        <h2> CSV Export </h2>
-        <p> You can download all the contacts saved in Memberhive in the csv Format,</p>
-        <md-button class="md-primary md-raised" ng-click="personCtrl.getAllVCard()">
-          Download all in csv
-        </md-button>
-      </md-tab-body>
-    </md-tab>
-  </md-tabs>
-</div>
+<md-tabs md-dynamic-height md-border-bottom>
+  <md-tab>
+    <md-tab-label>CSV Export</md-tab-label>
+    <md-tab-body class="md-padding">
+      <div ng-include="'app/modules/person/views/person.export.csv.html'"></div>
+    </md-tab-body>
+  </md-tab>
+  <md-tab>
+    <md-tab-label>VCard Export</md-tab-label>
+    <md-tab-body class="md-padding">
+      <div ng-include="'app/modules/person/views/person.export.vcard.html'"></div>
+    </md-tab-body>
+  </md-tab>
+</md-tabs>
 
-  <!--<div> {{personCtrl.info()}} {{personCtrl.isAuthenticated()}} </div>
-  <md-button ng-click="personCtrl.authenticate()">
-    Login with Google
-  </md-button>
-  {{gapi.user.name}}
-  <md-button ng-click="personCtrl.get()">
-    Get
-  </md-button>
-  
-  <li ng-repeat="contact in personCtrl.contacts">
-    {{contact.title.$t}}
-  </li>
-  -->
-  
-  
+
+
+
 
 
 

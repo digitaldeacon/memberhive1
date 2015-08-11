@@ -1,6 +1,7 @@
 "use strict";
 var _ = require('lodash');
 var vCard = require('vcards-js');
+var json2csv = require('json2csv');
 
 module.exports = function(Person) {
   var utils = require('../utils.js');
@@ -11,10 +12,10 @@ module.exports = function(Person) {
 
   /** Validations */
   // i dont know how to fix this, so i commented it out
-  // gender should not be required. if we have to import data, 
+  // gender should not be required. if we have to import data,
   // there is seldom a gender column
   //Person.validatesInclusionOf('gender', {in: [null, 'm', 'f']});
-  
+
   Person.validate('primaryContact', primaryContactValidator);
   function primaryContactValidator(err) {
     var validOptions = ['none', 'email', 'mobile', 'letterHome', 'letterWork', 'letterPostal'];
@@ -156,7 +157,7 @@ module.exports = function(Person) {
         if (text !== undefined) {
           tags = _.filter(tags, function(tag) {
             return _.includes(tag, text);
-          }); 
+          });
         };
         cb(null, tags);
       }
@@ -193,26 +194,26 @@ module.exports = function(Person) {
     'random',
     {
       returns: {
-        type: 'Person', 
+        type: 'Person',
         root: true
       }
     }
   );
-  
+
   Person.exportVCard = function(cb) {
     Person.find({}, function(err, persons) {
       var ret = "";
-      _.each(persons, function(person) {     
+      _.each(persons, function(person) {
         ret += Person.toVCard(person).getFormattedString();
       });
       cb(err, ret);
     });
   }
-  
+
   Person.remoteMethod(
     'exportVCard',
     {
-      returns: {  
+      returns: {
         arg: 'vcard',
         type: 'string'
       },
@@ -220,23 +221,55 @@ module.exports = function(Person) {
     }
   );
 
-  
+  Person.exportCSV = function(cb) {
+    var fields = ["firstName", "lastName", "middleName",
+    "nickName", "prefix", "suffix",
+    "contact.work", "contact.mobile", "contact.home",
+    "gender",
+    "birthdate", "anniversary",
+    "address.home.street1",
+    "address.home.street2",
+    "address.home.city",
+    "address.home.stateProvince",
+    "address.home.postalCode",
+    "address.home.countryRegion"
+    ];
+    Person.find({}, function(err, persons) {
+      json2csv({ data: persons, fields: fields, nested: true }, function(err, csv) {
+        console.log(err, csv);
+        cb(err, csv);
+      });
+    });
+  }
+
+  Person.remoteMethod(
+    'exportCSV',
+    {
+      returns: {
+        arg: 'csv',
+        type: 'string'
+      },
+      http: {path: '/exportCSV', verb: 'get'}
+    }
+  );
+
+
   Person.toVCard = function(person) {
     var v = vCard();
-    
+
     v.firstName = person.firstName;
-    
+
     if(person.middleName)
       v.middleName = person.middleName;
     v.lastName = person.lastName;
-    
+
     if(person.nickName)
       v.nickname = person.nickName;
     if(person.prefix)
       v.namePrefix = person.prefix;
     if(person.suffix)
       v.nameSuffix = person.suffix;
-    
+
     if(person.contact) {
       if(person.contact.work)
         v.workPhone = person.contact.work;
@@ -245,17 +278,17 @@ module.exports = function(Person) {
       if(person.contact.home)
         v.homePhone = person.contact.home;
     }
-    
+
     v.gender = person.gender;
-    
+
     if(person.anniversary)
       v.anniversary = new Date(person.anniversary);
-    
+
     if(person.birthdate)
       v.birthday = new Date(person.birthdate);
-    
+
     if(person.address) {
-      if(person.address.home) {  
+      if(person.address.home) {
         v.homeAddress.label = 'Home';
         v.homeAddress.street = person.address.home.street1;
         v.homeAddress.city = person.address.home.city;
@@ -263,7 +296,7 @@ module.exports = function(Person) {
         v.homeAddress.postalCode = person.address.home.zipcode;
         v.homeAddress.countryRegion = person.address.home.county;
       }
-      if(person.address.work) {  
+      if(person.address.work) {
         v.workAddress.label = 'Work';
         v.workAddress.street = person.address.work.street1;
         v.workAddress.city = person.address.work.city;
@@ -274,7 +307,7 @@ module.exports = function(Person) {
     }
     return v;
   }
-  
+
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
   };
@@ -316,7 +349,7 @@ module.exports = function(Person) {
     }
     next();
   });
-  
+
   Person.createIndex = function(data) {
     var ret;
     var properties = [

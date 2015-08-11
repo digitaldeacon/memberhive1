@@ -9,6 +9,7 @@
     "errorhandler": "^1.1.1",
     "handlebars": "^3.0.3",
     "http2": "^3.2.0",
+    "json2csv": "^2.9.0",
     "lodash": "^3.9.3",
     "loopback": "^2.19.0",
     "loopback-boot": "^2.4.0",

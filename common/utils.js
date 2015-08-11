@@ -28,3 +28,4 @@ exports.stringToRegexp = function (string) {
   }
   return ret;
 }
+
