@@ -5,16 +5,13 @@ var lwip = require('lwip');
 var log = bunyan.createLogger({name: 'gem.avatar'});
 
 module.exports = function(Avatar) {
-  var self = this;
-
-  this.uploadPath = './uploads/avatar/';
   this.thumbSizes = {
     'xs': 50,
     's':  150,
     'm':  400,
     'l': 800
   };
-
+  var self = this;
   /**
    * Create the container (=folder named by userId) if it doesn't exist
    */
@@ -49,8 +46,8 @@ module.exports = function(Avatar) {
    */
   Avatar.afterRemote('upload', function(ctx, res, next) {
     var inputfile = res.result.files.file[0];
-    console.log(res.result.files);
-    var folderPath = path.join(self.uploadPath, inputfile.container);
+    var uploadPath = Avatar.app.datasources["uploads.avatar"].settings.root;
+    var folderPath = path.join(uploadPath, inputfile.container);
     var filePath = path.join(folderPath, inputfile.name);
     if (inputfile.type != 'image/png' && inputfile.type != 'image/jpg' && inputfile.type != 'image/jpeg') {
       fs.unlinkSync(filePath);
@@ -62,7 +59,7 @@ module.exports = function(Avatar) {
     this.createThumb(filePath, folderPath, 'xs',
       this.createThumb(filePath, folderPath, 's',
         this.createThumb(filePath, folderPath, 'm',
-          this.createThumb(filePath, folderPath, 'l', function(err) { next();})
+          this.createThumb(filePath, folderPath, 'l', function(err) { console.log(err); next();})
         )
       )
     )();
@@ -71,9 +68,14 @@ module.exports = function(Avatar) {
   this.createThumb = function (filePath, folder, size, cb) {
     return function(err) {
       lwip.open(filePath, function(err, image) {
-        image.batch()
-          .resize(self.thumbSizes[size])
-          .writeFile(path.join(folder, size+".jpg"), cb);
+        console.log(err);
+        if(image) {
+          image.batch()
+            .resize(self.thumbSizes[size])
+            .writeFile(path.join(folder, size+".jpg"), cb);
+        } else {
+          cb();
+        }
       });
     };
   };
