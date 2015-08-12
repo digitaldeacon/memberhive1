@@ -304,7 +304,7 @@ module.exports = function(Person) {
         v.workAddress.countryRegion = person.address.work.country;
       }
     }
-    var path = Person.app.datasources["uploads.avatar"].settings.root + '/'+ person.id+'/avatar.jpg';
+    var path = Person.app.datasources["uploads.avatar"].settings.root + '/'+ person.id+'/m.jpg';
     if(fs.existsSync(path)) {
       v.photo.embedFromFile(path);
     }
