@@ -2,7 +2,7 @@
 var _ = require('lodash');
 var vCard = require('vcards-js');
 var json2csv = require('json2csv');
-
+var fs = require('fs');
 module.exports = function(Person) {
   var utils = require('../utils.js');
   var Lomongo = require('../lomongo.js');
@@ -304,6 +304,11 @@ module.exports = function(Person) {
         v.workAddress.countryRegion = person.address.work.country;
       }
     }
+    var path = Person.app.datasources["uploads.avatar"].settings.root + '/'+ person.id+'/m.jpg';
+    if(fs.existsSync(path)) {
+      v.photo.embedFromFile(path);
+    }
+
     return v;
   }
 
