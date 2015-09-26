@@ -66,10 +66,12 @@ export function mhPersonChips(mhConfig, PersonService) {"ngInject";
     templateUrl: 'app/modules/person/templates/person-chips.html',
     restrict: 'E',
     scope: {
-      person: '=',
+      ngModel: '=',
     },
     link: function(scope, element, attrs) {
-      scope.contacts = [];
+      if(!scope.ngModel) {
+        scope.ngModel= [];
+      }
       scope.filterSelected = true;
       scope.querySearch = (query) => {
         return PersonService.search(query);

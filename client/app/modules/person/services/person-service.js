@@ -1,6 +1,26 @@
 export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCatalog,
                               Upload, mhConfig, $rootScope) {"ngInject";
+                                
+                                
+  this.avatar = (person, size) => {
+    if (person.hasAvatar) {
+      person["avatarUrl_"+size] = mhConfig.apiUrl+"/Avatars/"+person.id+"/download/"+size+".jpg";
+    } else {
+      person["avatarUrl_"+size] = "/app/images/avatar/"+size+".jpg";
+    }
+    return person;
+  };
+  this.mapPerson = (person) => {
+      person.fullName = person.firstName + " " + person.lastName;
+      person = this.avatar(person, 'xs');
+      person = this.avatar(person, 's');
+      person = this.avatar(person, 'm');
+      person = this.avatar(person, 'l');
+      return person;
+  };
   return {
+    mapPerson: this.mapPerson, 
+    
     modelName: () => {
       return Person.model.name;
     },
@@ -75,7 +95,8 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
     
     
     search: (query) => {
-      return Person.search({query: query});
+      return Person.search({query: query})
+        .$promise.then((d) => {return d.data.map(this.mapPerson);});
     },
     
     /**
