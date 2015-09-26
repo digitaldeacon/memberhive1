@@ -15,7 +15,7 @@
       <md-option ng-repeat="template in ctrl.templates" ng-value="template.id" aria-label="{{template.name}}">{{template.name}}</md-option>
     </md-select>
     
-    <div class="event-template-item" ng-repeat="option in ctrl.template.data track by $index">
+    <div class="md-whiteframe-1dp event-template-item" ng-repeat="option in ctrl.template.data track by $index">
       <md-input-container>
         <label>{{option.name}}</label>
         <div ng-if="option.type == 'text'">

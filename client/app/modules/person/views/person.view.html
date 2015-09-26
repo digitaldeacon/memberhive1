@@ -1,24 +1,27 @@
 <div ng-controller="PersonViewController as personCtrl" class="person-view">
 
   <div layout="column" class="md-padding">
-    <div flex>
-      <h3>{{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
+    <div>
+      <h3>
+        {{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
         <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
+        <ng-md-icon size="18" icon="edit" ui-sref="person.edit({ id: personCtrl.person.id })">
+        </ng-md-icon>
       </h3>
     </div>
-    <!--<div>
+    <div>
       <div>
         <fa name="info"></fa>
         <span ng-repeat="status in personCtrl.person.status" class="tag status-tag" style="margin-right: 2px">
         {{ status }}
         </span>
       </div>
-      <div flex>
+      <div>
         <fa name="tags"></fa>
         <span ng-repeat="tag in personCtrl.person.tags" class="tag"><md-chip>{{tag}}</md-chip></span>
       </div>
      </div>
-    </div>-->
+    </div>
   </div>
 
   <div layout-gt-md="row">

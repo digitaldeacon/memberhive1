@@ -47,19 +47,16 @@ export function controlGroupDirective() {"ngInject";
   };
 }
 
+/***
+ * expects ngModel to be a  Date Object
+ */
 export function mhDateInput($filter) {"ngInject";
   return {
-    template: '<md-datepicker  ng-model="date"></md-datepicker>',
+    template: '<md-datepicker ng-model="ngModel"></md-datepicker>',
     restrict: 'E',
     scope: {
       ngModel: '=',
     },
-    controller: function($scope) {"ngInject";
-      $scope.date = new Date($scope.ngModel);
-      //$scope.date = $filter('date')(Date.parse($scope.ngModel), 'shortDate');
-      /*$scope.$watch('date', function() {
-        $scope.ngModel = $filter('date')(Date.parse($scope.date), 'medium');
-      });*/
-    }
+    
   };
 }

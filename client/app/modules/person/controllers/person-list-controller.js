@@ -10,7 +10,7 @@ export function PersonListController(PersonService,Person)  {"ngInject";
     Person.count().$promise.then((result) => {
       this.totalPersons = result.count;
     });
-    this.persons = PersonService.all(pageNumber);
+    PersonService.all(pageNumber).then((d) => this.persons = d);
   };
 
   this.deletePerson = (person) => {

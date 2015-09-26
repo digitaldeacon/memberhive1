@@ -23,4 +23,5 @@ export function EventController(Event, EventTemplate, $stateParams, $state) {"ng
       .then(() => $state.go("event.all"));
   };
   
+  
 }

@@ -1,49 +1,7 @@
 <md-card>
   <div layout-padding flex layout-gt-md="row" class="dark-background">
-
-    <md-chips flex="50" ng-model="personCtrl.person.status" class="status-chips dusk-background" md-autocomplete-snap md-require-match>
-      <md-autocomplete
-        md-search-text="searchStatusTxt"
-        md-items="status in personCtrl.loadStatus(searchStatusTxt)"
-        md-item-text="status"
-        md-min-length="1"
-        md-search-text-change="null"
-        placeholder="{{'Add a status' | translate}}">
-        <span md-highlight-text="searchStatusTxt">{{status}}</span>
-      </md-autocomplete>
-      <md-chip-template>
-        <span>
-          {{$chip}}
-        </span>
-      </md-chip-template>
-      <div class="md-chip-remove-container">
-        <button md-chip-remove class="md-primary">
-          <md-icon md-svg-icon="md-close" class="md-default-theme"></md-icon>
-        </button>
-      </div>
-    </md-chips>
-
-    <md-chips flex="50" ng-model="personCtrl.person.tags" class="tags-chips dusk-background" md-autocomplete-snap md-require-match>
-      <md-autocomplete
-        md-search-text="searchTagTxt"
-        md-items="tag in personCtrl.loadTags(searchTagTxt)"
-        md-item-text="tag"
-        md-min-length="1"
-        md-search-text-change="null"
-        placeholder="{{'Add a tag' | translate}}">
-        <span md-highlight-text="searchTagTxt">{{tag}}</span>
-      </md-autocomplete>
-      <md-chip-template>
-        <span>
-          {{$chip}}
-        </span>
-      </md-chip-template>
-      <div class="md-chip-remove-container">
-        <button md-chip-remove class="md-primary">
-          <md-icon md-svg-icon="md-close" class="md-default-theme"></md-icon>
-        </button>
-      </div>
-    </md-chips>
+    <mh-person-status flex="50" ng-model="personCtrl.person.status"></mh-person-status>
+    <mh-person-tags flex="50" ng-model="personCtrl.person.tags"></mh-person-tags>
   </div>
 
 
@@ -92,17 +50,17 @@
         </div>
         <md-input-container>
           <label translate>Birthdate</label>
-          <md-datepicker ng-model="personCtrl.person.birthdate" md-placeholder="Enter date"></md-datepicker>
+          <mh-date-input ng-model="personCtrl.person.birthdate" md-placeholder="Enter date"></md-datepicker>
         </md-input-container>
 
         <md-input-container>
           <label translate>Baptism Date</label>
-          <md-datepicker ng-model="personCtrl.person.baptismDate" md-placeholder="Enter date"></md-datepicker>
+          <mh-date-input ng-model="personCtrl.person.baptismDate" md-placeholder="Enter date"></md-datepicker>
         </md-input-container>
 
         <md-input-container>
           <label translate>Anniversary</label>
-          <md-datepicker ng-model="personCtrl.person.anniversary" md-placeholder="Enter date"></md-datepicker>
+          <mh-date-input ng-model="personCtrl.person.anniversary" md-placeholder="Enter date"></md-datepicker>
         </md-input-container>
 
         <h4 translate>Gender</h4>

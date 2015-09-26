@@ -5,18 +5,20 @@
       <label>Template Name</label>
       <input ng-model="ctrl.item.name">
     </md-input-container>
-    <div class="event-template-item" ng-repeat="option in ctrl.item.data">
-      <md-input-container >
-        <label>Name</label>
-        <input ng-model="option.name">
-      </md-input-container>
+    
+    <div layout-gt-sm="row" class="event-template-item md-whiteframe-1dp" ng-repeat="option in ctrl.item.data" >
       <md-input-container >
         <label>Type</label>
         <md-select ng-model="option.type">
           <md-option ng-repeat="type in ctrl.types" value="{{type.value}}">{{type.name}}</md-option>
         </md-select>
       </md-input-container>
+      <md-input-container>
+        <label>Name</label>
+        <input ng-model="option.name">
+      </md-input-container>
     </div>
+    
     
     <md-button class="md-raised md-primary" ng-click="ctrl.save()">
       <translate>Save</translate>

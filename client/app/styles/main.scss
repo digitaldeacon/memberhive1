@@ -115,6 +115,13 @@ gm-map {
   background-color: #FDFDFD;
 }
 
+.content-info {
+  background-color: #FFF8E4;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid darken(saturate(#FFF8E4, 20%), 15%);
+}
+
 .flex-full {
   flex: 1 1 auto;
 }

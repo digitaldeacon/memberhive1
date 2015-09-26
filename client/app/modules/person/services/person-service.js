@@ -1,5 +1,13 @@
-export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCatalog,
-                              Upload, mhConfig, $rootScope) {"ngInject";
+export function PersonService(
+  Person, 
+  Household, 
+  Avatar, 
+  LoopBackAuth, 
+  gettextCatalog,
+  Upload, 
+  mhConfig, 
+  $rootScope
+) {"ngInject";
                                 
                                 
   this.avatar = (person, size) => {
@@ -12,12 +20,25 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
   };
   this.mapPerson = (person) => {
       person.fullName = person.firstName + " " + person.lastName;
+      person.birthdate = new Date(person.birthdate);
+      person.baptismDate = new Date(person.baptismDate);
+      person.anniversary = new Date(person.anniversary);
       person = this.avatar(person, 'xs');
       person = this.avatar(person, 's');
       person = this.avatar(person, 'm');
       person = this.avatar(person, 'l');
       return person;
   };
+  
+  this.mapPersons = (persons) => {
+    return persons.map(this.mapPerson);
+  };
+  
+  this.mapPersonsData = (d) => {
+    console.log(d);
+    return d.map(this.mapPerson);
+  };
+  
   return {
     mapPerson: this.mapPerson, 
     
@@ -26,7 +47,8 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
     },
 
     currentUser: () => {
-      return Person.findById({id: LoopBackAuth.currentUserId});
+      return Person.findById({id: LoopBackAuth.currentUserId})
+        .$promise.then(this.mapPersonsData);
     },
 
     one: (id) => {
@@ -44,7 +66,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             'ministries','relationType','notes'
           ]
         }
-      });
+      }).$promise.then(this.mapPerson);
     },
 
     all: (pageNumber) => {
@@ -62,7 +84,7 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             'relationType'
           ]
         }
-      });
+      }).$promise.then(this.mapPersonsData);
     },
 
     getHousehold: (id) => {
@@ -96,7 +118,20 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
     
     search: (query) => {
       return Person.search({query: query})
-        .$promise.then((d) => {return d.data.map(this.mapPerson);});
+        .$promise.then(this.mapPersonsData);
+    },
+    
+    
+    searchTags: (query) => {
+      return Person.tags({"text": query}).$promise.then((resp)=>{
+        return resp.data;
+      });
+    },
+
+    searchStatus: (query) => {
+      return Person.status({"text": query}).$promise.then((resp)=>{
+        return resp.data;
+      });
     },
     
     /**
