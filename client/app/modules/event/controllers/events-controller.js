@@ -9,7 +9,7 @@ export function EventsController(Event, $scope, $filter, Shout, $state) {"ngInje
       }
     });
     return ret;
-  }
+  };
   this.isSameDay = (date, otherDate) => {
     return date.toDateString() === otherDate.toDateString();
   };
