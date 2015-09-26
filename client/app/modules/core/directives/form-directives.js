@@ -49,16 +49,17 @@ export function controlGroupDirective() {"ngInject";
 
 export function mhDateInput($filter) {"ngInject";
   return {
-    template: '<datepicker date-format="shortDate"><input ng-model="date" type="text"/></datepicker>',
+    template: '<md-datepicker  ng-model="date"></md-datepicker>',
     restrict: 'E',
     scope: {
       ngModel: '=',
     },
     controller: function($scope) {"ngInject";
-      $scope.date = $filter('date')(Date.parse($scope.ngModel), 'shortDate');
-      $scope.$watch('date', function() {
+      $scope.date = new Date($scope.ngModel);
+      //$scope.date = $filter('date')(Date.parse($scope.ngModel), 'shortDate');
+      /*$scope.$watch('date', function() {
         $scope.ngModel = $filter('date')(Date.parse($scope.date), 'medium');
-      });
+      });*/
     }
   };
 }

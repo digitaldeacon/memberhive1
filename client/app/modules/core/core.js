@@ -21,7 +21,7 @@ import {temperatureFilter} from './filters/format-filters';
  *
  * @type {module}
  */
-export var gemCoreModule = angular.module('gem.core', ['ngAnimate', '720kb.datepicker']);
+export var gemCoreModule = angular.module('gem.core', ['ngAnimate']);
 
 gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => {
   $urlRouterProvider.otherwise('/dashboard');

@@ -5,7 +5,7 @@ import {EventTemplateController} from './controllers/event-template-controller';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 
-export var gemEventModule = angular.module('gem.event', []
+export var gemEventModule = angular.module('gem.event', ["materialCalendar"]
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('event', {

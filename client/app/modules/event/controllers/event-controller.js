@@ -8,7 +8,8 @@ export function EventController(Event, EventTemplate, $stateParams, $state) {"ng
      });
   } else {
     this.item = {
-      name: "New Event"
+      name: "New Event",
+      date: new Date()
     };
   }
   this.templates = EventTemplate.find();

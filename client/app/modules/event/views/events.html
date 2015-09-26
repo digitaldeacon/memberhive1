@@ -1,8 +1,22 @@
 <div ng-controller="EventsController as ctrl">
-
+    <calendar-md flex layout layout-fill
+    calendar-direction="direction"
+    on-prev-month="ctrl.prevMonth"
+    on-next-month="ctrl.nextMonth"
+    on-day-click="ctrl.dayClick"
+    title-format="'MMMM y'"
+    ng-model='selectedDate'
+    week-starts-on="firstDayOfWeek"
+    day-format="'d'"
+    day-label-format="'EEE'"
+    day-label-tooltip-format="'EEEE'"
+    day-tooltip-format="'fullDate'"
+    day-content="ctrl.setDayContent">
+    </calendar-md>
+<!---
   <ul ng-repeat="event in ctrl.events">
     <li><a ui-sref="event.one({eventId: event.id})">{{event.name}} on {{event.date}}</a></li>
-  </ul>
+  </ul>-->
 
   <a ui-sref="event.one">
     <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Report">

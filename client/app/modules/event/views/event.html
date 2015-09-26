@@ -5,12 +5,14 @@
       <label>Event Name</label>
       <input ng-model="ctrl.item.name">
     </md-input-container>
-    <md-input-container >
+    
+    <md-input-container>
       <label>Event Date</label>
       <mh-date-input ng-model="ctrl.item.date"></mh-date-input>
     </md-input-container>
-    <md-select ng-model="ctrl.templateId" ng-change="ctrl.updateTemplate()">
-      <md-option ng-repeat="template in ctrl.templates" ng-value="template.id">{{template.name}}</md-option>
+    
+    <md-select ng-model="ctrl.templateId" ng-change="ctrl.updateTemplate()" aria-label="Template ID">
+      <md-option ng-repeat="template in ctrl.templates" ng-value="template.id" aria-label="{{template.name}}">{{template.name}}</md-option>
     </md-select>
     
     <div class="event-template-item" ng-repeat="option in ctrl.template.data track by $index">
