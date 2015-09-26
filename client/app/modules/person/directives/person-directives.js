@@ -40,9 +40,10 @@ export function mhAvatar(mhConfig) {"ngInject";
         scope.height = thumbSizes[scope.size];
         scope.width = thumbSizes[scope.size];
         if (scope.person.hasAvatar) {
-          scope.imgSrc = `${mhConfig.apiUrl}/Avatars/${scope.person.id}/download/${scope.size}.jpg`;
+          console.log(scope.person);
+          scope.imgSrc = mhConfig.apiUrl+"/Avatars/"+scope.person.id+"/download/"+scope.size+".jpg";
         } else {
-          scope.imgSrc = `/app/images/avatar/${scope.size}.jpg`;
+          scope.imgSrc = "/app/images/avatar/"+scope.size+".jpg";
         }
       };
 
