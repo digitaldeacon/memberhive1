@@ -4,9 +4,6 @@
     <md-input-container flex>
       <label translate>First Name</label>
       <input name="firstName" ng-model="personCtrl.person.firstName" required>
-      <div ng-messages="personEdit.firstName.$error">
-        <ng-message when="required"><translate>This field is required.</translate></ng-message>
-      </div>
     </md-input-container>
 
     <md-input-container flex>
@@ -17,9 +14,6 @@
     <md-input-container flex>
       <label translate>Last Name</label>
       <input name="lastName" ng-model="personCtrl.person.lastName" required>
-      <div ng-messages="personEdit.lastName.$error">
-        <ng-message when="required"><translate>This field is required.</translate></ng-message>
-      </div>
     </md-input-container>
   </div>
   <div layout-gt-sm="row">

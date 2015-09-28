@@ -27,6 +27,10 @@ export function mhPersonStatus() {
       ngModel: '=',
     },
     controller: function($scope, PersonService) {"ngInject";
+      if(!$scope.ngModel) {
+        $scope.ngModel = [];
+      }
+      console.log($scope.ngModel);
       $scope.searchStatus = (query) => {
         return PersonService.searchStatus(query);
       };

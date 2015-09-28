@@ -1,10 +1,12 @@
-<div ng-controller="PersonViewController as personCtrl" class="person-view">
+<div class="person-view">
 
   <div layout="column" class="md-padding">
     <div>
       <h3>
         {{personCtrl.person.firstName}} {{personCtrl.person.middleName}} {{personCtrl.person.lastName}}
-        <small class="text-muted" ng-if="personCtrl.person.nickName">({{personCtrl.person.nickName}})</small>
+        <small class="text-muted" ng-if="personCtrl.person.nickName">
+          ({{personCtrl.person.nickName}})
+        </small>
         <ng-md-icon size="18" icon="edit" ui-sref="person.edit({ id: personCtrl.person.id })">
         </ng-md-icon>
       </h3>
@@ -27,7 +29,7 @@
   <div layout-gt-md="row">
     <div flex layout="column" class="md-padding">
       <div>
-        <mh-avatar person="personCtrl.person" size="s"></mh-avatar>
+        <img ng-src="{{personCtrl.person.avatarUrl_s}}" />
       </div>
       <div>
         <h4 translate>Contact</h4>

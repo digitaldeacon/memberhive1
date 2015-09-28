@@ -23,6 +23,8 @@ export function PersonService(
       person.birthdate = new Date(person.birthdate);
       person.baptismDate = new Date(person.baptismDate);
       person.anniversary = new Date(person.anniversary);
+      person.status = person.status || [];
+      person.tags = person.tags || [];
       person = this.avatar(person, 'xs');
       person = this.avatar(person, 's');
       person = this.avatar(person, 'm');
@@ -35,7 +37,6 @@ export function PersonService(
   };
   
   this.mapPersonsData = (d) => {
-    console.log(d);
     return d.map(this.mapPerson);
   };
   

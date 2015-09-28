@@ -65,6 +65,8 @@ export var gemPersonModule = angular.module('gem.person',
     }).state('person.view', {
       url: '/view/:id',
       templateUrl: 'app/modules/person/views/person.view.html',
+      controller: 'PersonViewController',
+      controllerAs: 'personCtrl',
       data: {
         pageSubTitle: gettext('View Person details')
       },
@@ -74,9 +76,19 @@ export var gemPersonModule = angular.module('gem.person',
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePerson: ($stateParams, PersonEditService) => {
+          return PersonEditService.getPerson($stateParams.id);
+        },
+        resolveNotes : ($stateParams, Person) => {
+          return Person.notes({"id": $stateParams.id});
+        }
+      },
     }).state('person.create', {
       url: '/create',
+      controller: 'PersonEditController',
+      controllerAs: 'personCtrl',
       templateUrl: 'app/modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Create a Person')
@@ -87,9 +99,17 @@ export var gemPersonModule = angular.module('gem.person',
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePerson: (Person) => {
+          return new Person();
+        }
+      },
+      
     }).state('person.edit', {
       url: '/edit/:id',
+      controller: 'PersonEditController',
+      controllerAs: 'personCtrl',
       templateUrl: 'app/modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Edit a Person')
@@ -100,7 +120,12 @@ export var gemPersonModule = angular.module('gem.person',
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePerson: ($stateParams, PersonEditService) => {
+          return PersonEditService.getPerson($stateParams.id);
+        }
+      },
     }).state('person.import', {
       url: '/import',
       templateUrl: 'app/modules/person/views/person.import.html',

@@ -1,27 +1,17 @@
 export function PersonEditController (
-  PersonService, 
-  Person, 
-  $stateParams,
   $filter,
+  $state,
+  $stateParams,
   gettextCatalog,
-  PersonEditService
+  Person, 
+  PersonService, 
+  PersonEditService,
+  resolvePerson,
+  Shout
 ) 
 {    "ngInject";
-  
-  this.load = () => {
-    var promise;
-    if (this.isEditing()) {
-      promise = PersonEditService.getPerson($stateParams.id);
-    } else {
-      promise = PersonEditService.newPerson();
-    }
-    promise.then((p) => {this.person = p; console.log(p)});
-  };
-
-  
-  this.isEditing = () => {
-    return $stateParams.id !== undefined;
-  };
+  this.status = [];
+  this.person = resolvePerson;
 
   this.getTitle = () => {
     if (this.isEditing()) {
@@ -45,8 +35,20 @@ export function PersonEditController (
   };
   
   this.saveRedirect = (redirect) => {
-    
+    Person.upsert({}, this.person)
+    .$promise.then(
+      (data) => {
+        /*if(this.shouldHaveAccount && !this.hasAccount) {
+          Person.account.create({id: data.id}, {"username": data.firstName + "_"+data.lastName, "email": data.email, "password": data.lastName});
+        }*/
+        Shout.message(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
+        if(redirect !== null) {
+          $state.go(redirect);
+        }
+      },
+      (err) => {
+        Shout.vError(err);
+      }
+    );
   };
-  
-  this.load();
 }
