@@ -157,6 +157,11 @@
       "type": "hasMany",
       "model": "Note",
       "polymorphic": "notable"
+    },
+    "groups": {
+      "type": "hasMany",
+      "model": "Group",
+      "polymorphic": "groupable"
     }
   },
   "acls": [

@@ -9,7 +9,8 @@ import {gemAddressModule} from './modules/address/address';
 import {gemPersonModule} from './modules/person/person';
 import {gemAuthModule} from './modules/auth/auth';
 import {gemAclModule} from './modules/auth/acl';
-import {gemNoteModule} from './modules/note/note';
+import {mhNoteModule} from './modules/note/note';
+import {mhGroupModule} from './modules/group/group';
 import {gemReportModule} from './modules/report/report';
 import {gemCalendarModule} from './modules/calendar/calendar';
 import {gemEventModule} from './modules/event/event';
@@ -42,7 +43,7 @@ export var gemMainModule = angular.module('gem.main', [
   'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
   'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'gem.event', 'gem.acl',
-  'gem.auth', 'gem.report', 'gem.note', 'gem.config', 
+  'gem.auth', 'gem.report', 'mh.note', 'mh.group', 'gem.config', 
   ]
 );
 

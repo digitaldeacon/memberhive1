@@ -15,5 +15,5 @@ export function NoteEditController(
   
   this.close = () => {
     $state.go('note.list');
-  }
+  };
 }

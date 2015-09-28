@@ -1,46 +1,28 @@
 {
-  "name": "Note",
+  "name": "Group",
   "base": "GemBase",
   "idInjection": true,
-  "scope": {
-    "order": "created DESC"
-  },
   "properties": {
-    "title": {
-      "type": "string"
-    },
-    "content": {
-      "type": "TEXT",
+    "name": {
+      "type": "string",
       "required": true
     },
-    "created": {
-      "type": "date",
-      "required": true
-    },
-    "updated": {
-      "type": "date"
-    },
-    "folderId": {
+    "description": {
       "type": "string"
     },
-    "ownerId": {
+    "icon": {
       "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "notable": {
+    "groupable": {
       "type": "belongsTo",
       "polymorphic": true
-    },
-    "groups": {
-      "type": "hasMany",
-      "model": "Group",
-      "polymorphic": "groupable"
     }
   },
   "acls": [
-    {
+   {
       "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$authenticated",
