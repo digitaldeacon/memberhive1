@@ -33,8 +33,3 @@ a:visited, a:hover {
 .simple-link, .simple-link:visited, .simple-link:active {
   color: $text-color-dark;
 }
-
-
-md-input-container label, md-input-container .md-placeholder {
-  color: lighten($text-color-dark, 10%);
-}

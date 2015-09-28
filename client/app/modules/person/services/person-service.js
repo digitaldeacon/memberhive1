@@ -70,6 +70,7 @@ export function PersonService(
     },
 
     all: (pageNumber) => {
+      
       return Person.find({
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,

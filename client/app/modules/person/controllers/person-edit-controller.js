@@ -15,7 +15,7 @@ export function PersonEditController (
     } else {
       promise = PersonEditService.newPerson();
     }
-    promise.then((p) => this.person = p);
+    promise.then((p) => {this.person = p; console.log(p)});
   };
 
   
