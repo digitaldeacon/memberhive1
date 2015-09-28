@@ -9,7 +9,8 @@ export function PersonService(
   $rootScope
 ) {"ngInject";
                                 
-                                
+  this.persons = null;
+  
   this.avatar = (person, size) => {
     if (person.hasAvatar) {
       person["avatarUrl_"+size] = mhConfig.apiUrl+"/Avatars/"+person.id+"/download/"+size+".jpg";
@@ -38,6 +39,14 @@ export function PersonService(
   
   this.mapPersonsData = (d) => {
     return d.map(this.mapPerson);
+  };
+  
+  this.getAll = () => {
+     return Person.find({
+        filter: {
+          order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
+        }
+      }).$promise.then(this.mapPersonsData);
   };
   
   return {
@@ -87,6 +96,15 @@ export function PersonService(
           ]
         }
       }).$promise.then(this.mapPersonsData);
+    },
+    
+    cachedAll: () => {
+      if(this.persons) return this.persons;
+      return this.getAll().then((d) => this.persons = d);
+    },
+    
+    getAll: () => {
+      return this.getAll().then((d) => this.persons = d);
     },
 
     getHousehold: (id) => {

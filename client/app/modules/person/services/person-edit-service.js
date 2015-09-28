@@ -13,13 +13,12 @@ export function PersonEditService(
    */
   this.getPerson = (personId) => {
     if(this.person && this.person.id === personId)
-      return;
+      return $q.when(this.person);
     return PersonService.one(personId).then((p) => this.person = p);
   };
   
-  this.newPerson = () => {
-    this.person = new Person();
-    return $q.when(this.person);
+  this.savePerson = (person) => {
+    return Person.upsert({}, person).$promise;
   };
   
 }

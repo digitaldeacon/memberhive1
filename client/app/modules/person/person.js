@@ -52,6 +52,8 @@ export var gemPersonModule = angular.module('gem.person',
     }).state('person.list', {
       url: '/list',
       templateUrl: 'app/modules/person/views/person.list.html',
+      controller: 'PersonListController',
+      controllerAs: 'personCtrl',
       data: {
         pageTitle: gettext('Persons'),
         pageSubTitle: gettext('Create and edit Persons')
@@ -61,7 +63,12 @@ export var gemPersonModule = angular.module('gem.person',
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePersons: (PersonService) => {
+          return PersonService.cachedAll();
+        },
+      },
     }).state('person.view', {
       url: '/view/:id',
       templateUrl: 'app/modules/person/views/person.view.html',

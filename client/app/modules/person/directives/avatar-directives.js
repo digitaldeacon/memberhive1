@@ -40,6 +40,7 @@ export function mhAvatar(mhConfig) {"ngInject";
         scope.height = thumbSizes[scope.size];
         scope.width = thumbSizes[scope.size];
         if (scope.person.hasAvatar) {
+          console.log(scope.person);
           scope.imgSrc = mhConfig.apiUrl+"/Avatars/"+scope.person.id+"/download/"+scope.size+".jpg";
         } else {
           scope.imgSrc = "/app/images/avatar/"+scope.size+".jpg";
@@ -47,9 +48,13 @@ export function mhAvatar(mhConfig) {"ngInject";
       };
 
       // Hack: When scope.person is not yet resolved, we need to wait until it is.
-      scope.person.then(() => {
+      if (scope.person.$promise) {
+        scope.person.$promise.then(() => {
+          setImgSrc();
+        });
+      } else {
         setImgSrc();
-      });
+      }
     }
 
   };
