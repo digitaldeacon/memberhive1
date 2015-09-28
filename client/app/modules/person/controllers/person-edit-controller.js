@@ -1,5 +1,4 @@
 export function PersonEditController (
-  $filter,
   $state,
   gettextCatalog,
   PersonEditService,
@@ -26,7 +25,7 @@ export function PersonEditController (
   this.saveRedirect = (redirect) => {
     PersonEditService.save(this.person).then(
       (data) => {
-        Shout.message(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: this.$filter('formatName')(this.person)}));
+        Shout.message(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: this.person.fullName}));
         if(redirect !== null) {
           $state.go(redirect);
         }

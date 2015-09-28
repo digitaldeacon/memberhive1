@@ -17,7 +17,7 @@ export function PersonEditService(
     return PersonService.one(personId).then((p) => this.person = p);
   };
   
-  this.savePerson = (person) => {
+  this.save = (person) => {
     return Person.upsert({}, person).$promise;
   };
   
