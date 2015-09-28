@@ -1,4 +1,4 @@
-export function NoteListController(NoteService) {"ngInject";
-    //this.tree = NoteService.tree();
-  //TODO: führt zu einem Stackoverflow
+export function NoteListController(NoteService, resolveNotes) {"ngInject";
+  this.notes = resolveNotes;
+  console.log(this.notes);
 }
