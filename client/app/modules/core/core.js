@@ -103,7 +103,7 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
   $mdThemingProvider.theme('default')
     .primaryPalette('blue')
     .accentPalette('mh-orange')
-    .warnPalette('lime')
+    .warnPalette('red')
     .backgroundPalette('grey');
 
   // Codemirror: Create html/handlebars mixed mode

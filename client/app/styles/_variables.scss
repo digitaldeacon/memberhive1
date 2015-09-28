@@ -6,3 +6,10 @@ $text-color-dark: #333 !default;
 $border-radius: 5px;
 
 $toolbar-height: 55px;
+
+$sidebar-background-color: primary-color('700');
+$sidebar-text-color: $text-color-light;
+$sidebar-icon-color: $text-color-light;
+$sidebar-accent-color: accent-color('500');
+
+$toolbar-background-color: #3A3A3A;

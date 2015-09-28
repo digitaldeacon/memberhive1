@@ -21,7 +21,16 @@
             {{ tag }}
           </span>
           <span class="text-muted">{{person.duties}}</span>
-        </div>
+          <span class="text-muted" ng-if="person.contact.home">
+              <ng-md-icon size="16" icon="phone"></ng-md-icon>
+              <a href="tel:{{ ::person.contact.home }}">{{ ::person.contact.home }}</a>
+          </span>
+          <span class="text-muted" ng-if="person.contact.mobile">
+              <ng-md-icon size="15" icon="stay_primary_portrait"></ng-md-icon>
+              <a href="tel:{{ ::person.contact.mobile }}">{{ ::person.contact.mobile }}</a>
+          </span>
+          
+      </div>
       <div>
         <md-button class="md-icon-button md-action-icon-button" tooltip="{{'Edit' | translate}}" aria-label="{{'Edit' | translate}}"
                   ui-sref="person.edit({ id: person.id })">

@@ -1,15 +1,18 @@
-<md-card>
-  <div layout-padding flex layout-gt-md="row" class="dark-background">
-    <mh-person-status flex="50" ng-model="personCtrl.person.status"></mh-person-status>
-    <mh-person-tags flex="50" ng-model="personCtrl.person.tags"></mh-person-tags>
-  </div>
-
-
-  <md-card-content>
-    <div layout-gt-md="row">
-
-      <div layout="column" layout-padding>
-        <h3 translate>Person Info</h3>
+<div layout-padding flex layout-gt-md="row" class="dark-background">
+  <mh-person-status flex="50" ng-model="personCtrl.person.status"></mh-person-status>
+  <mh-person-tags flex="50" ng-model="personCtrl.person.tags"></mh-person-tags>
+</div>
+<div layout="column">
+  <table>
+    <tr>
+      <h3 translate>Person Info</h3>
+    </tr>
+    
+    <tr>
+      <td>
+        Name
+      </td>
+      <td>
         <div layout-gt-sm="row">
           <md-input-container flex>
             <label translate>First Name</label>
@@ -32,6 +35,11 @@
             </div>
           </md-input-container>
         </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Namen</td>
+      <td>
         <div layout-gt-sm="row">
           <md-input-container>
             <label translate>Title</label>
@@ -48,96 +56,107 @@
             <input ng-model="personCtrl.person.suffix">
           </md-input-container>
         </div>
-        <md-input-container>
-          <label translate>Birthdate</label>
-          <mh-date-input ng-model="personCtrl.person.birthdate" md-placeholder="Enter date"></md-datepicker>
-        </md-input-container>
-
-        <md-input-container>
-          <label translate>Baptism Date</label>
-          <mh-date-input ng-model="personCtrl.person.baptismDate" md-placeholder="Enter date"></md-datepicker>
-        </md-input-container>
-
-        <md-input-container>
-          <label translate>Anniversary</label>
-          <mh-date-input ng-model="personCtrl.person.anniversary" md-placeholder="Enter date"></md-datepicker>
-        </md-input-container>
-
-        <h4 translate>Gender</h4>
-        <md-radio-group ng-model="personCtrl.person.gender" layout="row">
+      </td>
+    </tr>
+    <tr>
+      <td translate>Birthdate</td>
+      <td>
+         <md-input-container>
+            <md-datepicker ng-model="personCtrl.person.birthdate" md-placeholder="Enter date"></md-datepicker>
+          </md-input-container> 
+      </td>
+    </tr>
+    <tr>
+      <td translate>Baptism Date</td>
+      <td>
+         <md-input-container>
+            <md-datepicker ng-model="personCtrl.person.baptismDate" md-placeholder="Enter date"></md-datepicker>
+          </md-input-container> 
+      </td>
+    </tr>
+    <tr>
+      <td translate>Anniversary</td>
+      <td>
+         <md-input-container>
+            <md-datepicker ng-model="personCtrl.person.anniversary" md-placeholder="Enter date"></md-datepicker>
+          </md-input-container> 
+      </td>
+    </tr>
+ 
+    <tr>
+      <td translate>Gender</td>
+      <td>
+         <md-radio-group ng-model="personCtrl.person.gender" layout="row">
           <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
           <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
         </md-radio-group>
-
-        <md-input-container>
-          <md-checkbox ng-model="personCtrl.shouldHaveAccount">
-            <translate> User can log in </translate>
-          </md-checkbox>
-        </md-input-container>
-      </div>
-
-      <div flex layout="column" layout-padding>
-        <h3 translate>Contact Info</h3>
-        <md-input-container flex>
+      </td>
+    </tr>
+    
+    <tr>
+      <h3 translate>Contact Info</h3>
+    </tr>
+    
+    <tr>
+      <td translate>Primary Contact Method</td>
+      <td>
           <md-select required ng-model="personCtrl.person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
             <md-option ng-repeat="opt in personCtrl.primaryContactTypes" ng-value="opt">
               {{personCtrl.primaryContactTypesTranslated[opt]}}
             </md-option>
           </md-select>
-          <p class="md-caption" ng-show="personCtrl.person.primaryContact">
-            {{contactMethod=personCtrl.primaryContactTypesTranslated[personCtrl.person.primaryContact];""}}
-            <translate>Your primary contact method is {{contactMethod}}</translate>
-          </p>
-          <p class="md-caption" ng-hide="personCtrl.person.primaryContact">
-            <translate>Please select your primary contact method</translate>
-          </p>
-          <p class="md-caption" ng-hide="personCtrl.hasValidAddress()">
-            <translate>You need to enter an address.</translate>
-          </p>
-        </md-input-container>
-
-        <md-input-container flex>
-          <label><fa name="envelope"></fa> <span translate>Email</span></label>
-          <input name="email" type="email" ng-model="personCtrl.person.email" ng-required="personCtrl.person.primaryContact == 'email'">
-          <div ng-messages="personEdit.email.$error">
-            <ng-message when="email"><translate>Please enter a valid email address.</translate></ng-message>
-            <ng-message when="required"><translate>This field is required.</translate></ng-message>
-          </div>
-        </md-input-container>
-
-        <md-input-container flex>
-          <label><fa name="phone"></fa> <span translate>Home Phone</span></label>
+      </td>
+    </tr>
+    
+   <tr>
+      <td translate><ng-md-icon icon="email"></ng-md-icon> EMail </td>
+      <td>
+          <md-input-container>
+            <input name="email" type="email" ng-model="personCtrl.person.email" ng-required="personCtrl.person.primaryContact == 'email'">
+            <div ng-messages="personEdit.email.$error">
+              <ng-message when="email"><translate>Please enter a valid email address.</translate></ng-message>
+              <ng-message when="required"><translate>This field is required.</translate></ng-message>
+            </div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td translate><ng-md-icon icon="phone"></ng-md-icon> Home Phone </td>
+      <td>
+        <md-input-container>
           <input ng-model="personCtrl.person.contact.home">
-        </md-input-container>
-
-        <md-input-container flex>
-          <label><fa name="phone-square"></fa> <span translate>Work Phone</span></label>
+        </md-input-container> 
+      </td>
+    </tr>
+    
+    <tr>
+      <td translate><ng-md-icon icon="phone"></ng-md-icon> Work Phone </td>
+      <td>
+        <md-input-container>
           <input ng-model="personCtrl.person.contact.work">
-        </md-input-container>
-
-        <md-input-container flex>
-          <label><fa name="mobile-phone"></fa> <span translate>Mobile Phone</span></label>
+        </md-input-container> 
+      </td>
+    </tr>
+    
+    
+    <tr>
+      <td translate><ng-md-icon icon="smartphone"></ng-md-icon> Mobile Phone</td>
+      <td>
+        <md-input-container>
           <input name="mobile" ng-model="personCtrl.person.contact.mobile" ng-required="personCtrl.person.primaryContact == 'mobile'">
-          <div ng-messages="personEdit.mobile.$error">
-            <ng-message when="required"><translate>This field is required.</translate></ng-message>
-          </div>
-        </md-input-container>
-
-        <md-input-container flex>
-          <label><fa name="fay"></fa> <span translate>Fax</span></label>
+        </md-input-container> 
+      </td>
+    </tr>
+    
+    <tr>
+      <td translate><ng-md-icon icon="print"></ng-md-icon> Fax </td>
+      <td>
+        <md-input-container>
           <input ng-model="personCtrl.person.contact.fax">
-        </md-input-container>
-
-        <md-input-container flex>
-          <label><fa name="facebook"></fa> <span translate>Facebook Username</span></label>
-          <input ng-model="personCtrl.person.contact.facebook">
-        </md-input-container>
-
-        <md-input-container flex>
-          <label><fa name="skype"></fa> <span translate>Skype Name</span></label>
-          <input ng-model="personCtrl.person.contact.skype">
-        </md-input-container>
-
+        </md-input-container>   
+      </td>
+    </tr>
+  </table>
         <h3 translate>Household</h3>
 
         <md-tabs>
@@ -182,7 +201,6 @@
           </md-tab>
         </md-tabs>
 
-      </div>
     </div>
   </md-card-content>
 </md-card>

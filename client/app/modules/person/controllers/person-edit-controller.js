@@ -33,7 +33,6 @@ export function PersonEditController (
   
   
   this.save = () => {
-    console.log(this.person);
     this.saveRedirect(null);
   };
   

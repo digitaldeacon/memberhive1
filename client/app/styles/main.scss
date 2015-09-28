@@ -1,5 +1,5 @@
-@import "variables";
 @import "theme";
+@import "variables";
 
 @import "components/autocomplete";
 @import "components/dropzone";
@@ -34,15 +34,7 @@ html, body {
   height: 100%;
 }
 
-a {
-  color: primary-color('400');
-  text-decoration: none;
-}
 
-a:visited, a:hover {
-  text-decoration: none;
-  color: primary-color('600');
-}
 
 #content {
   margin: 24px;
@@ -94,17 +86,7 @@ gm-map {
 .fileupload-dragover {
     border: 2px dashed blue;
 }
-.text-dark, .text-dark:visited {
-  color: $text-color-dark;
-  fill: $text-color-dark;
-}
-.text-light, .text-light:visited {
-  color: $text-color-light;
-  fill: $text-color-light;
-}
-.simple-link, .simple-link:visited, .simple-link:active {
-  color: $text-color-dark;
-}
+
 .md-action-icon-button {
   svg {
      fill: lighten($text-color-dark, 20%);
