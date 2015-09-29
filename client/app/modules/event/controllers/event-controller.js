@@ -12,6 +12,7 @@ export function EventController(Event, EventTemplate, $stateParams, $state) {"ng
       date: new Date()
     };
   }
+  this.empty = [];
   this.templates = EventTemplate.find();
   this.updateTemplate = () => {
     this.template = _.find(this.templates, {id: this.templateId});

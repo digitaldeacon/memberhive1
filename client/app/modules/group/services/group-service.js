@@ -21,5 +21,5 @@ export function GroupService(Group) {
           where: {name: {like: query}}
         }
       }).$promise.then((data)=> console.log(data));
-  }
+  };
 }

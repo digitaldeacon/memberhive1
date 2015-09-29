@@ -61,19 +61,16 @@ export function PersonService(
   };
   
   this.mapPersons = (persons) => {
-    return persons.map(this.mapPerson);
+    return _.map(persons, this.mapPerson);
   };
   
-  this.mapPersonsData = (d) => {
-    return d.map(this.mapPerson);
-  };
   
   this.getAll = () => {
      return Person.find({
         filter: {
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
         }
-      }).$promise.then(this.mapPersonsData);
+      }).$promise.then(this.mapPersons);
   };
   
   return {
@@ -85,7 +82,7 @@ export function PersonService(
 
     currentUser: () => {
       return Person.findById({id: LoopBackAuth.currentUserId})
-        .$promise.then(this.mapPersonsData);
+        .$promise.then(this.mapPerson);
     },
 
     one: (id) => {
@@ -165,7 +162,7 @@ export function PersonService(
     
     search: (query) => {
       return Person.search({query: query})
-        .$promise.then(this.mapPersonsData);
+        .$promise.then((d) => {return d.data;}).then(this.mapPersons);
     },
     
     

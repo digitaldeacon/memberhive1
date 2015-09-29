@@ -30,7 +30,6 @@ export function mhPersonStatus() {
       if(!$scope.ngModel) {
         $scope.ngModel = [];
       }
-      console.log($scope.ngModel);
       $scope.searchStatus = (query) => {
         return PersonService.searchStatus(query);
       };
