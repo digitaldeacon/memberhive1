@@ -1,5 +1,4 @@
-<div ng-controller="EventsController as ctrl">
-    <calendar-md flex layout layout-fill
+  <calendar-md flex layout layout-fill
     calendar-direction="direction"
     on-prev-month="ctrl.prevMonth"
     on-next-month="ctrl.nextMonth"
@@ -12,15 +11,10 @@
     day-label-tooltip-format="'EEEE'"
     day-tooltip-format="'fullDate'"
     day-content="ctrl.setDayContent">
-    </calendar-md>
-<!---
-  <ul ng-repeat="event in ctrl.events">
-    <li><a ui-sref="event.one({eventId: event.id})">{{event.name}} on {{event.date}}</a></li>
-  </ul>-->
+  </calendar-md>
+<a ui-sref="event.create">
+  <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Report">
+    <ng-md-icon icon="add"></ng-md-icon>
+  </md-button>
+</a>
 
-  <a ui-sref="event.one">
-    <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Report">
-      <ng-md-icon icon="add"></ng-md-icon>
-    </md-button>
-  </a>
-</div>
