@@ -2,10 +2,10 @@
   "name": "MemberHive",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "~1.4.6",
-    "angular-animate": "~1.4.6",
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
     "angular-confirm": "~1.0.0",
-    "angular-cookies": "~1.4.6",
+    "angular-cookies": "~1.4.7",
     "angular-fontawesome": "~0.3.2",
     "angular-breadcrumb": "~0.4.0",
     "angular-gettext": "~2.1.0",
@@ -13,14 +13,14 @@
     "angular-loading-bar": "~0.7.1",
     "angular-material": "~0.11.1",
     "angular-material-icons": "~0.6.0",
-    "angular-messages": "~1.4.6",
+    "angular-messages": "~1.4.7",
     "angular-moment": "~0.10.1",
     "angular-sanitize": "~1.4.6",
     "angular-spinkit": "~0.3.3",
-    "angular-touch": "~1.4.3",
+    "angular-touch": "~1.4.7",
     "angular-ui-router": "~0.2.15",
     "angular-ui-tree": "~2.5.0",
-    "angular-resource": "~1.4.6",
+    "angular-resource": "~1.4.7",
     "angular-utils-pagination": "~0.8.2",
     "angular-ui-codemirror": "~0.3.0",
     "ng-mfb": "~0.6.1",
@@ -42,9 +42,9 @@
   "devDependencies": {},
   "appPath": "client/app",
   "resolutions": {
-    "angular": "1.4.6",
+    "angular": "1.4.7",
     "jquery": "2.x.x",
-    "angular-sanitize": "1.4.6"
+    "angular-sanitize": "~1.4.7"
   },
   "overrides": {
     "codemirror": {

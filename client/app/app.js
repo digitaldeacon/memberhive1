@@ -20,30 +20,30 @@ import './scripts/lb-services';
  * The main app module.
  */
 export var gemMainModule = angular.module('gem.main', [
-  'ngAnimate', 
-  'ngMaterial', 
-  'ngCookies', 
-  'ngResource', 
-  'ngSanitize', 
-  'ngTouch', 
-  'ngAria', 
+  'ngAnimate',
+  'ngMaterial',
+  'ngCookies',
+  'ngResource',
+  'ngSanitize',
+  'ngTouch',
+  'ngAria',
   'ngMessages',
-  'ui.router', 
-  'lbServices', 
+  'ui.router',
+  'lbServices',
   'picardy.fontawesome',
-  'ngConfirm', 
-  'angularMoment', 
+  'ngConfirm',
+  'angularMoment',
   'angular-loading-bar','angular-spinkit',
-  'gettext', 
-  'ngMdIcons', 
-  'ng-mfb', 
+  'gettext',
+  'ngMdIcons',
+  'ng-mfb',
   'ncy-angular-breadcrumb',
-  'angular-google-gapi', 
+  'angular-google-gapi',
 
   'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
-  'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'gem.event', 'gem.acl',
-  'gem.auth', 'gem.report', 'mh.note', 'mh.group', 'gem.config', 
+  'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'mh.event', 'gem.acl',
+  'gem.auth', 'gem.report', 'mh.note', 'mh.group', 'gem.config',
   ]
 );
 

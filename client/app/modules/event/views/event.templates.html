@@ -1,14 +1,16 @@
-<div ng-controller="EventTemplatesController as ctrl">
-  <md-content class="content-info">
-    A Event Template is a model for many events, defining what possible options a event may have.
-  </md-content>
+<md-content class="content-info">
+   A Event Template is a model for many events, defining what possible options a event may have.
+</md-content>
+
+<mh-content>
   <ul ng-repeat="template in ctrl.templates">
     <li><a ui-sref="event.template({templateId: template.id})">{{template.name}}</a></li>
   </ul>
+</mh-content>
 
-  <a ui-sref="event.template">
+<a ui-sref="event.template">
     <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Report">
       <ng-md-icon icon="add"></ng-md-icon>
     </md-button>
   </a>
-</div>
+

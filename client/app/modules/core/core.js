@@ -4,9 +4,9 @@ import {SidebarController} from './controllers/sidebar-controller';
 import {ShoutController} from './controllers/shout-controller';
 
 import {MainMenu} from './providers/menu-provider';
-import {controlGroupDirective, mhDateInput} from './directives/form-directives';
+import {controlGroupDirective, mhDateInput, mhContent} from './directives/form-directives';
 import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
-import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
+//import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
 import {stateLoader,appLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
@@ -168,14 +168,14 @@ gemCoreModule.factory('Shout', Shout);
 gemCoreModule.factory('GemFileReader', GemFileReader);
 
 // Directives
-gemCoreModule.directive('controlGroup', controlGroupDirective);
 gemCoreModule.directive('mhDateInput', mhDateInput);
 gemCoreModule.directive('uiNav', uiNavDirective);
 gemCoreModule.directive('mhMenuItem', mhMenuItem);
 gemCoreModule.directive('mhMenuIconItem', mhMenuIconItem);
-gemCoreModule.directive('mhPanel', mhPanelDirective);
+/*gemCoreModule.directive('mhPanel', mhPanelDirective);
 gemCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
-gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);
+gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);*/
+gemCoreModule.directive('mhContent', mhContent);
 
 gemCoreModule.directive('mhStateLoader', stateLoader);
 gemCoreModule.directive('mhAppLoader', appLoader);

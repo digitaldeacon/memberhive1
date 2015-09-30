@@ -1,6 +1,6 @@
 export function EventsController(Event, $scope, $filter, Shout, $state) {"ngInject";
   this.events = Event.find();
-  
+
   this.findEventsForDay = (date) => {
     var ret = [];
     this.events.forEach((event) => {
@@ -26,7 +26,7 @@ export function EventsController(Event, $scope, $filter, Shout, $state) {"ngInje
     var events = this.findEventsForDay(date);
     var ret = "";
     events.forEach((event) => {
-      ret += "<a href='"+$state.href("event.one", { eventId: event.id })+"'>";
+      ret += "<a href='"+$state.href("event.edit", { eventId: event.id })+"'>";
       ret += "<span class='event-calender-item'>" + event.name + "</span>";
       ret += "</a>";
     });
