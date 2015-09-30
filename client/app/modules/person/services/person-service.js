@@ -10,6 +10,7 @@ export function PersonService(
 ) {"ngInject";
                                 
   this.persons = null;
+  this.personsSimple = null;
   
   this.avatar = (person, size) => {
     if (person.hasAvatar) {
@@ -36,10 +37,10 @@ export function PersonService(
       }
       person.status = person.status || [];
       person.tags = person.tags || [];
-      person = this.avatar(person, 'xs');
+      /*person = this.avatar(person, 'xs');
       person = this.avatar(person, 's');
       person = this.avatar(person, 'm');
-      person = this.avatar(person, 'l');
+      person = this.avatar(person, 'l');*/
       
       if(person.contact) {
         person.contactList = [];
@@ -71,6 +72,14 @@ export function PersonService(
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
         }
       }).$promise.then(this.mapPersons);
+  };
+  
+  this.getAllSimple = () => {
+     return Person.find({
+        filter: {
+          order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
+        }
+      }).$promise;
   };
   
   return {
@@ -129,6 +138,15 @@ export function PersonService(
     
     getAll: () => {
       return this.getAll().then((d) => this.persons = d);
+    },
+    
+    cachedAllSimple: () => {
+      if(this.personsSimple) return this.personsSimple;
+      return this.getAllSimple().then((d) => this.personsSimple = d);
+    },
+    
+    getAllSimple: () => {
+      return this.getAllSimple().then((d) => this.personsSimple = d);
     },
 
     getHousehold: (id) => {

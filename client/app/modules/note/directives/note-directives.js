@@ -80,7 +80,6 @@ export function NoteCreateDirective() {"ngInject";
 
       this.DialogController = ($scope, $mdDialog, content) => {
         $scope.hide = function() {
-          console.log('hide');
           $mdDialog.hide();
         };
         $scope.cancel = function() {

@@ -3,7 +3,8 @@ export function GroupService(Group) {
   this.mapGroup = (group) => {
     group.icon = 'group';
     return group;
-  }
+  };
+  
   this.mapGroups = (groups) => _.map(groups, this.mapGroup);
   this.all = () => {
     return Group.find().$promise.then(this.mapGroup);

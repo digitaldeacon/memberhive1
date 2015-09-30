@@ -21,4 +21,8 @@ export function PersonEditService(
     return Person.upsert({}, person).$promise;
   };
   
+  this.delete = (personId) => {
+    return Person.trash({id: personId}).$promise;
+  };
+  
 }

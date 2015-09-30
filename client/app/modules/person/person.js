@@ -66,7 +66,7 @@ export var gemPersonModule = angular.module('gem.person',
       },
       resolve: {
         resolvePersons: (PersonService) => {
-          return PersonService.cachedAll();
+          return PersonService.cachedAllSimple();
         },
       },
     }).state('person.view', {
