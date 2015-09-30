@@ -1,66 +1,77 @@
-
-<div flex layout="column" layout-align="center center">
- <mh-avatar person="personCtrl.person" size="s" circle ui-sref="person.view({ id: person.id })" class="avatar"></mh-avatar>
- <div>
-    <h1> {{personCtrl.person.fullName}} <ng-md-icon size="18" icon="edit" ui-sref="person.edit({ id: personCtrl.person.id })"></ng-md-icon></h1>
-    <div class="md-padding">
-      <ng-md-icon size="24" icon="label"></ng-md-icon>
-      <span ng-repeat="status in personCtrl.person.status" class="tag status-tag" style="margin-right: 2px">
-      {{ status }}
-      </span>
-      <span ng-repeat="tag in personCtrl.person.tags" class="tag"><md-chip>{{tag}}</md-chip></span>
+<div flex layout="row">
+  <div flex="50" layout="column">
+    <div flex layout-align="center center">
+      <mh-avatar flex person="personCtrl.person" size="s" circle ui-sref="person.view({ id: person.id })" class="avatar">
+      </mh-avatar>
     </div>
+    <md-content layout-padding layout-margin class="md-whiteframe-1dp">
+      <div class="person-view-top">
+        <h1> {{personCtrl.person.fullName}} <ng-md-icon size="18" icon="edit" ui-sref="person.edit({ id: personCtrl.person.id })"></ng-md-icon></h1>
+        <div class="md-padding">
+          <ng-md-icon size="24" icon="label"></ng-md-icon>
+          <span ng-repeat="status in personCtrl.person.status" class="tag status-tag" style="margin-right: 2px">
+          {{ status }}
+          </span>
+          <span ng-repeat="tag in personCtrl.person.tags" class="tag"><md-chip>{{tag}}</md-chip></span>
+        </div>
+      </div>
+      <md-list>
+        <md-list-item class="md-2-line" ng-repeat="contact in personCtrl.person.contactList">
+          <ng-md-icon icon="call" ng-if="$index === 0"></ng-md-icon>
+          <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+            <h3> {{ contact.value }} </h3>
+            <p> {{ contact.name }} </p>
+          </div>
+        </md-list-item>
+        <md-list-item class="md-2-line" ng-repeat="address in personCtrl.person.addressList">
+          <ng-md-icon icon="place" ng-if="$index === 0"></ng-md-icon>
+          <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+            <h3> {{ address.value }} </h3>
+            <p> {{ address.name }} </p>
+          </div>
+        </md-list-item>
+
+        <md-list-item class="md-2-line" ng-if="personCtrl.person.email">
+          <ng-md-icon icon="email" ></ng-md-icon>
+          <div class="md-list-item-text">
+            <h3> {{ personCtrl.person.email }} </h3>
+            <p> EMail </p>
+          </div>
+        </md-list-item>
+
+        <md-list-item class="md-2-line" ng-repeat="date in personCtrl.person.dateList">
+          <ng-md-icon icon="cake" ng-if="$index === 0"></ng-md-icon>
+          <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+            <h3> {{ date.value | date: 'longDate'}} </h3>
+            <p> {{ date.name }} </p>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
   </div>
-</div>
 
+  <md-content flex="50" layout="column" layout-padding layout-margin class="md-whiteframe-1dp">
+    <h2 translate> Notes </h2>
+    <md-list>
+      <md-list-item ng-repeat="note in personCtrl.notes">
+        <ng-md-icon icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
+        <ng-md-icon icon="chat" ng-if="!note.type"></ng-md-icon>
+        <div flex class="md-list-item-text">
+          <p>
+            <b>{{note.title}}</b>
+            <small><span am-time-ago="note.created"></span></small>
+          </p>
+          <p>{{note.content}}</p>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
 
-<md-list>
-  <md-list-item class="md-2-line" ng-repeat="contact in personCtrl.person.contactList">
-    <ng-md-icon icon="call" ng-if="$index === 0"></ng-md-icon>
-    <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
-      <h3> {{ contact.value }} </h3>
-      <p> {{ contact.name }} </p>
-    </div>
-  </md-list-item>
-  <md-list-item class="md-2-line" ng-repeat="address in personCtrl.person.addressList">
-    <ng-md-icon icon="place" ng-if="$index === 0"></ng-md-icon>
-    <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
-      <h3> {{ address.value }} </h3>
-      <p> {{ address.name }} </p>
-    </div>
-  </md-list-item>
-  
-  <md-list-item class="md-2-line" ng-if="personCtrl.person.email">
-    <ng-md-icon icon="email" ></ng-md-icon>
-    <div class="md-list-item-text">
-      <h3> {{ personCtrl.person.email }} </h3>
-      <p> EMail </p>
-    </div>
-  </md-list-item>
-  
-  <md-list-item class="md-2-line" ng-repeat="date in personCtrl.person.dateList">
-    <ng-md-icon icon="cake" ng-if="$index === 0"></ng-md-icon>
-    <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
-      <h3> {{ date.value | date: 'longDate'}} </h3>
-      <p> {{ date.name }} </p>
-    </div>
-  </md-list-item>
-</md-list>
-   
-<md-card class="md-2-line" ng-repeat="note in personCtrl.notes">
-              <md-card-content flex layout="row">
-                <div flex class="md-list-item-text">
-                  <h4>{{note.title}}</h4>
-                  <ng-md-icon size="18" icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
-                  <ng-md-icon size="18" icon="chat" ng-if="!note.type"></ng-md-icon>
-                  <small><i><span am-time-ago="note.created"></span>
-                    <translate>from</translate> <a ui-sref="person.view({ id: note.ownerId })">{{note.ownerId}}</a></i></small>
-                  <p>{{note.content}}</p>
-                </div>
-              </md-card-content>
-            </md-card>
-        <mh-note-create
-            notable-type="Person"
-            notable-id="{{personCtrl.person.id}}"
-            new-note="personCtrl.newNote(note)" button-class="md-fab md-raised md-accent md-fab-floating-br"></mh-note-create>
+    <mh-note-create
+      notable-type="Person"
+      notable-id="{{personCtrl.person.id}}"
+      new-note="personCtrl.newNote(note)"
+      button-class="md-fab md-raised md-accent md-fab-floating-br">
+    </mh-note-create>
+  </md-content>
 </div>
