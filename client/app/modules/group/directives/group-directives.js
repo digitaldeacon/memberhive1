@@ -14,7 +14,9 @@ export function mhGroupChips(GroupService) {"ngInject";
       console.log("after", scope.ngModel);
       scope.filterSelected = true;
       scope.querySearch = (query) => {
-        return GroupService.search(query);
+        var ret = GroupService.search(query);
+        console.log(ret);
+        return ret;
       };
     }
   };

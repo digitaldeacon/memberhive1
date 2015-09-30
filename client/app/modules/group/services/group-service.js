@@ -1,6 +1,12 @@
 export function GroupService(Group) {
+  
+  this.mapGroup = (group) => {
+    group.icon = 'group';
+    return group;
+  }
+  this.mapGroups = (groups) => _.map(groups, this.mapGroup);
   this.all = () => {
-    return Group.find().$promise;
+    return Group.find().$promise.then(this.mapGroup);
   };
   
   this.new = () => {
@@ -8,11 +14,11 @@ export function GroupService(Group) {
   };
   
   this.get = (groupId) => {
-    return Group.findById({id: groupId}).$promise;
+    return Group.findById({id: groupId}).$promise.then(this.mapGroup);
   };
   
   this.save = (group) => {
-    return Group.upsert({}, group).$promise;
+    return Group.upsert({}, group).$promise.then(this.mapGroup);
   };
   
   this.search = (query) => {
@@ -20,6 +26,7 @@ export function GroupService(Group) {
         filter: {
           where: {name: {like: query}}
         }
-      }).$promise.then((data)=> console.log(data));
+      }).$promise
+      .then(this.mapGroups);
   };
 }

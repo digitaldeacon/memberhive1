@@ -162,7 +162,9 @@ export function PersonService(
     
     search: (query) => {
       return Person.search({query: query})
-        .$promise.then((d) => {return d.data;}).then(this.mapPersons);
+        .$promise
+        .then((d) => {return d.data;})
+        .then(this.mapPersons);
     },
     
     
