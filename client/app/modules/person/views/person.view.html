@@ -4,7 +4,7 @@
       <mh-avatar flex person="personCtrl.person" size="s" circle ui-sref="person.view({ id: person.id })" class="avatar">
       </mh-avatar>
     </div>
-    <md-content layout-padding layout-margin class="md-whiteframe-1dp">
+    <mh-content>
       <div class="person-view-top">
         <h1> {{personCtrl.person.fullName}} <ng-md-icon size="18" icon="edit" ui-sref="person.edit({ id: personCtrl.person.id })"></ng-md-icon></h1>
         <div class="md-padding">
@@ -47,10 +47,10 @@
           </div>
         </md-list-item>
       </md-list>
-    </md-content>
+    </mh-content>
   </div>
 
-  <md-content flex="50" layout="column" layout-padding layout-margin class="md-whiteframe-1dp">
+  <mh-content flex="50" layout="column">
     <h2 translate> Notes </h2>
     <md-list>
       <md-list-item ng-repeat="note in personCtrl.notes">
@@ -73,5 +73,5 @@
       new-note="personCtrl.newNote(note)"
       button-class="md-fab md-raised md-accent md-fab-floating-br">
     </mh-note-create>
-  </md-content>
+  </mh-content>
 </div>

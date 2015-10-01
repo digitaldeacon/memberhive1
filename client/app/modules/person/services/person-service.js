@@ -37,10 +37,10 @@ export function PersonService(
       }
       person.status = person.status || [];
       person.tags = person.tags || [];
-      /*person = this.avatar(person, 'xs');
+      person = this.avatar(person, 'xs');
       person = this.avatar(person, 's');
       person = this.avatar(person, 'm');
-      person = this.avatar(person, 'l');*/
+      person = this.avatar(person, 'l');
       
       if(person.contact) {
         person.contactList = [];
@@ -79,7 +79,7 @@ export function PersonService(
         filter: {
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
         }
-      }).$promise;
+      }).$promise.then(this.mapPersons);
   };
   
   return {
