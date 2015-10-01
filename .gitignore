@@ -26,6 +26,7 @@ docs
 .idea
 typings
 .strong-pm
+npm-debug.log
 
 # Executables
 caddy
