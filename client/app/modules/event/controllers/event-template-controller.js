@@ -2,7 +2,8 @@ export function EventTemplateController(EventTemplate, $stateParams, $state) {"n
   this.types = [
     {name: "Text", value: "text"},
     {name: "Date", value: "date"},
-    {name: "Person", value: "person"}
+    {name: "Person", value: "person"},
+    {name: "Groups", value: "group"}
   ];
   
   if($stateParams.templateId) {

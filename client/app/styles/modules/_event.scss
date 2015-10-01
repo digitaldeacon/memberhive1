@@ -1,6 +1,12 @@
 .event-template-item {
   padding: 1em;
-  border: 1px solid;
-  border-radius: 5px;
   margin-bottom: 1em;
+}
+
+.event-calender-item {
+  background-color:$primary-color;
+  color: $text-color-light;
+  border-radius: 3px;
+  padding: 2px;
+  margin: 2px;
 }

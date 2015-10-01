@@ -15,7 +15,7 @@ md-sidenav.md-locked-open-remove.md-closed {
   z-index: 10;
   min-height: $toolbar-height;
   max-height: $toolbar-height;
-  background-color: primary-color('700');
+  background-color: $sidebar-background-color !important ;
 }
 .sidebar-left-logo {
   flex-shrink: 0;
@@ -23,7 +23,7 @@ md-sidenav.md-locked-open-remove.md-closed {
 .sidebar-left-icon md-icon {
   transform: rotate(90deg);
   transition: all .2s;
-  color:#fefefe;
+  color: $sidebar-text-color;
 }
 .side-menu-link {
   display: block;
@@ -46,10 +46,10 @@ md-sidenav.md-locked-open-remove.md-closed {
   margin-left: 10px !important;
 }
 .sidebar-left-icon {
-  color: #fefefe;
+  color: $sidebar-text-color;
   ng-md-icon {
     line-height:inherit;
-    color: #fefefe;
+    color: $sidebar-icon-color;
   }
 }
 
@@ -89,20 +89,20 @@ md-sidenav.md-locked-open-remove.md-closed {
   overflow-x: hidden;
 }
 .side-menu-content {
-  background-color: primary-color('700');
-  color: $text-color-light;
-  fill: $text-color-light;
+  background-color: $sidebar-background-color;
+  color: $sidebar-text-color;
+  fill: $sidebar-icon-color;
 }
 
 .side-menu-link, .side-menu-link:visited, .side-menu-link:active{
-    color: $text-color-light;
-    fill: $text-color-light;
+  color: $sidebar-text-color;
+  fill: $sidebar-icon-color;
 }   
 .side-menu-link:hover {   
-    color: $text-color-light;
-    fill: $text-color-light;
-    .item-icon {
-      color: accent-color('500');
-      fill: accent-color('500');
-    }
+  color: $sidebar-text-color;
+  fill: $sidebar-icon-color;
+  .item-icon {
+    color: $sidebar-accent-color;
+    fill: $sidebar-accent-color;
+  }
 }

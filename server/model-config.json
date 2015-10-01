@@ -71,6 +71,14 @@
     "dataSource": "db",
     "public": true
   },
+  "Group": {
+    "dataSource": "db",
+    "public": true
+  },
+  "File": {
+    "dataSource": "db",
+    "public": true
+  },
   "Avatar": {
     "dataSource": "uploads.avatar",
     "public": true

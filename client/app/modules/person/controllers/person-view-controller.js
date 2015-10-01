@@ -1,12 +1,19 @@
-export function PersonViewController(PersonService, AddressService, $stateParams, Person, NoteIconConfig) {"ngInject";
-
-  this.person = PersonService.one($stateParams.id);
+export function PersonViewController(
+  PersonService, 
+  AddressService, 
+  $stateParams, 
+  Person, 
+  resolvePerson,
+  resolveNotes,
+  NoteIconConfig) {"ngInject";
+  this.person = resolvePerson;
+  this.notes = resolveNotes;
   this.getContacts = PersonService.getContacts;
   this.relationTypes = PersonService.relationTypes;
   this.genders = PersonService.genders;
   this.addressTypes = AddressService.addressTypes;
-  this.notes = Person.notes({"id": $stateParams.id});
 
+  
   /**
    * Returns the household members except the current person.
    */

@@ -9,6 +9,14 @@ export function Shout($mdToast) {"ngInject";
           controller: 'ShoutController'
       });
     },
+    info: (msg, icon='info') => {
+      $mdToast.show({
+          template: `<md-toast class="toast-success" ng-click="closeToast()"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          position: 'top right',
+          hideDelay: 3000,
+          controller: 'ShoutController'
+      });
+    },
     success: (msg) => {
       $mdToast.show({
           template: `<md-toast class="toast-success" ng-click="closeToast()"><ng-md-icon icon="check" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,

@@ -20,6 +20,11 @@
     "template": {
       "type": "belongsTo",
       "model": "EventTemplate"
+    },
+    "groups": {
+      "type": "hasMany",
+      "model": "Group",
+      "polymorphic": "groupable"
     }
   },
   "acls": [

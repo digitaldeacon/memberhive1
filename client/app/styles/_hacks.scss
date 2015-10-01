@@ -1,11 +1,15 @@
-/*button.md-button svg {
+/*.md-button svg {
   line-height: 0;
   //this is needed to center them in ng-md-icon
   display: block;
   margin: 0 auto;
-}*/
+}
 .inline-md-select {
   margin-top: 0;
   margin-bottom: 0;
 }
 * {min-height:0}
+*/
+md-datepicker {
+  background: none !important;
+}

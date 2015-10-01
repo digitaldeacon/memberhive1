@@ -32,6 +32,11 @@
     "notable": {
       "type": "belongsTo",
       "polymorphic": true
+    },
+    "groups": {
+      "type": "hasMany",
+      "model": "Group",
+      "polymorphic": "groupable"
     }
   },
   "acls": [

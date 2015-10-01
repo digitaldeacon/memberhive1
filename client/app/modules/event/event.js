@@ -2,10 +2,11 @@ import {EventController} from './controllers/event-controller';
 import {EventsController} from './controllers/events-controller';
 import {EventTemplatesController} from './controllers/event-templates-controller';
 import {EventTemplateController} from './controllers/event-template-controller';
+import {EventService} from './service/event-service';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 
-export var gemEventModule = angular.module('gem.event', []
+export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('event', {
@@ -16,8 +17,10 @@ export var gemEventModule = angular.module('gem.event', []
       },
       abstract: true,
       template: '<ui-view/>'
-    }).state('event.all', {
-      url: '/all',
+    }).state('event.list', {
+      url: '/list',
+      controller: 'EventsController',
+      controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/events.html',
       data: {
         pageSubTitle: gettext('All Events')
@@ -28,8 +31,10 @@ export var gemEventModule = angular.module('gem.event', []
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('event.one', {
+    }).state('event.edit', {
       url: '/event/:eventId',
+      controller: 'EventController',
+      controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.html',
       data: {
         pageSubTitle: gettext('Event')
@@ -39,9 +44,43 @@ export var gemEventModule = angular.module('gem.event', []
       },
       acl: {
         needRights: ['$authenticated']
+      },
+      resolve : {
+        resolveEvent: (EventService, $stateParams) => {
+          return EventService.get($stateParams.eventId);
+        },
+        resolveTemplate: (Event, $stateParams) => {
+          return Event.template({id: $stateParams.eventId}).$promise;
+        }
       }
-    }).state('event.templates', {
+    })
+    .state('event.create', {
+      url: '/event/create',
+      controller: 'EventController',
+      controllerAs: 'ctrl',
+      templateUrl: 'app/modules/event/views/event.html',
+      data: {
+        pageSubTitle: gettext('Create Event')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Event')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      },
+      resolve : {
+        resolveEvent: (Event) => {
+          return new Event();
+        },
+        resolveTemplate: () => {
+          return {};
+        }
+      }
+    })
+    .state('event.templates', {
       url: '/templates',
+      controller: 'EventTemplatesController',
+      controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.templates.html',
       data: {
         pageSubTitle: gettext('Event Templates')
@@ -54,6 +93,8 @@ export var gemEventModule = angular.module('gem.event', []
       }
     }).state('event.template', {
       url: '/templates/:templateId',
+      controller: 'EventTemplateController',
+      controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.html',
       data: {
         pageSubTitle: gettext('Event Templates')
@@ -67,14 +108,15 @@ export var gemEventModule = angular.module('gem.event', []
     });
     MainMenuProvider.add(new MenuSection(gettext('Event'), 'today',
       [
-        new MenuLink(gettext('All Events'), 'today', 'event.all'),
+        new MenuLink(gettext('All Events'), 'today', 'event.list'),
         new MenuLink(gettext('Event template'), 'person_add', 'event.templates'),
       ]
     ));
   }
 );
 
-gemEventModule.controller('EventController', EventController);
-gemEventModule.controller('EventsController', EventsController);
-gemEventModule.controller('EventTemplatesController', EventTemplatesController);
-gemEventModule.controller('EventTemplateController', EventTemplateController);
+mhEventModule.controller('EventController', EventController);
+mhEventModule.controller('EventsController', EventsController);
+mhEventModule.controller('EventTemplatesController', EventTemplatesController);
+mhEventModule.controller('EventTemplateController', EventTemplateController);
+mhEventModule.service('EventService', EventService);

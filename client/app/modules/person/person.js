@@ -3,7 +3,10 @@ import './filters/person-filters';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 import {PersonListController} from './controllers/person-list-controller';
+
 import {PersonEditController} from './controllers/person-edit-controller';
+
+
 import {PersonViewController} from './controllers/person-view-controller';
 import {PersonImportCSVController} from './controllers/person-import-csv-controller';
 import {PersonImportImagesController} from './controllers/person-import-images-controller';
@@ -12,8 +15,10 @@ import {PersonExportVCardController} from './controllers/person-export-vcard-con
 import {HouseholdListController} from './controllers/household-list-controller';
 import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
+import {PersonEditService} from './services/person-edit-service';
 import {AvatarService} from './services/avatar-service';
-import {mhAvatar, mhPersonChips} from './directives/person-directives';
+import {mhPersonChips, mhPersonStatus, mhPersonTags} from './directives/person-directives';
+import {mhAvatar, mhAvatarUpload} from './directives/avatar-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
 
@@ -47,6 +52,8 @@ export var gemPersonModule = angular.module('gem.person',
     }).state('person.list', {
       url: '/list',
       templateUrl: 'app/modules/person/views/person.list.html',
+      controller: 'PersonListController',
+      controllerAs: 'personCtrl',
       data: {
         pageTitle: gettext('Persons'),
         pageSubTitle: gettext('Create and edit Persons')
@@ -56,10 +63,17 @@ export var gemPersonModule = angular.module('gem.person',
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePersons: (PersonService) => {
+          return PersonService.cachedAllSimple();
+        },
+      },
     }).state('person.view', {
       url: '/view/:id',
       templateUrl: 'app/modules/person/views/person.view.html',
+      controller: 'PersonViewController',
+      controllerAs: 'personCtrl',
       data: {
         pageSubTitle: gettext('View Person details')
       },
@@ -69,9 +83,19 @@ export var gemPersonModule = angular.module('gem.person',
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePerson: ($stateParams, PersonEditService) => {
+          return PersonEditService.getPerson($stateParams.id);
+        },
+        resolveNotes : ($stateParams, Person) => {
+          return Person.notes({"id": $stateParams.id});
+        }
+      },
     }).state('person.create', {
       url: '/create',
+      controller: 'PersonEditController',
+      controllerAs: 'personCtrl',
       templateUrl: 'app/modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Create a Person')
@@ -82,9 +106,17 @@ export var gemPersonModule = angular.module('gem.person',
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePerson: (Person) => {
+          return new Person();
+        }
+      },
+      
     }).state('person.edit', {
       url: '/edit/:id',
+      controller: 'PersonEditController',
+      controllerAs: 'personCtrl',
       templateUrl: 'app/modules/person/views/person.edit.html',
       data: {
         pageSubTitle: gettext('Edit a Person')
@@ -95,7 +127,12 @@ export var gemPersonModule = angular.module('gem.person',
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePerson: ($stateParams, PersonEditService) => {
+          return PersonEditService.getPerson($stateParams.id);
+        }
+      },
     }).state('person.import', {
       url: '/import',
       templateUrl: 'app/modules/person/views/person.import.html',
@@ -186,7 +223,10 @@ export var gemPersonModule = angular.module('gem.person',
 );
 gemPersonModule.controller('PersonListController', PersonListController);
 gemPersonModule.controller('PersonViewController', PersonViewController);
+
 gemPersonModule.controller('PersonEditController', PersonEditController);
+  
+  
 gemPersonModule.controller('PersonImportCSVController', PersonImportCSVController);
 gemPersonModule.controller('PersonImportImagesController', PersonImportImagesController);
 gemPersonModule.controller('PersonExportVCardController', PersonExportVCardController);
@@ -195,9 +235,12 @@ gemPersonModule.controller('HouseholdListController', HouseholdListController);
 gemPersonModule.controller('HouseholdEditController', HouseholdEditController);
 
 gemPersonModule.factory('PersonService', PersonService);
+gemPersonModule.service('PersonEditService', PersonEditService);
 gemPersonModule.factory('AvatarService', AvatarService);
 
 gemPersonModule.directive('mhAvatar', mhAvatar);
 gemPersonModule.directive('mhPersonChips', mhPersonChips);
+gemPersonModule.directive('mhPersonStatus', mhPersonStatus);
+gemPersonModule.directive('mhPersonTags', mhPersonTags);
 
 gemPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);

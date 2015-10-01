@@ -18,6 +18,9 @@ module.exports = class Lomongo {
   }
   
   callback(cb, err, data) {
-    cb(err, this.connector.fromDatabase(this.model.modelName, data));
+    var ret = this.connector.fromDatabase(this.model.modelName, data);
+    var idName = this.connector.idName(this.model.modelName);
+    ret[idName] = ret._id;
+    cb(err, ret);
   }
 }

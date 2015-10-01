@@ -1,12 +1,97 @@
-export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCatalog,
-                              Upload, mhConfig, $rootScope) {"ngInject";
+export function PersonService(
+  Person, 
+  Household, 
+  Avatar, 
+  LoopBackAuth, 
+  gettextCatalog,
+  Upload, 
+  mhConfig, 
+  $rootScope
+) {"ngInject";
+                                
+  this.persons = null;
+  this.personsSimple = null;
+  
+  this.avatar = (person, size) => {
+    if (person.hasAvatar) {
+      person["avatarUrl_"+size] = mhConfig.apiUrl+"/Avatars/"+person.id+"/download/"+size+".jpg";
+    } else {
+      person["avatarUrl_"+size] = "/app/images/avatar/"+size+".jpg";
+    }
+    return person;
+  };
+  this.mapPerson = (person) => {
+      person.fullName = person.firstName + " " + person.lastName;
+      person.dateList = [];
+      if(person.birthdate) {
+        person.birthdate = new Date(person.birthdate);
+        person.dateList.push({value: person.birthdate, name: "Birthday"});
+      }
+      if(person.baptismDate) {
+        person.baptismDate = new Date(person.baptismDate);
+        person.dateList.push({value: person.baptismDate, name: "Baptism"});
+      }
+      if(person.anniversary) {
+        person.anniversary = new Date(person.anniversary);
+         person.dateList.push({value: person.anniversary, name: "Anniversary"});
+      }
+      person.status = person.status || [];
+      person.tags = person.tags || [];
+      /*person = this.avatar(person, 'xs');
+      person = this.avatar(person, 's');
+      person = this.avatar(person, 'm');
+      person = this.avatar(person, 'l');*/
+      
+      if(person.contact) {
+        person.contactList = [];
+        _.forEach(person.contact, (value,index) => {
+          person.contactList.push({value: value, name: index});
+        });
+      }
+      if(person.address) {
+        person.addressList = [];
+        _.forEach(person.address, (value,index) => {
+          var short = value.street1 + " " + value.zip + " " + value.city;
+          person.addressList.push({value: short, name: index});
+        });
+      }
+      
+      
+      
+      return person;
+  };
+  
+  this.mapPersons = (persons) => {
+    return _.map(persons, this.mapPerson);
+  };
+  
+  
+  this.getAll = () => {
+     return Person.find({
+        filter: {
+          order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
+        }
+      }).$promise.then(this.mapPersons);
+  };
+  
+  this.getAllSimple = () => {
+     return Person.find({
+        filter: {
+          order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
+        }
+      }).$promise;
+  };
+  
   return {
+    mapPerson: this.mapPerson, 
+    
     modelName: () => {
       return Person.model.name;
     },
 
     currentUser: () => {
-      return Person.findById({id: LoopBackAuth.currentUserId});
+      return Person.findById({id: LoopBackAuth.currentUserId})
+        .$promise.then(this.mapPerson);
     },
 
     one: (id) => {
@@ -24,10 +109,11 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             'ministries','relationType','notes'
           ]
         }
-      });
+      }).$promise.then(this.mapPerson);
     },
 
     all: (pageNumber) => {
+      
       return Person.find({
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,
@@ -42,7 +128,25 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
             'relationType'
           ]
         }
-      });
+      }).$promise.then(this.mapPersonsData);
+    },
+    
+    cachedAll: () => {
+      if(this.persons) return this.persons;
+      return this.getAll().then((d) => this.persons = d);
+    },
+    
+    getAll: () => {
+      return this.getAll().then((d) => this.persons = d);
+    },
+    
+    cachedAllSimple: () => {
+      if(this.personsSimple) return this.personsSimple;
+      return this.getAllSimple().then((d) => this.personsSimple = d);
+    },
+    
+    getAllSimple: () => {
+      return this.getAllSimple().then((d) => this.personsSimple = d);
     },
 
     getHousehold: (id) => {
@@ -75,7 +179,23 @@ export function PersonService(Person, Household, Avatar, LoopBackAuth, gettextCa
     
     
     search: (query) => {
-      return Person.search({query: query});
+      return Person.search({query: query})
+        .$promise
+        .then((d) => {return d.data;})
+        .then(this.mapPersons);
+    },
+    
+    
+    searchTags: (query) => {
+      return Person.tags({"text": query}).$promise.then((resp)=>{
+        return resp.data;
+      });
+    },
+
+    searchStatus: (query) => {
+      return Person.status({"text": query}).$promise.then((resp)=>{
+        return resp.data;
+      });
     },
     
     /**
