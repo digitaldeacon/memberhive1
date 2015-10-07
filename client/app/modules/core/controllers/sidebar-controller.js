@@ -1,7 +1,6 @@
 export function SidebarController (
   Account, 
   $state, 
-  GemAcl, 
   MainMenu, 
   $timeout, 
   $mdSidenav,

@@ -161,7 +161,11 @@
     "groups": {
       "type": "hasMany",
       "model": "Group",
-      "polymorphic": "groupable"
+      "polymorphic": {
+        "as": "groupable",
+        "foreignKey": "groupableId",
+        "discriminator": "groupableType"
+       } 
     }
   },
   "acls": [

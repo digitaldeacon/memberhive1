@@ -6,7 +6,7 @@ export function HeaderController(
   LoopBackAuth,
   $mdMedia,
   Account,
-  GemAcl
+  MhAcl
 ) 
 {
   "ngInject";
@@ -52,7 +52,7 @@ export function HeaderController(
   });
   this.logout = () => {
     Account.logout().$promise.then((resp) => {
-      GemAcl.setRights([]);
+      MhAcl.setRights([]);
       $state.go('login');
     });
   };

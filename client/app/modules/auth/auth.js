@@ -1,7 +1,7 @@
 import {LoginController} from './controller/login-controller';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
-export var gemAuthModule = angular.module('gem.auth', []).config(
+export var mhAuthModule = angular.module('mh.auth', []).config(
   ($stateProvider, gettext) => {
       $stateProvider.state('login', {
         url: '/login',
@@ -13,4 +13,4 @@ export var gemAuthModule = angular.module('gem.auth', []).config(
     }
 );
 
-gemAuthModule.controller('LoginController', LoginController);
+mhAuthModule.controller('LoginController', LoginController);

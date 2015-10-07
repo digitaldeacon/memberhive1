@@ -19,7 +19,7 @@ import './scripts/lb-services';
 /**
  * The main app module.
  */
-export var gemMainModule = angular.module('gem.main', [
+export var mhMainModule = angular.module('mh.main', [
   'ngAnimate',
   'ngMaterial',
   'ngCookies',
@@ -42,12 +42,12 @@ export var gemMainModule = angular.module('gem.main', [
 
   'gem.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
-  'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'mh.event', 'gem.acl',
-  'gem.auth', 'gem.report', 'mh.note', 'mh.group', 'gem.config',
+  'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'mh.event', 'mh.acl',
+  'mh.auth', 'gem.report', 'mh.note', 'mh.group', 'gem.config',
   ]
 );
 
-gemMainModule.config(
+mhMainModule.config(
   ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, mhConfig, LoopBackResourceProvider, $httpProvider) => {
     cfpLoadingBarProvider.includeSpinner = false;
     if(!mhConfig.apiUrl) {
@@ -61,10 +61,10 @@ gemMainModule.config(
     });
   });
 
-gemMainModule.run(($rootScope, $state, GemAcl, Account, LoopBackAuth) => {
+mhMainModule.run(($rootScope, $state, MhAcl, Account, LoopBackAuth) => {
   $rootScope.$state = $state; // state to be accessed from view
   $rootScope.accessToken = LoopBackAuth.accessTokenId;
   var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
-  GemAcl.setRightsPromise(p);
-  $rootScope.acl = GemAcl;
+  MhAcl.setRightsPromise(p);
+  $rootScope.acl = MhAcl;
 });

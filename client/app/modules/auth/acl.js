@@ -1,11 +1,11 @@
-export var gemAclModule = angular.module('gem.acl', [])
+export var mhAclModule = angular.module('mh.acl', [])
 .constant(
-  'gem-acl.config',
+  'mh-acl.config',
   {
     'redirect': 'login'
   }
 )
-.provider('GemAcl', ['gem-acl.config', function(config, $get, LoopBackAuth, $q) {
+.provider('MhAcl', ['mh-acl.config', function(config, $get, LoopBackAuth, $q) {
   var self = {};
   self.rights = false;
   self.rightsPromise = false;

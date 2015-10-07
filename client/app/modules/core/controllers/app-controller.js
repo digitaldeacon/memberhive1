@@ -7,7 +7,6 @@ export function AppController(
   $state, 
   productName, 
   $mdSidenav, 
-  GemAcl, 
   $mdUtil,
   $timeout
 ) 

@@ -1,4 +1,4 @@
-export function LoginController (Account, $state, GemAcl, Shout, gettextCatalog) {"ngInject";
+export function LoginController (Account, $state, MhAcl, Shout, gettextCatalog) {"ngInject";
 
   this.rememberMe = true;
   this.login = () => {
@@ -11,7 +11,7 @@ export function LoginController (Account, $state, GemAcl, Shout, gettextCatalog)
         this.error = false;
         Account.roles({'user_id': resp.user.id})
           .$promise.then((resp) => {
-            GemAcl.setRights(resp.roles);
+            MhAcl.setRights(resp.roles);
             $state.go('dashboard');
           });
       },
