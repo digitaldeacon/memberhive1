@@ -1,0 +1,647 @@
+<h1><code ng:non-bindable="">Person</code>
+<div><span class="hint">service in module <code ng:non-bindable="">lbServices</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="lbservices-person-page"><p>A $resource object for interacting with the <code>Person</code> model.</p>
+<h4 id="example" id="description_example">Example</h4>
+<p>See
+<a href="http://docs.angularjs.org/api/ngResource.$resource#example">$resource</a>
+for an example of using this object.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_account">account(parameters, successCb, errorCb)</h3>
+<div class="account"><div class="lbservices-person-account-page"><p>Fetches hasOne relation account.</p>
+</div><h5 id="methods_account_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-account-page"><p>Request parameters.</p>
+<ul>
+<li><p><code>id</code> – <code>{*}</code> - GemBase id</p>
+</li>
+<li><p><code>refresh</code> – <code>{boolean=}</code> - </p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-account-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-account-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_account_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-account-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Account</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_count">count(parameters, successCb, errorCb)</h3>
+<div class="count"><div class="lbservices-person-count-page"><p>Count instances of the model matched by where from the data source.</p>
+</div><h5 id="methods_count_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-count-page"><p>Request parameters.</p>
+<ul>
+<li><code>where</code> – <code>{object=}</code> - Criteria to match model instances</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-count-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-count-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_count_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-count-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>Data properties:</p>
+<ul>
+<li><code>count</code> – <code>{number=}</code> - </li>
+</ul>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_create">create(parameters, postData, successCb, errorCb)</h3>
+<div class="create"><div class="lbservices-person-create-page"><p>Create a new instance of the model and persist it into the data source.</p>
+</div><h5 id="methods_create_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-create-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-create-page"><p>Request data.</p>
+<p>This method expects a subset of model properties as request parameters.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-create-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-create-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_create_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-create-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_createchangestream">createChangeStream(parameters, postData, successCb, errorCb)</h3>
+<div class="createchangestream"><div class="lbservices-person-createchangestream-page"><p>Create a change stream.</p>
+</div><h5 id="methods_createchangestream_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-createchangestream-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-createchangestream-page"><p>Request data.</p>
+<ul>
+<li><code>options</code> – <code>{object=}</code> - </li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-createchangestream-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-createchangestream-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_createchangestream_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-createchangestream-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>Data properties:</p>
+<ul>
+<li><code>changes</code> – <code>{ReadableStream=}</code> - </li>
+</ul>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_createmany">createMany(parameters, postData, successCb, errorCb)</h3>
+<div class="createmany"><div class="lbservices-person-createmany-page"><p>Create a new instance of the model and persist it into the data source.</p>
+</div><h5 id="methods_createmany_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-createmany-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-createmany-page"><p>Request data.</p>
+<p>This method expects a subset of model properties as request parameters.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Array.&lt;Object&gt;,Object</a></td><td><div class="lbservices-person-createmany-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-createmany-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_createmany_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-array">Array.&lt;Object&gt;</a></td><td><div class="lbservices-person-createmany-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_deletebyid">deleteById(parameters, successCb, errorCb)</h3>
+<div class="deletebyid"><div class="lbservices-person-deletebyid-page"><p>Delete a model instance by id from the data source.</p>
+</div><h5 id="methods_deletebyid_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-deletebyid-page"><p>Request parameters.</p>
+<ul>
+<li><code>id</code> – <code>{*}</code> - Model id</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-deletebyid-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-deletebyid-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_deletebyid_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-deletebyid-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>This method returns no data.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_destroybyid">destroyById(parameters, successCb, errorCb)</h3>
+<div class="destroybyid"><div class="lbservices-person-destroybyid-page"><p>Delete a model instance by id from the data source.</p>
+</div><h5 id="methods_destroybyid_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-destroybyid-page"><p>Request parameters.</p>
+<ul>
+<li><code>id</code> – <code>{*}</code> - Model id</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-destroybyid-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-destroybyid-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_destroybyid_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-destroybyid-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>This method returns no data.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_exists">exists(parameters, successCb, errorCb)</h3>
+<div class="exists"><div class="lbservices-person-exists-page"><p>Check whether a model instance exists in the data source.</p>
+</div><h5 id="methods_exists_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-exists-page"><p>Request parameters.</p>
+<ul>
+<li><code>id</code> – <code>{*}</code> - Model id</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-exists-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-exists-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_exists_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-exists-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>Data properties:</p>
+<ul>
+<li><code>exists</code> – <code>{boolean=}</code> - </li>
+</ul>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_exportcsv">exportCSV(parameters, successCb, errorCb)</h3>
+<div class="exportcsv"><div class="lbservices-person-exportcsv-page"><p><em>
+(The remote method definition does not provide any description.)
+</em></p>
+</div><h5 id="methods_exportcsv_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-exportcsv-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-exportcsv-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-exportcsv-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_exportcsv_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-exportcsv-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>Data properties:</p>
+<ul>
+<li><code>csv</code> – <code>{string=}</code> - </li>
+</ul>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_exportvcard">exportVCard(parameters, successCb, errorCb)</h3>
+<div class="exportvcard"><div class="lbservices-person-exportvcard-page"><p><em>
+(The remote method definition does not provide any description.)
+</em></p>
+</div><h5 id="methods_exportvcard_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-exportvcard-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-exportvcard-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-exportvcard-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_exportvcard_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-exportvcard-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>Data properties:</p>
+<ul>
+<li><code>vcard</code> – <code>{string=}</code> - </li>
+</ul>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_find">find(parameters, successCb, errorCb)</h3>
+<div class="find"><div class="lbservices-person-find-page"><p>Find all instances of the model matched by filter from the data source.</p>
+</div><h5 id="methods_find_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-find-page"><p>Request parameters.</p>
+<ul>
+<li><code>filter</code> – <code>{object=}</code> - Filter defining fields, where, include, order, offset, and limit</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Array.&lt;Object&gt;,Object</a></td><td><div class="lbservices-person-find-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-find-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_find_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-array">Array.&lt;Object&gt;</a></td><td><div class="lbservices-person-find-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_findbyid">findById(parameters, successCb, errorCb)</h3>
+<div class="findbyid"><div class="lbservices-person-findbyid-page"><p>Find a model instance by id from the data source.</p>
+</div><h5 id="methods_findbyid_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-findbyid-page"><p>Request parameters.</p>
+<ul>
+<li><p><code>id</code> – <code>{*}</code> - Model id</p>
+</li>
+<li><p><code>filter</code> – <code>{object=}</code> - Filter defining fields and include</p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-findbyid-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-findbyid-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_findbyid_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-findbyid-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_findone">findOne(parameters, successCb, errorCb)</h3>
+<div class="findone"><div class="lbservices-person-findone-page"><p>Find first instance of the model matched by filter from the data source.</p>
+</div><h5 id="methods_findone_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-findone-page"><p>Request parameters.</p>
+<ul>
+<li><code>filter</code> – <code>{object=}</code> - Filter defining fields, where, include, order, offset, and limit</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-findone-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-findone-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_findone_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-findone-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_groups">groups(parameters, successCb, errorCb)</h3>
+<div class="groups"><div class="lbservices-person-groups-page"><p>Queries groups of Person.</p>
+</div><h5 id="methods_groups_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-groups-page"><p>Request parameters.</p>
+<ul>
+<li><p><code>id</code> – <code>{*}</code> - GemBase id</p>
+</li>
+<li><p><code>filter</code> – <code>{object=}</code> - </p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Array.&lt;Object&gt;,Object</a></td><td><div class="lbservices-person-groups-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-groups-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_groups_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-array">Array.&lt;Object&gt;</a></td><td><div class="lbservices-person-groups-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Group</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_household">household(parameters, successCb, errorCb)</h3>
+<div class="household"><div class="lbservices-person-household-page"><p>Fetches belongsTo relation household.</p>
+</div><h5 id="methods_household_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-household-page"><p>Request parameters.</p>
+<ul>
+<li><p><code>id</code> – <code>{*}</code> - GemBase id</p>
+</li>
+<li><p><code>refresh</code> – <code>{boolean=}</code> - </p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-household-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-household-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_household_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-household-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Household</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_ministries">ministries(parameters, successCb, errorCb)</h3>
+<div class="ministries"><div class="lbservices-person-ministries-page"><p>Queries ministries of Person.</p>
+</div><h5 id="methods_ministries_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-ministries-page"><p>Request parameters.</p>
+<ul>
+<li><p><code>id</code> – <code>{*}</code> - GemBase id</p>
+</li>
+<li><p><code>filter</code> – <code>{object=}</code> - </p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Array.&lt;Object&gt;,Object</a></td><td><div class="lbservices-person-ministries-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-ministries-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_ministries_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-array">Array.&lt;Object&gt;</a></td><td><div class="lbservices-person-ministries-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Ministry</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_notes">notes(parameters, successCb, errorCb)</h3>
+<div class="notes"><div class="lbservices-person-notes-page"><p>Queries notes of Person.</p>
+</div><h5 id="methods_notes_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-notes-page"><p>Request parameters.</p>
+<ul>
+<li><p><code>id</code> – <code>{*}</code> - GemBase id</p>
+</li>
+<li><p><code>filter</code> – <code>{object=}</code> - </p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Array.&lt;Object&gt;,Object</a></td><td><div class="lbservices-person-notes-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-notes-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_notes_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-array">Array.&lt;Object&gt;</a></td><td><div class="lbservices-person-notes-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Note</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_prototype$updateattributes">prototype$updateAttributes(parameters, postData, successCb, errorCb)</h3>
+<div class="prototype$updateattributes"><div class="lbservices-person-prototype-updateattributes-page"><p>Update attributes for a model instance and persist it into the data source.</p>
+</div><h5 id="methods_prototype$updateattributes_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-prototype-updateattributes-page"><p>Request parameters.</p>
+<ul>
+<li><code>id</code> – <code>{*}</code> - GemBase id</li>
+</ul>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-prototype-updateattributes-page"><p>Request data.</p>
+<p>This method expects a subset of model properties as request parameters.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-prototype-updateattributes-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-prototype-updateattributes-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_prototype$updateattributes_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-prototype-updateattributes-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_random">random(parameters, postData, successCb, errorCb)</h3>
+<div class="random"><div class="lbservices-person-random-page"><p><em>
+(The remote method definition does not provide any description.)
+</em></p>
+</div><h5 id="methods_random_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-random-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-random-page"><p>Request data.</p>
+<p>This method does not accept any data. Supply an empty object.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-random-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-random-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_random_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-random-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_relationtype">relationType(parameters, successCb, errorCb)</h3>
+<div class="relationtype"><div class="lbservices-person-relationtype-page"><p>Fetches belongsTo relation relationType.</p>
+</div><h5 id="methods_relationtype_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-relationtype-page"><p>Request parameters.</p>
+<ul>
+<li><p><code>id</code> – <code>{*}</code> - GemBase id</p>
+</li>
+<li><p><code>refresh</code> – <code>{boolean=}</code> - </p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-relationtype-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-relationtype-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_relationtype_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-relationtype-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>RelationType</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_removebyid">removeById(parameters, successCb, errorCb)</h3>
+<div class="removebyid"><div class="lbservices-person-removebyid-page"><p>Delete a model instance by id from the data source.</p>
+</div><h5 id="methods_removebyid_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-removebyid-page"><p>Request parameters.</p>
+<ul>
+<li><code>id</code> – <code>{*}</code> - Model id</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-removebyid-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-removebyid-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_removebyid_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-removebyid-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>This method returns no data.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_search">search(parameters, postData, successCb, errorCb)</h3>
+<div class="search"><div class="lbservices-person-search-page"><p><em>
+(The remote method definition does not provide any description.)
+</em></p>
+</div><h5 id="methods_search_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-search-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-search-page"><p>Request data.</p>
+<ul>
+<li><code>query</code> – <code>{string}</code> - </li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-search-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-search-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_search_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-search-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>Data properties:</p>
+<ul>
+<li><code>data</code> – <code>{*=}</code> - </li>
+</ul>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_sethousehold">setHousehold(parameters, postData, successCb, errorCb)</h3>
+<div class="sethousehold"><div class="lbservices-person-sethousehold-page"><p>Set the household for this person</p>
+</div><h5 id="methods_sethousehold_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-sethousehold-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-sethousehold-page"><p>Request data.</p>
+<ul>
+<li><p><code>id</code> – <code>{string}</code> - </p>
+</li>
+<li><p><code>householdId</code> – <code>{string}</code> - </p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-sethousehold-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-sethousehold-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_sethousehold_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-sethousehold-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>This method returns no data.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_site">site(parameters, successCb, errorCb)</h3>
+<div class="site"><div class="lbservices-person-site-page"><p>Fetches belongsTo relation site.</p>
+</div><h5 id="methods_site_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-site-page"><p>Request parameters.</p>
+<ul>
+<li><p><code>id</code> – <code>{*}</code> - GemBase id</p>
+</li>
+<li><p><code>refresh</code> – <code>{boolean=}</code> - </p>
+</li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-site-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-site-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_site_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-site-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Site</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_status">status(parameters, postData, successCb, errorCb)</h3>
+<div class="status"><div class="lbservices-person-status-page"><p><em>
+(The remote method definition does not provide any description.)
+</em></p>
+</div><h5 id="methods_status_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-status-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-status-page"><p>Request data.</p>
+<ul>
+<li><code>text</code> – <code>{string=}</code> - </li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-status-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-status-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_status_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-status-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>Data properties:</p>
+<ul>
+<li><code>data</code> – <code>{*=}</code> - </li>
+</ul>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_tags">tags(parameters, postData, successCb, errorCb)</h3>
+<div class="tags"><div class="lbservices-person-tags-page"><p><em>
+(The remote method definition does not provide any description.)
+</em></p>
+</div><h5 id="methods_tags_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-tags-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-tags-page"><p>Request data.</p>
+<ul>
+<li><code>text</code> – <code>{string=}</code> - </li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-tags-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-tags-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_tags_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-tags-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>Data properties:</p>
+<ul>
+<li><code>data</code> – <code>{*=}</code> - </li>
+</ul>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_trash">trash(parameters, postData, successCb, errorCb)</h3>
+<div class="trash"><div class="lbservices-person-trash-page"><p><em>
+(The remote method definition does not provide any description.)
+</em></p>
+</div><h5 id="methods_trash_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-trash-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-trash-page"><p>Request data.</p>
+<ul>
+<li><code>id</code> – <code>{string}</code> - </li>
+</ul>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-trash-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-trash-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_trash_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-trash-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>This method returns no data.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_truncate">truncate(parameters, postData, successCb, errorCb)</h3>
+<div class="truncate"><div class="lbservices-person-truncate-page"><p><em>
+(The remote method definition does not provide any description.)
+</em></p>
+</div><h5 id="methods_truncate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-truncate-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-truncate-page"><p>Request data.</p>
+<p>This method does not accept any data. Supply an empty object.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-truncate-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-truncate-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_truncate_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-truncate-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>This method returns no data.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_update">update(parameters, postData, successCb, errorCb)</h3>
+<div class="update"><div class="lbservices-person-update-page"><p>Update instances of the model matched by where from the data source.</p>
+</div><h5 id="methods_update_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-update-page"><p>Request parameters.</p>
+<ul>
+<li><code>where</code> – <code>{object=}</code> - Criteria to match model instances</li>
+</ul>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-update-page"><p>Request data.</p>
+<p>This method expects a subset of model properties as request parameters.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-update-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-update-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_update_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-update-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>This method returns no data.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_updateall">updateAll(parameters, postData, successCb, errorCb)</h3>
+<div class="updateall"><div class="lbservices-person-updateall-page"><p>Update instances of the model matched by where from the data source.</p>
+</div><h5 id="methods_updateall_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-updateall-page"><p>Request parameters.</p>
+<ul>
+<li><code>where</code> – <code>{object=}</code> - Criteria to match model instances</li>
+</ul>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-updateall-page"><p>Request data.</p>
+<p>This method expects a subset of model properties as request parameters.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-updateall-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-updateall-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_updateall_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-updateall-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p>This method returns no data.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_updateorcreate">updateOrCreate(parameters, postData, successCb, errorCb)</h3>
+<div class="updateorcreate"><div class="lbservices-person-updateorcreate-page"><p>Update an existing model instance or insert a new one into the data source.</p>
+</div><h5 id="methods_updateorcreate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-updateorcreate-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-updateorcreate-page"><p>Request data.</p>
+<p>This method expects a subset of model properties as request parameters.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-updateorcreate-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-updateorcreate-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_updateorcreate_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-updateorcreate-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_upsert">upsert(parameters, postData, successCb, errorCb)</h3>
+<div class="upsert"><div class="lbservices-person-upsert-page"><p>Update an existing model instance or insert a new one into the data source.</p>
+</div><h5 id="methods_upsert_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>parameters <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-upsert-page"><p>Request parameters.</p>
+<p>  This method does not accept any parameters.
+  Supply an empty object or omit this argument altogether.</p>
+</div></td></tr><tr><td>postData</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-upsert-page"><p>Request data.</p>
+<p>This method expects a subset of model properties as request parameters.</p>
+</div></td></tr><tr><td>successCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object,Object</a></td><td><div class="lbservices-person-upsert-page"><p>Success callback with two arguments: <code>value</code>, <code>responseHeaders</code>.</p>
+</div></td></tr><tr><td>errorCb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(Object</a></td><td><div class="lbservices-person-upsert-page"><p>Error callback with one argument:
+<code>httpResponse</code>.</p>
+</div></td></tr></tbody></table><h5 id="methods_upsert_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="lbservices-person-upsert-page"><p>An empty reference that will be
+populated with the actual data once the response is returned
+from the server.</p>
+<p><em>
+(The remote method definition does not provide any description.
+This usually means the response is a <code>Person</code> object.)
+</em></p>
+</div></td></tr></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_modelname">modelName</h3>
+<div class="modelname"><div class="lbservices-person-modelname-page"><p>The name of the model represented by this $resource,
+i.e. <code>Person</code>.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

@@ -22,7 +22,6 @@ client/app/scripts/translations.js
 dist
 .tmp
 .sass-cache
-docs
 .idea
 typings
 .strong-pm
