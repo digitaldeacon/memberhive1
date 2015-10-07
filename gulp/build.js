@@ -90,7 +90,7 @@ module.exports = function(options) {
     $.del([options.dist + '/', options.tmp + '/'], done);
   });
 
-  gulp.task('build', ['html', 'fonts', 'images', 'other'], function(){
+  gulp.task('build', ['html', 'fonts', 'images', 'other', 'ngdocs'], function(){
     return gulp.src(options.dist + '/index.html')
       .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
       .pipe(gulp.dest(options.dist + '/'))

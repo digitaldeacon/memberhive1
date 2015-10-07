@@ -15,7 +15,7 @@ md-sidenav.md-locked-open-remove.md-closed {
   z-index: 10;
   min-height: $toolbar-height;
   max-height: $toolbar-height;
-  background-color: $sidebar-background-color !important ;
+  background-color: $sidebar-toolbar-background-color !important ;
 }
 .sidebar-left-logo {
   flex-shrink: 0;
@@ -82,22 +82,19 @@ md-sidenav.md-locked-open-remove.md-closed {
 .nav-label-sub {
   margin-left: 5px;
 }
-.no-scroll {
-  overflow: hidden;
-}
-.no-scroll-horizontal {
-  overflow-x: hidden;
-}
 .side-menu-content {
   background-color: $sidebar-background-color;
   color: $sidebar-text-color;
   fill: $sidebar-icon-color;
+  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .side-menu-link, .side-menu-link:visited, .side-menu-link:active{
   color: $sidebar-text-color;
   fill: $sidebar-icon-color;
-}   
+}
+
 .side-menu-link:hover {   
   color: $sidebar-text-color;
   fill: $sidebar-icon-color;
