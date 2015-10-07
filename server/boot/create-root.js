@@ -2,11 +2,12 @@ module.exports = function(app) {
     var Account = app.models.Account;
     var Role = app.models.Role;
     var RoleMapping = app.models.RoleMapping;
-    Account.findOne({where: {username: "root"}}, function (err,data) {
+    var root_user_name = process.env.MH_ROOT_USERNAME || 'root';
+    Account.findOne({where: {username: root_user_name}}, function (err,data) {
       if (data == null) {//create root only if there is no root
         Account.create(
             [{
-                username: process.env.MH_ROOT_USERNAME || 'root',
+                username: root_user_name,
                 email:  process.env.MH_ROOT_EMAIL || 'root@memberhive.com',
                 password:  process.env.MH_ROOT_PASSWORD || 'bibel'
             }],

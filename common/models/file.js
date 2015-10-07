@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-module.exports = function(Group) {
+module.exports = function(File) {
 
 
 };

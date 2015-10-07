@@ -78,5 +78,9 @@
   "Avatar": {
     "dataSource": "uploads.avatar",
     "public": true
+  },
+  "File": {
+    "dataSource": "db",
+    "public": true
   }
 }
