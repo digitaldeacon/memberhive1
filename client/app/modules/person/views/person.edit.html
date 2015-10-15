@@ -40,11 +40,11 @@
     </md-tab>
   </md-tabs>
   
-  <div layout-align="center end">
+  <div class="md-actions" layout="row" layout-align="end center">
+    <md-button ng-click="personCtrl.saveAndClose()"><translate>Save &amp; Close</translate></md-button>
+    <md-button ng-click="personCtrl.saveAndNew()"><translate>Save &amp; New</translate></md-button>
     <md-button class="md-primary" ng-click="personCtrl.save()">
-      <translate>Save Changes</translate>
+      <translate>Save</translate>
     </md-button>
-    <md-button ng-click="personCtrl.saveAndClose()"><translate>Save and Close</translate></md-button>
-    <md-button ng-click="personCtrl.saveAndNew()"><translate>Save and New</translate></md-button>
   </div>
 </form>

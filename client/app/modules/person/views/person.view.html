@@ -1,9 +1,9 @@
-<div flex layout="row">
-  <div flex="50" layout="column">
-    <div flex layout-align="center center">
-      <mh-avatar flex person="personCtrl.person" size="s" circle ui-sref="person.view({ id: person.id })" class="avatar">
-      </mh-avatar>
-    </div>
+<div flex layout="row" layout-align="center center">
+    <mh-avatar person="personCtrl.person" size="s" circle ui-sref="person.view({ id: person.id })" class="avatar">
+    </mh-avatar>
+  </div>
+<div flex layout="row" layout-sm="column">
+  <div flex-gt-sm="50" layout="column">
     <mh-content>
       <div class="person-view-top">
         <h1> {{personCtrl.person.fullName}} <ng-md-icon size="18" icon="edit" ui-sref="person.edit({ id: personCtrl.person.id })"></ng-md-icon></h1>
@@ -50,7 +50,7 @@
     </mh-content>
   </div>
 
-  <mh-content flex="50" layout="column">
+  <mh-content flex-gt-sm="50" layout="column">
     <h2 translate> Notes </h2>
     <md-list>
       <md-list-item ng-repeat="note in personCtrl.notes">
