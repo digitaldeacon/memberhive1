@@ -1,20 +1,34 @@
-export function AccountOptions(Account,LoopBackAuth) {"ngInject";
+export function AccountOptions(
+  Account, 
+  LoopBackAuth
+) {"ngInject";
+  
+  /**
+   * This Service is also in $rootScope as options
+   */
+  
   this.account = null;
-  Account.findById({'id': LoopBackAuth.currentUserId}).$promise
-    .then((d) => {
-      this.account = d;
-    });
   this.set = (key, value) => {
-    if(!this.account) return;
-    if(!this.account.options) {
-      this.account.options = {};
-    }
-    this.account.options[key] = value;
-    Account.upsert({}, this.account);
+    this.promise.then(() => {
+      if(this.account.options === undefined) {
+        this.account.options = {};
+      }
+      this.account.options[key] = value;
+      Account.upsert({}, this.account);
+    });
   };
   
   this.get = (key, def = null) => {
-    if(!this.account) return def;
-    return this.account.options[key] || def;
+    return this.promise.then(() => {
+      return this.account.options[key] || def;
+    });
   };
+  
+  this.getData = () => {
+    return Account.findById({'id': LoopBackAuth.currentUserId})
+    .$promise
+    .then((data) => this.account = data);
+  };
+  
+  this.promise = this.getData();
 }

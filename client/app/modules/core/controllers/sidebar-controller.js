@@ -16,8 +16,12 @@ export function SidebarController (
   this.openMenu = () => {
     $mdSidenav('left').open();
   };
-
-  this.isMenuLocked = AccountOptions.get('sidebar_locked');
+  
+  this.isMenuLocked = false;
+  AccountOptions.get('sidebar_locked', false).then((data) => {
+    this.isMenuLocked = data;
+  });
+  
   this.isMenuCollapsing = false;
   this.isHovering = true;
 

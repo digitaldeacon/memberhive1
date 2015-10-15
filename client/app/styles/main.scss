@@ -95,6 +95,9 @@ gm-map {
 
 .content-background {
   background-color: #F7F7F7;
+  @media screen and (min-width: $break-lg) {
+    padding: 1em;
+  }
 }
 
 .content-info {

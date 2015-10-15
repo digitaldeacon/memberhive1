@@ -61,10 +61,11 @@ mhMainModule.config(
     });
   });
 
-mhMainModule.run(($rootScope, $state, MhAcl, Account, LoopBackAuth) => {
+mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAuth) => {
   $rootScope.$state = $state; // state to be accessed from view
   $rootScope.accessToken = LoopBackAuth.accessTokenId;
   var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
   MhAcl.setRightsPromise(p);
   $rootScope.acl = MhAcl;
+  $rootScope.options = AccountOptions;
 });
