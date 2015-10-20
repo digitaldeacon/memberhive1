@@ -14,7 +14,7 @@ export function mhPersonChips(mhConfig, PersonService) {"ngInject";
       scope.querySearch = (query) => {
         return PersonService.search(query);
       };
-      
+
     }
   };
 }
@@ -34,7 +34,7 @@ export function mhPersonStatus() {
         return PersonService.searchStatus(query);
       };
     }
-    
+
   };
 }
 export function mhPersonTags() {
@@ -49,7 +49,21 @@ export function mhPersonTags() {
         return PersonService.searchTags(query);
       };
     }
-    
+
+  };
+}
+
+export function mhPersonListItem() {
+  return {
+    templateUrl: 'app/modules/person/templates/person-list-item.html',
+    restrict: 'E',
+    scope: {
+      person: '=',
+    },
+    controller: function($scope) {"ngInject";
+      $scope.hallo = "Gallo WIe gehts";
+    }
+
   };
 }
 

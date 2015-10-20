@@ -2,29 +2,9 @@
   <md-list-item
     ng-repeat="person in personCtrl.persons track by $index"
     flex layout="row"
-    class="person-list-item"  
+    class="person-list-item"
   >
-    <mh-avatar person="person" size="xs" circle ui-sref="person.view({ id: person.id })" class="avatar"></mh-avatar>
-    
-    <div flex layout-padding class="md-list-item-text">
-        <h3><a class="simple-link" ui-sref="person.view({ id: person.id })">{{::person | formatName}}</a></h3>
-        <span ng-repeat="status in person.status" class="tag status-tag">
-          {{ status }}
-        </span>
-        <span ng-repeat="tag in person.tags" class="tag">
-          {{ tag }}
-        </span>
-        <span class="text-muted">{{person.duties}}</span>
-        <span class="text-muted" ng-if="person.contact.home">
-            <ng-md-icon size="16" icon="phone"></ng-md-icon>
-            <a href="tel:{{ ::person.contact.home }}">{{ ::person.contact.home }}</a>
-        </span>
-        <span class="text-muted" ng-if="person.contact.mobile">
-            <ng-md-icon size="15" icon="stay_primary_portrait"></ng-md-icon>
-            <a href="tel:{{ ::person.contact.mobile }}">{{ ::person.contact.mobile }}</a>
-        </span>
-        
-    </div>
+    <mh-person-list-item flex person="::person"></mh-person-list-item>
     <div>
       <md-menu>
         <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
@@ -48,7 +28,7 @@
     </div>
   </md-list-item>
 </md-list>
- 
+
 <!---->
 <a ui-sref="person.create">
   <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Person">

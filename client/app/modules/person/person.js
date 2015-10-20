@@ -17,7 +17,7 @@ import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {PersonEditService} from './services/person-edit-service';
 import {AvatarService} from './services/avatar-service';
-import {mhPersonChips, mhPersonStatus, mhPersonTags} from './directives/person-directives';
+import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem} from './directives/person-directives';
 import {mhAvatar, mhAvatarUpload} from './directives/avatar-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
@@ -112,7 +112,7 @@ export var gemPersonModule = angular.module('gem.person',
           return new Person();
         }
       },
-      
+
     }).state('person.edit', {
       url: '/edit/:id',
       controller: 'PersonEditController',
@@ -225,8 +225,8 @@ gemPersonModule.controller('PersonListController', PersonListController);
 gemPersonModule.controller('PersonViewController', PersonViewController);
 
 gemPersonModule.controller('PersonEditController', PersonEditController);
-  
-  
+
+
 gemPersonModule.controller('PersonImportCSVController', PersonImportCSVController);
 gemPersonModule.controller('PersonImportImagesController', PersonImportImagesController);
 gemPersonModule.controller('PersonExportVCardController', PersonExportVCardController);
@@ -242,5 +242,6 @@ gemPersonModule.directive('mhAvatar', mhAvatar);
 gemPersonModule.directive('mhPersonChips', mhPersonChips);
 gemPersonModule.directive('mhPersonStatus', mhPersonStatus);
 gemPersonModule.directive('mhPersonTags', mhPersonTags);
+gemPersonModule.directive('mhPersonListItem', mhPersonListItem);
 
 gemPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);
