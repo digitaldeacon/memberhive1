@@ -13,8 +13,8 @@
  */
 export function mhAvatar(mhConfig) {"ngInject";
   return {
-    template: '<img ng-src="{{imgSrc}}" class="{{cssClasses}} {{imgClass}}"' +
-              ' aria-label="{{label}}" tooltip="{{label}}" height="{{height}}" width="{{width}}" />',
+    template: '<img ng-src="{{::imgSrc}}" class="{{::cssClasses}} {{::imgClass}}"' +
+              ' aria-label="{{::label}}" tooltip="{{::label}}" height="{{::height}}" width="{{::width}}" />',
     restrict: 'E',
     scope: {
       person: '=',
@@ -24,7 +24,7 @@ export function mhAvatar(mhConfig) {"ngInject";
     },
 
     link: function(scope, element, attrs) {
-       
+
       scope.size = scope.size || 'xs';
       scope.imgClass = '';
       if (attrs.circle !== undefined)
@@ -39,7 +39,7 @@ export function mhAvatar(mhConfig) {"ngInject";
         };
         scope.height = thumbSizes[scope.size];
         scope.width = thumbSizes[scope.size];
-        
+
         if (scope.person.hasAvatar) {
           scope.imgSrc = mhConfig.apiUrl+"/Avatars/"+scope.person.id+"/download/"+scope.size+".jpg";
         } else {
@@ -110,7 +110,7 @@ export function mhAvatarUpload() {
         return (image.height >= 50 && image.width >= 50);
       };
     }
-    
+
   };
 }
 

@@ -61,7 +61,6 @@ export function mhPersonListItem() {
       person: '=',
     },
     controller: function($scope) {"ngInject";
-      $scope.hallo = "Gallo WIe gehts";
     }
 
   };

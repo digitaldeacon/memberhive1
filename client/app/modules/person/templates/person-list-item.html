@@ -1,5 +1,5 @@
 <div flex layout="row">
-  <mh-avatar person="person" size="xs" circle ui-sref="person.view({ id: person.id })" class="avatar">
+  <mh-avatar person="::person" size="xs" circle ui-sref="person.view({ id: person.id })" class="avatar">
   </mh-avatar>
 
   <div flex layout-padding class="md-list-item-text">
@@ -7,14 +7,14 @@
         <a class="simple-link" ui-sref="person.view({ id: person.id })" ng-bind="::person.fullName"></a>
       </h3>
 
-      <span ng-repeat="status in person.status" class="tag status-tag">
+      <span ng-repeat="status in ::person.status" class="tag status-tag">
         {{ :: status }}
       </span>
-      <span ng-repeat="tag in person.tags" class="tag">
+      <span ng-repeat="tag in ::person.tags" class="tag">
         {{ ::tag }}
       </span>
-      <span class="text-muted">{{person.duties}}</span>
-      <span class="text-muted" ng-if="person.contact.home">
+      <span class="text-muted">{{::person.duties}}</span>
+      <span class="text-muted" ng-if="::person.contact.home">
           <ng-md-icon size="16" icon="phone"></ng-md-icon>
           <a href="tel:{{ ::person.contact.home }}" ng-bind="::person.contact.home"> </a>
       </span>
