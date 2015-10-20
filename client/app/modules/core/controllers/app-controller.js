@@ -1,15 +1,14 @@
 export function AppController(
-  $scope, 
-  $rootScope, 
-  $cookies, 
-  gettextCatalog, 
-  PersonService, 
-  $state, 
-  productName, 
-  $mdSidenav, 
+  $scope,
+  $rootScope,
+  gettextCatalog,
+  PersonService,
+  $state,
+  productName,
+  $mdSidenav,
   $mdUtil,
   $timeout
-) 
+)
 {
  "ngInject";
   /**
@@ -29,21 +28,21 @@ export function AppController(
       return $state.current.data.pageSubTitle;
     return "";
   };
-  
+
   function buildToggler(navID) {
-    var debounceFn = 
+    var debounceFn =
     $mdUtil.debounce(
       function(){
         $mdSidenav(navID).toggle();
       },
       300
     );
-      
+
     return debounceFn;
   }
-  
+
   this.toggleLeft = buildToggler('left');
-  
+
   this.openMenu = () => {
     $mdSidenav('left').open();
   };

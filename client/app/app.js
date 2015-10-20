@@ -22,7 +22,6 @@ import './scripts/lb-services';
 export var mhMainModule = angular.module('mh.main', [
   'ngAnimate',
   'ngMaterial',
-  'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngTouch',
@@ -30,9 +29,7 @@ export var mhMainModule = angular.module('mh.main', [
   'ngMessages',
   'ui.router',
   'lbServices',
-  'picardy.fontawesome',
   'ngConfirm',
-  'angularMoment',
   'angular-loading-bar','angular-spinkit',
   'gettext',
   'ngMdIcons',

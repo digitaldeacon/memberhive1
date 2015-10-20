@@ -4,7 +4,7 @@ import {NoteListController} from './controllers/note-list-controller';
 import {NoteEditController} from './controllers/note-edit-controller';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
-export var mhNoteModule = angular.module('mh.note', ['ui.tree']).config(
+export var mhNoteModule = angular.module('mh.note', []).config(
   ($stateProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('note', {
       url: '/note',

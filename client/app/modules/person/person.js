@@ -25,16 +25,10 @@ import {mhWidgetPersonRandom} from './widgets/random/person-random';
 
 export var gemPersonModule = angular.module('gem.person',
   [
-    'angularUtils.directives.dirPagination',
-    'nsPopover',
     'ngFileUpload',
     'ngImgCrop',
-    'ngTagsInput',
     'uiGmapgoogle-maps',
-    'angular-timeline',
-
     'personFilters',
-
     'gem.core',
     'gem.address'
   ]
