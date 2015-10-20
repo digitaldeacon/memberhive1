@@ -26,15 +26,12 @@ export var mhMainModule = angular.module('mh.main', [
   'ngSanitize',
   'ngTouch',
   'ngAria',
-  'ngMessages',
   'ui.router',
   'lbServices',
-  'ngConfirm',
-  'angular-loading-bar','angular-spinkit',
+  'angular-loading-bar', 
   'gettext',
   'ngMdIcons',
   'ng-mfb',
-  'ncy-angular-breadcrumb',
   'angular-google-gapi',
 
   'gem.core', // This needs to be loaded first
@@ -45,17 +42,13 @@ export var mhMainModule = angular.module('mh.main', [
 );
 
 mhMainModule.config(
-  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $breadcrumbProvider, mhConfig, LoopBackResourceProvider, $httpProvider) => {
+  ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, mhConfig, LoopBackResourceProvider, $httpProvider) => {
     cfpLoadingBarProvider.includeSpinner = false;
     if(!mhConfig.apiUrl) {
       console.error("API URL not definied");
     } else {
       LoopBackResourceProvider.setUrlBase(mhConfig.apiUrl);
     }
-    $breadcrumbProvider.setOptions({
-      prefixStateName: 'dashboard',
-      templateUrl: 'app/templates/breadcrumb.html'
-    });
   });
 
 mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAuth) => {
