@@ -81,6 +81,9 @@
         "label": "Email"
       }
     },
+    "dates": {
+      "type": "object"
+    },
     "contact": {
       "type": "object"
     },
@@ -92,6 +95,9 @@
     },
     "status": {
       "type": "array"
+    },
+    "custom": {
+      "type": "object"
     },
     "primaryContact": {
       "type": "string",

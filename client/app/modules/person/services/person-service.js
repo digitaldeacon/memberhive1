@@ -4,6 +4,7 @@ export function PersonService(
   Avatar, 
   LoopBackAuth, 
   gettextCatalog,
+  gettext,
   Upload, 
   mhConfig, 
   $rootScope
@@ -250,7 +251,25 @@ export function PersonService(
       'daughterInLaw': gettextCatalog.getString('Daughter in Law'),
       'stepbrother': gettextCatalog.getString('Stepbrother'),
       'stepsister': gettextCatalog.getString('Stepsister')
-    }
+    },
+    
+    contactTypes : [
+      {'key': 'home', 'icon' : 'phone', 'text': gettext('Home')},
+      {'key': 'mobile', 'icon' : 'phone', 'text': gettext('Mobile')},
+      {'key': 'work', 'icon' : 'mobile', 'text': gettext('Work')}
+    ],
+    
+    dateTypes : [
+      {'key': 'birthday', 'icon' : 'phone', 'text': gettext('Birthday')},
+      {'key': 'anniversary', 'icon' : 'phone', 'text': gettext('Anniversary')},
+      {'key': 'baptism', 'icon' : 'mobile', 'text': gettext('Baptism Date')}
+    ],
+    
+    addressTypes : [
+      {'key': 'home', 'icon' : 'phone', 'text': gettext('Home Address')},
+      {'key': 'work', 'icon' : 'phone', 'text': gettext('Work Address')},
+      {'key': 'postal', 'icon' : 'mobile', 'text': gettext('Postal Address')}
+    ],
 
   };
 }

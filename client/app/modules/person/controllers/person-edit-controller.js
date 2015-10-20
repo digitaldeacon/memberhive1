@@ -7,6 +7,7 @@ export function PersonEditController (
 ) 
 {    "ngInject";
   this.person = resolvePerson;
+  this.showExtended = false;
  
   this.save = () => {
     this.saveRedirect(null);

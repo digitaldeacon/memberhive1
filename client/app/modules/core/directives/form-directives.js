@@ -3,10 +3,11 @@
  */
 export function mhDateInput($filter) {"ngInject";
   return {
-    template: '<md-datepicker ng-model="ngModel"></md-datepicker>',
+    template: '<md-datepicker ng-model="ngModel" md-placeholder="placeholder"></md-datepicker>',
     restrict: 'E',
     scope: {
       ngModel: '=',
+      placeholder: '@'
     },
 
   };
