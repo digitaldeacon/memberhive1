@@ -2,7 +2,7 @@ import {CalendarController} from './controllers/calendar-controller';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 
-export var gemCalendarModule = angular.module('gem.calendar', []
+export var gemCalendarModule = angular.module('mh.calendar', []
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('calendar', {

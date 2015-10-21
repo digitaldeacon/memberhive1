@@ -23,14 +23,15 @@ import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
 
 
-export var gemPersonModule = angular.module('gem.person',
+export var mhPersonModule = angular.module('mh.person',
   [
     'ngFileUpload',
     'ngImgCrop',
     'uiGmapgoogle-maps',
     'personFilters',
-    'gem.core',
-    'gem.address'
+    'mh.core',
+    'mh.address',
+    'mh.config'
   ]
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext, uiGmapGoogleMapApiProvider) => {
@@ -215,28 +216,30 @@ export var gemPersonModule = angular.module('gem.person',
     });
   }
 );
-gemPersonModule.controller('PersonListController', PersonListController);
-gemPersonModule.controller('PersonViewController', PersonViewController);
+mhPersonModule.controller('PersonListController', PersonListController);
+mhPersonModule.controller('PersonViewController', PersonViewController);
 
-gemPersonModule.controller('PersonEditController', PersonEditController);
+mhPersonModule.controller('PersonEditController', PersonEditController);
 
 
-gemPersonModule.controller('PersonImportCSVController', PersonImportCSVController);
-gemPersonModule.controller('PersonImportImagesController', PersonImportImagesController);
-gemPersonModule.controller('PersonExportVCardController', PersonExportVCardController);
-gemPersonModule.controller('PersonExportCSVController', PersonExportCSVController);
-gemPersonModule.controller('HouseholdListController', HouseholdListController);
-gemPersonModule.controller('HouseholdEditController', HouseholdEditController);
+mhPersonModule.controller('PersonImportCSVController', PersonImportCSVController);
+mhPersonModule.controller('PersonImportImagesController', PersonImportImagesController);
+mhPersonModule.controller('PersonExportVCardController', PersonExportVCardController);
+mhPersonModule.controller('PersonExportCSVController', PersonExportCSVController);
+mhPersonModule.controller('HouseholdListController', HouseholdListController);
+mhPersonModule.controller('HouseholdEditController', HouseholdEditController);
 
-gemPersonModule.factory('PersonService', PersonService);
-gemPersonModule.service('PersonEditService', PersonEditService);
-gemPersonModule.factory('AvatarService', AvatarService);
+mhPersonModule.factory('PersonService', PersonService);
+mhPersonModule.service('PersonEditService', PersonEditService);
+mhPersonModule.factory('AvatarService', AvatarService);
 
-gemPersonModule.directive('mhAvatar', mhAvatar);
-gemPersonModule.directive('mhPersonChips', mhPersonChips);
-gemPersonModule.directive('mhPersonStatus', mhPersonStatus);
-gemPersonModule.directive('mhPersonTags', mhPersonTags);
-gemPersonModule.directive('mhPersonListItem', mhPersonListItem);
-gemPersonModule.directive('mhPersonEditType', mhPersonEditType);
+mhPersonModule.directive('mhAvatar', mhAvatar);
+mhPersonModule.directive('mhPersonChips', mhPersonChips);
+mhPersonModule.directive('mhPersonStatus', mhPersonStatus);
+mhPersonModule.directive('mhPersonTags', mhPersonTags);
+mhPersonModule.directive('mhPersonListItem', mhPersonListItem);
+mhPersonModule.directive('mhPersonEditType', mhPersonEditType);
 
-gemPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);
+mhPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);
+
+

@@ -34,10 +34,10 @@ export var mhMainModule = angular.module('mh.main', [
   'ng-mfb',
   'angular-google-gapi',
 
-  'gem.core', // This needs to be loaded first
+  'mh.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.
-  'gem.dashboard', 'gem.person', /*'gem.calendar',*/ 'mh.event', 'mh.acl',
-  'mh.auth', 'gem.report', 'mh.note', 'mh.group', 'gem.config',
+  'mh.dashboard', 'mh.person', /*'gem.calendar',*/ 'mh.event', 'mh.acl',
+  'mh.auth', 'mh.report', 'mh.note', 'mh.group', 'mh.config',
   ]
 );
 

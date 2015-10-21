@@ -18,7 +18,7 @@ export function PersonEditService(
   };
   
   this.save = (person) => {
-    return Person.upsert({}, person).$promise.then((d) => {return PersonService.mapPerson(d);});
+    return Person.upsert({}, PersonService.undoMap(person)).$promise.then((d) => {return PersonService.mapPerson(d);});
   };
   
   this.delete = (personId) => {
@@ -28,7 +28,6 @@ export function PersonEditService(
   
   this.transform = (person) => {
     person.contactsList = this.fromHashToList(person.contacts);
-    person.addressesList = this.fromHashToList(person.addresses);
     person.datesList = this.fromHashToList(person.dates);
     person.emailsList = this.fromHashToList(person.emails);
     person.customList = this.fromHashToList(person.custom);
@@ -37,7 +36,6 @@ export function PersonEditService(
   
   this.transformBack = (person) => {
     person.contacts = this.fromListToHash(person.contactsList);
-    person.addresses = this.fromListToHash(person.addressesList);
     person.dates = this.fromListToHash(person.datesList);
     person.emails = this.fromListToHash(person.emailsList);
     person.custom = this.fromListToHash(person.customList);

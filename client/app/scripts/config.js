@@ -1,10 +1,10 @@
-export var gemConfigModule = angular.module('gem.config', [])
+export var mhConfigModule = angular.module('mh.config', [])
 
 .constant('productName', 'MemberHive')
 
 .constant('mhConfig', configGlobal) // jshint ignore:line
 
-  .constant('NoteIconConfig', [{
+.constant('NoteIconConfig', [{
       icon: 'chat',
       class: 'warning',
       title: 'Note',
@@ -31,5 +31,6 @@ export var gemConfigModule = angular.module('gem.config', [])
       value: 'prayer'
     },
     ])
+.constant('AvatarSizes', ['xs','s','m','l'])
 
 ;

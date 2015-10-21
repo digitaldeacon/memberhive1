@@ -6,7 +6,8 @@ export function PersonService(
   gettextCatalog,
   gettext,
   Upload, 
-  mhConfig, 
+  mhConfig,
+  AvatarSizes,
   $rootScope
 ) {"ngInject";
                                 
@@ -21,15 +22,20 @@ export function PersonService(
     }
     return person;
   };
+  
   this.mapPerson = (person) => {
       person.fullName = person.firstName + " " + person.lastName;
       
       person.status = person.status || [];
       person.tags = person.tags || [];
-      person = this.avatar(person, 'xs');
-      person = this.avatar(person, 's');
-      person = this.avatar(person, 'm');
-      person = this.avatar(person, 'l');
+      _.forEach(AvatarSizes, (size) => {
+        person = this.avatar(person, size);
+      });
+      
+      //make date accesible by angular
+      _.forEach(person.dates, (value, key) => {
+        person.dates[key] = new Date(value);
+      });
      
       if(person.address) {
         person.addressList = [];
@@ -40,6 +46,14 @@ export function PersonService(
       }
       
       return person;
+  };
+  
+  this.undoMap = (person) => {
+    delete person.fullName;
+    _.forEach(AvatarSizes, (size) => {
+        delete person["avatarUrl_"+size];
+    });
+    delete this.addressList;
   };
   
   this.mapPersons = (persons) => {

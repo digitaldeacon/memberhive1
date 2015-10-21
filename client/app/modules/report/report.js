@@ -12,7 +12,7 @@ import {ReportService} from './services/report-service';
 import {QueryBuilderModelService} from './services/querybuilder-model-service';
 
 
-export var gemReportModule = angular.module('gem.report', [
+export var gemReportModule = angular.module('mh.report', [
   'ui.codemirror',
 ]);
 

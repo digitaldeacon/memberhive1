@@ -2,7 +2,7 @@ import {DashboardController} from './controllers/dashboard-controller';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 import {mhWidget} from './directives/dashboard-directives';
 
-export var gemDashboardModule = angular.module('gem.dashboard',
+export var gemDashboardModule = angular.module('mh.dashboard',
   [
   ]);
 gemDashboardModule.config(
