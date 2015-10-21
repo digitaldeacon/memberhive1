@@ -15,8 +15,8 @@ export function PersonEditController (
  
   this.saveWithNotification = () => {
     this.save.then(
-      (person) => Shout.message(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: person.fullName}))
-      (err) => Shout.vError(err);
+      (person) => Shout.message(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: person.fullName})),
+      (err) => Shout.vError(err)
     );
   };
   
@@ -33,22 +33,14 @@ export function PersonEditController (
       (err) => Shout.vError(err)
     );
   };
-  this.createAccount(person) => {
-    if(this.shouldHaveAccount && !this.hasAccount) {
-      
-    }
-  }
-    /**/
+  
   this.save = () => {
-    var p = ;
-   
-    return 
-      this.geoCodeAddress()
+    return this.geoCodeAddress()
       .then(() => { 
-        return PersonEditService.save(PersonEditService.transformBack(this.person))
+        return PersonEditService.save(PersonEditService.transformBack(this.person));
       }).then( (data) => {
-        var ret = PersonEditService.transform(data);;
-        this.person = data;
+        var ret = PersonEditService.transform(data);
+        this.person = ret;
         return ret;
       });
   };

@@ -34,7 +34,7 @@ export function PersonEditService(
         password: password || person.lastName
       }
     ).$promise;
-  }
+  };
   
   
   this.transform = (person) => {
