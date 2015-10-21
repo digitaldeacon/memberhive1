@@ -44,16 +44,23 @@
     <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
     <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
   </md-radio-group>
+  
+  <md-button ng-click="personCtrl.showExtended = !personCtrl.showExtended">
+    <ng-md-icon icon="extension" ng-attr-style="fill: {{personCtrl.showExtended  ? '#111' : '#999'}}">
+    </ng-md-icon>
+    <span ng-show="personCtrl.showExtended">Show less fields</span>
+    <span ng-hide="personCtrl.showExtended">Show more fields</span>
+  </md-button>
+
 </mh-content>
 
 <mh-content layout="column">
   <h3> <ng-md-icon icon="phone"></ng-md-icon> Phones </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="contact in personCtrl.person.contactsList">
-      <mh-person-edit-type key="contact.key" type="contactTypes"></mh-person-edit-type>
-        
-      <div class="md-list-item-text">
-        <md-input-container>
+      <div class="md-list-item-text" layout="row">
+       <mh-person-edit-type flex="33" key="contact.key" type="contactTypes"></mh-person-edit-type>
+        <md-input-container flex="66">
           <label>
             <ng-md-icon icon="{{personCtrl.personService.contactTypes[contact.key].icon || 'phone'}}"></ng-md-icon>
             <span translate>{{personCtrl.personService.contactTypes[contact.key].text}}</span>
@@ -75,10 +82,9 @@
   <h3> <ng-md-icon icon="email"></ng-md-icon> EMails </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.emailsList">
-      <mh-person-edit-type key="value.key" type="emailTypes"></mh-person-edit-type>
-        
-      <div class="md-list-item-text">
-        <md-input-container>
+      <div class="md-list-item-text" layout="row">
+        <mh-person-edit-type flex="33" key="value.key" type="emailTypes"></mh-person-edit-type>
+        <md-input-container flex="66">
           <label>
             <ng-md-icon icon="{{personCtrl.personService.contactTypes[value.key].icon || 'email'}}"></ng-md-icon>
             <span translate>{{personCtrl.personService.contactTypes[value.key].text}}</span>
@@ -101,12 +107,10 @@
   <h3> <ng-md-icon icon="cake"></ng-md-icon> Dates </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.datesList">
-      <mh-person-edit-type key="value.key" type="dateTypes"></mh-person-edit-type>
-        
-      <div class="md-list-item-text">
-        <md-input-container>
+      <div class="md-list-item-text" layout="row">
+        <mh-person-edit-type flex="33" key="value.key" type="dateTypes"></mh-person-edit-type>
+        <md-input-container flex="66">
           <label>
-            <ng-md-icon icon="{{personCtrl.personService.dateTypes[value.key].icon}}"></ng-md-icon>
             <span translate>{{personCtrl.personService.dateTypes[vlue.key].text}}</span>
           </label>
           <mh-date-input ng-model="value.value" placeholder="Enter {{key}}"></mh-date-input>
@@ -126,12 +130,14 @@
   <h3> <ng-md-icon icon="extension"></ng-md-icon> Custom Fields</h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.customList">
-     
-      <md-input-container>
-        <input ng-model="value.key">  
-      </md-input-container>
-      <div class="md-list-item-text">
-        <md-input-container>
+     <div class="md-list-item-text" layout="row">
+        <md-input-container flex="33">
+          <label> Key </label>
+          <input ng-model="value.key">  
+        </md-input-container>
+      
+        <md-input-container flex="66">
+          <label> Value </label>
           <input ng-model="value.value">
         </md-input-container>
       </div>
@@ -139,7 +145,7 @@
  
     <md-list-item >
       <div class="md-offset">
-        <md-button ng-click="personCtrl.addItem('customList')"> Add new Date</md-button>
+        <md-button ng-click="personCtrl.addItem('customList')"> Add new Custom Field</md-button>
       </div>
     </md-list-item>
   </md-list>
@@ -192,9 +198,3 @@
     </md-tab>
   </md-tabs>
   -->
-<md-button ng-click="personCtrl.showExtended = !personCtrl.showExtended">
-    <ng-md-icon icon="extension" ng-attr-style="fill: {{personCtrl.showExtended  ? '#111' : '#999'}}">
-    </ng-md-icon>
-    <span ng-show="personCtrl.showExtended">Show less fields</span>
-    <span ng-hide="personCtrl.showExtended">Show more fields</span>
-</md-button>

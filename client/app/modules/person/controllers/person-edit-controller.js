@@ -29,7 +29,7 @@ export function PersonEditController (
     var p = PersonEditService.transformBack(this.person);
     PersonEditService.save(p).then(
       (data) => {
-        Shout.message(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: person.fullName}));
+        Shout.message(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: data.fullName}));
         this.person = PersonEditService.transform(data);
         if(redirect !== null) {
           $state.go(redirect);
@@ -43,7 +43,7 @@ export function PersonEditController (
   
   this.addItem = (val) => {
     this.person[val].push({key: "", value : ""});
-  }
+  };
   
  
 }

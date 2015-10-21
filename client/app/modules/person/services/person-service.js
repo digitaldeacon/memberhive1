@@ -23,32 +23,14 @@ export function PersonService(
   };
   this.mapPerson = (person) => {
       person.fullName = person.firstName + " " + person.lastName;
-      person.dateList = [];
-      if(person.birthdate) {
-        person.birthdate = new Date(person.birthdate);
-        person.dateList.push({value: person.birthdate, name: "Birthday"});
-      }
-      if(person.baptismDate) {
-        person.baptismDate = new Date(person.baptismDate);
-        person.dateList.push({value: person.baptismDate, name: "Baptism"});
-      }
-      if(person.anniversary) {
-        person.anniversary = new Date(person.anniversary);
-         person.dateList.push({value: person.anniversary, name: "Anniversary"});
-      }
+      
       person.status = person.status || [];
       person.tags = person.tags || [];
       person = this.avatar(person, 'xs');
       person = this.avatar(person, 's');
       person = this.avatar(person, 'm');
       person = this.avatar(person, 'l');
-      
-      if(person.contact) {
-        person.contactList = [];
-        _.forEach(person.contact, (value,index) => {
-          person.contactList.push({value: value, name: index});
-        });
-      }
+     
       if(person.address) {
         person.addressList = [];
         _.forEach(person.address, (value,index) => {
@@ -56,8 +38,6 @@ export function PersonService(
           person.addressList.push({value: short, name: index});
         });
       }
-      
-      
       
       return person;
   };

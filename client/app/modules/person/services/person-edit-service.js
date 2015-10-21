@@ -18,7 +18,7 @@ export function PersonEditService(
   };
   
   this.save = (person) => {
-    return Person.upsert({}, person).$promise;
+    return Person.upsert({}, person).$promise.then((d) => {return PersonService.mapPerson(d);});
   };
   
   this.delete = (personId) => {
