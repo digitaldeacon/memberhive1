@@ -53,35 +53,17 @@
         }
       }
     },
-    "birthdate": {
-      "type": "date",
-      "queryBuilder": {
-        "label": "Birthdate"
-      }
-    },
-    "anniversary" : {
-      "type": "date",
-      "queryBuilder": {
-        "label": "Anniversary"
-      }
-    },
-
-    "baptismDate": {
-      "type": "date",
-      "queryBuilder": {
-        "label": "Baptism Date"
-      }
-    },
     "duties": {
       "type": "string"
     },
+    
     "emails": {
-      "type": "object",
-      "queryBuilder": {
-        "label": "Email"
-      }
+      "type": "object"
     },
     "dates": {
+      "type": "object"
+    },
+    "contacts": {
       "type": "object"
     },
     "contact": {
@@ -90,9 +72,10 @@
     "custom": {
       "type": "object"
     },
-    "address": {
+    "addresses": {
       "type": "object"
     },
+    
     "tags": {
       "type": "array"
     },

@@ -1,7 +1,5 @@
-<mh-content layout="column"">
-  <h3 translate>Person Info 
-   
-  </h3>
+<mh-content layout="column">
+  <h3 translate>Person Info</h3>
   
   <md-input-container>
     <label translate>First Name</label>
@@ -41,66 +39,112 @@
     <label translate>Tags</label>
     <mh-person-tags ng-model="personCtrl.person.tags"></mh-person-tags>
   </md-input-container>
-
-  <md-list>
-    <md-list-item class="md-2-line" ng-repeat="(key, value) in personCtrl.person.contact">
-      <mh-person-edit-type key="key" type="contactTypes"></mh-person-edit-type>
-        
-      <div class="md-list-item-text">
-        <md-input-container>
-          <label>
-            <ng-md-icon icon="{{personCtrl.personService.contactTypes[key].icon}}"></ng-md-icon>
-            <span translate>{{personCtrl.personService.contactTypes[key].text}}</span>
-          </label>
-          <input ng-model="personCtrl.person.contact[key]">
-        </md-input-container>
-      </div>
-    </md-list-item>
-    <md-list-item>
-      <div class="md-offset">
-        <md-button> Add new Phone</md-button>
-      </div>
-    </md-list-item>
-   
-    <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.dates">
-      <ng-md-icon icon="cake" ng-if="$index === 0"></ng-md-icon>
-      <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
-        <md-input-container>
-          <label translate>key</label>
-          <mh-date-input ng-model="personCtrl.person.dates[key]" placeholder="Enter {{key}}"></mh-date-input>
-        </md-input-container>
-      </div>
-    </md-list-item>
-    <md-list-item >
-      <div class="md-offset">
-        <md-button>Add new Date</md-button>
-      </div>
-    </md-list-item>
-    
-    <md-list-item class="md-2-line" ng-repeat="(key, value) in personCtrl.person.emails">
-      <ng-md-icon icon="email" ng-if="$index === 0"></ng-md-icon>
-      <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
-        <md-input-container>
-          <label>
-            <ng-md-icon icon="phone"></ng-md-icon>
-            <span translate>{{key}}</span>
-          </label>
-          <input ng-model="personCtrl.person.emails[key]">
-        </md-input-container>
-      </div>
-    </md-list-item>
-    <md-list-item>
-      <div class="md-offset">
-        <md-button> Add new EMail</md-button>
-      </div>
-    </md-list-item>
-      
-  </md-list>
- 
+  
   <md-radio-group ng-model="personCtrl.person.gender" layout="row">
     <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
     <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
   </md-radio-group>
+</mh-content>
+
+<mh-content layout="column">
+  <h3> <ng-md-icon icon="phone"></ng-md-icon> Phones </h3>
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="contact in personCtrl.person.contactsList">
+      <mh-person-edit-type key="contact.key" type="contactTypes"></mh-person-edit-type>
+        
+      <div class="md-list-item-text">
+        <md-input-container>
+          <label>
+            <ng-md-icon icon="{{personCtrl.personService.contactTypes[contact.key].icon || 'phone'}}"></ng-md-icon>
+            <span translate>{{personCtrl.personService.contactTypes[contact.key].text}}</span>
+          </label>
+          <input ng-model="contact.value">
+        </md-input-container>
+      </div>
+    </md-list-item>
+    
+    <md-list-item>
+      <div class="md-offset">
+        <md-button ng-click="personCtrl.addItem('contactsList')"> Add new Phone</md-button>
+      </div>
+    </md-list-item>
+  </md-list>
+</mh-content>
+
+<mh-content layout="column">
+  <h3> <ng-md-icon icon="email"></ng-md-icon> EMails </h3>
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.emailsList">
+      <mh-person-edit-type key="value.key" type="emailTypes"></mh-person-edit-type>
+        
+      <div class="md-list-item-text">
+        <md-input-container>
+          <label>
+            <ng-md-icon icon="{{personCtrl.personService.contactTypes[value.key].icon || 'email'}}"></ng-md-icon>
+            <span translate>{{personCtrl.personService.contactTypes[value.key].text}}</span>
+          </label>
+          <input ng-model="value.value">
+        </md-input-container>
+      </div>
+    </md-list-item>
+    
+    <md-list-item>
+      <div class="md-offset">
+        <md-button ng-click="personCtrl.addItem('emailsList')"> Add new EMail Address</md-button>
+      </div>
+    </md-list-item>
+  </md-list>
+  
+</mh-content>
+
+<mh-content layout="column">
+  <h3> <ng-md-icon icon="cake"></ng-md-icon> Dates </h3>
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.datesList">
+      <mh-person-edit-type key="value.key" type="dateTypes"></mh-person-edit-type>
+        
+      <div class="md-list-item-text">
+        <md-input-container>
+          <label>
+            <ng-md-icon icon="{{personCtrl.personService.dateTypes[value.key].icon}}"></ng-md-icon>
+            <span translate>{{personCtrl.personService.dateTypes[vlue.key].text}}</span>
+          </label>
+          <mh-date-input ng-model="value.value" placeholder="Enter {{key}}"></mh-date-input>
+        </md-input-container>
+      </div>
+    </md-list-item>
+ 
+    <md-list-item >
+      <div class="md-offset">
+        <md-button ng-click="personCtrl.addItem('datesList')"> Add new Date</md-button>
+      </div>
+    </md-list-item>
+  </md-list>
+</mh-content>
+
+<mh-content layout="column">
+  <h3> <ng-md-icon icon="extension"></ng-md-icon> Custom Fields</h3>
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.customList">
+     
+      <md-input-container>
+        <input ng-model="value.key">  
+      </md-input-container>
+      <div class="md-list-item-text">
+        <md-input-container>
+          <input ng-model="value.value">
+        </md-input-container>
+      </div>
+    </md-list-item>
+ 
+    <md-list-item >
+      <div class="md-offset">
+        <md-button ng-click="personCtrl.addItem('customList')"> Add new Date</md-button>
+      </div>
+    </md-list-item>
+  </md-list>
+</mh-content>
+
 
 
   <!--
@@ -148,10 +192,9 @@
     </md-tab>
   </md-tabs>
   -->
-  <md-button ng-click="personCtrl.showExtended = !personCtrl.showExtended">
+<md-button ng-click="personCtrl.showExtended = !personCtrl.showExtended">
     <ng-md-icon icon="extension" ng-attr-style="fill: {{personCtrl.showExtended  ? '#111' : '#999'}}">
     </ng-md-icon>
     <span ng-show="personCtrl.showExtended">Show less fields</span>
     <span ng-hide="personCtrl.showExtended">Show more fields</span>
-  </md-button>
-</mh-content>
+</md-button>
