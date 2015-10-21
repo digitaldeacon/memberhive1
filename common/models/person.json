@@ -75,8 +75,8 @@
     "duties": {
       "type": "string"
     },
-    "email": {
-      "type": "string",
+    "emails": {
+      "type": "object",
       "queryBuilder": {
         "label": "Email"
       }
@@ -87,6 +87,9 @@
     "contact": {
       "type": "object"
     },
+    "custom": {
+      "type": "object"
+    },
     "address": {
       "type": "object"
     },
@@ -95,9 +98,6 @@
     },
     "status": {
       "type": "array"
-    },
-    "custom": {
-      "type": "object"
     },
     "primaryContact": {
       "type": "string",

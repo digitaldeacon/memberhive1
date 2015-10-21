@@ -2,12 +2,14 @@ export function PersonEditController (
   $state,
   gettextCatalog,
   PersonEditService,
+  PersonService,
   resolvePerson,
   Shout
 ) 
 {    "ngInject";
   this.person = resolvePerson;
   this.showExtended = false;
+  this.personService = PersonService;
  
   this.save = () => {
     this.saveRedirect(null);

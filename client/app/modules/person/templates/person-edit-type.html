@@ -1,0 +1,5 @@
+<md-select ng-model="key">
+  <md-option ng-repeat="(ckey, value) in personService[type]" value="{{ckey}}">
+      {{value.text}}
+  </md-option>
+</md-select>

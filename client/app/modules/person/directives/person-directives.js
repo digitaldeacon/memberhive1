@@ -66,6 +66,20 @@ export function mhPersonListItem() {
   };
 }
 
+export function mhPersonEditType() {
+  return {
+    templateUrl: 'app/modules/person/templates/person-edit-type.html',
+    restrict: 'E',
+    scope: {
+      key: '=',
+      type: '@'
+    },
+    controller: function($scope, PersonService) {"ngInject";
+      $scope.personService = PersonService;
+    }
+
+  };
+}
 
 
 

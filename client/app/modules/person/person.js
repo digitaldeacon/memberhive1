@@ -17,7 +17,7 @@ import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {PersonEditService} from './services/person-edit-service';
 import {AvatarService} from './services/avatar-service';
-import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem} from './directives/person-directives';
+import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonEditType} from './directives/person-directives';
 import {mhAvatar, mhAvatarUpload} from './directives/avatar-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
@@ -237,5 +237,6 @@ gemPersonModule.directive('mhPersonChips', mhPersonChips);
 gemPersonModule.directive('mhPersonStatus', mhPersonStatus);
 gemPersonModule.directive('mhPersonTags', mhPersonTags);
 gemPersonModule.directive('mhPersonListItem', mhPersonListItem);
+gemPersonModule.directive('mhPersonEditType', mhPersonEditType);
 
 gemPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);

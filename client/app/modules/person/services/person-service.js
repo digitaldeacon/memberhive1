@@ -253,23 +253,30 @@ export function PersonService(
       'stepsister': gettextCatalog.getString('Stepsister')
     },
     
-    contactTypes : [
-      {'key': 'home', 'icon' : 'phone', 'text': gettext('Home')},
-      {'key': 'mobile', 'icon' : 'phone', 'text': gettext('Mobile')},
-      {'key': 'work', 'icon' : 'mobile', 'text': gettext('Work')}
-    ],
+    contactTypes : {
+      home: {'icon' : 'phone', 'text': gettext('Home')},
+      mobile: {'icon' : 'smartphone', 'text': gettext('Mobile')},
+      work: {'icon' : 'work', 'text': gettext('Work')},
+      fax: {'icon' : 'print', 'text': gettext('Fax')}
+    },
     
-    dateTypes : [
-      {'key': 'birthday', 'icon' : 'phone', 'text': gettext('Birthday')},
-      {'key': 'anniversary', 'icon' : 'phone', 'text': gettext('Anniversary')},
-      {'key': 'baptism', 'icon' : 'mobile', 'text': gettext('Baptism Date')}
-    ],
+    dateTypes :{
+      birthday : {'icon' : 'cake', 'text': gettext('Birthday')},
+      anniversary: {'icon' : 'people', 'text': gettext('Anniversary')},
+      baptism: {'icon' : 'cake', 'text': gettext('Baptism Date')}
+    },
     
-    addressTypes : [
-      {'key': 'home', 'icon' : 'phone', 'text': gettext('Home Address')},
-      {'key': 'work', 'icon' : 'phone', 'text': gettext('Work Address')},
-      {'key': 'postal', 'icon' : 'mobile', 'text': gettext('Postal Address')}
-    ],
+    addressTypes : {
+      home: {'icon' : 'home', 'text': gettext('Home Address')},
+      work: {'icon' : 'work', 'text': gettext('Work Address')},
+      postal: {'icon' : 'mail', 'text': gettext('Postal Address')}
+    },
+    
+    emailTypes : {
+      personal: {'icon' : 'home', 'text': gettext('Personal')},
+      work: {'icon' : 'work', 'text': gettext('Work')},
+      other: {'icon' : 'mail', 'text': gettext('Other')}
+    },
 
   };
 }

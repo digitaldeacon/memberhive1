@@ -8,7 +8,7 @@
     <input name="firstName" ng-model="personCtrl.person.firstName" required>
   </md-input-container>
 
-  <md-input-container  ng-show="personCtrl.showExtended">
+  <md-input-container ng-show="personCtrl.showExtended">
     <label translate>Middle Name</label>
     <input ng-model="personCtrl.person.middleName">
   </md-input-container>
@@ -22,12 +22,12 @@
     <input ng-model="personCtrl.person.prefix">
   </md-input-container>
 
-  <md-input-container  ng-show="personCtrl.showExtended">
+  <md-input-container ng-show="personCtrl.showExtended">
     <label translate>Nickname</label>
     <input ng-model="personCtrl.person.nickName">
   </md-input-container>
 
-  <md-input-container  ng-show="personCtrl.showExtended">
+  <md-input-container ng-show="personCtrl.showExtended">
     <label translate>Suffix</label>
     <input ng-model="personCtrl.person.suffix">
   </md-input-container>
@@ -36,65 +36,74 @@
     <label translate>Status</label>
     <mh-person-status ng-model="personCtrl.person.status"></mh-person-status>
   </md-input-container>
+  
   <md-input-container >
     <label translate>Tags</label>
     <mh-person-tags ng-model="personCtrl.person.tags"></mh-person-tags>
   </md-input-container>
 
-  <md-input-container>
-    <label translate>Birthdate</label>
-    <mh-date-input ng-model="personCtrl.person.birthdate" placeholder="Enter Birthdate"></mh-date-input>
-  </md-input-container>
-
-  <md-input-container>
-    <label translate>Baptism Date</label>
-    <mh-date-input ng-model="personCtrl.person.baptismDate" placeholder="Enter Baptism Date"></mh-date-input>
-  </md-input-container>
-
-  <md-input-container>
-    <label translate>Anniversary</label>
-    <mh-date-input ng-model="personCtrl.person.anniversary" placeholder="Enter Anniversary"></mh-date-input>
-  </md-input-container>
-
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="(key, value) in personCtrl.person.contact">
+      <mh-person-edit-type key="key" type="contactTypes"></mh-person-edit-type>
+        
+      <div class="md-list-item-text">
+        <md-input-container>
+          <label>
+            <ng-md-icon icon="{{personCtrl.personService.contactTypes[key].icon}}"></ng-md-icon>
+            <span translate>{{personCtrl.personService.contactTypes[key].text}}</span>
+          </label>
+          <input ng-model="personCtrl.person.contact[key]">
+        </md-input-container>
+      </div>
+    </md-list-item>
+    <md-list-item>
+      <div class="md-offset">
+        <md-button> Add new Phone</md-button>
+      </div>
+    </md-list-item>
+   
+    <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.dates">
+      <ng-md-icon icon="cake" ng-if="$index === 0"></ng-md-icon>
+      <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+        <md-input-container>
+          <label translate>key</label>
+          <mh-date-input ng-model="personCtrl.person.dates[key]" placeholder="Enter {{key}}"></mh-date-input>
+        </md-input-container>
+      </div>
+    </md-list-item>
+    <md-list-item >
+      <div class="md-offset">
+        <md-button>Add new Date</md-button>
+      </div>
+    </md-list-item>
+    
+    <md-list-item class="md-2-line" ng-repeat="(key, value) in personCtrl.person.emails">
+      <ng-md-icon icon="email" ng-if="$index === 0"></ng-md-icon>
+      <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+        <md-input-container>
+          <label>
+            <ng-md-icon icon="phone"></ng-md-icon>
+            <span translate>{{key}}</span>
+          </label>
+          <input ng-model="personCtrl.person.emails[key]">
+        </md-input-container>
+      </div>
+    </md-list-item>
+    <md-list-item>
+      <div class="md-offset">
+        <md-button> Add new EMail</md-button>
+      </div>
+    </md-list-item>
+      
+  </md-list>
+ 
   <md-radio-group ng-model="personCtrl.person.gender" layout="row">
     <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
     <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
   </md-radio-group>
 
-  <h3 translate>Contact Info</h3>
-  <md-input-container flex>
-    <md-select required ng-model="personCtrl.person.primaryContact" placeholder="{{'Primary Contact Method'|translate}}">
-      <md-option ng-repeat="opt in personCtrl.primaryContactTypes" ng-value="opt">
-        {{personCtrl.primaryContactTypesTranslated[opt]}}
-      </md-option>
-    </md-select>
-  </md-input-container>
 
-  <md-input-container flex>
-    <label><ng-md-icon icon="email"></ng-md-icon> <span translate>Email</span></label>
-    <input name="email" type="email" ng-model="personCtrl.person.email">
-  </md-input-container>
-
-  <md-input-container flex>
-    <label><ng-md-icon icon="phone"></ng-md-icon><span translate>Home Phone</span></label>
-    <input ng-model="personCtrl.person.contact.home">
-  </md-input-container>
-
-  <md-input-container flex>
-    <label><ng-md-icon icon="phone"></ng-md-icon> <span translate>Work Phone</span></label>
-    <input ng-model="personCtrl.person.contact.work">
-  </md-input-container>
-
-  <md-input-container flex>
-    <label><ng-md-icon icon="smartphone"></ng-md-icon> <span translate>Mobile Phone</span></label>
-    <input name="mobile" ng-model="personCtrl.person.contact.mobile"">
-  </md-input-container>
-
-  <md-input-container flex>
-    <label><ng-md-icon icon="print"></ng-md-icon> <span translate>Fax</span></label>
-    <input ng-model="personCtrl.person.contact.fax">
-  </md-input-container>
-
+  <!--
   <h3 translate>Household</h3>
 
   <md-tabs>
@@ -138,7 +147,7 @@
       </md-tab-body>
     </md-tab>
   </md-tabs>
-  
+  -->
   <md-button ng-click="personCtrl.showExtended = !personCtrl.showExtended">
     <ng-md-icon icon="extension" ng-attr-style="fill: {{personCtrl.showExtended  ? '#111' : '#999'}}">
     </ng-md-icon>
