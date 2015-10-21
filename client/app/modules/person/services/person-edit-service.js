@@ -25,6 +25,17 @@ export function PersonEditService(
     return Person.trash({id: personId}).$promise;
   };
   
+  this.createAccount = (person, password) => {
+    return Person.account.create(
+      {id: person.id}, 
+      {
+        username: person.firstName + "_" + person.lastName, 
+        email: person.email, 
+        password: password || person.lastName
+      }
+    ).$promise;
+  }
+  
   
   this.transform = (person) => {
     person.contactsList = this.fromHashToList(person.contacts);
