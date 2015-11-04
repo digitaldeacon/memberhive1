@@ -5,10 +5,10 @@ export function PersonEditService(
 ) {"ngInject";
   this.person = undefined;
   this.account = undefined;
-  
-  
+
+
   /*
-   * Load Person by person_id. 
+   * Load Person by person_id.
    * Cached
    */
   this.getPerson = (personId) => {
@@ -16,27 +16,28 @@ export function PersonEditService(
       return $q.when(this.person);
     return PersonService.one(personId).then((p) => this.person = p);
   };
-  
+
   this.save = (person) => {
-    return Person.upsert({}, PersonService.undoMap(person)).$promise.then((d) => {return PersonService.mapPerson(d);});
+    return Person.upsert({}, PersonService.undoMap(person))
+      .$promise.then((d) => {return PersonService.mapPerson(d);});
   };
-  
+
   this.delete = (personId) => {
     return Person.trash({id: personId}).$promise;
   };
-  
+
   this.createAccount = (person, password) => {
     return Person.account.create(
-      {id: person.id}, 
+      {id: person.id},
       {
-        username: person.firstName + "_" + person.lastName, 
-        email: person.email, 
+        username: person.firstName + "_" + person.lastName,
+        email: person.email,
         password: password || person.lastName
       }
     ).$promise;
   };
-  
-  
+
+
   this.transform = (person) => {
     person.contactsList = this.fromHashToList(person.contacts);
     person.datesList = this.fromHashToList(person.dates);
@@ -44,7 +45,7 @@ export function PersonEditService(
     person.customList = this.fromHashToList(person.custom);
     return person;
   };
-  
+
   this.transformBack = (person) => {
     person.contacts = this.fromListToHash(person.contactsList);
     person.dates = this.fromListToHash(person.datesList);
@@ -57,7 +58,7 @@ export function PersonEditService(
     delete person.customList;
     return person;
   };
-  
+
   this.fromHashToList = (hash) => {
     var ret = [];
     _.forEach(hash, (value, key) => {

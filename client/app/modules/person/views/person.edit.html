@@ -8,8 +8,8 @@
         <div class="tab-personal" ng-include="'app/modules/person/views/person.edit.tab.personal.html'"></div>
       </md-tab-body>
     </md-tab>
-    
-    
+
+
     <md-tab>
       <md-tab-label>
         <ng-md-icon icon="directions"></ng-md-icon> <translate>Addresses</translate>
@@ -18,8 +18,8 @@
         <div class="tab-addresses" ng-include="'app/modules/person/views/person.edit.tab.addresses.html'"></div>
       </md-tab-body>
     </md-tab>
-    
-    
+
+
     <md-tab>
       <md-tab-label>
         <ng-md-icon icon="photo"></ng-md-icon> <translate>Avatar</translate>
@@ -28,8 +28,8 @@
         <div class="tab-avatar" ng-include="'app/modules/person/views/person.edit.tab.avatar.html'"></div>
       </md-tab-body>
     </md-tab>
-    
-    
+
+
     <md-tab>
       <md-tab-label>
         <ng-md-icon icon="security"></ng-md-icon><translate>Roles</translate>
@@ -39,11 +39,11 @@
       </md-tab-body>
     </md-tab>
   </md-tabs>
-  
+
   <div class="md-actions" layout="row" layout-align="end center">
     <md-button ng-click="personCtrl.saveAndClose()"><translate>Save &amp; Close</translate></md-button>
     <md-button ng-click="personCtrl.saveAndNew()"><translate>Save &amp; New</translate></md-button>
-    <md-button class="md-primary" ng-click="personCtrl.save()">
+    <md-button class="md-primary" ng-click="personCtrl.saveWithNotification()">
       <translate>Save</translate>
     </md-button>
   </div>

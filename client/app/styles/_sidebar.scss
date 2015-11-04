@@ -83,7 +83,7 @@ md-sidenav.md-locked-open-remove.md-closed {
   margin-left: 5px;
 }
 .side-menu-content {
-  background-color: $sidebar-background-color;
+  background-color: $sidebar-background-color !important;
   color: $sidebar-text-color;
   fill: $sidebar-icon-color;
   overflow: hidden;
@@ -95,7 +95,7 @@ md-sidenav.md-locked-open-remove.md-closed {
   fill: $sidebar-icon-color;
 }
 
-.side-menu-link:hover {   
+.side-menu-link:hover {
   color: $sidebar-text-color;
   fill: $sidebar-icon-color;
   .item-icon {

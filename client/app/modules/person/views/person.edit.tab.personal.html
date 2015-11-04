@@ -1,6 +1,6 @@
-<mh-content layout="column">
+<div class="mh-content" layout="column">
   <h3 translate>Person Info</h3>
-  
+
   <md-input-container>
     <label translate>First Name</label>
     <input name="firstName" ng-model="personCtrl.person.firstName" required>
@@ -29,22 +29,22 @@
     <label translate>Suffix</label>
     <input ng-model="personCtrl.person.suffix">
   </md-input-container>
-  
+
   <md-input-container>
     <label translate>Status</label>
     <mh-person-status ng-model="personCtrl.person.status"></mh-person-status>
   </md-input-container>
-  
+
   <md-input-container >
     <label translate>Tags</label>
     <mh-person-tags ng-model="personCtrl.person.tags"></mh-person-tags>
   </md-input-container>
-  
+
   <md-radio-group ng-model="personCtrl.person.gender" layout="row">
     <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
     <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
   </md-radio-group>
-  
+
   <md-button ng-click="personCtrl.showExtended = !personCtrl.showExtended">
     <ng-md-icon icon="extension" ng-attr-style="fill: {{personCtrl.showExtended  ? '#111' : '#999'}}">
     </ng-md-icon>
@@ -52,7 +52,7 @@
     <span ng-hide="personCtrl.showExtended">Show more fields</span>
   </md-button>
 
-</mh-content>
+</div>
 
 <mh-content layout="column">
   <h3> <ng-md-icon icon="phone"></ng-md-icon> Phones </h3>
@@ -69,7 +69,7 @@
         </md-input-container>
       </div>
     </md-list-item>
-    
+
     <md-list-item>
       <div class="md-offset">
         <md-button ng-click="personCtrl.addItem('contactsList')"> Add new Phone</md-button>
@@ -93,14 +93,14 @@
         </md-input-container>
       </div>
     </md-list-item>
-    
+
     <md-list-item>
       <div class="md-offset">
         <md-button ng-click="personCtrl.addItem('emailsList')"> Add new EMail Address</md-button>
       </div>
     </md-list-item>
   </md-list>
-  
+
 </mh-content>
 
 <mh-content layout="column">
@@ -117,7 +117,7 @@
         </md-input-container>
       </div>
     </md-list-item>
- 
+
     <md-list-item >
       <div class="md-offset">
         <md-button ng-click="personCtrl.addItem('datesList')"> Add new Date</md-button>
@@ -133,16 +133,16 @@
      <div class="md-list-item-text" layout="row">
         <md-input-container flex="33">
           <label> Key </label>
-          <input ng-model="value.key">  
+          <input ng-model="value.key">
         </md-input-container>
-      
+
         <md-input-container flex="66">
           <label> Value </label>
           <input ng-model="value.value">
         </md-input-container>
       </div>
     </md-list-item>
- 
+
     <md-list-item >
       <div class="md-offset">
         <md-button ng-click="personCtrl.addItem('customList')"> Add new Custom Field</md-button>

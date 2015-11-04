@@ -1,19 +1,19 @@
 export function PersonService(
-  Person, 
-  Household, 
-  Avatar, 
-  LoopBackAuth, 
+  Person,
+  Household,
+  Avatar,
+  LoopBackAuth,
   gettextCatalog,
   gettext,
-  Upload, 
+  Upload,
   mhConfig,
   AvatarSizes,
   $rootScope
 ) {"ngInject";
-                                
+
   this.persons = null;
   this.personsSimple = null;
-  
+
   this.avatar = (person, size) => {
     if (person.hasAvatar) {
       person["avatarUrl_"+size] = mhConfig.apiUrl+"/Avatars/"+person.id+"/download/"+size+".jpg";
@@ -22,21 +22,21 @@ export function PersonService(
     }
     return person;
   };
-  
+
   this.mapPerson = (person) => {
       person.fullName = person.firstName + " " + person.lastName;
-      
+
       person.status = person.status || [];
       person.tags = person.tags || [];
       _.forEach(AvatarSizes, (size) => {
         person = this.avatar(person, size);
       });
-      
+
       //make date accesible by angular
       _.forEach(person.dates, (value, key) => {
         person.dates[key] = new Date(value);
       });
-     
+
       if(person.address) {
         person.addressList = [];
         _.forEach(person.address, (value,index) => {
@@ -44,23 +44,24 @@ export function PersonService(
           person.addressList.push({value: short, name: index});
         });
       }
-      
+
       return person;
   };
-  
+
   this.undoMap = (person) => {
     delete person.fullName;
     _.forEach(AvatarSizes, (size) => {
         delete person["avatarUrl_"+size];
     });
-    delete this.addressList;
+    delete person.addressList;
+    return person;
   };
-  
+
   this.mapPersons = (persons) => {
     return _.map(persons, this.mapPerson);
   };
-  
-  
+
+
   this.getAll = () => {
      return Person.find({
         filter: {
@@ -68,7 +69,7 @@ export function PersonService(
         }
       }).$promise.then(this.mapPersons);
   };
-  
+
   this.getAllSimple = () => {
      return Person.find({
         filter: {
@@ -76,10 +77,10 @@ export function PersonService(
         }
       }).$promise.then(this.mapPersons);
   };
-  
+
   return {
-    mapPerson: this.mapPerson, 
-    
+    mapPerson: this.mapPerson,
+
     modelName: () => {
       return Person.model.name;
     },
@@ -108,7 +109,7 @@ export function PersonService(
     },
 
     all: (pageNumber) => {
-      
+
       return Person.find({
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,
@@ -125,21 +126,21 @@ export function PersonService(
         }
       }).$promise.then(this.mapPersonsData);
     },
-    
+
     cachedAll: () => {
       if(this.persons) return this.persons;
       return this.getAll().then((d) => this.persons = d);
     },
-    
+
     getAll: () => {
       return this.getAll().then((d) => this.persons = d);
     },
-    
+
     cachedAllSimple: () => {
       if(this.personsSimple) return this.personsSimple;
       return this.getAllSimple().then((d) => this.personsSimple = d);
     },
-    
+
     getAllSimple: () => {
       return this.getAllSimple().then((d) => this.personsSimple = d);
     },
@@ -171,16 +172,16 @@ export function PersonService(
         }
       });
     },
-    
-    
+
+
     search: (query) => {
       return Person.search({query: query})
         .$promise
         .then((d) => {return d.data;})
         .then(this.mapPersons);
     },
-    
-    
+
+
     searchTags: (query) => {
       return Person.tags({"text": query}).$promise.then((resp)=>{
         return resp.data;
@@ -192,7 +193,8 @@ export function PersonService(
         return resp.data;
       });
     },
-    
+    undoMap : this.undoMap,
+
     /**
      * A dictionary with gender translations
      */
@@ -246,26 +248,26 @@ export function PersonService(
       'stepbrother': gettextCatalog.getString('Stepbrother'),
       'stepsister': gettextCatalog.getString('Stepsister')
     },
-    
+
     contactTypes : {
       home: {'icon' : 'phone', 'text': gettext('Home')},
       mobile: {'icon' : 'smartphone', 'text': gettext('Mobile')},
       work: {'icon' : 'work', 'text': gettext('Work')},
       fax: {'icon' : 'print', 'text': gettext('Fax')}
     },
-    
+
     dateTypes :{
       birthday : {'icon' : 'cake', 'text': gettext('Birthday')},
       anniversary: {'icon' : 'people', 'text': gettext('Anniversary')},
       baptism: {'icon' : 'cake', 'text': gettext('Baptism Date')}
     },
-    
+
     addressTypes : {
       home: {'icon' : 'home', 'text': gettext('Home Address')},
       work: {'icon' : 'work', 'text': gettext('Work Address')},
       postal: {'icon' : 'mail', 'text': gettext('Postal Address')}
     },
-    
+
     emailTypes : {
       personal: {'icon' : 'home', 'text': gettext('Personal')},
       work: {'icon' : 'work', 'text': gettext('Work')},

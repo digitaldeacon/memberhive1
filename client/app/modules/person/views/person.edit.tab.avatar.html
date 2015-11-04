@@ -1,20 +1,27 @@
 <mh-content>
-  <div ng-if="person.hasAvatar && !personCtrl.isEditingAvatar">
+  <div ng-if="person.hasAvatar && !isEditingAvatar">
     <mh-avatar person="person" size="s"></mh-avatar>
-    <a ng-click="personCtrl.editAvatar()">Edit Avatar</a>
-    <a ng-click="personCtrl.removeAvatar()">Remove Avatar</a>
+    <md-button ng-click="isEditingAvatar = true">Edit Avatar</md-button>
+    <md-button ng-click="personCtrl.removeAvatar()">Remove Avatar</md-button>
   </div>
 
-  <div ng-if="!person.hasAvatar || personCtrl.isEditingAvatar">
+  <div ng-if="!person.hasAvatar || isEditingAvatar">
     <label for="avatar" translate>Select Avatar</label>
-    <!--<input id="avatar" type="file" ngf-drop ngf-select ngf-change="personCtrl.onAvatarSelected($files, $event)" ngf-accept="'image/*'">-->
-    <div ngf-drop ngf-select ng-model="files" class="drop-zone"
-          ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
-          accept="image/*"
-          ngf-change="personCtrl.onAvatarSelected($files, $event)"><translate>Drop images here or click to upload</translate></div>
+    <div
+      ngf-drop
+      ngf-select
+      ng-model="files"
+      class="drop-zone"
+      ngf-drag-over-class="dragover"
+      ngf-multiple="false"
+      ngf-allow-dir="false"
+      accept="image/*"
+      ngf-change="personCtrl.onAvatarSelected($files, $event)">
+        <translate>Drop images here or click to upload</translate>
+    </div>
     <div ngf-no-file-drop><translate>File Drag/Drop is not supported for this browser</translate></div>
 
-    <div class="cropArea">
+    <div class="cropArea" ng-if="personCtrl.uploadedAvatar">
       <img-crop image="personCtrl.uploadedAvatar"
                 result-image="personCtrl.croppedAvatar"
                 area-type="square"
@@ -22,6 +29,6 @@
                 result-image-format="image/jpeg">
       </img-crop>
     </div>
-    <a class="btn btn-default" ng-if="personCtrl.isEditingAvatar" ng-click="personCtrl.cancelEditingAvatar()">Cancel Editing</a>
+    <md-button  ng-if="personCtrl.isEditingAvatar" ng-click="isEditingAvatar = false">Cancel Editing</md-button>
   </div>
 </mh-content>

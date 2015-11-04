@@ -1,5 +1,5 @@
 export function AvatarService(Person, Avatar, Upload, mhConfig) {"ngInject";
-  
+
   this.dataURItoBlob = (dataURI) => {
     var binary = atob(dataURI.split(',')[1]);
     var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
@@ -9,7 +9,7 @@ export function AvatarService(Person, Avatar, Upload, mhConfig) {"ngInject";
     }
     return new Blob([new Uint8Array(array)], {type: mimeString});
   };
-  
+
   this.save = (id, file) => {
     return Upload.upload({
         url: mhConfig.apiUrl+"/Avatars/"+id+"/upload",
@@ -17,13 +17,13 @@ export function AvatarService(Person, Avatar, Upload, mhConfig) {"ngInject";
         fileName: 'avatar.jpg'
       });
   };
-  
+
   return {
     saveAvatar: (personId, file) => {
       return this.save(personId, file);
     },
-    
-     saveAvatarFromDataURI: (personId, file) => {
+
+    saveAvatarFromDataURI: (personId, file) => {
       return this.save(personId, this.dataURItoBlob(file));
     },
 
