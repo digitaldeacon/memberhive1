@@ -1,5 +1,5 @@
 export function QueryBuilderDirective($rootScope) {"ngInject";
-  return {
+  /*return {
     templateUrl: '/queryBuilderDirective.html',
     controller: 'ReportUpsertController',
     bindToController: true,
@@ -43,5 +43,8 @@ export function QueryBuilderDirective($rootScope) {"ngInject";
         }
       };
     }
-  };
+  
+    
+    
+  };*/
 }

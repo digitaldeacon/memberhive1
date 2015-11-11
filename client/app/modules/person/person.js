@@ -41,7 +41,6 @@ export var mhPersonModule = angular.module('mh.person',
       data: {
         pageTitle: gettext('Person'),
         component: 'person',
-        sidebarFolded: true
       },
       abstract: true
     }).state('person.list', {

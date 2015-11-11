@@ -1,7 +1,7 @@
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 import {ReportListController} from './controllers/report-list-controller';
-import {ReportUpsertController} from './controllers/report-upsert-controller';
+import {ReportEditController} from './controllers/report-edit-controller';
 
 import {QueryBuilderDirective} from './directives/querybuilder-directive';
 import {VariableListDirective} from './directives/variablelist-directive';
@@ -12,11 +12,11 @@ import {ReportService} from './services/report-service';
 import {QueryBuilderModelService} from './services/querybuilder-model-service';
 
 
-export var gemReportModule = angular.module('mh.report', [
+export var mhReportModule = angular.module('mh.report', [
   'ui.codemirror',
 ]);
 
-gemReportModule.config(
+mhReportModule.config(
   ($stateProvider, $provide, MainMenuProvider, gettext) => {
     $stateProvider.state('report', {
       url: '/report',
@@ -28,38 +28,43 @@ gemReportModule.config(
       }
     }).state('report.create', {
       url: '/create',
+      controller: 'ReportEditController',
+      controllerAs: 'reportCtrl',
       templateUrl: 'app/modules/report/views/report.upsert.html',
       data: {
         pageSubTitle: gettext('Create a new report')
       },
-      ncyBreadcrumb: {
-        label: gettext('New Report'),
-        parent: 'report.list'
-      },
       acl: {
         needRights: ['$authenticated']
+      },
+      resolve: {
+        resolveReport: (Report) => {
+          return new Report();
+        }
       }
     }).state('report.edit', {
       url: '/edit/:id',
+      controller: 'ReportEditController',
+      controllerAs: 'reportCtrl',
       templateUrl: 'app/modules/report/views/report.upsert.html',
       data: {
         pageSubTitle: gettext('Edit a report')
       },
-      ncyBreadcrumb: {
-        label: gettext('Edit Report'),
-        parent: 'report.list'
-      },
       acl: {
         needRights: ['$authenticated']
+      },
+      resolve: {
+        resolveReport: ($stateParams, ReportService) => {
+          return ReportService.one($stateParams.id);
+        }
       }
-      }).state('report.list', {
+    }).state('report.list', {
       url: '/list',
+      controller: 'ReportListController',
+      controllerAs: 'reportCtrl',
       templateUrl: 'app/modules/report/views/report.list.html',
       data: {
         pageSubTitle: gettext('List available reports')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Reports')
       },
       acl: {
         needRights: ['$authenticated']
@@ -75,11 +80,11 @@ gemReportModule.config(
   }
 );
 
-gemReportModule.controller('ReportListController', ReportListController);
-gemReportModule.controller('ReportUpsertController', ReportUpsertController);
+mhReportModule.controller('ReportListController', ReportListController);
+mhReportModule.controller('ReportEditController', ReportEditController);
 
-gemReportModule.directive('gemQuerybuilder', QueryBuilderDirective);
-gemReportModule.directive('gemVariableList', VariableListDirective);
+mhReportModule.directive('gemQuerybuilder', QueryBuilderDirective);
+mhReportModule.directive('gemVariableList', VariableListDirective);
 
-gemReportModule.factory('ReportService', ReportService);
-gemReportModule.factory('QueryBuilderModelService', QueryBuilderModelService);
+mhReportModule.factory('ReportService', ReportService);
+mhReportModule.factory('QueryBuilderModelService', QueryBuilderModelService);
