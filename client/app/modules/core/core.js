@@ -10,7 +10,7 @@ import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-direc
 import {stateLoader,appLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
-import {GemFileReader} from './services/filereader';
+import {mhFileReader} from './services/filereader';
 import {Search} from './services/search';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 import {temperatureFilter} from './filters/format-filters';
@@ -162,7 +162,7 @@ gemCoreModule.service('AccountOptions', AccountOptions);
 
 // Factories
 gemCoreModule.factory('Shout', Shout);
-gemCoreModule.factory('GemFileReader', GemFileReader);
+gemCoreModule.factory('mhFileReader', mhFileReader);
 
 // Directives
 gemCoreModule.directive('mhDateInput', mhDateInput);

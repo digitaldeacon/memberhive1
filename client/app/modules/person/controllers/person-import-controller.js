@@ -1,4 +1,11 @@
-export function PersonImportController(Person, GemFileReader, Shout, $scope, gettext, gettextCatalog) {"ngInject";
+export function PersonImportController(
+  Person, 
+  mhFileReader, 
+  Shout, 
+  $scope, 
+  gettext, 
+  gettextCatalog) 
+{"ngInject";
   this.csvToArray = (strData, strDelimiter) => {
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
@@ -83,17 +90,19 @@ export function PersonImportController(Person, GemFileReader, Shout, $scope, get
   };
 
   this.uploadImportFile = (files) => {
-    if (files && files[0]) {
-      GemFileReader.readAsText(files[0], 'UTF-8', $scope).then(
-        (resp) => {
-          //console.log(resp);
-          this.fillTable(this.csvToArray(resp));
-          Shout.message(gettextCatalog.getString("File read"));
-        }, (err) => {
-          Shout.vError(err);
-        }
-      );
+    if (!files || !files[0]) {
+      return;
     }
+    mhFileReader.readAsText(files[0], 'UTF-8', $scope)
+    .then(
+      (resp) => {
+        this.fillTable(this.csvToArray(resp));
+        Shout.message(gettextCatalog.getString("File read"));
+      }, (err) => {
+        Shout.vError(err);
+      }
+    );
+    
   };
   this.options = Object.keys(Person.model.properties);
   this.options.push('contact.home', 'contact.mobile', 'contact.skype', 'contact.facebook',
