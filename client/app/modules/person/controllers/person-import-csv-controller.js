@@ -1,4 +1,4 @@
-export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, gettext, gettextCatalog) {"ngInject";
+export function PersonImportCSVController(Person, mhFileReader, Shout, $scope, gettext, gettextCatalog) {"ngInject";
   this.csvToArray = (strData, strDelimiter) => {
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
@@ -84,7 +84,7 @@ export function PersonImportCSVController(Person, GemFileReader, Shout, $scope, 
 
   this.uploadImportFile = (file) => {
     if (file) {
-      GemFileReader.readAsText(file, 'UTF-8', $scope).then(
+      mhFileReader.readAsText(file, 'UTF-8', $scope).then(
         (resp) => {
           this.fillTable(this.csvToArray(resp));
           Shout.message(gettextCatalog.getString("File read"));

@@ -12,6 +12,7 @@ import {PersonImportCSVController} from './controllers/person-import-csv-control
 import {PersonImportImagesController} from './controllers/person-import-images-controller';
 import {PersonExportCSVController} from './controllers/person-export-csv-controller';
 import {PersonExportVCardController} from './controllers/person-export-vcard-controller';
+import {PersonExportPDFController} from './controllers/person-export-pdf-controller';
 import {HouseholdListController} from './controllers/household-list-controller';
 import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
@@ -166,7 +167,7 @@ export var mhPersonModule = angular.module('mh.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('person.household-edit', {
+    }).state('person.household.edit', {
       url: '/household/edit/:id',
       templateUrl: 'app/modules/person/views/household.edit.html',
       data: {
@@ -179,7 +180,7 @@ export var mhPersonModule = angular.module('mh.person',
       acl: {
         needRights: ['$authenticated']
       }
-    }).state('person.household-create', {
+    }).state('person.household.create', {
       url: '/household/create',
       templateUrl: 'app/modules/person/views/household.edit.html',
       data: {
@@ -199,10 +200,8 @@ export var mhPersonModule = angular.module('mh.person',
 
     MainMenuProvider.add(new MenuSection(gettext('Persons'), 'people',
       [
-        new MenuLink(gettext('List Persons'), 'people', 'person.list'),
-        new MenuLink(gettext('Create Person'), 'person_add', 'person.create'),
-        new MenuLink(gettext('List Households'), 'location_city', 'person.households'),
-        new MenuLink(gettext('Create Household'), 'add', 'person.household-create'),
+        new MenuLink(gettext('Persons'), 'people', 'person.list'),
+        new MenuLink(gettext('Households'), 'location_city', 'person.households'),
         new MenuLink(gettext('Import'), 'file_upload', 'person.import'),
         new MenuLink(gettext('Export'), 'cloud_download', 'person.export')
       ]
@@ -225,6 +224,7 @@ mhPersonModule.controller('PersonImportCSVController', PersonImportCSVController
 mhPersonModule.controller('PersonImportImagesController', PersonImportImagesController);
 mhPersonModule.controller('PersonExportVCardController', PersonExportVCardController);
 mhPersonModule.controller('PersonExportCSVController', PersonExportCSVController);
+mhPersonModule.controller('PersonExportPDFController', PersonExportPDFController);
 mhPersonModule.controller('HouseholdListController', HouseholdListController);
 mhPersonModule.controller('HouseholdEditController', HouseholdEditController);
 

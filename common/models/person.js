@@ -3,9 +3,12 @@ var _ = require('lodash');
 var vCard = require('vcards-js');
 var json2csv = require('json2csv');
 var fs = require('fs');
+
+
 module.exports = function(Person) {
   var utils = require('../utils.js');
   var Lomongo = require('../lomongo.js');
+  var Pdf = require('../pdf.js');
   //
   /** Set primaryContact to `none` by default */
   Person.definition.rawProperties.primaryContact.default = 'none';
@@ -52,6 +55,7 @@ module.exports = function(Person) {
       cb(null, persons);
     });
   };
+ 
   Person.remoteMethod(
     'search',
     {
@@ -312,6 +316,38 @@ module.exports = function(Person) {
     return v;
   }
 
+  Person.exportPDF = function(res, cb) {
+    var datetime = new Date();
+    res.set('Expires', 'Tue, 03 Jul 2001 06:00:00 GMT');
+    res.set('Cache-Control', 'max-age=0, no-cache, must-revalidate, proxy-revalidate');
+    res.set('Last-Modified', datetime +'GMT');
+    res.set('Content-Type','application/force-download');
+    res.set('Content-Type','application/octet-stream');
+    res.set('Content-Type','application/download');
+    res.set('Content-Disposition','attachment;filename=export.pdf');
+    res.set('Content-Transfer-Encoding','binary');
+    
+    Person.find(
+      {},
+      function(err, persons) {
+        var pdf = new Pdf(Person);
+        pdf.render("", {persons: persons}, {}, res, cb);
+      }
+     );
+
+  }
+  
+  Person.remoteMethod(
+    'exportPDF',
+    {
+       accepts: [
+        {arg: 'res', type: 'object', 'http': {source: 'res'}}
+      ],
+      returns: {},
+      http: {path: '/exportPDF', verb: 'get'}
+    }
+  );
+  
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
   };
