@@ -1,11 +1,10 @@
-<mh-content>
+<div class="mh-content">
   <div ng-if="person.hasAvatar && !isEditingAvatar">
     <mh-avatar person="person" size="s"></mh-avatar>
-    <md-button ng-click="isEditingAvatar = true">Edit Avatar</md-button>
     <md-button ng-click="personCtrl.removeAvatar()">Remove Avatar</md-button>
   </div>
 
-  <div ng-if="!person.hasAvatar || isEditingAvatar">
+  <div ng-if="!person.hasAvatar">
     <label for="avatar" translate>Select Avatar</label>
     <div
       ngf-drop
@@ -21,14 +20,6 @@
     </div>
     <div ngf-no-file-drop><translate>File Drag/Drop is not supported for this browser</translate></div>
 
-    <div class="cropArea" ng-if="personCtrl.uploadedAvatar">
-      <img-crop image="personCtrl.uploadedAvatar"
-                result-image="personCtrl.croppedAvatar"
-                area-type="square"
-                result-image-size="800"
-                result-image-format="image/jpeg">
-      </img-crop>
-    </div>
-    <md-button  ng-if="personCtrl.isEditingAvatar" ng-click="isEditingAvatar = false">Cancel Editing</md-button>
+    <img id="avatar_preview" ng-if="" />
   </div>
-</mh-content>
+</div>
