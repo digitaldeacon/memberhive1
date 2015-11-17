@@ -3,7 +3,7 @@ var _ = require('lodash');
 var vCard = require('vcards-js');
 var json2csv = require('json2csv');
 var fs = require('fs');
-
+var Toner = require("toner");
 
 module.exports = function(Person) {
   var utils = require('../utils.js');
@@ -316,12 +316,12 @@ module.exports = function(Person) {
     return v;
   }
 
-  Person.exportPDF = function(cb) {
+  Person.exportPDF = function(html, cb) {
     Person.find(
       {},
       function(err, persons) {
         var pdf = new Pdf(Person);
-        pdf.render("", {persons: persons}, {}, cb);
+        pdf.render(html, {persons: persons}, {}, cb);
       }
      );
 
@@ -330,6 +330,10 @@ module.exports = function(Person) {
   Person.remoteMethod(
     'exportPDF',
     {
+      accepts: {
+        arg: 'html',
+        type: 'string'
+      },
       returns: {
         arg: 'pdf',
         type: 'string'
@@ -397,4 +401,43 @@ module.exports = function(Person) {
       });
     return ret;
   }
+  
+  
+  
+ 
+  Person.renderPDF = function(res, cb) {
+    var toner = Toner();
+    toner.engine('none', Toner.noneEngine);
+    toner.recipe('phantom-pdf', require("toner-phantom")());
+    //toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
+    toner.recipe('html', Toner.htmlRecipe);
+    toner.render({
+      template: {
+        engine: 'none',
+        recipe: 'phantom-pdf',
+        content: "<h1>Hallo</h1>"
+      },
+      options: {}
+    }, function(err, out) {
+      if (err) {
+        cb(new Error(err));
+        return;
+      }
+      //out.stream.pipe(res);
+      cb(null,out.content.toString());
+      // Callback intentionally not invoked
+    });
+  };
+  Person.remoteMethod('renderPDF', {
+    accepts: [
+      {arg: 'res', type: 'object', 'http': {source: 'res'}}
+    ],
+    returns: {
+      arg: 'pdf',
+      type: 'string'
+    },
+    http: {
+      verb: 'get'
+    }
+  }); 
 };
