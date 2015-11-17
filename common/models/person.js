@@ -316,22 +316,12 @@ module.exports = function(Person) {
     return v;
   }
 
-  Person.exportPDF = function(res, cb) {
-    var datetime = new Date();
-    res.set('Expires', 'Tue, 03 Jul 2001 06:00:00 GMT');
-    res.set('Cache-Control', 'max-age=0, no-cache, must-revalidate, proxy-revalidate');
-    res.set('Last-Modified', datetime +'GMT');
-    res.set('Content-Type','application/force-download');
-    res.set('Content-Type','application/octet-stream');
-    res.set('Content-Type','application/download');
-    res.set('Content-Disposition','attachment;filename=export.pdf');
-    res.set('Content-Transfer-Encoding','binary');
-    
+  Person.exportPDF = function(cb) {
     Person.find(
       {},
       function(err, persons) {
         var pdf = new Pdf(Person);
-        pdf.render("", {persons: persons}, {}, res, cb);
+        pdf.render("", {persons: persons}, {}, cb);
       }
      );
 
@@ -340,10 +330,10 @@ module.exports = function(Person) {
   Person.remoteMethod(
     'exportPDF',
     {
-       accepts: [
-        {arg: 'res', type: 'object', 'http': {source: 'res'}}
-      ],
-      returns: {},
+      returns: {
+        arg: 'pdf',
+        type: 'string'
+      },
       http: {path: '/exportPDF', verb: 'get'}
     }
   );

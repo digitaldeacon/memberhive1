@@ -29,7 +29,7 @@ module.exports = class Pdf {
     });
   }
   
-  render(html, data, options, res, cb) {
+  render(html, data, options, cb) {
     var template = handlebars.compile("<html><head></head><body>"+html+"</body></html>");
     var result = template(data);
 
@@ -75,7 +75,7 @@ module.exports = class Pdf {
         cb(new Error(err));
         return;
       }
-      out.stream.pipe(res);
+      cb(null, out.content);
       // Callback intentionally not invoked
     });
   }
