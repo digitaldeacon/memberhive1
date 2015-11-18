@@ -4,6 +4,7 @@ export function PersonEditController (
   AvatarService,
   PersonEditService,
   PersonService,
+  Household,
   Person,
   resolvePerson,
   Shout,
@@ -68,7 +69,7 @@ export function PersonEditController (
           } else {
             promises.push(Household.create({}, household).$promise.then((h) => {
               return Person.household.link({id: data.id, fk: h.id}).$promise;
-            });
+            }));
           }
         });
         console.log(promises);
