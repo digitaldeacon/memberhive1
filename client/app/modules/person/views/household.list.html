@@ -1,58 +1,15 @@
-<mh-panel>
-  <div ng-controller="HouseholdListController as householdCtrl" class="household-list">
-    <mh-panel-header>
-      <translate>Households</translate>
-    </mh-panel-header>
-
-    <mh-panel-body>
-      <dir-pagination-controls boundary-links="true" on-page-change="householdCtrl.pageChanged(newPageNumber)"
-                               template-url="app/templates/dirPagination.html">
-      </dir-pagination-controls>
-
-      <table class="table table-striped table-bordered table-advance table-hover">
-        <thead>
-        <tr>
-          <th translate>Household Name</th>
-          <th translate>Household Members</th>
-          <th translate>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr dir-paginate="household in householdCtrl.households | itemsPerPage: gemConfig.pagination.pageSize"
-            total-items="householdCtrl.totalHouseholds">
-          <td>
-            <a ui-sref="person.household-edit({ id: household.id })">
-              {{household.name}}
-            </a>
-          </td>
-          <td class="label-row">
-            <a ng-repeat="person in household.persons" ui-sref="person.view({id: person.id})">
-              <mh-avatar person="person" size="xs" circle label="{{person|formatName}}"></mh-avatar>
-            </a>
-          </td>
-          <td class="actions">
-            <md-button class="md-icon-button" tooltip="{{'Edit' | translate}}" aria-label="{{'Edit' | translate}}"
-                       ui-sref="person.household-edit({ id: household.id })">
-              <ng-md-icon icon="edit"></ng-md-icon>
-            </md-button>
-            <md-button class="md-icon-button " tooltip="{{'Delete' | translate}}" aria-label="{{'Delete' | translate}}"
-                       ng-click="householdCtrl.deleteHousehold(household)" href="#"
-                       confirm="Delete “{{::household.name}}”?">
-              <ng-md-icon icon="delete"></ng-md-icon>
-            </md-button>
-
-          </td>
-        </tr>
-        </tbody>
-      </table>
-
-      <dir-pagination-controls boundary-links="true" on-page-change="householdCtrl.pageChanged(newPageNumber)"
-                               template-url="app/templates/dirPagination.html">
-      </dir-pagination-controls>
-    </mh-panel-body>
-  </div>
-</mh-panel>
-<a ui-sref="person.household.create">
+<md-list>
+  <md-list-item
+    ng-repeat="household in householdCtrl.households track by $index"
+    flex layout="row"
+    class="person-list-item"
+  >
+    <a ui-sref="person.household-edit({ householdId: household.id })">
+      {{household.name}}
+    </a>
+  </md-list-item>
+</md-list>
+<a ui-sref="person.household-create">
   <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Household">
     <ng-md-icon icon="add"></ng-md-icon>
   </md-button>

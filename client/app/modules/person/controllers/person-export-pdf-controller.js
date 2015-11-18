@@ -13,7 +13,7 @@ export function PersonExportPDFController(
     $http.get('/app/modules/person/templates/export-pdf.html')
     .then((html) => {
       var resource =
-        LoopBackResource(mhConfig.apiUrl+'/Persons/exportPDF', {},
+        new LoopBackResource(mhConfig.apiUrl+'/Persons/exportPDF', {},
           {'get' : {method:'POST', responseType: 'arraybuffer'}});
       resource.get({html: html.data}).$promise.then(
         (data) => {

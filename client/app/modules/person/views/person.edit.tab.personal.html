@@ -39,6 +39,11 @@
     <label translate>Tags</label>
     <mh-person-tags ng-model="personCtrl.person.tags"></mh-person-tags>
   </md-input-container>
+  <md-input-container >
+    <label translate>Household</label>
+    <mh-person-household ng-model="personCtrl.person.household"></mh-person-household>
+  </md-input-container>
+
 
   <md-radio-group ng-model="personCtrl.person.gender" layout="row">
     <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
@@ -113,8 +118,8 @@
           <label>
             <span translate>{{personCtrl.personService.dateTypes[vlue.key].text}}</span>
           </label>
-          <mh-date-input ng-model="value.value" placeholder="Enter {{key}}"></mh-date-input>
         </md-input-container>
+        <mh-date-input ng-model="value.value" placeholder="Enter {{key}}"></mh-date-input>
       </div>
     </md-list-item>
 

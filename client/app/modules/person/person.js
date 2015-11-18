@@ -18,7 +18,7 @@ import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {PersonEditService} from './services/person-edit-service';
 import {AvatarService} from './services/avatar-service';
-import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonEditType} from './directives/person-directives';
+import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonEditType, mhPersonHousehold} from './directives/person-directives';
 import {mhAvatar, mhAvatarUpload} from './directives/avatar-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
@@ -156,6 +156,9 @@ export var mhPersonModule = angular.module('mh.person',
       }
     }).state('person.households', {
       url: '/households',
+      controller: 'HouseholdListController',
+      controllerAs: 'householdCtrl',
+
       templateUrl: 'app/modules/person/views/household.list.html',
       data: {
         pageTitle: gettext('Households'),
@@ -166,9 +169,16 @@ export var mhPersonModule = angular.module('mh.person',
       },
       acl: {
         needRights: ['$authenticated']
+      },
+      resolve: {
+        resolveHouseholds: (PersonService) => {
+          return PersonService.getHouseholds();
+        }
       }
-    }).state('person.household.edit', {
-      url: '/household/edit/:id',
+    }).state('person.household-edit', {
+      url: '/household/edit/:householdId',
+      controller: 'HouseholdEditController',
+      controllerAs: 'householdCtrl',
       templateUrl: 'app/modules/person/views/household.edit.html',
       data: {
         pageTitle: gettext('Households'),
@@ -179,9 +189,16 @@ export var mhPersonModule = angular.module('mh.person',
       },
       acl: {
         needRights: ['$authenticated']
+      },
+      resolve: {
+        resolveHousehold: (PersonService, $stateParams) => {
+          return PersonService.getHousehold($stateParams.householdId);
+        }
       }
-    }).state('person.household.create', {
+    }).state('person.household-create', {
       url: '/household/create',
+      controller: 'HouseholdEditController',
+      controllerAs: 'householdCtrl',
       templateUrl: 'app/modules/person/views/household.edit.html',
       data: {
         pageTitle: gettext('Households'),
@@ -192,7 +209,13 @@ export var mhPersonModule = angular.module('mh.person',
       },
       acl: {
         needRights: ['$authenticated']
+      },
+      resolve: {
+        resolveHousehold: (Household) => {
+          return new Household();
+        }
       }
+
     });
 
     // Allow skype urls http://stackoverflow.com/a/15769779
@@ -236,6 +259,7 @@ mhPersonModule.directive('mhAvatar', mhAvatar);
 mhPersonModule.directive('mhPersonChips', mhPersonChips);
 mhPersonModule.directive('mhPersonStatus', mhPersonStatus);
 mhPersonModule.directive('mhPersonTags', mhPersonTags);
+mhPersonModule.directive('mhPersonHousehold', mhPersonHousehold);
 mhPersonModule.directive('mhPersonListItem', mhPersonListItem);
 mhPersonModule.directive('mhPersonEditType', mhPersonEditType);
 

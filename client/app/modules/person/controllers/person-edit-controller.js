@@ -4,6 +4,7 @@ export function PersonEditController (
   AvatarService,
   PersonEditService,
   PersonService,
+  Person,
   resolvePerson,
   Shout,
   $http,
@@ -45,10 +46,14 @@ export function PersonEditController (
       })
       .then((data) => {
         if (this.avatarDeleted && !this.avatarChanged) {
-          PersonService.deleteAvatar(this.person);
+          PersonService.deleteAvatar(data);
         } else if (this.avatarChanged && this.uploadedAvatar) {
-          AvatarService.saveAvatarFromDataURI(this.person.id, this.uploadedAvatar);
+          AvatarService.saveAvatarFromDataURI(data, this.uploadedAvatar);
         }
+        return data;
+      })
+      .then((data) => {
+        Person.setHousehold({id: data.id, householdId: data.householdId});
         return data;
       })
       .then( (data) => {

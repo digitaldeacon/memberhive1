@@ -13,7 +13,7 @@ export function PersonService(
 
   this.persons = null;
   this.personsSimple = null;
-
+  this.households = Household.find();
   this.avatar = (person, size) => {
     if (person.hasAvatar) {
       person["avatarUrl_"+size] = mhConfig.apiUrl+"/Avatars/"+person.id+"/download/"+size+".jpg";
@@ -147,30 +147,15 @@ export function PersonService(
 
     getHousehold: (id) => {
       return Household.findById({
-        id: id,
-        filter: {
-          include: [
-            'persons'
-          ]
-        }
+        id: id
       });
     },
 
     /**
      * Return a list of available Households
      */
-    getHouseholds: (pageNumber) => {
-      if (!pageNumber)
-        return Household.find();
-
-      return Household.find({
-        filter: {
-          limit: $rootScope.gemConfig.pagination.pageSize,
-          offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
-          order: ['name ASC'],
-          include: ['persons']
-        }
-      });
+    getHouseholds: () => {
+      return Household.find();
     },
 
 
@@ -192,6 +177,9 @@ export function PersonService(
       return Person.status({"text": query}).$promise.then((resp)=>{
         return resp.data;
       });
+    },
+    searchHousehold: (query) => {
+      return this.households;
     },
     undoMap : this.undoMap,
 

@@ -80,6 +80,32 @@ export function mhPersonEditType() {
 
   };
 }
+export function mhPersonHousehold() {
+  return {
+    templateUrl: 'app/modules/person/templates/person-household.html',
+    restrict: 'E',
+    scope: {
+      ngModel: '=',
+    },
+    controller: function($scope, PersonService) {"ngInject";
+      if(!$scope.ngModel) {
+        $scope.ngModel = [];
+      }
+      $scope.searchHousehold = (query) => {
+        console.log($scope.ngModel);
+        console.log(PersonService.searchHousehold(query));
+        return PersonService.searchHousehold(query);
+      };
+      $scope.transform = (chip) => {
+        if(!chip["name"])
+          return {"name": chip};
+        else
+          return chip;
+      }
+    }
+
+  };
+}
 
 
 

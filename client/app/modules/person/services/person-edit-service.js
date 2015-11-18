@@ -12,9 +12,10 @@ export function PersonEditService(
    * Cached
    */
   this.getPerson = (personId) => {
-    if(this.person && this.person.id === personId)
+    if(this.person && this.person.id === personId) //return cached person
       return $q.when(this.person);
-    return PersonService.one(personId).then((p) => this.person = p);
+    return PersonService.one(personId)
+      .then((p) => this.person = p);//cache person
   };
 
   this.save = (person) => {

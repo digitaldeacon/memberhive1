@@ -1,12 +1,10 @@
-<div ng-controller="HouseholdEditController as householdCtrl">
-  <form ng-submit="householdCtrl.save(householdForm.$valid)" name="householdForm" novalidate>
+<form ng-submit="householdCtrl.save()">
 
     <div layout="row">
       <md-input-container flex="40">
         <label><translate>Household Name</translate></label>
         <input ng-model="householdCtrl.household.name">
       </md-input-container>
-
 
       <md-input-container flex="40">
         <label><translate>Letter Salutation</translate></label>
@@ -21,10 +19,10 @@
     </div>
 
 
-    <gem-address-edit address="householdCtrl.household.address"></gem-address-edit>
+    <mh-address-edit address="householdCtrl.household.address"></mh-address-edit>
 
     <md-button ng-disabled="personEdit.$invalid" class="md-raised md-primary" type="submit"><translate>Save Changes</translate></md-button>
     <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndClose()"><translate>Save and Close</translate></md-button>
     <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndNew()"><translate>Save and New</translate></md-button>
-  </form>
-</div>
+
+</form>
