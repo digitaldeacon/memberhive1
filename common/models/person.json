@@ -56,7 +56,7 @@
     "duties": {
       "type": "string"
     },
-    
+
     "emails": {
       "type": "object"
     },
@@ -75,7 +75,7 @@
     "addresses": {
       "type": "object"
     },
-    
+
     "tags": {
       "type": "array"
     },
@@ -126,8 +126,14 @@
       "foreignKey": ""
     },
     "household": {
-      "type": "belongsTo",
-      "model": "Household"
+      "type": "referencesMany",
+      "model": "Household",
+      "property": "householdIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+
     },
     "relationType": {
       "type": "belongsTo",
@@ -154,7 +160,7 @@
         "as": "groupable",
         "foreignKey": "groupableId",
         "discriminator": "groupableType"
-       } 
+       }
     }
   },
   "acls": [

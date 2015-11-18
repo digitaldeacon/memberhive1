@@ -121,14 +121,16 @@
       <div flex layout="column" class="full-height">
         <div data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl">
         </div>
-        
+
         <md-content flex class="content-background">
           <div ui-view layout="column" layout-padding></div>
+          <div style="font-size: 8pt; color: #aaa" ng-cloak>{{accessToken}}</div>
+
         </md-content>
       </div>
     </div>
   </div>
-  
+
   <div flex ng-if="acl.isLoggedOut()" class="login-container">
     <div flex ui-view layout="column" ></div>
   </div>

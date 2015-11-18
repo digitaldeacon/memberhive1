@@ -97,11 +97,11 @@ export function mhPersonHousehold() {
         return PersonService.searchHousehold(query);
       };
       $scope.transform = (chip) => {
-        if(!chip["name"])
+        if(!chip.name)
           return {"name": chip};
         else
           return chip;
-      }
+      };
     }
 
   };
