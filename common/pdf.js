@@ -29,7 +29,7 @@ module.exports = class Pdf {
     });
   }
 
-  render(html, data, options, cb) {
+  render(html, data, options, res, cb) {
     var template = handlebars.compile(html);
     var result = template(data);
 
@@ -37,8 +37,8 @@ module.exports = class Pdf {
 
     var toner = Toner();
     toner.engine('none', Toner.noneEngine);
-    toner.recipe('phantom-pdf', require("toner-phantom")());
-    //toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
+    //toner.recipe('phantom-pdf', require("toner-phantom")());
+    toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
     toner.recipe('html', Toner.htmlRecipe);
 
     var header = options.enableHeader ? options.header : '';
@@ -54,7 +54,7 @@ module.exports = class Pdf {
     toner.render({
       template: {
         engine: 'none',
-        recipe: 'phantom-pdf',
+        recipe: 'wkhtmltopdf',
         content: result
       },
       options: {}
@@ -63,8 +63,7 @@ module.exports = class Pdf {
         cb(new Error(err));
         return;
       }
-      console.log(out.content.toString());
-      cb(null, out.content);
+      out.stream.pipe(res);
       // Callback intentionally not invoked
     });
   }

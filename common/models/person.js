@@ -55,7 +55,7 @@ module.exports = function(Person) {
       cb(null, persons);
     });
   };
- 
+
   Person.remoteMethod(
     'search',
     {
@@ -316,32 +316,27 @@ module.exports = function(Person) {
     return v;
   }
 
-  Person.exportPDF = function(html, cb) {
+  Person.exportPDF = function(html, res, cb) {
     Person.find(
       {},
       function(err, persons) {
         var pdf = new Pdf(Person);
-        pdf.render(html, {persons: persons}, {}, cb);
+        pdf.render(html, {persons: persons}, {}, res, cb);
       }
      );
 
   }
-  
+
   Person.remoteMethod(
     'exportPDF',
     {
-      accepts: {
-        arg: 'html',
-        type: 'string'
-      },
-      returns: {
-        arg: 'pdf',
-        type: 'string'
-      },
-      http: {path: '/exportPDF', verb: 'get'}
+      accepts: [
+        {arg: 'html',type: 'string'},
+        {arg: 'res', type: 'object', 'http': {source: 'res'}}
+      ],
     }
   );
-  
+
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
   };
@@ -401,10 +396,10 @@ module.exports = function(Person) {
       });
     return ret;
   }
-  
-  
-  
- 
+
+
+
+
   Person.renderPDF = function(res, cb) {
     var toner = Toner();
     toner.engine('none', Toner.noneEngine);
@@ -439,5 +434,5 @@ module.exports = function(Person) {
     http: {
       verb: 'get'
     }
-  }); 
+  });
 };

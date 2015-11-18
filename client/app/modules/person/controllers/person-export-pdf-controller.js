@@ -2,7 +2,7 @@
 import {saveAs} from "../../../scripts/FileSaver.min";
 export function PersonExportPDFController(
   Person,
-  LoopBackResourceProvider,
+  LoopBackResource,
   mhConfig,
   $window,
   $http
@@ -13,12 +13,12 @@ export function PersonExportPDFController(
     $http.get('/app/modules/person/templates/export-pdf.html')
     .then((html) => {
       var resource =
-        LoopBackResourceProvider.$get('/Persons/exportPDF', {},
-          {'get' : {method:'GET', responseType: 'arraybuffer'}});
+        LoopBackResource(mhConfig.apiUrl+'/Persons/exportPDF', {},
+          {'get' : {method:'POST', responseType: 'arraybuffer'}});
       resource.get({html: html.data}).$promise.then(
         (data) => {
-          console.log($window.atob(data.pdf.$data));
-          var file = new Blob([$window.atob(data.pdf.$data)], { type: 'application/pdf' });
+          console.log(data);
+          var file = new Blob([data], { type: 'application/pdf' });
           saveAs(file, "export.pdf");
         }
       );

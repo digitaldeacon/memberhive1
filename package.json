@@ -23,6 +23,7 @@
     "serve-favicon": "^2.0.1",
     "toner": "^0.1.2",
     "toner-phantom": "^0.1.0",
+    "toner-wkhtmltopdf": "^0.1.1",
     "vcards-js": "^2.2.0"
   },
   "optionalDependencies": {
