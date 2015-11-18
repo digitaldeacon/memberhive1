@@ -10,7 +10,7 @@ module.exports = class Pdf {
     this.app = model.app;
     this.registerHelper();
   }
-  
+
   registerHelper() {
     handlebars.registerHelper('avatarUrl', function(personId, size) {
       var validSizes = ['xs', 's', 'm', 'l'];
@@ -28,19 +28,19 @@ module.exports = class Pdf {
       return moment(date).format(format);
     });
   }
-  
+
   render(html, data, options, cb) {
     var template = handlebars.compile(html);
     var result = template(data);
-    
+
     console.log(result);
 
     var toner = Toner();
     toner.engine('none', Toner.noneEngine);
     toner.recipe('phantom-pdf', require("toner-phantom")());
-    toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
+    //toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
     toner.recipe('html', Toner.htmlRecipe);
-    
+
     var header = options.enableHeader ? options.header : '';
     var footer = options.enableFooter ? options.footer : '';
     var headerHeight = options.enableHeader ? options.headerHeight : 0;
@@ -54,7 +54,7 @@ module.exports = class Pdf {
     toner.render({
       template: {
         engine: 'none',
-        recipe: 'wkhtmltopdf',
+        recipe: 'phantom-pdf',
         content: result
       },
       options: {}
