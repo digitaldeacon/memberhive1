@@ -14,7 +14,7 @@ export function PersonEditController (
 {    "ngInject";
   this.loadPerson = (data) => {
     var ret = PersonEditService.transform(data);
-    this.households = Person.households({id: data.id});
+    this.households = Person.household({id: data.id});
     this.person = ret;
     return ret;
   };
@@ -66,7 +66,9 @@ export function PersonEditController (
           if(household.id) {
             promises.push(Person.household.link({id: data.id, fk: household.id}).$promise);
           } else {
-            promises.push(Person.household.create({id: data.id}, household).$promise);
+            promises.push(Household.create({}, household).$promise.then((h) => {
+              return Person.household.link({id: data.id, fk: h.id}).$promise;
+            });
           }
         });
         console.log(promises);

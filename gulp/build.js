@@ -18,7 +18,7 @@ module.exports = function(options) {
         quotes: true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-        module: 'gem.core',
+        module: 'mh.core',
         root: 'app/'
       }))
       .pipe(gulp.dest(options.tmp + '/partials/'));
@@ -85,7 +85,7 @@ module.exports = function(options) {
     ])
     .pipe(gulp.dest(options.dist + '/'));
   });
-   
+
   gulp.task('clean', function (done) {
     $.del([options.dist + '/', options.tmp + '/'], done);
   });
@@ -98,7 +98,7 @@ module.exports = function(options) {
         process.exit();
       });
   });
-  
+
   gulp.task('build-default', ['html', 'fonts', 'images', 'other'], function () {
      return gulp.src(options.dist + '/index.html')
       .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
