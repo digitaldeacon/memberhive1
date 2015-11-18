@@ -12,7 +12,14 @@ export function PersonEditController (
   $q
 )
 {    "ngInject";
-  this.person = PersonEditService.transform(resolvePerson);
+  this.loadPerson = (data) => {
+    var ret = PersonEditService.transform(data);
+    this.households = Person.households({id: data.id});
+    this.person = ret;
+    return ret;
+  };
+
+  this.loadPerson(resolvePerson);
   this.showExtended = false;
   this.personService = PersonService;
   this.uploadedAvatar = null;
@@ -53,14 +60,19 @@ export function PersonEditController (
         return data;
       })
       .then((data) => {
-        Person.setHousehold({id: data.id, householdId: data.householdId});
-        return data;
+        var promises = [];
+        console.log("save households", this.households);
+        this.households.forEach((household) => {
+          if(household.id) {
+            promises.push(Person.household.link({id: data.id, fk: household.id}).$promise);
+          } else {
+            promises.push(Person.household.create({id: data.id}, household).$promise);
+          }
+        });
+        console.log(promises);
+        return $q.all(promises).then(() => {return data;});
       })
-      .then( (data) => {
-        var ret = PersonEditService.transform(data);
-        this.person = ret;
-        return ret;
-      });
+      .then(this.loadPerson);
   };
 
   this.addItem = (val) => {
