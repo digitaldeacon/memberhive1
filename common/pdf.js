@@ -37,8 +37,8 @@ module.exports = class Pdf {
 
     var toner = Toner();
     toner.engine('none', Toner.noneEngine);
-    //toner.recipe('phantom-pdf', require("toner-phantom")());
-    toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
+    toner.recipe('phantom-pdf', require("toner-phantom")());
+    //toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
     toner.recipe('html', Toner.htmlRecipe);
 
     var header = options.enableHeader ? options.header : '';
@@ -54,7 +54,7 @@ module.exports = class Pdf {
     toner.render({
       template: {
         engine: 'none',
-        recipe: 'wkhtmltopdf',
+        recipe: 'phantom-pdf',
         content: result
       },
       options: {}
