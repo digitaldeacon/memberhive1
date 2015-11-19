@@ -14,10 +14,11 @@ export function PersonExportPDFController(
     .then((html) => {
       var resource =
         new LoopBackResource(mhConfig.apiUrl+'/Persons/exportPDF', {},
-          {'get' : {method:'POST', responseType: 'arraybuffer'}});
-      resource.get({html: html.data}).$promise.then(
+          {'post' : {method:'POST', responseType: 'blob'}});
+      console.log("resource", resource);
+      resource.post({html: html.data},
         (data) => {
-          console.log(data);
+          console.log("data", data);
           var file = new Blob([data], { type: 'application/pdf' });
           saveAs(file, "export.pdf");
         }

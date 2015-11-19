@@ -184,12 +184,6 @@
     },
     {
       "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW",
-      "property": "renderPDF"
-    },
-    {
-      "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "random"
@@ -211,6 +205,12 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "exportVCard"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportPDF"
     },
     {
       "principalType": "ROLE",
