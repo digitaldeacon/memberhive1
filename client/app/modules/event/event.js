@@ -6,7 +6,7 @@ import {EventService} from './service/event-service';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 
-export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
+export var mhEventModule = angular.module('mh.event', [""]
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('event', {
