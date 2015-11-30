@@ -19,6 +19,11 @@
   },
   "validations": [],
   "relations": {
+    "persons": {
+      "type": "hasMany",
+      "model": "Person",
+      "foreignKey": ""
+    }
   },
   "acls": [
    {
