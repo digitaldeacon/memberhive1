@@ -13,9 +13,14 @@ export function PersonExportPDFController(
     $http.get('/app/modules/person/templates/export-pdf.html')
     .then((html) => {
       var resource =
-        new LoopBackResource(mhConfig.apiUrl+'/Persons/exportPDF', {},
-          {'post' : {method:'POST', responseType: 'blob'}});
+        new LoopBackResource(
+          mhConfig.apiUrl+'/Persons/exportPDF', 
+          {},
+          {'post' : {method:'POST', responseType: 'blob'}}
+        );
+        
       console.log("resource", resource);
+      
       resource.post({html: html.data},
         (data) => {
           console.log("data", data);

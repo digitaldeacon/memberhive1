@@ -418,8 +418,8 @@ module.exports = function(Person) {
         cb(new Error(err));
         return;
       }
-      //out.stream.pipe(res);
-      cb(null,out.content.toString());
+      out.stream.pipe(res);
+      //cb(null, out.content.toString());
       // Callback intentionally not invoked
     });
   };
