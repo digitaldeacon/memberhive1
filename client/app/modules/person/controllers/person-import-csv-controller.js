@@ -100,9 +100,29 @@ export function PersonImportCSVController(Person, mhFileReader, Shout, $scope, g
   });
 
   this.options = Object.keys(Person.model.properties);
-  this.options.push('contact.home', 'contact.mobile', 'contact.skype', 'contact.facebook',
-                    'address.home.street1', 'address.home.street2', 'address.home.city', 'address.home.zipcode', 'address.home.country', 'address.home.additional',
-                    'address.work.street1', 'address.work.street2', 'address.work.city', 'address.work.zipcode', 'address.work.country', 'address.work.additional',
+  this.options.push('contacts.home', 
+                    'contacts.mobile', 
+                    'contacts.skype', 
+                    'contacts.facebook',
+                    'custom.dienste',
+                    'custom.kinder',
+                    'dates.anniversary',
+                    'dates.birthday',
+                    'dates.baptism',
+                    'emails.work',
+                    'emails.personal',
+                    'address.home.street1', 
+                    'address.home.street2', 
+                    'address.home.city', 
+                    'address.home.zipcode',
+                    'address.home.country',
+                    'address.home.additional',
+                    'address.work.street1', 
+                    'address.work.street2', 
+                    'address.work.city', 
+                    'address.work.zipcode', 
+                    'address.work.country',
+                    'address.work.additional',
                     ''
                    );
   this.assign = [];

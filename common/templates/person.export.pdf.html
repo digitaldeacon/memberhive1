@@ -18,7 +18,7 @@
               <td class="td-name">
                   <div class="name">{{this.firstName}} {{this.lastName}}</div>
                       <div class="str">{{this.addresses.home.street1}}</div>
-                      <div class="str">{{this.addresses.home.street1}} {{this.addresses.home.street1}}</div>
+                      <div class="str">{{this.addresses.home.zipcode}} {{this.addresses.home.city}}</div>
               </td>
               <td  class="td-date">
                   Geb:<div class="tel">{{this.dates.birthday}}</div>
@@ -26,15 +26,14 @@
               </td>  
               <td  class="td-contact">
             Telefon:<br/>
-                  <div class="tel">{{this.firstName}}</div>
-                  <div class="tel">{{this.firstName}}</div>
+                  <div class="tel">{{this.contacts.home}}</div>
+                  <div class="tel">{{this.contacts.mobile}}</div>
               </td>  
 
           </tr>
           <tr class="bottom">
               <td colspan="3" class="more">
-                  <div class="tel">{{this.firstName}}</div>
-                  <div class="kinder">{{this.firstName}}</div>
+                  <div class="tel">{{this.emails.personal}}</div>
                   <div class="dienst">{{this.duties}}</div>      
               </td>  
           </tr>
