@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <link href='http://fonts.googleapis.com/css?family=Tinos:400,700,400italic,700italic&amp;subset=cyrillic-ext,cyrillic,latin,latin-ext' rel='stylesheet' type='text/css' />
+
+</head>
+
+<body>
+  <table border="0" width="100%">
+        {{#each persons}}
+          <tr class="top">
+              <td rowspan="2" class="td-image">
+                  <div class="image"><div class="t-img" style="background-image:url('{{{avatarUrl this.id}}}');"></div>
+                  <img src="{{{avatarUrl this.id}}}"></img>
+              </td>
+              <td class="td-name">
+                  <div class="name">{{this.firstName}} {{this.lastName}}</div>
+                      <div class="str">{{this.addresses.home.street1}}</div>
+                      <div class="str">{{this.addresses.home.street1}} {{this.addresses.home.street1}}</div>
+              </td>
+              <td  class="td-date">
+                  Geb:<div class="tel">{{this.dates.birthday}}</div>
+                  Taufe: <div class="tel">{{this.dates.baptism}}</div>
+              </td>  
+              <td  class="td-contact">
+            Telefon:<br/>
+                  <div class="tel">{{this.firstName}}</div>
+                  <div class="tel">{{this.firstName}}</div>
+              </td>  
+
+          </tr>
+          <tr class="bottom">
+              <td colspan="3" class="more">
+                  <div class="tel">{{this.firstName}}</div>
+                  <div class="kinder">{{this.firstName}}</div>
+                  <div class="dienst">{{this.duties}}</div>      
+              </td>  
+          </tr>
+        {{/each}}
+  </table>
+</body>
+</html>
+ 
+ 
+
+        
+       

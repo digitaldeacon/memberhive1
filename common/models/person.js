@@ -4,7 +4,6 @@ var vCard = require('vcards-js');
 var json2csv = require('json2csv');
 var fs = require('fs');
 var Toner = require("toner");
-
 module.exports = function(Person) {
   var utils = require('../utils.js');
   var Lomongo = require('../lomongo.js');
@@ -316,12 +315,20 @@ module.exports = function(Person) {
     return v;
   }
 
-  Person.exportPDF = function(html, res, cb) {
+  Person.exportPDF = function(res, cb) {
     Person.find(
       {},
       function(err, persons) {
         var pdf = new Pdf(Person);
-        pdf.render(html, {persons: persons}, {}, res, cb);
+        console.log(fs.readdirSync('.'));
+        fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
+          if(err) {
+            console.error(err)
+          } else {
+            pdf.render(template, {persons: persons}, {}, res, cb);
+          }
+        });
+        
       }
      );
 
@@ -331,9 +338,11 @@ module.exports = function(Person) {
     'exportPDF',
     {
       accepts: [
-        {arg: 'html',type: 'string'},
         {arg: 'res', type: 'object', 'http': {source: 'res'}}
       ],
+      http: {
+        verb: 'get'
+      }
     }
   );
 
