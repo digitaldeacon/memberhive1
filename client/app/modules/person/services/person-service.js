@@ -40,7 +40,14 @@ export function PersonService(
       if(person.address) {
         person.addressList = [];
         _.forEach(person.address, (value,index) => {
-          var short = value.street1 + " " + value.zip + " " + value.city;
+          var short = "";
+          if(value.street1)
+            short += value.street1;
+          if(value.zip)
+            short += ", " + value.zip;
+          if(value.city)
+            short += ", " + value.city;
+
           person.addressList.push({value: short, name: index});
         });
       }

@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="createNote.html">
   <md-dialog>
-    <md-dialog-content>
+    <md-dialog-content layout-padding layout="column">
       <h3 translate>Create new Note</h3>
       <md-radio-group ng-model="ctrl.type" class="radio-buttons-hz">
         <md-radio-button ng-repeat="notetype in ctrl.noteTypes"
@@ -19,10 +19,10 @@
         <label translate>Note</label>
         <textarea ng-model="ctrl.content" rows="5" />
       </md-input-container>
-      <div class="md-actions" layout="row" layout-align="end center">
+      <md-dialog-actions class="md-actions" layout="row" layout-align="end center">
         <md-button ng-click="hide()"><translate>Cancel</translate></md-button>
         <md-button ng-click="create()" class="md-primary"><translate>Create Note</translate></md-button>
-      </div>
+      </md-dialog-actions>
     </md-dialog-content>
   </md-dialog>
 </script>
