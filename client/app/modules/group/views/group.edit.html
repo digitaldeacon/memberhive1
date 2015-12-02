@@ -1,4 +1,4 @@
-<form>
+<form layout="column">
   <md-input-container>
     <label>Title</label>
     <input ng-model="groupCtrl.group.name" required>
@@ -7,11 +7,12 @@
     <label>Description</label>
     <textarea ng-model="groupCtrl.group.description" columns="2" ></textarea>
   </md-input-container>
-  
-  <md-button class="md-primary" ng-click="groupCtrl.save()">
-    <translate>Save</translate>
-  </md-button>
-  <md-button ng-click="groupCtrl.close()">
-    <translate>Close</translate>
-  </md-button>
+  <div layout="row">
+    <md-button class="md-primary" ng-click="groupCtrl.save()">
+      <translate>Save</translate>
+    </md-button>
+    <md-button ng-click="groupCtrl.close()">
+      <translate>Close</translate>
+    </md-button>
+  </div>
 </form>
