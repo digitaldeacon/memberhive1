@@ -6,7 +6,7 @@ import {EventService} from './service/event-service';
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 
-export var mhEventModule = angular.module('mh.event', []
+export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
 ).config(
   ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
     $stateProvider.state('event', {
@@ -32,7 +32,7 @@ export var mhEventModule = angular.module('mh.event', []
         needRights: ['$authenticated']
       }
     }).state('event.edit', {
-      url: '/event/:eventId',
+      url: '/view/:eventId',
       controller: 'EventController',
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.html',
@@ -45,17 +45,20 @@ export var mhEventModule = angular.module('mh.event', []
       acl: {
         needRights: ['$authenticated']
       },
-      resolve : {
+      resolve: {
         resolveEvent: (EventService, $stateParams) => {
           return EventService.get($stateParams.eventId);
         },
         resolveTemplate: (Event, $stateParams) => {
           return Event.template({id: $stateParams.eventId}).$promise;
+        },
+        resolveTemplates: (EventTemplate) => {
+          return EventTemplate.find();
         }
       }
     })
     .state('event.create', {
-      url: '/event/create',
+      url: '/create',
       controller: 'EventController',
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.html',
@@ -72,7 +75,10 @@ export var mhEventModule = angular.module('mh.event', []
         resolveEvent: (Event) => {
           return new Event();
         },
-        resolveTemplate: () => {
+        resolveTemplates: (EventTemplate) => {
+          return EventTemplate.find();
+        },
+        resolveTemplate : () => {
           return {};
         }
       }

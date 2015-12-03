@@ -2,15 +2,14 @@ export function EventController(
     EventService,
     EventTemplate,
     resolveEvent,
+    resolveTemplates,
     resolveTemplate,
     $state
 ) {"ngInject";
-  console.log(resolveEvent);
   this.item = resolveEvent;
+  this.templates = resolveTemplates;
   this.template = resolveTemplate;
   this.templateId = resolveTemplate.id;
-
-  this.templates = EventTemplate.find();
 
   this.updateTemplate = () => {
     this.template = _.find(this.templates, {id: this.templateId});
@@ -18,7 +17,7 @@ export function EventController(
 
   this.save = () => {
     this.item.templateId = this.templateId;
-    EventService.save(this.item).then(() => $state.go("event.all"));
+    EventService.save(this.item).then(() => $state.go("event.list"));
   };
 
 
