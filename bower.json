@@ -32,7 +32,7 @@
     "angular": "1.4.7",
     "jquery": "2.x.x",
     "angular-sanitize": "~1.4.7",
-    "angular-material": "1.0.0-rc5-master-358fd98"
+    "angular-material": "1.0.0"
   },
   "overrides": {
     "codemirror": {
