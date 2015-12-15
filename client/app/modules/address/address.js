@@ -9,4 +9,4 @@ export var gemAddressModule = angular.module('mh.address',
 );
 gemAddressModule.factory('AddressService', AddressService);
 gemAddressModule.directive('formataddress', AddressDirective);
-gemAddressModule.directive('gemAddressEdit', AddressEditDirective);
+gemAddressModule.directive('mhAddressEdit', AddressEditDirective);

@@ -24,7 +24,6 @@ export var mhMainModule = angular.module('mh.main', [
   'ngMaterial',
   'ngResource',
   'ngSanitize',
-  'ngTouch',
   'ngAria',
   'ui.router',
   'lbServices',

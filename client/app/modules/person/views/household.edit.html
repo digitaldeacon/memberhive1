@@ -1,6 +1,6 @@
 <form ng-submit="householdCtrl.save()">
-
-    <div layout="row">
+  
+    <div layout="column" class="mh-content">
       <md-input-container flex="40">
         <label><translate>Household Name</translate></label>
         <input ng-model="householdCtrl.household.name">
@@ -17,10 +17,27 @@
         <md-option value="other"><translate>Other</translate></md-option>
       </md-select>
     </div>
-
-
-    <mh-address-edit address="householdCtrl.household.address"></mh-address-edit>
-
+    <div class="mh-content">
+      <h2> Members </h2>
+      <md-list>
+      <md-list-item
+        ng-repeat="household in householdCtrl.household"
+        flex layout="row"
+        class="person-list-item"
+      >
+      <a ui-sref="person.household-edit({ householdId: household.id })">
+        {{household.name}}
+      </a>
+    
+  </md-list-item>
+</md-list>
+    </div>
+    </div>
+    <div class="mh-content">
+      <h2> Address </h2>
+      <mh-address-edit address="householdCtrl.household.address"></mh-address-edit>
+    </div>
+    
     <md-button ng-disabled="personEdit.$invalid" class="md-raised md-primary" type="submit"><translate>Save Changes</translate></md-button>
     <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndClose()"><translate>Save and Close</translate></md-button>
     <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndNew()"><translate>Save and New</translate></md-button>
