@@ -29,7 +29,7 @@
 
 html, body {
   font-family: 'Roboto';
-  background-color: background-color('100') !important;
+  background-color: background-color('100');
   min-height: 100%;
   height: 100%;
 }
@@ -116,4 +116,76 @@ gm-map {
   box-shadow: $whiteframe-shadow-1dp;
   margin: $baseline-grid;
   background-color: #fff;
+}
+
+
+body#pdf-export {
+  $image-width: 90px;
+  background-color: white !important;
+  margin: 0;
+  font-size: 12px;
+  line-height: 120%;
+  font-family: 'Tinos', serif;
+  
+  table
+  {
+      border-collapse: collapse;
+  }
+  tr
+  {
+      border-top: 1px solid black;
+  }
+  .top {
+      border-bottom: none;
+      padding-top: 3px;
+  }
+  .bottom {
+      border-top: none;
+  }
+
+  td {
+    // padding: 1em
+  }
+  .image {
+      width: $image-width;
+      height: 93px;
+  }
+  .td-image {
+      width: $image-width + 4px;
+      padding: 2px;
+  }
+  .t-img {
+      height: 93px;
+      width: $image-width;
+      background-repeat:no-repeat;
+      background-size:contain;
+      
+      border-radius: 8px;
+  }
+  .td-name {
+      padding-left: 3px;
+      width: 180px;
+      padding-top: 3px;
+      vertical-align:text-top;
+  }
+  .td-date {
+      width: 90px;
+      padding-top: 3px;
+      vertical-align:text-top;
+      
+  }
+  .td-contact {
+      padding-top: 3px;
+      vertical-align:text-top;
+  }
+  .more {
+      padding-left: 3px;
+      color: #181818;
+      vertical-align:bottom;
+      padding-bottom: 3px;
+  }
+  .name {
+      font-weight: 700;
+      margin-bottom: 2px;
+  }
 }

@@ -10,7 +10,9 @@ export function PersonExportPDFController(
   this.url = mhConfig.apiUrl + '/Persons/exportPDF';
 
   this.getPDF = () => {
-    $window.open(mhConfig.apiUrl+'/Persons/exportPDF?access_token='+$rootScope.accessToken,"_blank");
+    $window.open(
+      mhConfig.apiUrl+'/Persons/exportPDF?access_token='+$rootScope.accessToken+
+      "&root=http://"+location.hostname+":"+location.port+"/","_blank");
   };
 
 }

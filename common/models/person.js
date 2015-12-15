@@ -315,7 +315,7 @@ module.exports = function(Person) {
     return v;
   }
 
-  Person.exportPDF = function(res, cb) {
+  Person.exportPDF = function(root, res, cb) {
     Person.find(
       {},
       function(err, persons) {
@@ -325,7 +325,7 @@ module.exports = function(Person) {
           if(err) {
             console.error(err)
           } else {
-            pdf.render(template, {persons: persons}, {}, res, cb);
+            pdf.render(template, {persons: persons, root: root}, {pageSize: 'A5'}, res, cb);
           }
         });
         
@@ -338,6 +338,10 @@ module.exports = function(Person) {
     'exportPDF',
     {
       accepts: [
+        {
+          arg: 'root',
+          type: 'string'
+        },
         {arg: 'res', type: 'object', 'http': {source: 'res'}}
       ],
       http: {
@@ -408,40 +412,4 @@ module.exports = function(Person) {
 
 
 
-
-  Person.renderPDF = function(res, cb) {
-    var toner = Toner();
-    toner.engine('none', Toner.noneEngine);
-    toner.recipe('phantom-pdf', require("toner-phantom")());
-    //toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
-    toner.recipe('html', Toner.htmlRecipe);
-    toner.render({
-      template: {
-        engine: 'none',
-        recipe: 'phantom-pdf',
-        content: "<h1>Hallo</h1>"
-      },
-      options: {}
-    }, function(err, out) {
-      if (err) {
-        cb(new Error(err));
-        return;
-      }
-      out.stream.pipe(res);
-      //cb(null, out.content.toString());
-      // Callback intentionally not invoked
-    });
-  };
-  Person.remoteMethod('renderPDF', {
-    accepts: [
-      {arg: 'res', type: 'object', 'http': {source: 'res'}}
-    ],
-    returns: {
-      arg: 'pdf',
-      type: 'string'
-    },
-    http: {
-      verb: 'get'
-    }
-  });
 };
