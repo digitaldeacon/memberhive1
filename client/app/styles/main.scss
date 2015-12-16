@@ -119,7 +119,7 @@ gm-map {
 }
 
 
-body#pdf-export {
+html#pdf-export-html, body#pdf-export {
   $image-width: 90px;
   background-color: white !important;
   margin: 0;
@@ -138,9 +138,11 @@ body#pdf-export {
   .top {
       border-bottom: none;
       padding-top: 3px;
+      page-break-inside: avoid !important;
   }
   .bottom {
       border-top: none;
+      page-break-inside: avoid !important;
   }
 
   td {

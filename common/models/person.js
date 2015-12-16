@@ -320,12 +320,21 @@ module.exports = function(Person) {
       {},
       function(err, persons) {
         var pdf = new Pdf(Person);
-        console.log(fs.readdirSync('.'));
         fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
           if(err) {
             console.error(err)
           } else {
-            pdf.render(template, {persons: persons, root: root}, {pageSize: 'A5'}, res, cb);
+            pdf.render(
+              template, 
+              {persons: persons, root: root}, 
+              {
+                pageSize: 'A5', 
+                marginLeft: '1',
+                marginRight: '1',
+                marginTop: '1',
+                marginBottom: '1'
+              }
+              , res, cb);
           }
         });
         

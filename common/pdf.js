@@ -56,27 +56,27 @@ module.exports = class Pdf {
       template: {
         engine: 'none',
         recipe: 'phantom',
-        content: result
-      },
-      phantom: {
-        header: header,
-        footer: footer,
-        paperSize: {
-          format: 'A5',
-          width: '8.5in',
-          height: '11in',
-          orientation: 'portrait',
-          margin: {
-            left: marginLeft + 'cm',
-            right: marginRight + 'cm',
-            top: marginTop + 'cm',
-            bottom: marginBottom + 'cm'
-          },
-          headerHeight: headerHeight + 'cm',
-          footerHeight: footerHeight + 'cm'
+        content: result,
+        wkhtmltopdf: {
+          pageSize: 'A5'
+        },
+        phantom: {
+          header: header,
+          footer: footer,
+          paperSize: {
+            format: pageSize,
+            orientation: 'portrait',
+            margin: {
+              left: marginLeft + 'cm',
+              right: marginRight + 'cm',
+              top: marginTop + 'cm',
+              bottom: marginBottom + 'cm'
+            },
+            headerHeight: headerHeight + 'cm',
+            footerHeight: footerHeight + 'cm'
+          }
         }
-      },
-      options: {}
+      }
     }, function(err, out) {
       if (err) {
         cb(new Error(err));
