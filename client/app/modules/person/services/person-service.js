@@ -186,7 +186,7 @@ export function PersonService(
       });
     },
     searchHousehold: (query) => {
-      return this.households;
+      return Household.find({filter: {where: {name: {like: query}}}}).$promise;
     },
     undoMap : this.undoMap,
 

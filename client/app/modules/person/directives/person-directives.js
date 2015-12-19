@@ -92,8 +92,6 @@ export function mhPersonHousehold() {
         $scope.ngModel = [];
       }
       $scope.searchHousehold = (query) => {
-        console.log($scope.ngModel);
-        console.log(PersonService.searchHousehold(query));
         return PersonService.searchHousehold(query);
       };
       $scope.transform = (chip) => {

@@ -114,12 +114,7 @@
     <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.datesList">
       <div class="md-list-item-text" layout="row">
         <mh-person-edit-type flex="33" key="value.key" type="dateTypes"></mh-person-edit-type>
-        <md-input-container flex="66">
-          <label>
-            <span translate>{{personCtrl.personService.dateTypes[vlue.key].text}}</span>
-          </label>
-        </md-input-container>
-        <mh-date-input ng-model="value.value" placeholder="Enter {{key}}"></mh-date-input>
+        <mh-date-input ng-model="value.value" placeholder="Enter {{key}}" label="{{personCtrl.personService.dateTypes[vlue.key].text}}"></mh-date-input>
       </div>
     </md-list-item>
 

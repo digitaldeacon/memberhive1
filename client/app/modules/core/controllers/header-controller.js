@@ -24,6 +24,7 @@ export function HeaderController(
   };
 
   this.selectedItemChange = (item) =>  {
+    if(!item) return;
     var id = this.selectedItem.id;
     this.selectedItem = null;
     this.searchText = '';
