@@ -49,4 +49,17 @@ module.exports = function(options) {
       .pipe(gulp.dest(options.tmp + '/serve/app/'))
       .pipe(browserSync.reload({ stream: true }));
   });
+  
+  gulp.task('styles-standalone', function () {
+    var sassOptions = {
+      style: 'expanded'
+    };
+
+    return gulp.src([
+      options.src + '/app/styles/standalone/*.scss',
+    ])
+      .pipe($.sass(sassOptions)).on('error', options.errorHandler('Sass'))
+      .pipe($.autoprefixer()).on('error', options.errorHandler('Autoprefixer'))
+      .pipe(gulp.dest(options.tmp + '/serve/app/standalone/'))
+  });
 };

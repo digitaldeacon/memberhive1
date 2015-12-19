@@ -28,6 +28,6 @@ export function HouseholdEditController (
     var householdId = this.household.id;
     Person.household.unlink({fk: householdId, id: personId}).$promise.then((data, err) => {
       this.household = PersonService.getHousehold(householdId);
-    })
-  }
+    });
+  };
 }

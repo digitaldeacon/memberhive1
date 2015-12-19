@@ -79,18 +79,27 @@ module.exports = function(options) {
     ])
     .pipe(gulp.dest(options.dist + '/app/images'));
   });
+   
+
    gulp.task('other', function () {
     return gulp.src([
-      options.src + '/*.{ico,png,txt}',
+      options.src + '/*.{ico,png,txt,css}',
     ])
     .pipe(gulp.dest(options.dist + '/'));
+  });
+   
+  gulp.task('other-css', function () {
+    return gulp.src([
+      options.tmp + '/serve/app/standalone/*.css',
+    ])
+    .pipe(gulp.dest(options.dist + '/standalone/'));
   });
 
   gulp.task('clean', function (done) {
     $.del([options.dist + '/', options.tmp + '/'], done);
   });
 
-  gulp.task('build', ['html', 'fonts', 'images', 'other', 'ngdocs'], function(){
+  gulp.task('build', ['html', 'fonts', 'images', 'other', 'other-css', 'ngdocs'], function(){
     return gulp.src(options.dist + '/index.html')
       .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
       .pipe(gulp.dest(options.dist + '/'))
@@ -99,7 +108,7 @@ module.exports = function(options) {
       });
   });
 
-  gulp.task('build-default', ['html', 'fonts', 'images', 'other'], function () {
+  gulp.task('build-default', ['html', 'fonts', 'images', 'other', 'other-css'], function () {
      return gulp.src(options.dist + '/index.html')
       .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
       .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "http://127.0.0.1:3994/api"}'))
