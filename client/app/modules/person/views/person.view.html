@@ -31,11 +31,11 @@
         </div>
       </div>
       <md-list>
-        <md-list-item class="md-2-line" ng-repeat="contact in personCtrl.person.contactList">
+        <md-list-item class="md-2-line" ng-repeat="(name,value) in personCtrl.person.contacts">
           <ng-md-icon icon="call" ng-if="$index === 0"></ng-md-icon>
           <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
-            <h3> {{ contact.value }} </h3>
-            <p> {{ contact.name }} </p>
+            <h3> {{ value }} </h3>
+            <p> {{ name }} </p>
           </div>
         </md-list-item>
         <md-list-item class="md-2-line" ng-repeat="address in personCtrl.person.addressList">
@@ -51,19 +51,19 @@
           </div>
         </md-list-item>
 
-        <md-list-item class="md-2-line" ng-if="personCtrl.person.email">
+        <md-list-item class="md-2-line" ng-if="personCtrl.person.emails.personal">
           <ng-md-icon icon="email" ></ng-md-icon>
           <div class="md-list-item-text">
-            <h3> {{ personCtrl.person.email }} </h3>
+            <h3> {{ personCtrl.person.emails.personal }} </h3>
             <p> EMail </p>
           </div>
         </md-list-item>
 
-        <md-list-item class="md-2-line" ng-repeat="date in personCtrl.person.dateList">
+        <md-list-item class="md-2-line" ng-repeat="(name, value) in personCtrl.person.dates">
           <ng-md-icon icon="cake" ng-if="$index === 0"></ng-md-icon>
           <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
-            <h3> {{ date.value | date: 'longDate'}} </h3>
-            <p> {{ date.name }} </p>
+            <h3> {{ value | date: 'longDate'}} </h3>
+            <p> {{ name }} </p>
           </div>
         </md-list-item>
       </md-list>
