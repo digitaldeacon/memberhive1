@@ -1,4 +1,4 @@
-export function EventService(Event) {
+export function EventService(Event) {"ngInject";
   this.all = () => {
     return Event.find().$promise;
   };

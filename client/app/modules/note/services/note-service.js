@@ -1,4 +1,4 @@
-export function NoteService(Note) {
+export function NoteService(Note) {"ngInject";
   this.tree = () => {
       return Note.find().$promise
       .then(
