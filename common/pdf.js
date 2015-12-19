@@ -14,10 +14,7 @@ module.exports = class Pdf {
   registerHelper() {
     var that = this.app.get('url');
     handlebars.registerHelper('avatarUrl', function(personId, size) {
-      var validSizes = ['xs', 's', 'm', 'l'];
-      if (validSizes.indexOf(size) < 0)
-        size = 'xs';
-      return that+"api/Avatars/"+personId+"/download/"+size+".jpg";
+      return that+"api/Avatars/"+personId+"/download/m.jpg";
     });
 
     handlebars.registerHelper('formatDate', function(date, format, locale) {
