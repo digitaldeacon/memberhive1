@@ -315,7 +315,9 @@ module.exports = function(Person) {
     return v;
   }
 
-  Person.exportPDF = function(root, res, cb) {
+  Person.exportPDF = function(css, res, cb) {
+    //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
+    
     Person.find(
       {},
       function(err, persons) {
@@ -326,7 +328,7 @@ module.exports = function(Person) {
           } else {
             pdf.render(
               template, 
-              {persons: persons, root: root}, 
+              {persons: persons, css: css}, 
               {
                 pageSize: 'A5', 
                 marginLeft: '1',
@@ -348,7 +350,7 @@ module.exports = function(Person) {
     {
       accepts: [
         {
-          arg: 'root',
+          arg: 'css',
           type: 'string'
         },
         {arg: 'res', type: 'object', 'http': {source: 'res'}}
