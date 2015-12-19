@@ -17,8 +17,8 @@
               </td>
               <td class="td-name">
                   <div class="name">{{this.firstName}} {{this.lastName}}</div>
-                      <div class="str">{{this.addresses.home.street1}}</div>
-                      <div class="str">{{this.addresses.home.zipcode}} {{this.addresses.home.city}}</div>
+                      <div class="str">{{this.address.home.street1}}</div>
+                      <div class="str">{{this.address.home.zipcode}} {{this.addresses.home.city}}</div>
               </td>
               <td  class="td-date">
                   <div class="tel">G: {{this.dates.birthday}}</div>
@@ -33,8 +33,9 @@
           </tr>
           <tr class="bottom">
               <td colspan="3" class="more">
-                  <div class="tel">{{this.emails.personal}}</div>
-                  <div class="dienst">{{this.duties}}</div>      
+                  <div class="tel">EMail: {{this.emails.personal}}</div>
+                  <div class="dienst">Kinder {{this.custom.kinder}}</div>      
+                  <div class="dienst">Dienst {{this.custom.dienste}}</div>      
               </td>  
           </tr>
         {{/each}}
