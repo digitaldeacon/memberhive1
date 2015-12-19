@@ -78,7 +78,7 @@ export function NoteCreateDirective() {"ngInject";
         });
       };
 
-      this.DialogController = ($scope, $mdDialog, content) => {
+      this.DialogController = ($scope, $mdDialog, content) => {"ngInject";
         $scope.hide = function() {
           $mdDialog.hide();
         };

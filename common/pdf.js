@@ -14,6 +14,7 @@ module.exports = class Pdf {
   registerHelper() {
     var that = this.app.get('url');
     handlebars.registerHelper('avatarUrl', function(personId, size) {
+      console.log(that+"api/Avatars/"+personId+"/download/m.jpg");
       return that+"api/Avatars/"+personId+"/download/m.jpg";
     });
 

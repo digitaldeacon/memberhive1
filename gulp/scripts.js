@@ -53,6 +53,7 @@ module.exports = function(options) {
 
     return gulp.src(options.src + '/app/app.js')
       .pipe($.webpack(webpackOptions, null, webpackChangeHandler))
+      .pipe($.ngAnnotate())
       .pipe(gulp.dest(options.tmp + '/serve/app'));
   }
 

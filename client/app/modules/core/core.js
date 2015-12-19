@@ -23,7 +23,7 @@ import {temperatureFilter} from './filters/format-filters';
  */
 export var gemCoreModule = angular.module('mh.core', ['ngAnimate']);
 
-gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => {
+gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => { "ngInject";
   $urlRouterProvider.otherwise('/dashboard');
   //main color is: #F8922F
   //complementär: #0085AB
@@ -119,7 +119,7 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
   });
 });
 
-gemCoreModule.run(($rootScope, gettextCatalog) => {
+gemCoreModule.run(($rootScope, gettextCatalog) => { "ngInject";
   $rootScope.gemConfig = {
     layout: {
       sidebarClosed: true // sidebar state
