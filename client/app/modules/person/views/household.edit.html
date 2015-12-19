@@ -21,13 +21,23 @@
       <h2> Members </h2>
       <md-list>
       <md-list-item
-        ng-repeat="household in householdCtrl.household"
+        ng-repeat="person in householdCtrl.household.persons"
         flex layout="row"
         class="person-list-item"
       >
-      <a ui-sref="person.household-edit({ householdId: household.id })">
-        {{household.name}}
+      <mh-avatar 
+        person="person" 
+        size="xs" 
+        circle 
+        ui-sref="person.view({ id: person.id })" 
+        class="avatar">
+      </mh-avatar>
+      <a ui-sref="person.view({ id: person.id })">
+        {{::person.firstName}} {{::person.lastName}} 
       </a>
+      <md-button ng-click="householdCtrl.unlink(person.id)">
+        <ng-md-icon icon="delete"></nd-md-icon> Delete from this Household
+      </md-button>
     
   </md-list-item>
 </md-list>

@@ -22,7 +22,7 @@
     "persons": {
       "type": "hasMany",
       "model": "Person",
-      "foreignKey": ""
+      "foreignKey": "householdIds"
     }
   },
   "acls": [

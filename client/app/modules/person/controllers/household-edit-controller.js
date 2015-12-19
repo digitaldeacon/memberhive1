@@ -1,6 +1,7 @@
 export function HouseholdEditController (
   PersonService,
   Household,
+  Person,
   Shout,
   gettextCatalog,
   $state,
@@ -22,4 +23,11 @@ export function HouseholdEditController (
       $state.go('person.household-create');
     });
   };
+  
+  this.unlink = (personId) => {
+    var householdId = this.household.id;
+    Person.household.unlink({fk: householdId, id: personId}).$promise.then((data, err) => {
+      this.household = PersonService.getHousehold(householdId);
+    })
+  }
 }

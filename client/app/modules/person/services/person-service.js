@@ -13,7 +13,6 @@ export function PersonService(
 
   this.persons = null;
   this.personsSimple = null;
-  this.households = Household.find();
   this.avatar = (person, size) => {
     if (person.hasAvatar) {
       person["avatarUrl_"+size] = mhConfig.apiUrl+"/Avatars/"+person.id+"/download/"+size+".jpg";
@@ -154,7 +153,8 @@ export function PersonService(
 
     getHousehold: (id) => {
       return Household.findById({
-        id: id
+        id: id,
+        filter: {include: "persons"}
       });
     },
 
