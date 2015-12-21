@@ -35,7 +35,6 @@ before_script:
   - npm start &
   - sleep 2
 script:
-  - gulp test
   - gulp build
 after_success:
   - sh deploy.sh
