@@ -227,9 +227,7 @@ module.exports = function(Person) {
   Person.exportCSV = function(cb) {
     var fields = ["firstName", "lastName", "middleName",
     "nickName", "prefix", "suffix",
-    "contact.work", "contact.mobile", "contact.home",
     "gender",
-    "birthdate", "anniversary",
     "address.home.street1",
     "address.home.street2",
     "address.home.city",
@@ -238,6 +236,7 @@ module.exports = function(Person) {
     "address.home.country"
     ];
     Person.find({}, function(err, persons) {
+      
       json2csv({ data: persons, fields: fields, nested: true }, function(err, csv) {
         cb(err, csv);
       });

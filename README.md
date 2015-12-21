@@ -12,22 +12,22 @@ Make sure you have the following requirements installed:
 
 Install process
 * `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
-* `nvm install iojs` *install iojs*
-* `nvm alias default iojs`
+* `nvm install 4.2` *install nodejs 4.2*
+* `nvm alias default 4.2`
 * `npm install -g bower gulp nodemon`
 * clone memberhive from git: `git clone git@github.com:digitaldeacon/memberhive.git`
 * `cd memberhive/`
 * `npm install` *Install dev dependencies*
 * `bower install` *Install app dependencies*
 * Follow the persisting data instructions below
-* `npm test` *start io.js server* or `npm run debug` *to see debug output*
+* `npm test` *start node.js server* or `npm run debug` *to see debug output*
 * `gulp surf` *Run local webserver (will compile SASS and ES6 files when changed)*
 
 
 ## Supported Versions of Software
 * MongoDB == 2.4
-* iojs == 2.5
-* angular == 1.4
+* nodejs == 4.2.x
+* angular == 1.4.x
 
 ## Persisting data
 
@@ -64,7 +64,7 @@ Please follow these style guides when writing code:
 * NPM
 * gulp
 * bower
-* iojs
+* nodejs
 * strongloop
 * [babel] (https://github.com/babel/babel)
 * ECMAScript 6 (ES6)
