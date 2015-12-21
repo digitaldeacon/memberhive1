@@ -90,7 +90,7 @@ module.exports = function(options) {
    
   gulp.task('other-css', function () {
     return gulp.src([
-      options.tmp + '/serve/app/standalone/*.css',
+      options.tmp + '/serve/standalone/*.css',
     ])
     .pipe(gulp.dest(options.dist + '/standalone/'));
   });

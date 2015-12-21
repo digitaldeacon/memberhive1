@@ -46,7 +46,7 @@ module.exports = function(options) {
       .pipe($.sass(sassOptions)).on('error', options.errorHandler('Sass'))
       .pipe($.autoprefixer()).on('error', options.errorHandler('Autoprefixer'))
       .pipe($.sourcemaps.write())
-      .pipe(gulp.dest(options.tmp + '/serve/app/'))
+      .pipe(gulp.dest(options.tmp + '/serve/app/styles/'))
       .pipe(browserSync.reload({ stream: true }));
   });
   
@@ -60,6 +60,6 @@ module.exports = function(options) {
     ])
       .pipe($.sass(sassOptions)).on('error', options.errorHandler('Sass'))
       .pipe($.autoprefixer()).on('error', options.errorHandler('Autoprefixer'))
-      .pipe(gulp.dest(options.tmp + '/serve/app/standalone/'))
+      .pipe(gulp.dest(options.tmp + '/serve/standalone/'))
   });
 };
