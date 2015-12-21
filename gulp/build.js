@@ -88,11 +88,11 @@ module.exports = function(options) {
     .pipe(gulp.dest(options.dist + '/'));
   });
    
-  gulp.task('other-css', function () {
+  gulp.task('other-css', ['styles-standalone'], function () {
     return gulp.src([
-      options.tmp + '/serve/standalone/*.css',
+      options.tmp + '/serve/standalone/*',
     ])
-    .pipe(gulp.dest(options.dist + '/standalone/'));
+    .pipe(gulp.dest(options.dist + '/standalone'));
   });
 
   gulp.task('clean', function (done) {

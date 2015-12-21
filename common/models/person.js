@@ -245,7 +245,6 @@ module.exports = function(Person) {
     "address.home.country"
     ];
     Person.find({}, function(err, persons) {
-      console.log(utils.objectKeysArray(persons));
       json2csv({ data: persons, fields: fields, nested: true }, function(err, csv) {
         cb(err, csv);
       });
