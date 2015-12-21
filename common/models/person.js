@@ -318,20 +318,20 @@ module.exports = function(Person) {
     return v;
   }
 
-  Person.exportPDF = function(css, res, cb) {
+  Person.exportPDF = function(css, apiBase, res, cb) {
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
     
     Person.find(
       {},
       function(err, persons) {
-        var pdf = new Pdf(Person);
+        var pdf = new Pdf(Person, apiBase);
         fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
           if(err) {
             console.error(err)
           } else {
             pdf.render(
               template, 
-              {persons: persons, css: css}, 
+              {persons: persons, css: css, base: apiBase}, 
               {
                 pageSize: 'A5', 
                 marginLeft: '1',
@@ -354,6 +354,10 @@ module.exports = function(Person) {
       accepts: [
         {
           arg: 'css',
+          type: 'string'
+        },
+        {
+          arg: 'apiBase',
           type: 'string'
         },
         {arg: 'res', type: 'object', 'http': {source: 'res'}}

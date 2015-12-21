@@ -5,20 +5,19 @@ var handlebars = require('handlebars');
 var moment = require('moment');
 
 module.exports = class Pdf {
-  constructor(model) {
+  constructor(model, base) {
+    this.base = base;
     this.model = model;
     this.app = model.app;
     this.registerHelper();
   }
 
   registerHelper() {
-    var that = this.app.get('url');
-    handlebars.registerHelper('avatarUrl', function(personId, size) {
-      console.log(that+"api/Avatars/"+personId+"/download/m.jpg");
-      return that+"api/Avatars/"+personId+"/download/m.jpg";
+    handlebars.registerHelper('avatarUrl', (personId, size) => {
+      return this.base+"/Avatars/"+personId+"/download/m.jpg";
     });
 
-    handlebars.registerHelper('formatDate', function(date, format, locale) {
+    handlebars.registerHelper('formatDate', (date, format, locale) => {
       try {
         moment.locale(locale);
       } catch(err) {

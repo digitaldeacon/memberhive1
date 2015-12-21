@@ -17,7 +17,7 @@ export function PersonExportPDFController(
     
     $window.open(
       mhConfig.apiUrl+'/Persons/exportPDF?access_token='+$rootScope.accessToken+
-      "&css="+url,"_blank");
+      "&css="+url+"&apiBase="+mhConfig.apiUrl,"_blank");
   };
 
 }
