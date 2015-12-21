@@ -27,12 +27,12 @@ export function PersonEditService(
     return Person.trash({id: personId}).$promise;
   };
 
-  this.createAccount = (person, password) => {
+  this.createAccount = (person, username, password) => {
     return Person.account.create(
       {id: person.id},
       {
-        username: person.firstName + "_" + person.lastName,
-        email: person.email,
+        username: username,
+        email: person.emails.personal,
         password: password || person.lastName
       }
     ).$promise;

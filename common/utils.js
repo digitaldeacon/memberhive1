@@ -28,5 +28,22 @@ exports.stringToRegexp = function (string) {
   }
   return ret;
 }
+exports.objectKeysArray = function (objects) {
+  return _(objects).map(exports.objectKeys).flatten().unique().value();
+}
+exports.objectKeys = function (object) {
+  if(!_.isObject(object)) return []; 
+  
+  var keys = Object.keys(object);
+ 
+  var more = [];
+  _.each(keys, (key) => {
+      var newKeys = _.map(exports.objectKeys(object[key]), (k) => key + "." + key);
+      more.concat(newKeys);
+  });
+  //console.log(keys, "of", object, "more = ", more);
+  console.log("return", _.unique(keys.concat(more)));
+  return _.unique(keys.concat(more));
+}
 
 

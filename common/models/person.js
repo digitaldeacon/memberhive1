@@ -231,7 +231,12 @@ module.exports = function(Person) {
   Person.exportCSV = function(cb) {
     var fields = ["firstName", "lastName", "middleName",
     "nickName", "prefix", "suffix",
+    "tags","status",
     "gender",
+    "dates.birthday","dates.baptism", "dates.anniversary",
+    "contacts.home", "contacts.work","contacts.mobile",
+    "emails.personal",
+    "custom.kinder","custom.dienste",
     "address.home.street1",
     "address.home.street2",
     "address.home.city",
@@ -240,7 +245,7 @@ module.exports = function(Person) {
     "address.home.country"
     ];
     Person.find({}, function(err, persons) {
-      
+      console.log(utils.objectKeysArray(persons));
       json2csv({ data: persons, fields: fields, nested: true }, function(err, csv) {
         cb(err, csv);
       });
@@ -286,11 +291,11 @@ module.exports = function(Person) {
 
     v.gender = person.gender;
 
-    if(person.anniversary)
-      v.anniversary = new Date(person.anniversary);
+    if(person.dates.anniversary)
+      v.anniversary = new Date(person.dates.anniversary);
 
-    if(person.birthdate)
-      v.birthday = new Date(person.birthdate);
+    if(person.dates.birthday)
+      v.birthday = new Date(person.dates.birthdate);
 
     if(person.address) {
       if(person.address.home) {

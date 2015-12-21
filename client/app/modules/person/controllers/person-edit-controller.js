@@ -10,7 +10,8 @@ export function PersonEditController (
   Shout,
   $http,
   $scope,
-  $q
+  $q,
+  $mdDialog
 )
 {    "ngInject";
   this.loadPerson = (data) => {
@@ -120,4 +121,24 @@ export function PersonEditController (
       };
     }
   };
+  
+  this.createAccount = (ev) => {
+    var username = this.person.firstName.toLowerCase() + "_" + this.person.lastName.toLowerCase();
+    var password = Math.random().toString(36).slice(-8);
+    var confirm = $mdDialog.confirm()
+          .title('Create new account')
+          .textContent('It will a create a user with the username: ' + username + '  and password: ' + password )
+          .targetEvent(ev)
+          .ok('Please do it!')
+          .cancel('Cancel');
+          
+    $mdDialog.show(confirm).then(() => {
+      PersonEditService.createAccount(this.person, username, password)
+        .then(
+          data => Shout.success("Account Created"),
+          err => Shout.vError(err)
+        );
+    });
+    
+  };  
 }
