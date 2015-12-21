@@ -74,10 +74,10 @@ module.exports = function(options) {
 
   gulp.task('images', function () {
     return gulp.src([
-      options.src + '/app/images/*',
-      '!' + options.src + '/app/**/*.{html,css,js,scss}',
+      options.src + '/app/images/**/*',
+      '!' + options.src + '/app/images/**/*.{html,css,js,scss}',
     ])
-    .pipe(gulp.dest(options.dist + '/app/images'));
+    .pipe(gulp.dest(options.dist + '/images'));
   });
    
 
@@ -101,7 +101,6 @@ module.exports = function(options) {
 
   gulp.task('build', ['html', 'fonts', 'images', 'other', 'other-css', 'ngdocs'], function(){
     return gulp.src(options.dist + '/index.html')
-      .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
         process.exit();
@@ -110,7 +109,6 @@ module.exports = function(options) {
 
   gulp.task('build-default', ['html', 'fonts', 'images', 'other', 'other-css'], function () {
      return gulp.src(options.dist + '/index.html')
-      .pipe(replace('ng-app="gem.main"', 'ng-app="gem.main" ng-strict-di'))
       .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "http://127.0.0.1:3994/api"}'))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
