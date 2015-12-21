@@ -129,7 +129,7 @@ export function PersonEditController (
           .title('Create new account')
           .textContent('It will a create a user with the username: ' + username + '  and password: ' + password )
           .targetEvent(ev)
-          .ok('Please do it!')
+          .ok('Create Account!')
           .cancel('Cancel');
           
     $mdDialog.show(confirm).then(() => {
