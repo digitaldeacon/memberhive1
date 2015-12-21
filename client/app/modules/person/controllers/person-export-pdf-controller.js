@@ -13,7 +13,7 @@ export function PersonExportPDFController(
     var url = "http://"+location.hostname;
     if(location.port)
       url += ":"+location.port;
-    url += "/app/standalone/pdf.css";
+    url += "/standalone/pdf.css";
     
     $window.open(
       mhConfig.apiUrl+'/Persons/exportPDF?access_token='+$rootScope.accessToken+
