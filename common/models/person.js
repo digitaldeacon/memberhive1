@@ -188,7 +188,11 @@ module.exports = function(Person) {
     Person.count({}, function(err, count) {
       var skip = parseInt(Math.random() * count);
       lomongo.collection.find().limit(1).skip(skip).toArray(function(err, data) {
-        lomongo.callback(cb, err, data[0]);
+        if(data.length > 0) { //do only when we have persons
+          lomongo.callback(cb, err, data[0]);
+        } else {
+          cb(null);
+        }
       });
     });
 
