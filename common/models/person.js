@@ -335,7 +335,11 @@ module.exports = function(Person) {
           } else {
             pdf.render(
               template, 
-              {persons: persons, css: css, base: apiBase}, 
+              {
+                personGroups: Person.groupByHousehold(persons), 
+                dienste: Person.groupByDienst(persons),        
+                css: css, 
+                base: apiBase}, 
               {
                 pageSize: 'A5', 
                 marginLeft: '1',
@@ -350,6 +354,37 @@ module.exports = function(Person) {
       }
      );
 
+  }
+  
+  Person.groupByHousehold = (persons) => {
+    var ret = [];
+    var withHousehold = _.filter(persons, p => p.householdIds.length > 0);
+    var withoutHousehold = _.filter(persons, p => p.householdIds.length == 0);
+    
+    ret = _.map(withoutHousehold, p => [p]);
+    ret = ret.concat(_.values(_.groupBy(withHousehold, (p) => p.householdIds[0])));
+    
+    ret = _.sortBy(ret, p => p[0].lastName + " " + p[0].birthdate);
+    return ret;
+    
+  }
+  Person.groupByDienst = (persons) => {
+    var ret = {};
+    _.each(persons, (p) => {
+      if(p.custom && p.custom.dienste) {
+        _.each(p.custom.dienste.split(","), (dienst) => {
+          var d = dienst.trim();
+          if(ret[d]) {
+            ret[d].push(p);
+          } else {
+            ret[d] = [p];
+          }
+        });
+        
+      }
+    });
+    return ret;
+    
   }
 
   Person.remoteMethod(

@@ -10,7 +10,8 @@
 
 <body id="pdf-export">
   <table border="0" width="100%">
-        {{#each persons}}
+        {{#each personGroups}}
+          {{#each this}}
           <tr class="top">
               <td rowspan="2" class="td-image">
                   <div class="image"><div class="t-img" style="background-image:url('{{{avatarUrl this.id}}}');"></div>
@@ -18,11 +19,11 @@
               <td class="td-name">
                   <div class="name">{{this.firstName}} {{this.lastName}}</div>
                       <div class="str">{{this.address.home.street1}}</div>
-                      <div class="str">{{this.address.home.zipcode}} {{this.addresses.home.city}}</div>
+                      <div class="str">{{this.address.home.zipcode}} {{this.address.home.city}}</div>
               </td>
               <td  class="td-date">
-                  <div class="tel">G: {{this.dates.birthday}}</div>
-                  <div class="tel">T: {{this.dates.baptism}}</div>
+                  <div class="tel">G: {{{formatDateGerman this.dates.birthday}}}</div>
+                  <div class="tel">T: {{{formatDateGerman this.dates.baptism}}}</div>
               </td>  
               <td  class="td-contact">
             Telefon:<br/>
@@ -33,12 +34,40 @@
           </tr>
           <tr class="bottom">
               <td colspan="3" class="more">
-                  <div class="tel">EMail: {{this.emails.personal}}</div>
-                  <div class="dienst">Kinder {{this.custom.kinder}}</div>      
-                  <div class="dienst">Dienst {{this.custom.dienste}}</div>      
+                  {{#if this.emails.personal}}
+                    <div class="tel">EMail: {{this.emails.personal}}</div>
+                  {{/if}}
+                  {{#if this.custom.kinder}}
+                    <div class="dienst">Kinder {{this.custom.kinder}}</div>   
+                  {{/if}}
+                  {{#if this.custom.dienste}}
+                    <div class="dienst">Dienst {{this.custom.dienste}}</div>  
+                  {{/if}}
+                     
+                      
               </td>  
           </tr>
+          {{/each}}
         {{/each}}
+  </table>
+  <table border="0" width="100%">
+    {{#each dienste}}
+      <tr>
+        <td> {{@key}} </td>
+        <td>
+          <table>
+            
+           {{#each this}}
+            <tr>
+              <td>{{this.firstName}} {{this.lastName}}</td>
+              <td>{{this.contacts.mobile}}</td>
+            <tr>
+          {{/each}}
+          </table>
+         
+        </td>
+      </tr>
+    {{/each}}
   </table>
 </body>
 </html>
