@@ -364,7 +364,7 @@ module.exports = function(Person) {
     ret = _.map(withoutHousehold, p => [p]);
     ret = ret.concat(_.values(_.groupBy(withHousehold, (p) => p.householdIds[0])));
     
-    ret = _.sortBy(ret, p => p[0].lastName + " " + p[0].birthdate);
+    ret = _.sortBy(ret, p => p[0].lastName + " " + p[0].dates.birthdate);
     return ret;
     
   }

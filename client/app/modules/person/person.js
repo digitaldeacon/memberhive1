@@ -22,6 +22,7 @@ import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonE
 import {mhAvatar, mhAvatarUpload} from './directives/avatar-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
+import {mhWidgetPersonNextBirthdays} from './widgets/nextBirthdays/nextBirthdays';
 
 
 export var mhPersonModule = angular.module('mh.person',
@@ -263,5 +264,6 @@ mhPersonModule.directive('mhPersonListItem', mhPersonListItem);
 mhPersonModule.directive('mhPersonEditType', mhPersonEditType);
 
 mhPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);
+mhPersonModule.directive('mhWidgetPersonNextBirthdays', mhWidgetPersonNextBirthdays);
 
 
