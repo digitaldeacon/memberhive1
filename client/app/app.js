@@ -31,7 +31,6 @@ export var mhMainModule = angular.module('mh.main', [
   'gettext',
   'ngMdIcons',
   'ng-mfb',
-  'angular-google-gapi',
 
   'mh.core', // This needs to be loaded first
   // The order of the following modules will be reflected in the main menu.

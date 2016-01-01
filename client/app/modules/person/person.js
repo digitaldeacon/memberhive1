@@ -27,7 +27,6 @@ import {mhWidgetPersonRandom} from './widgets/random/person-random';
 export var mhPersonModule = angular.module('mh.person',
   [
     'ngFileUpload',
-    'ngImgCrop',
     'uiGmapgoogle-maps',
     'personFilters',
     'mh.core',
