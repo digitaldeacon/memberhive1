@@ -8,7 +8,8 @@ export function PersonService(
   Upload,
   mhConfig,
   AvatarSizes,
-  $rootScope
+  $rootScope,
+  $q
 ) {"ngInject";
 
   this.persons = null;
@@ -133,8 +134,8 @@ export function PersonService(
       }).$promise.then(this.mapPersonsData);
     },
 
-    cachedAll: () => {
-      if(this.persons) return this.persons;
+    getCachedAll: () => {
+      if(this.persons) return $q.resolve(this.persons);
       return this.getAll().then((d) => this.persons = d);
     },
 
@@ -142,8 +143,8 @@ export function PersonService(
       return this.getAll().then((d) => this.persons = d);
     },
 
-    cachedAllSimple: () => {
-      if(this.personsSimple) return this.personsSimple;
+    getCachedAllSimple: () => {
+      if(this.personsSimple) return $q.resolve(this.personsSimple);
       return this.getAllSimple().then((d) => this.personsSimple = d);
     },
 

@@ -61,7 +61,7 @@ export var mhPersonModule = angular.module('mh.person',
       },
       resolve: {
         resolvePersons: (PersonService) => {
-          return PersonService.cachedAllSimple();
+          return PersonService.getAll();
         },
       },
     }).state('person.view', {

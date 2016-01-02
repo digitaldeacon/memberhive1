@@ -11,11 +11,11 @@ export function PersonEditController (
   $http,
   $scope,
   $q,
-  $mdDialog
+  $mdDialog,
+  $window
 )
 {    "ngInject";
   this.loadPerson = (data) => {
-    console.log(this.person, data);
     var ret = PersonEditService.transform(data);
     this.households = Person.household({id: data.id});
     this.person = ret;
@@ -142,4 +142,24 @@ export function PersonEditController (
     });
     
   };  
+  
+  this.goPreviousPerson = () => {
+    PersonService.getCachedAll().then((persons) => {
+      var index = _.findIndex(persons, p => p.id === this.person.id);
+      index--;
+      if(persons[index]) {
+        $state.go('person.edit', {id: persons[index].id});
+      }
+    });
+  };
+  
+  this.goNextPerson = () => {
+     PersonService.getCachedAll().then((persons) => {
+      var index = _.findIndex(persons, p => p.id === this.person.id);
+      index++;
+      if(persons[index]) {
+        $state.go('person.edit', {id: persons[index].id});
+      }
+    });
+  };
 }
