@@ -15,6 +15,7 @@ export function PersonEditController (
 )
 {    "ngInject";
   this.loadPerson = (data) => {
+    console.log(this.person, data);
     var ret = PersonEditService.transform(data);
     this.households = Person.household({id: data.id});
     this.person = ret;
@@ -63,17 +64,17 @@ export function PersonEditController (
       })
       .then((data) => {
         var promises = [];
-        console.log("save households", this.households);
         this.households.forEach((household) => {
-          if(household.id) {
-            promises.push(Person.household.link({id: data.id, fk: household.id}).$promise);
+          if(household.id) {//already a existing household
+            if(!_.contains(this.person.householdIds, household.id)) { //not already linked to this person
+              promises.push(Person.household.link({id: data.id, fk: household.id}).$promise);
+            }
           } else {
-            promises.push(Household.create({}, household).$promise.then((h) => {
-              return Person.household.link({id: data.id, fk: h.id}).$promise;
+            promises.push(Household.create({}, household).$promise.then((h) => {//create household
+              return Person.household.link({id: data.id, fk: h.id}).$promise; //link to person
             }));
           }
         });
-        console.log(promises);
         return $q.all(promises).then(() => {return data;});
       })
       .then(this.loadPerson);
