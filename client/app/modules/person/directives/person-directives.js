@@ -104,6 +104,30 @@ export function mhPersonHousehold() {
 
   };
 }
+export function mhPersonGroup() {
+  return {
+    templateUrl: 'app/modules/person/templates/person-groups.html',
+    restrict: 'E',
+    scope: {
+      ngModel: '=',
+    },
+    controller: function($scope, PersonService) {"ngInject";
+      if(!$scope.ngModel) {
+        $scope.ngModel = [];
+      }
+      $scope.searchGroup = (query) => {
+        return PersonService.searchGroup(query);
+      };
+      $scope.transform = (chip) => {
+        if(!chip.name)
+          return {"name": chip};
+        else
+          return chip;
+      };
+    }
+
+  };
+}
 
 
 

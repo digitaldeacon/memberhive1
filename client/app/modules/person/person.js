@@ -18,7 +18,7 @@ import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {PersonEditService} from './services/person-edit-service';
 import {AvatarService} from './services/avatar-service';
-import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonEditType, mhPersonHousehold} from './directives/person-directives';
+import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonEditType, mhPersonHousehold, mhPersonGroup} from './directives/person-directives';
 import {mhAvatar, mhAvatarUpload} from './directives/avatar-directives';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
@@ -260,6 +260,7 @@ mhPersonModule.directive('mhPersonChips', mhPersonChips);
 mhPersonModule.directive('mhPersonStatus', mhPersonStatus);
 mhPersonModule.directive('mhPersonTags', mhPersonTags);
 mhPersonModule.directive('mhPersonHousehold', mhPersonHousehold);
+mhPersonModule.directive('mhPersonGroup', mhPersonGroup);
 mhPersonModule.directive('mhPersonListItem', mhPersonListItem);
 mhPersonModule.directive('mhPersonEditType', mhPersonEditType);
 

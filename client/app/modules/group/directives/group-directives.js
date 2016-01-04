@@ -7,15 +7,12 @@ export function mhGroupChips(GroupService) {"ngInject";
       ngModel: '=',
     },
     link: function(scope, element, attrs) {
-      console.log(scope.ngModel);
       if(!scope.ngModel) {
         scope.ngModel= [];
       }
-      console.log("after", scope.ngModel);
       scope.filterSelected = true;
       scope.querySearch = (query) => {
         var ret = GroupService.search(query);
-        console.log(ret);
         return ret;
       };
     }

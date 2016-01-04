@@ -16,9 +16,10 @@
   },
   "validations": [],
   "relations": {
-    "groupable": {
-      "type": "belongsTo",
-      "polymorphic": true
+    "persons": {
+      "type": "hasMany",
+      "model": "Person",
+      "foreignKey": "groupIds"
     }
   },
   "acls": [

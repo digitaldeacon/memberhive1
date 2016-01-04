@@ -1,4 +1,6 @@
-export function GroupService(Group) {
+export function GroupService(
+  Group
+) {"ngInject";
   
   this.mapGroup = (group) => {
     group.icon = 'group';

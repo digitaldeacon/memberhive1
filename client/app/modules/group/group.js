@@ -2,8 +2,6 @@ import {GroupService} from './services/group-service';
 import {GroupListController} from './controllers/group-list-controller';
 import {GroupEditController} from './controllers/group-edit-controller';
 import {mhGroupChips} from './directives/group-directives';
-
-
 import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 export var mhGroupModule = angular.module('mh.group', []).config(
@@ -71,10 +69,8 @@ export var mhGroupModule = angular.module('mh.group', []).config(
     });
 
 
-    MainMenuProvider.add(new MenuSection(gettext('Groups'), 'group',
+    MainMenuProvider.add(new MenuSection(gettext('Groups'), 'group.list',
       [
-        new MenuLink(gettext('List Groups'), 'list', 'group.list'),
-        new MenuLink(gettext('Create Group'), 'group_add', 'group.create')
       ]
     ));
   }

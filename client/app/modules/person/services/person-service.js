@@ -2,10 +2,11 @@ export function PersonService(
   Person,
   Household,
   Avatar,
+  Group,
+  Upload,
   LoopBackAuth,
   gettextCatalog,
   gettext,
-  Upload,
   mhConfig,
   AvatarSizes,
   $rootScope,
@@ -188,6 +189,9 @@ export function PersonService(
     },
     searchHousehold: (query) => {
       return Household.find({filter: {where: {name: {like: query}}}}).$promise;
+    },
+    searchGroup: (query) => {
+      return Group.find({filter: {where: {name: {like: query}}}}).$promise;
     },
     undoMap : this.undoMap,
 

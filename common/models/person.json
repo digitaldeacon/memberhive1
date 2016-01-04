@@ -133,7 +133,6 @@
         "validate": true,
         "forceId": false
       }
-
     },
     "relationType": {
       "type": "belongsTo",
@@ -154,13 +153,9 @@
       "polymorphic": "notable"
     },
     "groups": {
-      "type": "hasMany",
+      "type": "referencesMany",
       "model": "Group",
-      "polymorphic": {
-        "as": "groupable",
-        "foreignKey": "groupableId",
-        "discriminator": "groupableType"
-       }
+      "property": "groupIds"
     }
   },
   "acls": [
