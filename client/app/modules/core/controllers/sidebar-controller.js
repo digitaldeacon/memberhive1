@@ -11,7 +11,7 @@ export function SidebarController (
   [
     {label: gettext('Dashboard'), icon: "dashboard", route: "dashboard"},
     {label: gettext('Persons'), icon: "people", route: "person.list"},
-    {label: gettext('Calendar'), icon: "today", route: "calendar.show"},
+    {label: gettext('Calendar'), icon: "today", route: "event.list"},
     {label: gettext('Notes'), icon: "note_add", route: "note.list"},
     {label: gettext('Groups'), icon: "group", route: "group.list"},
   ];
