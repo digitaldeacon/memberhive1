@@ -71,6 +71,8 @@ export var mhGroupModule = angular.module('mh.group', []).config(
 
     MainMenuProvider.add(new MenuSection(gettext('Groups'), 'group.list',
       [
+        new MenuLink(gettext('List Groups'), 'list', 'group.list'),
+        new MenuLink(gettext('Create Group'), 'group_add', 'group.create')
       ]
     ));
   }
