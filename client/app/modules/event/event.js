@@ -3,12 +3,11 @@ import {EventsController} from './controllers/events-controller';
 import {EventTemplatesController} from './controllers/event-templates-controller';
 import {EventTemplateController} from './controllers/event-template-controller';
 import {EventService} from './service/event-service';
-import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 
 export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
 ).config(
-  ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
+  ($stateProvider, gettext) => {
     $stateProvider.state('event', {
       url: '/event',
       data: {
@@ -112,12 +111,6 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         needRights: ['$authenticated']
       }
     });
-    MainMenuProvider.add(new MenuSection(gettext('Event'), 'today',
-      [
-        new MenuLink(gettext('All Events'), 'today', 'event.list'),
-        new MenuLink(gettext('Event template'), 'person_add', 'event.templates'),
-      ]
-    ));
   }
 );
 

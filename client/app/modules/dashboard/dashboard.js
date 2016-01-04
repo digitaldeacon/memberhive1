@@ -1,12 +1,11 @@
 import {DashboardController} from './controllers/dashboard-controller';
-import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 import {mhWidget} from './directives/dashboard-directives';
 
 export var gemDashboardModule = angular.module('mh.dashboard',
   [
   ]);
 gemDashboardModule.config(
-  ($stateProvider, MainMenuProvider, gettext) => {
+  ($stateProvider, gettext) => {
     $stateProvider
       .state('dashboard', {
       url: 'dashboard',
@@ -22,7 +21,6 @@ gemDashboardModule.config(
       }
     });
 
-    MainMenuProvider.add(new MenuLink(gettext('Dashboard'), 'dashboard', 'dashboard'));
   }
 );
 

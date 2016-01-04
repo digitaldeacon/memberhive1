@@ -1,5 +1,3 @@
-import {MenuSection, MenuLink} from '../core/providers/menu-provider';
-
 import {ReportListController} from './controllers/report-list-controller';
 import {ReportEditController} from './controllers/report-edit-controller';
 
@@ -17,7 +15,7 @@ export var mhReportModule = angular.module('mh.report', [
 ]);
 
 mhReportModule.config(
-  ($stateProvider, $provide, MainMenuProvider, gettext) => {
+  ($stateProvider, $provide, gettext) => {
     $stateProvider.state('report', {
       url: '/report',
       template: '<ui-view/>',
@@ -70,13 +68,6 @@ mhReportModule.config(
         needRights: ['$authenticated']
       }
     });
-
-    MainMenuProvider.add(new MenuSection(gettext('Reports'), 'insert_chart',
-      [
-        new MenuLink(gettext('List Reports'), 'list', 'report.list'),
-        new MenuLink(gettext('Create Report'), 'add', 'report.create')
-      ]
-    ));
   }
 );
 

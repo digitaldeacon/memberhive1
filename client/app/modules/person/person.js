@@ -1,6 +1,5 @@
 
 import './filters/person-filters';
-import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 import {PersonListController} from './controllers/person-list-controller';
 
@@ -35,7 +34,7 @@ export var mhPersonModule = angular.module('mh.person',
     'mh.config'
   ]
 ).config(
-  ($stateProvider, $compileProvider, MainMenuProvider, gettext, uiGmapGoogleMapApiProvider) => {
+  ($stateProvider, $compileProvider, gettext, uiGmapGoogleMapApiProvider) => {
     $stateProvider.state('person', {
       url: '/person',
       template: '<ui-view/>',
@@ -220,15 +219,6 @@ export var mhPersonModule = angular.module('mh.person',
 
     // Allow skype urls http://stackoverflow.com/a/15769779
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|skype):/);
-
-    MainMenuProvider.add(new MenuSection(gettext('Persons'), 'people',
-      [
-        new MenuLink(gettext('Persons'), 'people', 'person.list'),
-        new MenuLink(gettext('Households'), 'location_city', 'person.households'),
-        new MenuLink(gettext('Import'), 'file_upload', 'person.import'),
-        new MenuLink(gettext('Export'), 'cloud_download', 'person.export')
-      ]
-    ));
 
     uiGmapGoogleMapApiProvider.configure({
       //    key: 'your api key',

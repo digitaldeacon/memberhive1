@@ -21,9 +21,9 @@ import {temperatureFilter} from './filters/format-filters';
  *
  * @type {module}
  */
-export var gemCoreModule = angular.module('mh.core', ['ngAnimate']);
+export var mhCoreModule = angular.module('mh.core', ['ngAnimate']);
 
-gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => { "ngInject";
+mhCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => { "ngInject";
   $urlRouterProvider.otherwise('/dashboard');
   //main color is: #F8922F
   //complementär: #0085AB
@@ -119,7 +119,7 @@ gemCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) =>
   });
 });
 
-gemCoreModule.run(($rootScope, gettextCatalog) => { "ngInject";
+mhCoreModule.run(($rootScope, gettextCatalog) => { "ngInject";
   $rootScope.gemConfig = {
     layout: {
       sidebarClosed: true // sidebar state
@@ -148,35 +148,35 @@ gemCoreModule.run(($rootScope, gettextCatalog) => { "ngInject";
 });
 
 // Controllers
-gemCoreModule.controller('AppController', AppController);
-gemCoreModule.controller('HeaderController', HeaderController);
-gemCoreModule.controller('SidebarController', SidebarController);
-gemCoreModule.controller('ShoutController', ShoutController);
+mhCoreModule.controller('AppController', AppController);
+mhCoreModule.controller('HeaderController', HeaderController);
+mhCoreModule.controller('SidebarController', SidebarController);
+mhCoreModule.controller('ShoutController', ShoutController);
 
 // Providers
-gemCoreModule.provider('MainMenu', MainMenu);
+mhCoreModule.provider('MainMenu', MainMenu);
 
 // Services
-gemCoreModule.service('Search', Search);
-gemCoreModule.service('AccountOptions', AccountOptions);
+mhCoreModule.service('Search', Search);
+mhCoreModule.service('AccountOptions', AccountOptions);
 
 // Factories
-gemCoreModule.factory('Shout', Shout);
-gemCoreModule.factory('mhFileReader', mhFileReader);
+mhCoreModule.factory('Shout', Shout);
+mhCoreModule.factory('mhFileReader', mhFileReader);
 
 // Directives
-gemCoreModule.directive('mhDateInput', mhDateInput);
-gemCoreModule.directive('uiNav', uiNavDirective);
-gemCoreModule.directive('mhMenuItem', mhMenuItem);
-gemCoreModule.directive('mhMenuIconItem', mhMenuIconItem);
-/*gemCoreModule.directive('mhPanel', mhPanelDirective);
-gemCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
-gemCoreModule.directive('mhPanelBody', mhPanelBodyDirective);*/
-gemCoreModule.directive('mhContent', mhContent);
+mhCoreModule.directive('mhDateInput', mhDateInput);
+mhCoreModule.directive('uiNav', uiNavDirective);
+mhCoreModule.directive('mhMenuItem', mhMenuItem);
+mhCoreModule.directive('mhMenuIconItem', mhMenuIconItem);
+/*mhCoreModule.directive('mhPanel', mhPanelDirective);
+mhCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
+mhCoreModule.directive('mhPanelBody', mhPanelBodyDirective);*/
+mhCoreModule.directive('mhContent', mhContent);
 
-gemCoreModule.directive('mhStateLoader', stateLoader);
-gemCoreModule.directive('mhAppLoader', appLoader);
+mhCoreModule.directive('mhStateLoader', stateLoader);
+mhCoreModule.directive('mhAppLoader', appLoader);
 // Filters
-gemCoreModule.filter('fromNow', fromNowFilter);
-gemCoreModule.filter('fromNowMoment', fromNowMomentFilter);
-gemCoreModule.filter('temperature', temperatureFilter);
+mhCoreModule.filter('fromNow', fromNowFilter);
+mhCoreModule.filter('fromNowMoment', fromNowMomentFilter);
+mhCoreModule.filter('temperature', temperatureFilter);

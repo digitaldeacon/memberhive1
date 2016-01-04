@@ -1,10 +1,7 @@
 import {CalendarController} from './controllers/calendar-controller';
-import {MenuSection, MenuLink} from '../core/providers/menu-provider';
-
-
 export var gemCalendarModule = angular.module('mh.calendar', []
 ).config(
-  ($stateProvider, $compileProvider, MainMenuProvider, gettext) => {
+  ($stateProvider, $compileProvider, gettext) => {
     $stateProvider.state('calendar', {
       url: '/calendar',
       template: '<ui-view/>',
@@ -26,8 +23,6 @@ export var gemCalendarModule = angular.module('mh.calendar', []
         needRights: ['$authenticated']
       }
     });
-
-    MainMenuProvider.add(new MenuLink(gettext('Calendar'), 'today', 'calendar.show'));
   }
 );
 

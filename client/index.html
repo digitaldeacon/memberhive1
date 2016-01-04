@@ -115,11 +115,11 @@
   <div flex ng-if="acl.isLoggedIn()" class="full-height">
     <mhStateLoader></mhStateLoader>
     <div flex layout="row" class="full-height">
-      <div data-ng-include="'app/templates/sidebar.html'"
+      <div data-ng-include="'app/modules/core/templates/sidebar.html'"
             data-ng-controller="SidebarController as sidebarCtrl"
             layout="vertical"></div>
       <div flex layout="column" class="full-height">
-        <div data-ng-include="'app/templates/header.html'" data-ng-controller="HeaderController as headerCtrl">
+        <div data-ng-include="'app/modules/core/templates/header.html'" data-ng-controller="HeaderController as headerCtrl">
         </div>
 
         <md-content flex class="content-background">

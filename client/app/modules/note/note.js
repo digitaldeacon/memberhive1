@@ -2,10 +2,9 @@ import {NoteEditFormDirective, NoteTreeDirective, NoteCreateDirective} from './d
 import {NoteService} from './services/note-service';
 import {NoteListController} from './controllers/note-list-controller';
 import {NoteEditController} from './controllers/note-edit-controller';
-import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 export var mhNoteModule = angular.module('mh.note', []).config(
-  ($stateProvider, MainMenuProvider, gettext) => {
+  ($stateProvider, gettext) => {
     $stateProvider.state('note', {
       url: '/note',
       template: '<ui-view/>',
@@ -67,14 +66,6 @@ export var mhNoteModule = angular.module('mh.note', []).config(
         }
       }
     });
-
-
-    MainMenuProvider.add(new MenuSection(gettext('Notes'), 'note_add',
-      [
-        new MenuLink(gettext('My Notes'), 'list', 'note.list'),
-        new MenuLink(gettext('Create Note'), 'note_add', 'note.create')
-      ]
-    ));
   }
 );
 mhNoteModule.controller('NoteListController', NoteListController);
