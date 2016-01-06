@@ -324,7 +324,7 @@ module.exports = function(Person) {
 
   Person.exportPDF = function(css, apiBase, res, cb) {
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
-    
+
     Person.find(
       {},
       function(err, persons) {
@@ -334,14 +334,14 @@ module.exports = function(Person) {
             console.error(err)
           } else {
             pdf.render(
-              template, 
+              template,
               {
-                personGroups: Person.groupByHousehold(persons), 
-                dienste: Person.groupByDienst(persons),        
-                css: css, 
-                base: apiBase}, 
+                personGroups: Person.groupByHousehold(persons),
+                dienste: Person.groupByDienst(persons),
+                css: css,
+                base: apiBase},
               {
-                pageSize: 'A5', 
+                pageSize: 'A5',
                 marginLeft: '1',
                 marginRight: '1',
                 marginTop: '1',
@@ -350,23 +350,27 @@ module.exports = function(Person) {
               , res, cb);
           }
         });
-        
+
       }
      );
 
   }
-  
+
   Person.groupByHousehold = (persons) => {
     var ret = [];
     var withHousehold = _.filter(persons, p => p.householdIds.length > 0);
     var withoutHousehold = _.filter(persons, p => p.householdIds.length == 0);
-    
+
     ret = _.map(withoutHousehold, p => [p]);
     ret = ret.concat(_.values(_.groupBy(withHousehold, (p) => p.householdIds[0])));
-    
-    ret = _.sortBy(ret, p => p[0].lastName + " " + p[0].dates.birthdate);
+    ret = _.sortBy(ret, p => {
+      var ret = p[0].lastName;
+      if(p[0].dates)
+        ret += " " + p[0].dates.birthdate;
+      return ret;
+    });
     return ret;
-    
+
   }
   Person.groupByDienst = (persons) => {
     var ret = {};
@@ -380,11 +384,11 @@ module.exports = function(Person) {
             ret[d] = [p];
           }
         });
-        
+
       }
     });
     return ret;
-    
+
   }
 
   Person.remoteMethod(
