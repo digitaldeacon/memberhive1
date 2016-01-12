@@ -3,8 +3,7 @@ export function PersonEditService(
   PersonService,
   Person
 ) {"ngInject";
-  this.person = undefined;
-  this.account = undefined;
+  this.personCache = undefined;
 
 
   /*
@@ -12,10 +11,13 @@ export function PersonEditService(
    * Cached
    */
   this.getPerson = (personId) => {
-    if(this.person && this.person.id === personId) //return cached person
-      return $q.when(this.person);
+    if(this.personCache && this.personCache.id === personId) //return cached person
+      return $q.when(this.personCache);
     return PersonService.one(personId)
-      .then((p) => this.person = p);//cache person
+      .then((person) => {
+        this.personCache = person;
+        return person;
+      });//cache person
   };
 
   this.save = (person) => {
@@ -61,18 +63,18 @@ export function PersonEditService(
   };
 
   this.fromHashToList = (hash) => {
-    var ret = [];
+    let ret = [];
     _.forEach(hash, (value, key) => {
       ret.push({key: key, value: value});
     });
     return ret;
   };
   this.fromListToHash = (list) => {
-    var ret = {};
+    let ret = {};
     _.forEach(list, (value) => {
       ret[value.key] = value.value;
     });
     return ret;
   };
-  
+
 }
