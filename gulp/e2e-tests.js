@@ -8,14 +8,14 @@ var browserSync = require('browser-sync');
 
 module.exports = function(options) {
   // Downloads the selenium webdriver
-  gulp.task('webdriver-update', $.protractor.webdriver_update);
+  /*gulp.task('webdriver-update', $.protractor.webdriver_update);
 
   gulp.task('webdriver-standalone', $.protractor.webdriver_standalone);
-
+*/
   function runProtractor (done) {
 
-    gulp.src(options.e2e + '/**/*.js')
-      .pipe($.protractor.protractor({
+   // gulp.src(options.e2e + '/**/*.js')
+    /*  .pipe($.protractor.protractor({
         configFile: 'protractor.conf.js'
       }))
       .on('error', function (err) {
@@ -26,7 +26,7 @@ module.exports = function(options) {
         // Close browser sync server
         browserSync.exit();
         done();
-      });
+      });*/
   }
 
   gulp.task('protractor', ['protractor:src']);

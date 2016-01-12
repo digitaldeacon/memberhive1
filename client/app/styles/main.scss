@@ -5,6 +5,7 @@
 @import "components/dropzone";
 @import "components/chips";
 @import "components/list";
+@import "components/loadingBar";
 @import "components/fab";
 @import "components/icon";
 @import "components/ns-popover";
@@ -126,7 +127,7 @@ html#pdf-export-html, body#pdf-export {
   font-size: 12px;
   line-height: 120%;
   font-family: 'Tinos', serif;
-  
+
   table
   {
       border-collapse: collapse;
@@ -161,7 +162,7 @@ html#pdf-export-html, body#pdf-export {
       width: $image-width;
       background-repeat:no-repeat;
       background-size:contain;
-      
+
       border-radius: 8px;
   }
   .td-name {
@@ -174,7 +175,7 @@ html#pdf-export-html, body#pdf-export {
       width: 90px;
       padding-top: 3px;
       vertical-align:text-top;
-      
+
   }
   .td-contact {
       padding-top: 3px;

@@ -32,7 +32,7 @@ export function NoteCreateDirective() {"ngInject";
         buttonClass: '@',
         newNote: '&'
     },
-    controller: function ($scope, $element, $mdDialog, Note, NoteIconConfig, Shout, gettextCatalog) {"ngInject";
+    controller: function ($scope, $element, $mdDialog, Note, NoteIconConfig, Shout, gettextCatalog)  {"ngInject";
       this.type = 'note';
       this.noteTypes = NoteIconConfig;
 
@@ -60,14 +60,14 @@ export function NoteCreateDirective() {"ngInject";
         this.noteType = '';
       };
 
-      this.createDialog = ($event) => {
+      this.createDialog = (event) => {
         $mdDialog.show({
           controller: this.DialogController,
           controllerAs: 'ctrl',
           bindToController: true,
-          templateUrl: 'createNote.html',
+          templateUrl: 'app/modules/note/templates/note-dialog.html',
           parent: angular.element(document.body),
-          targetEvent: $event,
+          targetEvent: event,
           locals: {
             noteTypes: this.noteTypes,
             type: this.type,

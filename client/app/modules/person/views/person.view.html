@@ -87,9 +87,10 @@
         </div>
         <md-divider ng-if="!$last"></md-divider>
       </md-list-item>
-
     </md-list>
-
+    <div class="text-muted" ng-if="personCtrl.notes.length == 0">
+      <translate>Currently no notes writen</translate>
+    </div>
     <mh-note-create
       notable-type="Person"
       notable-id="{{personCtrl.person.id}}"

@@ -1,5 +1,4 @@
 export function PersonEditController (
-  $state,
   gettextCatalog,
   AvatarService,
   PersonEditService,
@@ -8,6 +7,7 @@ export function PersonEditController (
   Person,
   resolvePerson,
   Shout,
+  $state,
   $http,
   $scope,
   $q,
@@ -17,6 +17,7 @@ export function PersonEditController (
 {    "ngInject";
   this.loadPerson = (data) => {
     var ret = PersonEditService.transform(data);
+    $state.current.data.pageSubTitle = data.firstName + " " + data.lastName;
     this.households = Person.household({id: data.id});
     this.person = ret;
     return ret;
@@ -122,7 +123,7 @@ export function PersonEditController (
       };
     }
   };
-  
+
   this.createAccount = (ev) => {
     var username = this.person.firstName.toLowerCase() + "_" + this.person.lastName.toLowerCase();
     var password = Math.random().toString(36).slice(-8);
@@ -132,7 +133,7 @@ export function PersonEditController (
           .targetEvent(ev)
           .ok('Create Account!')
           .cancel('Cancel');
-          
+
     $mdDialog.show(confirm).then(() => {
       PersonEditService.createAccount(this.person, username, password)
         .then(
@@ -140,9 +141,9 @@ export function PersonEditController (
           err => Shout.vError(err)
         );
     });
-    
-  };  
-  
+
+  };
+
   this.goPreviousPerson = () => {
     PersonService.getCachedAll().then((persons) => {
       var index = _.findIndex(persons, p => p.id === this.person.id);
@@ -152,7 +153,7 @@ export function PersonEditController (
       }
     });
   };
-  
+
   this.goNextPerson = () => {
      PersonService.getCachedAll().then((persons) => {
       var index = _.findIndex(persons, p => p.id === this.person.id);
