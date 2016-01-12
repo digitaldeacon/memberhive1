@@ -15,22 +15,18 @@ export function PersonEditController (
   $window
 )
 {    "ngInject";
-  this.showExtended = false;
-  this.uploadedAvatar = null;
-  this.croppedAvatar = null; //populated
-  this.person = undefined;
-
-  this.personService = PersonService;//for use in views TODO: is it still used?
-
   this.loadPerson = (data) => {
-    let ret = PersonEditService.transform(data);
-    this.households = Person.household({id: ret.id});
+    var ret = PersonEditService.transform(data);
+    this.households = Person.household({id: data.id});
     this.person = ret;
     return ret;
   };
 
   this.loadPerson(resolvePerson);
-
+  this.showExtended = false;
+  this.personService = PersonService;
+  this.uploadedAvatar = null;
+  this.croppedAvatar = null; //populated
 
   this.saveWithNotification = () => {
     this.save().then(
@@ -54,8 +50,6 @@ export function PersonEditController (
   };
 
   this.save = () => {
-    console.log("save this person", this.person);
-    console.log("back transformed", PersonEditService.transformBack(this.person));
     return this.geoCodeAddress()
       .then(() => {
         return PersonEditService.save(PersonEditService.transformBack(this.person));
@@ -128,7 +122,7 @@ export function PersonEditController (
       };
     }
   };
-
+  
   this.createAccount = (ev) => {
     var username = this.person.firstName.toLowerCase() + "_" + this.person.lastName.toLowerCase();
     var password = Math.random().toString(36).slice(-8);
@@ -138,7 +132,7 @@ export function PersonEditController (
           .targetEvent(ev)
           .ok('Create Account!')
           .cancel('Cancel');
-
+          
     $mdDialog.show(confirm).then(() => {
       PersonEditService.createAccount(this.person, username, password)
         .then(
@@ -146,9 +140,9 @@ export function PersonEditController (
           err => Shout.vError(err)
         );
     });
-
-  };
-
+    
+  };  
+  
   this.goPreviousPerson = () => {
     PersonService.getCachedAll().then((persons) => {
       var index = _.findIndex(persons, p => p.id === this.person.id);
@@ -158,7 +152,7 @@ export function PersonEditController (
       }
     });
   };
-
+  
   this.goNextPerson = () => {
      PersonService.getCachedAll().then((persons) => {
       var index = _.findIndex(persons, p => p.id === this.person.id);
