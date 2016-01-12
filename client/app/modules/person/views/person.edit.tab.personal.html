@@ -43,7 +43,7 @@
     <label translate>Household</label>
     <mh-person-household ng-model="personCtrl.households"></mh-person-household>
   </md-input-container>
-  
+
   <md-input-container >
     <label translate>Group</label>
     <mh-person-group ng-model="personCtrl.groups"></mh-person-group>
@@ -119,7 +119,7 @@
     <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.datesList">
       <div class="md-list-item-text" layout="row">
         <mh-person-edit-type flex="33" key="value.key" type="dateTypes"></mh-person-edit-type>
-        <mh-date-input ng-model="value.value" placeholder="Enter {{key}}" label="{{personCtrl.personService.dateTypes[vlue.key].text}}"></mh-date-input>
+        <input type="date" ng-model="value.value" />
       </div>
     </md-list-item>
 
