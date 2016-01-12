@@ -15,7 +15,6 @@ services:
 cache:
   directories:
     - bower_components
-    - node_modules/lwip
     - "$HOME/.nvm"
 before_install:
   - openssl aes-256-cbc -K $encrypted_f977bfde2ef3_key -iv $encrypted_f977bfde2ef3_iv -in id_rsa.enc -out id_rsa -d
