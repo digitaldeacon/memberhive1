@@ -4,6 +4,9 @@ node_js:
 sudo: false
 env:
   - CXX=g++-4.8
+branches:
+  only:
+    - master
 addons:
   apt:
     sources:
@@ -37,3 +40,4 @@ script:
   - gulp build
 after_success:
   - sh deploy.sh
+
