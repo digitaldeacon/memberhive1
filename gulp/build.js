@@ -77,7 +77,7 @@ module.exports = function(options) {
       options.src + '/app/images/**/*',
       '!' + options.src + '/app/images/**/*.{html,css,js,scss}',
     ])
-    .pipe(gulp.dest(options.dist + '/images'));
+    .pipe(gulp.dest(options.dist + '/app/images'));
   });
    
 
@@ -101,6 +101,7 @@ module.exports = function(options) {
 
   gulp.task('build', ['html', 'fonts', 'images', 'other', 'other-css', 'ngdocs'], function(){
     return gulp.src(options.dist + '/index.html')
+      .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "/api"}'))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
         process.exit();
