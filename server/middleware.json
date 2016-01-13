@@ -19,9 +19,9 @@
     }
   },
   "files": {
-        "loopback#static": {
-            "params": "$!../client"
-        }
+    "loopback#static": {
+      "params": "$!../dist"
+    }
   },
   "final": {
     "loopback#urlNotFound": {}
