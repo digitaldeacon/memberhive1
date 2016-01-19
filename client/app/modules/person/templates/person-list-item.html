@@ -14,8 +14,8 @@
         {{ ::tag }}
       </span>
 
-      <ng-md-icon icon="home"></ng-md-icon>
       <span ng-repeat="h in ::person.household">
+        <ng-md-icon icon="home"></ng-md-icon>
         <a ui-sref="person.household-edit({householdId: h.id})"> {{ ::h.name}}</a>
       </span>
       <span class="text-muted" ng-if="::person.contacts.home">

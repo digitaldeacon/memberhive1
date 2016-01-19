@@ -105,13 +105,11 @@ export function PersonService(
         filter: {
           include: [
             'account',
-            {
-              'household': [
-                {'persons': 'relationType'}
-                // 'address'
-              ]
-            },
-            'ministries','relationType','notes'
+            'ministries',
+            'relationType',
+            'notes',
+            'groups',
+            'household'
           ]
         }
       }).$promise.then(this.mapPerson);
@@ -155,6 +153,12 @@ export function PersonService(
     },
 
     getHousehold: (id) => {
+      return Household.findById({
+        id: id
+      });
+    },
+
+    getHouseholdPersons: (id) => {
       return Household.findById({
         id: id,
         filter: {include: "persons"}

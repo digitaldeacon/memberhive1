@@ -12,14 +12,14 @@ export function PersonEditService(
    * Cached
    */
   this.getPerson = (personId) => {
-    if(this.person && this.person.id === personId) //return cached person
-      return $q.when(this.person);
+    /*if(this.person && this.person.id === personId) //return cached person
+      return $q.when(this.person);*/
     return PersonService.one(personId)
       .then((p) => this.person = p);//cache person
   };
 
   this.save = (person) => {
-    return Person.upsert({}, PersonService.undoMap(person))
+    return Person.upsert({filter: {include: ['household', 'groups']}}, PersonService.undoMap(person))
       .$promise.then((d) => {return PersonService.mapPerson(d);});
   };
 
@@ -74,5 +74,5 @@ export function PersonEditService(
     });
     return ret;
   };
-  
+
 }

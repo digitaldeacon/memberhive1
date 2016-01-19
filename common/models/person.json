@@ -155,7 +155,12 @@
     "groups": {
       "type": "referencesMany",
       "model": "Group",
-      "property": "groupIds"
+      "property": "groupIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+
     }
   },
   "acls": [
