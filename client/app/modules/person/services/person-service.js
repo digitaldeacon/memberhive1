@@ -74,6 +74,7 @@ export function PersonService(
      return Person.find({
         filter: {
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
+          include: ['household'],
         }
       }).$promise.then(this.mapPersons);
   };

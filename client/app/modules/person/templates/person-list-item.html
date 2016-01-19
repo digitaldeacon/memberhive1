@@ -8,19 +8,23 @@
       </h3>
 
       <span ng-repeat="status in ::person.status" class="tag status-tag">
-        {{ :: status }}
+        {{ ::status }}
       </span>
       <span ng-repeat="tag in ::person.tags" class="tag">
         {{ ::tag }}
       </span>
-      <span class="text-muted">{{::person.duties}}</span>
-      <span class="text-muted" ng-if="::person.contact.home">
-          <ng-md-icon size="16" icon="phone"></ng-md-icon>
-          <a href="tel:{{ ::person.contact.home }}" ng-bind="::person.contact.home"> </a>
+
+      <ng-md-icon icon="home"></ng-md-icon>
+      <span ng-repeat="h in ::person.household">
+        <a ui-sref="person.household-edit({householdId: h.id})"> {{ ::h.name}}</a>
       </span>
-      <span class="text-muted" ng-if="person.contact.mobile">
+      <span class="text-muted" ng-if="::person.contacts.home">
+          <ng-md-icon size="16" icon="phone"></ng-md-icon>
+          <a href="tel:{{ ::person.contacts.home }}" ng-bind="::person.contacts.home"></a>
+      </span>
+      <span class="text-muted" ng-if="person.contacts.mobile">
           <ng-md-icon size="15" icon="stay_primary_portrait"></ng-md-icon>
-          <a href="tel:{{ ::person.contact.mobile }}" ng-bind="::person.contact.mobile"></a>
+          <a href="tel:{{ ::person.contacts.mobile }}" ng-bind="::person.contacts.mobile"></a>
       </span>
   </div>
 </div>
