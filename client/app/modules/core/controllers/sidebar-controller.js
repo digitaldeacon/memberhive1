@@ -1,19 +1,19 @@
 export function SidebarController (
-  Account, 
-  $state, 
-  $timeout, 
+  Account,
+  $state,
+  $timeout,
   $mdSidenav,
   AccountOptions,
   gettext
-) 
+)
 {"ngInject";
-  this.mainMenu = 
+  this.mainMenu =
   [
     {label: gettext('Dashboard'), icon: "dashboard", route: "dashboard"},
-    {label: gettext('Persons'), icon: "people", route: "person.list"},
+    {label: gettext('Persons'), icon: "person", route: "person.list"},
     {label: gettext('Calendar'), icon: "today", route: "event.list"},
     {label: gettext('Notes'), icon: "note_add", route: "note.list"},
-    {label: gettext('Groups'), icon: "group", route: "group.list"},
+    {label: gettext('Groups'), icon: "people_outline", route: "group.list"},
   ];
 
   this.closeMenu = () => {
@@ -23,12 +23,12 @@ export function SidebarController (
   this.openMenu = () => {
     $mdSidenav('left').open();
   };
-  
+
   this.isMenuLocked = false;
   AccountOptions.get('sidebar_locked', false).then((data) => {
     this.isMenuLocked = data;
   });
-  
+
   this.isMenuCollapsing = false;
   this.isHovering = true;
 
@@ -65,8 +65,8 @@ export function SidebarController (
   };
 
   this.selected = '';
-  
-  
-  
- 
+
+
+
+
 }
