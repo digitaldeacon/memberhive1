@@ -95,7 +95,7 @@ export function mhAvatarUpload() {
             });
           };
           reader.onerror = (err) => {
-            this.Shout.error(this.gettextCatalog.getString('Can’t read image. Please try again.'));
+            this.Shout.error(this.gettextCatalog.getString('Cannot read image. Please try again.'));
           };
         }
       };

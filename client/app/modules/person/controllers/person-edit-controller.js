@@ -59,7 +59,7 @@ export function PersonEditController (
         if (this.avatarDeleted && !this.avatarChanged) {
           PersonService.deleteAvatar(data);
         } else if (this.avatarChanged && this.uploadedAvatar) {
-          AvatarService.saveAvatarFromDataURI(data, this.uploadedAvatar);
+          AvatarService.saveAvatarFromDataURI(data.id, this.uploadedAvatar);
         }
         return data;
       })
@@ -107,7 +107,8 @@ export function PersonEditController (
       reader.readAsDataURL(files[0]);
       reader.onload = (event) => {
         this.uploadedAvatar = event.target.result;
-        angular.element("#avatar_preview").src = event.target.result;
+        this.avatarChanged = true;
+        angular.element("#avatar_preview").attr('src', this.uploadedAvatar);
       };
       reader.onerror = (err) => {
         Shout.error(gettextCatalog.getString('Can’t read image. Please try again.'));
