@@ -1,10 +1,28 @@
 <md-list>
   <md-list-item ng-repeat="group in groupCtrl.groups">
-    <ng-md-icon icon="group"></ng-md-icon>
+
+    <div>
+      <md-menu>
+        <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
+          <ng-md-icon icon="group"></ng-md-icon>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item>
+            <md-button ng-click="groupCtrl.deleteGroup(group)">
+              <ng-md-icon icon="delete"></ng-md-icon>
+              Delete
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+
     <div flex class="md-list-item-text">
+        <div c
         <h3><a ui-sref="group.edit({ id: group.id })">{{group.name}}</a></h3>
         <p class="text-muted">{{group.description | limitTo: 100}}</p>
     </div>
+
     <md-divider ></md-divider>
   </md-list-item>
 </md-list>
