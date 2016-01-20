@@ -51,8 +51,8 @@
 
 
   <md-radio-group ng-model="personCtrl.person.gender" layout="row">
-    <md-radio-button value="m"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
-    <md-radio-button value="f"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
+    <md-radio-button value="m" ng-style="{'display':'inline'}"><fa name="male"></fa> <translate>Male</translate></md-radio-button>
+    <md-radio-button value="f" ng-style="{'display':'inline'}"><fa name="female"></fa> <translate>Female</translate></md-radio-button>
   </md-radio-group>
 
   <md-button ng-click="personCtrl.showExtended = !personCtrl.showExtended">
