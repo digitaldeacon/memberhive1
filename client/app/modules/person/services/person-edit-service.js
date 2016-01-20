@@ -75,4 +75,26 @@ export function PersonEditService(
     return ret;
   };
 
+  this.assign = (item, values, ids, relation, singleton) => {
+    var promises = [];
+    var used = [];
+    values.forEach((value) => {
+      if(value.id) {//already a existing group
+        if(!_.contains(ids, value.id)) { //not already linked to this person
+          promises.push(relation.link({id: item.id, fk: value.id}).$promise);
+        }
+        used.push(value.id);
+      } else {
+        promises.push(singleton.create({}, value).$promise.then((newValue) => {//create group
+          return relation.link({id: item.id, fk: newValue.id}).$promise; //link to person
+        }));
+      }
+    });
+    
+    _.difference(ids, used).forEach((id) => {
+      promises.push(relation.unlink({id: item.id, fk: id}).$promise);
+    });
+    
+    return $q.all(promises).then(() => {return item;});
+  };
 }

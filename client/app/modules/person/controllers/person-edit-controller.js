@@ -64,34 +64,10 @@ export function PersonEditController (
         return data;
       })
       .then((data) => {
-        var promises = [];
-        this.person.household.forEach((household) => {
-          if(household.id) {//already a existing household
-            if(!_.contains(this.person.householdIds, household.id)) { //not already linked to this person
-              promises.push(Person.household.link({id: data.id, fk: household.id}).$promise);
-            }
-          } else {
-            promises.push(Household.create({}, household).$promise.then((h) => {//create household
-              return Person.household.link({id: data.id, fk: h.id}).$promise; //link to person
-            }));
-          }
-        });
-        return $q.all(promises).then(() => {return data;});
+        return PersonEditService.assign(data, this.person.household, this.person.householdIds, Person.household, Household);
       })
       .then((data) => {
-        var promises = [];
-        this.person.groups.forEach((group) => {
-          if(group.id) {//already a existing group
-            if(!_.contains(this.person.groupIds, group.id)) { //not already linked to this person
-              promises.push(Person.groups.link({id: data.id, fk: group.id}).$promise);
-            }
-          } else {
-            promises.push(Group.create({}, group).$promise.then((g) => {//create group
-              return Person.groups.link({id: data.id, fk: g.id}).$promise; //link to person
-            }));
-          }
-        });
-        return $q.all(promises).then(() => {return data;});
+        return PersonEditService.assign(data, this.person.groups, this.person.groupIds, Person.groups, Group);
       })
       .then((data) => { return PersonEditService.getPerson(data.id);})
       .then(this.loadPerson);
