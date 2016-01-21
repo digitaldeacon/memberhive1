@@ -25,6 +25,7 @@ export function mhPersonStatus() {
     restrict: 'E',
     scope: {
       ngModel: '=',
+      placeholder: '@'
     },
     controller: function($scope, PersonService) {"ngInject";
       if(!$scope.ngModel) {
@@ -43,6 +44,7 @@ export function mhPersonTags() {
     restrict: 'E',
     scope: {
       ngModel: '=',
+      placeholder: '@'
     },
     controller: function($scope, PersonService) {"ngInject";
       if(!$scope.ngModel) {

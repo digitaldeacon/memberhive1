@@ -23,6 +23,7 @@ Install process
 * `npm test` *start node.js server* or `npm run debug` *to see debug output*
 * `gulp surf` *Run local webserver (will compile SASS and ES6 files when changed)*
 
+Docs for Loopback Services can be found [here](http://client-docs.memberhive.com/)
 
 ## Supported Versions of Software
 * MongoDB == 2.4

@@ -13,6 +13,7 @@ export function PersonListController(
   };
   
   this.reload = () => {
+    console.log("reload persons");
     var where = {};
     if(this.filter.status && this.filter.status.length > 0) {
       where.status = {inq: this.filter.status};
@@ -24,7 +25,6 @@ export function PersonListController(
       where.groupIds = {inq: _.map(this.filter.groups, (g) => g.id)};
     }
     PersonService.getAllFilterd(where).then((d) => this.persons = d);
-    console.log(this.persons);
   };
   
   $scope.$watch(() => this.filter, this.reload, true);
