@@ -1,6 +1,5 @@
 # Package management
 bower_components
-jspm_packages
 node_modules
 
 # Config files

@@ -43,7 +43,7 @@ html#pdf-export-html, body#pdf-export {
       height: $image-height;
       width: $image-width;
       background-repeat:no-repeat;
-      background-size:contain;
+      background-size:cover;
       
       border-radius: 8px;
   }
