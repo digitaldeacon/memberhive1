@@ -7,7 +7,8 @@ export function AppController(
   productName,
   $mdSidenav,
   $mdUtil,
-  $timeout
+  $timeout,
+  mhConfig
 )
 {
  "ngInject";
@@ -48,5 +49,13 @@ export function AppController(
   };
   this.closeMenu = () => {
     $mdSidenav('left').close();
+  };
+  
+  this.getCommitSHA = () => {
+    return mhConfig.commitSHA;
+  };
+  
+  this.getCommitMsg = () => {
+    return mhConfig.commitMsg;
   };
 }

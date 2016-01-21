@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var replace = require('gulp-replace');
+var sh = require('shelljs');
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
@@ -100,8 +101,11 @@ module.exports = function(options) {
   });
 
   gulp.task('build', ['html', 'fonts', 'images', 'other', 'other-css', 'ngdocs'], function(){
+    var commitMsg = sh.exec('git log -1 --pretty=%B', {silent: true}).output.trim();
+    var commitSHA = sh.exec('git log --pretty=format:"%h" -n 1', {silent: true}).output.trim();
+    
     return gulp.src(options.dist + '/index.html')
-      .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "/api"}'))
+      .pipe(replace("'--replace-global-config--'", '{apiUrl : "/api", commitMsg : "'+commitMsg+'", commitSHA: "'+commitSHA+'"}'))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
         process.exit();
@@ -110,7 +114,7 @@ module.exports = function(options) {
 
   gulp.task('build-default', ['html', 'fonts', 'images', 'other', 'other-css'], function () {
      return gulp.src(options.dist + '/index.html')
-      .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "http://127.0.0.1:3994/api"}'))
+      .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "http://127.0.0.1:3994/api", commitMsg: "dev", commitSHA: "master"}'))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
         process.exit();

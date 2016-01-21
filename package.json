@@ -80,6 +80,7 @@
     "nodemon": "~1.8.1",
     "onesky": "^0.1.6",
     "require-dir": "~0.1.0",
+    "shelljs": "^0.5.3",
     "through2": "^2.0.0",
     "uglify-save-license": "~0.4.1",
     "webpack": "^1.12.9",
