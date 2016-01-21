@@ -2,13 +2,14 @@
 @import "variables";
 
 @import "components/autocomplete";
+@import "components/buttons";
 @import "components/dropzone";
 @import "components/chips";
+@import "components/content";
 @import "components/list";
 @import "components/loadingBar";
 @import "components/fab";
 @import "components/icon";
-@import "components/ns-popover";
 @import "components/panel";
 @import "components/pagination";
 @import "components/table-responsive";
@@ -35,16 +36,6 @@ html, body {
   height: 100%;
 }
 
-
-
-#content {
-  margin: 24px;
-}
-
-span.errormsg {
-  color: #F44336;
-}
-
 .dark-background {
   background-color: background-color('300');
   color: #fff;
@@ -59,34 +50,13 @@ span.errormsg {
   height: 100%;
 }
 
-gm-map {
-  display: block;
-  width: 100%;
-  div {
-    max-width:200px !important;
-    max-height: 200px;
-    position:relative !important;
-  }
-}
 
 .radio-buttons-hz  {
   md-radio-button {
     display: inline !important;
   }
 }
-.fileupload-drop-box {
-    background: #F8F8F8;
-    border: 2px dashed #DDD;
-    width: 300px;
-    height: 150px;
-    text-align: center;
-    padding-top: 25px;
-    margin: 10px;
-    font-size: 18px;
-}
-.fileupload-dragover {
-    border: 2px dashed blue;
-}
+
 
 .md-action-icon-button {
   svg {
@@ -94,19 +64,6 @@ gm-map {
   }
 }
 
-.content-background {
-  background-color: background-color('100') !important;
-  @media screen and (min-width: $break-lg) {
-    padding: 1em;
-  }
-}
-
-.content-info {
-  background-color: #FFF8E4;
-  margin: 1em;
-  padding: 1em;
-  border: 1px solid darken(saturate(#FFF8E4, 20%), 15%);
-}
 
 .flex-full {
   flex: 1 1 auto;
@@ -117,78 +74,4 @@ gm-map {
   box-shadow: $whiteframe-shadow-1dp;
   margin: $baseline-grid;
   background-color: #fff;
-}
-
-
-html#pdf-export-html, body#pdf-export {
-  $image-width: 90px;
-  background-color: white !important;
-  margin: 0;
-  font-size: 12px;
-  line-height: 120%;
-  font-family: 'Tinos', serif;
-
-  table
-  {
-      border-collapse: collapse;
-  }
-  tr
-  {
-      border-top: 1px solid black;
-  }
-  .top {
-      border-bottom: none;
-      padding-top: 3px;
-      page-break-inside: avoid !important;
-  }
-  .bottom {
-      border-top: none;
-      page-break-inside: avoid !important;
-  }
-
-  td {
-    // padding: 1em
-  }
-  .image {
-      width: $image-width;
-      height: 93px;
-  }
-  .td-image {
-      width: $image-width + 4px;
-      padding: 2px;
-  }
-  .t-img {
-      height: 93px;
-      width: $image-width;
-      background-repeat:no-repeat;
-      background-size:contain;
-
-      border-radius: 8px;
-  }
-  .td-name {
-      padding-left: 3px;
-      width: 180px;
-      padding-top: 3px;
-      vertical-align:text-top;
-  }
-  .td-date {
-      width: 90px;
-      padding-top: 3px;
-      vertical-align:text-top;
-
-  }
-  .td-contact {
-      padding-top: 3px;
-      vertical-align:text-top;
-  }
-  .more {
-      padding-left: 3px;
-      color: #181818;
-      vertical-align:bottom;
-      padding-bottom: 3px;
-  }
-  .name {
-      font-weight: 700;
-      margin-bottom: 2px;
-  }
 }

@@ -22,7 +22,8 @@
     "roboto-fontface": "~0.4.2",
     "iso-3166-country-codes-angular": "~1.1.1",
     "svg-morpheus": "~0.1.8",
-    "jquery": "~2.2.0"
+    "jquery": "~2.2.0",
+    "angular-keyboard": "angular-keyboard-shortcuts#~0.2.0"
   },
   "devDependencies": {},
   "appPath": "client/app",

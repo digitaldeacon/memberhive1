@@ -20,7 +20,6 @@ export function HeaderController(
 
   this.querySearch = (query) => {
     return Search.search(query).$promise.then((data) => {
-      console.log(data.data);
       return data.data;
     });
   };

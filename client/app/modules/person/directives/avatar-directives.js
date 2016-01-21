@@ -24,14 +24,12 @@ export function mhAvatar(AvatarService) {"ngInject";
     },
 
     link: function(scope, element, attrs) {
-      console.log("link of " + scope.person.firstName);
       scope.size = scope.size || 'xs';
       scope.imgClass = '';
       if (attrs.circle !== undefined)
         scope.imgClass = 'img-circle';
 
       var setImgSrc = (person, size) => {
-        console.log("set src of " + person.firstName);
         var thumbSizes = {
           'xs': 50,
           's':  150,

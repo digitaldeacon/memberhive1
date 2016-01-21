@@ -40,17 +40,17 @@
     </md-tab>
   </md-tabs>
   <div layout="row">
-      <md-button ng-click="personCtrl.goPreviousPerson()" hide-xs>
+      <md-button ng-click="personCtrl.goPreviousPerson()" hide-xs keyboard-shortcut="left">
         <ng-md-icon icon="keyboard_arrow_left"></ng-md-icon>
         <translate>Previous</translate></md-button>
-      <md-button ng-click="personCtrl.goNextPerson()" hide-xs>
+      <md-button ng-click="personCtrl.goNextPerson()" hide-xs keyboard-shortcut="right">
         <translate>Next</translate>
         <ng-md-icon icon="keyboard_arrow_right"></ng-md-icon>
       </md-button>
       <div flex></div>
       <md-button ng-click="personCtrl.saveAndClose()"><translate>Save &amp; Close</translate></md-button>
       <md-button ng-click="personCtrl.saveAndNew()"><translate>Save &amp; New</translate></md-button>
-      <md-button class="md-primary" ng-click="personCtrl.saveWithNotification()">
+      <md-button class="md-primary" ng-click="personCtrl.saveWithNotification()" keyboard-shortcut="mod+a" keyboard-prevent-default>
         <ng-md-icon icon="save"></ng-md-icon>
         <translate>Save</translate>
       </md-button>

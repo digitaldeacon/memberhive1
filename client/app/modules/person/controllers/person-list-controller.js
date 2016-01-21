@@ -5,7 +5,7 @@ export function PersonListController(
   $scope
 )  {"ngInject";
   this.persons = resolvePersons;
-  this.filter = {};
+  this.filter = {status:[], tags: [], groupIds: []};
   
   this.deletePerson = (person) => {
     PersonEditService.delete(person.id)
@@ -21,7 +21,7 @@ export function PersonListController(
       where.tags = {inq: this.filter.tags};
     }
     if(this.filter.groups && this.filter.groups.length > 0) {
-      where.groups = {inq: _.map(this.filter.groups, (g) => g.id)};
+      where.groupIds = {inq: _.map(this.filter.groups, (g) => g.id)};
     }
     PersonService.getAllFilterd(where).then((d) => this.persons = d);
     console.log(this.persons);

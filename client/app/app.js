@@ -31,10 +31,10 @@ export var mhMainModule = angular.module('mh.main', [
   'gettext',
   'ngMdIcons',
   'ng-mfb',
+  'angular-keyboard',
 
   'mh.core', // This needs to be loaded first
-  // The order of the following modules will be reflected in the main menu.
-  'mh.dashboard', 'mh.person', /*'gem.calendar',*/ 'mh.event', 'mh.acl',
+  'mh.dashboard', 'mh.person', 'mh.event', 'mh.acl',
   'mh.auth', 'mh.report', 'mh.note', 'mh.group', 'mh.config',
   ]
 );
