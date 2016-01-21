@@ -45,6 +45,9 @@ export function mhPersonTags() {
       ngModel: '=',
     },
     controller: function($scope, PersonService) {"ngInject";
+      if(!$scope.ngModel) {
+        $scope.ngModel = [];
+      }
       $scope.searchTags = (query) => {
         return PersonService.searchTags(query);
       };
