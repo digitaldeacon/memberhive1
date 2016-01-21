@@ -28,14 +28,16 @@
         </md-menu>
       </div>
     </md-list-item>
+    <p class="text-muted" translate>{{personCtrl.persons.length}} Persons shown</p>
   </md-list>
+  
   
   <div layout="column">
     <div class="mh-content" layout="column" layout-align="start center">
       <b translate>Actions</b>
-      <md-button ui-sref="person.export" translate><ng-md-icon icon="cloud_download"></ng-md-icon> Export</md-button>
-      <md-button ui-sref="person.import" translate><ng-md-icon icon="cloud_upload"></ng-md-icon> Import</md-button>
-      <md-button ui-sref="person.households" translate><ng-md-icon icon="home"></ng-md-icon> Households</md-button>
+      <md-button ui-sref="person.export" translate><ng-md-icon icon="cloud_download"></ng-md-icon> Export Persons</md-button>
+      <md-button ui-sref="person.import" translate><ng-md-icon icon="cloud_upload"></ng-md-icon> Import Persons</md-button>
+      <md-button ui-sref="person.households" translate><ng-md-icon icon="home"></ng-md-icon>View Households</md-button>
     </div>
     <div layout="column" class="mh-content">
       <b translate>Filter</b>  
