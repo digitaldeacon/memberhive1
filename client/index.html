@@ -112,26 +112,26 @@
     <!-- END: Actual animated container. -->
   </div>
 
-  <div flex ng-if="acl.isLoggedIn()" class="full-height">
+  <div ng-cloak  flex ng-if="acl.isLoggedIn()" class="full-height">
     <mhStateLoader></mhStateLoader>
-    <div flex layout="row" class="full-height">
+    <div fng-cloak  lex layout="row" class="full-height">
       <div data-ng-include="'app/modules/core/templates/sidebar.html'"
             data-ng-controller="SidebarController as sidebarCtrl"
             layout="vertical"></div>
-      <div flex layout="column" class="full-height">
+      <div ng-cloak  flex layout="column" class="full-height">
         <div data-ng-include="'app/modules/core/templates/header.html'" data-ng-controller="HeaderController as headerCtrl">
         </div>
 
         <md-content flex class="content-background">
-          <div ui-view layout="column" layout-padding></div>
-          <div style="font-size: 8pt; color: #aaa" ng-cloak>{{accessToken}}</div>
+          <div ng-cloak ui-view layout="column" layout-padding></div>
+          <div ng-cloak style="font-size: 8pt; color: #aaa" ng-cloak>{{accessToken}}</div>
 
         </md-content>
       </div>
     </div>
   </div>
 
-  <div flex ng-if="acl.isLoggedOut()" class="login-container">
+  <div ng-cloak  flex ng-if="acl.isLoggedOut()" class="login-container">
     <div flex ui-view layout="column" ></div>
   </div>
 
