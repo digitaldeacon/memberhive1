@@ -12,14 +12,14 @@ export function PersonExportPDFController(
   this.getPDF = (groups, status, tags) => {
    /*jshint camelcase: false */
     console.log(groups, status, tags);
-    var url = "//"+location.hostname;
+    var url = location.protocol+"//"+location.hostname;
     if(location.port)
       url += ":"+location.port;
     url += "/standalone/pdf.css";
     
     var apiUrl;
     if(_.startsWith(mhConfig.apiUrl, '/')) {
-      apiUrl = "//"+location.hostname;
+      apiUrl = location.protocol+"//"+location.hostname;
       if(location.port) {
         apiUrl += ":"+location.port;
       }

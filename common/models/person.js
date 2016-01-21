@@ -207,8 +207,8 @@ module.exports = function(Person) {
     }
   );
 
-  Person.exportVCard = function(cb) {
-    Person.find({}, function(err, persons) {
+  Person.exportVCard = function(groups, tags, status, cb) {
+    Person.find(Person.buildWhereFiler(groups, tags, status), function(err, persons) {
       var ret = "";
       _.each(persons, function(person) {
         ret += Person.toVCard(person).getFormattedString();
@@ -220,6 +220,20 @@ module.exports = function(Person) {
   Person.remoteMethod(
     'exportVCard',
     {
+      accepts: [
+        {
+          arg: 'groups',
+          type: 'array'
+        },
+        {
+          arg: 'tags',
+          type: 'array'
+        },
+        {
+          arg: 'status',
+          type: 'array'
+        }
+      ],
       returns: {
         arg: 'vcard',
         type: 'string'
@@ -254,6 +268,7 @@ module.exports = function(Person) {
   Person.remoteMethod(
     'exportCSV',
     {
+       
       returns: {
         arg: 'csv',
         type: 'string'
@@ -289,13 +304,14 @@ module.exports = function(Person) {
     }
 
     v.gender = person.gender;
+    if(person.dates) {
+      if(person.dates.anniversary)
+        v.anniversary = new Date(person.dates.anniversary);
 
-    if(person.dates.anniversary)
-      v.anniversary = new Date(person.dates.anniversary);
-
-    if(person.dates.birthday)
-      v.birthday = new Date(person.dates.birthdate);
-
+      if(person.dates.birthday)
+        v.birthday = new Date(person.dates.birthdate);
+    }
+    
     if(person.address) {
       if(person.address.home) {
         v.homeAddress.label = 'Home';

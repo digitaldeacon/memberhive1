@@ -69,7 +69,7 @@
           </div>
         </md-list-item>
         
-         <md-list-item class="md-2-line" >
+         <md-list-item class="md-2-line" ng-if="personCtrl.person.groups.length > 0">
           <ng-md-icon icon="people_outline"></ng-md-icon>
           <div class="md-list-item-text">
             <span ng-repeat="group in personCtrl.person.groups">
