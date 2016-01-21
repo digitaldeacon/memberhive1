@@ -57,7 +57,6 @@ Please follow these style guides when writing code:
 * [Frontend Guidelines](https://github.com/bendc/frontend-guidelines)
 
 ## 3rd Party Drop-Ins
-* [ViewHead] (https://github.com/apparentlymart/angularjs-viewhead) - sets the Browser Title
 * [Angular-Gettext] (https://angular-gettext.rocketeer.be/dev-guide/)
 
 ## Dependencies

@@ -5,7 +5,9 @@ export function PersonViewController(
   Person, 
   resolvePerson,
   resolveNotes,
-  NoteIconConfig) {"ngInject";
+  NoteIconConfig,
+  $state
+) {"ngInject";
   this.person = resolvePerson;
   this.notes = resolveNotes;
   this.getContacts = PersonService.getContacts;
@@ -48,5 +50,25 @@ export function PersonViewController(
 
   this.isDefaultAddress = (address) =>  {
     return address.type === 'home';
+  };
+  
+  this.goPreviousPerson = () => {
+    PersonService.getCachedAll().then((persons) => {
+      var index = _.findIndex(persons, p => p.id === this.person.id);
+      index--;
+      if(persons[index]) {
+        $state.go('person.view', {id: persons[index].id});
+      }
+    });
+  };
+
+  this.goNextPerson = () => {
+     PersonService.getCachedAll().then((persons) => {
+      var index = _.findIndex(persons, p => p.id === this.person.id);
+      index++;
+      if(persons[index]) {
+        $state.go('person.view', {id: persons[index].id});
+      }
+    });
   };
 }
