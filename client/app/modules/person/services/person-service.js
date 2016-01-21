@@ -79,12 +79,16 @@ export function PersonService(
       }).$promise.then(this.mapPersons);
   };
 
-  this.getAllSimple = () => {
-     return Person.find({
-        filter: {
-          order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
-        }
-      }).$promise.then(this.mapPersons);
+  this.getAllFilterd = (where) => {
+    var filter = {};
+    filter.order = ['lastName ASC', 'firstName ASC', 'middleName ASC'];
+    if(!jQuery.isEmptyObject(where)) {
+      filter.where = where;
+    }
+    return Person.find({
+        filter: filter,
+        include: ['household']
+     }).$promise.then(this.mapPersons);
   };
 
   return {
@@ -143,13 +147,9 @@ export function PersonService(
       return this.getAll().then((d) => this.persons = d);
     },
 
-    getCachedAllSimple: () => {
-      if(this.personsSimple) return $q.resolve(this.personsSimple);
-      return this.getAllSimple().then((d) => this.personsSimple = d);
-    },
 
-    getAllSimple: () => {
-      return this.getAllSimple().then((d) => this.personsSimple = d);
+    getAllFilterd: (where) => {
+      return this.getAllFilterd(where);
     },
 
     getHousehold: (id) => {

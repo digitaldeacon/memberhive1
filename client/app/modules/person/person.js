@@ -60,7 +60,7 @@ export var mhPersonModule = angular.module('mh.person',
       },
       resolve: {
         resolvePersons: (PersonService) => {
-          return PersonService.getAll();
+          return PersonService.getAllFilterd({});
         },
       },
     }).state('person.view', {

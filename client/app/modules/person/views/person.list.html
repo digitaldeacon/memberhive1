@@ -1,9 +1,25 @@
-<div style="row" class="mh-content">
+<div layout="row" class="mh-content">
   <md-button ui-sref="person.export" translate><ng-md-icon icon="cloud_download"></ng-md-icon>Export</md-button>
   <md-button ui-sref="person.import" translate><ng-md-icon icon="cloud_upload"></ng-md-icon>Import</md-button>
   <md-button ui-sref="person.households" translate><ng-md-icon icon="home"></ng-md-icon>Households</md-button>
 </div>
-
+<div layout="row" class="mh-content">
+  <em>Filter</em>  
+  <md-input-container>
+      <label translate>Filter by Status</label>
+      <mh-person-status ng-model="personCtrl.filter.status"></mh-person-status>
+    </md-input-container>
+    
+    <md-input-container>
+      <label translate>Filter by Tag</label>
+      <mh-person-tags ng-model="personCtrl.filter.tag"></mh-person-tags>
+    </md-input-container>
+    
+    <md-input-container>
+      <label translate>Filter by Group</label>
+      <mh-person-group ng-model="personCtrl.filter.groups"></mh-person-group>
+    </md-input-container>
+</div>
 <md-list class="mh-content">
   <md-list-item
     ng-repeat="person in personCtrl.persons track by $index"
