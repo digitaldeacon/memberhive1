@@ -321,12 +321,44 @@ module.exports = function(Person) {
 
     return v;
   }
-
-  Person.exportPDF = function(css, apiBase, res, cb) {
+  
+  
+  Person.remoteMethod(
+    'exportPDF',
+    {
+      accepts: [
+        {
+          arg: 'css',
+          type: 'string'
+        },
+        {
+          arg: 'apiBase',
+          type: 'string'
+        },
+        {
+          arg: 'groups',
+          type: 'array'
+        },
+        {
+          arg: 'tags',
+          type: 'array'
+        },
+        {
+          arg: 'status',
+          type: 'array'
+        },
+        {arg: 'res', type: 'object', 'http': {source: 'res'}}
+      ],
+      http: {
+        verb: 'get'
+      }
+    }
+  );
+  Person.exportPDF = function(css, apiBase, groups, tags, status, res, cb) {
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
-
+    console.log(groups, tags, status);
     Person.find(
-      {},
+      Person.buildWhereFiler(groups, tags, status),
       function(err, persons) {
         var pdf = new Pdf(Person, apiBase);
         fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
@@ -355,7 +387,19 @@ module.exports = function(Person) {
      );
 
   }
-
+  Person.buildWhereFiler = (groups, tags, status) => {
+    var ret = {where: {}};
+    if(groups.length > 0) {
+      ret.where.groupIds = {inq: groups};
+    }
+    if(tags.length > 0) {
+      ret.where.tags = {inq: tags};
+    }
+    if(status.length > 0) {
+      ret.where.status = {inq: status};
+    }
+    return ret;
+  }
   Person.groupByHousehold = (persons) => {
     var ret = [];
     var withHousehold = _.filter(persons, p => p.householdIds.length > 0);
@@ -363,6 +407,7 @@ module.exports = function(Person) {
 
     ret = _.map(withoutHousehold, p => [p]);
     ret = ret.concat(_.values(_.groupBy(withHousehold, (p) => p.householdIds[0])));
+    //todo: male first then female oldest, after that in the order of age
     ret = _.sortBy(ret, p => {
       var ret = p[0].lastName;
       if(p[0].dates)
@@ -391,25 +436,7 @@ module.exports = function(Person) {
 
   }
 
-  Person.remoteMethod(
-    'exportPDF',
-    {
-      accepts: [
-        {
-          arg: 'css',
-          type: 'string'
-        },
-        {
-          arg: 'apiBase',
-          type: 'string'
-        },
-        {arg: 'res', type: 'object', 'http': {source: 'res'}}
-      ],
-      http: {
-        verb: 'get'
-      }
-    }
-  );
+  
 
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);

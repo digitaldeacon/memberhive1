@@ -21,6 +21,7 @@
     "angular": false,
     "$": false,
     "_": false,
+    "jQuery": false,
     "moment": false,
     "System": false,
     "CodeMirror": false,
