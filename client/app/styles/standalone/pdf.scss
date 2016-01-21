@@ -1,9 +1,12 @@
 
 html#pdf-export-html, body#pdf-export {
   $image-width: 90px;
+  $image-padding: 2px;
+  $image-height: $image-width + 2*$image-padding;
+  
   background-color: white !important;
   margin: 0;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 120%;
   font-family: 'Tinos', serif;
   
@@ -17,7 +20,7 @@ html#pdf-export-html, body#pdf-export {
   }
   .top {
       border-bottom: none;
-      padding-top: 3px;
+      padding-top: 4px;
       page-break-inside: avoid !important;
   }
   .bottom {
@@ -30,14 +33,14 @@ html#pdf-export-html, body#pdf-export {
   }
   .image {
       width: $image-width;
-      height: 93px;
+      height: $image-height;
   }
   .td-image {
       width: $image-width + 4px;
-      padding: 2px;
+      padding: $image-padding;
   }
   .t-img {
-      height: 93px;
+      height: $image-height;
       width: $image-width;
       background-repeat:no-repeat;
       background-size:contain;

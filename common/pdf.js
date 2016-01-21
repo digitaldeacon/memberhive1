@@ -33,6 +33,8 @@ module.exports = class Pdf {
   render(html, data, options, res, cb) {
     var template = handlebars.compile(html);
     var result = template(data);
+    console.log(data.personGroups);
+    console.log(result);
 
     //console.log(result);
 

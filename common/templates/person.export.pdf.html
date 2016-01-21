@@ -14,7 +14,8 @@
           {{#each this}}
           <tr class="top">
               <td rowspan="2" class="td-image">
-                  <div class="image"><div class="t-img" style="background-image:url('{{{avatarUrl this.id}}}');"></div>
+                  <div class="t-img" style="background-image:url('{{{avatarUrl this.id}}}');">
+                  </div>
               </td>
               <td class="td-name">
                   <div class="name">{{this.firstName}} {{this.lastName}}</div>
@@ -26,7 +27,6 @@
                   <div class="tel">T: {{{formatDateGerman this.dates.baptism}}}</div>
               </td>  
               <td  class="td-contact">
-            Telefon:<br/>
                   <div class="tel">{{this.contacts.home}}</div>
                   <div class="tel">{{this.contacts.mobile}}</div>
               </td>  
@@ -40,8 +40,12 @@
                   {{#if this.custom.kinder}}
                     <div class="dienst">Kinder {{this.custom.kinder}}</div>   
                   {{/if}}
-                  {{#if this.custom.dienste}}
-                    <div class="dienst">Dienst {{this.custom.dienste}}</div>  
+                  {{#if this.groups}}
+                    <div class="dienst">Dienste:  
+                      {{#each this.groups}}
+                        {{this.name}},
+                      {{/each}}
+                    </div>  
                   {{/if}}
                      
                       

@@ -19,6 +19,7 @@ module.exports = function(options) {
     ], function(event) {
       if(isOnlyChange(event)) {
         gulp.start('styles');
+        gulp.start('styles-standalone');
       } else {
         gulp.start('inject');
       }

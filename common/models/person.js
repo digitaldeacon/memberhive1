@@ -356,9 +356,11 @@ module.exports = function(Person) {
   );
   Person.exportPDF = function(css, apiBase, groups, tags, status, res, cb) {
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
-    console.log(groups, tags, status);
+    var filter = Person.buildWhereFiler(groups, tags, status);
+    filter.include = ['groups'];
+    
     Person.find(
-      Person.buildWhereFiler(groups, tags, status),
+      filter,
       function(err, persons) {
         var pdf = new Pdf(Person, apiBase);
         fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
@@ -369,15 +371,15 @@ module.exports = function(Person) {
               template,
               {
                 personGroups: Person.groupByHousehold(persons),
-                dienste: Person.groupByDienst(persons),
-                css: css,
-                base: apiBase},
+                dienste: [],
+                css: decodeURIComponent(css),
+                base: decodeURIComponent(apiBase)},
               {
                 pageSize: 'A5',
                 marginLeft: '1',
                 marginRight: '1',
-                marginTop: '1',
-                marginBottom: '1'
+                marginTop: '0.5',
+                marginBottom: '0.85'
               }
               , res, cb);
           }
@@ -413,24 +415,6 @@ module.exports = function(Person) {
       if(p[0].dates)
         ret += " " + p[0].dates.birthdate;
       return ret;
-    });
-    return ret;
-
-  }
-  Person.groupByDienst = (persons) => {
-    var ret = {};
-    _.each(persons, (p) => {
-      if(p.custom && p.custom.dienste) {
-        _.each(p.custom.dienste.split(","), (dienst) => {
-          var d = dienst.trim();
-          if(ret[d]) {
-            ret[d].push(p);
-          } else {
-            ret[d] = [p];
-          }
-        });
-
-      }
     });
     return ret;
 
