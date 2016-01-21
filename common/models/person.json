@@ -134,6 +134,15 @@
         "forceId": false
       }
     },
+    "groups": {
+      "type": "referencesMany",
+      "model": "Group",
+      "property": "groupIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
     "relationType": {
       "type": "belongsTo",
       "model": "RelationType"
@@ -151,16 +160,6 @@
       "type": "hasMany",
       "model": "Note",
       "polymorphic": "notable"
-    },
-    "groups": {
-      "type": "referencesMany",
-      "model": "Group",
-      "property": "groupIds",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-
     }
   },
   "acls": [

@@ -1,3 +1,5 @@
+<h1>Groups</h1>
+<div class="mh-content">
 <md-list>
   <md-list-item ng-repeat="group in groupCtrl.groups">
 
@@ -18,14 +20,14 @@
     </div>
 
     <div flex class="md-list-item-text">
-        <div c
-        <h3><a ui-sref="group.edit({ id: group.id })">{{group.name}}</a></h3>
+        <h3><a ui-sref="group.view({ id: group.id })">{{group.name}}</a></h3>
         <p class="text-muted">{{group.description | limitTo: 100}}</p>
     </div>
 
     <md-divider ></md-divider>
   </md-list-item>
 </md-list>
+</div>
 <a ui-sref="group.create">
   <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Group">
     <ng-md-icon icon="add"></ng-md-icon>

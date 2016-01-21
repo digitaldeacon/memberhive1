@@ -1,0 +1,39 @@
+<h1>{{groupCtrl.group.name}}</h1>
+<p class="text-muted">{{groupCtrl.group.description}}</p>
+
+<div class="mh-content">
+  <h2>Members</h2>
+  <md-list>
+    <md-list-item ng-repeat="person in groupCtrl.persons">
+
+      <div>
+        <md-menu>
+          <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
+            <mh-avatar person="person"></mh-avatar>
+            <ng-md-icon icon="group"></ng-md-icon>
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item>
+              <md-button ng-click="groupCtrl.deletePerson(person)">
+                <ng-md-icon icon="delete"></ng-md-icon>
+                Delete
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </div>
+
+      <div flex class="md-list-item-text">
+        <h3>{{person.firstName}} {{person.lastName}}
+      </div>
+
+    </md-list-item>
+  </md-list>
+
+</div>
+
+<a ui-sref="group.edit({id: groupCtrl.group.id})">
+  <md-button class="md-fab md-fab-floating-br md-accent" aria-label="Edit Group">
+    <ng-md-icon icon="edit"></ng-md-icon>
+  </md-button>
+</a>
