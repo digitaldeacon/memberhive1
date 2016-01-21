@@ -29,6 +29,11 @@ export function AvatarService(Person, Avatar, Upload, mhConfig) {"ngInject";
 
     deleteAvatar: (person) => {
       return Avatar.destroyContainer({container: person.id});
+    },
+    
+    getAvatarUrl: (person, size) => {
+      if(!person.hasAvatar) return "/app/images/avatar/"+size+".jpg";
+      return mhConfig.apiUrl+"/Avatars/"+person.id+"/download/"+size+".jpg";
     }
 
   };

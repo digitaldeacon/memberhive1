@@ -11,7 +11,7 @@
  * You might also apply any css classes:
  *   <mh-avatar person="personCtrl.person" size="m" circle class="foo bar"></mh-avatar>
  */
-export function mhAvatar(mhConfig) {"ngInject";
+export function mhAvatar(AvatarService) {"ngInject";
   return {
     template: '<img ng-src="{{::imgSrc}}" class="{{::cssClasses}} {{::imgClass}}"' +
               ' aria-label="{{::label}}" tooltip="{{::label}}" height="{{::height}}" width="{{::width}}" />',
@@ -24,36 +24,31 @@ export function mhAvatar(mhConfig) {"ngInject";
     },
 
     link: function(scope, element, attrs) {
-
+      console.log("link of " + scope.person.firstName);
       scope.size = scope.size || 'xs';
       scope.imgClass = '';
       if (attrs.circle !== undefined)
         scope.imgClass = 'img-circle';
 
-      var setImgSrc = function() {
+      var setImgSrc = (person, size) => {
+        console.log("set src of " + person.firstName);
         var thumbSizes = {
           'xs': 50,
           's':  150,
           'm':  400,
           'l': 800
         };
-        scope.height = thumbSizes[scope.size];
-        scope.width = thumbSizes[scope.size];
-
-        if (scope.person.hasAvatar) {
-          scope.imgSrc = mhConfig.apiUrl+"/Avatars/"+scope.person.id+"/download/"+scope.size+".jpg";
-        } else {
-          scope.imgSrc = "/app/images/avatar/"+scope.size+".jpg";
-        }
+        scope.height = thumbSizes[size];
+        scope.width = thumbSizes[size];
+        scope.imgSrc = AvatarService.getAvatarUrl(person, size);
       };
 
-      // Hack: When scope.person is not yet resolved, we need to wait until it is.
       if (scope.person.$promise) {
         scope.person.$promise.then(() => {
-          setImgSrc();
+          setImgSrc(scope.person, scope.size);
         });
       } else {
-        setImgSrc();
+        setImgSrc(scope.person, scope.size);
       }
     }
 

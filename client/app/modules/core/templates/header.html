@@ -23,7 +23,7 @@
           md-selected-item-change="headerCtrl.selectedItemChange(item)"
           class="header-search"
         >
-        <mh-avatar person="item" circle size="xs"></mh-avatar>
+        <img ng-src="{{headerCtrl.avatarUrl(item)}}" class="img-circle"/>
         <span md-highlight-text="headerCtrl.searchText" md-highlight-flags="^i">
           {{item | formatName}}
         </span>

@@ -6,6 +6,7 @@ export function HeaderController(
   LoopBackAuth,
   $mdMedia,
   Account,
+  AvatarService,
   MhAcl
 ) 
 {
@@ -19,6 +20,7 @@ export function HeaderController(
 
   this.querySearch = (query) => {
     return Search.search(query).$promise.then((data) => {
+      console.log(data.data);
       return data.data;
     });
   };
@@ -56,5 +58,9 @@ export function HeaderController(
       MhAcl.setRights([]);
       $state.go('login');
     });
+  };
+  
+  this.avatarUrl = (person) => {
+    return AvatarService.getAvatarUrl(person, 'xs');
   };
 }
