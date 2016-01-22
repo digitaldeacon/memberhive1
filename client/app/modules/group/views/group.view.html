@@ -5,31 +5,15 @@
   <h2>Members</h2>
   <md-list>
     <md-list-item ng-repeat="person in groupCtrl.persons">
-
-      <div>
-        <md-menu>
-          <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
-            <mh-avatar person="person"></mh-avatar>
-            <ng-md-icon icon="group"></ng-md-icon>
-          </md-button>
-          <md-menu-content width="4">
-            <md-menu-item>
-              <md-button ng-click="groupCtrl.deletePerson(person)">
-                <ng-md-icon icon="delete"></ng-md-icon>
-                Delete
-              </md-button>
-            </md-menu-item>
-          </md-menu-content>
-        </md-menu>
-      </div>
-
+     <mh-avatar person="person" size="xs" circle></mh-avatar>
       <div flex class="md-list-item-text">
-        <h3>{{person.firstName}} {{person.lastName}}
-      </div>
-
+        <b>{{person.firstName}} {{person.lastName}}</b>
+        <md-button ng-click="householdCtrl.unlink(person.id)">
+          <ng-md-icon icon="delete">
+        </nd-md-icon> 
+      </md-button>
     </md-list-item>
   </md-list>
-
 </div>
 
 <a ui-sref="group.edit({id: groupCtrl.group.id})">
