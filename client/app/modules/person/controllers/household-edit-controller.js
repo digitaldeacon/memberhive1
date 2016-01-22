@@ -5,9 +5,12 @@ export function HouseholdEditController (
   Shout,
   gettextCatalog,
   $state,
-  resolveHousehold
+  resolveHousehold,
+  resolvePersons
 ) {"ngInject";
   this.household = resolveHousehold;
+  this.persons = resolvePersons;
+  
   this.save = () => {
     return Household.upsert({}, this.household).$promise;
   };
@@ -27,7 +30,7 @@ export function HouseholdEditController (
   this.unlink = (personId) => {
     var householdId = this.household.id;
     Person.household.unlink({fk: householdId, id: personId}).$promise.then((data, err) => {
-      this.household = PersonService.getHousehold(householdId);
+      Household.persons({id: householdId}).$promise.then(d => this.persons = d);
     });
   };
 }

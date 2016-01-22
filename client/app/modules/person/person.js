@@ -192,6 +192,9 @@ export var mhPersonModule = angular.module('mh.person',
       resolve: {
         resolveHousehold: (PersonService, $stateParams) => {
           return PersonService.getHousehold($stateParams.householdId);
+        },
+        resolvePersons: (Household, $stateParams) => {
+          return Household.persons({id: $stateParams.householdId}).$promise;
         }
       }
     }).state('person.household-create', {
