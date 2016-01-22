@@ -432,6 +432,16 @@ module.exports = function(Person) {
         ret += " " + p[0].dates.birthdate;
       return ret;
     });
+    _.map(ret, persons => {
+      if(persons.length > 1) {
+        if(persons[0].gender == 'f' && persons[1].gender == 'm') {
+          var tmp = persons[1];
+          persons[1] = persons[0];
+          persons[0] = tmp;
+        }
+      }
+      return persons;
+    })
     return ret;
 
   }

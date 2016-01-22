@@ -26,6 +26,7 @@ module.exports = class Pdf {
       return moment(date).format(format);
     });
     handlebars.registerHelper('formatDateGerman', (date) => {
+      console.log(date, moment(new Date(date)).format("DD.MM.YYYY"));
       return moment(new Date(date)).format("DD.MM.YYYY");
     });
   }
@@ -33,10 +34,6 @@ module.exports = class Pdf {
   render(html, data, options, res, cb) {
     var template = handlebars.compile(html);
     var result = template(data);
-    console.log(data.personGroups);
-    console.log(result);
-
-    //console.log(result);
 
     var toner = Toner();
     toner.engine('none', Toner.noneEngine);
