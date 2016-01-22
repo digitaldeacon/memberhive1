@@ -4,7 +4,9 @@ export function EventService(Event) {"ngInject";
   };
 
   this.new = () => {
-    return new Event();
+    var event = new Event();
+    event.date = new Date(); // Prefill with current date
+    return event;
   };
 
   this.get = (eventId) => {

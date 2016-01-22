@@ -1,11 +1,11 @@
 <div class="mh-content" layout="column">
   <md-input-container >
-    <label>Event Name</label>
+    <label translate>Event Name</label>
     <input ng-model="ctrl.item.name">
   </md-input-container>
 
-  <label>Event Date</label>
-  <md-datepicker ng-model="ctrl.item.date" md-placeholder="Enter date for event"></md-datepicker>
+  <label translate>Date</label>
+  <md-datepicker ng-model="ctrl.item.date"></md-datepicker>
 
   <md-select ng-model="ctrl.templateId" ng-change="ctrl.updateTemplate()" aria-label="Template ID">
     <md-option ng-repeat="template in ctrl.templates" ng-value="template.id" aria-label="{{template.name}}">{{template.name}}</md-option>
@@ -34,7 +34,6 @@
         <mh-group-chips ng-model="ctrl.empty"></mh-group-chips>
       </md-input-container>
     </div>
-  </md-input-container>
 </div>
 <div layout="row">
   <md-button class="md-primary"  ng-click="ctrl.save()">

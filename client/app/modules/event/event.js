@@ -71,8 +71,8 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         needRights: ['$authenticated']
       },
       resolve : {
-        resolveEvent: (Event) => {
-          return new Event();
+        resolveEvent: (EventService) => {
+          return EventService.new();
         },
         resolveTemplates: (EventTemplate) => {
           return EventTemplate.find();
