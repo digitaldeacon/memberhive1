@@ -374,10 +374,11 @@ module.exports = function(Person) {
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
     var filter = Person.buildWhereFiler(groups, tags, status);
     filter.include = ['groups'];
-    
+    Person.find({},(err, allPersons) => {
+      
     Person.find(
       filter,
-      function(err, persons) {
+      (err, persons) => {
         var pdf = new Pdf(Person, apiBase);
         fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
           if(err) {
@@ -386,7 +387,7 @@ module.exports = function(Person) {
             pdf.render(
               template,
               {
-                personGroups: Person.groupByHousehold(persons),
+                personGroups: Person.groupByHousehold(allPersons, persons),
                 dienste: [],
                 css: decodeURIComponent(css),
                 base: decodeURIComponent(apiBase)},
@@ -400,9 +401,8 @@ module.exports = function(Person) {
               , res, cb);
           }
         });
-
-      }
-     );
+      });
+    });
 
   }
   Person.buildWhereFiler = (groups, tags, status) => {
@@ -418,7 +418,7 @@ module.exports = function(Person) {
     }
     return ret;
   }
-  Person.groupByHousehold = (persons) => {
+  Person.groupByHousehold = (allPersons, persons) => {
     var ret = [];
     var withHousehold = _.filter(persons, p => p.householdIds.length > 0);
     var withoutHousehold = _.filter(persons, p => p.householdIds.length == 0);
@@ -438,6 +438,15 @@ module.exports = function(Person) {
           var tmp = persons[1];
           persons[1] = persons[0];
           persons[0] = tmp;
+        }
+        if(persons[0].gender == 'm' && persons[1].gender == 'f') {
+          var otherMembers = _.filter(allPersons, p => p.householdIds[0] == persons[0].householdIds[0]);
+          var children = _.filter(otherMembers, p => _.contains(p.status, 'Kind'));
+          var childenText = _.map(children, (c) => c.firstName).join(", ");
+          persons[0].genChildren = childenText;
+          persons[1].genChildren = childenText;
+          //find children
+          
         }
       }
       return persons;
