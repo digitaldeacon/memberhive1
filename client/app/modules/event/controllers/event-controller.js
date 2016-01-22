@@ -20,5 +20,4 @@ export function EventController(
     EventService.save(this.item).then(() => $state.go("event.list"));
   };
 
-
 }
