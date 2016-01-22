@@ -8,7 +8,9 @@
     <a ui-sref="person.household-edit({ householdId: household.id })">
       {{household.name}}
     </a>
-    
+    <md-button ng-click="householdCtrl.deleteHousehold(household.id)">
+      <ng-md-icon icon="delete"></nd-md-icon>
+    </md-button>
   </md-list-item>
 </md-list>
 <a ui-sref="person.household-create">
