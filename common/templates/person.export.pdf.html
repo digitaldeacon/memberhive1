@@ -18,7 +18,7 @@
                   </div>
               </td>
               <td class="td-name">
-                  <div class="name">{{this.firstName}} {{this.lastName}}</div>
+                  <div class="name">{{this.lastName}}, {{this.firstName}} </div>
                       <div class="str">{{this.address.home.street1}}</div>
                       <div class="str">{{this.address.home.zipcode}} {{this.address.home.city}}</div>
               </td>
@@ -37,8 +37,8 @@
                   {{#if this.emails.personal}}
                     <div class="tel">EMail: {{this.emails.personal}}</div>
                   {{/if}}
-                  {{#if this.custom.kinder}}
-                    <div class="dienst">Kinder {{this.custom.kinder}}</div>   
+                  {{#if this.custom.kinderas}}
+                    <div class="dienst">Kinder </div>   
                   {{/if}}
                   {{#if this.groups}}
                     <div class="dienst">Dienste:  
