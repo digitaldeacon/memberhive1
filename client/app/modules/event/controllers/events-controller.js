@@ -13,7 +13,9 @@ export function EventsController(Event, $scope, $filter, Shout, $state) {"ngInje
   this.isSameDay = (date, otherDate) => {
     return date.toDateString() === otherDate.toDateString();
   };
+
   this.dayClick = (date) => {
+    $state.go('event.create', {date: date});
   };
 
   this.prevMonth = (data) => {

@@ -64,6 +64,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       data: {
         pageSubTitle: gettext('Create Event')
       },
+      params: { date: null},
       ncyBreadcrumb: {
         label: gettext('Event')
       },
@@ -71,8 +72,8 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         needRights: ['$authenticated']
       },
       resolve : {
-        resolveEvent: (EventService) => {
-          return EventService.new();
+        resolveEvent: (EventService, $stateParams) => {
+          return EventService.new($stateParams.date);
         },
         resolveTemplates: (EventTemplate) => {
           return EventTemplate.find();

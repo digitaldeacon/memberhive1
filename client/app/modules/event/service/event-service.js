@@ -1,11 +1,11 @@
-export function EventService(Event) {"ngInject";
+export function EventService(Event, $stateParams) {"ngInject";
   this.all = () => {
     return Event.find().$promise;
   };
 
-  this.new = () => {
+  this.new = (date) => {
     var event = new Event();
-    event.date = new Date(); // Prefill with current date
+    event.date = date || new Date();
     return event;
   };
 
