@@ -9,7 +9,7 @@ export function GroupService(
   
   this.mapGroups = (groups) => _.map(groups, this.mapGroup);
   this.all = () => {
-    return Group.find().$promise.then(this.mapGroup);
+    return Group.find({filter: {order: ['name ASC']}}).$promise.then(this.mapGroup);
   };
   
   this.new = () => {

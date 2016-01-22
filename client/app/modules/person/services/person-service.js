@@ -169,7 +169,7 @@ export function PersonService(
      * Return a list of available Households
      */
     getHouseholds: () => {
-      return Household.find();
+      return Household.find({filter: {order: ['name ASC']}}).$promise;
     },
 
 

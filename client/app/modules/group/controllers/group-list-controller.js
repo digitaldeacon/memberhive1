@@ -9,7 +9,7 @@ export function GroupListController(
   this.deleteGroup = (group) => {
     Group.deleteById({id: group.id}).$promise.then((data) => {
       Shout.success("Group deleted");
-      this.groups = GroupService.all();
+      GroupService.all().then(d => this.groups = d);
     });
   };
 }

@@ -1,7 +1,16 @@
 export function HouseholdListController (
-  resolveHouseholds
+  resolveHouseholds,
+  Household,
+  Shout,
+  PersonService
 ) {
     "ngInject";
   this.households = resolveHouseholds;
-  console.log(this.households);
+  
+  this.deleteHousehold = (household) => {
+    Household.deleteById({id: household.id}).$promise.then((data) => {
+      Shout.success("Household deleted");
+      PersonService.getHouseholds().then((d) =>  this.households = d);
+    });
+  };
 }
