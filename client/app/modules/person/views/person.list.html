@@ -30,8 +30,8 @@
     </md-list-item>
     <p class="text-muted" translate>{{personCtrl.persons.length}} Persons shown</p>
   </md-list>
-  
-  
+
+
   <div layout="column">
     <div class="mh-content" layout="column" layout-align="start center">
       <b translate>Actions</b>
@@ -40,17 +40,17 @@
       <md-button ui-sref="person.households" translate><ng-md-icon icon="home"></ng-md-icon>View Households</md-button>
     </div>
     <div layout="column" class="mh-content">
-      <b translate>Filter</b>  
+      <b translate>Filter</b>
       <md-input-container>
           <label translate>Filter by Status</label>
           <mh-person-status ng-model="personCtrl.filter.status"></mh-person-status>
         </md-input-container>
-        
+
         <md-input-container>
           <label translate>Filter by Tag</label>
           <mh-person-tags ng-model="personCtrl.filter.tag"></mh-person-tags>
         </md-input-container>
-        
+
         <md-input-container>
           <label translate>Filter by Group</label>
           <mh-person-group ng-model="personCtrl.filter.groups"></mh-person-group>
@@ -60,7 +60,10 @@
 </div>
 <!---->
 <a ui-sref="person.create">
-  <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Person">
+  <md-button class="md-fab md-fab-floating-br md-accent">
+    <md-tooltip md-direction="top">
+      <translate>Add new person</translate>
+    </md-tooltip>
     <ng-md-icon icon="add"></ng-md-icon>
   </md-button>
 </a>

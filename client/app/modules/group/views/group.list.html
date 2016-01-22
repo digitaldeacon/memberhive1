@@ -22,7 +22,6 @@
     <div flex class="md-list-item-text">
         <h3><a ui-sref="group.view({ id: group.id })">{{group.name}}</a></h3>
         <p class="text-muted">{{group.description | limitTo: 100}}</p>
-        
     </div>
 
     <md-divider ></md-divider>
@@ -30,7 +29,10 @@
 </md-list>
 </div>
 <a ui-sref="group.create">
-  <md-button class="md-fab md-fab-floating-br md-accent" aria-label="New Group">
+  <md-button class="md-fab md-fab-floating-br md-accent">
+    <md-tooltip md-direction="top">
+      <translate>Add new group</translate>
+    </md-tooltip>
     <ng-md-icon icon="add"></ng-md-icon>
   </md-button>
 </a>
