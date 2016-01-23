@@ -2,16 +2,21 @@ export function PersonListController(
   PersonService,
   PersonEditService,
   resolvePersons,
-  $scope
+  $scope,
+  $state
 )  {"ngInject";
   this.persons = resolvePersons;
   this.filter = {status:[], tags: [], groupIds: []};
-  
+
+  this.editPerson = (person) => {
+    $state.go('person.edit', {id: person.id})
+  }
+
   this.deletePerson = (person) => {
     PersonEditService.delete(person.id)
       .then(this.reload);
-  };
-  
+  }
+
   this.reload = () => {
     console.log("reload persons");
     var where = {};
@@ -26,6 +31,6 @@ export function PersonListController(
     }
     PersonService.getAllFilterd(where).then((d) => this.persons = d);
   };
-  
+
   $scope.$watch(() => this.filter, this.reload, true);
 }

@@ -12,7 +12,8 @@
           </md-button>
           <md-menu-content width="4">
             <md-menu-item>
-              <md-button ui-sref="person.edit({ id: person.id })">
+              <!-- Using ui-sref breaks the look of the dropdown menu in Angular Material 1.0.2, using ng-click is a workaround for that-->
+              <md-button ng-click="personCtrl.editPerson(person)">
                 <ng-md-icon icon="edit"></ng-md-icon>
                 <translate>Edit</translate>
               </md-button>
