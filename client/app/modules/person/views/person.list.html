@@ -6,7 +6,6 @@
       class="person-list-item"
     >
       <mh-person-list-item flex person="::person"></mh-person-list-item>
-      <div>
         <md-menu>
           <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
             <ng-md-icon icon="arrow_drop_down_circle"></ng-md-icon>
@@ -15,18 +14,17 @@
             <md-menu-item>
               <md-button ui-sref="person.edit({ id: person.id })">
                 <ng-md-icon icon="edit"></ng-md-icon>
-                Edit
+                <translate>Edit</translate>
               </md-button>
             </md-menu-item>
             <md-menu-item>
               <md-button ng-click="personCtrl.deletePerson(person)">
-                <ng-md-icon icon="edit"></ng-md-icon>
-                Delete
+                <ng-md-icon icon="delete"></ng-md-icon>
+                <translate>Delete</translate>
               </md-button>
             </md-menu-item>
           </md-menu-content>
         </md-menu>
-      </div>
     </md-list-item>
     <p class="text-muted" translate>{{personCtrl.persons.length}} Persons shown</p>
   </md-list>
