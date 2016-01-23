@@ -97,8 +97,8 @@
         <md-divider ng-if="!$last"></md-divider>
       </md-list-item>
     </md-list>
-    <div class="text-muted" ng-if="personCtrl.notes.length == 0">
-      <translate>Currently no notes writen</translate>
+    <div class="text-muted" ng-if="!personCtrl.notes.length">
+      <translate>Add a note with the button at the bottom.</translate>
     </div>
     <mh-note-create
       notable-type="Person"
@@ -109,10 +109,10 @@
   </mh-content>
 </div>
 <div layout="row">
-  <md-button ng-click="personCtrl.goPreviousPerson()" hide-xs  keyboard-shortcut="left">
+  <md-button ng-click="personCtrl.goPreviousPerson()" hide-xs keyboard-shortcut="left">
     <ng-md-icon icon="keyboard_arrow_left"></ng-md-icon>
     <translate>Previous</translate></md-button>
-  <md-button ng-click="personCtrl.goNextPerson()" hide-xs  keyboard-shortcut="right">
+  <md-button ng-click="personCtrl.goNextPerson()" hide-xs keyboard-shortcut="right">
     <translate>Next</translate>
     <ng-md-icon icon="keyboard_arrow_right"></ng-md-icon>
   </md-button>
