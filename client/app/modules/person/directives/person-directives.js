@@ -57,6 +57,32 @@ export function mhPersonTags() {
 
   };
 }
+export function mhPersonGroup() {
+  return {
+    templateUrl: 'app/modules/person/templates/person-groups.html',
+    restrict: 'E',
+    scope: {
+      ngModel: '=',
+      placeholder: '@'
+    },
+    controller: function($scope, PersonService) {"ngInject";
+      if(!$scope.ngModel) {
+        $scope.ngModel = [];
+      }
+      $scope.searchGroup = (query) => {
+        return PersonService.searchGroup(query);
+      };
+      $scope.transform = (chip) => {
+        if(!chip.name)
+          return {"name": chip};
+        else
+          return chip;
+      };
+    }
+
+  };
+}
+
 
 export function mhPersonListItem() {
   return {
@@ -98,30 +124,6 @@ export function mhPersonHousehold() {
       }
       $scope.searchHousehold = (query) => {
         return PersonService.searchHousehold(query);
-      };
-      $scope.transform = (chip) => {
-        if(!chip.name)
-          return {"name": chip};
-        else
-          return chip;
-      };
-    }
-
-  };
-}
-export function mhPersonGroup() {
-  return {
-    templateUrl: 'app/modules/person/templates/person-groups.html',
-    restrict: 'E',
-    scope: {
-      ngModel: '=',
-    },
-    controller: function($scope, PersonService) {"ngInject";
-      if(!$scope.ngModel) {
-        $scope.ngModel = [];
-      }
-      $scope.searchGroup = (query) => {
-        return PersonService.searchGroup(query);
       };
       $scope.transform = (chip) => {
         if(!chip.name)

@@ -6,8 +6,9 @@ export function PersonListController(
   $state
 )  {"ngInject";
   this.persons = resolvePersons;
-  this.filter = {status:[], tags: [], groupIds: []};
-
+  this.filter = {status:[], tags: [], groups: []};
+  this.lastFilter = {status:[], tags: [], groups: []};
+  
   this.editPerson = (person) => {
     $state.go('person.edit', {id: person.id});
   };
@@ -18,7 +19,13 @@ export function PersonListController(
   };
 
   this.reload = () => {
+    console.log("reload", this.filter, this.lastFilter);
+    if(angular.equals(this.filter, this.lastFilter))
+      return;
+    
+    this.lastFilter = _.cloneDeep(this.filter);
     var where = {};
+    var f = this.filter;
     if(this.filter.status && this.filter.status.length > 0) {
       where.status = {inq: this.filter.status};
     }
@@ -30,6 +37,5 @@ export function PersonListController(
     }
     PersonService.getAllFilterd(where).then((d) => this.persons = d);
   };
-  
   $scope.$watch(() => this.filter, this.reload, true);
 }

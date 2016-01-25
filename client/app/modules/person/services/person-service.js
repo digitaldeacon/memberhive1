@@ -80,6 +80,7 @@ export function PersonService(
   };
 
   this.getAllFilterd = (where) => {
+    console.log("get all filtered", where);
     var filter = {};
     filter.order = ['lastName ASC', 'firstName ASC', 'middleName ASC'];
     if(!jQuery.isEmptyObject(where)) {
