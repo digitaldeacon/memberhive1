@@ -1,25 +1,29 @@
+<div class="mh-content" ng-if="personCtrl.person.hasAvatar">
+  <h3> Current Avatar </h3>
+  <mh-avatar person="personCtrl.person" size="s" ng-hide="personCtrl.avatarDeleted"></mh-avatar>
+  <div layout="row">
+    <md-button ng-click="personCtrl.removeAvatar()"><ng-md-icon icon="delete"></ng-md-icon> Remove Avatar</md-button>
+    <md-button ng-click="personCtrl.downloadAvatar()"><ng-md-icon icon="file_download"></ng-md-icon> Download Avatar</md-button>
+  </div>
+</div>
+
 <div class="mh-content">
-  <div ng-if="person.hasAvatar && !isEditingAvatar">
-    <mh-avatar person="person" size="s"></mh-avatar>
-    <md-button ng-click="personCtrl.removeAvatar()">Remove Avatar</md-button>
+  <h3> Change Avatar </h3>
+  <label for="avatar" translate>Select Avatar</label>
+  <div
+    ngf-drop
+    ngf-select
+    ng-model="files"
+    class="drop-zone"
+    ngf-drag-over-class="dragover"
+    ngf-multiple="false"
+    ngf-allow-dir="false"
+    accept="image/*"
+    ngf-change="personCtrl.onAvatarSelected($files, $event)">
+      <translate>Drop images here or click to upload</translate>
   </div>
-
-  <div ng-if="!person.hasAvatar">
-    <label for="avatar" translate>Select Avatar</label>
-    <div
-      ngf-drop
-      ngf-select
-      ng-model="files"
-      class="drop-zone"
-      ngf-drag-over-class="dragover"
-      ngf-multiple="false"
-      ngf-allow-dir="false"
-      accept="image/*"
-      ngf-change="personCtrl.onAvatarSelected($files, $event)">
-        <translate>Drop images here or click to upload</translate>
-    </div>
-    <div ngf-no-file-drop><translate>File Drag/Drop is not supported for this browser</translate></div>
-
+  <div ngf-no-file-drop><translate>File Drag/Drop is not supported for this browser</translate></div>
+    
+    <h3> Preview</h3>
     <img id="avatar_preview" />
-  </div>
 </div>

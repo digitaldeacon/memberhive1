@@ -17,20 +17,14 @@ module.exports = function(Avatar) {
    */
   Avatar.beforeRemote('upload', function(ctx, res, next) {
     var personId = ctx.req.params.container;
-    console.log("before remote upload", personId);
     Avatar.getContainer(personId, function(err, container){
-      console.log("get container of ", personId, "err =", err);
       if (err) { // Container doesn't exist
         Avatar.createContainer({name: personId}, function(err, container) {
-          console.log("created container of ", personId, "err = ", err, container);
-
           Avatar.app.models.Person.findById(personId, function(err, person) {
-            console.log("same person?", personId == person.id);
             person.hasAvatar = true;
             Avatar.app.models.Person.upsert(person, next);
           });
         });
-
       } else {
        Avatar.app.models.Person.findById(personId, function(err, person) {
           person.hasAvatar = true;

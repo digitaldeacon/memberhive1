@@ -28,6 +28,8 @@ export function PersonEditController (
   this.personService = PersonService;
   this.uploadedAvatar = null;
   this.croppedAvatar = null; //populated
+  this.avatarDeleted = false;
+  this.avatarChanged = false;
 
   this.saveWithNotification = () => {
     this.save().then(
@@ -57,7 +59,7 @@ export function PersonEditController (
       })
       .then((data) => {
         if (this.avatarDeleted && !this.avatarChanged) {
-          PersonService.deleteAvatar(data);
+          AvatarService.deleteAvatar(data);
         } else if (this.avatarChanged && this.uploadedAvatar) {
           AvatarService.saveAvatarFromDataURI(data.id, this.uploadedAvatar);
         }
@@ -115,6 +117,15 @@ export function PersonEditController (
         this.uploadedAvatar = undefined;
       };
     }
+  };
+  
+  this.removeAvatar = () => {
+    //this.avatarDeleted = true;
+    Shout.warning("This function is not yet ready");
+  };
+  
+  this.downloadAvatar = () => {
+    $window.open(AvatarService.getAvatarUrl(this.person, 'l'), "_blank");
   };
 
   this.createAccount = (ev) => {
