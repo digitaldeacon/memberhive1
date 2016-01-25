@@ -9,7 +9,7 @@ export function PersonListController(
   this.filter = {status:[], tags: [], groupIds: []};
 
   this.editPerson = (person) => {
-    $state.go('person.edit', {id: person.id})
+    $state.go('person.edit', {id: person.id});
   };
 
   this.deletePerson = (person) => {

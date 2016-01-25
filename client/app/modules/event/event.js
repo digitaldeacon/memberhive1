@@ -29,7 +29,12 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolveEvents: (Event) => {
+          return Event.find().$promise;
+        }
+      },
     }).state('event.edit', {
       url: '/view/:eventId',
       controller: 'EventController',
@@ -52,7 +57,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
           return Event.template({id: $stateParams.eventId}).$promise;
         },
         resolveTemplates: (EventTemplate) => {
-          return EventTemplate.find();
+          return EventTemplate.find().$promise;
         }
       }
     })

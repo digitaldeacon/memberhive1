@@ -1,5 +1,9 @@
-export function EventsController(Event, $scope, $filter, Shout, $state) {"ngInject";
-  this.events = Event.find();
+export function EventsController(
+  Event,
+  resolveEvents,
+  $state
+) {"ngInject";
+  this.events = resolveEvents;
 
   this.findEventsForDay = (date) => {
     var ret = [];
