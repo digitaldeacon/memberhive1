@@ -1,32 +1,29 @@
-<mh-content>
+<div class="mh-content">
+  <md-input-container >
+    <label>Template Name</label>
+    <input ng-model="ctrl.item.name">
+  </md-input-container>
+</div>
 
-  <form novalidate>
-    <md-input-container >
-      <label>Template Name</label>
-      <input ng-model="ctrl.item.name">
-    </md-input-container>
-
-    <div layout-gt-sm="row" class="event-template-item md-whiteframe-1dp" ng-repeat="option in ctrl.item.data" >
-      <md-input-container >
-        <label>Type</label>
-        <md-select ng-model="option.type">
-          <md-option ng-repeat="type in ctrl.types" value="{{type.value}}">{{type.name}}</md-option>
-        </md-select>
-      </md-input-container>
-      <md-input-container>
-        <label>Name</label>
-        <input ng-model="option.name">
-      </md-input-container>
-    </div>
+<div layout-gt-sm="row" class="mh-content" ng-repeat="option in ctrl.item.data" >
+  <md-input-container >
+    <label>Type</label>
+    <md-select ng-model="option.type">
+      <md-option ng-repeat="type in ctrl.types" value="{{type.value}}">{{type.name}}</md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container flex>
+    <label>Name</label>
+    <input ng-model="option.name">
+  </md-input-container>
+</div>
 
 
     <md-button class="md-raised md-primary" ng-click="ctrl.save()">
       <translate>Save</translate>
     </md-button>
-  </form>
 
   <md-button ng-click="ctrl.newOption()" class="md-fab md-fab-floating-br md-accent" aria-label="Add Option">
     <ng-md-icon icon="add"></ng-md-icon>
   </md-button>
-</mh-content>
 

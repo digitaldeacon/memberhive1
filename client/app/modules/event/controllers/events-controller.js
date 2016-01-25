@@ -1,10 +1,11 @@
 export function EventsController(
   Event,
   resolveEvents,
+  resolveTemplates,
   $state
 ) {"ngInject";
   this.events = resolveEvents;
-
+  this.templates = resolveTemplates;
   this.findEventsForDay = (date) => {
     var ret = [];
     this.events.forEach((event) => {

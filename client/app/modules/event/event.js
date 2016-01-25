@@ -2,6 +2,7 @@ import {EventController} from './controllers/event-controller';
 import {EventsController} from './controllers/events-controller';
 import {EventTemplatesController} from './controllers/event-templates-controller';
 import {EventTemplateController} from './controllers/event-template-controller';
+import {EventTemplateViewController} from './controllers/event-template-view-controller';
 import {EventService} from './service/event-service';
 
 
@@ -33,7 +34,10 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       resolve: {
         resolveEvents: (Event) => {
           return Event.find().$promise;
-        }
+        },
+        resolveTemplates: (EventTemplate) => {
+          return EventTemplate.find().$promise;
+        },
       },
     }).state('event.edit', {
       url: '/view/:eventId',
@@ -108,13 +112,35 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.html',
       data: {
-        pageSubTitle: gettext('Event Templates')
+        pageSubTitle: gettext('Event Template')
       },
       ncyBreadcrumb: {
         label: gettext('Event Template')
       },
       acl: {
         needRights: ['$authenticated']
+      }
+    }).state('event.viewTemplate', {
+      url: '/viewTemplate/:templateId',
+      controller: 'EventTemplateViewController',
+      controllerAs: 'ctrl',
+      templateUrl: 'app/modules/event/views/event.template.view.html',
+      data: {
+        pageSubTitle: gettext('Event Template')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Event Template')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      },
+      resolve : {
+        resolveTemplate: (EventTemplate, $stateParams) => {
+          return EventTemplate.findOne({id: $stateParams.templateId}).$promise;
+        },
+        resolveEvents : (EventTemplate, $stateParams) => {
+          return EventTemplate.events({id: $stateParams.templateId}).$promise;
+        }
       }
     });
   }
@@ -124,4 +150,5 @@ mhEventModule.controller('EventController', EventController);
 mhEventModule.controller('EventsController', EventsController);
 mhEventModule.controller('EventTemplatesController', EventTemplatesController);
 mhEventModule.controller('EventTemplateController', EventTemplateController);
+mhEventModule.controller('EventTemplateViewController', EventTemplateViewController);
 mhEventModule.service('EventService', EventService);

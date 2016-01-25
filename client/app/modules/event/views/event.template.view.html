@@ -1,0 +1,13 @@
+<div class="mh-content">
+  <h1>{{ctrl.template.name}}</h1>
+  <md-list>
+    <md-list-item ng-repeat="event in ctrl.events track by event.id">
+      <h3>{{event.date | date:'mediumDate'}}</h3>
+    </md-list-item>
+  </md-list>
+</div>
+
+<md-button ng-click="ctrl.newOption()" class="md-fab md-fab-floating-br md-accent" aria-label="Add Option">
+  <ng-md-icon icon="add"></ng-md-icon>
+</md-button>
+
