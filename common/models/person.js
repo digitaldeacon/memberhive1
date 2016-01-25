@@ -460,7 +460,9 @@ module.exports = function(Person) {
         }).join(", ");
         
         persons = _.map(persons, p => {
-          p.genChildren = childrenText;
+          if(_.contains(p.status, 'Eltern')) {
+            p.genChildren = childrenText;
+          }
           return p;
         });
       }
