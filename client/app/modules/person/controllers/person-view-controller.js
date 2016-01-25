@@ -6,7 +6,9 @@ export function PersonViewController(
   resolvePerson,
   resolveNotes,
   NoteIconConfig,
-  $state
+  $state,
+  Shout,
+  Note
 ) {"ngInject";
   this.person = resolvePerson;
   this.notes = resolveNotes;
@@ -71,4 +73,14 @@ export function PersonViewController(
       }
     });
   };
+  
+  this.deleteNote = (note) => {
+    Note.deleteById({id: note.id}).$promise.then(
+      () => {
+        Shout.success("Note deleted");
+        Person.notes({"id": $stateParams.id}).$promise.then(data => this.notes = data);
+      }, 
+      (err) => Shout.vError(err)
+    );
+  }
 }

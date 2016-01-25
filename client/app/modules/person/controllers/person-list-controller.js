@@ -30,6 +30,6 @@ export function PersonListController(
     }
     PersonService.getAllFilterd(where).then((d) => this.persons = d);
   };
-
+  
   $scope.$watch(() => this.filter, this.reload, true);
 }

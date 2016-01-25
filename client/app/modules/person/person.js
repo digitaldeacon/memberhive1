@@ -83,7 +83,7 @@ export var mhPersonModule = angular.module('mh.person',
           return PersonEditService.getPerson($stateParams.id);
         },
         resolveNotes : ($stateParams, Person) => {
-          return Person.notes({"id": $stateParams.id});
+          return Person.notes({"id": $stateParams.id}).$promise;
         }
       },
     }).state('person.create', {

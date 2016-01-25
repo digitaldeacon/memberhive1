@@ -85,8 +85,21 @@
     <h2 translate> Notes </h2>
     <md-list>
       <md-list-item ng-repeat="note in personCtrl.notes">
-        <ng-md-icon icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
-        <ng-md-icon icon="chat" ng-if="!note.type"></ng-md-icon>
+        <md-menu>
+          <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
+            <ng-md-icon icon="{{personCtrl.icon(note.type)}}" ng-if="note.type"></ng-md-icon>
+            <ng-md-icon icon="chat" ng-if="!note.type"></ng-md-icon>
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item>
+              <md-button ng-click="personCtrl.deleteNote(note)">
+                <ng-md-icon icon="delete"></ng-md-icon>
+                <translate>Delete</translate>
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+       
         <div flex class="md-list-item-text">
           <p>
             <b>{{note.title}}</b>
