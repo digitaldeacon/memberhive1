@@ -33,7 +33,7 @@ export function PersonEditController (
 
   this.saveWithNotification = () => {
     this.save().then(
-      (person) => Shout.message(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: person.fullName})),
+      (person) => Shout.success(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: person.fullName})),
       (err) => Shout.vError(err)
     );
   };
