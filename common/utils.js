@@ -41,8 +41,6 @@ exports.objectKeys = function (object) {
       var newKeys = _.map(exports.objectKeys(object[key]), (k) => key + "." + key);
       more.concat(newKeys);
   });
-  //console.log(keys, "of", object, "more = ", more);
-  console.log("return", _.unique(keys.concat(more)));
   return _.unique(keys.concat(more));
 }
 

@@ -4,6 +4,7 @@ var vCard = require('vcards-js');
 var json2csv = require('json2csv');
 var fs = require('fs');
 var Toner = require("toner");
+var moment = require("moment");
 module.exports = function(Person) {
   var utils = require('../utils.js');
   var Lomongo = require('../lomongo.js');
@@ -419,39 +420,59 @@ module.exports = function(Person) {
     return ret;
   }
   Person.groupByHousehold = (allPersons, persons) => {
-    var ret = [];
+    allPersons = _.map(allPersons, p => p.toJSON());
+    persons = _.map(persons, p => p.toJSON());
+    
     var withHousehold = _.filter(persons, p => p.householdIds.length > 0);
     var withoutHousehold = _.filter(persons, p => p.householdIds.length == 0);
 
-    ret = _.map(withoutHousehold, p => [p]);
-    ret = ret.concat(_.values(_.groupBy(withHousehold, (p) => p.householdIds[0])));
+    var groups = _.map(withoutHousehold, p => [p]);
+    groups = groups.concat(_.values(_.groupBy(withHousehold, (p) => p.householdIds[0])));
     //todo: male first then female oldest, after that in the order of age
-    ret = _.sortBy(ret, p => {
+    groups = _.sortBy(groups, p => {
       var ret = p[0].lastName;
-      if(p[0].dates)
-        ret += " " + p[0].dates.birthdate;
+      if(p[0].dates && p[0].dates.birthday)
+        ret += " " + p[0].dates.birthday;
       return ret;
     });
-    _.map(ret, persons => {
+    groups = _.map(groups, persons => {
       if(persons.length > 1) {
-        if(persons[0].gender == 'f' && persons[1].gender == 'm') {
+        if(persons[0].gender == 'f' && persons[1].gender == 'm') { // show man always first
           var tmp = persons[1];
           persons[1] = persons[0];
           persons[0] = tmp;
         }
-        if(persons[0].gender == 'm' && persons[1].gender == 'f') {
-          var otherMembers = _.filter(allPersons, p => p.householdIds[0] == persons[0].householdIds[0]);
-          var children = _.filter(otherMembers, p => _.contains(p.status, 'Kind'));
-          var childenText = _.map(children, (c) => c.firstName).join(", ");
-          persons[0].genChildren = childenText;
-          persons[1].genChildren = childenText;
-          //find children
-          
-        }
       }
+      if(persons[0].householdIds.length > 0) {//add children
+        var otherMembers = _.filter(allPersons, p => { 
+          if(!p.householdIds[0]) return false;
+          return  p.householdIds[0].toString() === persons[0].householdIds[0].toString()
+        });
+        var children = _.filter(otherMembers, p => _.contains(p.status, 'Kind'));
+
+      
+        var childrenText = _.map(children, (c) =>  {
+          var ret = c.firstName;
+          if(c.dates && c.dates.birthday) {
+            ret += " ("+moment().diff(c.dates.birthday, 'years')+")";
+          }
+          return ret;
+        }).join(", ");
+        
+        persons = _.map(persons, p => {
+          p.genChildren = childrenText;
+          return p;
+        });
+      }
+      //add groups
+      persons = _.map(persons, p => {
+        p.genGroups = _.map(p.groups, (c) => c.name).join(", ");
+        return p;
+      });
+      
       return persons;
     })
-    return ret;
+    return groups;
 
   }
 

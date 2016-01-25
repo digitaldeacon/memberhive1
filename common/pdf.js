@@ -23,10 +23,10 @@ module.exports = class Pdf {
       } catch(err) {
         moment.locale('en');
       }
-      return moment(date).format(format);
+      return moment.utc(new Date(date)).format(format);
     });
     handlebars.registerHelper('formatDateGerman', (date) => {
-      return moment.utc(date).format("DD.MM.YYYY");
+      return moment.utc(new Date(date)).format("DD.MM.YYYY");
     });
   }
 
@@ -37,7 +37,6 @@ module.exports = class Pdf {
     var toner = Toner();
     toner.engine('none', Toner.noneEngine);
     toner.recipe('phantom', require("toner-phantom")());
-    //toner.recipe('wkhtmltopdf', require("toner-wkhtmltopdf")());
     toner.recipe('html', Toner.htmlRecipe);
 
     var header = options.enableHeader ? options.header : '';

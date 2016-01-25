@@ -38,13 +38,10 @@
                     <div class="tel">EMail: {{this.emails.personal}}</div>
                   {{/if}}
                   {{#if this.genChildren}}
-                    <div class="dienst">Kinder {{this.genChildrenl}}</div>   
+                    <div class="dienst">Kinder: {{this.genChildren}} </div>   
                   {{/if}}
                   {{#if this.groups}}
-                    <div class="dienst">Dienste:  
-                      {{#each this.groups}}
-                        {{this.name}},
-                      {{/each}}
+                    <div class="dienst">Dienste: {{this.genGroups}}  
                     </div>  
                   {{/if}}
                      
