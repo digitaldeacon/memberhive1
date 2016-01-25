@@ -52,9 +52,11 @@ export function PersonEditService(
     person.dates = this.fromListToHash(person.datesList);
     
     //remove all time information because it is a date
-    person.dates = _.map(person.dates, (date) => {
-      var split = date.split("T");
-      return split[0]+"00:00:00.000Z";
+    person.dates = _.mapValues(person.dates, (d) => {
+      if(d instanceof Date)
+        d = d.toISOString();
+      var split = d.split("T");
+      return split[0]+"T00:00:00.000Z";
     });
     
     person.emails = this.fromListToHash(person.emailsList);
