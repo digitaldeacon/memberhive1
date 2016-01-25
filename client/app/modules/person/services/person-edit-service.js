@@ -50,6 +50,13 @@ export function PersonEditService(
   this.transformBack = (person) => {
     person.contacts = this.fromListToHash(person.contactsList);
     person.dates = this.fromListToHash(person.datesList);
+    
+    //remove all time information because it is a date
+    person.dates = _.map(person.dates, (date) => {
+      var split = date.split("T");
+      return split[0]+"00:00:00.000Z";
+    });
+    
     person.emails = this.fromListToHash(person.emailsList);
     person.custom = this.fromListToHash(person.customList);
     delete person.contactsList;
