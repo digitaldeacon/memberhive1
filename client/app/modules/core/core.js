@@ -6,14 +6,12 @@ import {ShoutController} from './controllers/shout-controller';
 import {MainMenu} from './providers/menu-provider';
 import {controlGroupDirective, mhDateInput, mhContent} from './directives/form-directives';
 import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
-//import {mhPanelDirective, mhPanelBodyDirective, mhPanelHeaderDirective} from './directives/panel-directives';
-import {stateLoader,appLoader} from './directives/loading-directive';
+import {stateLoader, appLoader} from './directives/loading-directive';
 import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
 import {mhFileReader} from './services/filereader';
 import {Search} from './services/search';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
-import {temperatureFilter} from './filters/format-filters';
 
 /**
  * This module holds dependencies needed by other modules including the `gem.main` module.
@@ -108,7 +106,7 @@ mhCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => 
 
   // Codemirror: Create html/handlebars mixed mode
   // https://github.com/codemirror/CodeMirror/blob/master/mode/handlebars/index.html#L64
-  CodeMirror.defineMode("htmlhandlebars", function(config) {
+  /*CodeMirror.defineMode("htmlhandlebars", function(config) {
     return CodeMirror.multiplexingMode(
       CodeMirror.getMode(config, "text/html"), {
         open: "{{", close: "}}",
@@ -116,7 +114,7 @@ mhCoreModule.config(($stateProvider, $urlRouterProvider, $mdThemingProvider) => 
         parseDelimiters: true
       }
     );
-  });
+  });*/
 });
 
 mhCoreModule.run(($rootScope, gettextCatalog) => { "ngInject";
@@ -179,4 +177,3 @@ mhCoreModule.directive('mhAppLoader', appLoader);
 // Filters
 mhCoreModule.filter('fromNow', fromNowFilter);
 mhCoreModule.filter('fromNowMoment', fromNowMomentFilter);
-mhCoreModule.filter('temperature', temperatureFilter);

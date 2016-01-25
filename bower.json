@@ -2,35 +2,33 @@
   "name": "MemberHive",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "1.4.8",
-    "angular-animate": "~1.4.7",
+    "angular": "~1.4.9",
+    "angular-animate": "~1.4.9",
     "angular-gettext": "~2.1.0",
     "angular-google-maps": "~2.1.5",
+    "angular-keyboard": "angular-keyboard-shortcuts#~0.2.0",
     "angular-loading-bar": "~0.7.1",
-    "angular-material": "1.0.2",
+    "angular-material": "1.0.3",
     "angular-material-icons": "~0.6.0",
-    "angular-messages": "~1.4.7",
-    "angular-sanitize": "~1.4.6",
+    "angular-messages": "~1.4.9",
+    "angular-sanitize": "~1.4.9",
     "angular-spinkit": "~0.3.3",
     "angular-ui-router": "~0.2.15",
-    "angular-ui-codemirror": "~0.3.0",
     "angular-resource": "~1.4.7",
     "lodash": "~3.10.0",
+    "jquery": "~2.2.0",
     "ng-mfb": "~0.6.1",
     "ng-file-upload": "~6.0.2",
     "material-calendar": "~0.2",
     "roboto-fontface": "~0.4.2",
     "iso-3166-country-codes-angular": "~1.1.1",
-    "svg-morpheus": "~0.1.8",
-    "jquery": "~2.2.0",
-    "angular-keyboard": "angular-keyboard-shortcuts#~0.2.0"
+    "svg-morpheus": "~0.1.8"
   },
   "devDependencies": {},
   "appPath": "client/app",
   "resolutions": {
-    "angular": "1.4.8",
-    "jquery": "2.x.x",
-    "angular-material": "1.0.2"
+    "angular": "~1.4.9",
+    "angular-material": "~1.0.3"
   },
   "overrides": {
     "codemirror": {

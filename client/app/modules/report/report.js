@@ -11,7 +11,6 @@ import {QueryBuilderModelService} from './services/querybuilder-model-service';
 
 
 export var mhReportModule = angular.module('mh.report', [
-  'ui.codemirror',
 ]);
 
 mhReportModule.config(
