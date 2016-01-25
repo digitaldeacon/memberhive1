@@ -10,15 +10,14 @@ export function PersonListController(
 
   this.editPerson = (person) => {
     $state.go('person.edit', {id: person.id})
-  }
+  };
 
   this.deletePerson = (person) => {
     PersonEditService.delete(person.id)
       .then(this.reload);
-  }
+  };
 
   this.reload = () => {
-    console.log("reload persons");
     var where = {};
     if(this.filter.status && this.filter.status.length > 0) {
       where.status = {inq: this.filter.status};

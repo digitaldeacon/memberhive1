@@ -37,6 +37,7 @@ before_script:
   - sleep 2
 script:
   - gulp build
+  - gulp test
   - ls dist/
 after_success:
   - sh deploy.sh

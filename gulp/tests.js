@@ -9,5 +9,5 @@ module.exports = function(options) {
     .pipe(jshint.reporter("default"))
     .pipe(jshint.reporter('fail'));
   });
-  gulp.task('test', ['lint','protractor:src', 'protractor:dist']);
+  gulp.task('test', ['lint']);
 };

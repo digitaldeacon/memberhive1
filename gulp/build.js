@@ -101,11 +101,15 @@ module.exports = function(options) {
   });
 
   gulp.task('build', ['html', 'fonts', 'images', 'other', 'other-css', 'ngdocs'], function(){
-    var commitMsg = sh.exec('git log -1 --pretty=%B', {silent: true}).output.trim();
+    var commitMsg = sh.exec('git log -1 --pretty=%B', {silent: true}).output.trim().replace(/(\r\n|\n|\r)/gm," ");
     var commitSHA = sh.exec('git log --pretty=format:"%h" -n 1', {silent: true}).output.trim();
-    
+    var config = {
+      apiUrl: "/api",
+      commitMsg: commitMsg,
+      commitSHA: commitSHA
+    };
     return gulp.src(options.dist + '/index.html')
-      .pipe(replace("'--replace-global-config--'", '{apiUrl : "/api", commitMsg : "'+commitMsg+'", commitSHA: "'+commitSHA+'"}'))
+      .pipe(replace("'--replace-global-config--'", JSON.stringify(config)))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
         process.exit();
