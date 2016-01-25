@@ -153,7 +153,7 @@ export function PersonEditController (
       var index = _.findIndex(persons, p => p.id === this.person.id);
       index--;
       if(persons[index]) {
-        $state.go('person.edit', {id: persons[index].id}).then(() => Shout.success(persons[index].firstName + " " + persons[index].lastName));
+        $state.go('person.edit', {id: persons[index].id}).then(() => Shout.message(persons[index].firstName + " " + persons[index].lastName));
       }
     });
   };
@@ -163,7 +163,7 @@ export function PersonEditController (
       var index = _.findIndex(persons, p => p.id === this.person.id);
       index++;
       if(persons[index]) {
-        $state.go('person.edit', {id: persons[index].id}).then(() => Shout.success(persons[index].firstName + " " + persons[index].lastName));
+        $state.go('person.edit', {id: persons[index].id}).then(() => Shout.message(persons[index].firstName + " " + persons[index].lastName));
       }
     });
   };

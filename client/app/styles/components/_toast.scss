@@ -11,6 +11,14 @@
   max-height: 100px;
 }
 
+.toast-message > .md-toast-content{
+  background-color: primary-color('500');
+}
+
+.toast-info > .md-toast-content{
+  background-color: #BBBBBB;
+}
+
 md-toast {
   // https://github.com/angular/material/issues/1106
   position: fixed !important;

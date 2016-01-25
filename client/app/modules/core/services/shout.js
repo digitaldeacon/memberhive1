@@ -3,7 +3,7 @@ export function Shout($mdToast) {"ngInject";
   return {
     message: (msg, icon='info') => {
       $mdToast.show({
-          template: `<md-toast class="toast-success" ng-click="closeToast()"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          template: `<md-toast class="toast-message" ng-click="closeToast()"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
           position: 'top right',
           hideDelay: 3000,
           controller: 'ShoutController'
@@ -11,7 +11,7 @@ export function Shout($mdToast) {"ngInject";
     },
     info: (msg, icon='info') => {
       $mdToast.show({
-          template: `<md-toast class="toast-success" ng-click="closeToast()"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          template: `<md-toast class="toast-info" ng-click="closeToast()"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
           position: 'top right',
           hideDelay: 3000,
           controller: 'ShoutController'
