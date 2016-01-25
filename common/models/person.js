@@ -428,13 +428,14 @@ module.exports = function(Person) {
 
     var groups = _.map(withoutHousehold, p => [p]);
     groups = groups.concat(_.values(_.groupBy(withHousehold, (p) => p.householdIds[0])));
-    groups = _.sortBy(groups, p => {
-      var ret = p[0].lastName;
-      if(p[0].dates && p[0].dates.birthday)
-        ret += " " + p[0].dates.birthday;
-      return ret;
-    });
+
     groups = _.map(groups, persons => {
+      persons = _.sortBy(persons, p => {
+        if(p.dates && p.dates.birthday)
+          return p.dates.birthday;
+        return "";
+      });
+      
       if(persons.length > 1) {
         if(persons[0].gender == 'f' && persons[1].gender == 'm') { // show man always first
           var tmp = persons[1];
@@ -467,12 +468,21 @@ module.exports = function(Person) {
       }
       //add groups
       persons = _.map(persons, p => {
-        p.genGroups = _.map(p.groups, (c) => c.name).join(", ");
+        p.genGroups = _.map(_.filter(p.groups, (g) => g.isMinistry)
+                           , (c) => c.name).join(", ");
         return p;
       });
       
       return persons;
     })
+    
+    groups = _.sortBy(groups, p => {
+      var ret = p[0].lastName;
+      if(p[0].dates && p[0].dates.birthday)
+        ret += " " + p[0].dates.birthday;
+      return ret;
+    });
+        
     return groups;
 
   }
