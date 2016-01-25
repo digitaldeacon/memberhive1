@@ -82,5 +82,5 @@ export function PersonViewController(
       }, 
       (err) => Shout.vError(err)
     );
-  }
+  };
 }

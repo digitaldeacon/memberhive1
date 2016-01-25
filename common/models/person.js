@@ -428,7 +428,6 @@ module.exports = function(Person) {
 
     var groups = _.map(withoutHousehold, p => [p]);
     groups = groups.concat(_.values(_.groupBy(withHousehold, (p) => p.householdIds[0])));
-    //todo: male first then female oldest, after that in the order of age
     groups = _.sortBy(groups, p => {
       var ret = p[0].lastName;
       if(p[0].dates && p[0].dates.birthday)
