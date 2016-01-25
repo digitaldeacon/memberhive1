@@ -19,13 +19,10 @@ export function PersonListController(
   };
 
   this.reload = () => {
-    console.log("reload", this.filter, this.lastFilter);
     if(angular.equals(this.filter, this.lastFilter))
       return;
-    
     this.lastFilter = _.cloneDeep(this.filter);
     var where = {};
-    var f = this.filter;
     if(this.filter.status && this.filter.status.length > 0) {
       where.status = {inq: this.filter.status};
     }
