@@ -10,6 +10,9 @@
     "description": {
       "type": "string"
     },
+    "isMinistry": {
+      "type": "Boolean"
+    },
     "icon": {
       "type": "string"
     }

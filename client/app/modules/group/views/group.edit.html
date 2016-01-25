@@ -1,4 +1,4 @@
-<form layout="column">
+<form layout="column" class="mh-content">
   <md-input-container>
     <label>Title</label>
     <input ng-model="groupCtrl.group.name" required>
@@ -6,6 +6,11 @@
   <md-input-container flex>
     <label>Description</label>
     <textarea ng-model="groupCtrl.group.description" columns="2" ></textarea>
+  </md-input-container>
+   <md-input-container flex>
+    <md-switch ng-model="groupCtrl.group.isMinistry" aria-label="is a ministry">
+      Is a ministry {{ data.cb2 }}
+    </md-switch>
   </md-input-container>
   <div layout="row">
     <md-button class="md-primary" ng-click="groupCtrl.save()">
