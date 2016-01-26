@@ -141,10 +141,9 @@ html#pdf-export-html, body#pdf-export {
   
   .t-img {
       height: $image-height;
-      width: auto;
+      width: $image-height;
       background-repeat: no-repeat;
-      background-size: cover;
-      background-position:50% 50%;
+      background-size: contain;
       border-radius: 8px;
   }
   .td-name {

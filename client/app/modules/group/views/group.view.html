@@ -7,11 +7,21 @@
     <md-list-item ng-repeat="person in groupCtrl.persons">
      <mh-avatar person="person" size="xs" circle></mh-avatar>
       <div flex class="md-list-item-text">
-        <b>{{person.firstName}} {{person.lastName}}</b>
-        <md-button ng-click="householdCtrl.unlink(person.id)">
-          <ng-md-icon icon="delete">
-        </nd-md-icon>
-      </md-button>
+        <b>
+          <ng-md-icon icon="star" ng-if="groupCtrl.isLeader(person)"></ng-md-icon>
+          {{person.firstName}} {{person.lastName}}
+        </b>
+        
+        <md-button ng-click="groupCtrl.deletePerson(person)" aria-label="Delete from this group">
+          <ng-md-icon icon="delete"></ng-md-icon> Delete
+        </md-button>  
+        <md-button ng-click="groupCtrl.makeLeader(person)" ng-hide="groupCtrl.isLeader(person)" aria-label="Make leader">
+          <ng-md-icon icon="star"></ng-md-icon>Make Leader
+        </md-button>
+        <md-button ng-click="groupCtrl.unMakeLeader(person)" ng-show="groupCtrl.isLeader(person)" aria-label="Unmake leader">
+          <ng-md-icon icon="star_outline"></ng-md-icon> Unmake Leader
+        </md-button>
+      
     </md-list-item>
   </md-list>
 </div>

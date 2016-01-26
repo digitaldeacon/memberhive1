@@ -143,6 +143,15 @@
         "forceId": false
       }
     },
+    "leadingGroups": {
+      "type": "referencesMany",
+      "model": "Group",
+      "property": "leadingGroupIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
     "relationType": {
       "type": "belongsTo",
       "model": "RelationType"

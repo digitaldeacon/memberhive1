@@ -81,6 +81,9 @@ export var mhGroupModule = angular.module('mh.group', []).config(
         },
         resolvePersons: (Group, $stateParams) => {
           return Group.persons({id: $stateParams.id}).$promise;
+        },
+        resolveLeaders: (Group, $stateParams) => {
+          return Group.leaders({id: $stateParams.id}).$promise;
         }
       }
     });

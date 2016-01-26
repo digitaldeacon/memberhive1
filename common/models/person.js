@@ -498,6 +498,7 @@ module.exports = function(Person) {
         groups[group.id].persons.push(person);
       });
     });
+    groups = _.sortBy(groups, (g) => g.name);
     return groups;
   }
 
