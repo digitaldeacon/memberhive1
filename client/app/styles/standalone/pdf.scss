@@ -100,6 +100,8 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+/* here beginns the pdf export specific part*/
 html#pdf-export-html, body#pdf-export {
   $image-width: 90px;
   $image-padding: 2px;
@@ -132,20 +134,17 @@ html#pdf-export-html, body#pdf-export {
   td {
     // padding: 1em
   }
-  .image {
-      width: $image-width;
-      height: $image-height;
-  }
   .td-image {
       width: $image-width + 4px;
       padding: $image-padding;
   }
+  
   .t-img {
       height: $image-height;
-      width: $image-width;
-      background-repeat:no-repeat;
-      background-size:cover;
-      
+      width: auto;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position:50% 50%;
       border-radius: 8px;
   }
   .td-name {
