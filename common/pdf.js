@@ -26,6 +26,7 @@ module.exports = class Pdf {
       return moment.utc(new Date(date)).format(format);
     });
     handlebars.registerHelper('formatDateGerman', (date) => {
+      if(!moment.utc(new Date(date)).isValid()) return "";
       return moment.utc(new Date(date)).format("DD.MM.YYYY");
     });
   }
