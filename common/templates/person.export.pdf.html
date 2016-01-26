@@ -51,14 +51,14 @@
           {{/each}}
         {{/each}}
   </table>
-  <table border="0" width="100%">
-    {{#each dienste}}
+  <table width="100%">
+    {{#each ministries}}
       <tr>
-        <td> {{@key}} </td>
+        <td> {{this.name}} </td>
         <td>
-          <table>
+          <table border="0" style="border-collapse: collapse;">
             
-           {{#each this}}
+           {{#each this.persons}}
             <tr>
               <td>{{this.firstName}} {{this.lastName}}</td>
               <td>{{this.contacts.mobile}}</td>

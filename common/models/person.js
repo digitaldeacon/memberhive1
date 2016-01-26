@@ -389,7 +389,7 @@ module.exports = function(Person) {
               template,
               {
                 personGroups: Person.groupByHousehold(allPersons, persons),
-                dienste: [],
+                ministries: Person.getMinistries(persons),
                 css: decodeURIComponent(css),
                 base: decodeURIComponent(apiBase)},
               {
@@ -485,6 +485,20 @@ module.exports = function(Person) {
         
     return groups;
 
+  }
+  
+  Person.getMinistries = (persons) => {
+    var groups = {};
+    persons = _.map(persons, p => p.toJSON());
+    persons.forEach((person) => {
+      person.groups.forEach((group) => {
+        if(!groups[group.id]) {
+          groups[group.id] = {name: group.name, persons: []};
+        }
+        groups[group.id].persons.push(person);
+      });
+    });
+    return groups;
   }
 
   
