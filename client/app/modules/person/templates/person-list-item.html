@@ -1,7 +1,6 @@
-<div flex layout="row">
-  <mh-avatar person="::person" size="xs" circle ui-sref="person.view({ id: person.id })" class="avatar">
+<div flex layout="row" layout-align="center center">
+  <mh-avatar person="::person" size="xs" circle ui-sref="person.view({ id: person.id })">
   </mh-avatar>
-
   <div flex layout-padding class="md-list-item-text">
       <h3>
         <a class="simple-link" ui-sref="person.view({ id: person.id })" ng-bind="::person.fullName"></a>
@@ -18,11 +17,11 @@
         <ng-md-icon icon="home"></ng-md-icon>
         <a ui-sref="person.household-edit({householdId: h.id})"> {{ ::h.name}}</a>
       </span>
-      <span class="text-muted" ng-if="::person.contacts.home">
+      <span class="text-muted text-item" ng-if="::person.contacts.home">
           <ng-md-icon size="16" icon="phone"></ng-md-icon>
           <a href="tel:{{ ::person.contacts.home }}" ng-bind="::person.contacts.home"></a>
       </span>
-      <span class="text-muted" ng-if="person.contacts.mobile">
+      <span class="text-muted text-item" ng-if="person.contacts.mobile">
           <ng-md-icon size="15" icon="stay_primary_portrait"></ng-md-icon>
           <a href="tel:{{ ::person.contacts.mobile }}" ng-bind="::person.contacts.mobile"></a>
       </span>

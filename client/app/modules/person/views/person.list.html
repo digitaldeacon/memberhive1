@@ -1,6 +1,6 @@
 <div layout="column" layout-gt-xs="row" id="person-container">
     <md-list flex
-        class="mh-content"
+        class="mh-content person-list"
         ng-if="personCtrl.persons.length > 0"
            infinite-scroll="personCtrl.loadMorePersons()"
            infinite-scroll-distance="0"
@@ -10,11 +10,12 @@
            infinite-scroll-immediate-check='false'>
     <md-list-item
       ng-repeat="person in personCtrl.persons track by person.id"
-      flex layout="row"
+      flex
       class="person-list-item"
     >
+      <div flex layout="row" layout-align="center center">
       <mh-person-list-item flex person="::person"></mh-person-list-item>
-      <md-menu>
+        <md-menu>
         <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
           <ng-md-icon icon="more_vert"></ng-md-icon>
         </md-button>
@@ -33,7 +34,8 @@
           </md-menu-item>
         </md-menu-content>
       </md-menu>
-      <md-divider ng-if="!$last"></md-divider>
+      </div>
+      <md-divider></md-divider>
     </md-list-item>
     <p class="text-muted" translate>{{personCtrl.persons.length}} Persons shown</p>
   </md-list>

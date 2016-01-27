@@ -24,8 +24,9 @@
   .avatar {
     margin-right: 1em;
   }
-  .person-list-item {
-    margin-bottom: 2em;
+  .text-item {
+    line-height: 2.5em;
+    white-space: nowrap;
   }
 }
 
@@ -34,7 +35,7 @@
 }
 
 
-#avatar_preview { 
+#avatar_preview {
   max-width: 300px;
   max-height: 300px;
 }
