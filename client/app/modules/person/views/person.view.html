@@ -73,16 +73,16 @@
           <ng-md-icon icon="people_outline"></ng-md-icon>
           <div class="md-list-item-text">
             <span ng-repeat="group in personCtrl.person.groups">
-               <a ui-sref="group.view({id: group.id})">{{group.name}}</a> 
+               <a ui-sref="group.view({id: group.id})">{{group.name}}</a>
             </span>
           </div>
         </md-list-item>
-        
-        <md-list-item class="md-2-line" ng-if="personCtrl.person.households.length > 0">
+
+        <md-list-item class="md-2-line" ng-if="personCtrl.person.household.length > 0">
           <ng-md-icon icon="home"></ng-md-icon>
           <div class="md-list-item-text">
-            <span ng-repeat="household in personCtrl.person.households">
-               <a ui-sref="person.household-edit({householdId: household.id})">{{household.name}}</a> 
+            <span ng-repeat="household in personCtrl.person.household">
+               <a ui-sref="person.household-edit({householdId: household.id})">{{household.name}}</a>
             </span>
           </div>
         </md-list-item>
@@ -108,7 +108,7 @@
             </md-menu-item>
           </md-menu-content>
         </md-menu>
-       
+
         <div flex class="md-list-item-text">
           <p>
             <b>{{note.title}}</b>
