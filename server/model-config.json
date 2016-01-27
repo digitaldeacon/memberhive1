@@ -31,10 +31,6 @@
     "dataSource": "db",
     "public": true
   },
-  "Ministry": {
-    "dataSource": "db",
-    "public": true
-  },
   "Account": {
     "dataSource": "db",
     "public": true
@@ -47,17 +43,9 @@
     "dataSource": "db",
     "public": true
   },
-  "RelationType": {
-    "dataSource": "db",
-    "public": true
-  },
   "GemBase": {
     "dataSource": "db",
     "public": false
-  },
-  "Site": {
-    "dataSource": "db",
-    "public": true
   },
   "Report": {
     "dataSource": "db",

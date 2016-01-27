@@ -18,7 +18,12 @@ export function PersonEditController (
 {    "ngInject";
   this.loadPerson = (data) => {
     var ret = PersonEditService.transform(data);
-    $state.current.data.pageSubTitle = data.firstName + " " + data.lastName;
+    if(data.firstName) {
+      $state.current.data.pageSubTitle = data.firstName + " " + data.lastName;
+    } else {
+       $state.current.data.pageSubTitle = "Create new Person";
+    }
+
     this.person = ret;
     return ret;
   };
@@ -47,7 +52,7 @@ export function PersonEditController (
 
   this.saveAndNew = () => {
     this.save().then(
-      () => $state.go('person.create'),
+      () => $state.go('person.create').then(() => Shout.message("You can now create a new person")),
       (err) => Shout.vError(err)
     );
   };
@@ -118,12 +123,12 @@ export function PersonEditController (
       };
     }
   };
-  
+
   this.removeAvatar = () => {
     //this.avatarDeleted = true;
     Shout.warning("This function is not yet ready");
   };
-  
+
   this.downloadAvatar = () => {
     $window.open(AvatarService.getAvatarUrl(this.person, 'l'), "_blank");
   };

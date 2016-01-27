@@ -32,6 +32,7 @@ export var mhMainModule = angular.module('mh.main', [
   'ngMdIcons',
   'ng-mfb',
   'angular-keyboard',
+  'infinite-scroll',
 
   'mh.core', // This needs to be loaded first
   'mh.dashboard', 'mh.person', 'mh.event', 'mh.acl',

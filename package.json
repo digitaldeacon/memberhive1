@@ -92,7 +92,8 @@
   },
   "scripts": {
     "test": "nodemon -e js,json --watch server/ --watch common/ . | bunyan",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "debug" : "DEBUG=loopback npm test"
   },
 
   "main": "server/server.js"

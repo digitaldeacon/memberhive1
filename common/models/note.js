@@ -14,7 +14,7 @@ module.exports = function(Note) {
   //return only the results, which belong to the user
   Note.observe('access', function limitToUser(ctx, next) {
     var userId = Note.app.loopback.getCurrentContext().get('accessToken').userId;
-    ctx = utils.whereAddAnd(ctx, {"ownerId": userId.toString()});
+    //ctx = utils.whereAddAnd(ctx, {"ownerId": userId.toString()});
     next();
   });
 };

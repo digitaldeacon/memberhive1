@@ -109,8 +109,6 @@ export function PersonService(
         filter: {
           include: [
             'account',
-            'ministries',
-            'relationType',
             'notes',
             'groups',
             'household'
@@ -128,11 +126,7 @@ export function PersonService(
           order: ['lastName ASC', 'firstName ASC', 'middleName ASC'],
           include: [
             'account',
-            {
-              'household': {'persons': 'relationType'}
-            },
-            'ministries',
-            'relationType'
+            'household'
           ]
         }
       }).$promise.then(this.mapPersonsData);

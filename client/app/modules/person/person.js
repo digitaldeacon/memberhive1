@@ -64,7 +64,7 @@ export var mhPersonModule = angular.module('mh.person',
         },
       },
     }).state('person.view', {
-      url: '/view/:id',
+      url: '/view/:id/',
       templateUrl: 'app/modules/person/views/person.view.html',
       controller: 'PersonViewController',
       controllerAs: 'personCtrl',

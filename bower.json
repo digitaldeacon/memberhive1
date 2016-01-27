@@ -22,7 +22,8 @@
     "material-calendar": "~0.2",
     "roboto-fontface": "~0.4.2",
     "iso-3166-country-codes-angular": "~1.1.1",
-    "svg-morpheus": "~0.1.8"
+    "svg-morpheus": "~0.1.8",
+    "ngInfiniteScroll": "master"
   },
   "devDependencies": {},
   "appPath": "client/app",

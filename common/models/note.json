@@ -1,6 +1,6 @@
 {
   "name": "Note",
-  "base": "GemBase",
+  "base": "PersistedModel",
   "idInjection": true,
   "scope": {
     "order": "created DESC"

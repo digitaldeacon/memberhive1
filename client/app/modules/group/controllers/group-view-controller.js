@@ -21,7 +21,6 @@ export function GroupViewController(
   };
   
   this.isLeader = (person) => {
-    console.log(_.contains(this.leaders, person));
     return _.contains(this.leaders, person);
   };
   

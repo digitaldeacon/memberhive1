@@ -1,5 +1,13 @@
-<div layout="column" layout-gt-xs="row">
-  <md-list flex class="mh-content">
+<div layout="column" layout-gt-xs="row" id="person-container">
+    <md-list flex
+        class="mh-content"
+        ng-if="personCtrl.persons.length > 0"
+           infinite-scroll="personCtrl.loadMorePersons()"
+           infinite-scroll-distance="0"
+           infinite-scroll-container="'#content_wrapper'"
+           infinite-scroll-disabled="personCtrl.noScroll"
+           infinite-scroll-parent="true"
+           infinite-scroll-immediate-check='false'>
     <md-list-item
       ng-repeat="person in personCtrl.persons track by person.id"
       flex layout="row"
@@ -12,7 +20,6 @@
         </md-button>
         <md-menu-content width="4">
           <md-menu-item>
-            <!-- Using ui-sref breaks the look of the dropdown menu in Angular Material 1.0.2, using ng-click is a workaround for that-->
             <md-button ng-click="personCtrl.editPerson(person)">
               <ng-md-icon icon="edit"></ng-md-icon>
               <translate>Edit</translate>

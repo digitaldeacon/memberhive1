@@ -50,7 +50,7 @@ export function PersonEditService(
   this.transformBack = (person) => {
     person.contacts = this.fromListToHash(person.contactsList);
     person.dates = this.fromListToHash(person.datesList);
-    
+
     //remove all time information because it is a date
     person.dates = _.mapValues(person.dates, (d) => {
       if(d instanceof Date)
@@ -58,7 +58,7 @@ export function PersonEditService(
       var split = d.split("T");
       return split[0]+"T00:00:00.000Z";
     });
-    
+
     person.emails = this.fromListToHash(person.emailsList);
     person.custom = this.fromListToHash(person.customList);
     delete person.contactsList;
@@ -99,11 +99,11 @@ export function PersonEditService(
         }));
       }
     });
-    
+
     _.difference(ids, used).forEach((id) => {
       promises.push(relation.unlink({id: item.id, fk: id}).$promise);
     });
-    
+
     return $q.all(promises).then(() => {return item;});
   };
 }

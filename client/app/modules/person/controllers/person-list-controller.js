@@ -5,13 +5,28 @@ export function PersonListController(
   $scope,
   $state
 )  {"ngInject";
-  this.persons = resolvePersons;
+  this.allPersons = resolvePersons;
   this.filter = {status:[], tags: [], groups: []};
   this.lastFilter = {status:[], tags: [], groups: []};
-  
+  this.persons = [];
   this.editPerson = (person) => {
     $state.go('person.edit', {id: person.id});
   };
+
+  this.loadMorePersons = (count) => {
+    count = count || 10;
+    if(this.persons.length === this.allPersons.length) {
+      return;
+    }
+
+    for(let i = 0; i < count; i++) {
+      this.persons.push(this.allPersons[this.persons.length]);
+      if(this.persons.length === this.allPersons.length) {
+        return;
+      }
+    }
+  };
+
 
   this.deletePerson = (person) => {
     PersonEditService.delete(person)
@@ -19,9 +34,6 @@ export function PersonListController(
   };
 
   this.reload = () => {
-    /*if(angular.equals(this.filter, this.lastFilter))
-      return;*/
-    this.lastFilter = _.cloneDeep(this.filter);
     var where = {};
     if(this.filter.status && this.filter.status.length > 0) {
       where.status = {inq: this.filter.status};
@@ -32,7 +44,13 @@ export function PersonListController(
     if(this.filter.groups && this.filter.groups.length > 0) {
       where.groupIds = {inq: _.map(this.filter.groups, (g) => g.id)};
     }
-    PersonService.getAllFilterd(where).then((d) => this.persons = d);
+    this.persons = [];
+    PersonService.getAllFilterd(where).then((d) => {
+      console.log("get filterd");
+      this.allPersons = d;
+      this.persons = [];
+      this.loadMorePersons(14);
+    });
   };
   $scope.$watch(() => this.filter, this.reload, true);
 }

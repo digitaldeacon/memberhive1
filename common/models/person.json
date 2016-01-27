@@ -1,7 +1,7 @@
 {
   "name": "Person",
   "plural": "Persons",
-  "base": "GemBase",
+  "base": "PersistedModel",
   "idInjection": true,
   "properties": {
     "firstName": {
@@ -120,11 +120,6 @@
       "type": "hasOne",
       "model": "Account"
     },
-    "site": {
-      "type": "belongsTo",
-      "model": "Site",
-      "foreignKey": ""
-    },
     "household": {
       "type": "referencesMany",
       "model": "Household",
@@ -147,19 +142,6 @@
       "type": "referencesMany",
       "model": "Group",
       "property": "leadingGroupIds",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    },
-    "relationType": {
-      "type": "belongsTo",
-      "model": "RelationType"
-    },
-    "ministries": {
-      "type": "referencesMany",
-      "model": "Ministry",
-      "property": "ministriesIds",
       "options": {
         "validate": true,
         "forceId": false
@@ -237,12 +219,6 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "search"
-    },
-    {
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "trash"
     },
     {
       "accessType": "*",

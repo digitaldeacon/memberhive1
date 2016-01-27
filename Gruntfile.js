@@ -41,7 +41,6 @@ module.exports = function(grunt) {
         }
       }
     },
-
     docularserver: {
       targetDir: 'docs',
       livereload: true,
