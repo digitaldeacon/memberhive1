@@ -3,7 +3,8 @@ export function PersonListController(
   PersonEditService,
   resolvePersons,
   $scope,
-  $state
+  $state,
+  $timeout
 )  {"ngInject";
   this.allPersons = resolvePersons;
   this.filter = {status:[], tags: [], groups: []};
@@ -26,7 +27,7 @@ export function PersonListController(
       }
     }
   };
-
+  this.loadMorePersons(15);
 
   this.deletePerson = (person) => {
     PersonEditService.delete(person)
@@ -44,7 +45,6 @@ export function PersonListController(
     if(this.filter.groups && this.filter.groups.length > 0) {
       where.groupIds = {inq: _.map(this.filter.groups, (g) => g.id)};
     }
-    this.persons = [];
     PersonService.getAllFilterd(where).then((d) => {
       console.log("get filterd");
       this.allPersons = d;
@@ -52,5 +52,7 @@ export function PersonListController(
       this.loadMorePersons(14);
     });
   };
-  $scope.$watch(() => this.filter, this.reload, true);
+  $scope.$watch(
+    () => this.filter,
+    (old,n) => {if(old !== n) this.reload();}, true);
 }
