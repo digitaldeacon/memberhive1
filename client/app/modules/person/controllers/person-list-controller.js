@@ -14,13 +14,13 @@ export function PersonListController(
   };
 
   this.deletePerson = (person) => {
-    PersonEditService.delete(person.id)
+    PersonEditService.delete(person)
       .then(this.reload);
   };
 
   this.reload = () => {
-    if(angular.equals(this.filter, this.lastFilter))
-      return;
+    /*if(angular.equals(this.filter, this.lastFilter))
+      return;*/
     this.lastFilter = _.cloneDeep(this.filter);
     var where = {};
     if(this.filter.status && this.filter.status.length > 0) {

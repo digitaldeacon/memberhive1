@@ -23,8 +23,8 @@ export function PersonEditService(
       .$promise.then((d) => {return PersonService.mapPerson(d);});
   };
 
-  this.delete = (personId) => {
-    return Person.trash({id: personId}).$promise;
+  this.delete = (person) => {
+    return Person.deleteById({id: person.id}).$promise;
   };
 
   this.createAccount = (person, username, password) => {

@@ -6,26 +6,27 @@
       class="person-list-item"
     >
       <mh-person-list-item flex person="::person"></mh-person-list-item>
-        <md-menu>
-          <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
-            <ng-md-icon icon="arrow_drop_down_circle"></ng-md-icon>
-          </md-button>
-          <md-menu-content width="4">
-            <md-menu-item>
-              <!-- Using ui-sref breaks the look of the dropdown menu in Angular Material 1.0.2, using ng-click is a workaround for that-->
-              <md-button ng-click="personCtrl.editPerson(person)">
-                <ng-md-icon icon="edit"></ng-md-icon>
-                <translate>Edit</translate>
-              </md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button ng-click="personCtrl.deletePerson(person)">
-                <ng-md-icon icon="delete"></ng-md-icon>
-                <translate>Delete</translate>
-              </md-button>
-            </md-menu-item>
-          </md-menu-content>
-        </md-menu>
+      <md-menu>
+        <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
+          <ng-md-icon icon="more_vert"></ng-md-icon>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item>
+            <!-- Using ui-sref breaks the look of the dropdown menu in Angular Material 1.0.2, using ng-click is a workaround for that-->
+            <md-button ng-click="personCtrl.editPerson(person)">
+              <ng-md-icon icon="edit"></ng-md-icon>
+              <translate>Edit</translate>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="personCtrl.deletePerson(person)">
+              <ng-md-icon icon="delete"></ng-md-icon>
+              <translate>Delete</translate>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+      <md-divider ng-if="!$last"></md-divider>
     </md-list-item>
     <p class="text-muted" translate>{{personCtrl.persons.length}} Persons shown</p>
   </md-list>
