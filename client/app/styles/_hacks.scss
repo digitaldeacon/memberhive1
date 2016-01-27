@@ -18,11 +18,12 @@ input[type="date"] {
   border: none;
 }
 
-.inline-radio {
+.radio-inline {
   md-radio-button {
     margin-top: none !important;
   }
   md-radio-button:not(:first-child) {
     margin-left: 16px;
+    margin-top: none !important;
   }
 }
