@@ -60,5 +60,5 @@ export function PersonListController(
 
   this.timeTravel = () => {
     Person.timetravel().$promise.then((d)=>Shout.success("ad"));
-  };
+  }
 }
