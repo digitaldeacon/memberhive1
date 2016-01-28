@@ -25,11 +25,11 @@
               <td  class="td-date">
                   <div class="tel">G: {{{formatDateGerman this.dates.birthday}}}</div>
                   <div class="tel">T: {{{formatDateGerman this.dates.baptism}}}</div>
-              </td>  
+              </td>
               <td  class="td-contact">
                   <div class="tel">{{this.contacts.home}}</div>
                   <div class="tel">{{this.contacts.mobile}}</div>
-              </td>  
+              </td>
 
           </tr>
           <tr class="bottom">
@@ -38,42 +38,23 @@
                     <div class="tel">EMail: {{this.emails.personal}}</div>
                   {{/if}}
                   {{#if this.genChildren}}
-                    <div class="dienst">Kinder: {{this.genChildren}} </div>   
+                    <div class="dienst">Kinder: {{this.genChildren}} </div>
                   {{/if}}
                   {{#if this.groups}}
-                    <div class="dienst">Dienste: {{this.genGroups}}  
-                    </div>  
+                    <div class="dienst">Dienste: {{this.genGroups}}
+                    </div>
                   {{/if}}
-                     
-                      
-              </td>  
+
+
+              </td>
           </tr>
           {{/each}}
         {{/each}}
   </table>
-  <h2> Dienste </h2>
-  <table width="100%">
-    {{#each ministries}}
-      <tr>
-        <td> {{this.name}} </td>
-        <td>
-          <table border="0" style="border-collapse: collapse;">
-            
-           {{#each this.persons}}
-            <tr style="border: none">
-              <td>{{this.firstName}} {{this.lastName}}</td>
-            <tr>
-          {{/each}}
-          </table>
-         
-        </td>
-      </tr>
-    {{/each}}
-  </table>
-</body>
+ </body>
 </html>
- 
- 
 
-        
-       
+
+
+
+
