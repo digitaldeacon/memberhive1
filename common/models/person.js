@@ -71,7 +71,7 @@ module.exports = function(Person) {
     }
   );
 
- 
+
   Person.setHousehold = function(personId, householdId, cb) {
     Person.findById(personId, function(err, personInstance) {
       personInstance.householdId = householdId;
@@ -246,7 +246,7 @@ module.exports = function(Person) {
   Person.remoteMethod(
     'exportCSV',
     {
-       
+
       returns: {
         arg: 'csv',
         type: 'string'
@@ -289,7 +289,7 @@ module.exports = function(Person) {
       if(person.dates.birthday)
         v.birthday = new Date(person.dates.birthdate);
     }
-    
+
     if(person.address) {
       if(person.address.home) {
         v.homeAddress.label = 'Home';
@@ -315,8 +315,8 @@ module.exports = function(Person) {
 
     return v;
   }
-  
-  
+
+
   Person.remoteMethod(
     'exportPDF',
     {
@@ -353,7 +353,7 @@ module.exports = function(Person) {
     var filter = Person.buildWhereFiler(groups, tags, status);
     filter.include = ['groups'];
     Person.find({},(err, allPersons) => {
-      
+
     Person.find(
       filter,
       (err, persons) => {
@@ -399,7 +399,7 @@ module.exports = function(Person) {
   Person.groupByHousehold = (allPersons, persons) => {
     allPersons = _.map(allPersons, p => p.toJSON());
     persons = _.map(persons, p => p.toJSON());
-    
+
     var withHousehold = _.filter(persons, p => p.householdIds.length > 0);
     var withoutHousehold = _.filter(persons, p => p.householdIds.length == 0);
 
@@ -412,7 +412,7 @@ module.exports = function(Person) {
           return p.dates.birthday;
         return "";
       });
-      
+
       if(persons.length > 1) {
         if(persons[0].gender == 'f' && persons[1].gender == 'm') { // show man always first
           var tmp = persons[1];
@@ -421,13 +421,13 @@ module.exports = function(Person) {
         }
       }
       if(persons[0].householdIds.length > 0) {//add children
-        var otherMembers = _.filter(allPersons, p => { 
+        var otherMembers = _.filter(allPersons, p => {
           if(!p.householdIds[0]) return false;
           return  p.householdIds[0].toString() === persons[0].householdIds[0].toString()
         });
         var children = _.filter(otherMembers, p => _.contains(p.status, 'Kind'));
 
-      
+
         var childrenText = _.map(children, (c) =>  {
           var ret = c.firstName;
           if(c.dates && c.dates.birthday) {
@@ -435,7 +435,7 @@ module.exports = function(Person) {
           }
           return ret;
         }).join(", ");
-        
+
         persons = _.map(persons, p => {
           if(_.contains(p.status, 'Eltern')) {
             p.genChildren = childrenText;
@@ -445,25 +445,32 @@ module.exports = function(Person) {
       }
       //add groups
       persons = _.map(persons, p => {
-        p.genGroups = _.map(_.filter(p.groups, (g) => g.isMinistry)
-                           , (c) => c.name).join(", ");
+        var ministries = _.filter(p.groups, (g) => g.isMinistry);
+
+        p.genGroups = _.map(ministries, (group) => {
+          var ret = group.name;
+          if(group.status && group.status[p.id] === "leader") {
+            ret += " (Leiter)";
+          }
+          return ret;
+        }).join(", ");
         return p;
       });
-      
+
       return persons;
     })
-    
+
     groups = _.sortBy(groups, p => {
       var ret = p[0].lastName;
       if(p[0].dates && p[0].dates.birthday)
         ret += " " + p[0].dates.birthday;
       return ret;
     });
-        
+
     return groups;
 
   }
-  
+
   Person.getMinistries = (persons) => {
     var groups = {};
     persons = _.map(persons, p => p.toJSON());
@@ -479,7 +486,7 @@ module.exports = function(Person) {
     return groups;
   }
 
-  
+
 
   Person.truncate = function(cb) {
     Person.deleteAll({}, cb);
