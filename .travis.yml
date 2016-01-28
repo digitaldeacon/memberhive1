@@ -24,6 +24,7 @@ before_install:
   - cp id_rsa ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
   - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - npm set progress=false
 install:
   - npm install
   - bower install
