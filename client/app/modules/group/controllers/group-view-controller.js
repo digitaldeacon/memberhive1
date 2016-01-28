@@ -1,8 +1,7 @@
 export function GroupViewController(
-  GroupService, 
+  GroupService,
   resolveGroup,
   resolvePersons,
-  resolveLeaders,
   Group,
   Person,
   Shout,
@@ -10,8 +9,7 @@ export function GroupViewController(
 ) {"ngInject";
   this.group = resolveGroup;
   this.persons = resolvePersons;
-  this.leaders = resolveLeaders;
-  
+
   this.deletePerson = (person) => {
     Person.groups.unlink({id: person.id, fk: this.group.id}).$promise
       .then((d) => {
@@ -19,24 +17,21 @@ export function GroupViewController(
         this.persons = Group.persons({id: this.group.id}).$promise;
       });
   };
-  
+
   this.isLeader = (person) => {
-    return _.contains(this.leaders, person);
+    return this.group.status && this.group.status[person.id] === "leader";
   };
-  
+
   this.makeLeader = (person) => {
-    Person.leadingGroups.link({id: person.id, fk: this.group.id}).$promise
-      .then((d) => {
-        Shout.success(person.firstName + " is a leader");
-        this.leaders = Group.leaders({id: this.group.id}).$promise;
-      });
+    if(!this.group.status)
+      this.group.status = {};
+    this.group.status[person.id] = "leader";
+    Group.upsert({},this.group);
   };
-  
+
   this.unMakeLeader = (person) => {
-    Person.leadingGroups.unlink({id: person.id, fk: this.group.id}).$promise
-      .then((d) => {
-        Shout.success(person.firstName + " is not a leader anymore");
-        this.leaders = Group.leaders({id: this.group.id}).$promise;
-      });
+    this.group.status[person.id] = "";
+    Group.upsert({},this.group);
   };
+
 }

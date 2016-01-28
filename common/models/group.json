@@ -15,6 +15,9 @@
     },
     "icon": {
       "type": "string"
+    },
+    "status":{
+      "type": "object"
     }
   },
   "validations": [],
@@ -23,11 +26,6 @@
       "type": "hasMany",
       "model": "Person",
       "foreignKey": "groupIds"
-    },
-    "leaders": {
-      "type": "hasMany",
-      "model": "Person",
-      "foreignKey": "leadingGroupIds"
     }
   },
   "acls": [

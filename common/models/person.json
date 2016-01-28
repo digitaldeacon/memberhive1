@@ -138,15 +138,6 @@
         "forceId": false
       }
     },
-    "leadingGroups": {
-      "type": "referencesMany",
-      "model": "Group",
-      "property": "leadingGroupIds",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    },
     "notes": {
       "type": "hasMany",
       "model": "Note",
