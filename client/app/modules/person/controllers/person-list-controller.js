@@ -2,6 +2,8 @@ export function PersonListController(
   PersonService,
   PersonEditService,
   resolvePersons,
+  Person,
+  Shout,
   $scope,
   $state,
   $timeout
@@ -55,4 +57,8 @@ export function PersonListController(
   $scope.$watch(
     () => this.filter,
     (old,n) => {if(old !== n) this.reload();}, true);
+
+  this.timeTravel = () => {
+    Person.timetravel().$promise.then((d)=>Shout.success("ad"));
+  }
 }
