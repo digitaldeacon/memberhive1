@@ -48,6 +48,7 @@ export function PersonEditService(
   };
 
   this.transformBack = (person) => {
+    person = _.cloneDeep(person);
     person.contacts = this.fromListToHash(person.contactsList);
     person.dates = this.fromListToHash(person.datesList);
 
