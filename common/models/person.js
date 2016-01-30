@@ -470,7 +470,7 @@ module.exports = function(Person) {
       return ret;
     });
 
-    groups = _.sortBy(groups, p => !_.contains(p[0].status, "Mission"));
+    groups = _.sortBy(groups, p => _.contains(p[0].status, "Mission"));
 
     return groups;
 
