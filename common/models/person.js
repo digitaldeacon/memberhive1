@@ -450,7 +450,10 @@ module.exports = function(Person) {
         p.genGroups = _.map(ministries, (group) => {
           var ret = group.name;
           if(group.status && group.status[p.id] === "leader") {
-            ret += " (Leiter)";
+            if(p.gender === 'f')
+              ret += " (Leiterin)";
+            else
+              ret += " (Leiter)";
           }
           return ret;
         }).join(", ");
