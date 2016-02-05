@@ -17,15 +17,14 @@ export function PersonEditController (
 )
 {    "ngInject";
   this.loadPerson = (data) => {
-    var ret = PersonEditService.transform(data);
+    this.person = data;
     if(data.firstName) {
       $state.current.data.pageSubTitle = data.firstName + " " + data.lastName;
     } else {
        $state.current.data.pageSubTitle = "Create new Person";
     }
 
-    this.person = ret;
-    return ret;
+    return data;
   };
 
   this.loadPerson(resolvePerson);
@@ -80,8 +79,18 @@ export function PersonEditController (
       .then(this.loadPerson);
   };
 
-  this.addItem = (val) => {
-    this.person[val].push({key: "", value : ""});
+  this.addItem = (valName, typesName) => {
+    let key = "";
+    let data = this.person[valName];
+    if(typesName !== "") {
+      let types = PersonService[typesName];
+      let availableKeys = _.difference(Object.keys(types), Object.keys(data));
+
+      if(availableKeys.length > 0) {
+        key = availableKeys[0];
+      }
+    }
+    data[key] = "";
   };
 
 

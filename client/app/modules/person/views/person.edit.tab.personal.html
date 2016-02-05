@@ -67,22 +67,22 @@
 <mh-content layout="column">
   <h3> <ng-md-icon icon="phone"></ng-md-icon> Phones </h3>
   <md-list>
-    <md-list-item class="md-2-line" ng-repeat="contact in personCtrl.person.contactsList">
+    <md-list-item class="md-2-line" ng-repeat="(key,contact) in personCtrl.person.contacts">
       <div class="md-list-item-text" layout="row">
-       <mh-person-edit-type flex="33" key="contact.key" type="contactTypes"></mh-person-edit-type>
+       <mh-person-edit-type flex="33" key="key" type="contactTypes"></mh-person-edit-type>
         <md-input-container flex="66">
           <label>
-            <ng-md-icon icon="{{personCtrl.personService.contactTypes[contact.key].icon || 'phone'}}"></ng-md-icon>
-            <span translate>{{personCtrl.personService.contactTypes[contact.key].text}}</span>
+            <ng-md-icon icon="{{personCtrl.personService.contactTypes[key].icon || 'phone'}}"></ng-md-icon>
+            <span translate>{{personCtrl.personService.contactTypes[key].text}}</span>
           </label>
-          <input ng-model="contact.value">
+          <input ng-model="personCtrl.person.contacts[key]">
         </md-input-container>
       </div>
     </md-list-item>
 
     <md-list-item>
       <div class="md-offset">
-        <md-button ng-click="personCtrl.addItem('contactsList')"> Add new Phone</md-button>
+        <md-button ng-click="personCtrl.addItem('contacts', 'contactTypes')"> Add new Phone</md-button>
       </div>
     </md-list-item>
   </md-list>
@@ -91,22 +91,22 @@
 <mh-content layout="column">
   <h3> <ng-md-icon icon="email"></ng-md-icon> EMails </h3>
   <md-list>
-    <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.emailsList">
+    <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.emails">
       <div class="md-list-item-text" layout="row">
-        <mh-person-edit-type flex="33" key="value.key" type="emailTypes"></mh-person-edit-type>
+        <mh-person-edit-type flex="33" key="key" type="emailTypes"></mh-person-edit-type>
         <md-input-container flex="66">
           <label>
-            <ng-md-icon icon="{{personCtrl.personService.contactTypes[value.key].icon || 'email'}}"></ng-md-icon>
+            <ng-md-icon icon="{{personCtrl.personService.contactTypes[key].icon || 'email'}}"></ng-md-icon>
             <span translate>{{personCtrl.personService.contactTypes[value.key].text}}</span>
           </label>
-          <input ng-model="value.value">
+          <input ng-model="personCtrl.person.email[key]">
         </md-input-container>
       </div>
     </md-list-item>
 
     <md-list-item>
       <div class="md-offset">
-        <md-button ng-click="personCtrl.addItem('emailsList')"> Add new EMail Address</md-button>
+        <md-button ng-click="personCtrl.addItem('emails', 'contactTypes')"> Add new EMail Address</md-button>
       </div>
     </md-list-item>
   </md-list>
@@ -116,16 +116,16 @@
 <mh-content layout="column">
   <h3> <ng-md-icon icon="cake"></ng-md-icon> Dates </h3>
   <md-list>
-    <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.datesList">
+    <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.dates">
       <div class="md-list-item-text" layout="row">
-        <mh-person-edit-type flex="33" key="value.key" type="dateTypes"></mh-person-edit-type>
-        <input type="date" ng-model="value.value" />
+        <mh-person-edit-type flex="33" key="key" type="dateTypes"></mh-person-edit-type>
+        <input type="date" ng-model="personCtrl.person.dates[key]" />
       </div>
     </md-list-item>
 
     <md-list-item >
       <div class="md-offset">
-        <md-button ng-click="personCtrl.addItem('datesList')"> Add new Date</md-button>
+        <md-button ng-click="personCtrl.addItem('dates', 'dateTypes')"> Add new Date</md-button>
       </div>
     </md-list-item>
   </md-list>
@@ -134,23 +134,23 @@
 <mh-content layout="column">
   <h3> <ng-md-icon icon="extension"></ng-md-icon> Custom Fields</h3>
   <md-list>
-    <md-list-item class="md-2-line" ng-repeat="value in personCtrl.person.customList">
+    <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.custom">
      <div class="md-list-item-text" layout="row">
         <md-input-container flex="33">
           <label> Key </label>
-          <input ng-model="value.key">
+          <input ng-model="key">
         </md-input-container>
 
         <md-input-container flex="66">
           <label> Value </label>
-          <input ng-model="value.value">
+          <input ng-model="personCtrl.person.custom[key]">
         </md-input-container>
       </div>
     </md-list-item>
 
     <md-list-item >
       <div class="md-offset">
-        <md-button ng-click="personCtrl.addItem('customList')"> Add new Custom Field</md-button>
+        <md-button ng-click="personCtrl.addItem('custom', '')"> Add new Custom Field</md-button>
       </div>
     </md-list-item>
   </md-list>
