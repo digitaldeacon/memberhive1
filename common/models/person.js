@@ -330,16 +330,12 @@ module.exports = function(Person) {
           type: 'string'
         },
         {
-          arg: 'groups',
-          type: 'array'
+          arg: 'filter',
+          type: 'object'
         },
         {
-          arg: 'tags',
-          type: 'array'
-        },
-        {
-          arg: 'status',
-          type: 'array'
+          arg: 'options',
+          type: 'object'
         },
         {arg: 'res', type: 'object', 'http': {source: 'res'}}
       ],
@@ -348,9 +344,9 @@ module.exports = function(Person) {
       }
     }
   );
-  Person.exportPDF = function(css, apiBase, groups, tags, status, res, cb) {
+  Person.exportPDF = function(css, apiBase, filter, options,res, cb) {
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
-    var filter = Person.buildWhereFiler(groups, tags, status);
+    var filter = Person.buildWhereFiler(filter.groups, filter.tags, filter.status);
     filter.include = ['groups'];
     Person.find({},(err, allPersons) => {
 
@@ -368,7 +364,9 @@ module.exports = function(Person) {
                 personGroups: Person.groupByHousehold(allPersons, persons),
                 ministries: Person.getMinistries(persons),
                 css: decodeURIComponent(css),
-                base: decodeURIComponent(apiBase)},
+                base: decodeURIComponent(apiBase)
+                options: options
+              },
               {
                 pageSize: 'A5',
                 marginLeft: '1',

@@ -16,7 +16,7 @@ export function PersonExportPDFController(
     if(location.port)
       url += ":"+location.port;
     url += "/standalone/pdf.css";
-    
+
     var apiUrl;
     if(_.startsWith(mhConfig.apiUrl, '/')) {
       apiUrl = location.protocol+"//"+location.hostname;
@@ -27,18 +27,23 @@ export function PersonExportPDFController(
     } else {
       apiUrl = mhConfig.apiUrl;
     }
-    
+
     var params =
     {
-      
+
       access_token: $rootScope.accessToken,
       css: url,
       apiBase: apiUrl,
-      groups: _.map(groups, (g) => g.id),
-      status: status,
-      tags: tags
+      filter: {
+        groups: _.map(groups, (g) => g.id),
+        status: status,
+        tags: tags
+      },
+      options: {
+        cover: true
+      }
     };
-    
+
     $window.open(mhConfig.apiUrl+'/Persons/exportPDF?'+jQuery.param(params),"_blank");
   };
 

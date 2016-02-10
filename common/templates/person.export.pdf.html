@@ -9,6 +9,13 @@
 </head>
 
 <body id="pdf-export">
+  <div class="cover-front">
+    <div class="logo"></div>
+    <div class="title">
+      <p class="name">Gemeindeliste<p>
+      <p class="date">Datum</p>
+    </div>
+  </div>
   <table border="0" width="100%">
         {{#each personGroups}}
           {{#each this}}
@@ -51,6 +58,9 @@
           {{/each}}
         {{/each}}
   </table>
+  <div class="cover-back">
+  </div>
+
  </body>
 </html>
 
