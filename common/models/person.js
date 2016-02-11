@@ -346,12 +346,13 @@ module.exports = function(Person) {
   );
   Person.exportPDF = function(css, apiBase, filter, options,res, cb) {
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
-    var filter = Person.buildWhereFiler(filter.groups, filter.tags, filter.status);
-    filter.include = ['groups'];
+    filter = filter || {};
+    var pfilter = Person.buildWhereFiler(filter.groups, filter.tags, filter.status);
+    pfilter.include = ['groups'];
     Person.find({},(err, allPersons) => {
 
     Person.find(
-      filter,
+      pfilter,
       (err, persons) => {
         var pdf = new Pdf(Person, apiBase);
         fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
@@ -364,7 +365,7 @@ module.exports = function(Person) {
                 personGroups: Person.groupByHousehold(allPersons, persons),
                 ministries: Person.getMinistries(persons),
                 css: decodeURIComponent(css),
-                base: decodeURIComponent(apiBase)
+                base: decodeURIComponent(apiBase),
                 options: options
               },
               {
@@ -382,6 +383,9 @@ module.exports = function(Person) {
 
   }
   Person.buildWhereFiler = (groups, tags, status) => {
+    groups = groups || [];
+    tags = tags || [];
+    status = status || [];
     var ret = {where: {}};
     if(groups.length > 0) {
       ret.where.groupIds = {inq: groups};

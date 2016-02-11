@@ -1,8 +1,8 @@
-/* 
+/*
 html5doctor.com Reset Stylesheet
 v1.6.1
 Last Updated: 2010-09-17
-Author: Richard Clark - http://richclarkdesign.com 
+Author: Richard Clark - http://richclarkdesign.com
 Twitter: @rich_clark
 */
 
@@ -15,7 +15,7 @@ b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
+article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
     margin:0;
@@ -32,7 +32,7 @@ body {
 }
 
 article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section { 
+footer,header,hgroup,menu,nav,section {
     display:block;
 }
 
@@ -68,7 +68,7 @@ ins {
 /* change colours to suit your needs */
 mark {
     background-color:#ff9;
-    color:#000; 
+    color:#000;
     font-style:italic;
     font-weight:bold;
 }
@@ -91,7 +91,7 @@ table {
 hr {
     display:block;
     height:1px;
-    border:0;   
+    border:0;
     border-top:1px solid #cccccc;
     margin:1em 0;
     padding:0;
@@ -106,13 +106,13 @@ html#pdf-export-html, body#pdf-export {
   $image-width: 90px;
   $image-padding: 2px;
   $image-height: $image-width + 2*$image-padding;
-  
+
   background-color: white !important;
   margin: 0;
   font-size: 11px;
   line-height: 120%;
   font-family: 'Tinos';
-  
+
   table
   {
       border-collapse: collapse;
@@ -138,7 +138,7 @@ html#pdf-export-html, body#pdf-export {
       width: $image-width + 4px;
       padding: $image-padding;
   }
-  
+
   .t-img {
       height: $image-height;
       width: $image-height;
@@ -156,7 +156,7 @@ html#pdf-export-html, body#pdf-export {
       width: 90px;
       padding-top: 3px;
       vertical-align:text-top;
-      
+
   }
   .td-contact {
       padding-top: 3px;
@@ -172,5 +172,22 @@ html#pdf-export-html, body#pdf-export {
       font-weight: 700;
       margin-bottom: 2px;
   }
+}
+
+$margin-left: 10mm;
+$margin-right: 10mm;
+$margin-top: 5mm;
+$margin-bottom: 10mm;//+1.5mm so it don't overflow
+$page-width: 148mm - $margin-left - $margin-right;
+$page-height: 210mm - $margin-top - $margin-bottom;
+
+.cover-front {
+  display: block;
+  width: $page-width;
+  height: $page-height;
+  page-break-after: always;
+  page-break-inside: avoid;
+
+  background-image: url("http://images.unsplash.com/photo-1414438071614-314f6b1fd4a8") no-repeat center center;
 }
 
