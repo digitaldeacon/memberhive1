@@ -27,7 +27,7 @@ export var mhMainModule = angular.module('mh.main', [
   'ngAria',
   'ui.router',
   'lbServices',
-  'angular-loading-bar', 
+  'angular-loading-bar',
   'gettext',
   'ngMdIcons',
   'ng-mfb',
@@ -53,6 +53,7 @@ mhMainModule.config(
 mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAuth) => {
   $rootScope.$state = $state; // state to be accessed from view
   $rootScope.accessToken = LoopBackAuth.accessTokenId;
+
   var p = Account.roles({'user_id': LoopBackAuth.currentUserId}).$promise;
   MhAcl.setRightsPromise(p);
   $rootScope.acl = MhAcl;

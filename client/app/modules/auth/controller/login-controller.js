@@ -1,4 +1,4 @@
-export function LoginController (Account, $state, MhAcl, Shout, gettextCatalog) {"ngInject";
+export function LoginController (Account, $state, MhAcl, Shout, gettextCatalog, $rootScope, LoopBackAuth) {"ngInject";
 
   this.rememberMe = true;
   this.login = () => {
@@ -10,6 +10,7 @@ export function LoginController (Account, $state, MhAcl, Shout, gettextCatalog) 
     .$promise.then(
       (resp) => {
         this.error = false;
+        $rootScope.accessToken = LoopBackAuth.accessTokenId;
         Account.roles({'user_id': resp.user.id})
           .$promise.then((resp) => {
             MhAcl.setRights(resp.roles);
