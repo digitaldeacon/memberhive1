@@ -11,7 +11,7 @@ import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
 import {mhFileReader} from './services/filereader';
 import {Search} from './services/search';
-import {SearchBox,SearchChips} from './directives/search-directive';
+import {mhSearchBox, mhSearchChips} from './directives/search-directives';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 
 /**

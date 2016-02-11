@@ -1,4 +1,4 @@
-export function Search(Person, Group) {"ngInject";
+export function Search(Person, Group, $q) {"ngInject";
 
   this.search = (query, which) => {
     which = which || ['person', 'group'];
@@ -15,7 +15,8 @@ export function Search(Person, Group) {"ngInject";
   this.personSearch = (query) => {
     return Person.search({query: query}).$promise
       .then((data) => data.map(this.genPerson));
-  }
+  };
+
   this.genPerson = (data) => {
     return {
       icon: "",
@@ -24,7 +25,8 @@ export function Search(Person, Group) {"ngInject";
       id: data.id,
       type: "person"
     };
-  }
+  };
+
   this.genGroup = (data) => {
     return {
       icon: "",
@@ -33,7 +35,7 @@ export function Search(Person, Group) {"ngInject";
       id: data.id,
       type: "person"
     };
-  }
+  };
 
 
   this.groupSearch = (query) => {
@@ -43,5 +45,5 @@ export function Search(Person, Group) {"ngInject";
         }
       }).$promise
       .then((data) => data.map(this.genGroup));
-  }
+  };
 }
