@@ -256,7 +256,6 @@ mhPersonModule.directive('mhPersonHousehold', mhPersonHousehold);
 mhPersonModule.directive('mhPersonGroup', mhPersonGroup);
 mhPersonModule.directive('mhPersonListItem', mhPersonListItem);
 mhPersonModule.directive('mhPersonEditType', mhPersonEditType);
-mhPersonModule.directive('mhPersonGroupChips', mhPersonGroupChips);
 
 mhPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);
 mhPersonModule.directive('mhWidgetPersonNextBirthdays', mhWidgetPersonNextBirthdays);
