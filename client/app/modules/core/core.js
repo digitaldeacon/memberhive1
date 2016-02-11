@@ -11,6 +11,7 @@ import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
 import {mhFileReader} from './services/filereader';
 import {Search} from './services/search';
+import {SearchBox,SearchChips} from './directives/search-directive';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 
 /**
@@ -171,6 +172,8 @@ mhCoreModule.directive('mhMenuIconItem', mhMenuIconItem);
 mhCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
 mhCoreModule.directive('mhPanelBody', mhPanelBodyDirective);*/
 mhCoreModule.directive('mhContent', mhContent);
+mhCoreModule.directive('mhSearchChips', mhSearchChips);
+mhCoreModule.directive('mhSearchBox', mhSearchBox);
 
 mhCoreModule.directive('mhStateLoader', stateLoader);
 mhCoreModule.directive('mhAppLoader', appLoader);

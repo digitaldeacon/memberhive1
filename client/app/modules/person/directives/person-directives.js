@@ -19,6 +19,27 @@ export function mhPersonChips(mhConfig, PersonService) {"ngInject";
   };
 }
 
+export function mhPersonGroupChips(mhConfig, PersonService) {"ngInject";
+  return {
+    templateUrl: 'app/modules/person/templates/person-group-chips.html',
+    restrict: 'E',
+    scope: {
+      ngModel: '=',
+    },
+    controller: function($scope, Person, Group) {"ngInject";
+      if(!$scope.ngModel) {
+        $scope.ngModel = [];
+      }
+
+      $scope.search = (query) => {
+        let personPromise = Person.search(query).$promise;
+        let groupPromise = Group.search(query).$promise;
+
+        return PersonService.search(query);
+      };
+    }
+  };
+}
 export function mhPersonStatus() {
   return {
     templateUrl: 'app/modules/person/templates/person-status.html',
