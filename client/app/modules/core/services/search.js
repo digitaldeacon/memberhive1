@@ -1,6 +1,9 @@
 export function Search(Person, Group, $q) {"ngInject";
+  this.search = (query) => {
+    return Person.search({query: query});
+  }
 
-  this.search = (query, which) => {
+  this.newSearch = (query, which) => {
     which = which || ['person', 'group'];
     let promises = [];
     if(_.contains(which, 'person')) {
