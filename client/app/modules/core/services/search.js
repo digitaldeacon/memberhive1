@@ -1,7 +1,7 @@
 export function Search(Person, Group, $q) {"ngInject";
   this.search = (query) => {
     return Person.search({query: query});
-  }
+  };
 
   this.newSearch = (query, which) => {
     which = which || ['person', 'group'];
