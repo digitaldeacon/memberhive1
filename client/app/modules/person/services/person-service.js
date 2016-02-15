@@ -44,11 +44,15 @@ export function PersonService(
           var short = "";
           if(value.street1)
             short += value.street1;
-          if(value.zip)
-            short += ", " + value.zip;
-          if(value.city)
-            short += ", " + value.city;
+          if(value.zipcode) {
+              short += ", " + value.zipcode;
+            if(value.city)
+              short += " " + value.city;
+          } else {
+            if(value.city)
+              short += ", " + value.city;
 
+          }
           person.addressList.push({value: short, name: index});
         });
       }
