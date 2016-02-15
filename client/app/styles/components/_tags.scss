@@ -1,6 +1,6 @@
 .tag {
   display: inline;
-  padding: .6em;
+  padding: 7px;
   font-size: 85%;
   font-weight: 700;
   line-height: 1;
@@ -9,9 +9,9 @@
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 5px;
-  margin-right: 2px;
-  background-color: primary-color('500');
+  margin-right: 3px;
+  background-color: primary-color('700');
 }
 .status-tag {
-  background-color: accent-color('400');
+  background-color: accent-color('500');
 }
