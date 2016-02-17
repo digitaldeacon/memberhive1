@@ -26,7 +26,8 @@ export function AccountOptions(
 
   this.getData = () => {
     return Account.findById({'id': LoopBackAuth.currentUserId})
-    .$promise;
+    .$promise
+    .then((data) => this.account = data);
   };
 
   this.promise = this.getData();
