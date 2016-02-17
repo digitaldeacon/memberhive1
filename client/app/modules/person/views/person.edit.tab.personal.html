@@ -99,14 +99,14 @@
             <ng-md-icon icon="{{personCtrl.personService.contactTypes[key].icon || 'email'}}"></ng-md-icon>
             <span translate>{{personCtrl.personService.contactTypes[value.key].text}}</span>
           </label>
-          <input ng-model="personCtrl.person.email[key]">
+          <input ng-model="personCtrl.person.emails[key]">
         </md-input-container>
       </div>
     </md-list-item>
 
     <md-list-item>
       <div class="md-offset">
-        <md-button ng-click="personCtrl.addItem('emails', 'contactTypes')"> Add new EMail Address</md-button>
+        <md-button ng-click="personCtrl.addItem('emails', 'emailTypes')"> Add new EMail Address</md-button>
       </div>
     </md-list-item>
   </md-list>

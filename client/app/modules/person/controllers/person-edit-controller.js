@@ -36,8 +36,14 @@ export function PersonEditController (
   this.avatarChanged = false;
 
   this.saveWithNotification = () => {
+    console.log("save with notfication");
     this.save().then(
-      (person) => Shout.success(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: person.fullName})),
+      (person) => {
+        Shout.success(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: person.fullName}));
+        if($state.current.name === "person.create") {
+          $state.go('person.edit', {id: person.id});
+        }
+      },
       (err) => Shout.vError(err)
     );
   };
@@ -82,6 +88,7 @@ export function PersonEditController (
   this.addItem = (valName, typesName) => {
     let key = "";
     let data = this.person[valName];
+    data = data || {};
     if(typesName !== "") {
       let types = PersonService[typesName];
       let availableKeys = _.difference(Object.keys(types), Object.keys(data));
@@ -90,7 +97,10 @@ export function PersonEditController (
         key = availableKeys[0];
       }
     }
+    console.log(data, key);
     data[key] = "";
+    this.person[valName] = data;
+    console.log(this.person);
   };
 
 
