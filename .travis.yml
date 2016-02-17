@@ -27,6 +27,7 @@ before_install:
   - npm set progress=false
 install:
   - npm install
+  - npm install -g strongloop
   - bower install
 before_script:
   - export NODE_ENV="travis"
