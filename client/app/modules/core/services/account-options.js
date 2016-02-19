@@ -1,6 +1,7 @@
 export function AccountOptions(
   Account,
-  LoopBackAuth
+  LoopBackAuth,
+  $log
 ) {"ngInject";
 
   /**
