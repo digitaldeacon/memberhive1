@@ -2,19 +2,22 @@
 import {saveAs} from "../../../scripts/FileSaver.min";
 export function PersonExportPDFController(
   Person,
+  AccountOptions,
   mhConfig,
   $window,
   $http,
   $rootScope
 ) {"ngInject";
   this.url = mhConfig.apiUrl + '/Persons/exportPDF';
-  this.config = {
-    cover: false,
 
-  }
+  this.options = AccountOptions.get('person-export-pdf-options',
+    {
+      cover: false,
+    }
+  );
+
   this.getPDF = (groups, status, tags) => {
-   /*jshint camelcase: false */
-    console.log(groups, status, tags);
+    console.log(this.options);
     var url = location.protocol+"//"+location.hostname;
     if(location.port)
       url += ":"+location.port;
@@ -31,6 +34,7 @@ export function PersonExportPDFController(
       apiUrl = mhConfig.apiUrl;
     }
 
+   /*jshint camelcase: false */
     var params =
     {
 
@@ -42,10 +46,10 @@ export function PersonExportPDFController(
         status: status,
         tags: tags
       },
-      options: this.config
+      options: angular.toJson(this.options)
     };
-
     $window.open(mhConfig.apiUrl+'/Persons/exportPDF?'+jQuery.param(params),"_blank");
+    AccountOptions.set('person-export-pdf-options', this.options);
   };
 
 }

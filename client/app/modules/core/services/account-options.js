@@ -8,13 +8,20 @@ export function AccountOptions(
    */
 
   this.account = null;
+  /**
+   * Warning: The key should not contains dots, as mongo won't accept it
+   */
   this.set = (key, value) => {
+    if(_.contains(key, '.')) {
+      $log.error("AccountOptions has a key: " + key + " with a dot inside");
+      return;
+    }
     this.promise.then(() => {
       if(this.account.options === undefined) {
         this.account.options = {};
       }
       this.account.options[key] = value;
-      Account.upsert({}, this.account);
+      Account.update({where:{id: this.account.id}}, this.account);
     });
   };
 
