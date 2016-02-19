@@ -9,6 +9,7 @@
 </head>
 
 <body id="pdf-export">
+  {{#if options.cover}}
   <div class="cover-front">
     <div class="logo"></div>
     <div class="title">
@@ -16,6 +17,7 @@
       <p class="date">Februar 2016</p>
     </div>
   </div>
+  {{/if}}
   <table border="0" width="100%">
         {{#each personGroups}}
           {{#each this}}
@@ -32,6 +34,9 @@
               <td  class="td-date">
                   <div class="tel">G: {{{formatDateGerman this.dates.birthday}}}</div>
                   <div class="tel">T: {{{formatDateGerman this.dates.baptism}}}</div>
+                  {{#if this.custom.b}}
+                  <div class="tel">B: {{this.custom.b}}</div>
+                  {{/if}}
               </td>
               <td  class="td-contact">
                   <div class="tel">{{this.contacts.home}}</div>
@@ -58,8 +63,11 @@
           {{/each}}
         {{/each}}
   </table>
+
+  {{#if options.cover}}
   <div class="cover-back">
   </div>
+  {{/if}}
 
  </body>
 </html>

@@ -8,7 +8,10 @@ export function PersonExportPDFController(
   $rootScope
 ) {"ngInject";
   this.url = mhConfig.apiUrl + '/Persons/exportPDF';
+  this.config = {
+    cover: false,
 
+  }
   this.getPDF = (groups, status, tags) => {
    /*jshint camelcase: false */
     console.log(groups, status, tags);
@@ -39,9 +42,7 @@ export function PersonExportPDFController(
         status: status,
         tags: tags
       },
-      options: {
-        cover: true
-      }
+      options: this.config
     };
 
     $window.open(mhConfig.apiUrl+'/Persons/exportPDF?'+jQuery.param(params),"_blank");
