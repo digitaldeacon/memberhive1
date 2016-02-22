@@ -383,11 +383,11 @@ module.exports = function(Person) {
                 pageSize: 'A5',
                 marginLeft: '0cm',
                 marginRight: '0cm',
-                marginTop: '0',
-                marginBottom: '0',
+                marginTop: '10mm',
+                marginBottom: '5mm',
                 enableFooter: true,
                 footer: footer,
-                footerHeight: '0.5cm'
+                footerHeight: '5mm'
               }
               , res, cb);
           }

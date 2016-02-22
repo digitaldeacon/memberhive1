@@ -5,8 +5,10 @@ $image-height: $image-width + 2*$image-padding;
 
 $margin-left: 0;
 $margin-right: 0;
-$margin-top: 0;
-$margin-bottom: 0;//+1.5mm so it don't overflow
+
+$margin-top: 10mm;
+$margin-bottom: 5mm;//+1.5mm so it don't overflow
+
 $page-width: 148mm - $margin-left - $margin-right;
 $page-height: 210mm - $margin-top - $margin-bottom;
 
@@ -19,10 +21,13 @@ html, body {
 }
 
 .person-list {
+  $list-width: $page-width - 20mm; //- padding
+  $avatar-width: $image-width + 2*$image-padding;
+  
   display: flex;
   flex-direction: column;
-  max-width: $page-width;
-  width: $page-width - 20mm;
+  max-width: $list-width;
+  width: $page-width;
   padding-left: 10mm;
   padding-right: 10mm;
   overflow: hidden;
@@ -31,9 +36,9 @@ html, body {
     flex-direction: row;
     border-bottom: 1px solid #000;
     white-space: normal;
+    width: $list-width;
     .avatar {
-      
-      width: $image-width + 4px;
+      width: $avatar-width;
       padding: $image-padding;
       
       .image {
@@ -47,7 +52,8 @@ html, body {
     .text  {
       display: flex;
       flex-direction: column;
-      padding-left: 0.5em;
+      padding-left: 2mm;
+      width: $list-width - $avatar-width - 2mm;
       .top {
         display: flex;
         flex-direction: row;
@@ -65,14 +71,11 @@ html, body {
         }
         
         .contact {
-          display: block;
-          width: 70px;
-          padding-top: 3px;
         }
       }
       
       .bottom {
-        width: $page-width - $image-width - 20px;
+        width: $list-width - $avatar-width - 10px;
         padding-right: 5px;
       }
     }
