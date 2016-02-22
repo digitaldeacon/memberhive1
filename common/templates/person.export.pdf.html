@@ -8,7 +8,7 @@
 
 </head>
 
-<body id="pdf-export">
+<body>
   {{#if options.cover}}
   <div class="cover-front">
     <div class="logo"></div>
@@ -18,51 +18,51 @@
     </div>
   </div>
   {{/if}}
-  <table border="0" width="100%">
+  <div class="person-list">
         {{#each personGroups}}
-          {{#each this}}
-          <tr class="top">
-              <td rowspan="2" class="td-image">
-                  <div class="t-img" style="background-image:url('{{{avatarUrl this.id}}}');">
-                  </div>
-              </td>
-              <td class="td-name">
-                  <div class="name">{{this.lastName}}, {{this.firstName}} </div>
-                      <div class="str">{{this.address.home.street1}}</div>
-                      <div class="str">{{this.address.home.zipcode}} {{this.address.home.city}}</div>
-              </td>
-              <td  class="td-date">
-                  <div class="tel">G: {{{formatDateGerman this.dates.birthday}}}</div>
-                  <div class="tel">T: {{{formatDateGerman this.dates.baptism}}}</div>
-                  {{#if this.custom.b}}
-                  <div class="tel">B: {{this.custom.b}}</div>
-                  {{/if}}
-              </td>
-              <td  class="td-contact">
-                  <div class="tel">{{this.contacts.home}}</div>
-                  <div class="tel">{{this.contacts.mobile}}</div>
-              </td>
-
-          </tr>
-          <tr class="bottom">
-              <td colspan="3" class="more">
-                  {{#if this.emails.personal}}
-                    <div class="tel">E-Mail: {{this.emails.personal}}</div>
-                  {{/if}}
-                  {{#if this.genChildren}}
-                    <div class="dienst">Kinder: {{this.genChildren}} </div>
-                  {{/if}}
-                  {{#if this.groups}}
-                    <div class="dienst">Dienste: {{this.genGroups}}
-                    </div>
-                  {{/if}}
-
-
-              </td>
-          </tr>
-          {{/each}}
+        {{#each this}}
+        <div class="unbreakable">
+        <div class="item">
+          <div class="avatar">
+            <div class="image" style="background-image:url('{{{avatarUrl this.id}}}');">
+            </div>
+          </div>
+          <div class="text">
+            <div class="top">
+              <div class="info">
+              <div class="name">{{this.lastName}}, {{this.firstName}} </div>
+              <div class="str">{{this.address.home.street1}}</div>
+              <div class="str">{{this.address.home.zipcode}} {{this.address.home.city}}</div>
+              </div>
+              <div class="dates">
+                <div class="tel">G: {{{formatDateGerman this.dates.birthday}}}</div>
+                <div class="tel">T: {{{formatDateGerman this.dates.baptism}}}</div>
+                {{#if this.custom.b}}
+                <div class="tel">B: {{this.custom.b}}</div>
+                {{/if}}
+              </div>
+              <div class="contact">
+                <div class="tel">{{this.contacts.home}}</div>
+                <div class="tel">{{this.contacts.mobile}}</div>
+              </div>
+            </div>
+            <div class="bottom">
+              {{#if this.emails.personal}}
+                <div class="tel">E-Mail: {{this.emails.personal}}</div>
+              {{/if}}
+              {{#if this.genChildren}}
+                <div class="dienst">Kinder: {{this.genChildren}} </div>
+              {{/if}}
+              {{#if this.groups}}
+                <div class="dienst">Dienste: {{this.genGroups}} </div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+        </div>
         {{/each}}
-  </table>
+        {{/each}}
+  </div>
 
   {{#if options.cover}}
   <div class="cover-back">
