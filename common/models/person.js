@@ -345,16 +345,27 @@ module.exports = function(Person) {
     }
   );
   Person.exportPDF = function(css, apiBase, filter, options,res, cb) {
+    let footer = "<div style='text-align: center; font-size: 10px'>{#pageNum}</div>";
+    
+    if(options.cover) {
+      footer = "<div style='text-align: center; font-size: 10px' id='pagenum'>{#pageNum}</div><span id='numPages' style='display:none'>{#numPages}</span>";
+      footer += "<script>var elem = document.getElementById('pagenum'); var elem2 = document.getElementById('numPages');";
+      footer += "if (parseInt(elem.innerHTML) <= 1) {elem.parentNode.removeChild(elem);}";
+      footer += "if (parseInt(elem.innerHTML) == parseInt(elem2.innerHTML)) {elem.parentNode.removeChild(elem);}";
+      footer += "elem2.parentNode.removeChild(elem2);";
+      footer += "</script>";
+    }
+    
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
     filter = filter || {};
-    var pfilter = Person.buildWhereFiler(filter.groups, filter.tags, filter.status);
+    let pfilter = Person.buildWhereFiler(filter.groups, filter.tags, filter.status);
     pfilter.include = ['groups'];
     Person.find({},(err, allPersons) => {
 
     Person.find(
       pfilter,
       (err, persons) => {
-        var pdf = new Pdf(Person, apiBase);
+        let pdf = new Pdf(Person, apiBase);
         fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
           if(err) {
             console.error(err)
@@ -370,12 +381,12 @@ module.exports = function(Person) {
               },
               {
                 pageSize: 'A5',
-                marginLeft: '1cm',
-                marginRight: '1cm',
-                marginTop: '0.25cm',
-                marginBottom: '0.25cm',
+                marginLeft: '0cm',
+                marginRight: '0cm',
+                marginTop: '0',
+                marginBottom: '0',
                 enableFooter: true,
-                footer: "<div style='text-align: center; font-size: 10px'>{#pageNum}</div>",
+                footer: footer,
                 footerHeight: '0.5cm'
               }
               , res, cb);

@@ -71,7 +71,7 @@ module.exports = class Pdf {
               bottom: marginBottom
             },
             headerHeight: headerHeight,
-            footerHeightd: footerHeight
+            footerHeight: footerHeight
           }
         }
       }

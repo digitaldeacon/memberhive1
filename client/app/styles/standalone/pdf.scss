@@ -3,6 +3,13 @@ $image-width: 90px;
 $image-padding: 2px;
 $image-height: $image-width + 2*$image-padding;
 
+$margin-left: 0;
+$margin-right: 0;
+$margin-top: 0;
+$margin-bottom: 0;//+1.5mm so it don't overflow
+$page-width: 148mm - $margin-left - $margin-right;
+$page-height: 210mm - $margin-top - $margin-bottom;
+
 html, body {
   background-color: white !important;
   margin: 0;
@@ -14,12 +21,16 @@ html, body {
 .person-list {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: $page-width;
+  width: $page-width - 20mm;
+  padding-left: 10mm;
+  padding-right: 10mm;
+  overflow: hidden;
   .item {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #000;
-    width: 100%;
+    white-space: normal;
     .avatar {
       
       width: $image-width + 4px;
@@ -55,17 +66,20 @@ html, body {
         
         .contact {
           display: block;
-          min-width: 70px;
+          width: 70px;
           padding-top: 3px;
         }
       }
       
       .bottom {
-        
+        width: $page-width - $image-width - 20px;
+        padding-right: 5px;
       }
     }
   }
+  //BACK to make unbreakble inside of items
   .unbreakable {
+    page-break-inside: avoid !important;
     display:inline-block;
   }
   .unbreakable:after {
@@ -75,21 +89,13 @@ html, body {
     visibility: hidden;
   }
 }
-.footer {
-  font-size: 10px;
-}
 
-$margin-left: 10mm;
-$margin-right: 10mm;
-$margin-top: 5mm;
-$margin-bottom: 10mm;//+1.5mm so it don't overflow
-$page-width: 148mm - $margin-left - $margin-right;
-$page-height: 210mm - $margin-top - $margin-bottom;
+
 
 .cover-front {
   display: block;
   width: $page-width;
-  height: $page-height;
+  height: $page-height - 6mm;
   page-break-after: always;
   page-break-inside: avoid;
 
@@ -101,14 +107,14 @@ $page-height: 210mm - $margin-top - $margin-bottom;
     background-size: contain;
     height: 50px;
     width: 150px;
-    margin-top: 10px;
-    margin-right: 50px;
+    margin-top: 30px;
+    margin-right: 5em;
     float: right;
   }
   .title {
-    padding-top: 600px;
+    padding-top: 620px;
     text-align: right;
-    padding-right: 2em;
+    padding-right: 5em;
     .name {
       font-size: 28px;
       color: white;
@@ -123,7 +129,7 @@ $page-height: 210mm - $margin-top - $margin-bottom;
 .cover-back {
   display: block;
   width: $page-width;
-  height: $page-height;
+  height: $page-height - 6mm;
   page-break-before: always;
   page-break-after: always;
   page-break-inside: avoid;
