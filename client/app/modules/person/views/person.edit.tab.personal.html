@@ -119,7 +119,7 @@
     <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.dates">
       <div class="md-list-item-text" layout="row">
         <mh-person-edit-type flex="33" key="key" type="dateTypes"></mh-person-edit-type>
-        <input type="date" ng-model="personCtrl.person.dates[key]" />
+        <md-datepicker ng-model="personCtrl.person.dates[key]" utc-date md-placeholder="Enter date"></md-datepicker>
       </div>
     </md-list-item>
 

@@ -42,11 +42,18 @@ export function PersonEditService(
   this.transformBack = (person) => {
     //remove all time information because it is a date
     person.dates = _.mapValues(person.dates, (d) => {
+      console.log("pre to string", d);
       if(d instanceof Date) {
         if(isNaN(d)) return "";
-        d = d.toISOString();
+        console.log("is date");
+        console.log(moment.utc(d).zone(0));
+        console.log(moment(d).zone(0));
+        console.log(moment(d).zone(0).toISOString());
+        console.log(moment.utc(d).zone(0).toISOString());
+        d = moment.utc(d).toISOString();
       }
       var split = d.split("T");
+      console.log("after split", split[0]);
       return split[0]+"T00:00:00.000Z";
     });
     return person;

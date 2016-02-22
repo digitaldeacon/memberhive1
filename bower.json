@@ -11,6 +11,7 @@
     "angular-material": "~1.0.5",
     "angular-material-icons": "~0.6.0",
     "angular-messages": "~1.4.9",
+    "angular-moment": "^0.10.3",
     "angular-sanitize": "~1.4.9",
     "angular-spinkit": "~0.3.3",
     "angular-ui-router": "~0.2.15",
@@ -19,17 +20,19 @@
     "jquery": "~2.2.0",
     "ng-mfb": "~0.6.1",
     "ng-file-upload": "~6.0.2",
+    "ngInfiniteScroll": "master",
     "material-calendar": "~0.2",
+    "moment": "^2.11.2",
     "roboto-fontface": "~0.4.2",
     "iso-3166-country-codes-angular": "~1.1.1",
-    "svg-morpheus": "~0.1.8",
-    "ngInfiniteScroll": "master"
+    "svg-morpheus": "~0.1.8"
   },
   "devDependencies": {},
   "appPath": "client/app",
   "resolutions": {
     "angular": "~1.4.9",
-    "angular-material": "~1.0.5"
+    "angular-material": "~1.0.5",
+    "moment": ">=2.8.0 <2.11.0"
   },
   "overrides": {
     "codemirror": {

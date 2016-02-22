@@ -4,14 +4,16 @@ import {SidebarController} from './controllers/sidebar-controller';
 import {ShoutController} from './controllers/shout-controller';
 
 import {MainMenu} from './providers/menu-provider';
+
 import {controlGroupDirective, mhDateInput, mhContent} from './directives/form-directives';
 import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
 import {stateLoader, appLoader} from './directives/loading-directive';
+import {mhSearchBox, mhSearchChips} from './directives/search-directives';
+import {utcDate} from './directives/date-directives';
 import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
 import {mhFileReader} from './services/filereader';
 import {Search} from './services/search';
-import {mhSearchBox, mhSearchChips} from './directives/search-directives';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 
 /**
@@ -177,6 +179,7 @@ mhCoreModule.directive('mhSearchBox', mhSearchBox);
 
 mhCoreModule.directive('mhStateLoader', stateLoader);
 mhCoreModule.directive('mhAppLoader', appLoader);
+mhCoreModule.directive('utcDate', utcDate);
 // Filters
 mhCoreModule.filter('fromNow', fromNowFilter);
 mhCoreModule.filter('fromNowMoment', fromNowMomentFilter);
