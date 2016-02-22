@@ -7,7 +7,7 @@ export var gemDashboardModule = angular.module('mh.dashboard',
 gemDashboardModule.config(
   ($stateProvider, gettext) => {
     $stateProvider
-      .state('dashboard', {
+    .state('dashboard', {
       url: 'dashboard',
       templateUrl: 'app/modules/dashboard/views/dashboard.html',
       data: {
