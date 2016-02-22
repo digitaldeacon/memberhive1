@@ -42,12 +42,12 @@ module.exports = class Pdf {
 
     var header = options.enableHeader ? options.header : '';
     var footer = options.enableFooter ? options.footer : '';
-    var headerHeight = options.enableHeader ? options.headerHeight : 0;
-    var footerHeight = options.enableFooter ? options.footerHeight : 0;
-    var marginLeft = options.marginLeft || 0;
-    var marginRight = options.marginRight || 0;
-    var marginTop = options.marginTop || 0;
-    var marginBottom = options.marginBottom || 0;
+    var headerHeight = options.enableHeader ? options.headerHeight : '0cm';
+    var footerHeight = options.enableFooter ? options.footerHeight : '0cm';
+    var marginLeft = options.marginLeft || '0cm';
+    var marginRight = options.marginRight || '0cm';
+    var marginTop = options.marginTop || '0cm';
+    var marginBottom = options.marginBottom || '0cm';
     var pageSize = options.pageSize || 'A5';
 
     toner.render({
@@ -65,13 +65,13 @@ module.exports = class Pdf {
             format: pageSize,
             orientation: 'portrait',
             margin: {
-              left: marginLeft + 'cm',
-              right: marginRight + 'cm',
-              top: marginTop + 'cm',
-              bottom: marginBottom + 'cm'
+              left: marginLeft,
+              right: marginRight,
+              top: marginTop,
+              bottom: marginBottom
             },
-            headerHeight: headerHeight + 'cm',
-            footerHeight: footerHeight + 'cm'
+            headerHeight: headerHeight,
+            footerHeightd: footerHeight
           }
         }
       }

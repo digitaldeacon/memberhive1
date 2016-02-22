@@ -3,21 +3,23 @@
     <label>Title</label>
     <input ng-model="groupCtrl.group.name" required>
   </md-input-container>
-  <md-input-container flex>
+   <md-input-container flex>
+    <md-switch ng-model="groupCtrl.group.isMinistry" aria-label="is a ministry">
+      <translate>Is a ministry</translate> {{ data.cb2 }}
+    </md-switch>
+  </md-input-container>
+  
+   <md-input-container flex>
     <label>Description</label>
     <textarea ng-model="groupCtrl.group.description" columns="2" ></textarea>
   </md-input-container>
-   <md-input-container flex>
-    <md-switch ng-model="groupCtrl.group.isMinistry" aria-label="is a ministry">
-      Is a ministry {{ data.cb2 }}
-    </md-switch>
-  </md-input-container>
-  <div layout="row">
-    <md-button class="md-primary" ng-click="groupCtrl.save()">
-      <translate>Save</translate>
-    </md-button>
-    <md-button ng-click="groupCtrl.close()">
-      <translate>Close</translate>
-    </md-button>
-  </div>
 </form>
+<div layout="row" layout-align="end center">
+  <md-button ng-click="groupCtrl.close()">
+    <translate>Close</translate>
+  </md-button>
+  <md-button class="md-primary" ng-click="groupCtrl.save()">
+    <translate>Save</translate>
+  </md-button>
+
+</div>

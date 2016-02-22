@@ -370,10 +370,13 @@ module.exports = function(Person) {
               },
               {
                 pageSize: 'A5',
-                marginLeft: '1',
-                marginRight: '1',
-                marginTop: '0.5',
-                marginBottom: '0.85'
+                marginLeft: '1cm',
+                marginRight: '1cm',
+                marginTop: '0.25cm',
+                marginBottom: '0.25cm',
+                enableFooter: true,
+                footer: "<div style='text-align: center; font-size: 10px'>{#pageNum}</div>",
+                footerHeight: '0.5cm'
               }
               , res, cb);
           }
