@@ -51,8 +51,8 @@
 
 
   <md-radio-group ng-model="personCtrl.person.gender" layout="row" class="radio-inline">
-    <md-radio-button value="m" <fa name="male"></fa> <translate>Male</translate></md-radio-button>
-    <md-radio-button value="f" <fa name="female"></fa> <translate>Female</translate></md-radio-button>
+    <md-radio-button value="m"> <translate>Male</translate></md-radio-button>
+    <md-radio-button value="f"> <translate>Female</translate></md-radio-button>
   </md-radio-group>
 
   <md-button ng-click="personCtrl.showExtended = !personCtrl.showExtended">
@@ -64,7 +64,7 @@
 
 </div>
 
-<mh-content layout="column">
+<div class="mh-content" layout="column">
   <h3> <ng-md-icon icon="phone"></ng-md-icon> Phones </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="(key,contact) in personCtrl.person.contacts">
@@ -86,9 +86,9 @@
       </div>
     </md-list-item>
   </md-list>
-</mh-content>
+</div>
 
-<mh-content layout="column">
+<div class="mh-content" layout="column">
   <h3> <ng-md-icon icon="email"></ng-md-icon> EMails </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.emails">
@@ -111,15 +111,15 @@
     </md-list-item>
   </md-list>
 
-</mh-content>
+</div>
 
-<mh-content layout="column">
+<div class="mh-content" layout="column">
   <h3> <ng-md-icon icon="cake"></ng-md-icon> Dates </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.dates">
       <div class="md-list-item-text" layout="row">
         <mh-person-edit-type flex="33" key="key" type="dateTypes"></mh-person-edit-type>
-        <md-datepicker ng-model="personCtrl.person.dates[key]" utc-date md-placeholder="Enter date"></md-datepicker>
+        <mh-utc-date-input ng-model="personCtrl.person.dates[key]" placeholder="Enter date"></mh-utc-date-input>
       </div>
     </md-list-item>
 
@@ -129,9 +129,9 @@
       </div>
     </md-list-item>
   </md-list>
-</mh-content>
+</div>
 
-<mh-content layout="column">
+<div class="mh-content" layout="column">
   <h3> <ng-md-icon icon="extension"></ng-md-icon> Custom Fields</h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.custom">
@@ -154,52 +154,4 @@
       </div>
     </md-list-item>
   </md-list>
-</mh-content>
-
-
-
-  <!--
-  <h3 translate>Household</h3>
-
-  <md-tabs>
-    <md-tab>
-      <md-tab-label>
-        <translate>Existing Household</translate>
-      </md-tab-label>
-      <md-tab-body class="md-padding">
-        <md-autocomplete
-          md-selected-item="person.household"
-          md-search-text="householdSearchText"
-          md-items="household in personCtrl.households | filter:householdSearchText"
-          md-item-text="household.name"
-          placeholder="{{'Search Household'|translate}}">
-          <md-item-template>
-            <span md-highlight-text="householdSearchText">{{household.name}}</span>
-          </md-item-template>
-          <md-not-found>
-            <translate>No matches found for "{{householdSearchText}}".</translate>
-          </md-not-found>
-        </md-autocomplete>
-      </md-tab-body>
-    </md-tab>
-    <md-tab>
-      <md-tab-label>
-        <translate>New Household</translate>
-      </md-tab-label>
-      <md-tab-body class="md-padding">
-        <section layout="row" layout-sm="column" layout-align="center center">
-          <md-input-container flex>
-            <label><translate>Household Name</translate></label>
-            <input ng-model="householdName">
-          </md-input-container>
-          <md-button ng-click="personCtrl.addHousehold(householdName)" class="md-raised">
-            <translate>Create Household</translate>
-          </md-button>
-        </section>
-        <md-checkbox ng-model="personCtrl.assignNewHousehold">
-          <translate>Assign household to this person</translate>
-        </md-checkbox>
-      </md-tab-body>
-    </md-tab>
-  </md-tabs>
-  -->
+</div>

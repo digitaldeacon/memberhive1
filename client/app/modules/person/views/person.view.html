@@ -11,7 +11,7 @@
 
 <div flex layout="column" layout-gt-sm="row">
   <div flex-gt-sm="50" layout="column">
-    <mh-content>
+    <div class="mh-content">
       <div class="person-view-top">
         <div layout="row">
           <h1 flex>
@@ -87,10 +87,10 @@
           </div>
         </md-list-item>
       </md-list>
-    </mh-content>
+    </div>
   </div>
 
-  <mh-content flex-gt-sm="50" layout="column">
+  <div class="mh-content" flex-gt-sm="50" layout="column">
     <h2 translate> Notes </h2>
     <md-list>
       <md-list-item ng-repeat="note in personCtrl.notes">
@@ -128,7 +128,7 @@
       new-note="personCtrl.newNote(note)"
       button-class="md-fab md-raised md-accent md-fab-floating-br">
     </mh-note-create>
-  </mh-content>
+  </div>
 </div>
 <div layout="row">
   <md-button ng-click="personCtrl.goPreviousPerson()" hide-xs keyboard-shortcut="left">

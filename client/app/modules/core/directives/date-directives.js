@@ -17,3 +17,43 @@ export function utcDate() {
     }
   };
 }
+
+export function mhDateInput() {"ngInject";
+  return {
+    template: '<md-datepicker ng-model="ngModel" md-placeholder="placeholder"></md-datepicker>',
+    restrict: 'E',
+    scope: {
+      ngModel: '=',
+      placeholder: '@'
+    },
+    controller: ($scope) => {"ngInject";
+      if(!$scope.ngModel) {
+        $scope.ngModel = Date.now();
+      } else {
+        if(!angular.isDate($scope.ngModel)) {
+          $scope.ngModel = moment($scope.ngModel).toDate();
+        }
+      }
+    }
+  };
+}
+
+export function mhUtcDateInput() {"ngInject";
+  return {
+    template: '<md-datepicker ng-model="ngModel" md-placeholder="placeholder" utc-date></md-datepicker>',
+    restrict: 'E',
+    scope: {
+      ngModel: '=',
+      placeholder: '@'
+    },
+    controller: ($scope) => {"ngInject";
+      if(!$scope.ngModel) {
+        $scope.ngModel = Date.now();
+      } else {
+        if(!angular.isDate($scope.ngModel)) {
+          $scope.ngModel = moment.utc($scope.ngModel).toDate();
+        }
+      }
+    }
+  };
+}

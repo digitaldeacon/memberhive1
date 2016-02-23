@@ -5,11 +5,10 @@ import {ShoutController} from './controllers/shout-controller';
 
 import {MainMenu} from './providers/menu-provider';
 
-import {controlGroupDirective, mhDateInput, mhContent} from './directives/form-directives';
 import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
 import {stateLoader, appLoader} from './directives/loading-directive';
 import {mhSearchBox, mhSearchChips} from './directives/search-directives';
-import {utcDate} from './directives/date-directives';
+import {utcDate, mhDateInput, mhUtcDateInput} from './directives/date-directives';
 import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
 import {mhFileReader} from './services/filereader';
@@ -166,20 +165,20 @@ mhCoreModule.factory('Shout', Shout);
 mhCoreModule.factory('mhFileReader', mhFileReader);
 
 // Directives
-mhCoreModule.directive('mhDateInput', mhDateInput);
 mhCoreModule.directive('uiNav', uiNavDirective);
 mhCoreModule.directive('mhMenuItem', mhMenuItem);
 mhCoreModule.directive('mhMenuIconItem', mhMenuIconItem);
-/*mhCoreModule.directive('mhPanel', mhPanelDirective);
-mhCoreModule.directive('mhPanelHeader', mhPanelHeaderDirective);
-mhCoreModule.directive('mhPanelBody', mhPanelBodyDirective);*/
-mhCoreModule.directive('mhContent', mhContent);
+// Search Directives
 mhCoreModule.directive('mhSearchChips', mhSearchChips);
 mhCoreModule.directive('mhSearchBox', mhSearchBox);
 
 mhCoreModule.directive('mhStateLoader', stateLoader);
 mhCoreModule.directive('mhAppLoader', appLoader);
+// Date Directives
 mhCoreModule.directive('utcDate', utcDate);
+mhCoreModule.directive('mhUtcDateInput', mhUtcDateInput);
+mhCoreModule.directive('mhDateInput', mhDateInput);
+
 // Filters
 mhCoreModule.filter('fromNow', fromNowFilter);
 mhCoreModule.filter('fromNowMoment', fromNowMomentFilter);
