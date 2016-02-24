@@ -35,15 +35,24 @@
               <div class="str">{{this.address.home.zipcode}} {{this.address.home.city}}</div>
               </div>
               <div class="dates">
+                {{#if this.dates.birthday}}
                 <div class="tel">G: {{{formatDateGerman this.dates.birthday}}}</div>
+                {{/if}}
+                {{#if this.dates.baptism}}
                 <div class="tel">T: {{{formatDateGerman this.dates.baptism}}}</div>
+                {{/if}}
                 {{#if this.custom.b}}
-                <div class="tel">B: {{this.custom.b}}</div>
+                  <div class="tel">B: {{this.custom.b}}</div>
                 {{/if}}
               </div>
               <div class="contact">
-                <div class="tel">Tel: {{this.contacts.home}}</div>
-                <div class="tel">Mob: {{this.contacts.mobile}}</div>
+                {{#if this.contacts.home}}
+                  <div class="tel">Tel: {{this.contacts.home}}</div>
+                {{/if}}
+                
+                {{#if this.contacts.mobile}}
+                  <div class="tel">Mob: {{this.contacts.mobile}}</div>
+                {{/if}}
               </div>
             </div>
             <div class="bottom">

@@ -56,6 +56,7 @@ html, body {
       width: $list-width - $avatar-width - 2mm;
       .top {
         display: flex;
+        flex-grow: 3;
         flex-direction: row;
         padding-top: 0.5em;
         .info {
@@ -75,8 +76,10 @@ html, body {
       }
       
       .bottom {
+        align-self: flex-end;
         width: $list-width - $avatar-width - 10px;
         padding-right: 5px;
+        padding-bottom: 3px;
       }
     }
   }
