@@ -36,7 +36,6 @@ export function PersonEditController (
   this.avatarChanged = false;
 
   this.saveWithNotification = () => {
-    console.log("save with notfication");
     this.save().then(
       (person) => {
         Shout.success(gettextCatalog.getString('Successfully saved "{{fullname}}"', {fullname: person.fullName}));

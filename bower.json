@@ -44,6 +44,12 @@
         "mode/xml/xml.js",
         "mode/handlebars/handlebars.js"
       ]
+    },
+    "moment": {
+      "main": [
+        "min/moment.min.js",
+        "min/locales.min.js"
+      ]
     }
   }
 }

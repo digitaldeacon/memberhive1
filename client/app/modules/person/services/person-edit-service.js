@@ -12,8 +12,6 @@ export function PersonEditService(
    * Cached
    */
   this.getPerson = (personId) => {
-    /*if(this.person && this.person.id === personId) //return cached person
-      return $q.when(this.person);*/
     return PersonService.one(personId)
       .then((p) => this.person = p);//cache person
   };
@@ -42,7 +40,9 @@ export function PersonEditService(
   this.transformBack = (person) => {
     //remove all time information because it is a date
     person.dates = _.mapValues(person.dates, (d) => {
-      console.log("pre to string", d);
+      console.log("transform", d);
+      return d;
+      /*console.log("pre to string", d);
       if(d instanceof Date) {
         if(isNaN(d)) return "";
         console.log("is date");
@@ -54,7 +54,7 @@ export function PersonEditService(
       }
       var split = d.split("T");
       console.log("after split", split[0]);
-      return split[0]+"T00:00:00.000Z";
+      return split[0]+"T00:00:00.000Z";*/
     });
     return person;
   };

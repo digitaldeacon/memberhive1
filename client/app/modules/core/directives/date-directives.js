@@ -3,13 +3,16 @@ export function utcDate() {
     require: 'ngModel',
     link: function(scope, elem, attrs, ngModel) {
       var toView = function(val) {
-          return val;
+        console.log("to view", val);
+        return val;
       };
 
       var toModel = function(val) {
-          var offset = moment(val).utcOffset();
-          var date = new Date(moment(val).add(offset, 'm'));
-          return date;
+        console.log("to model", val);
+        var offset = moment(val).utcOffset();
+        var date = new Date(moment(val).add(offset, 'm'));
+        console.log("to model return", date);
+        return date;
       };
 
       ngModel.$formatters.unshift(toView);
@@ -20,7 +23,7 @@ export function utcDate() {
 
 export function mhDateInput() {"ngInject";
   return {
-    template: '<md-datepicker ng-model="ngModel" md-placeholder="placeholder"></md-datepicker>',
+    template: '<md-datepicker ng-model="ngModel" md-placeholder="{{placeholder}}"></md-datepicker>',
     restrict: 'E',
     scope: {
       ngModel: '=',
@@ -28,7 +31,7 @@ export function mhDateInput() {"ngInject";
     },
     controller: ($scope) => {"ngInject";
       if(!$scope.ngModel) {
-        $scope.ngModel = Date.now();
+        $scope.ngModel = new Date();
       } else {
         if(!angular.isDate($scope.ngModel)) {
           $scope.ngModel = moment($scope.ngModel).toDate();
@@ -40,20 +43,23 @@ export function mhDateInput() {"ngInject";
 
 export function mhUtcDateInput() {"ngInject";
   return {
-    template: '<md-datepicker ng-model="ngModel" md-placeholder="placeholder" utc-date></md-datepicker>',
+    template: '<md-datepicker ng-model="ngModel" md-placeholder="{{placeholder}}" utc-date></md-datepicker>',
     restrict: 'E',
     scope: {
       ngModel: '=',
       placeholder: '@'
     },
     controller: ($scope) => {"ngInject";
+      console.log("utc date $scope.ngModel", $scope.ngModel);
       if(!$scope.ngModel) {
-        $scope.ngModel = Date.now();
+        $scope.ngModel = new Date();
       } else {
         if(!angular.isDate($scope.ngModel)) {
-          $scope.ngModel = moment.utc($scope.ngModel).toDate();
+          $scope.ngModel = new Date($scope.ngModel);
+          //$scope.ngModel = moment.utc($scope.ngModel).toDate();
         }
       }
+      console.log("utc date $scope.ngModel after", $scope.ngModel);
     }
   };
 }
