@@ -16,6 +16,7 @@
     "angular-spinkit": "~0.3.3",
     "angular-ui-router": "~0.2.15",
     "angular-resource": "~1.4.7",
+    "angular-i18n": "~1.4.7",
     "lodash": "~3.10.0",
     "jquery": "~2.2.0",
     "ng-mfb": "~0.6.1",
@@ -49,6 +50,11 @@
       "main": [
         "min/moment.min.js",
         "min/locales.min.js"
+      ]
+    },
+    "angular-i18n": {
+      "main": [
+        "angular-locale_de-de.js"
       ]
     }
   }
