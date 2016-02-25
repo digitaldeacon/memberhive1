@@ -1,10 +1,8 @@
 import {DashboardController} from './controllers/dashboard-controller';
 import {mhWidget} from './directives/dashboard-directives';
 
-export var gemDashboardModule = angular.module('mh.dashboard',
-  [
-  ]);
-gemDashboardModule.config(
+export var mhDashboardModule = angular.module('mh.dashboard', []);
+mhDashboardModule.config(
   ($stateProvider, gettext) => {
     $stateProvider
     .state('dashboard', {
@@ -24,5 +22,5 @@ gemDashboardModule.config(
   }
 );
 
-gemDashboardModule.controller('DashboardController', DashboardController);
-gemDashboardModule.directive('mhWidget', mhWidget);
+mhDashboardModule.controller('DashboardController', DashboardController);
+mhDashboardModule.directive('mhWidget', mhWidget);

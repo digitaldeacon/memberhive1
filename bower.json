@@ -49,7 +49,7 @@
     "moment": {
       "main": [
         "min/moment.min.js",
-        "min/locales.min.js"
+        "locale/de.js"
       ]
     },
     "angular-i18n": {

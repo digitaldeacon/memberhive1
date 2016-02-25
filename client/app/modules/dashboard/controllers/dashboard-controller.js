@@ -1,3 +1,3 @@
-export function DashboardController($scope, Account, LoopBackAuth) {"ngInject";
-
+export function DashboardController() {"ngInject";
+  console.log("dashboard controller loaded");
 }

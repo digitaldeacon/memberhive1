@@ -69,6 +69,8 @@ mhMainModule.config((
   };
   
   $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.when('', '/dashboard');
+  
   //main color is: #F8922F
   //complementär: #0085AB
   //Generator for palettes http://knizia.biz/mcg/
