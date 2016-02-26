@@ -2,22 +2,19 @@ export var mhAclModule = angular.module('mh.acl', [])
 .constant(
   'mh-acl.config',
   {
-    'redirect': 'login'
+    'loginPage': 'login'
   }
 )
 .provider('MhAcl', ['mh-acl.config', function(config, $get, LoopBackAuth, $q) {
   var self = {};
   self.rights = false;
   self.rightsPromise = false;
-  self.redirect = config.redirect;
 
   self.isGranted = (actions) => _.every(actions, (i) => _.contains(self.rights, i));
   self.isNotGranted = (actions) => !self.isGranted(actions);
 
   this.$get = ['$q', '$rootScope', '$state', function($q, $rootScope, $state) {
     var acl = {};
-
-    acl.setRedirect = (redirect) => self.redirect = redirect;
 
     acl.setRights = (rights) => self.rights = rights;
     acl.setRightsPromise = (rightsPromise) => {
@@ -31,13 +28,14 @@ export var mhAclModule = angular.module('mh.acl', [])
           (err) => {
             self.rights = [];
             $rootScope.acl = acl;
-            $state.go(self.redirect);
+            $state.go(config.loginPage);
           }
         );
 
     };
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      console.log("state change start", event, toState);
       if (self.rights === false) {
         self.rightsPromise
         .then(
@@ -62,10 +60,10 @@ export var mhAclModule = angular.module('mh.acl', [])
         return acl;
       }
       var isGranted = self.isGranted(toState.acl.needRights);
-      if (!isGranted && self.redirect !== false) {
+      if (!isGranted && config.loginPage !== false) {
         event.preventDefault();
-        if (self.redirect !== toState.name) {
-          $state.go(self.redirect);
+        if (config.loginPage !== toState.name) {
+          $state.go(config.loginPage);
         }
       }
     };
