@@ -187,9 +187,9 @@ module.exports = function(Person) {
 
   Person.exportVCard = function(groups, tags, status, cb) {
     Person.find(Person.buildWhereFiler(groups, tags, status), function(err, persons) {
-      var ret = "";
+      let ret = [];
       _.each(persons, function(person) {
-        ret += Person.toVCard(person).getFormattedString();
+        ret.push(Person.toVCard(person).getFormattedString());
       });
       cb(err, ret);
     });
@@ -214,7 +214,7 @@ module.exports = function(Person) {
       ],
       returns: {
         arg: 'vcard',
-        type: 'string'
+        type: 'array'
       },
       http: {path: '/exportVCard', verb: 'get'}
     }
