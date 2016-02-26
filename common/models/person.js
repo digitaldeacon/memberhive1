@@ -223,21 +223,34 @@ module.exports = function(Person) {
   Person.exportCSV = function(cb) {
     var fields = ["firstName", "lastName", "middleName",
     "nickName", "prefix", "suffix",
-    "tags","status",
     "gender",
     "dates.birthday","dates.baptism", "dates.anniversary",
     "contacts.home", "contacts.work","contacts.mobile",
     "emails.personal",
-    "custom.kinder","custom.dienste",
     "address.home.street1",
     "address.home.street2",
     "address.home.city",
     "address.home.state",
     "address.home.zipcode",
-    "address.home.country"
+    "address.home.country",
+    {
+      label: "groups",
+      value: (row) => {
+        return _.map(row.groups, g => g.name).join(", ");
+      },
+      "default": ""
+    },
+    {
+      label: "tags",
+      value: row => row.tags ? row.tags.join(", ") : ""
+    },
+    {
+      label: "status",
+      value: row => row.status ? row.status.join(", ") : ""
+    }
     ];
-    Person.find({}, function(err, persons) {
-      json2csv({ data: persons, fields: fields, nested: true }, function(err, csv) {
+    Person.find({include: ["groups"]}, (err, persons) => {
+      json2csv({ data: _.map(persons, t => t.toJSON()), fields: fields}, (err, csv) => {
         cb(err, csv);
       });
     });
