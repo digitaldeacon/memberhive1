@@ -1,10 +1,10 @@
 export function PersonImportController(
-  Person, 
-  mhFileReader, 
-  Shout, 
-  $scope, 
-  gettext, 
-  gettextCatalog) 
+  Person,
+  mhFileReader,
+  Shout,
+  $scope,
+  gettext,
+  gettextCatalog)
 {"ngInject";
   this.csvToArray = (strData, strDelimiter) => {
     // Check to see if the delimiter is defined. If not,
@@ -102,7 +102,7 @@ export function PersonImportController(
         Shout.vError(err);
       }
     );
-    
+
   };
   this.options = Object.keys(Person.model.properties);
   this.options.push('contact.home', 'contact.mobile', 'contact.skype', 'contact.facebook',
@@ -144,7 +144,7 @@ export function PersonImportController(
 
   //Example: this.dotToObject({}, "foo", "a.b.c") -> {a: {b: {c:""foo"} } }
   this.dotToObject = (obj, value, path) => {
-    if(_.contains(path, '.')) {
+    if(_.includes(path, '.')) {
       var paths = path.split('.');
       var objectName = paths.shift();
       var newpath = paths.join('.');

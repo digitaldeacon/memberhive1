@@ -6,10 +6,10 @@ export function Search(Person, Group, $q) {"ngInject";
   this.newSearch = (query, which) => {
     which = which || ['person', 'group'];
     let promises = [];
-    if(_.contains(which, 'person')) {
+    if(_.includes(which, 'person')) {
       promises.push(this.personSeach(query));
     }
-    if(_.contains(which, 'group')) {
+    if(_.includes(which, 'group')) {
       promises.push(this.groupSeach(query));
     }
     return $q.all(promises);

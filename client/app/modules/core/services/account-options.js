@@ -13,7 +13,7 @@ export function AccountOptions(
    * Warning: The key should not contains dots, as mongo won't accept it
    */
   this.set = (key, value) => {
-    if(_.contains(key, '.')) {
+    if(_.includes(key, '.')) {
       $log.error("AccountOptions has a key: " + key + " with a dot inside");
       return;
     }

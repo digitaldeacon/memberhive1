@@ -19,6 +19,7 @@ import {PersonEditService} from './services/person-edit-service';
 import {AvatarService} from './services/avatar-service';
 import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonEditType, mhPersonHousehold, mhPersonGroup, mhPersonGroupChips} from './directives/person-directives';
 import {mhAvatar, mhAvatarUpload} from './directives/avatar-directives';
+import {mhPersonSearch} from './directives/person-search-directive';
 import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
 import {mhWidgetPersonNextBirthdays} from './widgets/nextBirthdays/nextBirthdays';
@@ -206,9 +207,6 @@ export var mhPersonModule = angular.module('mh.person',
         pageTitle: gettext('Households'),
         pageSubTitle: gettext('Create Household')
       },
-      ncyBreadcrumb: {
-        label: gettext('New Household')
-      },
       acl: {
         needRights: ['$authenticated']
       },
@@ -218,6 +216,16 @@ export var mhPersonModule = angular.module('mh.person',
         }
       }
 
+    }).state('person.search', {
+      url: '/search',
+      templateUrl: 'app/modules/person/views/person.search.html',
+      data: {
+        pageTitle: gettext('Search'),
+        pageSubTitle: gettext('Search')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
     });
 
     // Allow skype urls http://stackoverflow.com/a/15769779
@@ -256,6 +264,7 @@ mhPersonModule.directive('mhPersonHousehold', mhPersonHousehold);
 mhPersonModule.directive('mhPersonGroup', mhPersonGroup);
 mhPersonModule.directive('mhPersonListItem', mhPersonListItem);
 mhPersonModule.directive('mhPersonEditType', mhPersonEditType);
+mhPersonModule.directive('mhPersonSearch', mhPersonSearch);
 
 mhPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);
 mhPersonModule.directive('mhWidgetPersonNextBirthdays', mhWidgetPersonNextBirthdays);
