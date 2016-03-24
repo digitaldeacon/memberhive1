@@ -13,16 +13,22 @@
     day-content="ctrl.setDayContent">
   </calendar-md>
 <div class="mh-content">
-
-  <h2 translate>Templates</h2>
+  <div layout="row">
+    <h2>
+    <translate>Templates</translate>
+    </h2>
+ 
+    <md-button ui-sref="event.template({})">
+      <ng-md-icon icon="add"></ng-md-icon> 
+    </md-button>
+  </div>
+  
   <md-list>
     <md-list-item ng-repeat="template in ctrl.templates" flex layout="row">
-    <h3 ui-sref="event.viewTemplate({templateId: template.id})">{{template.name}}</h3>
+    <h3><a ui-sref="event.viewTemplate({templateId: template.id})">{{template.name}}</a></h3>
     </md-list-item>
   </md-list>
-  <md-button ui-sref="event.template({})">
-    <ng-md-icon icon="add"></ng-md-icon> <translate>Add Template</translate>
-  </md-button>
+ 
 </div>
 
 <a ui-sref="event.create">

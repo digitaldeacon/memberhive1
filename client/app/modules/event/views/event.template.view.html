@@ -2,7 +2,7 @@
   <h1>{{ctrl.template.name}}</h1>
   <md-list>
     <md-list-item ng-repeat="event in ctrl.events track by event.id">
-      <h3>{{event.date | date:'mediumDate'}}</h3>
+      <h3><a ui-sref="event.edit({eventId: event.id})">{{event.date | date:'mediumDate'}}</a></h3>
     </md-list-item>
   </md-list>
 </div>

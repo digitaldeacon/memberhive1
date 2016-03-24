@@ -1,16 +1,22 @@
 <div class="mh-content" layout="column">
-  <h1 translate>Event Information</h1>
-  <md-input-container >
+  <h3 translate>Event Information</h3>
+  
+  <md-input-container>
     <label translate>Event Name</label>
     <input ng-model="ctrl.item.name">
   </md-input-container>
-  <md-datepicker ng-model="ctrl.item.date" label="Date"></md-datepicker>
+  
   <md-input-container>
     <label translate>Template</label>
     <md-select ng-model="ctrl.templateId" ng-change="ctrl.updateTemplate()" aria-label="Template ID">
       <md-option ng-repeat="template in ctrl.templates" ng-value="template.id" aria-label="{{template.name}}">{{template.name}}</md-option>
     </md-select>
   </md-input-container>
+  
+  <md-datepicker ng-model="ctrl.item.date" md-placeholder="Enter event date"></md-datepicker>
+  
+ 
+  
 </div>
 
 <h3 translate ng-if="ctrl.template.data"> Optionen </h3>
@@ -32,12 +38,13 @@
     </div>
 </div>
 
-<div layout="row">
-  <md-button class="md-primary"  ng-click="ctrl.save()">
-    <translate>Save</translate>
-  </md-button>
+<div layout-align="end center" layout="row">
   <md-button class="md-primary" ui-sref="event.list">
     <translate>Back</translate>
   </md-button>
+  <md-button class="md-primary"  ng-click="ctrl.save()">
+    <translate>Save</translate>
+  </md-button>
+  
 </div>
 

@@ -4,26 +4,29 @@
     <input ng-model="ctrl.item.name">
   </md-input-container>
 </div>
+<div layout="row">
+  <h3 translate>Options for the Template</h3>
+  <md-button class="md-primary" ng-click="ctrl.newOption()">
+    <translate>Add a option</translate>
+  </md-button>
+</div>
 
 <div layout-gt-sm="row" class="mh-content" ng-repeat="option in ctrl.item.data" >
   <md-input-container >
-    <label>Type</label>
+    <label translate>Type</label>
     <md-select ng-model="option.type">
       <md-option ng-repeat="type in ctrl.types" value="{{type.value}}">{{type.name}}</md-option>
     </md-select>
   </md-input-container>
   <md-input-container flex>
-    <label>Name</label>
+    <label translate>Label</label>
     <input ng-model="option.name">
   </md-input-container>
 </div>
 
 
-    <md-button class="md-raised md-primary" ng-click="ctrl.save()">
-      <translate>Save</translate>
-    </md-button>
-
-  <md-button ng-click="ctrl.newOption()" class="md-fab md-fab-floating-br md-accent" aria-label="Add Option">
-    <ng-md-icon icon="add"></ng-md-icon>
+<div layout-align="end center" layout="row">
+  <md-button class="md-primary" ng-click="ctrl.save()">
+    <translate>Save</translate>
   </md-button>
-
+</div>

@@ -93,21 +93,21 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       }
     })
     .state('event.templates', {
-      url: '/templates',
+      url: '/list_templates',
       controller: 'EventTemplatesController',
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.templates.html',
       data: {
-        pageSubTitle: gettext('Event Templates')
+        pageSubTitle: gettext('Event Template')
       },
       ncyBreadcrumb: {
-        label: gettext('Event Templates')
+        label: gettext('Event Template')
       },
       acl: {
         needRights: ['$authenticated']
       }
     }).state('event.template', {
-      url: '/templates/:templateId',
+      url: '/template/:templateId',
       controller: 'EventTemplateController',
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.html',
