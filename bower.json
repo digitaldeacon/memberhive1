@@ -17,7 +17,7 @@
     "angular-ui-router": "~0.2.15",
     "angular-resource": "~1.4.7",
     "angular-i18n": "~1.4.7",
-    "lodash": "~3.10.0",
+    "lodash": "~4.6.1",
     "jquery": "~2.2.0",
     "ng-mfb": "~0.6.1",
     "ng-file-upload": "~6.0.2",

@@ -10,7 +10,7 @@ export var mhAclModule = angular.module('mh.acl', [])
   self.rights = false;
   self.rightsPromise = false;
 
-  self.isGranted = (actions) => _.every(actions, (i) => _.contains(self.rights, i));
+  self.isGranted = (actions) => _.every(actions, (i) => _.includes(self.rights, i));
   self.isNotGranted = (actions) => !self.isGranted(actions);
 
   this.$get = ['$q', '$rootScope', '$state', function($q, $rootScope, $state) {
@@ -72,7 +72,7 @@ export var mhAclModule = angular.module('mh.acl', [])
     acl.isLoggedIn = () => self.isGranted(['$authenticated']);
     acl.can = (action) => self.isGranted([action]);
     acl.canAll = (actions) => self.isGranted(actions);
-    acl.canAny = (actions) =>  _.any(actions, (i) => _.contains(self.rights, i));
+    acl.canAny = (actions) =>  _.any(actions, (i) => _.includes(self.rights, i));
 
     return acl;
 

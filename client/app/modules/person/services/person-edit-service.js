@@ -64,7 +64,7 @@ export function PersonEditService(
     var used = [];
     values.forEach((value) => {
       if(value.id) {//already a existing group
-        if(!_.contains(ids, value.id)) { //not already linked to this person
+        if(!_.includes(ids, value.id)) { //not already linked to this person
           promises.push(relation.link({id: item.id, fk: value.id}).$promise);
         }
         used.push(value.id);
