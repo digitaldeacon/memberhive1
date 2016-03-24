@@ -84,7 +84,7 @@ module.exports = function(options) {
 
    gulp.task('other', function () {
     return gulp.src([
-      options.src + '/*.{ico,png,txt,css}',
+      options.src + '/*.{ico,png,txt,css,json}',
     ])
     .pipe(gulp.dest(options.dist + '/'));
   });

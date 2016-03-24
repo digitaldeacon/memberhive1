@@ -11,10 +11,10 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="icon" href="favicon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="189x187" href="images/apple-touch-icon-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="386x382" href="images/apple-touch-icon-386-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="app/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="app/images/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="189x187" href="app/images/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="386x382" href="app/images/apple-touch-icon-386-precomposed.png">
 
     <!-- build:css({.tmp/serve/styles,src}) styles/vendor.css -->
     <!-- bower:css -->
@@ -36,41 +36,30 @@
 
   <div class="mh-app-loader" ng-animate-children>
     <style type="text/css">
-      .sk-spinner-rotating-plane.sk-spinner {
-        width: 40px;
-        height: 40px;
-        background-color: #eb8c2d;
-        margin: 0 auto;
-        -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
-        animation: sk-rotatePlane 1.2s infinite ease-in-out;
-        z-index: 999999 ;
-      }
-
-      @-webkit-keyframes sk-rotatePlane {
-        0% {
-          -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-          transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
-
-        50% {
-          -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-          transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
-
-        100% {
-          -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-          transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
-
-      @keyframes sk-rotatePlane {
-        0% {
-          -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-          transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
-
-        50% {
-          -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-          transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
-
-        100% {
-          -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-          transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+     .sk-spinner-pulse {
+  width: 40px;
+  height: 40px;
+  margin: 40px auto;
+  background-color: #333;
+  border-radius: 100%;
+  -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+          animation: sk-pulseScaleOut 1s infinite ease-in-out; }
+@-webkit-keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0; } }
+@keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0; } }
 
       div.mh-app-loader {
         position: fixed ;
@@ -109,7 +98,7 @@
     <!-- BEGIN: Actual animated container. -->
     <div class="animated-container">
       <div class="messaging">
-        <div class="sk-spinner sk-spinner-rotating-plane"></div>
+        <div class="sk-spinner sk-spinner-pulse"></div>
       </div>
     </div>
     <!-- END: Actual animated container. -->

@@ -3,17 +3,17 @@
   "short_name": "Memberhive",
   "icons": [
     {
-      "src": "apple-touch-icon-72x72.png",
+      "src": "app/images/apple-touch-icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "apple-touch-icon-114x114-precomposed.png",
+      "src": "app/images/apple-touch-icon-114x114-precomposed.png",
       "sizes": "114x114",
       "type": "image/png"
     },
     {
-      "src": "apple-touch-icon-386-precomposed.png",
+      "src": "app/images/apple-touch-icon-386-precomposed.png",
       "sizes": "386x382",
       "type": "image/png"
     }
