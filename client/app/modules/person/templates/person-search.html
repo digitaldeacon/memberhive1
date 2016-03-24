@@ -1,4 +1,5 @@
  <md-chips
+   class="person-search"
    ng-model="queryModel"
    md-autocomplete-snap
    md-transform-chip="transformChip($chip)"
@@ -9,14 +10,14 @@
     md-search-text="searchText"
     md-items="item in querySearch(searchText)"
     md-item-text="item.name"
-    placeholder="Search for a vegetable">
+    md-no-cache="true"
+    placeholder="Search">
         <span md-highlight-text="searchText">{{item.name}}</span>
   </md-autocomplete>
 
   <md-chip-template>
-    <span>
+    <span class="{{$chip.type}}">
       <strong>{{$chip.name}}</strong>
-      <input ng-model="$chip.value">
     </span>
   </md-chip-template>
 </md-chips>
