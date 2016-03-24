@@ -5,7 +5,7 @@
       <h3>
         <a class="simple-link" ui-sref="person.view({ id: person.id })" ng-bind="::person.fullName"></a>
       </h3>
-      <div class="more">
+      <div class="more" hide show-gt-sm>
         <span ng-repeat="status in ::person.status" class="tag status-tag">
           {{ ::status }}
         </span>

@@ -16,12 +16,45 @@
     </md-toolbar>
 </md-fab-toolbar>
 -->
-<div layout="column" layout-gt-xs="row" id="person-container">
+<div layout="row">
+  <div layout-fill>
+     <md-input-container>
+        <label translate>Filter</label>
+        <input type="text">
+      </md-input-container>
+  </div>
+  <md-fab-toolbar  md-direction="left">
+    <md-fab-trigger class="align-with-text">
+      <md-button aria-label="menu" class="md-fab md-primary">
+        <ng-md-icon icon="menu"></ng-md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-toolbar>
+      <md-fab-actions class="md-toolbar-tools">
+        <md-button aria-label="Export" ui-sref="person.export">
+          <ng-md-icon icon="cloud_download"></ng-md-icon>
+          <translate>Export</translate>
+        </md-button>
+        <md-button aria-label="Import" ui-sref="person.import">
+          <ng-md-icon icon="cloud_upload"></ng-md-icon>
+          <translate>Import</translate>
+        </md-button>
+        <md-button aria-label="View Households" ui-sref="person.households">
+          <ng-md-icon icon="home"></ng-md-icon>
+          <translate>Households</translate>
+        </md-button>
+      </md-fab-actions>
+    </md-toolbar>
+  </md-fab-toolbar>
+</div>
+
+    
+<div id="person-container">
     <md-list flex
         class="mh-content person-list"
         ng-if="personCtrl.persons.length > 0"
            infinite-scroll="personCtrl.loadMorePersons()"
-           infinite-scroll-distance="0"
+           infinite-scroll-distance="1"
            infinite-scroll-container="'#content_wrapper'"
            infinite-scroll-disabled="personCtrl.noScroll"
            infinite-scroll-parent="true"
@@ -58,41 +91,6 @@
     <p class="text-muted" translate>{{personCtrl.persons.length}} Persons shown</p>
   </md-list>
 
-
-  <div layout="column">
-    <div class="mh-content" layout="column" layout-align="center start">
-      <b translate>Actions</b>
-      <md-button ui-sref="person.export">
-        <ng-md-icon icon="cloud_download"></ng-md-icon>
-        <translate>Export Persons</translate>
-      </md-button>
-      <md-button ui-sref="person.import">
-        <ng-md-icon icon="cloud_upload"></ng-md-icon>
-        <translate>Import Persons</translate>
-      </md-button>
-      <md-button ui-sref="person.households">
-        <ng-md-icon icon="home"></ng-md-icon>
-        <translate>View Households</translate>
-      </md-button>
-    </div>
-    <div layout="column" class="mh-content">
-      <b translate>Filter</b>
-      <md-input-container>
-        <label translate>Filter by Status</label>
-        <mh-person-status ng-model="personCtrl.filter.status"></mh-person-status>
-      </md-input-container>
-
-      <md-input-container>
-        <label translate>Filter by Tag</label>
-        <mh-person-tags ng-model="personCtrl.filter.tags"></mh-person-tags>
-      </md-input-container>
-
-      <md-input-container>
-        <label translate>Filter by Group</label>
-        <mh-person-group ng-model="personCtrl.filter.groups"></mh-person-group>
-      </md-input-container>
-    </div>
-  </div>
 </div>
 <!---->
 <a ui-sref="person.create">

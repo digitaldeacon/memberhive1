@@ -11,6 +11,7 @@ export function mhPersonChips(mhConfig, PersonService) {"ngInject";
         scope.ngModel= [];
       }
       scope.filterSelected = true;
+      
       scope.querySearch = (query) => {
         return PersonService.search(query);
       };
