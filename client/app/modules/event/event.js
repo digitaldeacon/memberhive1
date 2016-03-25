@@ -39,7 +39,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
           return EventTemplate.find().$promise;
         },
         resolveNextEvents: (resolveEvents) => {
-          return _.filter(resolveEvents, (event) => new Date(event.date) > new Date());
+          return _.take(_.filter(resolveEvents, (event) => new Date(event.date) > new Date()), 10);
         }
       },
     }).state('event.edit', {
@@ -161,3 +161,11 @@ mhEventModule.controller('EventTemplatesController', EventTemplatesController);
 mhEventModule.controller('EventTemplateController', EventTemplateController);
 mhEventModule.controller('EventTemplateViewController', EventTemplateViewController);
 mhEventModule.service('EventService', EventService);
+mhEventModule.constant('EventStatusOptions', {
+    done : {icon: "done", color: "#87EC13"},
+    open : {icon: "help", color: "#0066A5"},
+    warning: {icon: "warning", color: "#E88F22"},
+    error: {icon: "error", color: "#FF0000"},
+    
+  });
+

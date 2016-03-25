@@ -21,7 +21,18 @@
 
 <h3 translate ng-if="ctrl.template.data"> Optionen </h3>
 <div class="mh-content event-template-item" ng-repeat="option in ctrl.template.data track by $index">
-    <b>{{option.name}}</b>
+    <div layout="row">
+      <b>{{option.name}}</b>
+      <div layout="row" class="event-status">
+        <span ng-repeat="(id, status) in ctrl.statusOptions">
+          <ng-md-icon 
+            icon="{{status.icon}}" 
+            ng-click="ctrl.selectStatus(id, $parent.$index)" 
+            ng-style="{'fill' : ctrl.statusColor(id, $parent.$index)}"
+            ></ng-md-icon>
+        </span>
+      </div>
+    </div>
     <div ng-if="option.type == 'text'">
       <md-input-container>
         <input type="text" ng-model="ctrl.item.data[$index]" aria-label="{{option.name}}"/>

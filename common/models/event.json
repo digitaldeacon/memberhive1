@@ -13,6 +13,9 @@
     },
     "data": {
       "type": "object"
+    },
+    "options": {
+      "type": "object"
     }
   },
   "validations": [],

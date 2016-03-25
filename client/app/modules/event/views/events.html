@@ -34,15 +34,23 @@
       </md-button>
     </a>
   </div>
-  <div flex class="mh-content">
+  <div flex class="mh-content next-events">
    <h2>
       <translate>Next Events</translate>
     </h2>
     <md-list>
       <md-list-item ng-repeat="event in ctrl.nextEvents" flex layout="row">
         <h3>
-          <a ui-sref="event.edit({eventId: event.id})">{{event.date | date:'mediumDate'}}</a>
+          <a ui-sref="event.edit({eventId: event.id})">{{event.name}} ({{event.date | date:'mediumDate'}})</a>
         </h3>
+        <div layout="row" class="status">
+           <span ng-repeat="(id, status) in ctrl.statusOptions">
+            <ng-md-icon 
+            icon="{{status.icon}}" 
+            ng-style="{'fill' : ctrl.countStatus(event, id) > 0 ? status.color : '#AEAEAE'}"></ng-md-icon>
+            <span class="text">{{::ctrl.countStatus(event, id)}}</span>
+          </span>
+        </div>
       </md-list-item>
     </md-list>
   </div>

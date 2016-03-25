@@ -3,11 +3,13 @@ export function EventsController(
   resolveEvents,
   resolveTemplates,
   resolveNextEvents,
+  EventStatusOptions,
   $state
 ) {"ngInject";
   this.events = resolveEvents;
   this.templates = resolveTemplates;
   this.nextEvents = resolveNextEvents;
+  this.statusOptions = EventStatusOptions;
   
   this.findEventsForDay = (date) => {
     var ret = [];
@@ -41,5 +43,12 @@ export function EventsController(
       ret += "</a>";
     });
     return ret;
+  };
+  
+  this.countStatus = (event, id) => {
+    event.options = event.options || {};
+    event.options.status = event.options.status || {};
+    
+    return _.filter(event.options.status, x => x === id).length;
   };
 }
