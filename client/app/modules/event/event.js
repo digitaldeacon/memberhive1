@@ -38,6 +38,9 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         resolveTemplates: (EventTemplate) => {
           return EventTemplate.find().$promise;
         },
+        resolveNextEvents: (resolveEvents) => {
+          return _.filter(resolveEvents, (event) => new Date(event.date) > new Date());
+        }
       },
     }).state('event.edit', {
       url: '/view/:eventId',
@@ -73,7 +76,10 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       data: {
         pageSubTitle: gettext('Create Event')
       },
-      params: { date: null},
+      params: { 
+        date: null, 
+        templateId: null
+      },
       ncyBreadcrumb: {
         label: gettext('Event')
       },
@@ -87,7 +93,11 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         resolveTemplates: (EventTemplate) => {
           return EventTemplate.find();
         },
-        resolveTemplate : () => {
+        resolveTemplate : ($stateParams, EventTemplate) => {
+          if($stateParams.templateId != null) {
+            console.log($stateParams.templateId);
+            return EventTemplate.findById({id: $stateParams.templateId}).$promise;
+          }
           return {};
         }
       }
@@ -136,7 +146,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       },
       resolve : {
         resolveTemplate: (EventTemplate, $stateParams) => {
-          return EventTemplate.findOne({id: $stateParams.templateId}).$promise;
+          return EventTemplate.findById({id: $stateParams.templateId}).$promise;
         },
         resolveEvents : (EventTemplate, $stateParams) => {
           return EventTemplate.events({id: $stateParams.templateId}).$promise;

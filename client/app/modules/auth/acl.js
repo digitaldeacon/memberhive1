@@ -35,7 +35,6 @@ export var mhAclModule = angular.module('mh.acl', [])
     };
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-      console.log("state change start", event, toState);
       if (self.rights === false) {
         self.rightsPromise
         .then(
