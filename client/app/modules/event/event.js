@@ -94,8 +94,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
           return EventTemplate.find();
         },
         resolveTemplate : ($stateParams, EventTemplate) => {
-          if($stateParams.templateId != null) {
-            console.log($stateParams.templateId);
+          if($stateParams.templateId !== null) {
             return EventTemplate.findById({id: $stateParams.templateId}).$promise;
           }
           return {};

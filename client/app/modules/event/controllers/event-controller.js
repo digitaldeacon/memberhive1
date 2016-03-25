@@ -11,8 +11,7 @@ export function EventController(
   this.templates = resolveTemplates;
   this.template = resolveTemplate;
   if(!_.isEmpty(resolveTemplate)) {
-    console.log("resolve", resolveTemplate.name);
-    this.templateId = resolveTemplate.id
+    this.templateId = resolveTemplate.id;
     this.item.name = resolveTemplate.name;
   } else {
      this.templateId = undefined;
@@ -20,7 +19,6 @@ export function EventController(
 
   this.updateTemplate = () => {
     this.template = _.find(this.templates, {id: this.templateId});
-    console.log("updateTemplate", this.template);
     if(!this.item.name) {
       this.item.name = this.template.name;
     }
