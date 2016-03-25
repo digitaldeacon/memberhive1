@@ -1,5 +1,5 @@
 <md-toolbar class="md-whiteframe-z1 header-toolbar" layout="row" layout-align="center center">
-  <div hide-gt-md class="item" ng-if="headerCtrl.showTitle">
+  <div hide-gt-md class="item">
     <md-button 
               class="md-icon-button mh-toogle-button"
               aria-label="Toogle Menu"
@@ -7,12 +7,11 @@
       <ng-md-icon icon="menu"></ng-md-icon>
     </md-button>
   </div>
-  <div class="item" ng-if="headerCtrl.showTitle">
+  <div class="item" hide show-gt-xs>
     <span class="sub-title"> {{appCtrl.getSubTitle()}} </span>
   </div>
-  <div flex ng-if="!headerCtrl.showSearch">
-  </div>
-  <div flex class="item search" ng-if="headerCtrl.showSearch">
+
+  <div flex class="item search">
       <md-autocomplete
           md-search-text="headerCtrl.searchText"
           md-selected-item-change="headerCtrl.selectedItemChange(item)"
@@ -31,12 +30,7 @@
       </md-autocomplete>
      
   </div>
-  <div style="text-align:right" class="item button">
-       <md-button ng-click="headerCtrl.toogleSearch()" aria-label="Toggle Search">
-        <ng-md-icon md-menu-align-target icon="search"></ng-md-icon>
-      </md-button>
-  </div>
-  <div style="text-align:right" class="item button" ng-if="headerCtrl.showTitle">
+  <div class="item button">
     <md-menu>
       <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu()">
         <ng-md-icon icon="more_vert"></ng-md-icon>

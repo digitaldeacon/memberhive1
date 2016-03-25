@@ -115,8 +115,11 @@
         </div>
 
         <md-content flex class="content-background" id="content_wrapper">
+          <div hide show-xs layout-padding> 
+            <h2>{{appCtrl.getSubTitle()}}</h2>
+          </div>
           <div ng-cloak ui-view layout="column" layout-padding></div>
-          <div ng-cloak style="font-size: 8pt; color: #aaa" ng-cloak>{{accessToken}} on <a href="https://github.com/digitaldeacon/memberhive/commit/{{appCtrl.getCommitSHA()}}"> {{appCtrl.getCommitMsg()}}</a> </div>
+          <div ng-cloak hide show-gt-xs style="font-size: 8pt; color: #aaa">{{accessToken}} on <a href="https://github.com/digitaldeacon/memberhive/commit/{{appCtrl.getCommitSHA()}}"> {{appCtrl.getCommitMsg()}}</a> </div>
 
         </md-content>
       </div>
