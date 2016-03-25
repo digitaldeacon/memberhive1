@@ -1,4 +1,4 @@
-import {NoteEditFormDirective, NoteTreeDirective, NoteCreateDirective} from './directives/note-directives';
+import {NoteEditFormDirective, NoteCreateDirective, NoteCreateInlineDirective} from './directives/note-directives';
 import {NoteService} from './services/note-service';
 import {NoteListController} from './controllers/note-list-controller';
 import {NoteEditController} from './controllers/note-edit-controller';
@@ -71,6 +71,6 @@ export var mhNoteModule = angular.module('mh.note', []).config(
 mhNoteModule.controller('NoteListController', NoteListController);
 mhNoteModule.controller('NoteEditController', NoteEditController);
 mhNoteModule.service('NoteService', NoteService);
-mhNoteModule.directive('gemNoteEditForm', NoteEditFormDirective);
-mhNoteModule.directive('gemNoteTree', NoteTreeDirective);
+mhNoteModule.directive('mhNoteEditForm', NoteEditFormDirective);
 mhNoteModule.directive('mhNoteCreate', NoteCreateDirective);
+mhNoteModule.directive('mhNoteCreateInline', NoteCreateInlineDirective);

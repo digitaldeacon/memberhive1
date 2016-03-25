@@ -16,22 +16,30 @@ export function PersonViewController(
   this.relationTypes = PersonService.relationTypes;
   this.genders = PersonService.genders;
   this.addressTypes = AddressService.addressTypes;
+  
+  this.showAddNote = false;
+  
+  this.isOpen = false;
+  
+
 
   
-  /**
-   * Returns the household members except the current person.
-   */
-  this.getHouseholdMembers = () => {
-    if (!this.person.household)
-      return [];
-    var ret = [];
-    this.person.household.persons.forEach((person) => {
-      if (person.id !== this.person.id) ret.push(person);
-    });
-  };
-
+  this.toggleNote = () => this.showAddNote = !this.showAddNote;
+  
   this.newNote = (note) => {
     this.notes.unshift(note);
+    this.showAddNote = false;
+  };
+  
+  
+  this.deleteNote = (note) => {
+    Note.deleteById({id: note.id}).$promise.then(
+      () => {
+        Shout.success("Note deleted");
+        Person.notes({"id": $stateParams.id}).$promise.then(data => this.notes = data);
+      }, 
+      (err) => Shout.vError(err)
+    );
   };
 
   this.icon = (noteType) => {
@@ -74,13 +82,5 @@ export function PersonViewController(
     });
   };
   
-  this.deleteNote = (note) => {
-    Note.deleteById({id: note.id}).$promise.then(
-      () => {
-        Shout.success("Note deleted");
-        Person.notes({"id": $stateParams.id}).$promise.then(data => this.notes = data);
-      }, 
-      (err) => Shout.vError(err)
-    );
-  };
+
 }

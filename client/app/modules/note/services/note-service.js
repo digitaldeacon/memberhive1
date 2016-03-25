@@ -1,10 +1,4 @@
 export function NoteService(Note) {"ngInject";
-  this.tree = () => {
-      return Note.find().$promise
-      .then(
-          (data) => console.log(data)
-        );
-  };
   
   this.all = () => {
     return Note.find().$promise;

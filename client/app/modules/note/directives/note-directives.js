@@ -2,7 +2,7 @@
  * Directive to show and edit a note
  *
  * Minimal Usage:
- *   <gem:note-editform />
+ *   <note-editform />
  */
 export function NoteEditFormDirective() {"ngInject";
   return {
@@ -14,15 +14,6 @@ export function NoteEditFormDirective() {"ngInject";
   };
 }
 
-export function NoteTreeDirective() {"ngInject";
-  return {
-    scope: {
-        tree: '='
-    },
-    restrict: 'E',
-    templateUrl: 'app/modules/note/templates/note-tree-directive.html'
-  };
-}
 
 export function NoteCreateDirective() {"ngInject";
   return {
@@ -100,5 +91,48 @@ export function NoteCreateDirective() {"ngInject";
     templateUrl: 'app/modules/note/templates/note-create-directive.html'
   };
 }
+
+export function NoteCreateInlineDirective() {"ngInject";
+  return {
+    scope: {
+        notableId: '@',
+        notableType: '@',
+        buttonClass: '@',
+        newNote: '&'
+    },
+    controller: function ($scope, NoteService, NoteIconConfig, Shout, gettextCatalog)  {"ngInject";
+      this.type = 'note';
+      this.noteTypes = NoteIconConfig;
+
+      this.create = () => {
+        NoteService.save(
+          {
+            title: this.title,
+            content: this.content,
+            type: this.type,
+            notableId: $scope.notableId,
+            notableType: $scope.notableType
+          })
+        .then(
+          (data) => {
+            Shout.message(gettextCatalog.getString('Note created'));
+            $scope.newNote({note:data});
+          }
+        );
+        this.clear();
+      };
+
+      this.clear = () => {
+        this.title = '';
+        this.content = '';
+        this.type = '';
+      };
+    },
+    controllerAs: 'ctrl',
+    restrict: 'E',
+    templateUrl: 'app/modules/note/templates/note-inline.html'
+  };
+}
+
 
 

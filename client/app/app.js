@@ -31,7 +31,6 @@ export var mhMainModule = angular.module('mh.main', [
   'angular-loading-bar',
   'gettext',
   'ngMdIcons',
-  'ng-mfb',
   'angular-keyboard',
   'infinite-scroll',
   'angularMoment',
