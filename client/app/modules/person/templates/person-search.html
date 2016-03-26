@@ -3,7 +3,7 @@
    ng-model="queryModel"
    md-autocomplete-snap
    md-transform-chip="transformChip($chip)"
-   md-require-match="true">
+   md-require-match="false">
 
   <md-autocomplete
     md-selected-item="selectedItem"
@@ -12,12 +12,12 @@
     md-item-text="item.name"
     md-no-cache="true"
     placeholder="Search">
-        <span md-highlight-text="searchText">{{item.name}}</span>
+        <span md-highlight-text="searchText">{{item.display}}</span>
   </md-autocomplete>
 
   <md-chip-template>
     <span class="{{$chip.type}}">
-      <strong>{{$chip.name}}</strong>
+      <strong>{{$chip.display}}</strong>
     </span>
   </md-chip-template>
 </md-chips>

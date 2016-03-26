@@ -157,6 +157,41 @@ module.exports = function(Person) {
       }
     }
   );
+  
+  
+   Person.searchValue = function(field, text, cb) {
+    var personCollection = Person.getDataSource().connector.collection(Person.modelName);
+    personCollection.distinct(field, (err, results) => {
+      if (err) {
+        cb(err, null);
+      } else {
+        if (text !== undefined) {
+          results = _.filter(results, result => _.includes(result, text));
+        }
+        cb(null, results);
+      }
+    });
+  };
+  Person.remoteMethod(
+    'searchValue',
+    {
+      accepts: [
+        {
+          arg: 'field',
+          type: 'string'
+        },
+        {
+          arg: 'text',
+          type: 'string'
+        }
+      ],
+      returns: {
+        arg: 'data',
+        type: 'array'
+      },
+      http: {verb: 'get'}
+    }
+  );
 
   /**
    * Return a random person
