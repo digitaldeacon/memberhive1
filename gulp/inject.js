@@ -34,7 +34,6 @@ module.exports = function(options) {
   
   gulp.task('inject_config_default', ['inject'], function () {
     return gulp.src(options.tmp + '/serve/index.html')
-      .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "http://127.0.0.1:3994/api", commitMsg: "dev", commitSHA: "master"}'))
       .pipe(gulp.dest(options.tmp + '/serve'));
 
   });
