@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var $ = require('gulp-load-plugins')();
+var gulpWebpack = require('webpack-stream');
 
 module.exports = function(options) {
   function webpack(watch, callback) {
@@ -52,7 +53,7 @@ module.exports = function(options) {
     };
 
     return gulp.src(options.src + '/app/app.js')
-      .pipe($.webpack(webpackOptions, null, webpackChangeHandler))
+      .pipe(gulpWebpack(webpackOptions, null, webpackChangeHandler))
       .pipe($.ngAnnotate())
       .pipe(gulp.dest(options.tmp + '/serve/app'));
   }
