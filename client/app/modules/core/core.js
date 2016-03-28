@@ -5,7 +5,7 @@ import {ShoutController} from './controllers/shout-controller';
 
 import {MainMenu} from './providers/menu-provider';
 
-import {uiNavDirective, mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
+import {mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
 import {stateLoader, appLoader} from './directives/loading-directive';
 import {mhSearchBox, mhSearchChips} from './directives/search-directives';
 import {utcDate, mhDateInput, mhUtcDateInput} from './directives/date-directives';
@@ -56,7 +56,6 @@ mhCoreModule.factory('Shout', Shout);
 mhCoreModule.factory('mhFileReader', mhFileReader);
 
 // Directives
-mhCoreModule.directive('uiNav', uiNavDirective);
 mhCoreModule.directive('mhMenuItem', mhMenuItem);
 mhCoreModule.directive('mhMenuIconItem', mhMenuIconItem);
 // Search Directives

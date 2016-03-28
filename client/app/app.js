@@ -1,6 +1,7 @@
 // Translations
 import './translations/en/en';
 import './translations/de/de';
+import './scripts/lb-services';
 
 import './modules/core/core';
 import './scripts/config';
@@ -12,9 +13,9 @@ import './modules/auth/acl';
 import './modules/note/note';
 import './modules/group/group';
 import './modules/report/report';
+import './modules/calendar/calendar';
 import './modules/event/event';
-import './modules/core/providers/menu-provider';
-import './scripts/lb-services';
+
 /**
  * The main app module.
  */
