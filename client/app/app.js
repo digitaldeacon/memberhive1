@@ -2,19 +2,18 @@
 import './translations/en/en';
 import './translations/de/de';
 
-import {gemCoreModule} from './modules/core/core';
-import {gemConfigModule} from './scripts/config';
-import {gemDashboardModule} from './modules/dashboard/dashboard';
-import {gemAddressModule} from './modules/address/address';
-import {gemPersonModule} from './modules/person/person';
-import {gemAuthModule} from './modules/auth/auth';
-import {gemAclModule} from './modules/auth/acl';
-import {mhNoteModule} from './modules/note/note';
-import {mhGroupModule} from './modules/group/group';
-import {gemReportModule} from './modules/report/report';
-import {gemCalendarModule} from './modules/calendar/calendar';
-import {gemEventModule} from './modules/event/event';
-import {MenuSection, MenuLink} from './modules/core/providers/menu-provider';
+import './modules/core/core';
+import './scripts/config';
+import './modules/dashboard/dashboard';
+import './modules/address/address';
+import './modules/person/person';
+import './modules/auth/auth';
+import './modules/auth/acl';
+import './modules/note/note';
+import './modules/group/group';
+import './modules/report/report';
+import './modules/event/event';
+import './modules/core/providers/menu-provider';
 import './scripts/lb-services';
 /**
  * The main app module.

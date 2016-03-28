@@ -5,7 +5,7 @@ export var mhAclModule = angular.module('mh.acl', [])
     'loginPage': 'login'
   }
 )
-.provider('MhAcl', ['mh-acl.config', function(config, $get, LoopBackAuth, $q) {
+.provider('MhAcl', ['mh-acl.config', function(config) {
   var self = {};
   self.rights = false;
   self.rightsPromise = false;
@@ -25,7 +25,7 @@ export var mhAclModule = angular.module('mh.acl', [])
             self.rights = data.roles;
             $rootScope.acl = acl;
           },
-          (err) => {
+          () => {
             self.rights = [];
             $rootScope.acl = acl;
             $state.go(config.loginPage);
@@ -35,6 +35,7 @@ export var mhAclModule = angular.module('mh.acl', [])
     };
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      //jshint unused:false
       if (self.rights === false) {
         self.rightsPromise
         .then(
@@ -43,7 +44,7 @@ export var mhAclModule = angular.module('mh.acl', [])
             $rootScope.acl = acl;
             acl.changeState(event, toState);
           },
-          (err) => {
+          () => {
             self.rights = [];
             $rootScope.acl = acl;
             acl.changeState(event, toState);

@@ -6,12 +6,12 @@ export function mhGroupChips(GroupService) {"ngInject";
     scope: {
       ngModel: '=',
     },
-    link: function(scope, element, attrs) {
-      if(!scope.ngModel) {
-        scope.ngModel= [];
+    controller: ($scope) => {
+      if(!$scope.ngModel) {
+        $scope.ngModel= [];
       }
-      scope.filterSelected = true;
-      scope.querySearch = (query) => {
+      $scope.filterSelected = true;
+      $scope.querySearch = (query) => {
         var ret = GroupService.search(query);
         return ret;
       };

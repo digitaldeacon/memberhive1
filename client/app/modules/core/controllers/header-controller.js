@@ -1,14 +1,14 @@
 export function HeaderController(
-  $scope, 
-  $state, 
-  Search, 
-  gettext, 
+  $scope,
+  $state,
+  Search,
+  gettext,
   LoopBackAuth,
   $mdMedia,
   Account,
   AvatarService,
   MhAcl
-) 
+)
 {
   "ngInject";
 
@@ -30,16 +30,16 @@ export function HeaderController(
     this.selectedItem = null;
     this.searchText = '';
     $state.go('person.view', {id: id});
-    
+
   };
-  
+
   this.logout = () => {
-    Account.logout().$promise.then((resp) => {
+    Account.logout().$promise.then(() => {
       MhAcl.setRights([]);
       $state.go('login');
     });
   };
-  
+
   this.avatarUrl = (person) => {
     return AvatarService.getAvatarUrl(person, 'xs');
   };

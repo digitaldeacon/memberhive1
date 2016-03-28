@@ -1,17 +1,5 @@
-export function uiNavDirective() {"ngInject";
-  return {
-    restrict: 'AC',
-    link: function(scope, el, attr) {
-      el.find('a').bind('click', function (e) {
-        var li = angular.element(this).parent();
-        var active = li.parent()[0].querySelectorAll('.active');
-        li.toggleClass('active');
-        angular.element(active).removeClass('active');
-      });
-    }
-  };
-}
-export function mhMenuItem($mdSidenav, $timeout) {"ngInject";
+
+export function mhMenuItem($mdSidenav) {"ngInject";
   return {
     restrict: 'E',
     scope: {
@@ -19,7 +7,7 @@ export function mhMenuItem($mdSidenav, $timeout) {"ngInject";
       'collapsing': '='
     },
     templateUrl: 'app/modules/core/templates/menu-item.html',
-    link: function($scope, $element) {
+    link: function($scope) {
       var scope = $scope.$new();
       scope.open = false;
       scope.iconVisible = false;

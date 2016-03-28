@@ -10,7 +10,7 @@ export function EventsController(
   this.templates = resolveTemplates;
   this.nextEvents = resolveNextEvents;
   this.statusOptions = EventStatusOptions;
-  
+
   this.findEventsForDay = (date) => {
     var ret = [];
     this.events.forEach((event) => {
@@ -28,11 +28,6 @@ export function EventsController(
     $state.go('event.create', {date: date});
   };
 
-  this.prevMonth = (data) => {
-  };
-
-  this.nextMonth = (data) => {
-  };
 
   this.setDayContent = (date) => {
     var events = this.findEventsForDay(date);
@@ -44,11 +39,11 @@ export function EventsController(
     });
     return ret;
   };
-  
+
   this.countStatus = (event, id) => {
     event.options = event.options || {};
     event.options.status = event.options.status || {};
-    
+
     return _.filter(event.options.status, x => x === id).length;
   };
 }

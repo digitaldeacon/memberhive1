@@ -7,7 +7,7 @@ export function GroupListController(
   this.groups = resolveGroups;
 
   this.deleteGroup = (group) => {
-    Group.deleteById({id: group.id}).$promise.then((data) => {
+    Group.deleteById({id: group.id}).$promise.then(() => {
       Shout.success("Group deleted");
       GroupService.all().then(d => this.groups = d);
     });
