@@ -22,7 +22,7 @@
     "vcards-js": "^2.3.0"
   },
   "optionalDependencies": {
-    "loopback-explorer": "^1.8.0"
+    "loopback-explorer": "^2.0.2"
   },
   "repository": {},
   "devDependencies": {
