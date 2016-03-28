@@ -53,12 +53,7 @@ module.exports = function(options) {
       .pipe($.useref())
       .pipe($.revReplace())
       .pipe(htmlFilter)
-      .pipe($.minifyHtml({
-        empty: true,
-        spare: true,
-        quotes: true,
-        conditionals: true
-      }))
+      .pipe($.htmlmin({collapseWhitespace: true}))
       .pipe(htmlFilter.restore())
       .pipe(gulp.dest(options.dist + '/'))
       .pipe($.size({ title: options.dist + '/', showFiles: true }));
@@ -109,7 +104,7 @@ module.exports = function(options) {
       commitSHA: commitSHA
     };
     return gulp.src(options.dist + '/index.html')
-      .pipe(replace("'--replace-global-config--'", JSON.stringify(config)))
+      .pipe(replace('{"apiUrl" : "http://127.0.0.1:3994/api", commitMsg: "dev", commitSHA: "master"}', JSON.stringify(config)))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
         process.exit();
@@ -118,7 +113,6 @@ module.exports = function(options) {
 
   gulp.task('build-default', ['html', 'fonts', 'images', 'other', 'other-css'], function () {
      return gulp.src(options.dist + '/index.html')
-      .pipe(replace("'--replace-global-config--'", '{"apiUrl" : "http://127.0.0.1:3994/api", commitMsg: "dev", commitSHA: "master"}'))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
         process.exit();

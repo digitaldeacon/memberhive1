@@ -28,7 +28,7 @@
     <!-- endinject -->
     <!-- endbuild -->
     <script>
-      var configGlobal = '--replace-global-config--';
+      var configGlobal = {"apiUrl" : "http://127.0.0.1:3994/api", commitMsg: "dev", commitSHA: "master"};//DO NOT MODIFY!!!
     </script>
 
   </head>
@@ -115,7 +115,7 @@
         </div>
 
         <md-content flex class="content-background" id="content_wrapper">
-          <div hide show-xs layout-padding> 
+          <div ng-cloak hide show-xs> 
             <h2>{{appCtrl.getSubTitle()}}</h2>
           </div>
           <div ui-view layout="column" layout-padding></div>
