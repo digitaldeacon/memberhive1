@@ -1,95 +1,80 @@
-<!--<md-fab-toolbar md-direction="left">
-    <md-fab-trigger class="align-with-text">
-        <md-button aria-label="menu" class="md-fab md-primary">
-            <ng-md-icon icon="menu"></ng-md-icon>
-        </md-button>
-    </md-fab-trigger>
-    <md-toolbar>
-      <md-fab-actions class="md-toolbar-tools">
-        <md-button aria-label="comment" class="md-icon-button">
-            <ng-md-icon icon="delete"></ng-md-icon>
-        </md-button>
-        <md-button aria-label="label" class="md-icon-button">
-            <ng-md-icon icon="email"></ng-md-icon>
-        </md-button>
-      </md-fab-actions>
-    </md-toolbar>
-</md-fab-toolbar>
+<!--
 -->
 <div layout="row">
-  <div layout-fill>
-     <mh-person-search ng-model="personCtrl.query"></mh-person-search>
+  <div flex>
+    <mh-person-search ng-model="personCtrl.query"></mh-person-search>
   </div>
-  <md-fab-toolbar  md-direction="left">
-    <md-fab-trigger class="align-with-text">
-      <md-button aria-label="menu" class="md-fab md-primary">
-        <ng-md-icon icon="menu"></ng-md-icon>
+  <!--<p class="text-muted" translate>{{personCtrl.allPersons.length}} Persons found</p>-->
+  <md-menu width="4">
+    <md-button aria-label="menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
+      <ng-md-icon md-menu-origin  icon="menu"></ng-md-icon>
+    </md-button>
+  <md-menu-content>
+    <md-menu-item>
+      <md-button aria-label="Export" ui-sref="person.export" >
+        <ng-md-icon icon="cloud_download"></ng-md-icon>
+        <translate> Export </translate>
       </md-button>
-    </md-fab-trigger>
-    <md-toolbar>
-      <md-fab-actions class="md-toolbar-tools">
-        <md-button aria-label="Export" ui-sref="person.export">
-          <ng-md-icon icon="cloud_download"></ng-md-icon>
-          <translate>Export</translate>
-        </md-button>
-        <md-button aria-label="Import" ui-sref="person.import">
-          <ng-md-icon icon="cloud_upload"></ng-md-icon>
-          <translate>Import</translate>
-        </md-button>
-        <md-button aria-label="View Households" ui-sref="person.households">
-          <ng-md-icon icon="home"></ng-md-icon>
-          <translate>Households</translate>
-        </md-button>
-      </md-fab-actions>
-    </md-toolbar>
-  </md-fab-toolbar>
+     </md-menu-item>
+    <md-menu-item>
+      <md-button aria-label="Import" ui-sref="person.import" >
+        <ng-md-icon icon="cloud_upload"></ng-md-icon>
+        <translate> Import </translate>
+      </md-button>
+     </md-menu-item>
+    <md-menu-item>
+      <md-button aria-label="View Households" ui-sref="person.households">
+        <ng-md-icon icon="home"></ng-md-icon>
+        <translate> Households </translate>
+      </md-button>
+    </md-menu-item>
+   
+  </md-menu-content>
+</md-menu>
 </div>
 
-    
+
 <div id="person-container">
+    
     <md-list flex
         class="mh-content person-list"
         ng-if="personCtrl.persons.length > 0"
-           infinite-scroll="personCtrl.loadMorePersons()"
-           infinite-scroll-distance="1"
-           infinite-scroll-container="'#content_wrapper'"
-           infinite-scroll-disabled="personCtrl.noScroll"
-           infinite-scroll-parent="true"
-           infinite-scroll-immediate-check='false'>
-    <md-list-item
-      ng-repeat="person in personCtrl.persons track by person.id"
-      flex
-      class="person-list-item"
-    >
+        infinite-scroll="personCtrl.loadMorePersons()"
+        infinite-scroll-distance="1"
+        infinite-scroll-container="'#content_wrapper'"
+        infinite-scroll-disabled="personCtrl.noScroll"
+        infinite-scroll-parent="true"
+        infinite-scroll-immediate-check='false'>
+    <md-list-item flex  class="person-list-item" ng-repeat="person in personCtrl.persons track by person.id">
       <div flex layout="row" layout-align="center center">
-      <mh-person-list-item flex person="::person"></mh-person-list-item>
+        <mh-person-list-item flex person="::person"></mh-person-list-item>
         <md-menu>
-        <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
-          <ng-md-icon icon="more_vert"></ng-md-icon>
-        </md-button>
-        <md-menu-content width="4">
-          <md-menu-item>
-            <md-button ng-click="personCtrl.editPerson(person)">
-              <ng-md-icon icon="edit"></ng-md-icon>
-              <translate>Edit</translate>
-            </md-button>
-          </md-menu-item>
-          <md-menu-item>
-            <md-button ng-click="personCtrl.deletePerson(person)">
-              <ng-md-icon icon="delete"></ng-md-icon>
-              <translate>Delete</translate>
-            </md-button>
-          </md-menu-item>
-        </md-menu-content>
-      </md-menu>
+          <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
+            <ng-md-icon icon="more_vert"></ng-md-icon>
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item>
+              <md-button ng-click="personCtrl.editPerson(person)">
+                <ng-md-icon icon="edit"></ng-md-icon>
+                <translate>Edit</translate>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="personCtrl.deletePerson(person)">
+                <ng-md-icon icon="delete"></ng-md-icon>
+                <translate>Delete</translate>
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
       </div>
+      
       <md-divider></md-divider>
+      
     </md-list-item>
-    <p class="text-muted" translate>{{personCtrl.persons.length}} Persons shown</p>
+    
   </md-list>
-
 </div>
-<!---->
 <a ui-sref="person.create">
   <md-button class="md-fab md-fab-floating-br md-accent">
     <md-tooltip md-direction="top">

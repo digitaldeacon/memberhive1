@@ -68,7 +68,7 @@
   <h3> <ng-md-icon icon="phone"></ng-md-icon> Phones </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="(key,contact) in personCtrl.person.contacts">
-      <div class="md-list-item-text" layout="row">
+      <div class="md-list-item-text" layout="row" layout-xs="column">
        <mh-person-edit-type flex="33" key="key" type="contactTypes"></mh-person-edit-type>
         <md-input-container flex="66">
           <label>
@@ -92,7 +92,7 @@
   <h3> <ng-md-icon icon="email"></ng-md-icon> EMails </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.emails">
-      <div class="md-list-item-text" layout="row">
+      <div class="md-list-item-text" layout="row" layout-xs="column">
         <mh-person-edit-type flex="33" key="key" type="emailTypes"></mh-person-edit-type>
         <md-input-container flex="66">
           <label>
@@ -102,6 +102,7 @@
           <input ng-model="personCtrl.person.emails[key]">
         </md-input-container>
       </div>
+      <md-divider></md-divider>
     </md-list-item>
 
     <md-list-item>
@@ -117,10 +118,11 @@
   <h3> <ng-md-icon icon="cake"></ng-md-icon> Dates </h3>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat="(key,value) in personCtrl.person.dates">
-      <div class="md-list-item-text" layout="row">
+      <div class="md-list-item-text" layout="row" layout-xs="column">
         <mh-person-edit-type flex="33" key="key" type="dateTypes"></mh-person-edit-type>
         <mh-utc-date-input ng-model="personCtrl.person.dates[key]" placeholder="Enter date"></mh-utc-date-input>
       </div>
+       <md-divider></md-divider>
     </md-list-item>
 
     <md-list-item >
@@ -146,6 +148,7 @@
           <input ng-model="personCtrl.person.custom[key]">
         </md-input-container>
       </div>
+      <md-divider></md-divider>
     </md-list-item>
 
     <md-list-item >

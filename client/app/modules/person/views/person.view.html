@@ -17,10 +17,6 @@
           <h1 flex>
             {{personCtrl.person.fullName}}
           </h1>
-          <md-button ui-sref="person.edit({ id: personCtrl.person.id })">
-            <ng-md-icon size="18" icon="edit"> </ng-md-icon>
-            <translate> Edit </translate>
-           </md-button>
         </div>
         <div class="md-padding" ng-if="personCtrl.person.status.length">
           <ng-md-icon size="24" icon="label"></ng-md-icon>
