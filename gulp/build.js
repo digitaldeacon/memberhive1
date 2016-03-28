@@ -40,6 +40,7 @@ module.exports = function(options) {
 
     return gulp.src(options.tmp + '/serve/index.html')
       .pipe($.inject(partialsInjectFile, partialsInjectOptions))
+      .pipe(assets = $.useref.assets())
       .pipe($.rev())
       .pipe(jsFilter)
       .pipe($.ngAnnotate())
@@ -48,11 +49,12 @@ module.exports = function(options) {
       .pipe(cssFilter)
       .pipe($.csso())
       .pipe(cssFilter.restore())
+      .pipe(assets.restore())
       .pipe($.useref())
       .pipe($.revReplace())
       .pipe(htmlFilter)
       .pipe($.htmlmin({collapseWhitespace: true}))
-      .pipe(htmlFilter.restore())
+      .pipe(htmlFilter.restore)
       .pipe(gulp.dest(options.dist + '/'))
       .pipe($.size({ title: options.dist + '/', showFiles: true }));
   });
