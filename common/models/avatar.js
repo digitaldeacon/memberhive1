@@ -46,26 +46,29 @@ module.exports = function(Avatar) {
       next(new Error('Wrong file type. Only jpg and png are supported.'));
       return;
     }
-    //hacky callbacks
-    //FIXME: use a async library or q
-    this.createThumb(filePath, folderPath, 'xs',
-      this.createThumb(filePath, folderPath, 's',
-        this.createThumb(filePath, folderPath, 'm',
-          this.createThumb(filePath, folderPath, 'l', function(err) { console.log(err); next();})
-        )
-      )
-    )();
+ 
+     this.createThumb(filePath, folderPath, 'xs')
+      .then(this.createThumb(filePath, folderPath, 's'))
+      .then(this.createThumb(filePath, folderPath, 'm'))
+      .then(this.createThumb(filePath, folderPath, 'l'))
+      .then(() => next());
   });
 
-  this.createThumb = function (filePath, folder, size, cb) {
-    return function(err) {
-      easyimg.resize({
+  this.createThumb = (filePath, folder, size) => {
+    return easyimg.resize(
+      {
         src: filePath,
-        dst: path.join(folder, size+".jpg"),
+        dst: path.join(folder, size+'.jpg'),
         width: self.thumbSizes[size],
-        height: self.thumbSizes[size]}).then(cb);
-    };
+        height: self.thumbSizes[size]
+      })
+      .then(() => {
+          return easyimg.resize({
+            src: filePath,
+            dst: path.join(folder, size+"@2x.jpg"),
+            width: self.thumbSizes[size]*2,
+            height: self.thumbSizes[size]*2});
+      });
   };
-
-
+  
 };
