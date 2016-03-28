@@ -3,8 +3,9 @@ export function PersonImportController(
   mhFileReader,
   $scope,
   gettext,
-  gettextCatalog)
-{"ngInject";
+  gettextCatalog,
+  Shout
+){"ngInject";
   this.csvToArray = (strData, strDelimiter) => {
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
@@ -120,7 +121,7 @@ export function PersonImportController(
 
   this.import = () => {
     var persons = _.map(_.drop(this.tableData), this.convert);
-    _.forEach(persons, (person, pos) => {
+    _.forEach(persons, (person) => {
       if (person.lastName !== undefined) {
         Person.upsert(person).$promise.then(
           (data) => Shout.message(gettext("Person imported ") + data.firstName + " " + data.lastName),

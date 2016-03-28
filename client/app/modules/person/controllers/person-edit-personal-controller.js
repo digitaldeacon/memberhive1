@@ -6,12 +6,8 @@ export function PersonEditPersonalController (
   $stateParams, 
   $scope, 
   Shout,
-  gettextCatalog,
-  $filter, 
-  $state, 
-  $q, 
-  $http, 
-  AvatarService) 
+  gettextCatalog
+) 
 {    "ngInject";
 
   this.selectedStatus = null;
