@@ -1,5 +1,6 @@
 import {AddressService} from './services/address-service';
 import {AddressDirective, AddressEditDirective} from './directives/address-directive';
+import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 export var gemAddressModule = angular.module('mh.address',
   [

@@ -69,17 +69,21 @@ export function NoteCreateDirective() {"ngInject";
         });
       };
 
-      this.DialogController = ($scope, $mdDialog) => {"ngInject";
+      this.DialogController = ($scope, $mdDialog, content) => {"ngInject";
         $scope.hide = function() {
           $mdDialog.hide();
         };
         $scope.cancel = function() {
           $mdDialog.cancel();
         };
-        $scope.create = function() {
+        $scope.create = function(content) {
           this.ctrl.vm.create(this.ctrl);
           $mdDialog.hide();
         };
+      };
+
+      this.close = ($element) => {
+
       };
     },
     controllerAs: 'ctrl',

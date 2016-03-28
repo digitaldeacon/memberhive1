@@ -10,22 +10,22 @@ export function mhPersonSearch() {
       $scope.queryModel = [];
       $scope.selectedItem = null;
       $scope.searchText = "";
-
+      
       this.currentBlockCat = () => {
         if($scope.queryModel.length === 0) return "empty";
         return _.last($scope.queryModel).cat;
       };
-
+      
       this.currentBlock = () => {
         if($scope.queryModel.length === 0) return {};
         return _.last($scope.queryModel);
       };
-
+      
       this.logicBlocks = [
         {display: "AND", name: "and", cat: "logic"},
         {display: "OR", name: "or", cat: "logic"}
       ];
-
+      
       this.unaryLogicBlocks = [
         {display: ">", name: "gt", cat: "unaryLogic", type:["number"] },
         {display: ">=", name: "gte", cat: "unaryLogic",  type:["number"] },
@@ -47,7 +47,7 @@ export function mhPersonSearch() {
         {display: "Last Name", name: "lastName", cat: "query", type: "string"},
         {display: "Gender", name: "gender", cat: "query", type: "string"},
         {display: "Haushalt Name", name: "household.name", cat: "query", type: "string"},
-
+        
       ];
 
 
@@ -66,7 +66,7 @@ export function mhPersonSearch() {
         }
         return [];
       };
-
+      
       $scope.searchQueryBlocks = (query) => {
          return _.filter(this.queryBlocks, x => _.startsWith(_.lowerCase(x.display), _.lowerCase(query)));
       };
@@ -86,7 +86,7 @@ export function mhPersonSearch() {
         results.then((d) => _.merge(d, add));
         return results;
       };
-
+      
       this.order = 0;
       $scope.transformChip = (chip) => {
         let newChip = {};
@@ -95,22 +95,22 @@ export function mhPersonSearch() {
         } else {
            angular.copy(chip, newChip);
         }
-
+       
         newChip.order = this.order;
         this.order++;
         return newChip;
       };
-
+      
       this.generateQuery = (model) => {
         let query = this.parseQueryBlock(model, {});
         console.log("resulting query", query);
         return query;
       };
-
+      
       this.parseQueryBlock = (model, query) => {
         let ret = _.cloneDeep(query);
         if(_.isEmpty(model)) return query;
-
+        
         let first = _.head(model);
         model = _.drop(model);
         console.log(first);
@@ -118,12 +118,12 @@ export function mhPersonSearch() {
           console.error("ist not of cat query", first);
           return query;
         }
-
+        
         if(_.isEmpty(model)) return query;
-
+        
         let second = _.head(model);
         model = _.drop(model);
-
+        
         if(second.cat === "unaryLogic" && !_.isEmpty(model)) {
           let value = _.head(model);
           model = _.drop(model);
@@ -140,13 +140,13 @@ export function mhPersonSearch() {
           }
           ret[first.name] = second.name;
         }
-
+        
         if(model.length === 0) {
           query = ret;
           return query;
-
+          
         } else {
-
+          
           let logic = _.head(model);
           model = _.drop(model);
           if(logic.cat !== "logic") {
@@ -154,22 +154,22 @@ export function mhPersonSearch() {
             query = ret;
             return query;
           }
-
+          
           let after = this.parseQueryBlock(model, {});
-
+          
           query[logic.name] = [ret, after];
           return query;
         }
       };
-
+      
       $scope.$watchCollection(
         "queryModel",
-        (newValue) => {
+        (newValue, oldValue) => {
           $scope.ngModel = this.generateQuery(newValue);
         }
       );
-
-
+      
+       
     }
 
   };

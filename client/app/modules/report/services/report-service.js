@@ -20,7 +20,7 @@ export function ReportService(Report, gettextCatalog, $rootScope, Shout) {"ngInj
     save: (reportObj) => {
       var p = Report.upsert({},reportObj).$promise;
       p.then(
-        () => {
+        (data) => {
           Shout.message(gettextCatalog.getString('Report saved.'));
         },
         (error) => {

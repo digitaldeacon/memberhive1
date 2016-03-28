@@ -1,6 +1,11 @@
+
 import './filters/person-filters';
+
 import {PersonListController} from './controllers/person-list-controller';
+
 import {PersonEditController} from './controllers/person-edit-controller';
+
+
 import {PersonViewController} from './controllers/person-view-controller';
 import {PersonImportCSVController} from './controllers/person-import-csv-controller';
 import {PersonImportImagesController} from './controllers/person-import-images-controller';
@@ -12,9 +17,10 @@ import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
 import {PersonEditService} from './services/person-edit-service';
 import {AvatarService} from './services/avatar-service';
-import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonEditType, mhPersonHousehold, mhPersonGroup} from './directives/person-directives';
-import {mhAvatar} from './directives/avatar-directives';
+import {mhPersonChips, mhPersonStatus, mhPersonTags, mhPersonListItem, mhPersonEditType, mhPersonHousehold, mhPersonGroup, mhPersonGroupChips} from './directives/person-directives';
+import {mhAvatar, mhAvatarUpload} from './directives/avatar-directives';
 import {mhPersonSearch} from './directives/person-search-directive';
+import {PersonStatsWidget} from './widgets/stats/person-stats';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
 import {mhWidgetPersonNextBirthdays} from './widgets/nextBirthdays/nextBirthdays';
 

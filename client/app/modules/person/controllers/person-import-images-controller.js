@@ -1,8 +1,4 @@
-export function PersonImportImagesController(
-    Person,
-    $scope,
-    AvatarService
-){"ngInject";
+export function PersonImportImagesController(Person, $scope, AvatarService, Shout) {"ngInject";
   Person.find().$promise.then((data) => this.persons = data);
   this.importStarted = false;
   this.progress = 0;

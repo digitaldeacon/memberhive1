@@ -7,7 +7,7 @@ export function stateLoader($rootScope) {"ngInject";
     "</div>" +
     "</div>",
     replace: true,
-    link: function(scope) {
+    link: function(scope, elem, attrs) {
       scope.isStateLoading = false;
 
       $rootScope.$on('$stateChangeStart', function() {

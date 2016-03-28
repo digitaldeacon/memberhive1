@@ -3,7 +3,8 @@ export function PersonListController(
   PersonEditService,
   resolvePersons,
   $scope,
-  $state
+  $state,
+  $timeout
 )  {"ngInject";
   this.allPersons = resolvePersons;
   this.query = {};
@@ -41,11 +42,9 @@ export function PersonListController(
       this.loadMorePersons(14);
     });
   };
-
-  //TODO: fix too many reloads
   $scope.$watch(
     () => {
       return this.query;
     },
-    (newValue) => {this.reload(newValue);}, true);
+    (newValue, oldValue) => {this.reload(newValue);}, true);
 }

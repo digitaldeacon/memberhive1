@@ -1,4 +1,5 @@
 import {LoginController} from './controller/login-controller';
+import {MenuSection, MenuLink} from '../core/providers/menu-provider';
 
 export var mhAuthModule = angular.module('mh.auth', []).config(
   ($stateProvider, gettext) => {

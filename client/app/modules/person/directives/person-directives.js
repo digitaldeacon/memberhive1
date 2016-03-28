@@ -6,13 +6,13 @@ export function mhPersonChips(mhConfig, PersonService) {"ngInject";
     scope: {
       ngModel: '=',
     },
-    controller: ($scope)=> {
-      if(!$scope.ngModel) {
-        $scope.ngModel= [];
+    link: function(scope, element, attrs) {
+      if(!scope.ngModel) {
+        scope.ngModel= [];
       }
-      $scope.filterSelected = true;
-
-      $scope.querySearch = (query) => {
+      scope.filterSelected = true;
+      
+      scope.querySearch = (query) => {
         return PersonService.search(query);
       };
 
@@ -92,7 +92,10 @@ export function mhPersonListItem() {
     restrict: 'E',
     scope: {
       person: '=',
+    },
+    controller: function($scope) {"ngInject";
     }
+
   };
 }
 

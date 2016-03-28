@@ -53,5 +53,60 @@ export function mhAvatar(AvatarService) {"ngInject";
   };
 }
 
+export function mhAvatarUpload() {
+  return {
+    templateUrl: 'app/modules/person/templates/avatar-upload.html',
+    restrict: 'E',
+    scope: {
+      ngModel: '=',
+    },
+    controller: function($scope, PersonService) {"ngInject";
+      /**
+       * The user selected a new avatar
+       *
+       * @param files Selected files (should be only one)
+       */
+      $scope.onAvatarSelected = (files, event) => {
+        var reader = new FileReader();
+        var image = new Image();
+
+        if (files[0]) {
+          reader.readAsDataURL(files[0]);
+          reader.onload = (event) => {
+            this.$scope.$apply(() => {
+              image.addEventListener('load', () => {
+                if (!$scope.checkImage(image)) {
+                  this.Shout.message(this.gettextCatalog.getString(
+                    'For best results the image should be at least 50x50 pixels.'));
+                }
+                this.avatarChanged = true;
+                this.uploadedAvatar = event.target.result;
+
+              });
+              image.src = event.target.result;
+
+            });
+          };
+          reader.onerror = (err) => {
+            this.Shout.error(this.gettextCatalog.getString('Cannot read image. Please try again.'));
+          };
+        }
+      };
+
+      /**
+      * Checks whether the selected image fulfills the requirements
+      *
+      * @param image Image object
+      * @returns {boolean} True, when
+      */
+      $scope.checkImage = (image) => {
+        return (image.height >= 50 && image.width >= 50);
+      };
+    }
+
+  };
+}
+
+
 
 
