@@ -24,7 +24,11 @@ module.exports = function(options) {
           {
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',
+            loader: 'babel',
+            query: {
+                cacheDirectory: true,
+                presets: ['es2015']
+            }
           }
         ]
       },
