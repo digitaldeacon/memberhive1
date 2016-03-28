@@ -34,6 +34,7 @@ export var mhMainModule = angular.module('mh.main', [
   'angular-keyboard',
   'infinite-scroll',
   'angularMoment',
+  'ngRetina',
 
   'mh.core', // This needs to be loaded first
   'mh.dashboard', 'mh.person', 'mh.event', 'mh.acl',
