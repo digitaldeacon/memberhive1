@@ -1,7 +1,5 @@
   <calendar-md flex layout layout-fill
     calendar-direction="direction"
-    on-prev-month="ctrl.prevMonth"
-    on-next-month="ctrl.nextMonth"
     on-day-click="ctrl.dayClick"
     title-format="'MMMM y'"
     ng-model='selectedDate'
@@ -12,13 +10,13 @@
     day-tooltip-format="'fullDate'"
     day-content="ctrl.setDayContent">
   </calendar-md>
-  
+
 <div layout-gt-sm="row" layout="column">
   <div flex class="mh-content">
     <h2>
       <translate>Templates</translate>
     </h2>
-    
+
     <md-list>
       <md-list-item ng-repeat="template in ctrl.templates" flex layout="row">
         <h3>
@@ -27,8 +25,8 @@
         <md-button ui-sref="event.create({templateId: template.id})" class="md-secondary">Create new Event</md-button>
       </md-list-item>
     </md-list>
-    
-    <a ui-sref="event.template({})"> 
+
+    <a ui-sref="event.template({})">
       <md-button>
         <translate>Add New Template</translate>
       </md-button>
@@ -45,8 +43,8 @@
         </h3>
         <div layout="row" class="status">
            <span ng-repeat="(id, status) in ctrl.statusOptions">
-            <ng-md-icon 
-            icon="{{status.icon}}" 
+            <ng-md-icon
+            icon="{{status.icon}}"
             ng-style="{'fill' : ctrl.countStatus(event, id) > 0 ? status.color : '#AEAEAE'}"></ng-md-icon>
             <span class="text">{{::ctrl.countStatus(event, id)}}</span>
           </span>

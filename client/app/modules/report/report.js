@@ -4,8 +4,6 @@ import {ReportEditController} from './controllers/report-edit-controller';
 import {QueryBuilderDirective} from './directives/querybuilder-directive';
 import {VariableListDirective} from './directives/variablelist-directive';
 
-import {ReportHtmlWidget} from './widgets/htmlreport/htmlreport';
-
 import {ReportService} from './services/report-service';
 import {QueryBuilderModelService} from './services/querybuilder-model-service';
 

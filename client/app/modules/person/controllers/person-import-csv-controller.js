@@ -147,7 +147,7 @@ export function PersonImportCSVController(Person, mhFileReader, Shout, $scope, g
 
   this.import = () => {
     var persons = _.map(_.drop(this.tableData), this.convert);
-    _.forEach(persons, (person, pos) => {
+    _.forEach(persons, (person) => {
       if (person.lastName !== undefined) {
         Person.upsert(person).$promise.then(
           (data) => Shout.message(gettext("Person imported ") + data.firstName + " " + data.lastName),

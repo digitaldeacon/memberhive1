@@ -13,7 +13,6 @@ export function fromNowMomentFilter() {
   return function(date, removeSuffix) {
     if (!date)
       return '';
-    return '';
-    //return moment(date).fromNow(removeSuffix);
+    return moment(date).fromNow(removeSuffix);
   };
 }

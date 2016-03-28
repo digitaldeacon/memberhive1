@@ -1,7 +1,6 @@
 export function PersonImportController(
   Person,
   mhFileReader,
-  Shout,
   $scope,
   gettext,
   gettextCatalog)

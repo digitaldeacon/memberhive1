@@ -1,10 +1,9 @@
 export function EventTemplateViewController(
   EventTemplate,
   resolveTemplate,
-  resolveEvents,
-  $state
+  resolveEvents
 ) {"ngInject";
   this.template = resolveTemplate;
   this.events = resolveEvents;
- 
+
 }

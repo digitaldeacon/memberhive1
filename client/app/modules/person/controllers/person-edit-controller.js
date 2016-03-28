@@ -126,7 +126,7 @@ export function PersonEditController (
     return $q.all(geocalls);
   };
 
-  this.onAvatarSelected = (files, event) => {
+  this.onAvatarSelected = (files) => {
     var reader = new FileReader();
     if (files.length > 0) {
       reader.readAsDataURL(files[0]);
@@ -135,7 +135,7 @@ export function PersonEditController (
         this.avatarChanged = true;
         angular.element("#avatar_preview").attr('src', this.uploadedAvatar);
       };
-      reader.onerror = (err) => {
+      reader.onerror = () => {
         Shout.error(gettextCatalog.getString('Can’t read image. Please try again.'));
         this.uploadedAvatar = undefined;
       };
@@ -164,7 +164,7 @@ export function PersonEditController (
     $mdDialog.show(confirm).then(() => {
       PersonEditService.createAccount(this.person, username, password)
         .then(
-          data => Shout.success("Account Created"),
+          () => Shout.success("Account Created"),
           err => Shout.vError(err)
         );
     });

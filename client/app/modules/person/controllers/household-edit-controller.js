@@ -10,7 +10,7 @@ export function HouseholdEditController (
 ) {"ngInject";
   this.household = resolveHousehold;
   this.persons = resolvePersons;
-  
+
   this.save = () => {
     return Household.upsert({}, this.household).$promise;
   };
@@ -26,11 +26,14 @@ export function HouseholdEditController (
       $state.go('person.household-create');
     });
   };
-  
+
   this.unlink = (personId) => {
     var householdId = this.household.id;
-    Person.household.unlink({fk: householdId, id: personId}).$promise.then((data, err) => {
-      Household.persons({id: householdId}).$promise.then(d => this.persons = d);
-    });
+    Person.household.unlink({fk: householdId, id: personId}).$promise
+      .then(
+        () => Household.persons({id: householdId}).$promise.then(d => this.persons = d),
+
+        (err) => Shout.vError(err)
+      );
   };
 }
