@@ -16,7 +16,6 @@
     "loopback-component-storage": "^1.7.0",
     "loopback-connector-mongodb": "^1.13.0",
     "loopback-datasource-juggler": "^2.45.0",
-    "lwip": "^0.0.8",
     "moment": "^2.12.0",
     "toner": "^0.1.6",
     "toner-phantom": "^0.1.0",

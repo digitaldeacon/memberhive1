@@ -2,6 +2,7 @@
   "name": "MemberHive",
   "version": "0.1.0",
   "dependencies": {
+    "jquery": "~2.2.0",
     "angular": "~1.4.9",
     "angular-animate": "~1.4.9",
     "angular-gettext": "~2.1.0",
@@ -18,7 +19,6 @@
     "angular-resource": "~1.4.7",
     "angular-i18n": "~1.4.7",
     "lodash": "~4.6.1",
-    "jquery": "~2.2.0",
     "ng-file-upload": "~6.0.2",
     "ngInfiniteScroll": "master",
     "material-calendar": "~0.2",
