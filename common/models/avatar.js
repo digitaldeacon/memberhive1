@@ -1,8 +1,6 @@
 var path = require('path');
 var fs = require('fs');
-var bunyan = require('bunyan');
-var lwip = require('lwip');
-var log = bunyan.createLogger({name: 'gem.avatar'});
+var easyimg = require('easyimage');
 
 module.exports = function(Avatar) {
   this.thumbSizes = {
@@ -61,16 +59,11 @@ module.exports = function(Avatar) {
 
   this.createThumb = function (filePath, folder, size, cb) {
     return function(err) {
-      lwip.open(filePath, function(err, image) {
-        console.log(err);
-        if(image) {
-          image.batch()
-            .resize(self.thumbSizes[size])
-            .writeFile(path.join(folder, size+".jpg"), cb);
-        } else {
-          cb();
-        }
-      });
+      easyimg.resize({
+        src: filePath,
+        dst: path.join(folder, size+".jpg"),
+        width: self.thumbSizes[size],
+        height: self.thumbSizes[size]}).then(cb);
     };
   };
 

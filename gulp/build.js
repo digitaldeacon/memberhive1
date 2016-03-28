@@ -40,6 +40,8 @@ module.exports = function(options) {
 
     return gulp.src(options.tmp + '/serve/index.html')
       .pipe($.inject(partialsInjectFile, partialsInjectOptions))
+      .pipe(assets = $.useref.assets())
+      .pipe($.rev())
       .pipe(jsFilter)
       .pipe($.ngAnnotate())
       .pipe($.uglify()).on('error', options.errorHandler('Uglify'))
@@ -47,8 +49,8 @@ module.exports = function(options) {
       .pipe(cssFilter)
       .pipe($.csso())
       .pipe(cssFilter.restore())
+      .pipe(assets.restore())
       .pipe($.useref())
-      //.pipe($.rev())
       .pipe($.revReplace())
       .pipe(htmlFilter)
       .pipe($.minifyHtml({
