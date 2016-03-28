@@ -13,7 +13,7 @@ module.exports = function(options) {
       options.src + '/app/**/*.html',
       options.tmp + '/serve/app/**/*.html'
     ])
-      .pipe($.htmlmin({
+      .pipe($.minifyHtml({
         empty: true,
         spare: true,
         quotes: true
@@ -53,8 +53,13 @@ module.exports = function(options) {
       .pipe($.useref())
       .pipe($.revReplace())
       .pipe(htmlFilter)
-      .pipe($.htmlmin({collapseWhitespace: true}))
-      .pipe(htmlFilter.restore)
+      .pipe($.minifyHtml({
+        empty: true,
+        spare: true,
+        quotes: true,
+        conditionals: true
+      }))
+      .pipe(htmlFilter.restore())
       .pipe(gulp.dest(options.dist + '/'))
       .pipe($.size({ title: options.dist + '/', showFiles: true }));
   });
