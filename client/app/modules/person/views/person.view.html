@@ -36,14 +36,15 @@
             <p> {{ name }} </p>
           </div>
         </md-list-item>
+        
         <md-list-item class="md-2-line" ng-repeat="address in personCtrl.person.addressList">
           <ng-md-icon icon="place" ng-if="$index === 0"></ng-md-icon>
           <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
-            <h3>
+            <p>
               <a href="http://maps.google.de/maps?q={{address.value}}&t=h&z=17" target="_blank">
                 {{ address.value }}
               </a>
-            </h3>
+            </p>
             <p> {{ address.name }} </p>
 
           </div>
@@ -65,12 +66,10 @@
           </div>
         </md-list-item>
 
-         <md-list-item class="md-2-line" ng-if="personCtrl.person.groups.length > 0">
-          <ng-md-icon icon="people_outline"></ng-md-icon>
-          <div class="md-list-item-text">
-            <span ng-repeat="group in personCtrl.person.groups">
-               <a ui-sref="group.view({id: group.id})">{{group.name}}</a>
-            </span>
+         <md-list-item class="md-2-line" ng-repeat="group in personCtrl.person.groups">
+          <ng-md-icon icon="people_outline" ng-if="$index === 0"></ng-md-icon>
+          <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+            <a ui-sref="group.view({id: group.id})">{{group.name}}</a>
           </div>
         </md-list-item>
 
