@@ -35,10 +35,11 @@
     <mh-person-status ng-model="personCtrl.person.status"></mh-person-status>
   </md-input-container>
 
-  <md-input-container >
+  <md-input-container>
     <label translate>Tags</label>
-    <mh-person-tags ng-model="personCtrl.person.tags"></mh-person-tags>
+    <mh-tags ng-model="personCtrl.person.tags" source="Person"></mh-tags>
   </md-input-container>
+  
   <md-input-container >
     <label translate>Household</label>
     <mh-person-household ng-model="personCtrl.person.household"></mh-person-household>

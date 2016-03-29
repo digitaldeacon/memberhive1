@@ -1,4 +1,12 @@
-export function Search(Person, Group, $q) {"ngInject";
+export function Search(
+  Person, 
+  Group, 
+  $q,
+  Household,
+  Note,
+  Event,
+  EventTemplate
+) {"ngInject";
   this.search = (query) => {
     return Person.search({query: query});
   };
@@ -48,5 +56,33 @@ export function Search(Person, Group, $q) {"ngInject";
         }
       }).$promise
       .then((data) => data.map(this.genGroup));
+  };
+  
+  this.searchValue = (modelName, field, query) => {
+    let model = null;
+    switch(modelName) {
+      case "Person":
+        model = Person;
+        break;
+      case "Group":
+        model = Group;
+        break;
+      case "Note":
+        model = Note;
+        break;
+      case "Household":
+        model = Household;
+        break;
+      case "Event":
+        model = Event;
+        break;
+      case "EventTemplate":
+        model = EventTemplate;
+        break;
+      default:
+        console.error("not definied in Search::searchValue", modelName);
+    }
+    return model.searchValue({field: field, text: query}).$promise
+      .then((ret) => ret.data);
   };
 }

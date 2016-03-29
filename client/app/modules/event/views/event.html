@@ -7,6 +7,11 @@
   </md-input-container>
   
   <md-input-container>
+    <label translate>Tags</label>
+    <mh-tags ng-model="ctrl.item.tags" source="Event"></mh-tags>
+  </md-input-container>
+  
+  <md-input-container>
     <label translate>Template</label>
     <md-select ng-model="ctrl.templateId" ng-change="ctrl.updateTemplate()" aria-label="Template ID">
       <md-option ng-repeat="template in ctrl.templates" ng-value="template.id" aria-label="{{template.name}}">{{template.name}}</md-option>

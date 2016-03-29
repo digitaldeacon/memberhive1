@@ -3,6 +3,12 @@
     <label>Title</label>
     <input ng-model="noteCtrl.note.title" required>
   </md-input-container>
+  
+  <md-input-container>
+    <label translate>Tags</label>
+    <mh-tags ng-model="noteCtrl.note.tags" source="Note"></mh-tags>
+  </md-input-container>
+  
   <div>
     <mh-search-chips ng-model="noteCtrl.note.shared"></mg-search-chips>
   </div>

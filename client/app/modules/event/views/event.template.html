@@ -3,6 +3,10 @@
     <label>Template Name</label>
     <input ng-model="ctrl.item.name">
   </md-input-container>
+  <md-input-container>
+    <label translate>Tags</label>
+    <mh-tags ng-model="ctrl.item.tags" source="EventTemplate"></mh-tags>
+  </md-input-container>
 </div>
 <div layout="row">
   <h3 translate>Options for the Template</h3>

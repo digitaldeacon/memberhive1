@@ -9,6 +9,9 @@ import {mhMenuItem, mhMenuIconItem} from './directives/nav-directive';
 import {stateLoader, appLoader} from './directives/loading-directive';
 import {mhSearchBox, mhSearchChips} from './directives/search-directives';
 import {utcDate, mhDateInput, mhUtcDateInput} from './directives/date-directives';
+import {mhTags} from './directives/tags';
+
+
 import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
 import {mhFileReader} from './services/filereader';
@@ -70,6 +73,7 @@ mhCoreModule.directive('mhAppLoader', appLoader);
 mhCoreModule.directive('utcDate', utcDate);
 mhCoreModule.directive('mhUtcDateInput', mhUtcDateInput);
 mhCoreModule.directive('mhDateInput', mhDateInput);
+mhCoreModule.directive('mhTags', mhTags);
 
 // Filters
 mhCoreModule.filter('fromNow', fromNowFilter);

@@ -40,25 +40,7 @@ export function mhPersonStatus() {
 
   };
 }
-export function mhPersonTags() {
-  return {
-    templateUrl: 'app/modules/person/templates/person-tags.html',
-    restrict: 'E',
-    scope: {
-      ngModel: '=',
-      placeholder: '@'
-    },
-    controller: function($scope, PersonService) {"ngInject";
-      if(!$scope.ngModel) {
-        $scope.ngModel = [];
-      }
-      $scope.searchTags = (query) => {
-        return PersonService.searchTags(query);
-      };
-    }
 
-  };
-}
 export function mhPersonGroup() {
   return {
     templateUrl: 'app/modules/person/templates/person-groups.html',
