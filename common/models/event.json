@@ -1,7 +1,7 @@
 {
   "name": "Event",
   "plural": "Events",
-  "base": "GemBase",
+  "base": "MhBase",
   "idInjection": true,
   "properties": {
     "name": {
@@ -13,6 +13,9 @@
     },
     "data": {
       "type": "object"
+    },
+    "tags": {
+      "type": "array"
     },
     "options": {
       "type": "object"

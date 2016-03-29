@@ -1,6 +1,6 @@
 {
   "name": "Household",
-  "base": "GemBase",
+  "base": "MhBase",
   "idInjection": true,
   "properties": {
     "name": {
@@ -15,6 +15,9 @@
     },
     "type": {
       "type": "string"
+    },
+    "tags": {
+      "type": "array"
     }
   },
   "validations": [],

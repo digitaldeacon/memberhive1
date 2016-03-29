@@ -1,6 +1,6 @@
 {
   "name": "File",
-  "base": "GemBase",
+  "base": "MhBase",
   "idInjection": true,
   "properties": {
     "name": {

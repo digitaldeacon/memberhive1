@@ -1,5 +1,5 @@
 {
-  "name": "GemBase",
+  "name": "MhBase",
   "base": "PersistedModel",
   "idInjection": true,
   "validateUpsert": true,
@@ -20,6 +20,12 @@
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "searchValue"
     },
     {
       "accessType": "*",

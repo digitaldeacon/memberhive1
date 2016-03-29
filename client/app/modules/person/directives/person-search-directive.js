@@ -57,7 +57,7 @@ export function mhPersonSearch() {
           return $scope.searchQueryBlocks(query);
         } else if(currentBlockCat === "query") {
           return $scope.searchQuery(this.currentBlock(), query)
-            .then((d) => _.merge(d, $scope.searchUnaryLogicBlocks(query, this.currentBlock().type)));
+            .then((d) => _.concat(d, $scope.searchUnaryLogicBlocks(query, this.currentBlock().type)));
         } else if(currentBlockCat === "unaryLogic") {
           let block = _.takeRight($scope.queryModel, 2)[0];
           return $scope.searchQuery(block, query);
@@ -83,7 +83,7 @@ export function mhPersonSearch() {
         if(block.type === "array") {
           add = [{display: "Empty", name: [], cat: "value"}];
         }
-        results.then((d) => _.merge(d, add));
+        results.then((d) => _.concat(d, add));
         return results;
       };
 

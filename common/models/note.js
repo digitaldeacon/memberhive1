@@ -17,5 +17,8 @@ module.exports = function(Note) {
     //ctx = utils.whereAddAnd(ctx, {"ownerId": userId.toString()});
     next();
   });
+  
+  Note.createRemotes();
+
 };
 

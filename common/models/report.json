@@ -1,7 +1,7 @@
 {
   "name": "Report",
   "plural": "Reports",
-  "base": "GemBase",
+  "base": "MhBase",
   "idInjection": true,
   "scope": {
     "order": "name ASC"

@@ -1,7 +1,7 @@
 {
   "name": "Person",
   "plural": "Persons",
-  "base": "PersistedModel",
+  "base": "MhBase",
   "idInjection": true,
   "properties": {
     "firstName": {

@@ -16,8 +16,8 @@
   </md-autocomplete>
 
   <md-chip-template>
-    <span class="{{$chip.type}}">
-      <strong>{{$chip.display}}</strong>
+    <span class="{{$chip.cat}}">
+      <strong>{{$chip.display}}</strong><span ng-if="$chip.cat == 'query'">:</span>
     </span>
   </md-chip-template>
 </md-chips>

@@ -1,6 +1,6 @@
 {
   "name": "Group",
-  "base": "GemBase",
+  "base": "MhBase",
   "idInjection": true,
   "properties": {
     "name": {
@@ -18,6 +18,9 @@
     },
     "status":{
       "type": "object"
+    },
+    "tags": {
+      "type": "array"
     }
   },
   "validations": [],

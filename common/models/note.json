@@ -1,6 +1,6 @@
 {
   "name": "Note",
-  "base": "PersistedModel",
+  "base": "MhBase",
   "idInjection": true,
   "scope": {
     "order": "created DESC"

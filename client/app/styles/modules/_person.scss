@@ -50,14 +50,15 @@ gm-map {
 }
 
 .person-search {
-  .query {
-    background-color: #ff0;
+  span.query {
+    color: primary-color('500');
   }
-   .value {
-    background-color: #f0f;
+  span.value {
   } 
-  .logic {
-    background-color: #0ff;
+  span.logic {
+    color: accent-color('500');
   }
-  
+  span.unaryLogic {
+    color: accent-color('500');
+  }
 }

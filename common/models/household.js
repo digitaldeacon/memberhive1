@@ -36,5 +36,6 @@ module.exports = function(Household) {
       }
     }
   );
+  Household.createRemotes();
 
 };

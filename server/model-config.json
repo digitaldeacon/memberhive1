@@ -43,7 +43,7 @@
     "dataSource": "db",
     "public": true
   },
-  "GemBase": {
+  "MhBase": {
     "dataSource": "db",
     "public": false
   },
