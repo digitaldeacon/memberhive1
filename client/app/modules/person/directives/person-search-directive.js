@@ -5,7 +5,7 @@ export function mhPersonSearch() {
     scope: {
       ngModel: '=',
     },
-    controller: function($scope, Person) {"ngInject";
+    controller: function($scope, Person, Group, Household) {"ngInject";
       $scope.ngModel = {};//for now we start empty
       $scope.queryModel = [];
       $scope.selectedItem = null;
@@ -46,8 +46,14 @@ export function mhPersonSearch() {
         {display: "Nick name", name: "nickName", cat: "query", type: "string"},
         {display: "Last Name", name: "lastName", cat: "query", type: "string"},
         {display: "Gender", name: "gender", cat: "query", type: "string"},
-        {display: "Haushalt Name", name: "household.name", cat: "query", type: "string"},
 
+      ];
+      
+      this.externQueryBlocks = [
+        {display: "Gruppe", searchField: "name", cat: "externQuery", type: "string", model: Group, name: "groupIds"},
+        {display: "Haushalt", searchField: "name", cat: "externQuery", type: "string", model: Household, name: "householdIds"},
+        {display: "Gruppe Tag", searchField: "tags", cat: "externQuery", type: "array", model: Group, name: "groupIds"},
+        {display: "Haushalt tag", searchField: "tags", cat: "externQuery", type: "array", model: Group, name: "householdIds"},
       ];
 
 
@@ -58,18 +64,25 @@ export function mhPersonSearch() {
         } else if(currentBlockCat === "query") {
           return $scope.searchQuery(this.currentBlock(), query)
             .then((d) => _.concat(d, $scope.searchUnaryLogicBlocks(query, this.currentBlock().type)));
+        } else if(currentBlockCat === "externQuery") {
+          return $scope.searchExternQuery(this.currentBlock(), query);
         } else if(currentBlockCat === "unaryLogic") {
           let block = _.takeRight($scope.queryModel, 2)[0];
           return $scope.searchQuery(block, query);
-        } else if(currentBlockCat === "value") {
+        } else if(currentBlockCat === "value" || currentBlockCat === "externValue") {
           return $scope.searchLogicBlocks(query);
         }
         return [];
       };
 
       $scope.searchQueryBlocks = (query) => {
-         return _.filter(this.queryBlocks, x => _.startsWith(_.lowerCase(x.display), _.lowerCase(query)));
+        return _.concat(
+          _.filter(this.queryBlocks, x => _.startsWith(_.lowerCase(x.display), _.lowerCase(query))),
+          _.filter(this.externQueryBlocks, x => _.startsWith(_.lowerCase(x.display), _.lowerCase(query)))
+        );
       };
+      
+      
       $scope.searchLogicBlocks = (query) => {
           return _.filter(this.logicBlocks, x => _.startsWith(_.lowerCase(x.display), _.lowerCase(query)));
       };
@@ -86,6 +99,18 @@ export function mhPersonSearch() {
         results.then((d) => _.concat(d, add));
         return results;
       };
+      
+      $scope.searchExternQuery = (block, query) => {
+        let results = block.model.searchValue({field: block.searchField, text: query}).$promise
+          .then((ret) => _.map(ret.data, x => {return {display: x, name: x, cat: "externValue", model: block.model, field: block.searchField};}));
+          
+        /*let add = [];
+        if(block.type === "array") {
+          add = [{display: "Empty", name: [], cat: "value"}];
+        }
+        results.then((d) => _.concat(d, add));*/
+        return results;
+      };
 
       this.order = 0;
       $scope.transformChip = (chip) => {
@@ -95,7 +120,12 @@ export function mhPersonSearch() {
         } else {
            angular.copy(chip, newChip);
         }
-
+        if(newChip.cat === "externValue") {
+          console.log("doo extern stuff");
+          let query = {where: {}};
+          query.where[newChip.field] = newChip.name;
+          newChip.name = newChip.model.find({filter: query}).$promise.then((data) => _.map(data, x => x.id));
+        }
         newChip.order = this.order;
         this.order++;
         return newChip;
@@ -114,8 +144,8 @@ export function mhPersonSearch() {
         let first = _.head(model);
         model = _.drop(model);
         console.log(first);
-        if(first.cat !== "query") {
-          console.error("ist not of cat query", first);
+        if(first.cat !== "query" && first.cat !== "externQuery") {
+          console.error("ist not of cat query or externQuery", first);
           return query;
         }
 
@@ -132,13 +162,17 @@ export function mhPersonSearch() {
             return {};
           }
           ret[first.name] = {};
-          ret[first.name][second.name] = value.name ;
+          ret[first.name][second.name] = value.name;
         } else {
-          if(second.cat !== "value") {
-            console.error("ist not of cat query", second);
+          if(second.cat !== "value" && second.cat !== "externValue") {
+            console.error("ist not of cat value or extern value", second);
             return {};
           }
-          ret[first.name] = second.name;
+          if(first.cat === "query") {
+            ret[first.name] = second.name;
+          } else if(first.cat === "externQuery" && second.cat === "externValue"){
+            ret[first.name] = {inq: second.name};
+          }
         }
 
         if(model.length === 0) {

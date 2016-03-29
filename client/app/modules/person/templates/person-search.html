@@ -17,7 +17,7 @@
 
   <md-chip-template>
     <span class="{{$chip.cat}}">
-      <strong>{{$chip.display}}</strong><span ng-if="$chip.cat == 'query'">:</span>
+      <strong>{{$chip.display}}</strong><span ng-if="$chip.cat == 'query' || $chip.cat == 'externQuery'">:</span>
     </span>
   </md-chip-template>
 </md-chips>
