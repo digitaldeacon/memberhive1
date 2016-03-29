@@ -3,10 +3,14 @@ export function PersonListController(
   PersonEditService,
   resolvePersons,
   $scope,
-  $state
+  $state,
+  q,
+  resolveQueryModel,
+  AccountOptions
 )  {"ngInject";
   this.allPersons = resolvePersons;
   this.query = {};
+  this.queryModel = resolveQueryModel;
   this.persons = [];
   this.editPerson = (person) => {
     $state.go('person.edit', {id: person.id});
@@ -14,11 +18,11 @@ export function PersonListController(
 
   this.loadMorePersons = (count) => {
     count = count || 10;
-    if(this.persons.length === this.allPersons.length) {
+    if(this.persons.length === this.allPersons.length) {//there are no more persons
       return;
     }
 
-    for(let i = 0; i < count; i++) {
+    for(let i = 0; i < count; i++) {//add count persons to the this.persons list from this.allPersons
       this.persons.push(this.allPersons[this.persons.length]);
       if(this.persons.length === this.allPersons.length) {
         return;
@@ -31,15 +35,16 @@ export function PersonListController(
     PersonEditService.delete(person)
       .then(this.reload);
   };
-
+  
   this.reload = (query) => {
-    console.log("reload", query);
-    PersonService.getAllFilterd(query).then((d) => {
-      console.log("get filterd");
-      this.allPersons = d;
-      this.persons = [];
-      this.loadMorePersons(14);
-    });
+    q.all(query)
+      .then((resolved) => PersonService.getAllFilterd(resolved))
+      .then((d) => {
+        AccountOptions.set('person_list_query', this.queryModel);
+        this.allPersons = d;
+        this.persons = [];
+        this.loadMorePersons(15);
+       });
   };
 
   //TODO: fix too many reloads

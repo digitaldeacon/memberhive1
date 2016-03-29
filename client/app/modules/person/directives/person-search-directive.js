@@ -4,10 +4,11 @@ export function mhPersonSearch() {
     restrict: 'E',
     scope: {
       ngModel: '=',
+      queryModel: '='
     },
     controller: function($scope, Person, Group, Household) {"ngInject";
-      $scope.ngModel = {};//for now we start empty
-      $scope.queryModel = [];
+      $scope.queryModel = $scope.queryModel || [];
+     
       $scope.selectedItem = null;
       $scope.searchText = "";
 
@@ -195,7 +196,9 @@ export function mhPersonSearch() {
           return query;
         }
       };
-
+      
+      $scope.ngModel = this.generateQuery($scope.queryModel);
+      
       $scope.$watchCollection(
         "queryModel",
         (newValue) => {

@@ -57,6 +57,9 @@ export var mhPersonModule = angular.module('mh.person',
         resolvePersons: (PersonService) => {
           return PersonService.getAllFilterd({});
         },
+        resolveQueryModel: (AccountOptions) => {
+          return AccountOptions.get('person_list_query');
+        }
       },
     }).state('person.view', {
       url: '/view/:id/',

@@ -10,8 +10,7 @@ export function PersonService(
   mhConfig,
   AvatarSizes,
   $rootScope,
-  $q,
-  q
+  $q
 ) {"ngInject";
 
   this.persons = null;
@@ -86,16 +85,15 @@ export function PersonService(
 
   this.getAllFilterd = (where) => {
     var filter = {};
- //   filter.order = ['lastName ASC', 'firstName ASC', 'middleName ASC'];
- //   filter.include = ['household'];
     
     if(!jQuery.isEmptyObject(where)) {
       filter.where = where;
     }
-    return q.all(filter)
-      .then((f) => {
-        return Person.find({filter: f, include: ['household']}).$promise;
-      })
+    
+    return Person.find({
+      filter: filter, 
+      include: ['household'], 
+      order: ['lastName ASC', 'firstName ASC', 'middleName ASC']}).$promise
       .then(this.mapPersons);
   };
 
