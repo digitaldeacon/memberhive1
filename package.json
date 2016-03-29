@@ -4,7 +4,6 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "body-parser": "^1.15.0",
-    "bunyan": "^1.3.4",
     "compression": "^1.6.1  ",
     "easyimage": "^2.1.0",
     "errorhandler": "^1.4.3",
@@ -86,7 +85,7 @@
     "node": "^4.2"
   },
   "scripts": {
-    "test": "nodemon -e js,json --watch server/ --watch common/ . | bunyan",
+    "test": "nodemon -e js,json --watch server/ --watch common/ .",
     "start": "node server/server.js",
     "debug": "DEBUG=loopback npm test"
   },
