@@ -23,13 +23,11 @@ export var mhPersonModule = angular.module('mh.person',
   [
     'ngFileUpload',
     'uiGmapgoogle-maps',
-    'personFilters',
     'mh.core',
     'mh.address',
     'mh.config'
-  ]
-).config(
-  ($stateProvider, $compileProvider, gettext, uiGmapGoogleMapApiProvider) => {
+  ])
+.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMapApiProvider) => {
     $stateProvider.state('person', {
       url: '/person',
       template: '<ui-view/>',
@@ -56,10 +54,10 @@ export var mhPersonModule = angular.module('mh.person',
       resolve: {
         resolvePersons: (PersonService) => {
           return PersonService.getAllFilterd({});
-        }/*,
+        }
         resolveQueryModel: (AccountOptions) => {
           return AccountOptions.get('person_list_query');
-        }*/
+        }
       },
     }).state('person.view', {
       url: '/view/:id/',
