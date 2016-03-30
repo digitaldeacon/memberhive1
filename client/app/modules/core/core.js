@@ -16,6 +16,7 @@ import {Shout} from './services/shout';
 import {AccountOptions} from './services/account-options';
 import {mhFileReader} from './services/filereader';
 import {Search} from './services/search';
+import {SearchQuery} from './services/search-query';
 import {q} from './services/q';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 
@@ -53,6 +54,7 @@ mhCoreModule.provider('MainMenu', MainMenu);
 
 // Services
 mhCoreModule.service('Search', Search);
+mhCoreModule.service('SearchQuery', SearchQuery);
 mhCoreModule.service('q', q);
 mhCoreModule.service('AccountOptions', AccountOptions);
 
