@@ -4,14 +4,15 @@
   font-size: 85%;
   font-weight: 700;
   line-height: 1;
-  color: #fff;
+  color: $text-color;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-right: 3px;
-  background-color: primary-color('700');
+  background-color: background-color('300');
 }
 .status-tag {
+  color: #fff;
   background-color: accent-color('500');
 }
