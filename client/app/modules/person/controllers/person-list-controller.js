@@ -10,7 +10,7 @@ export function PersonListController(
 )  {"ngInject";
   this.allPersons = resolvePersons;
   this.query = {};
-  this.queryModel = resolveQueryModel;
+  this.queryModel = [];
   this.persons = [];
   this.editPerson = (person) => {
     $state.go('person.edit', {id: person.id});
