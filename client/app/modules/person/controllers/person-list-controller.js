@@ -5,7 +5,6 @@ export function PersonListController(
   $scope,
   $state,
   q,
-  resolveQueryModel,
   AccountOptions
 )  {"ngInject";
   this.allPersons = resolvePersons;
@@ -35,12 +34,12 @@ export function PersonListController(
     PersonEditService.delete(person)
       .then(this.reload);
   };
-  
+
   this.reload = (query) => {
     q.all(query)
       .then((resolved) => PersonService.getAllFilterd(resolved))
       .then((d) => {
-        AccountOptions.set('person_list_query', this.queryModel);
+        //AccountOptions.set('person_list_query', this.queryModel);
         this.allPersons = d;
         this.persons = [];
         this.loadMorePersons(15);
