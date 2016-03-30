@@ -4,8 +4,7 @@ export function PersonListController(
   resolvePersons,
   $scope,
   $state,
-  q,
-  AccountOptions
+  q
 )  {"ngInject";
   this.allPersons = resolvePersons;
   this.query = {};
