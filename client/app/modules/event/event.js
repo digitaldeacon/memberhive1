@@ -81,7 +81,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         templateId: null
       },
       ncyBreadcrumb: {
-        label: gettext('Event')
+        label: gettext('Create Event')
       },
       acl: {
         needRights: ['$authenticated']
@@ -107,7 +107,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.templates.html',
       data: {
-        pageSubTitle: gettext('Event Template')
+        pageSubTitle: gettext('Event Templates')
       },
       ncyBreadcrumb: {
         label: gettext('Event Template')
@@ -135,7 +135,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.view.html',
       data: {
-        pageSubTitle: gettext('Event Template')
+        pageSubTitle: gettext('View Event Template')
       },
       ncyBreadcrumb: {
         label: gettext('Event Template')

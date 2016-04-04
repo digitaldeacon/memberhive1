@@ -35,7 +35,7 @@ export var mhMainModule = angular.module('mh.main', [
   'infinite-scroll',
   'angularMoment',
   'ngRetina',
-
+  angularDragula(angular),
   'mh.core', // This needs to be loaded first
   'mh.dashboard', 'mh.person', 'mh.event', 'mh.acl',
   'mh.auth', 'mh.report', 'mh.note', 'mh.group', 'mh.config',

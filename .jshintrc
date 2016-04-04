@@ -25,6 +25,7 @@
     "moment": false,
     "System": false,
     "CodeMirror": false,
-    "configGlobal": false
+    "configGlobal": false,
+    "angularDragula": false
   }
 }

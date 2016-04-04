@@ -26,7 +26,8 @@
     "roboto-fontface": "~0.4.2",
     "iso-3166-country-codes-angular": "~1.1.1",
     "svg-morpheus": "~0.1.8",
-    "angular-retina": "^0.3.12"
+    "angular-retina": "^0.3.12",
+    "angular-dragula": "^1.2.6"
   },
   "devDependencies": {},
   "appPath": "client/app",

@@ -1,4 +1,8 @@
-export function EventTemplateController(EventTemplate, $stateParams, $state) {"ngInject";
+export function EventTemplateController(
+  EventTemplate, 
+  $stateParams, 
+  $state
+) {"ngInject";
   this.types = [
     {name: "Text", value: "text"},
     {name: "Date", value: "date"},

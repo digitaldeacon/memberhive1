@@ -15,7 +15,8 @@
   </md-button>
 </div>
 
-<div layout-gt-sm="row" class="mh-content" ng-repeat="option in ctrl.item.data" >
+<div ng-repeat="option in ctrl.item.data" >
+  <div layout-gt-sm="row" class="mh-content">
   <md-input-container >
     <label translate>Type</label>
     <md-select ng-model="option.type">
@@ -26,6 +27,7 @@
     <label translate>Label</label>
     <input ng-model="option.name">
   </md-input-container>
+  </div>
 </div>
 
 

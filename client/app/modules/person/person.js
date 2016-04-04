@@ -17,6 +17,7 @@ import {mhAvatar} from './directives/avatar-directives';
 import {mhPersonSearch} from './directives/person-search-directive';
 import {mhWidgetPersonRandom} from './widgets/random/person-random';
 import {mhWidgetPersonNextBirthdays} from './widgets/nextBirthdays/nextBirthdays';
+import {formatFacebookUrl, formatSkypeUrl, formatName, formatFirstName} from './filters/person-filters';
 
 
 export var mhPersonModule = angular.module('mh.person',
@@ -262,5 +263,10 @@ mhPersonModule.directive('mhPersonSearch', mhPersonSearch);
 
 mhPersonModule.directive('mhWidgetPersonRandom', mhWidgetPersonRandom);
 mhPersonModule.directive('mhWidgetPersonNextBirthdays', mhWidgetPersonNextBirthdays);
+
+mhPersonModule.filter('formatFacebookUrl', formatFacebookUrl);
+mhPersonModule.filter('formatSkypeUrl', formatSkypeUrl);
+mhPersonModule.filter('formatName', formatName);
+mhPersonModule.filter('formatFirstName', formatFirstName);
 
 

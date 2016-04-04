@@ -1,16 +1,15 @@
-angular.module('personFilters', [])
-  .filter('formatFacebookUrl', function() {
-    return function(item) {
+export function formatFacebookUrl() {
+   return function(item) {
       return 'https://facebook.com/'+item;
     };
-  })
-  .filter('formatSkypeUrl', function() {
-    return function(item) {
+}
+export function formatSkypeUrl() {
+  return function(item) {
       return 'skype:'+item;
     };
-  })
-  .filter('formatName', function() {
-    return function(person) {
+}
+export function formatName() {
+  return function(person) {
       var ret = person.firstName;
       if (person.middleName)
         ret += ' ' + person.middleName;
@@ -19,9 +18,9 @@ angular.module('personFilters', [])
         ret += ' (' + person.nickName + ')';
       return ret;
     };
-  })
-  .filter('formatFirstName', function() {
-    return function(person) {
+}
+export function formatFirstName() {
+  return function(person) {
       var ret = person.firstName;
       if(person.middleName)
         ret += ' ' + person.middleName;
@@ -29,4 +28,4 @@ angular.module('personFilters', [])
         ret += ' (' + person.nickName + ')';
       return ret;
     };
-  });
+}
