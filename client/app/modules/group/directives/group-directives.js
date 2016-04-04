@@ -6,7 +6,7 @@ export function mhGroupChips(GroupService) {"ngInject";
     scope: {
       ngModel: '=',
     },
-    controller: ($scope) => {
+    controller: ($scope) => {"ngInject";
       if(!$scope.ngModel) {
         $scope.ngModel= [];
       }
