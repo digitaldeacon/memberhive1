@@ -35,7 +35,10 @@
 
 
 <div id="person-container">
-    
+    <div class="mh-content" ng-if="personCtrl.persons.length == 0">
+      <h2 translate><ng-md-icon icon="info"></ng-md-icon> No Persons found</h2>
+      <translate> There are no persons in the database. You can add a person using the button at the bottom right.</translate>
+    </div>
     <md-list flex
         class="mh-content person-list"
         ng-if="personCtrl.persons.length > 0"

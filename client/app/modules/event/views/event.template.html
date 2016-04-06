@@ -1,4 +1,5 @@
-<div class="mh-content">
+<div class="mh-content" layout="column">
+  <h2 translate>General</h2>
   <md-input-container >
     <label>Template Name</label>
     <input ng-model="ctrl.item.name">
@@ -8,6 +9,7 @@
     <mh-tags ng-model="ctrl.item.tags" source="EventTemplate"></mh-tags>
   </md-input-container>
 </div>
+
 <div layout="row">
   <h3 translate>Options for the Template</h3>
   <md-button class="md-primary" ng-click="ctrl.newOption()">
@@ -15,18 +17,21 @@
   </md-button>
 </div>
 
-<div ng-repeat="option in ctrl.item.data" >
-  <div layout-gt-sm="row" class="mh-content">
-  <md-input-container >
-    <label translate>Type</label>
-    <md-select ng-model="option.type">
-      <md-option ng-repeat="type in ctrl.types" value="{{type.value}}">{{type.name}}</md-option>
-    </md-select>
-  </md-input-container>
-  <md-input-container flex>
-    <label translate>Label</label>
-    <input ng-model="option.name">
-  </md-input-container>
+<div ng-repeat="option in ctrl.item.data">
+  <div layout="column" layout-gt-xs="row" class="mh-content">
+    <md-input-container>
+      <label translate>Type</label>
+      <md-select ng-model="option.type">
+        <md-option ng-repeat="type in ctrl.types" value="{{type.value}}">{{type.name}}</md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex>
+      <label translate>Label</label>
+      <input ng-model="option.name">
+    </md-input-container>
+    <div layout-align="end center">
+      <md-button  ng-click="ctrl.deleteOption($index)"><ng-md-icon icon="delete"></ng-md-icon> <translate>Remove</translate></md-button>
+    </div>
   </div>
 </div>
 

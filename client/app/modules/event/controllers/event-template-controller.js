@@ -33,4 +33,8 @@ export function EventTemplateController(
     EventTemplate.upsert(this.item).$promise
       .then(() => $state.go("event.templates"));
   };
+  
+  this.deleteOption = (index) => {
+    this.item.data.splice(index,1);
+  };
 }

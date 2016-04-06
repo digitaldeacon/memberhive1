@@ -28,7 +28,8 @@ export function AccountOptions(
 
   this.get = (key, def = null) => {
     return this.promise.then(() => {
-      return this.account.options[key] || def;
+      if(!this.account || !this.account.options || !this.this.account.options[key]) return def;
+      return this.account.options[key];
     });
   };
 

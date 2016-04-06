@@ -1,6 +1,9 @@
-<md-list class="mh-content">
+<div class="mh-content" ng-if="groupCtrl.groups.length == 0">
+  <h2 translate><ng-md-icon icon="info"></ng-md-icon> No Groups found</h2>
+  <translate> There are no groups in the database. You can add a Groups using the button at the bottom right.</translate>
+</div>
+<md-list class="mh-content" ng-if="groupCtrl.groups.length > 0">
   <md-list-item ng-repeat="group in groupCtrl.groups">
-
     <div>
       <md-menu>
         <md-button aria-label="Open menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">

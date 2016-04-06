@@ -121,7 +121,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.html',
       data: {
-        pageSubTitle: gettext('Event Template')
+        pageSubTitle: gettext('Create Event Template')
       },
       ncyBreadcrumb: {
         label: gettext('Event Template')
