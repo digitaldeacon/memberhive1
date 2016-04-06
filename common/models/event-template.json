@@ -8,6 +8,15 @@
       "type": "string",
       "required": true
     },
+    "place" : {
+      "type": "string"
+    },
+    "startTime" : {
+      "type": "date"
+    },
+    "schedules" : {
+      "type": "array"
+    },
     "data": {
       "type": "object"
     },

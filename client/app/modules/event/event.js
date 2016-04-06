@@ -2,8 +2,10 @@ import {EventController} from './controllers/event-controller';
 import {EventsController} from './controllers/events-controller';
 import {EventTemplatesController} from './controllers/event-templates-controller';
 import {EventTemplateController} from './controllers/event-template-controller';
+import {EventTemplateScheduleController} from './controllers/event-template-schedule-controller';
 import {EventTemplateViewController} from './controllers/event-template-view-controller';
 import {EventService} from './service/event-service';
+import {EventTemplateService} from './service/event-template-service';
 
 
 export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
@@ -32,14 +34,14 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         needRights: ['$authenticated']
       },
       resolve: {
-        resolveEvents: (Event) => {
-          return Event.find().$promise;
+        resolveEvents: (EventService) => {
+          return EventService.all();
         },
-        resolveTemplates: (EventTemplate) => {
-          return EventTemplate.find().$promise;
+        resolveTemplates: (EventTemplateService) => {
+          return EventTemplateService.all();
         },
         resolveNextEvents: (resolveEvents) => {
-          return _.take(_.filter(resolveEvents, (event) => new Date(event.date) > new Date()), 10);
+          return _.take(_.filter(resolveEvents, (event) => event.date > new Date()), 10);
         }
       },
     }).state('event.edit', {
@@ -90,19 +92,19 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         resolveEvent: (EventService, $stateParams) => {
           return EventService.new($stateParams.date);
         },
-        resolveTemplates: (EventTemplate) => {
-          return EventTemplate.find();
+        resolveTemplates: (EventTemplateService) => {
+          return EventTemplateService.all();
         },
-        resolveTemplate : ($stateParams, EventTemplate) => {
+        resolveTemplate : ($stateParams, EventTemplateService) => {
           if($stateParams.templateId !== null) {
-            return EventTemplate.findById({id: $stateParams.templateId}).$promise;
+            return EventTemplateService.get($stateParams.templateId);
           }
-          return {};
+          return EventTemplateService.new();
         }
       }
     })
     .state('event.templates', {
-      url: '/list_templates',
+      url: '/templates/list',
       controller: 'EventTemplatesController',
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.templates.html',
@@ -116,7 +118,7 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         needRights: ['$authenticated']
       }
     }).state('event.template', {
-      url: '/template/:templateId',
+      url: '/template/edit/:templateId',
       controller: 'EventTemplateController',
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.html',
@@ -129,8 +131,46 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       acl: {
         needRights: ['$authenticated']
       }
+    }).state('event.newSchedule', {
+      url: '/template/schedule/new/:templateId',
+      controller: 'EventTemplateScheduleController',
+      controllerAs: 'ctrl',
+      templateUrl: 'app/modules/event/views/event.template.schedule.html',
+      data: {
+        pageSubTitle: gettext('Schedule')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Event Template')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      },
+      resolve: {
+       resolveTemplate: (EventTemplateService, $stateParams) => {
+          return EventTemplateService.get($stateParams.templateId)  ;
+        }
+      }
+    }).state('event.editSchedule', {
+      url: '/template/schedule/edit/:templateId/:index',
+      controller: 'EventTemplateScheduleController',
+      controllerAs: 'ctrl',
+      templateUrl: 'app/modules/event/views/event.template.schedule.html',
+      data: {
+        pageSubTitle: gettext('Schedule')
+      },
+      ncyBreadcrumb: {
+        label: gettext('Event Template')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      },
+      resolve: {
+        resolveTemplate: (EventTemplateService, $stateParams) => {
+          return EventTemplateService.get($stateParams.templateId);
+        }
+      }
     }).state('event.viewTemplate', {
-      url: '/viewTemplate/:templateId',
+      url: '/template/view/:templateId',
       controller: 'EventTemplateViewController',
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.view.html',
@@ -144,11 +184,11 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         needRights: ['$authenticated']
       },
       resolve : {
-        resolveTemplate: (EventTemplate, $stateParams) => {
-          return EventTemplate.findById({id: $stateParams.templateId}).$promise;
+        resolveTemplate: (EventTemplateService, $stateParams) => {
+          return EventTemplateService.get($stateParams.templateId);
         },
-        resolveEvents : (EventTemplate, $stateParams) => {
-          return EventTemplate.events({id: $stateParams.templateId}).$promise;
+        resolveEvents : (EventService, $stateParams) => {
+          return EventService.eventsByTemplate($stateParams.templateId);
         }
       }
     });
@@ -159,8 +199,11 @@ mhEventModule.controller('EventController', EventController);
 mhEventModule.controller('EventsController', EventsController);
 mhEventModule.controller('EventTemplatesController', EventTemplatesController);
 mhEventModule.controller('EventTemplateController', EventTemplateController);
+mhEventModule.controller('EventTemplateScheduleController', EventTemplateScheduleController);
 mhEventModule.controller('EventTemplateViewController', EventTemplateViewController);
 mhEventModule.service('EventService', EventService);
+mhEventModule.service('EventTemplateService', EventTemplateService);
+
 mhEventModule.constant('EventStatusOptions', {
     done : {icon: "done", color: "#87EC13"},
     open : {icon: "help", color: "#0066A5"},
@@ -168,4 +211,9 @@ mhEventModule.constant('EventStatusOptions', {
     error: {icon: "error", color: "#FF0000"},
     
   });
-
+mhEventModule.constant('EventTemplateOptions', [
+    {name: "Text", value: "text"},
+    {name: "Date", value: "date"},
+    {name: "Person", value: "person"},
+    {name: "Groups", value: "group"}
+  ]);

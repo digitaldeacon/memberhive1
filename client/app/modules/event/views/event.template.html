@@ -1,9 +1,20 @@
 <div class="mh-content" layout="column">
   <h2 translate>General</h2>
   <md-input-container >
-    <label>Template Name</label>
+    <label translate>Template Name</label>
     <input ng-model="ctrl.item.name">
   </md-input-container>
+  
+  <md-input-container >
+    <label translate>Place</label>
+    <input ng-model="ctrl.item.place">
+  </md-input-container>
+  
+  <md-input-container >
+    <label translate>Start Time</label>
+    <input ng-model="ctrl.item.startTime" type="time">
+  </md-input-container>
+  
   <md-input-container>
     <label translate>Tags</label>
     <mh-tags ng-model="ctrl.item.tags" source="EventTemplate"></mh-tags>
@@ -32,6 +43,19 @@
     <div layout-align="end center">
       <md-button  ng-click="ctrl.deleteOption($index)"><ng-md-icon icon="delete"></ng-md-icon> <translate>Remove</translate></md-button>
     </div>
+  </div>
+</div>
+
+<div layout="row">
+  <h3 translate>Schedules</h3>
+  <md-button class="md-primary" ui-sref="event.newSchedule({templateId: ctrl.item.id})">
+    <translate>Add a schedule</translate>
+  </md-button>
+</div>
+
+<div class="mh-content">
+  <div ng-repeat="schedule in ctrl.item.schedules">
+    <a ui-sref="event.editSchedule({templateId: ctrl.item.id, index: $index})"> {{schedule.name}}</a>
   </div>
 </div>
 

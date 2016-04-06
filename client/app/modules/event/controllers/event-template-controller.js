@@ -1,14 +1,11 @@
 export function EventTemplateController(
-  EventTemplate, 
+  EventTemplate,
+  EventTemplateOptions,
   $stateParams, 
   $state
 ) {"ngInject";
-  this.types = [
-    {name: "Text", value: "text"},
-    {name: "Date", value: "date"},
-    {name: "Person", value: "person"},
-    {name: "Groups", value: "group"}
-  ];
+  this.types = EventTemplateOptions;
+  
   
   if($stateParams.templateId) {
     this.item = EventTemplate.findById({id: $stateParams.templateId});

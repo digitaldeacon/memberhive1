@@ -2,7 +2,7 @@
 <div class="mh-content">
   <div layout="row">
     <h2>{{ctrl.template.name}}</h2> 
-    <md-button ui-sref="event.template({templateId: template.id})"><ng-md-icon icon="edit"></ng-md-icon> Edit</md-button>
+    <md-button ui-sref="event.template({templateId: ctrl.template.id})"><ng-md-icon icon="edit"></ng-md-icon> Edit</md-button>
   </div>
   
   <div ng-if="ctrl.events.length == 0">
