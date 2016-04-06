@@ -2,22 +2,22 @@
   <h2 translate>General</h2>
   <md-input-container >
     <label translate>Template Name</label>
-    <input ng-model="ctrl.item.name">
+    <input ng-model="ctrl.template.name">
   </md-input-container>
   
   <md-input-container >
     <label translate>Place</label>
-    <input ng-model="ctrl.item.place">
+    <input ng-model="ctrl.template.place">
   </md-input-container>
   
   <md-input-container >
     <label translate>Start Time</label>
-    <input ng-model="ctrl.item.startTime" type="time">
+    <input ng-model="ctrl.template.startTime" type="time">
   </md-input-container>
   
   <md-input-container>
     <label translate>Tags</label>
-    <mh-tags ng-model="ctrl.item.tags" source="EventTemplate"></mh-tags>
+    <mh-tags ng-model="ctrl.template.tags" source="EventTemplate"></mh-tags>
   </md-input-container>
 </div>
 
@@ -28,7 +28,7 @@
   </md-button>
 </div>
 
-<div ng-repeat="option in ctrl.item.data">
+<div ng-repeat="option in ctrl.template.data">
   <div layout="column" layout-gt-xs="row" class="mh-content">
     <md-input-container>
       <label translate>Type</label>
@@ -48,14 +48,14 @@
 
 <div layout="row">
   <h3 translate>Schedules</h3>
-  <md-button class="md-primary" ui-sref="event.newSchedule({templateId: ctrl.item.id})">
+  <md-button class="md-primary" ui-sref="event.newSchedule({templateId: ctrl.template.id})">
     <translate>Add a schedule</translate>
   </md-button>
 </div>
 
 <div class="mh-content">
-  <div ng-repeat="schedule in ctrl.item.schedules">
-    <a ui-sref="event.editSchedule({templateId: ctrl.item.id, index: $index})"> {{schedule.name}}</a>
+  <div ng-repeat="schedule in ctrl.template.schedules">
+    <a ui-sref="event.editSchedule({templateId: ctrl.template.id, index: $index})"> {{schedule.name}}</a>
   </div>
 </div>
 

@@ -130,6 +130,18 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       },
       acl: {
         needRights: ['$authenticated']
+      },
+      resolve: {
+        resolveTemplate: (EventTemplateService, $stateParams) => {
+          if($stateParams.templateId) {
+            return EventTemplateService.get($stateParams.templateId);
+          } else {
+            return {
+              name: "New Event Template",
+              data: [{name: "New Name", type: "text"}]
+            };
+          }
+        }
       }
     }).state('event.newSchedule', {
       url: '/template/schedule/new/:templateId',

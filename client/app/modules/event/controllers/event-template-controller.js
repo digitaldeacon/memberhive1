@@ -1,37 +1,23 @@
 export function EventTemplateController(
-  EventTemplate,
+  EventTemplateService,
   EventTemplateOptions,
-  $stateParams, 
+  resolveTemplate,
   $state
 ) {"ngInject";
   this.types = EventTemplateOptions;
-  
-  
-  if($stateParams.templateId) {
-    this.item = EventTemplate.findById({id: $stateParams.templateId});
-  } else {
-    this.item = {
-      name: "New Event Template",
-      data: [
-        {
-          name: "New Name",
-          type: "text"
-        }
-      ]
-    };
-  }
+  this.template = resolveTemplate;
   
   this.newOption = () => {
-    var data = {name: "New Option",type: "text"};
-    this.item.data.push(data);
+    var data = {name: "New Option", type: "text"};
+    this.template.data.push(data);
   };
   
   this.save = () => {
-    EventTemplate.upsert(this.item).$promise
+    EventTemplateService.save(this.template)
       .then(() => $state.go("event.templates"));
   };
   
   this.deleteOption = (index) => {
-    this.item.data.splice(index,1);
+    this.template.data.splice(index, 1);
   };
 }

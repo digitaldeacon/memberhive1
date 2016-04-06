@@ -18,7 +18,7 @@
       "type": "array"
     },
     "data": {
-      "type": "object"
+      "type": "array"
     },
     "tags": {
       "type": "array"
