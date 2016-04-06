@@ -158,8 +158,11 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
         needRights: ['$authenticated']
       },
       resolve: {
-       resolveTemplate: (EventTemplateService, $stateParams) => {
+        resolveTemplate: (EventTemplateService, $stateParams) => {
           return EventTemplateService.get($stateParams.templateId)  ;
+        },
+        resolveSchedule: () => {
+          return {name: "New Schedule", data: {0: {name: "First Point", type: "text"}}};
         }
       }
     }).state('event.editSchedule', {
@@ -179,6 +182,9 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       resolve: {
         resolveTemplate: (EventTemplateService, $stateParams) => {
           return EventTemplateService.get($stateParams.templateId);
+        },
+        resolveSchedule: (resolveTemplate, $stateParams) => {
+          return resolveTemplate.schedules[$stateParams.index];
         }
       }
     }).state('event.viewTemplate', {
