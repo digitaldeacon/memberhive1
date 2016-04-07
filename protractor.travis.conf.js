@@ -3,30 +3,38 @@ exports.config = {
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   capabilities: {
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER
+    
   },
   multiCapabilities: [
     {
       browserName : 'firefox',
-      platform: 'Windows 8.1'
+      platform: 'Windows 8.1',
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      'build': process.env.TRAVIS_BUILD_NUMBER
     },
     {
        browserName: 'chrome',
-       platform: 'Windows 10'
+       platform: 'Windows 10',
+       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      'build': process.env.TRAVIS_BUILD_NUMBER
     },
     {
       browserName: 'internet explorer',
-      version: '11' 
+      version: '11',
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      'build': process.env.TRAVIS_BUILD_NUMBER
     },
     {
       browserName: 'internet explorer',
-      version: '10' 
+      version: '10',
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      'build': process.env.TRAVIS_BUILD_NUMBER
     },
     {
       browserName: 'Safari',
-      platform: 'OS X 10.10',
-      version: '9' 
+      version: '9',
+      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+      'build': process.env.TRAVIS_BUILD_NUMBER
     }
   ],
 
