@@ -53,11 +53,11 @@ export var mhPersonModule = angular.module('mh.person',
         needRights: ['$authenticated']
       },
       resolve: {
-        resolvePersons: (PersonService) => {
-          return PersonService.getAllFilterd({});
+        resolvePersons: (PersonService, resolveQueryModel) => {
+          return PersonService.getAllFilterd(resolveQueryModel);
         },
         resolveQueryModel: (AccountOptions) => {
-          return AccountOptions.get('person_list_query');
+          return AccountOptions.get('person_list_query', {});
         }
       },
     }).state('person.view', {

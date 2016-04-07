@@ -1,14 +1,16 @@
 export function PersonListController(
   PersonService,
   PersonEditService,
+  AccountOptions,
   resolvePersons,
+  resolveQueryModel,
   $scope,
   $state,
   q
 )  {"ngInject";
   this.allPersons = resolvePersons;
   this.query = {};
-  this.queryModel = [];
+  this.queryModel = resolveQueryModel;
   this.persons = [];
   this.editPerson = (person) => {
     $state.go('person.edit', {id: person.id});
@@ -30,15 +32,14 @@ export function PersonListController(
   this.loadMorePersons(15);
 
   this.deletePerson = (person) => {
-    PersonEditService.delete(person)
-      .then(this.reload);
+    PersonEditService.delete(person).then(this.reload);
   };
 
   this.reload = (query) => {
     q.all(query)
       .then((resolved) => PersonService.getAllFilterd(resolved))
       .then((d) => {
-        //AccountOptions.set('person_list_query', this.queryModel);
+        AccountOptions.set('person_list_query', this.queryModel);
         this.allPersons = d;
         this.persons = [];
         this.loadMorePersons(15);
