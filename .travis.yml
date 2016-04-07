@@ -45,6 +45,7 @@ before_script:
   - sleep 2
 script:
   - gulp test
+  - gulp protractor:src:sauce
 after_success:
   - gulp build
   - ls dist/
