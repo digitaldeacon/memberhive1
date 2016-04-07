@@ -51,12 +51,14 @@ module.exports = function(options) {
         }))
         .on('error', function(e) {
           sauceConnectProcess.close(function () {
+            process.exit(-1);
             console.log("Closed Sauce Connect process");
           });
           throw e;
         })
         .on('end', function(e) {
           sauceConnectProcess.close(function () {
+            process.exit();
             console.log("Closed Sauce Connect process");
           });
         });
