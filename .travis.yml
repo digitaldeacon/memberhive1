@@ -43,9 +43,9 @@ before_script:
   - npm start &
   - sleep 2
 script:
-  - gulp build
   - gulp test
-  - ls dist/
 after_success:
+  - gulp build
+  - ls dist/
   - sh deploy.sh
 
