@@ -8,8 +8,5 @@ describe('test the dashboard', function () {
   });
 
  
-  xit('it should have a edit button', function () {
-    expect(element(by.css('[ng-click="toggleEditMode()"]')).isPresent()).toBe(true);
-  });
 
 });
