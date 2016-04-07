@@ -4,7 +4,7 @@
   <div flex>
     <mh-person-search ng-model="personCtrl.query" query-model="personCtrl.queryModel"></mh-person-search>
   </div>
-  <!--<p class="text-muted" translate>{{personCtrl.allPersons.length}} Persons found</p>-->
+  <!---->
   <md-menu width="4">
     <md-button aria-label="menu" class="md-icon-button md-action-icon-button" ng-click="$mdOpenMenu($event)">
       <ng-md-icon md-menu-origin  icon="menu"></ng-md-icon>
@@ -33,6 +33,10 @@
 </md-menu>
 </div>
 
+<div class="mh-content text-muted" ng-hide="personCtrl.query | isEmpty"> 
+  <translate>{{personCtrl.allPersons.length}} Persons found</translate>.
+   <md-button><translate>Save Search</translate></md-button>
+</div>
 
 <div id="person-container">
     <div class="mh-content" ng-if="personCtrl.persons.length == 0">
@@ -72,7 +76,7 @@
         </md-menu>
       </div>
       
-      <md-divider></md-divider>
+      <md-divider ng-if="!$last"></md-divider>
       
     </md-list-item>
     

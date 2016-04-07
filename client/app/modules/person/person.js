@@ -54,15 +54,12 @@ export var mhPersonModule = angular.module('mh.person',
       },
       resolve: {
         resolvePersons: (PersonService, resolveQuery) => {
-          console.log("resolve persons");
           return PersonService.getAllFilterd(resolveQuery);
         },
         resolveQueryModel: (AccountOptions) => {
-          console.log("resolve querymodel");
           return AccountOptions.get('person_list_query', []);
         },
         resolveQuery : (resolveQueryModel, SearchQuery, q) => {
-          console.log("resolve query");
            return q.all(SearchQuery.generateQuery(resolveQueryModel));
         }
       },

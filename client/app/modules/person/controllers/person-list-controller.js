@@ -48,8 +48,8 @@ export function PersonListController(
         this.allPersons = d;
         this.persons = [];
         this.loadMorePersons(15);
-       });
-      /*.catch((err) => {
+       })
+      .catch((err) => {
         Shout.vError(err);
         AccountOptions.set('person_list_query', []);
         return PersonService.getAllFilterd({}).then((d) => {
@@ -57,7 +57,7 @@ export function PersonListController(
           this.persons = [];
           this.loadMorePersons(15);
         });
-      });*/
+      });
   };
 
   //TODO: fix too many reloads

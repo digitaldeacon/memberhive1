@@ -19,6 +19,7 @@ import {Search} from './services/search';
 import {SearchQuery} from './services/search-query';
 import {q} from './services/q';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
+import {isEmpty} from './filters/utils';
 
 /**
  * This module holds dependencies needed by other modules including the `gem.main` module.
@@ -80,3 +81,4 @@ mhCoreModule.directive('mhTags', mhTags);
 // Filters
 mhCoreModule.filter('fromNow', fromNowFilter);
 mhCoreModule.filter('fromNowMoment', fromNowMomentFilter);
+mhCoreModule.filter('isEmpty', isEmpty);
