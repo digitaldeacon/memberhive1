@@ -103,7 +103,7 @@ export function SearchQuery(
   };
   
   this.createExternPromise = (chip) => {
-    let query = {where: {}};
+    
     /* if we could make in tranformChip externValue chips we could use this
     if(chip.blockCat === "string") {
       query.where[chip.field] = {like: chip.name};
@@ -111,11 +111,11 @@ export function SearchQuery(
       query.where[chip.field] = chip.name;
     }*/
     
+    let query = {where: {}};
     query.where[chip.field] = chip.name;
     let m = this.nameToModel(chip.model);
-    chip.name = m.find({filter: query}).$promise
+    return m.find({filter: query}).$promise
       .then((data) => _.map(data, x => x.id));
-    return chip;
   };
   
   this.parseQueryBlock = (model, query) => {
@@ -126,7 +126,7 @@ export function SearchQuery(
     model =  _.drop(model);
     
     //the first chip has to be a query or extern query chip
-    //TODO: allow here just a value?
+    //TODO: allow here just a value? I think not, we can use the general search feature for that
     if(first.cat !== "query" && first.cat !== "externQuery") {
       console.error("ist not of cat query or externQuery", first);
       return query;
@@ -150,11 +150,16 @@ export function SearchQuery(
         ret[first.name][second.name] = value.name;
       } else if(first.cat === "externQuery" && value.cat === "externValue"){
         
+        //we have to fetch data for externValue
+        if(!value.promise) {//if it was a saved queryModel, then the promise was deleted and we have to create a new one
+          value.promise = this.createExternPromise(value);
+        }
+        
         if(second.name === "neq") {
-           ret[first.name] = {nin: value.name};
+           ret[first.name] = {nin: value.promise};
         } else {
           //ignore others for now
-          ret[first.name] = {inq: value.name};
+          ret[first.name] = {inq: value.promise};
         }
       } else {
         console.error("after unary block not the right block", first, second, value);
@@ -170,7 +175,12 @@ export function SearchQuery(
       if(first.cat === "query") {
         ret[first.name] = second.name;
       } else if(first.cat === "externQuery" && second.cat === "externValue"){
-        ret[first.name] = {inq: second.name};
+        
+        if(!second.promise) {//if it was a saved queryModel, then the promise was deleted and we have to create a new one
+          second.promise = this.createExternPromise(second);
+        }
+        
+        ret[first.name] = {inq: second.promise};
       } else {
         console.error("not the right blocks", first, second);
         return {};
@@ -198,7 +208,14 @@ export function SearchQuery(
     return query;
     
   };
-  
+  this.clean = (queryModel) => {
+    _.each(queryModel, (item) => {
+      if(item.promise) {
+        delete item.promise;
+      }
+    });
+    return queryModel;
+  };
   return {
     generateQuery: this.generateQuery,
     searchQueryBlocks: this.searchQueryBlocks,
@@ -206,7 +223,8 @@ export function SearchQuery(
     searchUnaryLogicBlocks: this.searchUnaryLogicBlocks,
     searchQuery: this.searchQuery,
     searchExternQuery: this.searchExternQuery,
-    createExternPromise: this.createExternPromise
+    createExternPromise: this.createExternPromise,
+    clean: this.clean
     
   };
 }

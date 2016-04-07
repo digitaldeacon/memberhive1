@@ -7,12 +7,13 @@ export function GroupEditController(
   this.group = resolveGroup;
 
   this.save = () => {
-    GroupService.save(this.group)
+    return GroupService.save(this.group)
       .then(() => Shout.success("Group saved"),
             (err) => Shout.vError(err));
   };
   
-  this.close = () => {
-    $state.go('group.list');
+  this.saveAndClose = () => {
+    this.save().then(() => $state.go('group.list'));
   };
+  
 }

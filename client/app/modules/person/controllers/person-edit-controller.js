@@ -56,7 +56,7 @@ export function PersonEditController (
 
   this.saveAndNew = () => {
     this.save().then(
-      () => $state.go('person.create').then(() => Shout.message("You can now create a new person")),
+      () => $state.go('person.create', {}, { reload: true }).then(() => Shout.message("You can now create a new person")),
       (err) => Shout.vError(err)
     );
   };

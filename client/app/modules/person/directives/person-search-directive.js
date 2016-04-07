@@ -7,7 +7,9 @@ export function mhPersonSearch() {
       queryModel: '='
     },
     controller: function($scope, SearchQuery) {"ngInject";
-      $scope.queryModel = $scope.queryModel || [];
+      if(!angular.isArray($scope.queryModel)) {
+        $scope.queryModel = [];
+      }
       $scope.selectedItem = null;
       $scope.searchText = "";
 
@@ -60,7 +62,7 @@ export function mhPersonSearch() {
         }
         
         if(newChip.cat === "externValue") {
-          newChip = SearchQuery.createExternPromise(newChip);
+          newChip.promise = SearchQuery.createExternPromise(newChip);
         }
         
         newChip.order = this.order;
