@@ -17,11 +17,8 @@ exports.config = {
     {
       browserName: 'internet explorer',
       version: '11'
-    },
-    {
-      browserName: 'Safari',
-      version: '9'
     }
+  
   ],
 
 
