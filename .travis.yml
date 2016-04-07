@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 4.4
+  - 4.2
 sudo: false
 env:
   - CXX=g++-4.8
@@ -18,6 +18,8 @@ services:
 cache:
   directories:
     - "$HOME/.nvm"
+    - node_modules
+    - bower_components
 before_install:
   - openssl aes-256-cbc -K $encrypted_f977bfde2ef3_key -iv $encrypted_f977bfde2ef3_iv -in id_rsa.enc -out id_rsa -d
   - npm install -g bower gulp
