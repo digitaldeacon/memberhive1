@@ -8,33 +8,23 @@ exports.config = {
   multiCapabilities: [
     {
       browserName : 'firefox',
-      platform: 'Windows 8.1',
-      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      'build': process.env.TRAVIS_BUILD_NUMBER
+      platform: 'Windows 8.1'
     },
     {
        browserName: 'chrome',
-       platform: 'Windows 10',
-       'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      'build': process.env.TRAVIS_BUILD_NUMBER
+       platform: 'Windows 10'
     },
     {
       browserName: 'internet explorer',
-      version: '11',
-      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      'build': process.env.TRAVIS_BUILD_NUMBER
+      version: '11'
     },
     {
       browserName: 'internet explorer',
-      version: '10',
-      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      'build': process.env.TRAVIS_BUILD_NUMBER
+      version: '10'
     },
     {
       browserName: 'Safari',
-      version: '9',
-      'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-      'build': process.env.TRAVIS_BUILD_NUMBER
+      version: '9'
     }
   ],
 
