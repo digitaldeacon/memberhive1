@@ -4,6 +4,11 @@ node_js:
 sudo: false
 env:
   - CXX=g++-4.8
+  global:
+    - SAUCE_USERNAME=metaxy
+    - SAUCE_ACCESS_KEY:
+      secure: "L8/FExktFJeQoiFnMu3xtGiyDpbn6o5a8YuAM4RNdyelWKHuN6t99tobZIAPRvQMNRS9MSX+f+TypORtz1i6cEIjUxregRiGvDX9FHFIfu+uJ+7uce+2JpTCcylZO6nLv1POokDjGq6Aofgf/ti74NhTdpjbme3/7sD6vnzl5jj5PFkVPgaQqYVCKP1Cntt4oGnq1aMeZiFpuSsspQRonL8HFIJOT59C7IVOzlD6AZW0PJMHEz7cFFRWadgkluQVpyHU3fZcb5nvwozNdhGHLi3uBUNQYidAzF0rHZQvJQsSOkrPrwkEoVLgCtrQiKg68ukKU/JYd1AAQTl6ORdr1GeiJdyz1pMpHGLgCRGUgBSpn9KJRNMHo8G/3ugS+0eJwyJ8BiVh0fsaMzqu5LWR9WADkYn20LtQIPyxyM/s73dLUhRPCwFqrkLymSpyR0ze8N9dse+CeNrzsPbJRbiso0kJRRjnYdZ1I7IBzJ67ZW+4wBEVnzMpJzQCLxLL4shHPdU2kc8LQJnWfs3ogvJMftmxV6Zh9YTn+HHKzu9Fl43UUmcnaAMv/Sd48RswX4xR+OrIEfr1ZAw7lG8pgcGu0kUroBx7K4QLsJVIgv0oBeGf3IoaQ2SEmUH6VeljiYJN8O3fnSPc672UAD215COnDEbgHSnQzqE5pYJoZ6bLQos="
+
 branches:
   only:
     - master
