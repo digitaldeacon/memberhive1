@@ -15,7 +15,7 @@ module.exports = function(options) {
 
     gulp.src(options.e2e + '/**/*.js')
       .pipe($.protractor.protractor({
-        configFile: gutil.env.ci ? 'protractor.travis.conf.js' : 'protractor.conf.js' 
+        configFile: process.env.TRAVIS ? 'protractor.travis.conf.js' : 'protractor.conf.js' 
       }))
       .on('error', function (err) {
         // Make sure failed tests cause gulp to exit non-zero
