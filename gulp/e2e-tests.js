@@ -33,7 +33,7 @@ module.exports = function(options) {
   gulp.task('protractor:dist', ['serve:e2e-dist', 'webdriver-update'], runProtractor);
   
   // connects to saucelabs server and runs protractor e2e tests against saucelabs server
-  gulp.task('protractor:src:sauce', ['serve:e2e'],, function() {
+  gulp.task('protractor:src:sauce', ['serve:e2e'], function() {
     sauceConnectLauncher({
       username: process.env.SAUCE_USERNAME,
       accessKey:  process.env.SAUCE_ACCESS_KEY,
