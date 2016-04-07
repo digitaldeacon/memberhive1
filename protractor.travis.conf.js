@@ -8,16 +8,25 @@ exports.config = {
   },
   multiCapabilities: [
     {
-      browserName : 'firefox'
+      browserName : 'firefox',
+      platform: 'Windows 8.1'
     },
     {
-       browserName: 'chrome'
+       browserName: 'chrome',
+       platform: 'Windows 10'
     },
     {
-        browserName: 'internet explorer',
+      browserName: 'internet explorer',
+      version: '11' 
     },
     {
-        browserName: 'Safari',
+      browserName: 'internet explorer',
+      version: '10' 
+    },
+    {
+      browserName: 'Safari',
+      platform: 'OS X 10.10',
+      version: '9' 
     }
   ],
 
