@@ -4,8 +4,13 @@ export function PersonExportPDFController(
   mhConfig,
   $window,
   $http,
-  $rootScope
+  $rootScope,
+  q
 ) {"ngInject";
+  
+  this.query = {};
+  this.queryModel = [];
+  
   this.url = mhConfig.apiUrl + '/Persons/exportPDF';
 
   this.options = AccountOptions.get('person-export-pdf-options',
@@ -14,8 +19,7 @@ export function PersonExportPDFController(
     }
   );
 
-  this.getPDF = (groups, status, tags) => {
-    console.log(this.options);
+  this.getPDF = () => {
     var url = location.protocol+"//"+location.hostname;
     if(location.port)
       url += ":"+location.port;
@@ -39,15 +43,13 @@ export function PersonExportPDFController(
       access_token: $rootScope.accessToken,
       css: url,
       apiBase: apiUrl,
-      filter: {
-        groups: _.map(groups, (g) => g.id),
-        status: status,
-        tags: tags
-      },
       options: angular.toJson(this.options)
     };
-    $window.open(mhConfig.apiUrl+'/Persons/exportPDF?'+jQuery.param(params),"_blank");
-    AccountOptions.set('person-export-pdf-options', this.options);
+    q.all(this.query).then((resolved) => {
+      params.filter = resolved;
+      $window.open(mhConfig.apiUrl+'/Persons/exportPDF?'+jQuery.param(params),"_blank");
+      AccountOptions.set('person-export-pdf-options', this.options);
+    });
   };
 
 }

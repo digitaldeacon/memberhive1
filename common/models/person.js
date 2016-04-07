@@ -185,10 +185,10 @@ module.exports = function(Person) {
     }
   );
 
-  Person.exportVCard = function(groups, tags, status, cb) {
-    Person.find(Person.buildWhereFiler(groups, tags, status), function(err, persons) {
+  Person.exportVCard = function(filter, cb) {
+    Person.find({where: filter}, (err, persons) => {
       let ret = [];
-      _.each(persons, function(person) {
+      _.each(persons, (person) => {
         ret.push(Person.toVCard(person).getFormattedString());
       });
       cb(err, ret);
@@ -200,16 +200,8 @@ module.exports = function(Person) {
     {
       accepts: [
         {
-          arg: 'groups',
-          type: 'array'
-        },
-        {
-          arg: 'tags',
-          type: 'array'
-        },
-        {
-          arg: 'status',
-          type: 'array'
+          arg: 'filter',
+          type: 'object'
         }
       ],
       returns: {
@@ -220,7 +212,7 @@ module.exports = function(Person) {
     }
   );
 
-  Person.exportCSV = function(cb) {
+  Person.exportCSV = function(filter, cb) {
     var fields = ["firstName", "lastName", "middleName",
     "nickName", "prefix", "suffix",
     "gender",
@@ -249,7 +241,7 @@ module.exports = function(Person) {
       value: row => row.status ? row.status.join(", ") : ""
     }
     ];
-    Person.find({include: ["groups"]}, (err, persons) => {
+    Person.find({include: ["groups"], where: filter}, (err, persons) => {
       json2csv({ data: _.map(persons, t => t.toJSON()), fields: fields}, (err, csv) => {
         cb(err, csv);
       });
@@ -259,7 +251,12 @@ module.exports = function(Person) {
   Person.remoteMethod(
     'exportCSV',
     {
-
+      accepts: [
+        {
+          arg: 'filter',
+          type: 'object'
+        }
+      ],
       returns: {
         arg: 'csv',
         type: 'string'
@@ -358,6 +355,7 @@ module.exports = function(Person) {
     }
   );
   Person.exportPDF = function(css, apiBase, filter, options,res, cb) {
+    filter = filter || {};
     let footer = "<div style='text-align: center; font-size: 10px'>{#pageNum}</div>";
     
     if(options.cover) {
@@ -370,13 +368,11 @@ module.exports = function(Person) {
     }
     
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
-    filter = filter || {};
-    let pfilter = Person.buildWhereFiler(filter.groups, filter.tags, filter.status);
-    pfilter.include = ['groups'];
+    
     Person.find({},(err, allPersons) => {
 
     Person.find(
-      pfilter,
+      {include: ['groups'], where: filter},
       (err, persons) => {
         let pdf = new Pdf(Person, apiBase);
         fs.readFile('common/templates/person.export.pdf.html', 'utf8', function (err, template) {
@@ -409,22 +405,7 @@ module.exports = function(Person) {
     });
 
   }
-  Person.buildWhereFiler = (groups, tags, status) => {
-    groups = groups || [];
-    tags = tags || [];
-    status = status || [];
-    var ret = {where: {}};
-    if(groups.length > 0) {
-      ret.where.groupIds = {inq: groups};
-    }
-    if(tags.length > 0) {
-      ret.where.tags = {inq: tags};
-    }
-    if(status.length > 0) {
-      ret.where.status = {inq: status};
-    }
-    return ret;
-  }
+
   Person.groupByHousehold = (allPersons, persons) => {
     allPersons = _.map(allPersons, p => p.toJSON());
     persons = _.map(persons, p => p.toJSON());

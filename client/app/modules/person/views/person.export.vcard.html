@@ -4,20 +4,7 @@
   <p translate> You can use the resulting file to import in Google, iCloud and many more.</p>
   
   <div layout="column">
-    <md-input-container>
-      <label translate>Filter by Status</label>
-      <mh-person-status ng-model="status"></mh-person-status>
-    </md-input-container>
-    
-    <md-input-container>
-      <label translate>Filter by Tag</label>
-      <mh-person-tags ng-model="tag"></mh-person-tags>
-    </md-input-container>
-    
-    <md-input-container>
-      <label translate>Filter by Group</label>
-      <mh-person-group ng-model="groups"></mh-person-group>
-    </md-input-container>
+   <mh-person-search ng-model="personCtrl.query" query-model="personCtrl.queryModel"></mh-person-search>
   </div>
   
   <md-button class="md-primary md-raised" ng-click="personCtrl.getAllVCard()">

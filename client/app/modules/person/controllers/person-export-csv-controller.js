@@ -1,12 +1,20 @@
 import {saveAs} from "../../../scripts/FileSaver.min";
 
-export function PersonExportCSVController(Person) {"ngInject";
+export function PersonExportCSVController(
+  Person,
+  q
+) {"ngInject";
+  this.query = {};
+  this.queryModel = [];
+
   this.getAllCSV = () => {
-    Person.exportCSV().$promise.then(
-      (data) => {
-        var file = new Blob([data.csv], { type: 'text/csv' });
-        saveAs(file, "export.csv");
-      }
-    );
+    q.all(this.query).then((resolved) => {
+      Person.exportCSV({filter: resolved}).$promise.then(
+        (data) => {
+          var file = new Blob([data.csv], { type: 'text/csv' });
+          saveAs(file, "export.csv");
+        }
+      );
+    });
   };
 }
