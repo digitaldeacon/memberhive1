@@ -1,10 +1,11 @@
 'use strict';
 
-describe('group.list', () => {
+describe('menu', () => {
   var page;
 
   beforeEach(() => {
     browser.get('#/');
+    browser.driver.sleep(1000);
   });
 
  
