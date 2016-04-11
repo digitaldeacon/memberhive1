@@ -4,7 +4,7 @@
   "base": "MhBase",
   "idInjection": true,
   "scope" : {
-    "order": "lastName",
+    "order": "lastName"
   },
   "properties": {
     "firstName": {
