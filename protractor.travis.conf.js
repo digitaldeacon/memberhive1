@@ -13,7 +13,19 @@ exports.config = {
     },
     {
       browserName: 'internet explorer',
-      version: '11'
+      version: '11',
+      platform: 'Windows 10'
+    },
+    {
+      platformName: 'iOS',
+      platformVersion: '9.2',
+      deviceName: 'iPad Simulator',
+      browserName: 'safari'
+    },
+     {
+      browserName: 'safari',
+      version: '9',
+      platform: 'mac os x 10.11'
     }
   
   ],
