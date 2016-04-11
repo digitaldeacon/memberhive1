@@ -73,6 +73,8 @@
     "node-sass": "^3.4.2",
     "nodemon": "^1.9.1",
     "onesky": "^0.1.6",
+    "protractor": "^3.2.2",
+    "protractor-console": "^2.0.0",
     "require-dir": "^0.3.0",
     "sauce-connect-launcher": "^0.14.0",
     "shelljs": "^0.6.0",
