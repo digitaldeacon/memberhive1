@@ -12,11 +12,6 @@ exports.config = {
   
   baseUrl : "http://localhost:9000/",
   
-  plugins: [{
-    package: 'protractor-console',
-    logLevels: ['severe']
-  }],
-  
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
     showColors: true,
