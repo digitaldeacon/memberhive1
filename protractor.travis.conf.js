@@ -10,13 +10,7 @@ exports.config = {
     {
        browserName: 'chrome',
        platform: 'Windows 10'
-    },
-    {
-      browserName: 'safari',
-      version: '9',
-      platform: 'mac os x 10.11'
     }
-  
   ],
 
 
