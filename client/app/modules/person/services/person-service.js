@@ -89,11 +89,9 @@ export function PersonService(
     if(!jQuery.isEmptyObject(where)) {
       filter.where = where;
     }
-    
+    filter.include = ['household'];
     return Person.find({
-      filter: filter, 
-      include: ['household'], 
-      order: 'lastName ASC'
+      filter: filter
     }).$promise
       .then(this.mapPersons);
   };
@@ -130,7 +128,6 @@ export function PersonService(
         filter: {
           limit: $rootScope.gemConfig.pagination.pageSize,
           offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
-          order: 'lastName ASC',
           include: [
             'account',
             'household'

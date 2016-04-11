@@ -3,6 +3,9 @@
   "plural": "Persons",
   "base": "MhBase",
   "idInjection": true,
+  "scope" : {
+    "order": "lastName",
+  },
   "properties": {
     "firstName": {
       "type": "string",
