@@ -297,7 +297,7 @@ module.exports = function(Person) {
         v.anniversary = new Date(person.dates.anniversary);
 
       if(person.dates.birthday)
-        v.birthday = new Date(person.dates.birthdate);
+        v.birthday = new Date(person.dates.birthday);
     }
 
     if(person.address) {
