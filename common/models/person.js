@@ -282,13 +282,13 @@ module.exports = function(Person) {
     if(person.suffix)
       v.nameSuffix = person.suffix;
 
-    if(person.contact) {
-      if(person.contact.work)
-        v.workPhone = person.contact.work;
-      if(person.contact.mobile)
-        v.cellPhone = person.contact.mobile;
-      if(person.contact.home)
-        v.homePhone = person.contact.home;
+    if(person.contacts) {
+      if(person.contacts.work)
+        v.workPhone = person.contacts.work;
+      if(person.contacts.mobile)
+        v.cellPhone = person.contacts.mobile;
+      if(person.contacts.home)
+        v.homePhone = person.contacts.home;
     }
 
     v.gender = person.gender;
