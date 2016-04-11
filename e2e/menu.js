@@ -5,32 +5,36 @@ describe('menu', () => {
 
   beforeEach(() => {
     browser.get('#/');
-    browser.driver.sleep(1000);
+    
+    element(by.id('mh-toogle-menu')).isDisplayed().then(isVisible => {
+      if (isVisible) 
+        browser.findElement(by.id('mh-toogle-menu')).click();
+    });
   });
 
  
-  xit('it should redirect to the dashboard', () => {
+  it('it should redirect to the dashboard', () => {
     browser.findElement(by.css('[ui-sref="dashboard"]')).click();
     expect(browser.getCurrentUrl()).toContain("dashboard");
   });
   
-  xit('it should redirect to the persons', () => {
+  it('it should redirect to the persons', () => {
     browser.findElement(by.css('[ui-sref="person.list"]')).click();
     expect(browser.getCurrentUrl()).toContain("person/list");
   });
   
     
-  xit('it should redirect to the events', () => {
+  it('it should redirect to the events', () => {
     browser.findElement(by.css('[ui-sref="event.list"]')).click();
     expect(browser.getCurrentUrl()).toContain("event/list");
   });
   
-  xit('it should redirect to the notes', () => {
+  it('it should redirect to the notes', () => {
     browser.findElement(by.css('[ui-sref="note.list"]')).click();
     expect(browser.getCurrentUrl()).toContain("note/list");
   });
   
-  xit('it should redirect to the groups', () => {
+  it('it should redirect to the groups', () => {
     browser.findElement(by.css('[ui-sref="group.list"]')).click();
     expect(browser.getCurrentUrl()).toContain("group/list");
   });

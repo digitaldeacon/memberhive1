@@ -1,11 +1,10 @@
 'use strict';
+var tools = require('./tools');
 
 describe('test the dashboard', function () {
   var page;
 
-  beforeEach(function () {
-    browser.get('#/dashboard');
-  });
+  afterEach(tools.noLogErrors);
   
   afterEach(function() {
     browser.manage().logs().get('browser').then(function(browserLog) {

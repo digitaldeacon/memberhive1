@@ -1,17 +1,12 @@
 'use strict';
-
+var tools = require('../tools');
 describe('person.list', function () {
   var page;
 
   beforeEach(function () {
     browser.get('#/person/list');
   });
-
-  afterEach(function() {
-    browser.manage().logs().get('browser').then(function(browserLog) {
-      expect(browserLog.length).toEqual(0);
-    });
-  });
+  afterEach(tools.noLogErrors);
   
   it('fab button should redirect to person/create', function () {
     browser.findElement(by.css('.md-fab')).click();

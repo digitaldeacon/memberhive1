@@ -1,4 +1,5 @@
 'use strict';
+var tools = require('../tools');
 
 describe('event.list', () => {
   var page;
@@ -7,12 +8,7 @@ describe('event.list', () => {
     browser.get('#/event/list');
   });
   
-  afterEach(function() {
-    browser.manage().logs().get('browser').then((browserLog) => {
-      console.log(browserLog);
-      expect(browserLog.length).toEqual(0);
-    });
-  });
+  afterEach(tools.noLogErrors);
  
   it('it should have an fab button', function () {
     expect(element(by.css('.md-fab')).isPresent()).toBe(true);

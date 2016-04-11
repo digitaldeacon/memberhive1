@@ -1,5 +1,5 @@
 'use strict';
-
+var tools = require('../tools');
 describe('group.list', () => {
   var page;
 
@@ -7,11 +7,7 @@ describe('group.list', () => {
     browser.get('#/group/list');
   });
   
-  afterEach(function() {
-    browser.manage().logs().get('browser').then(function(browserLog) {
-      expect(browserLog.length).toEqual(0);
-    });
-  });
+  afterEach(tools.noLogErrors);
  
   it('it should have an fab button', () => {
     expect(element(by.css('.md-fab')).isPresent()).toBe(true);

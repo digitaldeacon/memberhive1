@@ -2,9 +2,6 @@
 exports.config = {
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
-  capabilities: {
-    
-  },
   multiCapabilities: [
     {
       browserName : 'firefox',
@@ -42,8 +39,6 @@ exports.config = {
     browser.findElement(by.css('.md-button')).click();
 
     // Login takes some time, so wait until it's done.
-    // For the test app's login, we know it's done when it redirects to
-    // index.html.
     return browser.wait(function() {
       return browser.getCurrentUrl().then(function(url) {
         return /dashboard/.test(url);
