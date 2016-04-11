@@ -11,7 +11,6 @@ export function PersonListController(
   $state,
   q
 )  {"ngInject";
-  console.log("resolvePersons", resolvePersons);
   this.allPersons = resolvePersons;
   this.query = resolveQuery;
   this.queryModel = resolveQueryModel;
@@ -40,7 +39,6 @@ export function PersonListController(
   };
 
   this.reload = (query) => {
-    console.log("reload", query);
     q.all(query)
       .then((resolved) => PersonService.getAllFilterd(resolved))
       .then((d) => {

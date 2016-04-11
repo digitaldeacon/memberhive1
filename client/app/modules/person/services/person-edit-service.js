@@ -40,7 +40,6 @@ export function PersonEditService(
   this.transformBack = (person) => {
     //remove all time information because it is a date
     person.dates = _.mapValues(person.dates, (d) => {
-      console.log("transform", d);
       return d;
       /*console.log("pre to string", d);
       if(d instanceof Date) {

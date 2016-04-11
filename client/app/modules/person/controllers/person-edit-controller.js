@@ -96,10 +96,8 @@ export function PersonEditController (
         key = availableKeys[0];
       }
     }
-    console.log(data, key);
     data[key] = "";
     this.person[valName] = data;
-    console.log(this.person);
   };
 
 

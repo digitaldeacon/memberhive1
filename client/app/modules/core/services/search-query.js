@@ -98,7 +98,6 @@ export function SearchQuery(
       
   this.generateQuery = (model) => {
     let query = this.parseQueryBlock(model, {});
-    console.log("resulting query", query);
     return query;
   };
   

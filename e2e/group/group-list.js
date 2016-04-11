@@ -6,7 +6,12 @@ describe('group.list', () => {
   beforeEach(() => {
     browser.get('#/group/list');
   });
-
+  
+  afterEach(function() {
+    browser.manage().logs().get('browser').then(function(browserLog) {
+      expect(browserLog.length).toEqual(0);
+    });
+  });
  
   it('it should have an fab button', () => {
     expect(element(by.css('.md-fab')).isPresent()).toBe(true);

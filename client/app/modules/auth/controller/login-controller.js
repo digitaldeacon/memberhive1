@@ -2,7 +2,6 @@ export function LoginController (Account, $state, MhAcl, Shout, gettextCatalog, 
 
   this.rememberMe = true;
   this.login = () => {
-    console.log("login");
     Account.login(
       {rememberMe: this.rememberMe},
       {username: this.username, password: this.password}
