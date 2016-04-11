@@ -8,7 +8,8 @@ describe('event.list', () => {
   });
   
   afterEach(function() {
-    browser.manage().logs().get('browser').then(function(browserLog) {
+    browser.manage().logs().get('browser').then((browserLog) => {
+      console.log(browserLog);
       expect(browserLog.length).toEqual(0);
     });
   });
