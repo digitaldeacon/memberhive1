@@ -6,7 +6,7 @@ exports.noLogErrors = () => {
       let severWarnings = false;
 
       for(i; i < browserLog.length; i++){
-        if(browserLog[i].level.name === 'SEVERE'){
+        if(browserLog[i].level.name === 'SEVERE' && !browserLog[i].message.includes("WebSocket connection to")){
           console.log('(Possibly exception) \n' + browserLog[i].message);
           severWarnings = true;
         }
