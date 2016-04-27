@@ -19,16 +19,11 @@ import {mhWidgetPersonRandom} from './widgets/random/person-random';
 import {mhWidgetPersonNextBirthdays} from './widgets/nextBirthdays/nextBirthdays';
 import {formatFacebookUrl, formatSkypeUrl, formatName, formatFirstName} from './filters/person-filters';
 
+import './controllers/person-export-controller';
 
-export var mhPersonModule = angular.module('mh.person',
-  [
-    'ngFileUpload',
-    'uiGmapgoogle-maps',
-    'mh.core',
-    'mh.address',
-    'mh.config'
-  ])
-.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMapApiProvider) => {
+var mhPersonModule = angular.module('mh.person');
+
+mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMapApiProvider) => {
     $stateProvider.state('person', {
       url: '/person',
       template: '<ui-view/>',
@@ -45,9 +40,6 @@ export var mhPersonModule = angular.module('mh.person',
       data: {
         pageTitle: gettext('Persons'),
         pageSubTitle: gettext('Create and edit Persons')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Persons')
       },
       acl: {
         needRights: ['$authenticated']
@@ -94,10 +86,6 @@ export var mhPersonModule = angular.module('mh.person',
       data: {
         pageSubTitle: gettext('Create a Person')
       },
-      ncyBreadcrumb: {
-        label: gettext('New Person'),
-        parent: 'person'
-      },
       acl: {
         needRights: ['$authenticated']
       },
@@ -115,10 +103,6 @@ export var mhPersonModule = angular.module('mh.person',
       data: {
         pageSubTitle: gettext('Edit a Person')
       },
-      ncyBreadcrumb: {
-        label: gettext('Edit Person'),
-        parent: 'person'
-      },
       acl: {
         needRights: ['$authenticated']
       },
@@ -133,25 +117,24 @@ export var mhPersonModule = angular.module('mh.person',
       data: {
         pageSubTitle: gettext('Import Persons')
       },
-      ncyBreadcrumb: {
-        label: gettext('Import'),
-        parent: 'person'
-      },
       acl: {
         needRights: ['$authenticated']
       }
     }).state('person.export', {
       url: '/export',
       templateUrl: 'app/modules/person/views/person.export.html',
+      controller: 'PersonExportController',
+      controllerAs: 'exportCtrl',
       data: {
         pageSubTitle: gettext('Export Persons')
       },
-      ncyBreadcrumb: {
-        label: gettext('Export'),
-        parent: 'person'
-      },
       acl: {
         needRights: ['$authenticated']
+      },
+      resolve: {
+        resolveQueryModel: (AccountOptions) => {
+          return AccountOptions.get('person_list_query', []);
+        }
       }
     }).state('person.households', {
       url: '/households',

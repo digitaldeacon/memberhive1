@@ -2,8 +2,8 @@
   <h2 translate> PDF Export </h2>
   <p translate> You can download all the contacts saved in Memberhive as a PDF.</p>
   <div layout="column">
-    <mh-person-search ng-model="personCtrl.query" query-model="personCtrl.queryModel"></mh-person-search>
-    
+    <mh-person-search ng-model="personCtrl.query" query-model="exportCtrl.queryModel"></mh-person-search>
+
     <md-switch ng-model="personCtrl.options.cover" aria-label="Generate Cover">
       <translate>Include Cover</translate>
     </md-switch>

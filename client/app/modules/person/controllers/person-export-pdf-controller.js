@@ -7,10 +7,10 @@ export function PersonExportPDFController(
   $rootScope,
   q
 ) {"ngInject";
-  
+
   this.query = {};
-  this.queryModel = [];
-  
+  this.queryModel = AccountOptions.get('person_list_query', []);
+
   this.url = mhConfig.apiUrl + '/Persons/exportPDF';
 
   this.options = AccountOptions.get('person-export-pdf-options',

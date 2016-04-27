@@ -22,7 +22,7 @@ export function PersonExportVCardController(
               file += 1;
             }
           });
-          
+
           for(let i = 0; i < files.length; i++) {
             let blob = new Blob([files[i]], { type: 'text/vcard' });
             saveAs(blob, "export"+i+".vcard");

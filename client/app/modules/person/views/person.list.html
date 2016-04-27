@@ -28,14 +28,18 @@
         <translate> Households </translate>
       </md-button>
     </md-menu-item>
-   
+
   </md-menu-content>
 </md-menu>
 </div>
 
-<div class="mh-content text-muted" ng-hide="personCtrl.query | isEmpty"> 
-  <translate>{{personCtrl.allPersons.length}} Persons found</translate>.
-   <md-button><translate>Save Search</translate></md-button>
+<div class="mh-content text-muted" ng-hide="personCtrl.query | isEmpty">
+  <div layout="row">
+    <translate>{{personCtrl.allPersons.length}} Persons found</translate>.
+    <md-button ui-sref="person.list"><translate>Save Search</translate></md-button>
+    <md-button ui-sref="person.export"><translate>Export</translate></md-button>
+    <md-button ui-sref="person.export"><translate>Send Message</translate></md-button>
+  </div>
 </div>
 
 <div id="person-container">
@@ -75,11 +79,11 @@
           </md-menu-content>
         </md-menu>
       </div>
-      
+
       <md-divider ng-if="!$last"></md-divider>
-      
+
     </md-list-item>
-    
+
   </md-list>
 </div>
 <a ui-sref="person.create">
