@@ -40,7 +40,7 @@ export function Shout($mdToast) {"ngInject";
             class: 'toast-success'
           },
           position: 'top right',
-          hideDelay: 30000,
+          hideDelay: 3000,
           controller: 'ShoutController',
           bindToController: true,
           controllerAs: 'ctrl'
