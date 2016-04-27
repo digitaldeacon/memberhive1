@@ -5,7 +5,6 @@ export function PersonExportCSVController(
   q
 ) {"ngInject";
   this.query = {};
-  this.queryModel = [];
 
   this.getAllCSV = () => {
     q.all(this.query).then((resolved) => {

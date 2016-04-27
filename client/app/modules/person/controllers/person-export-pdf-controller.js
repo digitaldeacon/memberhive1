@@ -9,7 +9,6 @@ export function PersonExportPDFController(
 ) {"ngInject";
 
   this.query = {};
-  this.queryModel = AccountOptions.get('person_list_query', []);
 
   this.url = mhConfig.apiUrl + '/Persons/exportPDF';
 

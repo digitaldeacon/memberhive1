@@ -5,7 +5,6 @@ export function PersonExportVCardController(
   q
 ) {"ngInject";
   this.query = {};
-  this.queryModel = [];
 
   this.getAllVCard = () => {
     q.all(this.query).then((resolved) => {
