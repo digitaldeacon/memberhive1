@@ -3,6 +3,8 @@ import './translations/en/en';
 import './translations/de/de';
 import './scripts/lb-services';
 
+import './modules/modules';
+
 import './modules/core/core';
 import './scripts/config';
 import './modules/dashboard/dashboard';
@@ -13,8 +15,8 @@ import './modules/auth/acl';
 import './modules/note/note';
 import './modules/group/group';
 import './modules/report/report';
-import './modules/calendar/calendar';
 import './modules/event/event';
+import './modules/settings/settings';
 
 /**
  * The main app module.
@@ -38,28 +40,28 @@ export var mhMainModule = angular.module('mh.main', [
   angularDragula(angular),
   'mh.core', // This needs to be loaded first
   'mh.dashboard', 'mh.person', 'mh.event', 'mh.acl',
-  'mh.auth', 'mh.report', 'mh.note', 'mh.group', 'mh.config',
+  'mh.auth', 'mh.report', 'mh.note', 'mh.group', 'mh.settings',
   ]
 );
 
 mhMainModule.config((
-  cfpLoadingBarProvider, 
-  mhConfig, 
-  LoopBackResourceProvider, 
-  $mdDateLocaleProvider, 
+  cfpLoadingBarProvider,
+  mhConfig,
+  LoopBackResourceProvider,
+  $mdDateLocaleProvider,
   moment,
-  $stateProvider, 
-  $urlRouterProvider, 
+  $stateProvider,
+  $urlRouterProvider,
   $mdThemingProvider
   ) => {
-    
+
   cfpLoadingBarProvider.includeSpinner = false;
   if(!mhConfig.apiUrl) {
     console.error("API URL not definied");
   } else {
     LoopBackResourceProvider.setUrlBase(mhConfig.apiUrl);
   }
-  
+
   $mdDateLocaleProvider.parseDate = (dateString) => {
     var m = moment(dateString, 'l', true);
     return m.isValid() ? m.toDate() : new Date(NaN);
@@ -67,10 +69,10 @@ mhMainModule.config((
   $mdDateLocaleProvider.formatDate = (date) => {
     return moment(date).format('l');
   };
-  
+
   $urlRouterProvider.otherwise('/dashboard');
   $urlRouterProvider.when('', '/dashboard');
-  
+
   //main color is: #F8922F
   //complementär: #0085AB
   //Generator for palettes http://knizia.biz/mcg/
@@ -107,9 +109,9 @@ mhMainModule.config((
 });
 
 mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAuth, gettextCatalog, amMoment, $window) => {
-  
-  
-   
+
+
+
   $rootScope.$state = $state; // state to be accessed from view
   $rootScope.accessToken = LoopBackAuth.accessTokenId;
 
@@ -117,8 +119,8 @@ mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAu
   MhAcl.setRightsPromise(p);
   $rootScope.acl = MhAcl;
   $rootScope.options = AccountOptions;
-  
-  
+
+
   // Set up languages
   let locales = {
     'en': {
@@ -132,7 +134,7 @@ mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAu
       name: gettextCatalog.getString('German')
     }
   };
-  
+
   let DEFAULT_LANG = 'de';
   let lang = $window.navigator.language || $window.navigator.userLanguage || DEFAULT_LANG;
   var locale = locales[lang] || locales[DEFAULT_LANG];
@@ -140,5 +142,5 @@ mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAu
   gettextCatalog.setCurrentLanguage(locale.lang);
   $window.moment.locale(locale.lang);
   amMoment.changeLocale(locale.lang);
-  
+
 });

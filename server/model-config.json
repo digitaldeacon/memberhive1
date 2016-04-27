@@ -15,6 +15,10 @@
     "dataSource": "db",
     "public": true
   },
+  "Settings": {
+    "dataSource": "db",
+    "public": true
+  },
   "RoleMapping": {
     "dataSource": "db",
     "public": true

@@ -1,0 +1,12 @@
+{
+  "name": "Settings",
+  "base": "MhBase",
+  "properties": {
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+
+  ],
+  "methods": []
+}

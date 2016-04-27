@@ -14,6 +14,7 @@ export function SidebarController (
     {label: gettext('Calendar'), icon: "today", route: "event.list"},
     {label: gettext('Notes'), icon: "note_add", route: "note.list"},
     {label: gettext('Groups'), icon: "people_outline", route: "group.list"},
+    {label: gettext('Settings'), icon: "settings", route: "settings.site"},
   ];
 
   this.closeMenu = () => {
