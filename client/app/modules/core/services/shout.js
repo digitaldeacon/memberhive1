@@ -3,53 +3,95 @@ export function Shout($mdToast) {"ngInject";
   return {
     message: (msg, icon='info') => {
       $mdToast.show({
-          template: `<md-toast class="toast-message" ng-click="closeToast()"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          templateUrl: 'app/modules/core/templates/shout.html',
+          locals : {
+            icon: icon,
+            msg: msg,
+            class: 'toast-info'
+          },
           position: 'top right',
           hideDelay: 3000,
-          controller: 'ShoutController'
+          controller: 'ShoutController',
+          bindToController: true,
+          controllerAs: 'ctrl'
       });
     },
     info: (msg, icon='info') => {
       $mdToast.show({
-          template: `<md-toast class="toast-info" ng-click="closeToast()"><ng-md-icon icon="${icon}" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          templateUrl: 'app/modules/core/templates/shout.html',
+          locals : {
+            icon: icon,
+            msg: msg,
+            class: 'toast-info'
+          },
           position: 'top right',
           hideDelay: 3000,
-          controller: 'ShoutController'
+          controller: 'ShoutController',
+          bindToController: true,
+          controllerAs: 'ctrl'
       });
     },
     success: (msg) => {
       $mdToast.show({
-          template: `<md-toast class="toast-success" ng-click="closeToast()"><ng-md-icon icon="check" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          templateUrl: 'app/modules/core/templates/shout.html',
+          locals : {
+            icon: "check",
+            msg: msg,
+            class: 'toast-success'
+          },
           position: 'top right',
-          hideDelay: 3000,
-          controller: 'ShoutController'
+          hideDelay: 30000,
+          controller: 'ShoutController',
+          bindToController: true,
+          controllerAs: 'ctrl'
       });
     },
     warning: (msg) => {
       $mdToast.show({
-          template: `<md-toast class="toast-warning" ng-click="closeToast()"><ng-md-icon icon="warning" style="fill: white" size="18"></ng-md-icon> &nbsp; ${msg}</md-toast>`,
+          templateUrl: 'app/modules/core/templates/shout.html',
+          locals : {
+            icon: "warning",
+            msg: msg,
+            class: 'toast-warning'
+          },
           position: 'top right',
           hideDelay: 3000,
-          controller: 'ShoutController'
+          controller: 'ShoutController',
+          bindToController: true,
+          controllerAs: 'ctrl'
       });
     },
     error: (msg) => {
       $mdToast.show({
-          template: '<md-toast class="toast-error" ng-click="closeToast()"><ng-md-icon icon="error" style="fill: white" size="18"></ng-md-icon> &nbsp; ' + msg + '</md-toast>',
+          templateUrl: 'app/modules/core/templates/shout.html',
+          locals : {
+            icon: "error",
+            msg: msg,
+            class: 'toast-warning'
+          },
           position: 'top right',
           hideDelay: 3000,
-          controller: 'ShoutController'
+          controller: 'ShoutController',
+          bindToController: true,
+          controllerAs: 'ctrl'
       });
     },
     vError: (err) => {
       var msg = "";
       if (err.data && err.data.error && err.data.error.message)
         msg = err.data.error.message;
-      $mdToast.show({
-          template: '<md-toast class="toast-error" ng-click="closeToast()"><ng-md-icon icon="error" style="fill: white" size="18"></ng-md-icon> &nbsp; ' + msg + '</md-toast>',
+        $mdToast.show({
+          templateUrl: 'app/modules/core/templates/shout.html',
+          locals : {
+            icon: "error",
+            msg: msg,
+            class: 'toast-error'
+          },
           position: 'top right',
           hideDelay: 3000,
-          controller: 'ShoutController'
+          controller: 'ShoutController',
+          bindToController: true,
+          controllerAs: 'ctrl'
       });
 
     }

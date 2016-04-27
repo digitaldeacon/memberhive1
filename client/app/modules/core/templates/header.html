@@ -1,7 +1,7 @@
 <md-toolbar class="md-whiteframe-z1 header-toolbar" layout="row" layout-align="center center">
   <div hide-gt-md class="item">
-    <md-button 
-      id="mh-toogle-menu"       
+    <md-button
+      id="mh-toogle-menu"
       class="md-icon-button mh-toogle-button"
       aria-label="Toogle Menu"
       ng-click="appCtrl.toggleLeft()">
@@ -29,7 +29,7 @@
         </span>
 
       </md-autocomplete>
-     
+
   </div>
   <div class="item button">
     <md-menu>
@@ -43,12 +43,12 @@
             <span>{{item.name}}</span>
           </md-button>
         </md-menu-item>
-        
+
         <md-button ng-click="headerCtrl.logout()" ng-href="#">
           <ng-md-icon md-menu-align-target icon="logout"></ng-md-icon>
           <span>Logout</span>
         </md-button>
-        
+
       </md-menu-content>
     </md-menu>
   </div>

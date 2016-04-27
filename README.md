@@ -29,7 +29,6 @@ Install process
 * `cd memberhive/`
 * `npm install` *Install dev dependencies*
 * `bower install` *Install app dependencies*
-* Follow the persisting data instructions below
 * `npm test` *start node.js server* or `npm run debug` *to see debug output*
 * `gulp surf` *Run local webserver (will compile SASS and ES6 files when changed)*
 

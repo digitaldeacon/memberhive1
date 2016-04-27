@@ -1,6 +1,7 @@
 export function ShoutController($scope, $mdToast) {"ngInject";
-  $scope.closeToast = () => {
+  this.closeToast = () => {
+    console.log("close toast");
     $mdToast.hide();
   };
-  
+
 }
