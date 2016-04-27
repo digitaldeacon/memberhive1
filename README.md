@@ -4,8 +4,10 @@
 Website: https://memberhive.com
 
 Demo: https://demo.memberhive.com
+```
 Username: demo
 Password: hsrtkjeshzyu
+```
 
 ## Getting started developing
 Make sure you have the following requirements installed:
