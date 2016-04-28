@@ -58,4 +58,5 @@ export function AppController(
   this.getCommitMsg = () => {
     return mhConfig.commitMsg;
   };
+  
 }

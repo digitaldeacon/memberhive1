@@ -39,16 +39,6 @@
   max-height: 300px;
 }
 
-gm-map {
-  display: block;
-  width: 100%;
-  div {
-    max-width:200px !important;
-    max-height: 200px;
-    position:relative !important;
-  }
-}
-
 .person-search {
   span.query {
     color: primary-color('500');

@@ -21,13 +21,8 @@ import {q} from './services/q';
 import {fromNowFilter,fromNowMomentFilter} from './filters/date-filters';
 import {isEmpty} from './filters/utils';
 
-/**
- * This module holds dependencies needed by other modules including the `gem.main` module.
- * Thus, it will be loaded before all other modules.
- *
- * @type {module}
- */
-export var mhCoreModule = angular.module('mh.core', []);
+
+var mhCoreModule = angular.module('mh.core');
 
 mhCoreModule.config(() => { "ngInject";
 

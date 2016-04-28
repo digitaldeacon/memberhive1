@@ -11,7 +11,7 @@ module.exports = function(options) {
   gulp.task('watch', ['scripts:watch', 'inject', 'inject_config_default'], function () {
 
     gulp.watch([options.src + '/*.html', 'bower.json'], ['inject']);
-        gulp.watch(['common/**/*'], ['loopback']);
+    gulp.watch(['common/**/*'], ['loopback']);
 
     gulp.watch([
       options.src + '/app/styles/**/*.css',

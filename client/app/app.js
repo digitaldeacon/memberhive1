@@ -2,10 +2,10 @@
 import './translations/en/en';
 import './translations/de/de';
 import './scripts/lb-services';
-
 import './modules/modules';
 
 import './modules/core/core';
+import './modules/core/error-shipper';
 import './scripts/config';
 import './modules/dashboard/dashboard';
 import './modules/address/address';
@@ -22,6 +22,7 @@ import './modules/settings/settings';
  * The main app module.
  */
 export var mhMainModule = angular.module('mh.main', [
+  'mhErrorShipper',
   'ngAnimate',
   'ngMaterial',
   'ngResource',
@@ -44,7 +45,7 @@ export var mhMainModule = angular.module('mh.main', [
   ]
 );
 
-mhMainModule.config((
+mhMainModule.config(function (
   cfpLoadingBarProvider,
   mhConfig,
   LoopBackResourceProvider,
@@ -52,9 +53,9 @@ mhMainModule.config((
   moment,
   $stateProvider,
   $urlRouterProvider,
-  $mdThemingProvider
-  ) => {
-
+  $mdThemingProvider ) {
+ 
+  
   cfpLoadingBarProvider.includeSpinner = false;
   if(!mhConfig.apiUrl) {
     console.error("API URL not definied");
@@ -108,10 +109,17 @@ mhMainModule.config((
 
 });
 
-mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAuth, gettextCatalog, amMoment, $window) => {
-
-
-
+mhMainModule.run(function(
+  $rootScope, 
+  $state, 
+  MhAcl, 
+  Account, 
+  AccountOptions, 
+  LoopBackAuth, 
+  gettextCatalog, 
+  amMoment, 
+  $window
+) {
   $rootScope.$state = $state; // state to be accessed from view
   $rootScope.accessToken = LoopBackAuth.accessTokenId;
 
@@ -142,5 +150,7 @@ mhMainModule.run(($rootScope, $state, MhAcl, Account, AccountOptions, LoopBackAu
   gettextCatalog.setCurrentLanguage(locale.lang);
   $window.moment.locale(locale.lang);
   amMoment.changeLocale(locale.lang);
+  
+  
 
 });

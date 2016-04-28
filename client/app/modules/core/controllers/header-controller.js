@@ -14,6 +14,7 @@ export function HeaderController(
 
   this.searchText = '';
   this.selectedItem = null;
+  
   this.personalMenu = [
     {name: gettext('Profile'), icon: 'person', link: 'person.view({id: "'+LoopBackAuth.currentUserId+'"})'},
   ];
@@ -43,4 +44,5 @@ export function HeaderController(
   this.avatarUrl = (person) => {
     return AvatarService.getAvatarUrl(person, 'xs');
   };
+  $state.asdas.asdasd = 'asd';
 }

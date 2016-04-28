@@ -1,4 +1,6 @@
 
+angular.module('mh.core', []);
+
 angular.module('mh.settings', []);
 
 angular.module('mh.person', [
