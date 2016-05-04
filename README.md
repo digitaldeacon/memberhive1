@@ -17,12 +17,15 @@ Make sure you have the following requirements installed:
 * imagemagick
 * libkrb5-dev
 
+`sudo apt-get install git libkrb5-dev imagemagick bzip2`
+
 Create Datebase:
 You need a mongodb == 2.4.x database. Copy the `server/datasources.local.json.example` file to `server/datasources.local.json` and adjust the settings.
    
 Install process
 * `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
 * `nvm install 4.2` *install nodejs 4.2*
+* `nvm use 4.2`
 * `nvm alias default 4.2`
 * `npm install -g bower gulp nodemon`
 * clone memberhive from git: `git clone git@github.com:digitaldeacon/memberhive.git`
