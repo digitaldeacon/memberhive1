@@ -22,7 +22,7 @@ import './modules/settings/settings';
  * The main app module.
  */
 export var mhMainModule = angular.module('mh.main', [
-  'mhErrorShipper',
+  //'mhErrorShipper',
   'ngAnimate',
   'ngMaterial',
   'ngResource',
