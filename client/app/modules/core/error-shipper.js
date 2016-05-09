@@ -23,7 +23,7 @@ var exceptionLoggingService = ($log, $window) => {
           }),
           error : (XMLHttpRequest, textStatus, errorThrown) => {
             $log.warn("Error server-side logging failed");
-            $log.log(textStatus);
+            $log.log(textStatus, errorThrown);
           }
       });
     } catch (loggingError) {

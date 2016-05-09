@@ -37,6 +37,10 @@ export var mhAclModule = angular.module('mh.acl', [])
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       //jshint unused:false
       if (self.rights === false) {
+        if(toState.name !== config.loginPage) {
+          event.preventDefault();
+          $state.go(config.loginPage);
+        }
         self.rightsPromise
         .then(
           (data) => {
@@ -56,15 +60,20 @@ export var mhAclModule = angular.module('mh.acl', [])
     });
 
     acl.changeState = (event, toState) => {
+      console.log(toState.name);
       if (!toState.acl || !toState.acl.needRights) {
         return acl;
       }
       var isGranted = self.isGranted(toState.acl.needRights);
-      if (!isGranted && config.loginPage !== false) {
+      if (!isGranted) {
         event.preventDefault();
         if (config.loginPage !== toState.name) {
           $state.go(config.loginPage);
         }
+      }
+      if(isGranted && config.loginPage === toState.name) {
+        event.preventDefault();
+        $state.go('dashboard');
       }
     };
 

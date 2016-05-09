@@ -6,7 +6,12 @@ export var mhAuthModule = angular.module('mh.auth', []).config(
         url: '/login',
         templateUrl: 'app/modules/auth/views/login.html',
         data: {
-          pageTitle: gettext('Login')
+          pageTitle: gettext('Login'),
+        },
+        acl: {
+          needRights: [
+           
+          ]
         }
       });
     }
