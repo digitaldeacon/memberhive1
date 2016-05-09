@@ -39,10 +39,10 @@ export var mhAclModule = angular.module('mh.acl', [])
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       //jshint unused:false
       if (self.rights === false) {
-        if(toState.name !== config.loginPage) {
+        /*if(toState.name !== config.loginPage) {
           event.preventDefault();
           $state.go(config.loginPage);
-        }
+        }*/
         self.rightsPromise
         .then(
           (data) => {
