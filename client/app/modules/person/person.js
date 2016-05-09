@@ -52,7 +52,7 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
           return AccountOptions.get('person_list_query', []);
         },
         resolveQuery : (resolveQueryModel, SearchQuery, q) => {
-           return q.all(SearchQuery.generateQuery(resolveQueryModel));
+          return q.all(SearchQuery.generateQuery(resolveQueryModel));
         }
       },
     }).state('person.view', {

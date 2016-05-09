@@ -25,7 +25,7 @@ import {isEmpty} from './filters/utils';
 var mhCoreModule = angular.module('mh.core');
 
 mhCoreModule.config(() => { "ngInject";
-
+  
   // Codemirror: Create html/handlebars mixed mode
   // https://github.com/codemirror/CodeMirror/blob/master/mode/handlebars/index.html#L64
   /*CodeMirror.defineMode("htmlhandlebars", function(config) {

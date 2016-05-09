@@ -33,7 +33,9 @@ export var mhAclModule = angular.module('mh.acl', [])
         );
 
     };
-
+    
+   
+    
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       //jshint unused:false
       if (self.rights === false) {
@@ -60,7 +62,6 @@ export var mhAclModule = angular.module('mh.acl', [])
     });
 
     acl.changeState = (event, toState) => {
-      console.log(toState.name);
       if (!toState.acl || !toState.acl.needRights) {
         return acl;
       }

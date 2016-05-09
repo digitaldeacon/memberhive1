@@ -27,10 +27,15 @@ export function AccountOptions(
   };
 
   this.get = (key, def = null) => {
-    return this.promise.then(() => {
-      if(!this.account || !this.account.options || !this.account.options[key]) return def;
-      return this.account.options[key];
-    });
+    return this.promise.then(
+      () => {
+        if(!this.account || !this.account.options || !this.account.options[key]) return def;
+        return this.account.options[key];
+      },
+      () => {
+        return def;
+      }
+    );
   };
 
   this.getData = () => {
@@ -38,6 +43,12 @@ export function AccountOptions(
     .$promise
     .then((data) => this.account = data);
   };
-
-  this.promise = this.getData();
+  
+  this.load = () => {
+    this.account = null;
+    this.promise = this.getData();
+  };
+  
+  this.load();
+  
 }
