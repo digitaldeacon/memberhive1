@@ -44,5 +44,4 @@ export function HeaderController(
   this.avatarUrl = (person) => {
     return AvatarService.getAvatarUrl(person, 'xs');
   };
-  $state.asdas.asdasd = 'asd';
 }
