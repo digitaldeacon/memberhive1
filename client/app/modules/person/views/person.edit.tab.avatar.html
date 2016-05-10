@@ -1,16 +1,8 @@
 <div class="mh-content" ng-if="personCtrl.person.hasAvatar">
-  <h3> Current Avatar </h3>
-  <mh-avatar person="personCtrl.person" size="s" ng-hide="personCtrl.avatarDeleted"></mh-avatar>
-  <div layout="row">
-    <md-button ng-click="personCtrl.removeAvatar()"><ng-md-icon icon="delete"></ng-md-icon> Remove Avatar</md-button>
-    <md-button ng-click="personCtrl.downloadAvatar()"><ng-md-icon icon="file_download"></ng-md-icon> Download Avatar</md-button>
-  </div>
-</div>
-
-<div class="mh-content">
-  <h3> Change Avatar </h3>
-  <label for="avatar" translate>Select Avatar</label>
+  <h3 translate>Current Avatar</h3>
+  
   <div
+    ng-show="!personCtrl.uploadedAvatar || personCtrl.avatarDeleted"
     ngf-drop
     ngf-select
     ng-model="files"
@@ -21,9 +13,17 @@
     accept="image/*"
     ngf-change="personCtrl.onAvatarSelected($files, $event)">
       <translate>Drop images here or click to upload</translate>
+      <md-progress-circular md-mode="indeterminate" ng-show="personCtrl.avatarLoading" md-diameter="96"></md-progress-circular>
   </div>
-  <div ngf-no-file-drop><translate>File Drag/Drop is not supported for this browser</translate></div>
-    
-    <h3> Preview</h3>
-    <img id="avatar_preview" />
+  
+  <div ng-show="personCtrl.uploadedAvatar && !personCtrl.avatarDeleted">
+    <div ng-jcrop="personCtrl.uploadedAvatar" selection="personCtrl.avatarSelection"></div>
+  </div>  
+  
+  <div layout="row">
+    <md-button ng-click="personCtrl.removeAvatar()"><ng-md-icon icon="delete"></ng-md-icon> Remove Avatar</md-button>
+    <md-button ng-click="personCtrl.downloadAvatar()"><ng-md-icon icon="file_download"></ng-md-icon> Download Avatar</md-button>
+  </div>
+  
+ 
 </div>

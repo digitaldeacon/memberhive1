@@ -8,7 +8,8 @@ angular.module('mh.person', [
     'uiGmapgoogle-maps',
     'mh.core',
     'mh.address',
-    'mh.config'
+    'mh.config',
+    'ngJcrop'
 ]);
 
 

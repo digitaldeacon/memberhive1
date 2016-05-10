@@ -30,10 +30,10 @@ export function PersonEditController (
   this.loadPerson(resolvePerson);
   this.showExtended = false;
   this.personService = PersonService;
+  
   this.uploadedAvatar = null;
-  this.croppedAvatar = null; //populated
   this.avatarDeleted = false;
-  this.avatarChanged = false;
+  this.avatarLoading = false;
 
   this.saveWithNotification = () => {
     this.save().then(
@@ -67,10 +67,20 @@ export function PersonEditController (
         return PersonEditService.save(PersonEditService.transformBack(this.person));
       })
       .then((data) => {
-        if (this.avatarDeleted && !this.avatarChanged) {
+        if (this.avatarDeleted) {
           AvatarService.deleteAvatar(data);
-        } else if (this.avatarChanged && this.uploadedAvatar) {
-          AvatarService.saveAvatarFromDataURI(data.id, this.uploadedAvatar);
+          this.avatarDeleted = false;
+        } else if (this.uploadedAvatar) {
+          let crop = {
+            x: this.avatarSelection[0],
+            y: this.avatarSelection[1],
+            x2: this.avatarSelection[2],
+            y2: this.avatarSelection[3],
+            w: this.avatarSelection[4],
+            h: this.avatarSelection[5]
+          };
+          AvatarService.saveAvatarFromDataURI(data.id, this.uploadedAvatar, crop);
+          this.uploadedAvatar = null;
         }
         return data;
       })
@@ -123,26 +133,29 @@ export function PersonEditController (
 
     return $q.all(geocalls);
   };
-
+  
+  this.avatarSelection = [100, 100, 200, 200, 100, 100];
   this.onAvatarSelected = (files) => {
+    this.avatarLoading = true;
     var reader = new FileReader();
     if (files.length > 0) {
       reader.readAsDataURL(files[0]);
       reader.onload = (event) => {
+        this.avatarLoading = false;
         this.uploadedAvatar = event.target.result;
-        this.avatarChanged = true;
-        angular.element("#avatar_preview").attr('src', this.uploadedAvatar);
+        this.avatarDeleted = false;
       };
       reader.onerror = () => {
+        this.avatarLoading = false;
         Shout.error(gettextCatalog.getString('Can’t read image. Please try again.'));
-        this.uploadedAvatar = undefined;
+        this.uploadedAvatar = null;
       };
     }
   };
 
   this.removeAvatar = () => {
-    //this.avatarDeleted = true;
-    Shout.warning("This function is not yet ready");
+    this.avatarDeleted = true;
+    //Shout.warning("This function is not yet ready");
   };
 
   this.downloadAvatar = () => {
