@@ -3,12 +3,12 @@ var fs = require('fs');
 var easyimg = require('easyimage');
 
 module.exports = function(Avatar) {
-  
+
   var self = this;
   /**
    * Create the container (=folder named by userId) if it doesn't exist
    */
- /* Avatar.beforeRemote('upload', function(ctx, res, next) {
+  Avatar.beforeRemote('upload', function(ctx, res, next) {
     var personId = ctx.req.params.container;
     Avatar.getContainer(personId, function(err, container){
       if (err) { // Container doesn't exist
@@ -26,7 +26,7 @@ module.exports = function(Avatar) {
       }
     });
 
-  });*/
+  });
 
   /**
    * Check input file and create thumbnails
@@ -42,10 +42,7 @@ module.exports = function(Avatar) {
       return;
     }
     var croppedFilePath = path.join(folderPath, 'cropped.jpg');
-    fs.unlinkSync(croppedFilePath);
-   
     var createThumb = function (filePath, folder, size) {
-      console.log("create thumb", size);
       var thumbSizes = {
         'xs': 50,
         's':  150,
@@ -68,7 +65,7 @@ module.exports = function(Avatar) {
             });
         });
     };
-  
+
     var query = ctx.args.req.query;
     easyimg.crop({
       src: inputFilePath,
