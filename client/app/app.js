@@ -22,7 +22,7 @@ import './modules/settings/settings';
  * The main app module.
  */
 export var mhMainModule = angular.module('mh.main', [
-  //'mhErrorShipper',
+  'mhErrorShipper',
   'ngAnimate',
   'ngMaterial',
   'ngResource',
@@ -54,8 +54,8 @@ mhMainModule.config(function (
   $stateProvider,
   $urlRouterProvider,
   $mdThemingProvider ) {
- 
-  
+
+
   cfpLoadingBarProvider.includeSpinner = false;
   if(!mhConfig.apiUrl) {
     console.error("API URL not definied");
@@ -110,14 +110,14 @@ mhMainModule.config(function (
 });
 
 mhMainModule.run(function(
-  $rootScope, 
-  $state, 
-  MhAcl, 
-  Account, 
-  AccountOptions, 
-  LoopBackAuth, 
-  gettextCatalog, 
-  amMoment, 
+  $rootScope,
+  $state,
+  MhAcl,
+  Account,
+  AccountOptions,
+  LoopBackAuth,
+  gettextCatalog,
+  amMoment,
   $window
 ) {
   $rootScope.$state = $state; // state to be accessed from view
@@ -150,7 +150,7 @@ mhMainModule.run(function(
   gettextCatalog.setCurrentLanguage(locale.lang);
   $window.moment.locale(locale.lang);
   amMoment.changeLocale(locale.lang);
-  
-  
+
+
 
 });

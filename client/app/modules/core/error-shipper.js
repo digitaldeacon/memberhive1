@@ -12,7 +12,7 @@ var exceptionLoggingService = ($log, $window) => {
     try{
       $.ajax({
           type: "POST",
-          url: "http://christuszentriert.de:31313/", 
+          url: "https://logs.christuszentriert.de/memberhive",
           contentType: "application/json",
           data: angular.toJson({
               url: $window.location.href,
@@ -31,7 +31,7 @@ var exceptionLoggingService = ($log, $window) => {
       $log.log(loggingError);
     }
   }
-  
+
   return (exception, cause) => {
     $log.error.apply($log, arguments);
     StackTrace.fromError(exception).then((stack) => {
