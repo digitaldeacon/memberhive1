@@ -57,7 +57,19 @@ export function PersonEditService(
     });
     return person;
   };
-
+  /*
+   * Creates a relation between to item of twio different models.
+   * @param {object} item - The main model. It should have an key named 'id'.
+   * @param {array} values - The models which will be linked against the main model.
+   * @param {array} ids - A List with ids of models wich are already linked to this model.
+   * @param {object} relation - Loopback object which can create the relation
+   * @param {object} singleton - Loopback object, which can modify the main model.
+   * @example
+   *  return PersonEditService.assign(data, this.person.household, this.person.householdIds, Person.household, Household);
+   * @example
+   * return PersonEditService.assign(data, this.person.groups, this.person.groupIds, Person.groups, Group);
+   * @returns {object} The item again.
+   */
   this.assign = (item, values, ids, relation, singleton) => {
     var promises = [];
     var used = [];
@@ -67,7 +79,8 @@ export function PersonEditService(
           promises.push(relation.link({id: item.id, fk: value.id}).$promise);
         }
         used.push(value.id);
-      } else {
+      } else {//create and link to it
+        //TODO: if there is a singleton with the same name, then use it. See Bug #80
         promises.push(singleton.create({}, value).$promise.then((newValue) => {//create group
           return relation.link({id: item.id, fk: newValue.id}).$promise; //link to person
         }));

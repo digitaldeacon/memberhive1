@@ -30,7 +30,7 @@ export function PersonEditController (
   this.loadPerson(resolvePerson);
   this.showExtended = false;
   this.personService = PersonService;
-  
+
   this.uploadedAvatar = null;
   this.avatarDeleted = false;
   this.avatarLoading = false;
@@ -133,7 +133,7 @@ export function PersonEditController (
 
     return $q.all(geocalls);
   };
-  
+
   this.avatarSelection = [100, 100, 200, 200, 100, 100];
   this.onAvatarSelected = (files) => {
     this.avatarLoading = true;
