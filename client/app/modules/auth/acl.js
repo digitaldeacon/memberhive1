@@ -17,6 +17,7 @@ export var mhAclModule = angular.module('mh.acl', [])
     var acl = {};
 
     acl.setRights = (rights) => self.rights = rights;
+    
     acl.setRightsPromise = (rightsPromise) => {
       self.rightsPromise = rightsPromise;
       self.rightsPromise
@@ -39,10 +40,6 @@ export var mhAclModule = angular.module('mh.acl', [])
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       //jshint unused:false
       if (self.rights === false) {
-        /*if(toState.name !== config.loginPage) {
-          event.preventDefault();
-          $state.go(config.loginPage);
-        }*/
         self.rightsPromise
         .then(
           (data) => {
@@ -62,17 +59,20 @@ export var mhAclModule = angular.module('mh.acl', [])
     });
 
     acl.changeState = (event, toState) => {
+      console.log(toState.name);
       if (!toState.acl || !toState.acl.needRights) {
+        console.error("page has non ACL");
         return acl;
       }
       var isGranted = self.isGranted(toState.acl.needRights);
+      console.log("is granted", isGranted,  self.rights, toState.acl.needRights);
       if (!isGranted) {
         event.preventDefault();
         if (config.loginPage !== toState.name) {
           $state.go(config.loginPage);
         }
       }
-      if(isGranted && config.loginPage === toState.name) {
+      if(acl.isLoggedIn() && config.loginPage === toState.name) {
         event.preventDefault();
         $state.go('dashboard');
       }
