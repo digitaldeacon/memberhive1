@@ -23,15 +23,18 @@ Create Datebase:
 You need a mongodb == 2.4.x database. Copy the `server/datasources.local.json.example` file to `server/datasources.local.json` and adjust the settings.
    
 Install process
-* `curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash` *install nvm*
-* `nvm install 4.2` *install nodejs 4.2*
-* `nvm use 4.2`
-* `nvm alias default 4.2`
-* `npm install -g bower gulp nodemon`
 * clone memberhive from git: `git clone git@github.com:digitaldeacon/memberhive.git`
-* `cd memberhive/`
-* `npm install` *Install dev dependencies*
-* `bower install` *Install app dependencies*
+
+```bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
+nvm install 4.4
+nvm use 4.4
+nvm alias default 4.4
+npm install -g bower gulp nodemon
+cd memberhive/
+npm install
+bower install
+```
 * `npm test` *start node.js server* or `npm run debug` *to see debug output*
 * `gulp surf` *Run local webserver (will compile SASS and ES6 files when changed)*
 
