@@ -1,4 +1,4 @@
-var configValues = function (
+var mhConfigValues = function (
   Settings,
   $log
 ) {"ngInject";
@@ -7,37 +7,47 @@ var configValues = function (
    * This Service is also in $rootScope as options
    */
 
-  this.values = null;
+  this.values = {};
+  this.all = null;
   /**
    * Warning: The key should not contains dots, as mongo won't accept it
    */
-  this.set = (key, value) => {
+  this.set = (section, key, value) => {
     if(_.includes(key, '.')) {
-      $log.error("AccountOptions has a key: " + key + " with a dot inside");
+      $log.error("ConfigValues has a key: " + key + " with a dot inside");
       return;
     }
     this.promise.then(() => {
-      if(this.values.options === undefined) {
-        this.values.options = {};
-      }
-      this.values[key] = value;
-      Settings.update({}, this.values);
+      this.values[section] = this.values[section] || {};
+      this.values[section][key] = value;
+      console.log(this.all);
+      var upmh = _.find(this.all, {name: section});
+      upmh = upmh || {name: section};
+      upmh.value = value;
+      console.log("upsert this", upmh);
+      Settings.upsert({}, upmh);
     });
   };
 
-  this.get = (key, def = null) => {
+  this.get = (section, key, def = null) => {
+    console.log(section, key);
     return this.promise.then(() => {
-      if(!this.valzes || !this.values[key]) return def;
-      return this.values[key];
+      console.log(this.values);
+      if(!this.values || !this.values[section] || this.values[section][key]) return def;
+      console.log("return", this.values[section], key);
+      return this.values[section][key];
     });
   };
 
   this.getData = () => {
     return Settings.find({}).$promise
-    .then((data) => this.values = data);
+    .then((data) => {
+      this.all = data;
+      this.values = _.zipObject(_.map(data, d => d.name), _.map(data, d => d.value));
+    });
   };
 
   this.promise = this.getData();
 };
 
-angular.module('mh.settings').service('ConfigValues', configValues);
+angular.module('mh.settings').service('MhConfigValues', mhConfigValues);

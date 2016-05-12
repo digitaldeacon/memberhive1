@@ -2,11 +2,42 @@
   "name": "Settings",
   "base": "MhBase",
   "properties": {
+    "name" : {
+      "type": "string",
+      "required": true
+    },
+    "value" :  {
+      "type": "object",
+      "required": true
+    }
   },
   "validations": [],
   "relations": {},
   "acls": [
-
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "root",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    }
   ],
   "methods": []
 }

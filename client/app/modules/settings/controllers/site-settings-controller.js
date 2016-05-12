@@ -1,7 +1,10 @@
 var siteSettingsController = function (
-  ConfigValues
+  MhConfigValues
 ) {"ngInject";
-  ConfigValues.get("ad");
+  MhConfigValues.get("site4", "ad", "DEFAULT").then(d => this.ad = d);
+  MhConfigValues.set("site4", "ad", "ad");
 };
 
 angular.module('mh.settings').controller('SiteSettingsController', siteSettingsController);
+
+
