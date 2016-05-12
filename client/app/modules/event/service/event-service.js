@@ -20,7 +20,7 @@ export function EventService(
     filter.where.date = {};
     filter.where.date.gt = new Date();
 
-    return Event.find(filter).$promise.then(this.mapModify);
+    return Event.find({filter: filter}).$promise.then(this.mapModify);
   };
 
   this.new = (date) => {

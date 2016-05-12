@@ -14,5 +14,5 @@ angular.module('mh.person', [
 
 
 angular.module('mh.event', ["materialCalendar"]);
-
+angular.module('mh.note', []);
 

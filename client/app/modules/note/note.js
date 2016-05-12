@@ -3,7 +3,9 @@ import {NoteService} from './services/note-service';
 import {NoteListController} from './controllers/note-list-controller';
 import {NoteEditController} from './controllers/note-edit-controller';
 
-export var mhNoteModule = angular.module('mh.note', []).config(
+import './widgets/last-notes/last-notes';
+
+var mhNoteModule = angular.module('mh.note').config(
   ($stateProvider, gettext) => {
     $stateProvider.state('note', {
       url: '/note',
