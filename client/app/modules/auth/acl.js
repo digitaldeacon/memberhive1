@@ -59,13 +59,11 @@ export var mhAclModule = angular.module('mh.acl', [])
     });
 
     acl.changeState = (event, toState) => {
-      console.log(toState.name);
       if (!toState.acl || !toState.acl.needRights) {
         console.error("page has non ACL");
         return acl;
       }
       var isGranted = self.isGranted(toState.acl.needRights);
-      console.log("is granted", isGranted,  self.rights, toState.acl.needRights);
       if (!isGranted) {
         event.preventDefault();
         if (config.loginPage !== toState.name) {

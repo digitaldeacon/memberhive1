@@ -71,26 +71,32 @@ export function PersonEditService(
    * @returns {object} The item again.
    */
   this.assign = (item, values, ids, relation, singleton) => {
-    var promises = [];
+    //var promises = [];
     var used = [];
+    var promise = $q.when(item);
     values.forEach((value) => {
       if(value.id) {//already a existing group
         if(!_.includes(ids, value.id)) { //not already linked to this person
-          promises.push(relation.link({id: item.id, fk: value.id}).$promise);
+          promise.then(() => {return relation.link({id: item.id, fk: value.id}).$promise;});
+          //promises.push(relation.link({id: item.id, fk: value.id}).$promise);
         }
         used.push(value.id);
       } else {//create and link to it
         //TODO: if there is a singleton with the same name, then use it. See Bug #80
-        promises.push(singleton.create({}, value).$promise.then((newValue) => {//create group
-          return relation.link({id: item.id, fk: newValue.id}).$promise; //link to person
-        }));
+        promise.then(() => {
+            return singleton.create({}, value).$promise.then((newValue) => {//create group
+              return relation.link({id: item.id, fk: newValue.id}).$promise; //link to person
+            }).$promise;
+        });
+        //promises.push(p);
       }
     });
 
     _.difference(ids, used).forEach((id) => {
-      promises.push(relation.unlink({id: item.id, fk: id}).$promise);
+      promise.then(() => {return relation.unlink({id: item.id, fk: id}).$promise;});
+      //promises.push(relation.unlink({id: item.id, fk: id}).$promise);
     });
-
-    return $q.all(promises).then(() => {return item;});
+    return promise.then(() => {return item;});
+    //return $q.all(promises).then(() => {return item;});
   };
 }
