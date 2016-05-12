@@ -33,8 +33,9 @@ var exceptionLoggingService = ($log, $window) => {
   }
 
   return (exception, cause) => {
-    $log.error.apply($log, arguments);
+    $log.error(exception.toString(), cause);
     StackTrace.fromError(exception).then((stack) => {
+      $log.info(stack);
       log(exception.toString(), cause, stack);
     }).catch(() => {
       log(exception.toString(), cause, "");

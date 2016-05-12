@@ -7,9 +7,10 @@ import {EventTemplateViewController} from './controllers/event-template-view-con
 import {EventService} from './service/event-service';
 import {EventTemplateService} from './service/event-template-service';
 
+import './widgets/next-events/next-events';
 
-export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
-).config(
+
+var mhEventModule = angular.module('mh.event').config(
   ($stateProvider, gettext) => {
     $stateProvider.state('event', {
       url: '/event',
@@ -78,8 +79,8 @@ export var mhEventModule = angular.module('mh.event', ["materialCalendar"]
       data: {
         pageSubTitle: gettext('Create Event')
       },
-      params: { 
-        date: null, 
+      params: {
+        date: null,
         templateId: null
       },
       ncyBreadcrumb: {
@@ -227,7 +228,7 @@ mhEventModule.constant('EventStatusOptions', {
     open : {icon: "help", color: "#0066A5"},
     warning: {icon: "warning", color: "#E88F22"},
     error: {icon: "error", color: "#FF0000"},
-    
+
   });
 mhEventModule.constant('EventTemplateOptions', [
     {name: "Text", value: "text"},

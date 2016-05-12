@@ -46,6 +46,9 @@ html, body {
   color: #fff;
 }
 
+.text-muted {
+  color: lighten($text-color-dark, 20%);
+}
 .full-height {
   height: 100%;
 }

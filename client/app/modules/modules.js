@@ -13,3 +13,6 @@ angular.module('mh.person', [
 ]);
 
 
+angular.module('mh.event', ["materialCalendar"]);
+
+

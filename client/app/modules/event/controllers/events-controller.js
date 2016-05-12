@@ -1,5 +1,6 @@
 export function EventsController(
   Event,
+  EventService,
   resolveEvents,
   resolveTemplates,
   resolveNextEvents,
@@ -40,10 +41,5 @@ export function EventsController(
     return ret;
   };
 
-  this.countStatus = (event, id) => {
-    event.options = event.options || {};
-    event.options.status = event.options.status || {};
-
-    return _.filter(event.options.status, x => x === id).length;
-  };
+  this.countStatus = EventService.countStatus;
 }
