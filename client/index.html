@@ -120,7 +120,7 @@
           <div ng-cloak hide show-xs class="page-header"> 
             <h2>{{appCtrl.getSubTitle()}}</h2>
           </div>
-          <div ui-view layout="column"></div>
+          <div class="ui-view" layout="column"></div>
           <div hide show-gt-xs style="font-size: 8pt; color: #aaa">{{accessToken}} on <a href="https://github.com/digitaldeacon/memberhive/commit/{{appCtrl.getCommitSHA()}}"> {{appCtrl.getCommitMsg()}}</a> </div>
 
         </md-content>
@@ -129,7 +129,7 @@
   </div>
 
   <div ng-cloak  flex ng-if="acl.isLoggedOut()" class="login-container">
-    <div flex ui-view layout="column" ></div>
+    <div flex ui-view="login" layout="column" ></div>
   </div>
 
     <!-- build:js(src) scripts/vendor.js -->

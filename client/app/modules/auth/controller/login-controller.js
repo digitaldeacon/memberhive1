@@ -1,4 +1,13 @@
-export function LoginController (Account, $state, MhAcl, Shout, gettextCatalog, $rootScope, LoopBackAuth, AccountOptions) {"ngInject";
+var loginController = function (
+  Account, 
+  $state, 
+  MhAcl, 
+  Shout, 
+  gettextCatalog, 
+  $rootScope, 
+  LoopBackAuth, 
+  AccountOptions
+) {"ngInject";
 
   this.rememberMe = true;
   this.login = () => {
@@ -25,4 +34,6 @@ export function LoginController (Account, $state, MhAcl, Shout, gettextCatalog, 
       }
     );
   };
-}
+};
+
+angular.module('mh.auth').controller('LoginController', loginController);

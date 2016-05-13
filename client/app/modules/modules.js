@@ -15,4 +15,5 @@ angular.module('mh.person', [
 
 angular.module('mh.event', ["materialCalendar"]);
 angular.module('mh.note', []);
-
+angular.module('mh.auth', []);
+angular.module('mh.acl', ['mh.acl', 'mh.core', 'lbServices']);

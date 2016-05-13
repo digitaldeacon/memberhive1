@@ -1,20 +1,23 @@
-import {LoginController} from './controller/login-controller';
+import './controller/login-controller';
 
-export var mhAuthModule = angular.module('mh.auth', []).config(
+angular.module('mh.auth').config(
   ($stateProvider, gettext) => {
       $stateProvider.state('login', {
         url: '/login',
-        templateUrl: 'app/modules/auth/views/login.html',
         data: {
           pageTitle: gettext('Login'),
         },
+        views: {
+          'login': {
+             templateUrl: 'app/modules/auth/views/login.html',
+             controller: 'LoginController',
+             controllerAs: 'loginCtrl'
+          }
+        },
         acl: {
-          needRights: [
-           
-          ]
+          needRights: []
         }
       });
     }
 );
 
-mhAuthModule.controller('LoginController', LoginController);

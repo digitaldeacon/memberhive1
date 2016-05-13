@@ -1,11 +1,4 @@
-export var mhAclModule = angular.module('mh.acl', [])
-.constant(
-  'mh-acl.config',
-  {
-    'loginPage': 'login'
-  }
-)
-.provider('MhAcl', ['mh-acl.config', function(config) {
+angular.module('mh.acl').provider('MhAcl', [function() {
   var self = {};
   self.rights = false;
   self.rightsPromise = false;
@@ -29,7 +22,7 @@ export var mhAclModule = angular.module('mh.acl', [])
           () => {
             self.rights = [];
             $rootScope.acl = acl;
-            $state.go(config.loginPage);
+            $state.go('login');
           }
         );
 
@@ -66,11 +59,11 @@ export var mhAclModule = angular.module('mh.acl', [])
       var isGranted = self.isGranted(toState.acl.needRights);
       if (!isGranted) {
         event.preventDefault();
-        if (config.loginPage !== toState.name) {
-          $state.go(config.loginPage);
+        if ('login' !== toState.name) {
+          $state.go('login');
         }
       }
-      if(acl.isLoggedIn() && config.loginPage === toState.name) {
+      if(acl.isLoggedIn() && 'login' === toState.name) {
         event.preventDefault();
         $state.go('dashboard');
       }

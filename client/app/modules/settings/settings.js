@@ -5,7 +5,7 @@ angular.module('mh.settings').config(
   ($stateProvider, gettext) => {
     $stateProvider.state('settings', {
       url: '/settings',
-      template: '<ui-view/>',
+      template: '<div class="ui-view"></div>',
       data: {
         pageTitle: gettext('Configuration'),
         component: 'settings',
