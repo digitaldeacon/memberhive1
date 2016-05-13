@@ -27,6 +27,12 @@
       "permission": "ALLOW"
     },
     {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "truncate"
+    },
+    {
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "root",

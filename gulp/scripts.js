@@ -57,7 +57,12 @@ module.exports = function(options) {
     };
 
     return gulp.src(options.src + '/app/app.js')
-      .pipe(gulpWebpack(webpackOptions, null, webpackChangeHandler))
+      .pipe(gulpWebpack(webpackOptions, null, webpackChangeHandler).on('error', (err) => {
+        console.error('WEBPACK ERROR', err);
+      }))
+      .on('error', (err) => {
+        console.error('WEBPACK ERROR', err);
+      })
       .pipe($.ngAnnotate())
       .pipe(gulp.dest(options.tmp + '/serve/app'));
   }

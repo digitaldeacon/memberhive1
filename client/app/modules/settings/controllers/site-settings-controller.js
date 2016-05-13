@@ -1,9 +1,17 @@
 var siteSettingsController = function (
-  MhConfigValues
+  MhConfigValues,
+  resolveMailchimp
 ) {"ngInject";
-  console.log("init site settings controller");
-  MhConfigValues.get("site4", "ad", "DEFAULT").then(d => this.ad = d);
-  MhConfigValues.set("site4", "ad", "ad");
+  this.values = {
+    mailchimp: resolveMailchimp
+  };
+  
+  this.update = (section) => {
+    console.log("update", section, this.values[section]);
+    if(this.values[section]) {
+      MhConfigValues.setAll(section, this.values[section]);
+    }
+  };
 };
 
 angular.module('mh.settings').controller('SiteSettingsController', siteSettingsController);

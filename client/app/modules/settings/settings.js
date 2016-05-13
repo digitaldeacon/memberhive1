@@ -24,6 +24,9 @@ angular.module('mh.settings').config(
         needRights: ['$authenticated']
       },
       resolve: {
+        resolveMailchimp : (MhConfigValues) => {
+          return MhConfigValues.getAll("mailchimp", {apiKey: ""});
+        }
       },
     });
   }
