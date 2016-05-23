@@ -25,6 +25,7 @@ angular.module('mh.settings').config(
       },
       resolve: {
         resolveMailchimp : (MhConfigValues) => {
+          return {};
           return MhConfigValues.getAll("mailchimp", {apiKey: ""});
         }
       },
