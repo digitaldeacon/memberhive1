@@ -24,7 +24,7 @@ before_install:
   - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - npm set progress=false
 install:
-  - npm install --no-optional
+  - npm install --optional
   - bower install
 before_script:
   - export NODE_ENV="travis"
