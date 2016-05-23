@@ -20,12 +20,14 @@ module.exports = function(options) {
 
   gulp.task('updateWords', [
     'generatePot',
-    'grunt-extractModelTranslations',
-    'grunt-uploadWords'
+    'uploadWords'
   ]);
 
   gulp.task('updateTranslations', [
-    'grunt-downloadTranslations',
+    'downloadTranslations',
     'compileTranslations'
   ]);
+  
+
+  
 };

@@ -1,111 +1,150 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2015-07-10 12:30+0000\n"
-"PO-Revision-Date: 2015-07-10 12:30+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2016-05-23 15:09+0100\n"
+"Last-Translator: Paul Walger <paul@memberhive.com>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: modules/note/templates/note-create-directive.html:22
-msgid "Abbrechen"
-msgstr "Abbrechen"
+#: modules/person/views/person.list.html:39
+msgid "{{personCtrl.allPersons.length}} Persons found"
+msgstr ""
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:173
-msgid "Select Household"
-msgstr "Haushalt auswählen"
+#: modules/person/views/person.edit.tab.personal.html:77
+msgid "{{personCtrl.personService.contactTypes[key].text}}"
+msgstr ""
 
-#: client/app/modules/adf/widgets/weather/weather.html:2
-msgid "Please insert a location in the widget configuration"
-msgstr "Geben sie in der Widgeteinstellung einen Ort an"
+#: modules/person/views/person.edit.tab.personal.html:101
+msgid "{{personCtrl.personService.contactTypes[value.key].text}}"
+msgstr ""
 
-#: client/app/modules/adf/widgets/weather/weather.html:12
-msgid "Temperature:"
-msgstr "Temperatur"
+#: modules/person/views/person.edit.tab.personal.html:2
+msgid ""
+"<mh-avatar person=\"personCtrl.person\" size=\"xs\" circle=\"\" class="
+"\"avatar\"></mh-avatar> Person Info"
+msgstr ""
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:125
-msgid "Your primary contact method is {{person.primaryContact}}"
-msgstr "Ihre bevorzugte Kontaktmethode ist {{person.primaryContact}}."
+#: modules/group/views/group.list.html:2
+msgid "<ng-md-icon icon=\"info\"></ng-md-icon> No Groups found"
+msgstr ""
 
-#: client/app/modules/person/views/person.view.details.html:4
-msgid "{{age}} old"
-msgstr "{{age}} alt"
+#: modules/person/views/person.list.html:50
+msgid "<ng-md-icon icon=\"info\"></ng-md-icon> No Persons found"
+msgstr ""
 
-#: modules/person/views/household.list.html:17
-#: modules/person/views/person.list.html:16
-#: modules/report/views/report.list.html:17
-msgid "Actions"
-msgstr "Aktionen"
+#: modules/event/views/events.html:20
+msgid ""
+"A Event Template is a model for many events, defining what possible options "
+"a event may have. Start by creating an template\n"
+"      with the button below"
+msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:11
-msgid "Add a status"
-msgstr "Status hinzufügen"
+#: modules/event/views/event.template.view.html:10
+msgid "Add a new event using the button at the bottom right"
+msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:33
-msgid "Add a tag"
-msgstr "Ein Schlagwort hinzufügen"
+#: modules/note/templates/note-create-directive.html:3
+#, fuzzy
+msgid "Add a new note"
+msgstr "Neue Notiz erstellen"
 
-#: modules/person/views/person.view.html:52
-msgid "Address"
-msgstr "Adresse"
+#: modules/event/views/event.template.html:27
+msgid "Add a option"
+msgstr "Option hinzufügen"
+
+#: modules/event/views/event.template.html:52
+msgid "Add a schedule"
+msgstr "Einen Ablauf hinzufügen"
+
+#: modules/event/views/event.template.schedule.html:12
+msgid "Add an item"
+msgstr "Hinzufügen"
+
+#: modules/group/views/group.view.html:29
+msgid "Add as Leader"
+msgstr "Als Leiter hinzufügen"
+
+#: modules/event/views/events.html:44
+msgid "Add first a event template before you create an event"
+msgstr ""
+
+#: modules/event/views/events.html:66 modules/event/views/events.html:75
+msgid "Add new event"
+msgstr "Neues Treffen erstellen"
+
+#: modules/event/views/event.templates.html:14
+msgid "Add new event template"
+msgstr "Neue Vorlage für Treffen hinzufügen"
+
+#: modules/group/views/group.list.html:41
+msgid "Add new group"
+msgstr "Neue Gruppe hinzufügen"
+
+#: modules/person/views/household.list.html:18
+#, fuzzy
+msgid "Add new household"
+msgstr "Neuer Haushalt"
+
+#: modules/note/views/note.list.html:14
+msgid "Add new note"
+msgstr "Neue Notiz hinzufügen"
+
+#: modules/person/views/person.list.html:95
+#, fuzzy
+msgid "Add new person"
+msgstr "Neue Person"
+
+#: modules/event/views/events.html:34
+msgid "Add New Template"
+msgstr "Neue Vorlage hinzufügen"
+
+#: modules/person/views/person.view.html:94
+msgid "Add Note"
+msgstr "Neue Notiz"
 
 #: modules/address/directives/address_edit.html:3
 msgid "Address Line 1"
 msgstr "Addresszeile 1"
 
-#: modules/address/directives/address_edit.html:8
-msgid "Address Line 2"
-msgstr "Addresszeile 2"
-
-#: modules/person/views/person.edit.html:14
+#: modules/person/views/person.edit.html:15
 msgid "Addresses"
 msgstr "Adressen"
-
-#: modules/person/views/person.edit.tab.personal.html:104
-msgid "Anniversary"
-msgstr "Jahrestag"
 
 #: modules/report/views/report.upsert.tab.query.html:14
 #: modules/report/views/report.upsert.tab.query.html:35
 msgid "Ascending"
 msgstr "Aufsteigend"
 
-#: modules/person/views/person.edit.tab.personal.html:221
-msgid "Assign household to this person"
-msgstr "Haushalt dieser Person zuweisen"
+#: modules/person/templates/person-household.html:9
+msgid "Assign a household"
+msgstr "Einem Haushalt zuordnen"
 
-#: client/app/modules/person/services/person-service.js:123
-msgid "Aunt"
-msgstr "Tante"
-
-#: modules/person/views/person.edit.html:22
+#: modules/person/views/person.edit.html:25
 msgid "Avatar"
 msgstr "Profilbild"
 
-#: modules/person/views/person.edit.tab.personal.html:99
-msgid "Baptism Date"
-msgstr "Taufdatum"
+#: modules/person/views/person.export.images.html:2
+msgid "Avatar Images Export"
+msgstr "Profilbilder exportieren"
+
+#: modules/event/views/event.html:59
+msgid "Back"
+msgstr "Zurück"
 
 #: modules/person/views/person.view.details.html:5
 msgid "Baptized {{timeFromNow}} ago"
 msgstr "Getauft vor {{timeFromNow}}"
 
-#: modules/person/views/person.edit.tab.personal.html:94
-#: modules/person/views/person.list.html:55
-msgid "Birthdate"
+#: modules/person/widgets/nextBirthdays/view.html:1
+#, fuzzy
+msgid "Birthdays next week"
 msgstr "Geburtsdatum"
-
-#: client/app/modules/person/services/person-service.js:124
-msgid "Brother"
-msgstr "Bruder"
-
-#: client/app/modules/person/services/person-service.js:136
-msgid "Brother in Law"
-msgstr "Schwager"
 
 #: modules/report/views/report.upsert.tab.layout.html:39
 msgid "Bottom Margin (cm)"
@@ -115,103 +154,53 @@ msgstr "Unterer Abstand (cm)"
 msgid "Build Query"
 msgstr "Abfrage erstellen"
 
-#: modules/calendar/views/calendar.show.html:3
-msgid "Calendar"
-msgstr "Kalender"
-
-#: modules/note/templates/note-create-directive.html:22
+#: modules/note/templates/note-dialog.html:23
+#: modules/person/views/person.view.html:95
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:161
-msgid "Can’t read image. Please try again."
-msgstr "Das Bild konnte nicht geladen werden. Versuchen sie es noch einmal."
-
-#: client/app/modules/person/services/person-service.js:106
-msgid "Church Discipline"
-msgstr "Gemeindezucht"
-
-#: modules/address/directives/address_edit.html:19
+#: modules/address/directives/address_edit.html:14
 msgid "City"
 msgstr "Stadt"
 
-#: client/app/modules/dashboard/widgets/clock/mh-widget-clock.js:7
-msgid "Clock"
-msgstr "Uhr"
-
-#: modules/person/views/person.edit.tab.personal.html:105
-#: modules/person/views/person.edit.tab.personal.html:91
+#: modules/note/views/note.edit.html:26
 msgid "Close"
 msgstr "Schließen"
 
-#: modules/person/views/person.view.html:46
-msgid "Contact"
-msgstr "Kontakt"
-
-#: modules/person/views/person.edit.tab.personal.html:122
-msgid "Contact Info"
-msgstr "Kontaktinfos"
-
-#: modules/address/directives/address_edit.html:31
+#: modules/address/directives/address_edit.html:26
 msgid "Country"
 msgstr "Land"
 
-#: client/app/modules/person/services/person-service.js:121
-msgid "Cousin"
-msgstr "Cousin"
-
-#: modules/person/views/person.edit.tab.personal.html:217
-msgid "Create Household"
-msgstr "Haushalt anlegen"
-
-#: modules/note/templates/note-create-directive.html:23
-msgid "Create Note"
-msgstr "Neue Notiz"
-
-#: client/app/modules/person/person.js:175
-msgid "Create Person"
-msgstr "Person anlegen"
-
-#: client/app/modules/report/report.js:81
-msgid "Create Report"
-msgstr "Bericht anlegen"
-
-#: client/app/modules/person/person.js:80
-msgid "Create a Person"
-msgstr "Eine Person anlegen"
-
-#: client/app/modules/person/person.js:55
-msgid "Create and edit Persons"
-msgstr "Personen erstellen und bearbeiten"
-
-#: client/app/modules/person/controllers/household-edit-controller.js:25
-msgid "Create new Household"
-msgstr "Neuen Haushalt erstellen"
-
-#: modules/note/templates/note-create-directive.html:3
+#: modules/note/templates/note-dialog.html:3
 msgid "Create new Note"
 msgstr "Neue Notiz erstellen"
 
-#: client/app/modules/person/controllers/person-edit-controller.js:64
-msgid "Create new Person"
-msgstr "Neue Person anlegen"
+#: modules/note/templates/note-dialog.html:24
+#: modules/note/templates/note-inline.html:21
+msgid "Create Note"
+msgstr "Neue Notiz"
 
-#: client/app/modules/dashboard/dashboard.js:24
-#: client/app/modules/dashboard/dashboard.js:34
-msgid "Dashboard"
-msgstr "Dashboard"
+#: modules/person/views/person.export.csv.html:2
+#, fuzzy
+msgid "CSV Export"
+msgstr "Export"
 
-#: client/app/modules/person/services/person-service.js:120
-msgid "Daughter"
-msgstr "Tochter"
+#: modules/person/views/person.edit.tab.avatar.html:2
+#, fuzzy
+msgid "Current Avatar"
+msgstr "Profilbild auswählen"
 
-#: client/app/modules/person/services/person-service.js:139
-msgid "Daughter in Law"
-msgstr "Schwiegertochter"
+#: modules/event/views/events.html:43
+#: modules/event/widgets/next-events/view.html:4
+msgid "Currently there are no events."
+msgstr "Keine Treffen gefunden"
 
-#: modules/person/views/household.list.html:38
-#: modules/person/views/person.list.html:102
-#: modules/report/views/report.list.html:33
+#: modules/group/views/group.view.html:23
+#: modules/person/views/household.edit.html:41
+#: modules/person/views/person.list.html:79
+#: modules/person/views/person.view.html:117
+#: modules/report/views/report.list.html:18
+#: modules/report/views/report.list.html:19
 msgid "Delete"
 msgstr "Löschen"
 
@@ -220,78 +209,52 @@ msgstr "Löschen"
 msgid "Descending"
 msgstr "Absteigend"
 
-#: modules/person/views/person.view.html:40
-msgid "Details"
-msgstr "Details"
+#: modules/group/views/group.edit.html:13
+msgid "Description"
+msgstr "Beschreibung"
 
-#: client/app/modules/calendar/calendar.js:22
-msgid "Display a Calendar"
-msgstr "Einen Kalender anzeigen"
+#: modules/person/views/person.export.images.html:8
+#: modules/person/views/person.export.pdf.html:13
+msgid "Download"
+msgstr "Herunterladen"
 
-#: client/app/modules/dashboard/widgets/weather/mh-widget-weather.js:9
-msgid "Display the current temperature of a city"
-msgstr "Zeige die aktuelle Temperatur einer Stadt an"
+#: modules/person/views/person.export.csv.html:8
+msgid "Download all in csv"
+msgstr "Alles als csv runterladen"
 
-#: client/app/modules/dashboard/widgets/clock/mh-widget-clock.js:8
-msgid "Displays date and time"
-msgstr "Zeigt Datum und Zeit an"
+#: modules/person/views/person.export.vcard.html:11
+msgid "Download all in VCard"
+msgstr "Alles als VCard herunterladen"
 
-#: modules/person/views/person.edit.tab.avatar.html:16
+#: modules/person/views/person.import.csv.html:9
+msgid "Drop File here"
+msgstr "Datei hierher ziehen"
+
+#: modules/person/views/person.import.images.html:10
+msgid "Drop Files here"
+msgstr "Here die Dateien hinziehen"
+
+#: modules/person/templates/avatar-upload.html:6
+#: modules/person/views/person.edit.tab.avatar.html:15
 msgid "Drop images here or click to upload"
 msgstr "Zum Hochladen Bild hier fallen lassen oder klicken"
 
-#: modules/report/views/report.list.html:29
+#: modules/report/views/report.list.html:10
+#: modules/report/views/report.list.html:11
 msgid "Duplicate"
 msgstr "Duplizieren"
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:134
-msgid "EMail"
-msgstr "E-Mail"
-
-#: modules/person/views/household.list.html:34
-#: modules/person/views/person.list.html:98
+#: modules/person/views/person.list.html:73
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: client/app/modules/person/person.js:93
-msgid "Edit a Person"
-msgstr "Eine Person bearbeiten"
-
-#: modules/dashboard/templates/dashboard-edit.html:3
-msgid "Edit Dashboard"
-msgstr "Übersichtsseite bearbeiten"
-
-#: client/app/modules/person/person.js:146
-#: client/app/modules/person/person.js:149
-msgid "Edit Household"
-msgstr "Haushalt bearbeiten"
-
-#: client/app/modules/person/person.js:96
+#: modules/person/views/person.view.html:148
 msgid "Edit Person"
 msgstr "Person bearbeiten"
 
-#: modules/report/views/report.upsert.html:8
-msgid "Edit Report"
-msgstr "Bericht bearbeiten"
-
-#: modules/person/views/person.view.html:28
-msgid "Edit person"
-msgstr "Person bearbeiten"
-
-#: modules/person/views/person.edit.tab.personal.html:142
-#: modules/person/views/person.list.html:59
 #: modules/person/views/person.view.contacts.html:2
 msgid "Email"
 msgstr "E-Mail"
-
-#: client/app/modules/core/core.js:101
-msgid "English"
-msgstr "Englisch"
-
-#: client/app/modules/core/services/shout.js:27
-#: client/app/modules/core/services/shout.js:32
-msgid "Error"
-msgstr "Fehler"
 
 #: modules/report/views/report.upsert.tab.layout.html:59
 msgid "Enable Footer"
@@ -301,75 +264,47 @@ msgstr "Fußzeile aktivieren"
 msgid "Enable Header"
 msgstr "Kopfzeile aktivieren"
 
-#: modules/person/views/person.edit.tab.personal.html:188
-msgid "Existing Household"
-msgstr "Bestehender Haushalt"
+#: modules/event/views/event.html:2
+msgid "Event Information"
+msgstr "Informationen"
 
-#: client/app/modules/person/person.js:122
-#: client/app/modules/person/person.js:179
-#: client/app/modules/person/views/person.export.html:8
+#: modules/event/views/event.html:5
+msgid "Event Name"
+msgstr "Treffenname"
+
+#: modules/person/views/person.import.csv.html:17
+msgid "Examples"
+msgstr "Beispiele"
+
+#: modules/person/views/person.list.html:17
+#: modules/person/views/person.list.html:41
 msgid "Export"
 msgstr "Export"
 
-#: client/app/modules/person/person.js:119
-#: client/app/modules/person/views/person.export.html:4
-msgid "Export Persons"
-msgstr "Personen exportieren"
-
-#: modules/person/views/person.list.html:75
 #: modules/person/views/person.view.contacts.html:26
 msgid "Facebook"
 msgstr "Facebook"
 
-#: modules/person/views/person.edit.tab.personal.html:174
-msgid "Facebook Username"
-msgstr "Facebook-Benutzername"
-
-#: client/app/modules/person/services/person-service.js:131
-msgid "Father"
-msgstr "Vater"
-
-#: client/app/modules/person/services/person-service.js:135
-msgid "Father in Law"
-msgstr "Schwiegervater"
-
-#: modules/person/views/household.edit.html:21
+#: modules/person/views/household.edit.html:16
 msgid "Family"
 msgstr "Familie"
 
-#: modules/person/views/person.edit.tab.personal.html:169
 #: modules/person/views/person.view.contacts.html:21
 #: modules/person/views/person.view.contacts.html:23
 msgid "Fax"
 msgstr "Fax"
 
-#: modules/person/views/person.edit.tab.personal.html:111
+#: modules/person/views/person.edit.tab.personal.html:56
 msgid "Female"
 msgstr "Weiblich"
 
-#: client/app/modules/person/controllers/person-import-controller.js:96
-msgid "File read"
-msgstr "Datei lesen"
-
-#: modules/person/views/person.edit.tab.avatar.html:17
+#: modules/person/templates/avatar-upload.html:7
 msgid "File Drag/Drop is not supported for this browser"
 msgstr "Dein Browser unterstützt das ziehen und ablegen von Dateien nicht"
 
-#: modules/person/views/person.edit.tab.personal.html:57
+#: modules/person/views/person.edit.tab.personal.html:5
 msgid "First Name"
 msgstr "Vorname"
-
-#: client/app/modules/person/services/person-service.js:110
-msgid "First-Time Visitor"
-msgstr "Erstbesucher"
-
-#: client/app/modules/person/controllers/person-edit-controller.js:149
-msgid "For best results the image should be at least 800x800 pixels."
-msgstr "Für optimale Ergebnisse sollte das Bild mindestens 800x800 Pixel groß sein."
-
-#: client/app/modules/person/services/person-service.js:104
-msgid "Former Member"
-msgstr "Mitglied (ehem.)"
 
 #: modules/report/views/report.upsert.tab.layout.html:57
 msgid "Footer"
@@ -379,37 +314,15 @@ msgstr "Fußzeile"
 msgid "Footer Height (cm)"
 msgstr "Höhe der Fußzeile (cm)"
 
-#: modules/person/views/person.edit.tab.personal.html:108
-msgid "Gender"
-msgstr "Geschlecht"
+#: modules/event/views/event.template.html:2
+#: modules/event/views/event.template.schedule.html:2
+msgid "General"
+msgstr "Allgemein"
 
-#: client/app/modules/core/core.js:106
-msgid "German"
-msgstr "Deutsch"
-
-#: client/app/modules/person/services/person-service.js:129
-msgid "Granddaughter"
-msgstr "Enkeltochter"
-
-#: client/app/modules/person/services/person-service.js:126
-msgid "Grandfather"
-msgstr "Großvater"
-
-#: client/app/modules/person/services/person-service.js:127
-msgid "Grandmother"
-msgstr "Großmutter"
-
-#: client/app/modules/person/services/person-service.js:128
-msgid "Grandson"
-msgstr "Enkelsohn"
-
-#: modules/person/views/person.view.html:95
-msgid "Groups"
+#: modules/person/views/person.edit.tab.personal.html:49
+#, fuzzy
+msgid "Group"
 msgstr "Gruppen"
-
-#: modules/report/views/report.upsert.tab.preview.html:5
-msgid "HTML"
-msgstr "HTML"
 
 #: modules/report/views/report.upsert.tab.layout.html:44
 msgid "Header"
@@ -419,28 +332,19 @@ msgstr "Kopfzeile"
 msgid "Header Height (cm)"
 msgstr "Höhe der Kopfzeile (cm)"
 
-#: modules/person/views/person.view.html:69
-msgid "History"
-msgstr "Verlauf"
-
 #: modules/person/views/person.view.contacts.html:8
 msgid "Home"
 msgstr "Home"
 
-#: modules/person/views/person.edit.tab.addresses.html:5
+#: modules/person/views/person.edit.tab.addresses.html:4
 msgid "Home Address"
 msgstr "Anschrift (Privat)"
 
-#: modules/person/views/person.edit.tab.personal.html:151
-msgid "Home Phone"
-msgstr "Telefon (Privat)"
-
-#: modules/person/views/person.list.html:63
 #: modules/person/views/person.view.contacts.html:6
 msgid "Home phone"
 msgstr "Telefon (Privat)"
 
-#: modules/person/views/person.edit.tab.personal.html:183
+#: modules/person/views/person.edit.tab.personal.html:44
 msgid "Household"
 msgstr "Haushalt"
 
@@ -448,50 +352,49 @@ msgstr "Haushalt"
 msgid "Household Address"
 msgstr "Adresse des Haushalts"
 
-#: modules/person/views/household.list.html:16
-msgid "Household Members"
-msgstr "Haushaltsmitglieder"
-
-#: modules/person/views/household.edit.html:10
-#: modules/person/views/household.list.html:15
-#: modules/person/views/person.edit.tab.personal.html:213
+#: modules/person/views/household.edit.html:6
 msgid "Household Name"
 msgstr "Haushaltsname"
 
-#: modules/person/views/household.list.html:4
+#: modules/person/views/person.list.html:29
 #: modules/person/widgets/stats/view.html:2
 msgid "Households"
 msgstr "Haushalte"
 
-#: client/app/modules/person/services/person-service.js:117
-msgid "Husband"
-msgstr "Ehemann"
+#: modules/report/views/report.upsert.tab.preview.html:5
+msgid "HTML"
+msgstr "HTML"
 
-#: modules/person/views/person.import.html:19
+#: modules/person/views/person.import.csv.html:36
+#: modules/person/views/person.list.html:23
 msgid "Import"
 msgstr "Import"
 
-#: modules/person/views/person.import.html:4
-msgid "Import Persons"
-msgstr "Personen importieren"
+#: modules/person/views/person.import.images.html:14
+msgid "Import started"
+msgstr "Import gestartet"
 
-#: client/app/modules/core/services/shout.js:38
-msgid "Info"
-msgstr "Info"
+#: modules/person/views/person.export.pdf.html:8
+msgid "Include Cover"
+msgstr "Umschlagseite einfügen"
 
-#: client/app/modules/person/services/person-service.js:109
-msgid "Irregular Visitor"
-msgstr "Besucher (unregelmäßig)"
+#: modules/group/views/group.edit.html:8
+msgid "Is a ministry"
+msgstr "Ist ein Dienst"
+
+#: modules/event/views/event.template.html:40
+msgid "Label"
+msgstr ""
 
 #: modules/report/views/report.upsert.tab.layout.html:14
 msgid "Landscape"
 msgstr "Querformat"
 
-#: modules/person/views/person.edit.tab.personal.html:70
+#: modules/person/views/person.edit.tab.personal.html:15
 msgid "Last Name"
 msgstr "Nachname"
 
-#: modules/address/directives/address_edit.html:38
+#: modules/address/directives/address_edit.html:33
 msgid "Latitude"
 msgstr "Breitengrad"
 
@@ -499,47 +402,35 @@ msgstr "Breitengrad"
 msgid "Left Margin (cm)"
 msgstr "Linker Abstand (cm)"
 
-#: modules/person/views/household.edit.html:16
+#: modules/event/views/event.template.schedule.html:32
+msgid "Length in Minutes"
+msgstr "Länge in Minuten"
+
+#: modules/person/views/household.edit.html:11
 msgid "Letter Salutation"
 msgstr "Briefanrede"
-
-#: client/app/modules/person/person.js:176
-msgid "List Households"
-msgstr "Haushaltsliste"
-
-#: client/app/modules/person/person.js:174
-msgid "List Persons"
-msgstr "Personenliste"
-
-#: client/app/modules/report/report.js:80
-msgid "List Reports"
-msgstr "Berichte anzeigen"
 
 #: modules/auth/views/login.html:24
 msgid "Login"
 msgstr "Anmelden"
 
-#: modules/address/directives/address_edit.html:43
+#: modules/address/directives/address_edit.html:38
 msgid "Longitude"
 msgstr "Längengrad"
 
-#: modules/person/views/person.edit.tab.personal.html:110
+#: modules/settings/views/site-settings.html:4
+msgid "MailChimp"
+msgstr ""
+
+#: modules/person/views/person.edit.tab.personal.html:55
 msgid "Male"
 msgstr "Männlich"
 
-#: client/app/modules/person/services/person-service.js:102
-msgid "Member"
-msgstr "Mitglied"
+#: modules/person/views/person.import.csv.html:16
+msgid "Map to"
+msgstr "Karte"
 
-#: client/app/modules/person/services/person-service.js:103
-msgid "Member Prospect"
-msgstr "Mitglied (Interesse)"
-
-#: modules/person/views/person.list.html:14
-msgid "Member Status"
-msgstr "Mitgliedschaftsstatus"
-
-#: modules/person/views/person.edit.tab.personal.html:65
+#: modules/person/views/person.edit.tab.personal.html:10
 msgid "Middle Name"
 msgstr "Zweitname"
 
@@ -547,85 +438,51 @@ msgstr "Zweitname"
 msgid "Mobile"
 msgstr "Handy"
 
-#: client/app/modules/person/services/person-service.js:111
-msgid "Missionary"
-msgstr "Missionar"
-
-#: modules/person/views/person.edit.tab.personal.html:161
-msgid "Mobile Phone"
-msgstr "Handy"
-
-#: modules/person/views/person.list.html:71
 #: modules/person/views/person.view.contacts.html:16
 msgid "Mobile phone"
 msgstr "Handy"
 
-#: client/app/modules/person/services/person-service.js:130
-msgid "Mother"
-msgstr "Mutter"
-
-#: client/app/modules/person/services/person-service.js:134
-msgid "Mother in Law"
-msgstr "Schwiegermutter"
-
-#: client/app/modules/note/note.js:55
-msgid "My Notes"
-msgstr "Meine Notizen"
-
+#: modules/event/views/event.template.schedule.html:20
+#: modules/person/views/person.import.csv.html:15
 #: modules/report/directives/variablelist-template.html:6
-#: modules/report/views/report.list.html:16
 msgid "Name"
 msgstr "Name"
 
-#: client/app/modules/person/services/person-service.js:132
-msgid "Nephew"
-msgstr "Neffe"
+#: modules/person/views/person.edit.html:47
+#: modules/person/views/person.view.html:140
+msgid "Next"
+msgstr "Nächtes"
 
-#: modules/person/views/person.edit.tab.personal.html:208
-msgid "New Household"
-msgstr "Neuer Haushalt"
+#: modules/event/views/events.html:40
+#: modules/event/widgets/next-events/view.html:1
+msgid "Next Events"
+msgstr "Nächste Treffen"
 
-#: modules/note/templates/note-create-directive.html:32
-msgid "New Note"
-msgstr "Neue Notiz"
-
-#: client/app/modules/person/person.js:83
-msgid "New Person"
-msgstr "Neue Person"
-
-#: client/app/modules/report/report.js:45
-msgid "New Report"
-msgstr "Neuer Bericht"
-
-#: modules/person/views/person.edit.tab.personal.html:84
+#: modules/person/views/person.edit.tab.personal.html:24
 msgid "Nickname"
 msgstr "Spitzname"
 
-#: client/app/modules/person/services/person-service.js:133
-msgid "Niece"
-msgstr "Nichte"
+#: modules/event/views/event.template.view.html:9
+msgid "No Events found"
+msgstr "Keine Treffen gefunden"
 
-#: modules/person/views/person.edit.tab.personal.html:201
-msgid "No matches found for \"{{householdSearchText}}\"."
-msgstr "Keine Treffer für „{{householdSearchText}}“ gefunden."
-
-#: modules/note/templates/note-create-directive.html:18
+#: modules/note/templates/note-dialog.html:18
 #: modules/note/templates/note-edit-form-directive.html:6
+#: modules/note/templates/note-inline.html:15
 msgid "Note"
 msgstr "Notiz"
 
-#: client/app/modules/note/directives/note-directives.js:46
-msgid "Note created"
-msgstr "Notiz erstellt"
-
-#: client/app/modules/note/note.js:26
-#: client/app/modules/note/note.js:53
+#: modules/person/views/person.view.html:90
 msgid "Notes"
 msgstr "Notizen"
 
-#: client/app/modules/person/services/person-service.js:105
-msgid "Passed Member"
-msgstr "Mitglied (verstorben)"
+#: modules/event/views/event.html:27
+msgid "Optionen"
+msgstr "Optionen"
+
+#: modules/event/views/event.template.html:25
+msgid "Options for the Template"
+msgstr "Options für die Vorlage"
 
 #: modules/report/views/report.upsert.tab.query.html:7
 msgid "Order by"
@@ -635,17 +492,9 @@ msgstr "Anordnen durch"
 msgid "Orientation"
 msgstr "Ausrichtung"
 
-#: modules/person/views/household.edit.html:23
+#: modules/person/views/household.edit.html:18
 msgid "Other"
 msgstr "Andere"
-
-#: modules/report/views/report.upsert.tab.preview.html:13
-msgid "PDF"
-msgstr "PDF"
-
-#: modules/report/views/report.upsert.tab.layout.html:10
-msgid "PDF Options"
-msgstr "PDF Optionen"
 
 #: modules/report/views/report.upsert.tab.layout.html:16
 msgid "Page Size"
@@ -655,26 +504,20 @@ msgstr "Seitenformat"
 msgid "Passwort"
 msgstr "Passwort"
 
-#: client/app/modules/dashboard/views/dashlet.person.count.html:27
-#: client/app/modules/person/person.js:45
-msgid "Person"
-msgid_plural "Persons"
-msgstr[0] "Person"
-msgstr[1] "Personen"
+#: modules/report/views/report.upsert.tab.preview.html:13
+msgid "PDF"
+msgstr "PDF"
 
-#: modules/person/views/person.edit.tab.personal.html:54
-msgid "Person Info"
-msgstr "Personen-Info"
+#: modules/person/views/person.export.pdf.html:2
+#, fuzzy
+msgid "PDF Export"
+msgstr "Export"
 
-#: modules/person/views/person.list.html:13
-msgid "Person details"
-msgstr "Angabe zur Person"
+#: modules/report/views/report.upsert.tab.layout.html:10
+msgid "PDF Options"
+msgstr "PDF Optionen"
 
-#: client/app/modules/person/controllers/person-import-controller.js:125
-msgid "Person imported"
-msgstr "Importierte Person"
-
-#: modules/person/views/person.edit.html:6
+#: modules/person/views/person.edit.html:5
 msgid "Personal"
 msgstr "Persönlich"
 
@@ -682,61 +525,56 @@ msgstr "Persönlich"
 msgid "Persons"
 msgstr "Personen"
 
-#: modules/person/views/person.edit.tab.personal.html:145
-msgid "Please enter a valid email address."
-msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+#: modules/event/views/event.template.html:9
+msgid "Place"
+msgstr "Ort"
 
 #: modules/report/views/report.upsert.tab.query.html:22
 #: modules/report/views/report.upsert.tab.query.html:42
 msgid "Please select a sort direction."
 msgstr "Wähle eine Sortierrichtung aus"
 
-#: modules/person/views/person.edit.tab.personal.html:134
-msgid "Please select your primary contact method"
-msgstr "Bitte wählen Sie Ihe bevorzugte Kontaktmethode aus"
-
 #: modules/report/views/report.upsert.tab.layout.html:13
 msgid "Portrait"
 msgstr "Hochformat"
 
-#: modules/person/views/person.edit.tab.addresses.html:13
+#: modules/person/views/person.edit.tab.addresses.html:15
 msgid "Postal Address"
 msgstr "Anschrift (Postalisch)"
 
-#: modules/person/views/person.edit.tab.personal.html:124
-msgid "Primary Contact Method"
-msgstr "Bevorzugte Kontaktmethode"
+#: modules/person/views/person.edit.html:45
+#: modules/person/views/person.view.html:138
+msgid "Previous"
+msgstr "Vorheriges"
 
-#: client/app/modules/person/services/person-service.js:108
-msgid "Regular Visitor"
-msgstr "Besucher (regelmäßig)"
-
+#: modules/event/views/event.template.html:44
+#: modules/event/views/event.template.schedule.html:37
 #: modules/report/views/report.upsert.tab.query.html:17
 #: modules/report/views/report.upsert.tab.query.html:38
 msgid "Remove"
 msgstr "Entfernen"
 
+#: modules/group/views/group.view.html:35
+msgid "Remove as Leader"
+msgstr ""
+
+#: modules/report/views/report.upsert.html:17
+msgid "Report layout"
+msgstr "Berichtslayout"
+
 #: modules/report/views/report.upsert.tab.query.html:3
 msgid "Report Name"
 msgstr "Berichtsname"
 
-#: modules/report/views/report.upsert.html:24
-msgid "Report layout"
-msgstr "Berichtslayout"
-
-#: modules/report/views/report.upsert.html:32
+#: modules/report/views/report.upsert.html:25
 msgid "Report preview"
 msgstr "Berichtvorschau"
 
-#: modules/report/views/report.upsert.html:16
+#: modules/report/views/report.upsert.html:9
 msgid "Report source"
 msgstr "Berichtsquelle"
 
-#: modules/report/views/report.list.html:5
-msgid "Reports"
-msgstr "Berichte"
-
-#: modules/report/views/report.upsert.html:43
+#: modules/report/views/report.upsert.html:36
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -744,47 +582,67 @@ msgstr "Zurücksetzen"
 msgid "Right Margin (cm)"
 msgstr "Rechter Abstand (cm)"
 
-#: modules/person/views/person.edit.html:30
+#: modules/person/views/person.edit.html:35
 msgid "Roles"
 msgstr "Rollen"
 
-#: modules/note/views/note.create.html:4
+#: modules/event/views/event.html:62
+#: modules/event/views/event.template.html:65
+#: modules/event/views/event.template.schedule.html:44
+#: modules/group/views/group.edit.html:25 modules/note/views/note.edit.html:23
+#: modules/person/views/person.edit.html:55
 msgid "Save"
 msgstr "Speichern"
 
-#: modules/person/views/household.edit.html:30
-#: modules/person/views/person.edit.html:39
-#: modules/report/views/report.upsert.html:41
-msgid "Save Changes"
-msgstr "Änderungen speichern"
+#: modules/group/views/group.edit.html:28
+#: modules/person/views/person.edit.html:51
+#, fuzzy
+msgid "Save &amp; Close"
+msgstr "Speichern und Schließen"
 
-#: modules/person/views/household.edit.html:31
-#: modules/person/views/person.edit.html:41
+#: modules/person/views/person.edit.html:52
+#, fuzzy
+msgid "Save &amp; New"
+msgstr "Speichern und Neu"
+
+#: modules/person/views/household.edit.html:57
 msgid "Save and Close"
 msgstr "Speichern und Schließen"
 
-#: modules/person/views/household.edit.html:32
-#: modules/person/views/person.edit.html:42
+#: modules/person/views/household.edit.html:58
 msgid "Save and New"
 msgstr "Speichern und Neu"
 
-#: modules/person/views/person.edit.tab.personal.html:196
-msgid "Search Household"
-msgstr "Haushalt suchen"
+#: modules/person/views/household.edit.html:56
+#: modules/report/views/report.upsert.html:34
+msgid "Save Changes"
+msgstr "Änderungen speichern"
 
-#: templates/header.html:18
+#: modules/person/views/person.list.html:40
+msgid "Save Search"
+msgstr "Speichere Suche"
+
+#: modules/event/views/event.template.schedule.html:10
+msgid "Schedule Items"
+msgstr ""
+
+#: modules/event/views/event.template.schedule.html:4
+msgid "Schedule Name"
+msgstr ""
+
+#: modules/event/views/event.template.html:50
+msgid "Schedules"
+msgstr ""
+
+#: modules/core/templates/header.html:21
 msgid "Search…"
 msgstr "Suche..."
 
-#: modules/person/views/person.edit.tab.avatar.html:11
+#: modules/person/templates/avatar-upload.html:1
 msgid "Select Avatar"
 msgstr "Profilbild auswählen"
 
-#: modules/report/widgets/htmlreport/edit.html:3
-msgid "Select Report"
-msgstr "Bericht wählen"
-
-#: modules/person/views/household.edit.html:20
+#: modules/person/views/household.edit.html:15
 msgid "Select household type"
 msgstr "Wählen den Familientyp"
 
@@ -793,146 +651,103 @@ msgstr "Wählen den Familientyp"
 msgid "Select property"
 msgstr "Wähle ein Element"
 
-#: modules/person/views/household.edit.html:22
+#: modules/report/widgets/htmlreport/edit.html:3
+msgid "Select Report"
+msgstr "Bericht wählen"
+
+#: modules/person/views/person.list.html:42
+msgid "Send Message"
+msgstr "Nachricht senden"
+
+#: modules/person/views/household.edit.html:17
 msgid "Shared Flat"
 msgstr "Wohngemeinschaft"
 
-#: modules/auth/views/login.html:9
+#: modules/auth/views/login.html:7
 msgid "Sign In"
 msgstr "Anmelden"
 
-#: client/app/modules/person/services/person-service.js:125
-msgid "Sister"
-msgstr "Schwester"
-
-#: client/app/modules/person/services/person-service.js:137
-msgid "Sister in Law"
-msgstr "Schwägerin"
-
-#: modules/person/views/person.list.html:80
 #: modules/person/views/person.view.contacts.html:33
 msgid "Skype"
 msgstr "Skype"
-
-#: modules/person/views/person.edit.tab.personal.html:179
-msgid "Skype Name"
-msgstr "Skype-Name"
-
-#: client/app/modules/person/services/person-service.js:119
-msgid "Son"
-msgstr "Sohn"
-
-#: client/app/modules/person/services/person-service.js:138
-msgid "Son in Law"
-msgstr "Schwiegersohn"
 
 #: modules/report/views/report.upsert.tab.query.html:13
 #: modules/report/views/report.upsert.tab.query.html:34
 msgid "Sort direction"
 msgstr "Sortierrichtung"
 
-#: modules/address/directives/address_edit.html:26
+#: modules/event/views/event.template.html:14
+msgid "Start Time"
+msgstr "Anfangszeit"
+
+#: modules/address/directives/address_edit.html:21
 msgid "State/Province/Region"
 msgstr "Bundesland/Kanton"
 
-#: modules/person/views/person.edit.tab.personal.html:9
+#: modules/person/views/person.edit.tab.personal.html:34
 msgid "Status"
 msgstr "Status"
 
-#: client/app/modules/person/services/person-service.js:140
-msgid "Stepbrother"
-msgstr "Stiefbruder"
-
-#: client/app/modules/person/services/person-service.js:141
-msgid "Stepsister"
-msgstr "Stiefschwester"
-
-#: client/app/modules/core/services/shout.js:35
-msgid "Success"
-msgstr "Erfolg"
-
-#: client/app/modules/report/controllers/report-list-controller.js:32
-msgid "Successfully duplicated report."
-msgstr "Der Bericht wurde erfolgreich dupliziert"
-
-#: client/app/modules/person/controllers/person-edit-controller.js:200
-msgid "Successfully saved \"{{fullname}}\""
-msgstr "\"{{fullname}}\" wurde erfolgreich gespeichert"
-
-#: client/app/modules/report/services/report-service.js:23
-msgid "Successfully saved report “{{name}}”"
-msgstr "Der Bericht „{{name}}“ wurde erfolgreich gespeichert."
-
-#: modules/dashboard/templates/dashboard-edit.html:12
-msgid "Structure"
-msgstr "Struktur"
-
-#: client/app/modules/person/controllers/person-edit-controller.js:97
-msgid "Please select an image that is at least 800x800 pixels."
-msgstr "Das Bild muss eine Dimension von mindestens 800x800 Pixel haben."
-
-#: client/app/modules/person/views/person.edit.html:44
-msgid "Rights"
-msgstr "Rechte"
-
-#: client/app/modules/person/views/person.edit.tab.personal.html:153
-msgid "Select household..."
-msgstr "Haushalt auswählen..."
-
-#: client/app/modules/person/views/person.edit.tab.personal.html:107
-msgid "Select primary contact type..."
-msgstr "Bevorzugte Kontaktart auswählen..."
-
-#: modules/person/views/person.edit.tab.personal.html:89
+#: modules/person/views/person.edit.tab.personal.html:29
 msgid "Suffix"
 msgstr "Suffix"
 
-#: modules/person/views/person.list.html:15
+#: modules/event/views/event.html:10
+#: modules/event/views/event.template.html:19
+#: modules/group/views/group.edit.html:18 modules/note/views/note.edit.html:8
+#: modules/person/views/person.edit.tab.personal.html:39
 msgid "Tags"
 msgstr "Schlagworte"
+
+#: modules/event/views/event.html:15
+#, fuzzy
+msgid "Template"
+msgstr "Temperatur"
+
+#: modules/event/views/event.template.html:4
+#, fuzzy
+msgid "Template Name"
+msgstr "Berichtsname"
+
+#: modules/event/views/events.html:17
+msgid "Templates"
+msgstr "Vorlagen"
 
 #: modules/report/views/report.upsert.tab.query.html:28
 msgid "Then by"
 msgstr "Danach mit"
 
-#: modules/person/views/person.edit.tab.personal.html:146
-#: modules/person/views/person.edit.tab.personal.html:164
-#: modules/person/views/person.edit.tab.personal.html:60
-#: modules/person/views/person.edit.tab.personal.html:73
-msgid "This field is required."
-msgstr "Dieses Feld ist erforderlich."
+#: modules/group/views/group.list.html:3
+msgid ""
+"There are no groups in the database. You can add a Groups using the button "
+"at the bottom right."
+msgstr ""
 
-#: modules/dashboard/templates/dashboard-edit.html:8
+#: modules/person/views/person.list.html:51
+msgid ""
+"There are no persons in the database. You can add a person using the button "
+"at the bottom right."
+msgstr ""
+
+#: modules/group/views/group.edit.html:3
+#: modules/note/templates/note-dialog.html:14
 #: modules/note/templates/note-edit-form-directive.html:2
-#: modules/person/views/person.edit.tab.personal.html:79
+#: modules/note/templates/note-inline.html:11
+#: modules/person/views/person.edit.tab.personal.html:19
 msgid "Title"
 msgstr "Titel"
-
-#: modules/note/templates/note-create-directive.html:14
-msgid "Title (optional)"
-msgstr "Titel (optional)"
 
 #: modules/report/views/report.upsert.tab.layout.html:35
 msgid "Top Margin (cm)"
 msgstr "Oberer Abstand (cm)"
 
+#: modules/event/views/event.template.html:34
+#: modules/event/views/event.template.schedule.html:24
 #: modules/report/directives/variablelist-template.html:8
 msgid "Type"
 msgstr "Typ"
 
-#: client/app/modules/person/services/person-service.js:122
-msgid "Uncle"
-msgstr "Onkel"
-
-#: modules/calendar/views/calendar.show.html:10
-msgid "Update"
-msgstr "Aktualisieren"
-
-#: modules/person/views/person.edit.tab.personal.html:116
-msgid "User can log in"
-msgstr "Benutzer kann sich einloggen"
-
-#: modules/auth/views/login.html:11
+#: modules/auth/views/login.html:10
 msgid "Username"
 msgstr "Benutzername"
 
@@ -940,29 +755,10 @@ msgstr "Benutzername"
 msgid "Variable Name"
 msgstr "Name der Variable"
 
-#: client/app/modules/person/person.js:133
-msgid "View Households"
-msgstr "Haushalte anzeigen"
-
-#: client/app/modules/person/person.js:70
-msgid "View Person"
-msgstr "Person anzeigen"
-
-#: client/app/modules/person/person.js:67
-msgid "View Person details"
-msgstr "Personendetails anzeigen"
-
-#: client/app/modules/person/services/person-service.js:107
-msgid "Visitor"
-msgstr "Besucher"
-
-#: client/app/modules/dashboard/widgets/weather/mh-widget-weather.js:8
-msgid "Weather"
-msgstr "Wetter"
-
-#: client/app/modules/person/services/person-service.js:118
-msgid "Wife"
-msgstr "Ehefrau"
+#: modules/person/views/person.export.vcard.html:2
+#, fuzzy
+msgid "VCard Export"
+msgstr "Export"
 
 #: modules/person/views/person.view.contacts.html:13
 msgid "Work"
@@ -972,32 +768,407 @@ msgstr "Arbeit"
 msgid "Work Address"
 msgstr "Anschrift (Arbeit)"
 
-#: modules/person/views/person.edit.tab.personal.html:156
-msgid "Work Phone"
-msgstr "Telefon (Arbeit)"
-
-#: modules/person/views/person.list.html:67
 #: modules/person/views/person.view.contacts.html:11
 msgid "Work phone"
 msgstr "Telefon (Arbeit)"
 
-#: modules/person/views/person.edit.tab.personal.html:137
-msgid "You need to enter an address."
-msgstr "Sie müssen eine Adresse angeben."
+#: modules/person/views/person.export.images.html:3
+msgid "You can download all the contact images."
+msgstr ""
 
-#: client/app/modules/person/views/person.edit.tab.personal.html:123
-msgid "Your primary contact method is {{personCtrl.person.primaryContact}}"
-msgstr "Ihre bevorzugte Kontaktmethode ist {{personCtrl.person.primaryContact}}"
+#: modules/person/views/person.export.pdf.html:3
+msgid "You can download all the contacts saved in Memberhive as a PDF."
+msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:131
-msgid "Your primary contact method is {{contactMethod}}"
-msgstr "Deine primäre Kontaktmethode ist {{contactMethod}}"
+#: modules/person/views/person.export.csv.html:3
+msgid ""
+"You can download all the contacts saved in Memberhive in the CSV format."
+msgstr ""
 
-#: modules/address/directives/address_edit.html:14
+#: modules/person/views/person.export.vcard.html:3
+msgid ""
+"You can download all the contacts saved in Memberhive in the vCard Format."
+msgstr ""
+
+#: modules/person/views/person.export.vcard.html:4
+msgid ""
+"You can use the resulting file to import in Google, iCloud and many more."
+msgstr ""
+
+#: modules/address/directives/address_edit.html:9
 msgid "ZIP/Postal Code"
 msgstr "Postleitzahl"
 
-#: modules/person/views/person.view.html:85
-msgid "from"
-msgstr "von"
+#~ msgid "Abbrechen"
+#~ msgstr "Abbrechen"
 
+#~ msgid "Select Household"
+#~ msgstr "Haushalt auswählen"
+
+#~ msgid "Please insert a location in the widget configuration"
+#~ msgstr "Geben sie in der Widgeteinstellung einen Ort an"
+
+#~ msgid "Your primary contact method is {{person.primaryContact}}"
+#~ msgstr "Ihre bevorzugte Kontaktmethode ist {{person.primaryContact}}."
+
+#~ msgid "{{age}} old"
+#~ msgstr "{{age}} alt"
+
+#~ msgid "Actions"
+#~ msgstr "Aktionen"
+
+#~ msgid "Address"
+#~ msgstr "Adresse"
+
+#~ msgid "Address Line 2"
+#~ msgstr "Addresszeile 2"
+
+#~ msgid "Anniversary"
+#~ msgstr "Jahrestag"
+
+#~ msgid "Assign household to this person"
+#~ msgstr "Haushalt dieser Person zuweisen"
+
+#~ msgid "Aunt"
+#~ msgstr "Tante"
+
+#~ msgid "Baptism Date"
+#~ msgstr "Taufdatum"
+
+#~ msgid "Brother"
+#~ msgstr "Bruder"
+
+#~ msgid "Brother in Law"
+#~ msgstr "Schwager"
+
+#~ msgid "Calendar"
+#~ msgstr "Kalender"
+
+#~ msgid "Can’t read image. Please try again."
+#~ msgstr "Das Bild konnte nicht geladen werden. Versuchen sie es noch einmal."
+
+#~ msgid "Church Discipline"
+#~ msgstr "Gemeindezucht"
+
+#~ msgid "Clock"
+#~ msgstr "Uhr"
+
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
+
+#~ msgid "Contact Info"
+#~ msgstr "Kontaktinfos"
+
+#~ msgid "Cousin"
+#~ msgstr "Cousin"
+
+#~ msgid "Create Household"
+#~ msgstr "Haushalt anlegen"
+
+#~ msgid "Create Person"
+#~ msgstr "Person anlegen"
+
+#~ msgid "Create Report"
+#~ msgstr "Bericht anlegen"
+
+#~ msgid "Create a Person"
+#~ msgstr "Eine Person anlegen"
+
+#~ msgid "Create and edit Persons"
+#~ msgstr "Personen erstellen und bearbeiten"
+
+#~ msgid "Create new Household"
+#~ msgstr "Neuen Haushalt erstellen"
+
+#~ msgid "Create new Person"
+#~ msgstr "Neue Person anlegen"
+
+#~ msgid "Dashboard"
+#~ msgstr "Dashboard"
+
+#~ msgid "Daughter"
+#~ msgstr "Tochter"
+
+#~ msgid "Daughter in Law"
+#~ msgstr "Schwiegertochter"
+
+#~ msgid "Details"
+#~ msgstr "Details"
+
+#~ msgid "Display a Calendar"
+#~ msgstr "Einen Kalender anzeigen"
+
+#~ msgid "Display the current temperature of a city"
+#~ msgstr "Zeige die aktuelle Temperatur einer Stadt an"
+
+#~ msgid "Displays date and time"
+#~ msgstr "Zeigt Datum und Zeit an"
+
+#~ msgid "EMail"
+#~ msgstr "E-Mail"
+
+#~ msgid "Edit a Person"
+#~ msgstr "Eine Person bearbeiten"
+
+#~ msgid "Edit Dashboard"
+#~ msgstr "Übersichtsseite bearbeiten"
+
+#~ msgid "Edit Household"
+#~ msgstr "Haushalt bearbeiten"
+
+#~ msgid "Edit Report"
+#~ msgstr "Bericht bearbeiten"
+
+#~ msgid "Edit person"
+#~ msgstr "Person bearbeiten"
+
+#~ msgid "English"
+#~ msgstr "Englisch"
+
+#~ msgid "Error"
+#~ msgstr "Fehler"
+
+#~ msgid "Export Persons"
+#~ msgstr "Personen exportieren"
+
+#~ msgid "Facebook Username"
+#~ msgstr "Facebook-Benutzername"
+
+#~ msgid "Father"
+#~ msgstr "Vater"
+
+#~ msgid "Father in Law"
+#~ msgstr "Schwiegervater"
+
+#~ msgid "First-Time Visitor"
+#~ msgstr "Erstbesucher"
+
+#~ msgid "For best results the image should be at least 800x800 pixels."
+#~ msgstr ""
+#~ "Für optimale Ergebnisse sollte das Bild mindestens 800x800 Pixel groß "
+#~ "sein."
+
+#~ msgid "Former Member"
+#~ msgstr "Mitglied (ehem.)"
+
+#~ msgid "Gender"
+#~ msgstr "Geschlecht"
+
+#~ msgid "German"
+#~ msgstr "Deutsch"
+
+#~ msgid "Granddaughter"
+#~ msgstr "Enkeltochter"
+
+#~ msgid "Grandfather"
+#~ msgstr "Großvater"
+
+#~ msgid "Grandmother"
+#~ msgstr "Großmutter"
+
+#~ msgid "Grandson"
+#~ msgstr "Enkelsohn"
+
+#~ msgid "History"
+#~ msgstr "Verlauf"
+
+#~ msgid "Home Phone"
+#~ msgstr "Telefon (Privat)"
+
+#~ msgid "Household Members"
+#~ msgstr "Haushaltsmitglieder"
+
+#~ msgid "Husband"
+#~ msgstr "Ehemann"
+
+#~ msgid "Import Persons"
+#~ msgstr "Personen importieren"
+
+#~ msgid "Info"
+#~ msgstr "Info"
+
+#~ msgid "Irregular Visitor"
+#~ msgstr "Besucher (unregelmäßig)"
+
+#~ msgid "List Households"
+#~ msgstr "Haushaltsliste"
+
+#~ msgid "List Persons"
+#~ msgstr "Personenliste"
+
+#~ msgid "List Reports"
+#~ msgstr "Berichte anzeigen"
+
+#~ msgid "Member"
+#~ msgstr "Mitglied"
+
+#~ msgid "Member Prospect"
+#~ msgstr "Mitglied (Interesse)"
+
+#~ msgid "Member Status"
+#~ msgstr "Mitgliedschaftsstatus"
+
+#~ msgid "Missionary"
+#~ msgstr "Missionar"
+
+#~ msgid "Mobile Phone"
+#~ msgstr "Handy"
+
+#~ msgid "Mother"
+#~ msgstr "Mutter"
+
+#~ msgid "Mother in Law"
+#~ msgstr "Schwiegermutter"
+
+#~ msgid "My Notes"
+#~ msgstr "Meine Notizen"
+
+#~ msgid "Nephew"
+#~ msgstr "Neffe"
+
+#~ msgid "New Note"
+#~ msgstr "Neue Notiz"
+
+#~ msgid "New Report"
+#~ msgstr "Neuer Bericht"
+
+#~ msgid "Niece"
+#~ msgstr "Nichte"
+
+#~ msgid "No matches found for \"{{householdSearchText}}\"."
+#~ msgstr "Keine Treffer für „{{householdSearchText}}“ gefunden."
+
+#~ msgid "Note created"
+#~ msgstr "Notiz erstellt"
+
+#~ msgid "Passed Member"
+#~ msgstr "Mitglied (verstorben)"
+
+#~ msgid "Person"
+#~ msgid_plural "Persons"
+#~ msgstr[0] "Person"
+#~ msgstr[1] "Personen"
+
+#~ msgid "Person Info"
+#~ msgstr "Personen-Info"
+
+#~ msgid "Person details"
+#~ msgstr "Angabe zur Person"
+
+#~ msgid "Person imported"
+#~ msgstr "Importierte Person"
+
+#~ msgid "Please enter a valid email address."
+#~ msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+
+#~ msgid "Please select your primary contact method"
+#~ msgstr "Bitte wählen Sie Ihe bevorzugte Kontaktmethode aus"
+
+#~ msgid "Primary Contact Method"
+#~ msgstr "Bevorzugte Kontaktmethode"
+
+#~ msgid "Regular Visitor"
+#~ msgstr "Besucher (regelmäßig)"
+
+#~ msgid "Reports"
+#~ msgstr "Berichte"
+
+#~ msgid "Search Household"
+#~ msgstr "Haushalt suchen"
+
+#~ msgid "Sister"
+#~ msgstr "Schwester"
+
+#~ msgid "Sister in Law"
+#~ msgstr "Schwägerin"
+
+#~ msgid "Skype Name"
+#~ msgstr "Skype-Name"
+
+#~ msgid "Son"
+#~ msgstr "Sohn"
+
+#~ msgid "Son in Law"
+#~ msgstr "Schwiegersohn"
+
+#~ msgid "Stepbrother"
+#~ msgstr "Stiefbruder"
+
+#~ msgid "Stepsister"
+#~ msgstr "Stiefschwester"
+
+#~ msgid "Success"
+#~ msgstr "Erfolg"
+
+#~ msgid "Successfully duplicated report."
+#~ msgstr "Der Bericht wurde erfolgreich dupliziert"
+
+#~ msgid "Successfully saved \"{{fullname}}\""
+#~ msgstr "\"{{fullname}}\" wurde erfolgreich gespeichert"
+
+#~ msgid "Successfully saved report “{{name}}”"
+#~ msgstr "Der Bericht „{{name}}“ wurde erfolgreich gespeichert."
+
+#~ msgid "Structure"
+#~ msgstr "Struktur"
+
+#~ msgid "Please select an image that is at least 800x800 pixels."
+#~ msgstr "Das Bild muss eine Dimension von mindestens 800x800 Pixel haben."
+
+#~ msgid "Rights"
+#~ msgstr "Rechte"
+
+#~ msgid "Select household..."
+#~ msgstr "Haushalt auswählen..."
+
+#~ msgid "Select primary contact type..."
+#~ msgstr "Bevorzugte Kontaktart auswählen..."
+
+#~ msgid "This field is required."
+#~ msgstr "Dieses Feld ist erforderlich."
+
+#~ msgid "Title (optional)"
+#~ msgstr "Titel (optional)"
+
+#~ msgid "Uncle"
+#~ msgstr "Onkel"
+
+#~ msgid "Update"
+#~ msgstr "Aktualisieren"
+
+#~ msgid "User can log in"
+#~ msgstr "Benutzer kann sich einloggen"
+
+#~ msgid "View Households"
+#~ msgstr "Haushalte anzeigen"
+
+#~ msgid "View Person"
+#~ msgstr "Person anzeigen"
+
+#~ msgid "View Person details"
+#~ msgstr "Personendetails anzeigen"
+
+#~ msgid "Visitor"
+#~ msgstr "Besucher"
+
+#~ msgid "Weather"
+#~ msgstr "Wetter"
+
+#~ msgid "Wife"
+#~ msgstr "Ehefrau"
+
+#~ msgid "Work Phone"
+#~ msgstr "Telefon (Arbeit)"
+
+#~ msgid "You need to enter an address."
+#~ msgstr "Sie müssen eine Adresse angeben."
+
+#~ msgid "Your primary contact method is {{personCtrl.person.primaryContact}}"
+#~ msgstr ""
+#~ "Ihre bevorzugte Kontaktmethode ist {{personCtrl.person.primaryContact}}"
+
+#~ msgid "Your primary contact method is {{contactMethod}}"
+#~ msgstr "Deine primäre Kontaktmethode ist {{contactMethod}}"
+
+#~ msgid "from"
+#~ msgstr "von"

@@ -4,38 +4,103 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: modules/person/views/household.list.html:17
-#: modules/person/views/person.list.html:16
-#: modules/report/views/report.list.html:17
-msgid "Actions"
+#: modules/person/views/person.list.html:39
+msgid "{{personCtrl.allPersons.length}} Persons found"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:11
-msgid "Add a status"
+#: modules/person/views/person.edit.tab.personal.html:77
+msgid "{{personCtrl.personService.contactTypes[key].text}}"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:33
-msgid "Add a tag"
+#: modules/person/views/person.edit.tab.personal.html:101
+msgid "{{personCtrl.personService.contactTypes[value.key].text}}"
 msgstr ""
 
-#: modules/person/views/person.view.html:52
-msgid "Address"
+#: modules/person/views/person.edit.tab.personal.html:2
+msgid "<mh-avatar person=\"personCtrl.person\" size=\"xs\" circle=\"\" class=\"avatar\"></mh-avatar> Person Info"
+msgstr ""
+
+#: modules/group/views/group.list.html:2
+msgid "<ng-md-icon icon=\"info\"></ng-md-icon> No Groups found"
+msgstr ""
+
+#: modules/person/views/person.list.html:50
+msgid "<ng-md-icon icon=\"info\"></ng-md-icon> No Persons found"
+msgstr ""
+
+#: modules/event/views/events.html:20
+msgid ""
+"A Event Template is a model for many events, defining what possible options a event may have. Start by creating an template\n"
+"      with the button below"
+msgstr ""
+
+#: modules/event/views/event.template.view.html:10
+msgid "Add a new event using the button at the bottom right"
+msgstr ""
+
+#: modules/note/templates/note-create-directive.html:3
+msgid "Add a new note"
+msgstr ""
+
+#: modules/event/views/event.template.html:27
+msgid "Add a option"
+msgstr ""
+
+#: modules/event/views/event.template.html:52
+msgid "Add a schedule"
+msgstr ""
+
+#: modules/event/views/event.template.schedule.html:12
+msgid "Add an item"
+msgstr ""
+
+#: modules/group/views/group.view.html:29
+msgid "Add as Leader"
+msgstr ""
+
+#: modules/event/views/events.html:44
+msgid "Add first a event template before you create an event"
+msgstr ""
+
+#: modules/event/views/events.html:66
+#: modules/event/views/events.html:75
+msgid "Add new event"
+msgstr ""
+
+#: modules/event/views/event.templates.html:14
+msgid "Add new event template"
+msgstr ""
+
+#: modules/group/views/group.list.html:41
+msgid "Add new group"
+msgstr ""
+
+#: modules/person/views/household.list.html:18
+msgid "Add new household"
+msgstr ""
+
+#: modules/note/views/note.list.html:14
+msgid "Add new note"
+msgstr ""
+
+#: modules/person/views/person.list.html:95
+msgid "Add new person"
+msgstr ""
+
+#: modules/event/views/events.html:34
+msgid "Add New Template"
+msgstr ""
+
+#: modules/person/views/person.view.html:94
+msgid "Add Note"
 msgstr ""
 
 #: modules/address/directives/address_edit.html:3
 msgid "Address Line 1"
 msgstr ""
 
-#: modules/address/directives/address_edit.html:8
-msgid "Address Line 2"
-msgstr ""
-
-#: modules/person/views/person.edit.html:14
+#: modules/person/views/person.edit.html:15
 msgid "Addresses"
-msgstr ""
-
-#: modules/person/views/person.edit.tab.personal.html:104
-msgid "Anniversary"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.query.html:14
@@ -43,25 +108,28 @@ msgstr ""
 msgid "Ascending"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:221
-msgid "Assign household to this person"
+#: modules/person/templates/person-household.html:9
+msgid "Assign a household"
 msgstr ""
 
-#: modules/person/views/person.edit.html:22
+#: modules/person/views/person.edit.html:25
 msgid "Avatar"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:99
-msgid "Baptism Date"
+#: modules/person/views/person.export.images.html:2
+msgid "Avatar Images Export"
+msgstr ""
+
+#: modules/event/views/event.html:59
+msgid "Back"
 msgstr ""
 
 #: modules/person/views/person.view.details.html:5
 msgid "Baptized {{timeFromNow}} ago"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:94
-#: modules/person/views/person.list.html:55
-msgid "Birthdate"
+#: modules/person/widgets/nextBirthdays/view.html:1
+msgid "Birthdays next week"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.layout.html:39
@@ -72,45 +140,51 @@ msgstr ""
 msgid "Build Query"
 msgstr ""
 
-#: modules/calendar/views/calendar.show.html:3
-msgid "Calendar"
-msgstr ""
-
-#: modules/note/templates/note-create-directive.html:22
+#: modules/note/templates/note-dialog.html:23
+#: modules/person/views/person.view.html:95
 msgid "Cancel"
 msgstr ""
 
-#: modules/address/directives/address_edit.html:19
+#: modules/address/directives/address_edit.html:14
 msgid "City"
 msgstr ""
 
-#: modules/person/views/person.view.html:46
-msgid "Contact"
+#: modules/note/views/note.edit.html:26
+msgid "Close"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:122
-msgid "Contact Info"
-msgstr ""
-
-#: modules/address/directives/address_edit.html:31
+#: modules/address/directives/address_edit.html:26
 msgid "Country"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:217
-msgid "Create Household"
-msgstr ""
-
-#: modules/note/templates/note-create-directive.html:23
-msgid "Create Note"
-msgstr ""
-
-#: modules/note/templates/note-create-directive.html:3
+#: modules/note/templates/note-dialog.html:3
 msgid "Create new Note"
 msgstr ""
 
-#: modules/person/views/household.list.html:38
-#: modules/person/views/person.list.html:102
-#: modules/report/views/report.list.html:33
+#: modules/note/templates/note-dialog.html:24
+#: modules/note/templates/note-inline.html:21
+msgid "Create Note"
+msgstr ""
+
+#: modules/person/views/person.export.csv.html:2
+msgid "CSV Export"
+msgstr ""
+
+#: modules/person/views/person.edit.tab.avatar.html:2
+msgid "Current Avatar"
+msgstr ""
+
+#: modules/event/views/events.html:43
+#: modules/event/widgets/next-events/view.html:4
+msgid "Currently there are no events."
+msgstr ""
+
+#: modules/group/views/group.view.html:23
+#: modules/person/views/household.edit.html:41
+#: modules/person/views/person.list.html:79
+#: modules/person/views/person.view.html:117
+#: modules/report/views/report.list.html:18
+#: modules/report/views/report.list.html:19
 msgid "Delete"
 msgstr ""
 
@@ -119,37 +193,49 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
-#: modules/person/views/person.view.html:40
-msgid "Details"
+#: modules/group/views/group.edit.html:13
+msgid "Description"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.avatar.html:16
+#: modules/person/views/person.export.images.html:8
+#: modules/person/views/person.export.pdf.html:13
+msgid "Download"
+msgstr ""
+
+#: modules/person/views/person.export.csv.html:8
+msgid "Download all in csv"
+msgstr ""
+
+#: modules/person/views/person.export.vcard.html:11
+msgid "Download all in VCard"
+msgstr ""
+
+#: modules/person/views/person.import.csv.html:9
+msgid "Drop File here"
+msgstr ""
+
+#: modules/person/views/person.import.images.html:10
+msgid "Drop Files here"
+msgstr ""
+
+#: modules/person/templates/avatar-upload.html:6
+#: modules/person/views/person.edit.tab.avatar.html:15
 msgid "Drop images here or click to upload"
 msgstr ""
 
-#: modules/report/views/report.list.html:29
+#: modules/report/views/report.list.html:10
+#: modules/report/views/report.list.html:11
 msgid "Duplicate"
 msgstr ""
 
-#: modules/person/views/household.list.html:34
-#: modules/person/views/person.list.html:98
+#: modules/person/views/person.list.html:73
 msgid "Edit"
 msgstr ""
 
-#: modules/dashboard/templates/dashboard-edit.html:3
-msgid "Edit Dashboard"
+#: modules/person/views/person.view.html:148
+msgid "Edit Person"
 msgstr ""
 
-#: modules/report/views/report.upsert.html:8
-msgid "Edit Report"
-msgstr ""
-
-#: modules/person/views/person.view.html:28
-msgid "Edit person"
-msgstr ""
-
-#: modules/person/views/person.edit.tab.personal.html:142
-#: modules/person/views/person.list.html:59
 #: modules/person/views/person.view.contacts.html:2
 msgid "Email"
 msgstr ""
@@ -162,38 +248,45 @@ msgstr ""
 msgid "Enable Header"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:188
-msgid "Existing Household"
+#: modules/event/views/event.html:2
+msgid "Event Information"
 msgstr ""
 
-#: modules/person/views/person.list.html:75
+#: modules/event/views/event.html:5
+msgid "Event Name"
+msgstr ""
+
+#: modules/person/views/person.import.csv.html:17
+msgid "Examples"
+msgstr ""
+
+#: modules/person/views/person.list.html:17
+#: modules/person/views/person.list.html:41
+msgid "Export"
+msgstr ""
+
 #: modules/person/views/person.view.contacts.html:26
 msgid "Facebook"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:174
-msgid "Facebook Username"
-msgstr ""
-
-#: modules/person/views/household.edit.html:21
+#: modules/person/views/household.edit.html:16
 msgid "Family"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:169
 #: modules/person/views/person.view.contacts.html:21
 #: modules/person/views/person.view.contacts.html:23
 msgid "Fax"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:111
+#: modules/person/views/person.edit.tab.personal.html:56
 msgid "Female"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.avatar.html:17
+#: modules/person/templates/avatar-upload.html:7
 msgid "File Drag/Drop is not supported for this browser"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:57
+#: modules/person/views/person.edit.tab.personal.html:5
 msgid "First Name"
 msgstr ""
 
@@ -205,16 +298,13 @@ msgstr ""
 msgid "Footer Height (cm)"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:108
-msgid "Gender"
+#: modules/event/views/event.template.html:2
+#: modules/event/views/event.template.schedule.html:2
+msgid "General"
 msgstr ""
 
-#: modules/person/views/person.view.html:95
-msgid "Groups"
-msgstr ""
-
-#: modules/report/views/report.upsert.tab.preview.html:5
-msgid "HTML"
+#: modules/person/views/person.edit.tab.personal.html:49
+msgid "Group"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.layout.html:44
@@ -225,28 +315,19 @@ msgstr ""
 msgid "Header Height (cm)"
 msgstr ""
 
-#: modules/person/views/person.view.html:69
-msgid "History"
-msgstr ""
-
 #: modules/person/views/person.view.contacts.html:8
 msgid "Home"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.addresses.html:5
+#: modules/person/views/person.edit.tab.addresses.html:4
 msgid "Home Address"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:151
-msgid "Home Phone"
-msgstr ""
-
-#: modules/person/views/person.list.html:63
 #: modules/person/views/person.view.contacts.html:6
 msgid "Home phone"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:183
+#: modules/person/views/person.edit.tab.personal.html:44
 msgid "Household"
 msgstr ""
 
@@ -254,38 +335,49 @@ msgstr ""
 msgid "Household Address"
 msgstr ""
 
-#: modules/person/views/household.list.html:16
-msgid "Household Members"
-msgstr ""
-
-#: modules/person/views/household.edit.html:10
-#: modules/person/views/household.list.html:15
-#: modules/person/views/person.edit.tab.personal.html:213
+#: modules/person/views/household.edit.html:6
 msgid "Household Name"
 msgstr ""
 
-#: modules/person/views/household.list.html:4
+#: modules/person/views/person.list.html:29
 #: modules/person/widgets/stats/view.html:2
 msgid "Households"
 msgstr ""
 
-#: modules/person/views/person.import.html:19
+#: modules/report/views/report.upsert.tab.preview.html:5
+msgid "HTML"
+msgstr ""
+
+#: modules/person/views/person.import.csv.html:36
+#: modules/person/views/person.list.html:23
 msgid "Import"
 msgstr ""
 
-#: modules/person/views/person.import.html:4
-msgid "Import Persons"
+#: modules/person/views/person.import.images.html:14
+msgid "Import started"
+msgstr ""
+
+#: modules/person/views/person.export.pdf.html:8
+msgid "Include Cover"
+msgstr ""
+
+#: modules/group/views/group.edit.html:8
+msgid "Is a ministry"
+msgstr ""
+
+#: modules/event/views/event.template.html:40
+msgid "Label"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.layout.html:14
 msgid "Landscape"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:70
+#: modules/person/views/person.edit.tab.personal.html:15
 msgid "Last Name"
 msgstr ""
 
-#: modules/address/directives/address_edit.html:38
+#: modules/address/directives/address_edit.html:33
 msgid "Latitude"
 msgstr ""
 
@@ -293,7 +385,11 @@ msgstr ""
 msgid "Left Margin (cm)"
 msgstr ""
 
-#: modules/person/views/household.edit.html:16
+#: modules/event/views/event.template.schedule.html:32
+msgid "Length in Minutes"
+msgstr ""
+
+#: modules/person/views/household.edit.html:11
 msgid "Letter Salutation"
 msgstr ""
 
@@ -301,19 +397,23 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: modules/address/directives/address_edit.html:43
+#: modules/address/directives/address_edit.html:38
 msgid "Longitude"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:110
+#: modules/settings/views/site-settings.html:4
+msgid "MailChimp"
+msgstr ""
+
+#: modules/person/views/person.edit.tab.personal.html:55
 msgid "Male"
 msgstr ""
 
-#: modules/person/views/person.list.html:14
-msgid "Member Status"
+#: modules/person/views/person.import.csv.html:16
+msgid "Map to"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:65
+#: modules/person/views/person.edit.tab.personal.html:10
 msgid "Middle Name"
 msgstr ""
 
@@ -321,39 +421,50 @@ msgstr ""
 msgid "Mobile"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:161
-msgid "Mobile Phone"
-msgstr ""
-
-#: modules/person/views/person.list.html:71
 #: modules/person/views/person.view.contacts.html:16
 msgid "Mobile phone"
 msgstr ""
 
+#: modules/event/views/event.template.schedule.html:20
+#: modules/person/views/person.import.csv.html:15
 #: modules/report/directives/variablelist-template.html:6
-#: modules/report/views/report.list.html:16
 msgid "Name"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:208
-msgid "New Household"
+#: modules/person/views/person.edit.html:47
+#: modules/person/views/person.view.html:140
+msgid "Next"
 msgstr ""
 
-#: modules/note/templates/note-create-directive.html:32
-msgid "New Note"
+#: modules/event/views/events.html:40
+#: modules/event/widgets/next-events/view.html:1
+msgid "Next Events"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:84
+#: modules/person/views/person.edit.tab.personal.html:24
 msgid "Nickname"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:201
-msgid "No matches found for \"{{householdSearchText}}\"."
+#: modules/event/views/event.template.view.html:9
+msgid "No Events found"
 msgstr ""
 
-#: modules/note/templates/note-create-directive.html:18
+#: modules/note/templates/note-dialog.html:18
 #: modules/note/templates/note-edit-form-directive.html:6
+#: modules/note/templates/note-inline.html:15
 msgid "Note"
+msgstr ""
+
+#: modules/person/views/person.view.html:90
+msgid "Notes"
+msgstr ""
+
+#: modules/event/views/event.html:27
+msgid "Optionen"
+msgstr ""
+
+#: modules/event/views/event.template.html:25
+msgid "Options for the Template"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.query.html:7
@@ -364,16 +475,8 @@ msgstr ""
 msgid "Orientation"
 msgstr ""
 
-#: modules/person/views/household.edit.html:23
+#: modules/person/views/household.edit.html:18
 msgid "Other"
-msgstr ""
-
-#: modules/report/views/report.upsert.tab.preview.html:13
-msgid "PDF"
-msgstr ""
-
-#: modules/report/views/report.upsert.tab.layout.html:10
-msgid "PDF Options"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.layout.html:16
@@ -384,15 +487,19 @@ msgstr ""
 msgid "Passwort"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:54
-msgid "Person Info"
+#: modules/report/views/report.upsert.tab.preview.html:13
+msgid "PDF"
 msgstr ""
 
-#: modules/person/views/person.list.html:13
-msgid "Person details"
+#: modules/person/views/person.export.pdf.html:2
+msgid "PDF Export"
 msgstr ""
 
-#: modules/person/views/person.edit.html:6
+#: modules/report/views/report.upsert.tab.layout.html:10
+msgid "PDF Options"
+msgstr ""
+
+#: modules/person/views/person.edit.html:5
 msgid "Personal"
 msgstr ""
 
@@ -400,8 +507,8 @@ msgstr ""
 msgid "Persons"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:145
-msgid "Please enter a valid email address."
+#: modules/event/views/event.template.html:9
+msgid "Place"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.query.html:22
@@ -409,48 +516,47 @@ msgstr ""
 msgid "Please select a sort direction."
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:134
-msgid "Please select your primary contact method"
-msgstr ""
-
 #: modules/report/views/report.upsert.tab.layout.html:13
 msgid "Portrait"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.addresses.html:13
+#: modules/person/views/person.edit.tab.addresses.html:15
 msgid "Postal Address"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:124
-msgid "Primary Contact Method"
+#: modules/person/views/person.edit.html:45
+#: modules/person/views/person.view.html:138
+msgid "Previous"
 msgstr ""
 
+#: modules/event/views/event.template.html:44
+#: modules/event/views/event.template.schedule.html:37
 #: modules/report/views/report.upsert.tab.query.html:17
 #: modules/report/views/report.upsert.tab.query.html:38
 msgid "Remove"
+msgstr ""
+
+#: modules/group/views/group.view.html:35
+msgid "Remove as Leader"
+msgstr ""
+
+#: modules/report/views/report.upsert.html:17
+msgid "Report layout"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.query.html:3
 msgid "Report Name"
 msgstr ""
 
-#: modules/report/views/report.upsert.html:24
-msgid "Report layout"
-msgstr ""
-
-#: modules/report/views/report.upsert.html:32
+#: modules/report/views/report.upsert.html:25
 msgid "Report preview"
 msgstr ""
 
-#: modules/report/views/report.upsert.html:16
+#: modules/report/views/report.upsert.html:9
 msgid "Report source"
 msgstr ""
 
-#: modules/report/views/report.list.html:5
-msgid "Reports"
-msgstr ""
-
-#: modules/report/views/report.upsert.html:43
+#: modules/report/views/report.upsert.html:36
 msgid "Reset"
 msgstr ""
 
@@ -458,47 +564,66 @@ msgstr ""
 msgid "Right Margin (cm)"
 msgstr ""
 
-#: modules/person/views/person.edit.html:30
+#: modules/person/views/person.edit.html:35
 msgid "Roles"
 msgstr ""
 
-#: modules/note/views/note.create.html:4
+#: modules/event/views/event.html:62
+#: modules/event/views/event.template.html:65
+#: modules/event/views/event.template.schedule.html:44
+#: modules/group/views/group.edit.html:25
+#: modules/note/views/note.edit.html:23
+#: modules/person/views/person.edit.html:55
 msgid "Save"
 msgstr ""
 
-#: modules/person/views/household.edit.html:30
-#: modules/person/views/person.edit.html:39
-#: modules/report/views/report.upsert.html:41
-msgid "Save Changes"
+#: modules/group/views/group.edit.html:28
+#: modules/person/views/person.edit.html:51
+msgid "Save &amp; Close"
 msgstr ""
 
-#: modules/person/views/household.edit.html:31
-#: modules/person/views/person.edit.html:41
+#: modules/person/views/person.edit.html:52
+msgid "Save &amp; New"
+msgstr ""
+
+#: modules/person/views/household.edit.html:57
 msgid "Save and Close"
 msgstr ""
 
-#: modules/person/views/household.edit.html:32
-#: modules/person/views/person.edit.html:42
+#: modules/person/views/household.edit.html:58
 msgid "Save and New"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:196
-msgid "Search Household"
+#: modules/person/views/household.edit.html:56
+#: modules/report/views/report.upsert.html:34
+msgid "Save Changes"
 msgstr ""
 
-#: templates/header.html:18
+#: modules/person/views/person.list.html:40
+msgid "Save Search"
+msgstr ""
+
+#: modules/event/views/event.template.schedule.html:10
+msgid "Schedule Items"
+msgstr ""
+
+#: modules/event/views/event.template.schedule.html:4
+msgid "Schedule Name"
+msgstr ""
+
+#: modules/event/views/event.template.html:50
+msgid "Schedules"
+msgstr ""
+
+#: modules/core/templates/header.html:21
 msgid "Search…"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.avatar.html:11
+#: modules/person/templates/avatar-upload.html:1
 msgid "Select Avatar"
 msgstr ""
 
-#: modules/report/widgets/htmlreport/edit.html:3
-msgid "Select Report"
-msgstr ""
-
-#: modules/person/views/household.edit.html:20
+#: modules/person/views/household.edit.html:15
 msgid "Select household type"
 msgstr ""
 
@@ -507,21 +632,24 @@ msgstr ""
 msgid "Select property"
 msgstr ""
 
-#: modules/person/views/household.edit.html:22
+#: modules/report/widgets/htmlreport/edit.html:3
+msgid "Select Report"
+msgstr ""
+
+#: modules/person/views/person.list.html:42
+msgid "Send Message"
+msgstr ""
+
+#: modules/person/views/household.edit.html:17
 msgid "Shared Flat"
 msgstr ""
 
-#: modules/auth/views/login.html:9
+#: modules/auth/views/login.html:7
 msgid "Sign In"
 msgstr ""
 
-#: modules/person/views/person.list.html:80
 #: modules/person/views/person.view.contacts.html:33
 msgid "Skype"
-msgstr ""
-
-#: modules/person/views/person.edit.tab.personal.html:179
-msgid "Skype Name"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.query.html:13
@@ -529,65 +657,82 @@ msgstr ""
 msgid "Sort direction"
 msgstr ""
 
-#: modules/address/directives/address_edit.html:26
+#: modules/event/views/event.template.html:14
+msgid "Start Time"
+msgstr ""
+
+#: modules/address/directives/address_edit.html:21
 msgid "State/Province/Region"
 msgstr ""
 
-#: modules/dashboard/templates/dashboard-edit.html:12
-msgid "Structure"
+#: modules/person/views/person.edit.tab.personal.html:34
+msgid "Status"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:89
+#: modules/person/views/person.edit.tab.personal.html:29
 msgid "Suffix"
 msgstr ""
 
-#: modules/person/views/person.list.html:15
+#: modules/event/views/event.html:10
+#: modules/event/views/event.template.html:19
+#: modules/group/views/group.edit.html:18
+#: modules/note/views/note.edit.html:8
+#: modules/person/views/person.edit.tab.personal.html:39
 msgid "Tags"
+msgstr ""
+
+#: modules/event/views/event.html:15
+msgid "Template"
+msgstr ""
+
+#: modules/event/views/event.template.html:4
+msgid "Template Name"
+msgstr ""
+
+#: modules/event/views/events.html:17
+msgid "Templates"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.query.html:28
 msgid "Then by"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:146
-#: modules/person/views/person.edit.tab.personal.html:164
-#: modules/person/views/person.edit.tab.personal.html:60
-#: modules/person/views/person.edit.tab.personal.html:73
-msgid "This field is required."
+#: modules/group/views/group.list.html:3
+msgid "There are no groups in the database. You can add a Groups using the button at the bottom right."
 msgstr ""
 
-#: modules/dashboard/templates/dashboard-edit.html:8
+#: modules/person/views/person.list.html:51
+msgid "There are no persons in the database. You can add a person using the button at the bottom right."
+msgstr ""
+
+#: modules/group/views/group.edit.html:3
+#: modules/note/templates/note-dialog.html:14
 #: modules/note/templates/note-edit-form-directive.html:2
-#: modules/person/views/person.edit.tab.personal.html:79
+#: modules/note/templates/note-inline.html:11
+#: modules/person/views/person.edit.tab.personal.html:19
 msgid "Title"
-msgstr ""
-
-#: modules/note/templates/note-create-directive.html:14
-msgid "Title (optional)"
 msgstr ""
 
 #: modules/report/views/report.upsert.tab.layout.html:35
 msgid "Top Margin (cm)"
 msgstr ""
 
+#: modules/event/views/event.template.html:34
+#: modules/event/views/event.template.schedule.html:24
 #: modules/report/directives/variablelist-template.html:8
 msgid "Type"
 msgstr ""
 
-#: modules/calendar/views/calendar.show.html:10
-msgid "Update"
-msgstr ""
-
-#: modules/person/views/person.edit.tab.personal.html:116
-msgid "User can log in"
-msgstr ""
-
-#: modules/auth/views/login.html:11
+#: modules/auth/views/login.html:10
 msgid "Username"
 msgstr ""
 
 #: modules/report/directives/variablelist-template.html:7
 msgid "Variable Name"
+msgstr ""
+
+#: modules/person/views/person.export.vcard.html:2
+msgid "VCard Export"
 msgstr ""
 
 #: modules/person/views/person.view.contacts.html:13
@@ -598,27 +743,30 @@ msgstr ""
 msgid "Work Address"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:156
-msgid "Work Phone"
-msgstr ""
-
-#: modules/person/views/person.list.html:67
 #: modules/person/views/person.view.contacts.html:11
 msgid "Work phone"
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:137
-msgid "You need to enter an address."
+#: modules/person/views/person.export.images.html:3
+msgid "You can download all the contact images."
 msgstr ""
 
-#: modules/person/views/person.edit.tab.personal.html:131
-msgid "Your primary contact method is {{contactMethod}}"
+#: modules/person/views/person.export.pdf.html:3
+msgid "You can download all the contacts saved in Memberhive as a PDF."
 msgstr ""
 
-#: modules/address/directives/address_edit.html:14
+#: modules/person/views/person.export.csv.html:3
+msgid "You can download all the contacts saved in Memberhive in the CSV format."
+msgstr ""
+
+#: modules/person/views/person.export.vcard.html:3
+msgid "You can download all the contacts saved in Memberhive in the vCard Format."
+msgstr ""
+
+#: modules/person/views/person.export.vcard.html:4
+msgid "You can use the resulting file to import in Google, iCloud and many more."
+msgstr ""
+
+#: modules/address/directives/address_edit.html:9
 msgid "ZIP/Postal Code"
-msgstr ""
-
-#: modules/person/views/person.view.html:85
-msgid "from"
 msgstr ""
