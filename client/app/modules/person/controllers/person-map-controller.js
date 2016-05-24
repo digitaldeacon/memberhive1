@@ -1,17 +1,10 @@
-export function PersonListController(
-  PersonService,
-  PersonEditService,
-  AccountOptions,
-  SearchQuery,
-  Shout,
-  resolvePersons,
-  resolveQueryModel,
-  resolveQuery,
-  $scope,
-  $state,
-  q
+var personMapController = function (
 )  {"ngInject";
-  this.allPersons = resolvePersons;
+  
+  this.center = 0;
+  this.zoom = 10;
+  this.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+ /* this.allPersons = resolvePersons;
   this.query = resolveQuery;
   this.queryModel = resolveQueryModel;
   this.persons = [];
@@ -43,5 +36,7 @@ export function PersonListController(
     () => {
       return this.query;
     },
-    (newValue) => {this.reload(newValue);}, true);
-}
+    (newValue) => {this.reload(newValue);}, true);*/
+};
+
+angular.module('mh.person').controller('PersonMapController', personMapController);

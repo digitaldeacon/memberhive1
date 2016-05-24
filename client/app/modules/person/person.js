@@ -20,6 +20,7 @@ import {mhWidgetPersonNextBirthdays} from './widgets/nextBirthdays/nextBirthdays
 import {formatFacebookUrl, formatSkypeUrl, formatName, formatFirstName} from './filters/person-filters';
 
 import './controllers/person-export-controller';
+import './controllers/person-map-controller';
 
 var mhPersonModule = angular.module('mh.person');
 
@@ -204,6 +205,8 @@ mhPersonModule.config((
     }).state('person.map', {
       url: '/map',
       templateUrl: 'app/modules/person/views/person.map.html',
+       controller: 'PersonMapController',
+      controllerAs: 'ctrl',
       data: {
         //pageTitle: gettextCatalog.getString('Search'),
        // pageSubTitle: gettextCatalog.getString('Search')
