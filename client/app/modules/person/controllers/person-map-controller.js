@@ -10,7 +10,27 @@ var personMapController = function (
   PersonService
 )  {"ngInject";
   
-  this.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+  this.mean = (persons) => {
+    let latitude = 0;
+    let longitude = 0;
+    let count = 0;
+    persons.forEach((p) => {
+      if(p.geocode) {
+        latitude += p.geocode.latitude;
+        longitude += p.geocode.longitude;
+        count++;
+      }
+    });
+    if(count !== 0) {
+      return { latitude: latitude/count, longitude: longitude/count };
+    } else {
+      return { latitude: latitude, longitude: longitude };
+    }
+  };
+  
+  this.map = {zoom: 8 };
+  this.map.center = this.mean(resolvePersons);
+  
   this.persons = resolvePersons;
   this.query = resolveQuery;
   this.queryModel = resolveQueryModel;
