@@ -34,7 +34,10 @@ var personMapController = function (
   this.persons = resolvePersons;
   this.query = resolveQuery;
   this.queryModel = resolveQueryModel;
-  console.log(this.persons);
+  
+  this.open = (person) => {
+    Shout.info(person.firstName + " " + person.lastName);
+  };
 
   this.reload = (query) => {
     q.all(query)
