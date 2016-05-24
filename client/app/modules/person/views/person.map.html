@@ -1,5 +1,6 @@
 <h2 translate>Map</h2>
+<mh-person-search ng-model="ctrl.query" query-model="ctrl.queryModel"></mh-person-search>
 
-<ui-gmap-google-map center="ctrl.map.center" zoom="ctrl.map.zoom" style="height: 400px;">
-  <!--<ui-gmap-marker coords="map.marker.coords" idkey="map.marker.id" options="map.marker.options"></ui-gmap-marker>-->
+<ui-gmap-google-map center="ctrl.map.center" zoom="ctrl.map.zoom">
+  <ui-gmap-marker ng-repeat="person in ctrl.persons" coords="person.geocode" idkey="person.id"></ui-gmap-marker>
 </ui-gmap-google-map>

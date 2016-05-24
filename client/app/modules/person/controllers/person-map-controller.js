@@ -1,42 +1,40 @@
 var personMapController = function (
+  resolvePersons,
+  resolveQuery,
+  resolveQueryModel,
+  q,
+  $scope,
+  Shout,
+  AccountOptions,
+  SearchQuery,
+  PersonService
 )  {"ngInject";
   
-  this.center = 0;
-  this.zoom = 10;
   this.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
- /* this.allPersons = resolvePersons;
+  this.persons = resolvePersons;
   this.query = resolveQuery;
   this.queryModel = resolveQueryModel;
-  this.persons = [];
-
- 
+  console.log(this.persons);
 
   this.reload = (query) => {
     q.all(query)
       .then((resolved) => PersonService.getAllFilterd(resolved))
       .then((d) => {
         AccountOptions.set('person_list_query', SearchQuery.clean(this.queryModel));
-        this.allPersons = d;
-        this.persons = [];
-        this.loadMorePersons(15);
+        this.persons = d;
        })
       .catch((err) => {
         Shout.vError(err);
         AccountOptions.set('person_list_query', []);
-        return PersonService.getAllFilterd({}).then((d) => {
-          this.allPersons = d;
-          this.persons = [];
-          this.loadMorePersons(15);
-        });
+        return PersonService.getAllFilterd({}).then((d) => this.persons = d);
       });
   };
 
-  //TODO: fix too many reloads
   $scope.$watch(
     () => {
       return this.query;
     },
-    (newValue) => {this.reload(newValue);}, true);*/
+    (newValue) => {this.reload(newValue);}, true);
 };
 
 angular.module('mh.person').controller('PersonMapController', personMapController);

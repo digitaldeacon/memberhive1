@@ -71,7 +71,7 @@
     "custom": {
       "type": "object"
     },
-    "addresses": {
+    "address": {
       "type": "object"
     },
 

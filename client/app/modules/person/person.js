@@ -205,7 +205,7 @@ mhPersonModule.config((
     }).state('person.map', {
       url: '/map',
       templateUrl: 'app/modules/person/views/person.map.html',
-       controller: 'PersonMapController',
+      controller: 'PersonMapController',
       controllerAs: 'ctrl',
       data: {
         //pageTitle: gettextCatalog.getString('Search'),
@@ -213,7 +213,18 @@ mhPersonModule.config((
       },
       acl: {
         needRights: ['$authenticated']
-      }
+      },
+      resolve: {
+        resolvePersons: (PersonService, resolveQuery) => {
+          return PersonService.getAllFilterd(resolveQuery);
+        },
+        resolveQueryModel: (AccountOptions) => {
+          return AccountOptions.get('person_list_query', []);
+        },
+        resolveQuery : (resolveQueryModel, SearchQuery, q) => {
+          return q.all(SearchQuery.generateQuery(resolveQueryModel));
+        }
+      },
     });
 
     // Allow skype urls http://stackoverflow.com/a/15769779

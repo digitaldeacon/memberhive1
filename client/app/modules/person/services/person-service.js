@@ -56,6 +56,9 @@ export function PersonService(
           person.addressList.push({value: short, name: index});
         });
       }
+      if(person.address && person.address.home && person.address.home.geocode) {
+        person.geocode = {latitude: person.address.home.geocode.lat, longitude: person.address.home.geocode.lng}; 
+      }
 
       return person;
   };
