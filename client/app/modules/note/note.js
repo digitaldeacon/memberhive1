@@ -6,14 +6,14 @@ import {NoteEditController} from './controllers/note-edit-controller';
 import './widgets/last-notes/last-notes';
 
 var mhNoteModule = angular.module('mh.note').config(
-  ($stateProvider, gettext) => {
+  ($stateProvider) => {
     $stateProvider.state('note', {
       url: '/note',
       template: '<ui-view/>',
       abstract: true,
       data: {
         module: 'note',
-        pageTitle: 'Note'
+       // pageTitle: gettextCatalog.getString('Notes')
       }
     }).state('note.list', {
       url: '/list',
@@ -21,10 +21,7 @@ var mhNoteModule = angular.module('mh.note').config(
       controller: 'NoteListController',
       controllerAs: 'noteCtrl',
       data: {
-        pageSubTitle: 'Create and edit notes'
-      },
-      ncyBreadcrumb: {
-        label: gettext('Notes')
+       // pageSubTitle: gettextCatalog.getString('Create and edit notes')
       },
       acl: {
         needRights: ['$authenticated']
@@ -40,11 +37,7 @@ var mhNoteModule = angular.module('mh.note').config(
       controller: 'NoteEditController',
       controllerAs: 'noteCtrl',
       data: {
-        pageSubTitle: 'Create a note'
-      },
-      ncyBreadcrumb: {
-        label: gettext('New Note'),
-        parent: 'note.list'
+        //pageSubTitle: gettextCatalog.getString('Create a note')
       },
       acl: {
         needRights: ['$authenticated']

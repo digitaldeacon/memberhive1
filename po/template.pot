@@ -4,10 +4,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: modules/person/views/person.list.html:39
-msgid "{{personCtrl.allPersons.length}} Persons found"
-msgstr ""
-
 #: modules/person/views/person.edit.tab.personal.html:77
 msgid "{{personCtrl.personService.contactTypes[key].text}}"
 msgstr ""
@@ -22,10 +18,6 @@ msgstr ""
 
 #: modules/group/views/group.list.html:2
 msgid "<ng-md-icon icon=\"info\"></ng-md-icon> No Groups found"
-msgstr ""
-
-#: modules/person/views/person.list.html:50
-msgid "<ng-md-icon icon=\"info\"></ng-md-icon> No Persons found"
 msgstr ""
 
 #: modules/event/views/events.html:20
@@ -210,17 +202,17 @@ msgstr ""
 msgid "Download all in VCard"
 msgstr ""
 
-#: modules/person/views/person.import.csv.html:9
-msgid "Drop File here"
-msgstr ""
-
-#: modules/person/views/person.import.images.html:10
-msgid "Drop Files here"
-msgstr ""
-
 #: modules/person/templates/avatar-upload.html:6
 #: modules/person/views/person.edit.tab.avatar.html:15
 msgid "Drop images here or click to upload"
+msgstr ""
+
+#: modules/person/views/person.import.csv.html:13
+msgid "Drop the CSV File here"
+msgstr ""
+
+#: modules/person/views/person.import.images.html:14
+msgid "Drop the Images here"
 msgstr ""
 
 #: modules/report/views/report.list.html:10
@@ -256,7 +248,7 @@ msgstr ""
 msgid "Event Name"
 msgstr ""
 
-#: modules/person/views/person.import.csv.html:17
+#: modules/person/views/person.import.csv.html:21
 msgid "Examples"
 msgstr ""
 
@@ -348,12 +340,12 @@ msgstr ""
 msgid "HTML"
 msgstr ""
 
-#: modules/person/views/person.import.csv.html:36
+#: modules/person/views/person.import.csv.html:40
 #: modules/person/views/person.list.html:23
 msgid "Import"
 msgstr ""
 
-#: modules/person/views/person.import.images.html:14
+#: modules/person/views/person.import.images.html:18
 msgid "Import started"
 msgstr ""
 
@@ -375,6 +367,10 @@ msgstr ""
 
 #: modules/person/views/person.edit.tab.personal.html:15
 msgid "Last Name"
+msgstr ""
+
+#: modules/note/widgets/last-notes/view.html:1
+msgid "Last Notes"
 msgstr ""
 
 #: modules/address/directives/address_edit.html:33
@@ -409,7 +405,7 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: modules/person/views/person.import.csv.html:16
+#: modules/person/views/person.import.csv.html:20
 msgid "Map to"
 msgstr ""
 
@@ -426,7 +422,7 @@ msgid "Mobile phone"
 msgstr ""
 
 #: modules/event/views/event.template.schedule.html:20
-#: modules/person/views/person.import.csv.html:15
+#: modules/person/views/person.import.csv.html:19
 #: modules/report/directives/variablelist-template.html:6
 msgid "Name"
 msgstr ""
@@ -447,6 +443,10 @@ msgstr ""
 
 #: modules/event/views/event.template.view.html:9
 msgid "No Events found"
+msgstr ""
+
+#: modules/person/views/person.list.html:50
+msgid "No Persons found"
 msgstr ""
 
 #: modules/note/templates/note-dialog.html:18
@@ -505,6 +505,10 @@ msgstr ""
 
 #: modules/person/widgets/stats/view.html:1
 msgid "Persons"
+msgstr ""
+
+#: modules/person/views/person.list.html:39
+msgid "Persons found"
 msgstr ""
 
 #: modules/event/views/event.template.html:9
@@ -761,6 +765,16 @@ msgstr ""
 
 #: modules/person/views/person.export.vcard.html:3
 msgid "You can download all the contacts saved in Memberhive in the vCard Format."
+msgstr ""
+
+#: modules/person/views/person.import.images.html:2
+msgid ""
+"You can drop your profile images here. They should be square. If not you can upload it using the person view and crop it there.\n"
+"    The files should be named FirstName_LastName.jpg, eg. John_Doe.jpg, because they will be automaticly assigned to the Person."
+msgstr ""
+
+#: modules/person/views/person.import.csv.html:2
+msgid "You can upload a CSV file with you existing members here."
 msgstr ""
 
 #: modules/person/views/person.export.vcard.html:4

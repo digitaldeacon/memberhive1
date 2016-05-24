@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-05-23 15:09+0100\n"
+"PO-Revision-Date: 2016-05-23 19:51+0100\n"
 "Last-Translator: Paul Walger <paul@memberhive.com>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -11,10 +11,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
-
-#: modules/person/views/person.list.html:39
-msgid "{{personCtrl.allPersons.length}} Persons found"
-msgstr ""
 
 #: modules/person/views/person.edit.tab.personal.html:77
 msgid "{{personCtrl.personService.contactTypes[key].text}}"
@@ -34,10 +30,6 @@ msgstr ""
 msgid "<ng-md-icon icon=\"info\"></ng-md-icon> No Groups found"
 msgstr ""
 
-#: modules/person/views/person.list.html:50
-msgid "<ng-md-icon icon=\"info\"></ng-md-icon> No Persons found"
-msgstr ""
-
 #: modules/event/views/events.html:20
 msgid ""
 "A Event Template is a model for many events, defining what possible options "
@@ -50,7 +42,6 @@ msgid "Add a new event using the button at the bottom right"
 msgstr ""
 
 #: modules/note/templates/note-create-directive.html:3
-#, fuzzy
 msgid "Add a new note"
 msgstr "Neue Notiz erstellen"
 
@@ -87,18 +78,16 @@ msgid "Add new group"
 msgstr "Neue Gruppe hinzufügen"
 
 #: modules/person/views/household.list.html:18
-#, fuzzy
 msgid "Add new household"
-msgstr "Neuer Haushalt"
+msgstr "Neuen Haushalt hinzufügen"
 
 #: modules/note/views/note.list.html:14
 msgid "Add new note"
 msgstr "Neue Notiz hinzufügen"
 
 #: modules/person/views/person.list.html:95
-#, fuzzy
 msgid "Add new person"
-msgstr "Neue Person"
+msgstr "Neue Person hinzufügen"
 
 #: modules/event/views/events.html:34
 msgid "Add New Template"
@@ -142,9 +131,8 @@ msgid "Baptized {{timeFromNow}} ago"
 msgstr "Getauft vor {{timeFromNow}}"
 
 #: modules/person/widgets/nextBirthdays/view.html:1
-#, fuzzy
 msgid "Birthdays next week"
-msgstr "Geburtsdatum"
+msgstr "Geburtstage in der nächsten Woche"
 
 #: modules/report/views/report.upsert.tab.layout.html:39
 msgid "Bottom Margin (cm)"
@@ -181,14 +169,12 @@ msgid "Create Note"
 msgstr "Neue Notiz"
 
 #: modules/person/views/person.export.csv.html:2
-#, fuzzy
 msgid "CSV Export"
-msgstr "Export"
+msgstr "CSV Export"
 
 #: modules/person/views/person.edit.tab.avatar.html:2
-#, fuzzy
 msgid "Current Avatar"
-msgstr "Profilbild auswählen"
+msgstr "Derzeitiges Profilbild"
 
 #: modules/event/views/events.html:43
 #: modules/event/widgets/next-events/view.html:4
@@ -226,18 +212,18 @@ msgstr "Alles als csv runterladen"
 msgid "Download all in VCard"
 msgstr "Alles als VCard herunterladen"
 
-#: modules/person/views/person.import.csv.html:9
-msgid "Drop File here"
-msgstr "Datei hierher ziehen"
-
-#: modules/person/views/person.import.images.html:10
-msgid "Drop Files here"
-msgstr "Here die Dateien hinziehen"
-
 #: modules/person/templates/avatar-upload.html:6
 #: modules/person/views/person.edit.tab.avatar.html:15
 msgid "Drop images here or click to upload"
 msgstr "Zum Hochladen Bild hier fallen lassen oder klicken"
+
+#: modules/person/views/person.import.csv.html:13
+msgid "Drop the CSV File here"
+msgstr "CSV Datei hierher ziehen"
+
+#: modules/person/views/person.import.images.html:14
+msgid "Drop the Images here"
+msgstr "Hierher die Bilder hinziehen"
 
 #: modules/report/views/report.list.html:10
 #: modules/report/views/report.list.html:11
@@ -272,7 +258,7 @@ msgstr "Informationen"
 msgid "Event Name"
 msgstr "Treffenname"
 
-#: modules/person/views/person.import.csv.html:17
+#: modules/person/views/person.import.csv.html:21
 msgid "Examples"
 msgstr "Beispiele"
 
@@ -320,9 +306,8 @@ msgid "General"
 msgstr "Allgemein"
 
 #: modules/person/views/person.edit.tab.personal.html:49
-#, fuzzy
 msgid "Group"
-msgstr "Gruppen"
+msgstr "Gruppe"
 
 #: modules/report/views/report.upsert.tab.layout.html:44
 msgid "Header"
@@ -365,12 +350,12 @@ msgstr "Haushalte"
 msgid "HTML"
 msgstr "HTML"
 
-#: modules/person/views/person.import.csv.html:36
+#: modules/person/views/person.import.csv.html:40
 #: modules/person/views/person.list.html:23
 msgid "Import"
 msgstr "Import"
 
-#: modules/person/views/person.import.images.html:14
+#: modules/person/views/person.import.images.html:18
 msgid "Import started"
 msgstr "Import gestartet"
 
@@ -384,7 +369,7 @@ msgstr "Ist ein Dienst"
 
 #: modules/event/views/event.template.html:40
 msgid "Label"
-msgstr ""
+msgstr "Bezeichnung"
 
 #: modules/report/views/report.upsert.tab.layout.html:14
 msgid "Landscape"
@@ -393,6 +378,10 @@ msgstr "Querformat"
 #: modules/person/views/person.edit.tab.personal.html:15
 msgid "Last Name"
 msgstr "Nachname"
+
+#: modules/note/widgets/last-notes/view.html:1
+msgid "Last Notes"
+msgstr "Letzen Notizen"
 
 #: modules/address/directives/address_edit.html:33
 msgid "Latitude"
@@ -426,7 +415,7 @@ msgstr ""
 msgid "Male"
 msgstr "Männlich"
 
-#: modules/person/views/person.import.csv.html:16
+#: modules/person/views/person.import.csv.html:20
 msgid "Map to"
 msgstr "Karte"
 
@@ -443,7 +432,7 @@ msgid "Mobile phone"
 msgstr "Handy"
 
 #: modules/event/views/event.template.schedule.html:20
-#: modules/person/views/person.import.csv.html:15
+#: modules/person/views/person.import.csv.html:19
 #: modules/report/directives/variablelist-template.html:6
 msgid "Name"
 msgstr "Name"
@@ -465,6 +454,10 @@ msgstr "Spitzname"
 #: modules/event/views/event.template.view.html:9
 msgid "No Events found"
 msgstr "Keine Treffen gefunden"
+
+#: modules/person/views/person.list.html:50
+msgid "No Persons found"
+msgstr "Keine Treffer gefunden"
 
 #: modules/note/templates/note-dialog.html:18
 #: modules/note/templates/note-edit-form-directive.html:6
@@ -509,9 +502,8 @@ msgid "PDF"
 msgstr "PDF"
 
 #: modules/person/views/person.export.pdf.html:2
-#, fuzzy
 msgid "PDF Export"
-msgstr "Export"
+msgstr "PDF Export"
 
 #: modules/report/views/report.upsert.tab.layout.html:10
 msgid "PDF Options"
@@ -524,6 +516,10 @@ msgstr "Persönlich"
 #: modules/person/widgets/stats/view.html:1
 msgid "Persons"
 msgstr "Personen"
+
+#: modules/person/views/person.list.html:39
+msgid "Persons found"
+msgstr "Personen gefunden"
 
 #: modules/event/views/event.template.html:9
 msgid "Place"
@@ -556,7 +552,7 @@ msgstr "Entfernen"
 
 #: modules/group/views/group.view.html:35
 msgid "Remove as Leader"
-msgstr ""
+msgstr "Als Leiter entfernen"
 
 #: modules/report/views/report.upsert.html:17
 msgid "Report layout"
@@ -596,12 +592,10 @@ msgstr "Speichern"
 
 #: modules/group/views/group.edit.html:28
 #: modules/person/views/person.edit.html:51
-#, fuzzy
 msgid "Save &amp; Close"
 msgstr "Speichern und Schließen"
 
 #: modules/person/views/person.edit.html:52
-#, fuzzy
 msgid "Save &amp; New"
 msgstr "Speichern und Neu"
 
@@ -624,15 +618,15 @@ msgstr "Speichere Suche"
 
 #: modules/event/views/event.template.schedule.html:10
 msgid "Schedule Items"
-msgstr ""
+msgstr "Ablaufplaneinheiten"
 
 #: modules/event/views/event.template.schedule.html:4
 msgid "Schedule Name"
-msgstr ""
+msgstr "Ablaufplanname"
 
 #: modules/event/views/event.template.html:50
 msgid "Schedules"
-msgstr ""
+msgstr "Ablaufpläne"
 
 #: modules/core/templates/header.html:21
 msgid "Search…"
@@ -700,14 +694,12 @@ msgid "Tags"
 msgstr "Schlagworte"
 
 #: modules/event/views/event.html:15
-#, fuzzy
 msgid "Template"
-msgstr "Temperatur"
+msgstr "Vorlage"
 
 #: modules/event/views/event.template.html:4
-#, fuzzy
 msgid "Template Name"
-msgstr "Berichtsname"
+msgstr "Vorlagenname"
 
 #: modules/event/views/events.html:17
 msgid "Templates"
@@ -756,9 +748,8 @@ msgid "Variable Name"
 msgstr "Name der Variable"
 
 #: modules/person/views/person.export.vcard.html:2
-#, fuzzy
 msgid "VCard Export"
-msgstr "Export"
+msgstr "VCard Export"
 
 #: modules/person/views/person.view.contacts.html:13
 msgid "Work"
@@ -788,6 +779,18 @@ msgstr ""
 #: modules/person/views/person.export.vcard.html:3
 msgid ""
 "You can download all the contacts saved in Memberhive in the vCard Format."
+msgstr ""
+
+#: modules/person/views/person.import.images.html:2
+msgid ""
+"You can drop your profile images here. They should be square. If not you can "
+"upload it using the person view and crop it there.\n"
+"    The files should be named FirstName_LastName.jpg, eg. John_Doe.jpg, "
+"because they will be automaticly assigned to the Person."
+msgstr ""
+
+#: modules/person/views/person.import.csv.html:2
+msgid "You can upload a CSV file with you existing members here."
 msgstr ""
 
 #: modules/person/views/person.export.vcard.html:4
@@ -1048,9 +1051,6 @@ msgstr "Postleitzahl"
 #~ msgid_plural "Persons"
 #~ msgstr[0] "Person"
 #~ msgstr[1] "Personen"
-
-#~ msgid "Person Info"
-#~ msgstr "Personen-Info"
 
 #~ msgid "Person details"
 #~ msgstr "Angabe zur Person"

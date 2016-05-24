@@ -52,10 +52,16 @@ mhMainModule.config(function (
   $mdDateLocaleProvider,
   moment,
   $stateProvider,
+  $compileProvider,
   $urlRouterProvider,
   $mdThemingProvider ) {
 
-
+  if(mhConfig.production) {
+    $compileProvider.debugInfoEnabled(false);
+  } else {
+    $compileProvider.debugInfoEnabled(true);
+  }
+  
   cfpLoadingBarProvider.includeSpinner = false;
   if(!mhConfig.apiUrl) {
     console.error("API URL not definied");
@@ -118,8 +124,14 @@ mhMainModule.run(function(
   LoopBackAuth,
   gettextCatalog,
   amMoment,
-  $window
+  $window,
+  mhConfig
 ) {
+  if(mhConfig.production) {
+    gettextCatalog.debug = false;
+  } else {
+    gettextCatalog.debug = true;
+  }
   $rootScope.$state = $state; // state to be accessed from view
   $rootScope.accessToken = LoopBackAuth.accessTokenId;
 

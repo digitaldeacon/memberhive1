@@ -11,11 +11,11 @@ import './widgets/next-events/next-events';
 
 
 var mhEventModule = angular.module('mh.event').config(
-  ($stateProvider, gettext) => {
+  ($stateProvider) => {
     $stateProvider.state('event', {
       url: '/event',
       data: {
-        pageTitle: gettext('Calendar'),
+       // pageTitle: gettextCatalog.getString('Calendar'),
         component: 'calendar'
       },
       abstract: true,
@@ -26,10 +26,7 @@ var mhEventModule = angular.module('mh.event').config(
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/events.html',
       data: {
-        pageSubTitle: gettext('All Events')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Event')
+      //  pageSubTitle: gettextCatalog.getString('All Events')
       },
       acl: {
         needRights: ['$authenticated']
@@ -51,10 +48,7 @@ var mhEventModule = angular.module('mh.event').config(
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.html',
       data: {
-        pageSubTitle: gettext('Event')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Event')
+       // pageSubTitle: gettextCatalog.getString('Event')
       },
       acl: {
         needRights: ['$authenticated']
@@ -77,14 +71,11 @@ var mhEventModule = angular.module('mh.event').config(
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.html',
       data: {
-        pageSubTitle: gettext('Create Event')
+        //pageSubTitle: gettextCatalog.getString('Create Event')
       },
       params: {
         date: null,
         templateId: null
-      },
-      ncyBreadcrumb: {
-        label: gettext('Create Event')
       },
       acl: {
         needRights: ['$authenticated']
@@ -110,10 +101,7 @@ var mhEventModule = angular.module('mh.event').config(
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.templates.html',
       data: {
-        pageSubTitle: gettext('Event Templates')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Event Template')
+       // pageSubTitle: gettextCatalog.getString('Event Templates')
       },
       acl: {
         needRights: ['$authenticated']
@@ -124,10 +112,7 @@ var mhEventModule = angular.module('mh.event').config(
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.html',
       data: {
-        pageSubTitle: gettext('Create Event Template')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Event Template')
+        //pageSubTitle: gettextCatalog.getString('Create Event Template')
       },
       acl: {
         needRights: ['$authenticated']
@@ -150,10 +135,7 @@ var mhEventModule = angular.module('mh.event').config(
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.schedule.html',
       data: {
-        pageSubTitle: gettext('Schedule')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Event Template')
+       // pageSubTitle: gettextCatalog.getString('Schedule')
       },
       acl: {
         needRights: ['$authenticated']
@@ -172,10 +154,7 @@ var mhEventModule = angular.module('mh.event').config(
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.schedule.html',
       data: {
-        pageSubTitle: gettext('Schedule')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Event Template')
+       // pageSubTitle: gettextCatalog.getString('Schedule')
       },
       acl: {
         needRights: ['$authenticated']
@@ -194,10 +173,7 @@ var mhEventModule = angular.module('mh.event').config(
       controllerAs: 'ctrl',
       templateUrl: 'app/modules/event/views/event.template.view.html',
       data: {
-        pageSubTitle: gettext('View Event Template')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Event Template')
+        //pageSubTitle: gettextCatalog.getString('View Event Template')
       },
       acl: {
         needRights: ['$authenticated']

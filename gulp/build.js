@@ -106,10 +106,11 @@ module.exports = function(options) {
     var config = {
       apiUrl: "/api",
       commitMsg: commitMsg,
-      commitSHA: commitSHA
+      commitSHA: commitSHA,
+      production: true
     };
     return gulp.src(options.dist + '/index.html')
-      .pipe(replace('{"apiUrl" : "http://127.0.0.1:3994/api", commitMsg: "dev", commitSHA: "master"}', JSON.stringify(config)))
+      .pipe(replace('{apiUrl : "http://127.0.0.1:3994/api", commitMsg: "dev", commitSHA: "master", production: false}', JSON.stringify(config)))
       .pipe(gulp.dest(options.dist + '/'))
       .once('end', function () { //back because of https://github.com/strongloop/gulp-loopback-sdk-angular/issues/3
         process.exit();

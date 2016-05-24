@@ -36,7 +36,7 @@
 
 <div class="text-muted" ng-hide="personCtrl.query | isEmpty">
   <div layout="row" layout-align="start center">
-    <translate>{{personCtrl.allPersons.length}} Persons found</translate>.
+    {{personCtrl.allPersons.length}} <translate> Persons found</translate>.
     <md-button ui-sref="person.list"><translate>Save Search</translate></md-button>
     <md-button ui-sref="person.export"><translate>Export</translate></md-button>
     <md-button ui-sref="person.export"><translate>Send Message</translate></md-button>
@@ -47,7 +47,7 @@
 
 <div id="person-container">
     <div class="mh-content" ng-if="personCtrl.persons.length == 0">
-      <h2 translate><ng-md-icon icon="info"></ng-md-icon> No Persons found</h2>
+      <ng-md-icon icon="info"></ng-md-icon> <h2 translate>No Persons found</h2>
       <translate> There are no persons in the database. You can add a person using the button at the bottom right.</translate>
     </div>
     <md-list flex

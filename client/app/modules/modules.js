@@ -9,7 +9,8 @@ angular.module('mh.person', [
     'mh.core',
     'mh.address',
     'mh.config',
-    'ngJcrop'
+    'ngJcrop',
+    'gettext'
 ]);
 
 

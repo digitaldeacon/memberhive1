@@ -23,12 +23,15 @@ import './controllers/person-export-controller';
 
 var mhPersonModule = angular.module('mh.person');
 
-mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMapApiProvider) => {
+mhPersonModule.config((
+  $stateProvider, 
+  $compileProvider,
+  uiGmapGoogleMapApiProvider) => {"ngInject";
     $stateProvider.state('person', {
       url: '/person',
       template: '<ui-view/>',
       data: {
-        pageTitle: gettext('Person'),
+        //pageTitle: gettextCatalog.getString('Persons'),
         component: 'person',
       },
       abstract: true
@@ -38,8 +41,8 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       controller: 'PersonListController',
       controllerAs: 'personCtrl',
       data: {
-        pageTitle: gettext('Persons'),
-        pageSubTitle: gettext('Create and edit Persons')
+        //pageTitle: gettextCatalog.getString('Persons'),
+        //pageSubTitle: gettextCatalog.getString('Create and edit Persons')
       },
       acl: {
         needRights: ['$authenticated']
@@ -61,11 +64,7 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       controller: 'PersonViewController',
       controllerAs: 'personCtrl',
       data: {
-        pageSubTitle: gettext('View Person details')
-      },
-      ncyBreadcrumb: {
-        label: gettext('View Person'),
-        parent: 'person'
+        //pageSubTitle: gettextCatalog.getString('View Person details')
       },
       acl: {
         needRights: ['$authenticated']
@@ -84,7 +83,7 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       controllerAs: 'personCtrl',
       templateUrl: 'app/modules/person/views/person.edit.html',
       data: {
-        pageSubTitle: gettext('Create a Person')
+        //pageSubTitle: gettextCatalog.getString('Create a Person')
       },
       acl: {
         needRights: ['$authenticated']
@@ -101,7 +100,7 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       controllerAs: 'personCtrl',
       templateUrl: 'app/modules/person/views/person.edit.html',
       data: {
-        pageSubTitle: gettext('Edit a Person')
+        //pageSubTitle: gettextCatalog.getString('Edit a Person')
       },
       acl: {
         needRights: ['$authenticated']
@@ -115,7 +114,7 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       url: '/import',
       templateUrl: 'app/modules/person/views/person.import.html',
       data: {
-        pageSubTitle: gettext('Import Persons')
+        //pageSubTitle: gettextCatalog.getString('Import Persons')
       },
       acl: {
         needRights: ['$authenticated']
@@ -126,7 +125,7 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       controller: 'PersonExportController',
       controllerAs: 'exportCtrl',
       data: {
-        pageSubTitle: gettext('Export Persons')
+        //pageSubTitle: gettextCatalog.getString('Export Persons')
       },
       acl: {
         needRights: ['$authenticated']
@@ -143,11 +142,8 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
 
       templateUrl: 'app/modules/person/views/household.list.html',
       data: {
-        pageTitle: gettext('Households'),
-        pageSubTitle: gettext('View Households')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Households')
+        //pageTitle: gettextCatalog.getString('Households'),
+        //pageSubTitle: gettextCatalog.getString('View Households')
       },
       acl: {
         needRights: ['$authenticated']
@@ -163,11 +159,8 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       controllerAs: 'householdCtrl',
       templateUrl: 'app/modules/person/views/household.edit.html',
       data: {
-        pageTitle: gettext('Households'),
-        pageSubTitle: gettext('Edit Household')
-      },
-      ncyBreadcrumb: {
-        label: gettext('Edit Household')
+       // pageTitle: gettextCatalog.getString('Households'),
+        //pageSubTitle: gettextCatalog.getString('Edit Household')
       },
       acl: {
         needRights: ['$authenticated']
@@ -186,8 +179,8 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       controllerAs: 'householdCtrl',
       templateUrl: 'app/modules/person/views/household.edit.html',
       data: {
-        pageTitle: gettext('Households'),
-        pageSubTitle: gettext('Create Household')
+        //pageTitle: gettextCatalog.getString('Households'),
+        //pageSubTitle: gettextCatalog.getString('Create Household')
       },
       acl: {
         needRights: ['$authenticated']
@@ -202,8 +195,18 @@ mhPersonModule.config(($stateProvider, $compileProvider, gettext, uiGmapGoogleMa
       url: '/search',
       templateUrl: 'app/modules/person/views/person.search.html',
       data: {
-        pageTitle: gettext('Search'),
-        pageSubTitle: gettext('Search')
+        //pageTitle: gettextCatalog.getString('Search'),
+       // pageSubTitle: gettextCatalog.getString('Search')
+      },
+      acl: {
+        needRights: ['$authenticated']
+      }
+    }).state('person.map', {
+      url: '/map',
+      templateUrl: 'app/modules/person/views/person.map.html',
+      data: {
+        //pageTitle: gettextCatalog.getString('Search'),
+       // pageSubTitle: gettextCatalog.getString('Search')
       },
       acl: {
         needRights: ['$authenticated']
