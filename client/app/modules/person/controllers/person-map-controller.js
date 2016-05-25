@@ -96,12 +96,22 @@ var personMapController = function (
     });
   };
 
-  /*$scope.$watch(
+  this.heatLayer = (heatLayer) => {
+    var taxiData = [];
+    this.persons.forEach((person) => {
+      console.log(person.geocode);
+      taxiData.push(new google.maps.LatLng(person.geocode.latitude, person.geocode.longitude));
+    });
+    console.log(taxiData);
+    var pointArray = new google.maps.MVCArray(taxiData);
+    heatLayer.setData(pointArray);
+  };
+  $scope.$watch(
     () => {
       return this.query;
     },
     (newValue) => {this.reload(newValue);}, true);
-    */
+
 };
 
 angular.module('mh.person').controller('PersonMapController', personMapController);

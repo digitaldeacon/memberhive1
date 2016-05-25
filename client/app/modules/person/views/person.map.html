@@ -16,10 +16,8 @@
 <ui-gmap-google-map center="ctrl.map.center" zoom="ctrl.map.zoom" ng-if="ctrl.mapType == 'marker'">
   <ui-gmap-marker ng-repeat="person in ctrl.persons" coords="person.geocode" idkey="person.id" click="ctrl.open(person)"></ui-gmap-marker>
 </ui-gmap-google-map>
-<!--
-<ui-gmap-google-map center="ctrl.map.center" zoom="ctrl.map.zoom" ng-if="ctrl.mapType == 'heatmap'">
-  <ui-gmap-marker ng-repeat="person in ctrl.persons" coords="person.geocode" idkey="person.id" click="ctrl.open(person)"></ui-gmap-marker>
-</ui-gmap-google-map>
 
--->
+<ui-gmap-google-map center='ctrl.map.center' zoom='ctrl.map.zoom' ng-if="ctrl.mapType == 'heatmap'">
+    <ui-gmap-layer namespace="visualization" type="HeatmapLayer" onCreated="ctrl.heatLayer"></ui-gmap-layer>
+</ui-gmap-google-map>
 

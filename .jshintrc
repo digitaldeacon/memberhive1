@@ -28,5 +28,6 @@
     "configGlobal": false,
     "angularDragula": false,
     "StackTrace": false
+    "google": false
   }
 }
