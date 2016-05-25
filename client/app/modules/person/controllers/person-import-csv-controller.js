@@ -81,12 +81,13 @@ export function PersonImportCSVController(Person, mhFileReader, Shout, $scope, g
     // Return the parsed data.
     return( arrData );
   };
+  this.delimiter = ',';
 
   this.uploadImportFile = (file) => {
     if (file) {
       mhFileReader.readAsText(file, 'UTF-8', $scope).then(
         (resp) => {
-          this.fillTable(this.csvToArray(resp));
+          this.fillTable(this.csvToArray(resp, this.delimiter));
           Shout.message(gettextCatalog.getString("File read"));
         }, (err) => {
           Shout.vError(err);

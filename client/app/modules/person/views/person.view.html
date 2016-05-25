@@ -36,7 +36,7 @@
             <p> {{ name }} </p>
           </div>
         </md-list-item>
-        
+
         <md-list-item class="md-2-line" ng-repeat="address in personCtrl.person.addressList">
           <ng-md-icon icon="place" ng-if="$index === 0"></ng-md-icon>
           <div class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
@@ -102,7 +102,7 @@
         new-note="personCtrl.newNote(note)">
       </mh-note-create-inline>
     </div>
-    
+
     <md-list>
       <md-list-item ng-repeat="note in personCtrl.notes">
         <md-menu>

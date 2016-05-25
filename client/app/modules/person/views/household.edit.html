@@ -24,10 +24,10 @@
         <md-list-item ng-repeat="person in householdCtrl.persons"
           flex layout="row"
           class="person-list-item">
-          <mh-avatar person="person" size="xs" circle></mh-avatar> 
+          <mh-avatar person="person" size="xs" circle></mh-avatar>
           <div flex class="md-list-item-text">
             <a ui-sref="person.view({ id: person.id })">
-              {{::person.firstName}} {{::person.lastName}} 
+              {{::person.firstName}} {{::person.lastName}}
             </a>
           </div>
           <md-menu>
@@ -47,12 +47,12 @@
         </md-list-item>
       </md-list>
     </div>
-  </div>  
+  </div>
   <div class="mh-content">
     <h2> Address </h2>
     <mh-address-edit address="householdCtrl.household.address"></mh-address-edit>
   </div>
-  <div layout="row"> 
+  <div layout="row">
     <md-button ng-disabled="personEdit.$invalid" class="md-raised md-primary" ng-click="householdCtrl.save()"><translate>Save Changes</translate></md-button>
     <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndClose()"><translate>Save and Close</translate></md-button>
     <md-button ng-disabled="personEdit.$invalid" class="md-raised" ng-click="householdCtrl.saveAndNew()"><translate>Save and New</translate></md-button>

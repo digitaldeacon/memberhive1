@@ -45,3 +45,4 @@ var exceptionLoggingService = ($log, $window) => {
 
 mhErrorShipper.factory('exceptionLoggingService', exceptionLoggingService);
 mhErrorShipper.provider('$exceptionHandler', execeptionProvider);
+

@@ -21,11 +21,12 @@ import {formatFacebookUrl, formatSkypeUrl, formatName, formatFirstName} from './
 
 import './controllers/person-export-controller';
 import './controllers/person-map-controller';
+import './services/geolocation';
 
 var mhPersonModule = angular.module('mh.person');
 
 mhPersonModule.config((
-  $stateProvider, 
+  $stateProvider,
   $compileProvider,
   uiGmapGoogleMapApiProvider) => {"ngInject";
     $stateProvider.state('person', {
