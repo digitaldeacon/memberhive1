@@ -88,8 +88,9 @@ var personMapController = function (
   };
 
   this.updateGeoPerson = (person) => {
-    console.log("start", person);
+    console.log("start person", person);
     return $q.all(GeoLocation.geocodeAddress(person.address.home)).then((coords) => {
+      console.log("coords", coords);
       person.address.home.geocode = coords;
       this.geoUpdated++;
       return PersonEditService.save(person);

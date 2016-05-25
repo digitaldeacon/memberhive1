@@ -27,7 +27,7 @@
     "CodeMirror": false,
     "configGlobal": false,
     "angularDragula": false,
-    "StackTrace": false
+    "StackTrace": false,
     "google": false
   }
 }

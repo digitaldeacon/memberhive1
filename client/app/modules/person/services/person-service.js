@@ -57,7 +57,7 @@ export function PersonService(
         });
       }
       if(person.address && person.address.home && person.address.home.geocode) {
-        person.geocode = {latitude: person.address.home.geocode.lat, longitude: person.address.home.geocode.lng}; 
+        person.geocode = {latitude: person.address.home.geocode.lat, longitude: person.address.home.geocode.lng};
       }
 
       return person;
@@ -69,6 +69,7 @@ export function PersonService(
         delete person["avatarUrl_"+size];
     });
     delete person.addressList;
+    delete person.geocode;
     return person;
   };
 
@@ -88,7 +89,7 @@ export function PersonService(
 
   this.getAllFilterd = (where) => {
     var filter = {};
-    
+
     if(!jQuery.isEmptyObject(where)) {
       filter.where = where;
     }

@@ -18,6 +18,7 @@ var geoLocationService = function(
       .then((gdata)=>{
           console.log(gdata);
           if(gdata.data.results.length > 0) {
+            console.log("save", gdata.data.results[0].geometry.location);
             return gdata.data.results[0].geometry.location;
           } else {
             return {};
