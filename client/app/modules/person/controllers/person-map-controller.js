@@ -35,7 +35,7 @@ var personMapController = function (
 
 
   this.setPersons = (persons) => {
-    this.persons = _.filter(persons, person => person && person.address && person.address.home && person.address.home.geocode);
+    this.persons = _.filter(persons, person => person && person.address && person.address.home && person.address.home.geocode && person.address.home.geocode.lat);
     this.allPersons = persons;
   };
 
@@ -72,14 +72,11 @@ var personMapController = function (
   this.still = [];
 
   this.updateGeo = () => {
-    console.log("start updateGeo");
     this.still = _.cloneDeep(this.allPersons);
     this.updateGeoStep();
   };
 
   this.updateGeoStep = () => {
-    console.log("update geo step", this.still.length);
-
     if(this.still.length === 0) return;
     let person = _.head(this.still);
     this.still = _.tail(this.still);
@@ -88,8 +85,7 @@ var personMapController = function (
   };
 
   this.updateGeoPerson = (person) => {
-    console.log("start person", person);
-    return $q.all(GeoLocation.geocodeAddress(person.address.home)).then((coords) => {
+    return GeoLocation.geocodeAddress(person.address.home).then((coords) => {
       console.log("coords", coords);
       person.address.home.geocode = coords;
       this.geoUpdated++;
