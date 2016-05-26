@@ -81,7 +81,7 @@ export function PersonService(
   this.getAll = () => {
      return Person.find({
         filter: {
-          order: 'lastName ASC',
+          order: 'lastName ASC, firstName ASC',
           include: ['household'],
         }
       }).$promise.then(this.mapPersons);
@@ -94,6 +94,7 @@ export function PersonService(
       filter.where = where;
     }
     filter.include = ['household'];
+    filter.order = 'lastName ASC, firstName ASC',
     return Person.find({
       filter: filter
     }).$promise
@@ -124,20 +125,6 @@ export function PersonService(
           ]
         }
       }).$promise.then(this.mapPerson);
-    },
-
-    all: (pageNumber) => {
-
-      return Person.find({
-        filter: {
-          limit: $rootScope.gemConfig.pagination.pageSize,
-          offset: (pageNumber - 1) * $rootScope.gemConfig.pagination.pageSize,
-          include: [
-            'account',
-            'household'
-          ]
-        }
-      }).$promise.then(this.mapPersonsData);
     },
 
     getCachedAll: () => {
