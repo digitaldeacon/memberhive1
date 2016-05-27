@@ -94,7 +94,8 @@ export function PersonService(
       filter.where = where;
     }
     filter.include = ['household'];
-    filter.order = 'lastName ASC, firstName ASC',
+    filter.order = 'lastName ASC, firstName ASC';
+    
     return Person.find({
       filter: filter
     }).$promise
