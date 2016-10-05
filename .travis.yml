@@ -32,7 +32,6 @@ before_script:
   - npm start &
 script:
   - gulp test
-  - gulp protractor:src:sauce
 after_success:
   - gulp build
   - ls dist/
