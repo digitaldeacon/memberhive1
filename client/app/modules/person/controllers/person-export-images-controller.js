@@ -1,12 +1,10 @@
-export function PersonExportPDFController(
+export function PersonExportImagesController(
   mhConfig,
   $window,
   $rootScope,
   q
 ) {"ngInject";
   this.query = {};
-  this.url = mhConfig.apiUrl + '/Persons/exportPDF';
-
   this.getImages = () => {
    /*jshint camelcase: false */
     var params =
@@ -15,7 +13,7 @@ export function PersonExportPDFController(
     };
     q.all(this.query).then((resolved) => {
       params.filter = resolved;
-      $window.open(mhConfig.apiUrl+'/Persons/exportPDF?'+jQuery.param(params), "_blank");
+      $window.open(mhConfig.apiUrl+'/Persons/exportImages?'+jQuery.param(params), "_blank");
     });
   };
 

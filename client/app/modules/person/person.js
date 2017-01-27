@@ -7,6 +7,8 @@ import {PersonImportImagesController} from './controllers/person-import-images-c
 import {PersonExportCSVController} from './controllers/person-export-csv-controller';
 import {PersonExportVCardController} from './controllers/person-export-vcard-controller';
 import {PersonExportPDFController} from './controllers/person-export-pdf-controller';
+import {PersonExportImagesController} from './controllers/person-export-images-controller';
+
 import {HouseholdListController} from './controllers/household-list-controller';
 import {HouseholdEditController} from './controllers/household-edit-controller';
 import {PersonService} from './services/person-service';
@@ -249,6 +251,8 @@ mhPersonModule.controller('PersonImportImagesController', PersonImportImagesCont
 mhPersonModule.controller('PersonExportVCardController', PersonExportVCardController);
 mhPersonModule.controller('PersonExportCSVController', PersonExportCSVController);
 mhPersonModule.controller('PersonExportPDFController', PersonExportPDFController);
+mhPersonModule.controller('PersonExportImagesController', PersonExportImagesController);
+
 mhPersonModule.controller('HouseholdListController', HouseholdListController);
 mhPersonModule.controller('HouseholdEditController', HouseholdEditController);
 
