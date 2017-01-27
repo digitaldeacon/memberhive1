@@ -85,7 +85,7 @@
     "wrench": "^1.5.8"
   },
   "engines": {
-    "node": "^4.2"
+    "node": "^6.9"
   },
   "scripts": {
     "test": "nodemon -e js,json --watch server/ --watch common/ .",
