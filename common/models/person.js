@@ -241,6 +241,7 @@ module.exports = function(Person) {
       value: row => row.status ? row.status.join(", ") : ""
     }
     ];
+
     Person.find({include: ["groups"], where: filter}, (err, persons) => {
       json2csv({ data: _.map(persons, t => t.toJSON()), fields: fields}, (err, csv) => {
         cb(err, csv);
