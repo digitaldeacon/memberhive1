@@ -5,4 +5,4 @@ ls dist/
 git add dist/* -f
 #sl-build -g --onto master
 git commit -am "build: $TRAVIS_BUILD_NUMBER of $TRAVIS_COMMIT"
-git push memberhive@memberhive.com:hives/data/git $(git log -1 --format="%H"):master -f # now push everything
+git push memberhive@justus.ebtc-online.org:hives/data/git $(git log -1 --format="%H"):master -f # now push everything

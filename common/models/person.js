@@ -213,7 +213,7 @@ module.exports = function(Person) {
   );
 
   Person.exportCSV = function(filter, cb) {
-    var fields = ["firstName", "lastName", "middleName",
+    var fields = ["id","firstName", "lastName", "middleName",
     "nickName", "prefix", "suffix",
     "gender",
     "dates.birthday","dates.baptism", "dates.anniversary",
