@@ -18,13 +18,13 @@ cache:
 before_install:
 - openssl aes-256-cbc -K $encrypted_e5b24132766f_key -iv $encrypted_e5b24132766f_iv
   -in id_rsa.enc -out id_rsa -d
-- npm install -g bower gulp
+- npm install -g bower@1.7.0 gulp@3.9.1
 - cp id_rsa ~/.ssh/id_rsa
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - npm set progress=false
 install:
-- npm install --optional
+- npm install
 - bower install
 before_script:
 - export NODE_ENV="travis"
