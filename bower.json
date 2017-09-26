@@ -34,7 +34,7 @@
   "appPath": "client/app",
   "resolutions": {
     "angular": "1.4.9",
-    "angular-material": "1.0.5",
+    "angular-material": "1.0.7",
     "moment": ">=2.8.0 <2.11.0"
   },
   "overrides": {
