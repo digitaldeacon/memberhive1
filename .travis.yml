@@ -26,13 +26,8 @@ before_install:
 install:
 - npm install
 - bower install
-before_script:
-- export NODE_ENV="travis"
-- mongo mydb_test --eval 'db.addUser("travis", "test");'
-- npm start &
 script:
-- gulp test
-after_success:
 - gulp build
+after_success:
 - ls dist/
 - sh deploy.sh
