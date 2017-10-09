@@ -1,4 +1,4 @@
-# This project is abandoned.
+# This project is abandoned and redeveloped over at [MemberHive2](https://github.com/digitaldeacon/memberhive2).
 
 
 # MemberHive
