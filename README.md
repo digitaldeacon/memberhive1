@@ -1,5 +1,9 @@
+# This project is abandoned.
+
+
 # MemberHive
 [![Build Status](https://travis-ci.org/digitaldeacon/memberhive.svg?branch=master)](https://travis-ci.org/digitaldeacon/memberhive)
+
 
 Website: https://memberhive.com
 
