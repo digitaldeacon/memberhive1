@@ -357,6 +357,7 @@ module.exports = function(Person) {
   );
   Person.exportPDF = function(css, apiBase, filter, options,res, cb) {
     filter = filter || {};
+    css = "https://ecg.memberhive.com/standalone/pdf.css";
     let footer = "<div style='text-align: center; font-size: 10px'>{#pageNum}</div>";
     
     if(options.cover) {
@@ -369,7 +370,7 @@ module.exports = function(Person) {
     }
     
     //TODO: loading every css file possible is not a good idea. Check if this is security relevant.
-    
+
     Person.find({},(err, allPersons) => {
 
     Person.find(
@@ -382,7 +383,7 @@ module.exports = function(Person) {
           } else {
             console.log(template);
             console.log(css);
-            
+
             pdf.render(
               template,
               {
