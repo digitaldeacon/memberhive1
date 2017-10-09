@@ -380,6 +380,9 @@ module.exports = function(Person) {
           if(err) {
             console.error(err)
           } else {
+            console.log(template);
+            console.log(css);
+            
             pdf.render(
               template,
               {
